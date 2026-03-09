@@ -1,0 +1,82 @@
+/workspace/datasets/gsm8k_dataset.py:113: SyntaxWarning: invalid escape sequence '\d'
+  pattern = '-?\d*\.?\d+'
+/workspace/datasets/gsm8k_dataset.py:159: SyntaxWarning: invalid escape sequence '\%'
+  string = string.replace("\\$", "").replace("\\%", "").replace("\%", "")
+/workspace/datasets/gsm8k_dataset.py:279: SyntaxWarning: invalid escape sequence '\%'
+  string = string.replace("\%", "")
+/workspace/datasets/gsm8k_dataset.py:586: SyntaxWarning: invalid escape sequence '\%'
+  string = string.replace("\%", "")  # noqa: W605
+****************
+Knowlegable Expert
+
+You are a knowlegable expert in question answering.
+Please give several key entities that need to be searched in wikipedia to solve the problem. 
+Key entities that need to be searched are included between two '@' when output, for example: @catfish effect@, @broken window effect@, @Shakespeare@.
+If there is no entity in the question that needs to be searched in Wikipedia, you don't have to provide it
+
+****************
+Critic
+
+You are an excellent critic.
+Please point out potential issues in other agent's analysis point by point.
+
+****************
+Mathematician
+
+You are a mathematician who is good at math games, arithmetic calculation, and long-term planning.
+
+****************
+Psychologist
+
+You are a psychologist.
+You are good at psychology, sociology, and philosophy.
+You give people scientific suggestions that will make them feel better.
+
+****************
+Historian
+
+You research and analyze cultural, economic, political, and social events in the past, collect data from primary sources and use it to develop theories about what happened during various periods of history.
+
+[['NmyX', 'NmyX'], ['NmyX', '3zKW'], ['NmyX', 'i8hW'], ['NmyX', 'Nqj2'], ['NmyX', 'HGJW'], ['3zKW', 'NmyX'], ['3zKW', '3zKW'], ['3zKW', 'i8hW'], ['3zKW', 'Nqj2'], ['3zKW', 'HGJW'], ['i8hW', 'NmyX'], ['i8hW', '3zKW'], ['i8hW', 'i8hW'], ['i8hW', 'Nqj2'], ['i8hW', 'HGJW'], ['Nqj2', 'NmyX'], ['Nqj2', '3zKW'], ['Nqj2', 'i8hW'], ['Nqj2', 'Nqj2'], ['Nqj2', 'HGJW'], ['HGJW', 'NmyX'], ['HGJW', '3zKW'], ['HGJW', 'i8hW'], ['HGJW', 'Nqj2'], ['HGJW', 'HGJW']]
+Final spatial logits:  Parameter containing:
+tensor([10., 10., 10., 10., 10., 10., 10., 10., 10., 10., 10., 10., 10., 10.,
+        10., 10., 10., 10., 10., 10., 10., 10., 10., 10., 10.])
+Final temporal logits:  Parameter containing:
+tensor([10., 10., 10., 10., 10., 10., 10., 10., 10., 10., 10., 10., 10., 10.,
+        10., 10., 10., 10., 10., 10., 10., 10., 10., 10., 10.])
+Final spatial masks:  Parameter containing:
+tensor([0, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1,
+        0])
+Final temporal masks:  Parameter containing:
+tensor([1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+        1])
+Final spatial sparsity: tensor(0.8000)
+Final temporal sparsity: tensor(1.)
+Evaluating AgentDropout on MMLUDataset split test
+  0%|          | 0/1 [00:00<?, ?it/s]100%|██████████| 1/1 [00:16<00:00, 16.70s/it]100%|██████████| 1/1 [00:16<00:00, 16.70s/it]
+--------------------------------------------------------------------------------
+C
+A
+A
+A
+A
+C
+A
+A
+A
+C
+Batch time 16.698
+Raw answer: ['A']
+Postprocessed answer: A
+Correct answer: A
+Accuracy: 100.0% (1/1)
+Raw answer: ['A']
+Postprocessed answer: A
+Correct answer: A
+Accuracy: 100.0% (2/2)
+Cost 0.0
+PromptTokens 0.0
+CompletionTokens 0.0
+Accuracy: 100.0% (2/2)
+Done!
+Score: 1.0

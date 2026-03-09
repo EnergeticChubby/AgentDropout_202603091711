@@ -1,0 +1,28 @@
+............                                                             [100%]
+=============================== warnings summary ===============================
+../home/ubuntu/.local/lib/python3.12/site-packages/class_registry/entry_points.py:7
+  /home/ubuntu/.local/lib/python3.12/site-packages/class_registry/entry_points.py:7: DeprecationWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html
+    from pkg_resources import iter_entry_points
+
+datasets/gsm8k_dataset.py:113
+  /workspace/datasets/gsm8k_dataset.py:113: SyntaxWarning: invalid escape sequence '\d'
+    pattern = '-?\d*\.?\d+'
+
+datasets/gsm8k_dataset.py:159
+  /workspace/datasets/gsm8k_dataset.py:159: SyntaxWarning: invalid escape sequence '\%'
+    string = string.replace("\\$", "").replace("\\%", "").replace("\%", "")
+
+datasets/gsm8k_dataset.py:279
+  /workspace/datasets/gsm8k_dataset.py:279: SyntaxWarning: invalid escape sequence '\%'
+    string = string.replace("\%", "")
+
+datasets/gsm8k_dataset.py:586
+  /workspace/datasets/gsm8k_dataset.py:586: SyntaxWarning: invalid escape sequence '\%'
+    string = string.replace("\%", "")  # noqa: W605
+
+datasets/aqua_dataset.py:202
+  /workspace/datasets/aqua_dataset.py:202: SyntaxWarning: invalid escape sequence '\%'
+    string = string.replace("\%", "")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+12 passed, 6 warnings in 2.47s
