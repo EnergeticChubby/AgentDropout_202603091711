@@ -6,6 +6,7 @@ MODEL_NAME="${LLM_MODEL_NAME:-qwen3-8b}"
 DATASET_NAME="${DATASET_NAME:-edinburgh-dawg/mmlu-redux}"
 NUM_SHARDS=8
 LIMIT_QUESTIONS="${LIMIT_QUESTIONS:-8}"
+EXTRA_ARGS="${EXTRA_ARGS:-}"
 TIMESTAMP="$(date +%Y%m%d-%H%M%S)"
 ARTIFACT_ROOT="artifacts/tests/${PHASE_NAME}/mmlu_redux"
 RAW_DIR="${ARTIFACT_ROOT}/raw/${TIMESTAMP}"
@@ -16,6 +17,7 @@ mkdir -p "${RAW_DIR}" "${SUMMARY_DIR}"
 echo "[INFO] Running ${DATASET_NAME} with ${NUM_SHARDS} shards"
 echo "[INFO] Model: ${MODEL_NAME}"
 echo "[INFO] limit_questions per shard: ${LIMIT_QUESTIONS}"
+echo "[INFO] extra_args: ${EXTRA_ARGS}"
 echo "[INFO] Logs: ${RAW_DIR}"
 
 for SHARD_IDX in $(seq 0 $((NUM_SHARDS - 1))); do
@@ -26,6 +28,7 @@ for SHARD_IDX in $(seq 0 $((NUM_SHARDS - 1))); do
     --limit_questions "${LIMIT_QUESTIONS}" \
     --llm_name "${MODEL_NAME}" \
     --eval_split test \
+    ${EXTRA_ARGS} \
     > "${RAW_DIR}/shard_${SHARD_IDX}.log" 2>&1 &
 done
 

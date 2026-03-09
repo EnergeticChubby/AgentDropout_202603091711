@@ -1,0 +1,690 @@
+[
+  {
+    "timestamp": 1773072809.6279461,
+    "run_id": "yZhCninDWJFi",
+    "round_idx": 0,
+    "from_node": "ppM2",
+    "to_node": "ppM2",
+    "contract": {
+      "contract_id": "jreTwJUejn",
+      "task_clause": "A patient is stabbed in the neck. You suspect damage to the accessory nerve in the posterior triangle. You would test nerve function by asking the patient to\nOption A: extend their neck against resistance.\nOption B: extend their neck without impairment.\nOption C: lift their shoulders against resistance.\nOption D: lift their shoulders without impairment.\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 136
+      }
+    }
+  },
+  {
+    "timestamp": 1773072812.184615,
+    "run_id": "yZhCninDWJFi",
+    "round_idx": 0,
+    "from_node": "ppM2",
+    "to_node": "27tT",
+    "contract": {
+      "contract_id": "8qHSko3SeS",
+      "task_clause": "A patient is stabbed in the neck. You suspect damage to the accessory nerve in the posterior triangle. You would test nerve function by asking the patient to\nOption A: extend their neck against resistance.\nOption B: extend their neck without impairment.\nOption C: lift their shoulders against resistance.\nOption D: lift their shoulders without impairment.\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Critic",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 1715
+      }
+    }
+  },
+  {
+    "timestamp": 1773072823.3801768,
+    "run_id": "yZhCninDWJFi",
+    "round_idx": 0,
+    "from_node": "ppM2",
+    "to_node": "zHvu",
+    "contract": {
+      "contract_id": "UXfrGaA69t",
+      "task_clause": "A patient is stabbed in the neck. You suspect damage to the accessory nerve in the posterior triangle. You would test nerve function by asking the patient to\nOption A: extend their neck against resistance.\nOption B: extend their neck without impairment.\nOption C: lift their shoulders against resistance.\nOption D: lift their shoulders without impairment.\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Mathematician",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 1357
+      }
+    }
+  },
+  {
+    "timestamp": 1773072823.3802426,
+    "run_id": "yZhCninDWJFi",
+    "round_idx": 0,
+    "from_node": "27tT",
+    "to_node": "zHvu",
+    "contract": {
+      "contract_id": "6EfAbK9RW7",
+      "task_clause": "A patient is stabbed in the neck. You suspect damage to the accessory nerve in the posterior triangle. You would test nerve function by asking the patient to\nOption A: extend their neck against resistance.\nOption B: extend their neck without impairment.\nOption C: lift their shoulders against resistance.\nOption D: lift their shoulders without impairment.\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Critic",
+        "receiver_role": "Mathematician",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 1357
+      }
+    }
+  },
+  {
+    "timestamp": 1773072828.117292,
+    "run_id": "yZhCninDWJFi",
+    "round_idx": 0,
+    "from_node": "ppM2",
+    "to_node": "ydcL",
+    "contract": {
+      "contract_id": "5yxby8UpVi",
+      "task_clause": "A patient is stabbed in the neck. You suspect damage to the accessory nerve in the posterior triangle. You would test nerve function by asking the patient to\nOption A: extend their neck against resistance.\nOption B: extend their neck without impairment.\nOption C: lift their shoulders against resistance.\nOption D: lift their shoulders without impairment.\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Psychologist",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 1211
+      }
+    }
+  },
+  {
+    "timestamp": 1773072828.117352,
+    "run_id": "yZhCninDWJFi",
+    "round_idx": 0,
+    "from_node": "27tT",
+    "to_node": "ydcL",
+    "contract": {
+      "contract_id": "VUpYjXs9qs",
+      "task_clause": "A patient is stabbed in the neck. You suspect damage to the accessory nerve in the posterior triangle. You would test nerve function by asking the patient to\nOption A: extend their neck against resistance.\nOption B: extend their neck without impairment.\nOption C: lift their shoulders against resistance.\nOption D: lift their shoulders without impairment.\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Critic",
+        "receiver_role": "Psychologist",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 1211
+      }
+    }
+  },
+  {
+    "timestamp": 1773072828.1173782,
+    "run_id": "yZhCninDWJFi",
+    "round_idx": 0,
+    "from_node": "zHvu",
+    "to_node": "ydcL",
+    "contract": {
+      "contract_id": "Rh856vmWP2",
+      "task_clause": "A patient is stabbed in the neck. You suspect damage to the accessory nerve in the posterior triangle. You would test nerve function by asking the patient to\nOption A: extend their neck against resistance.\nOption B: extend their neck without impairment.\nOption C: lift their shoulders against resistance.\nOption D: lift their shoulders without impairment.\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Mathematician",
+        "receiver_role": "Psychologist",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 1211
+      }
+    }
+  },
+  {
+    "timestamp": 1773072829.691862,
+    "run_id": "yZhCninDWJFi",
+    "round_idx": 0,
+    "from_node": "ppM2",
+    "to_node": "z9xR",
+    "contract": {
+      "contract_id": "sNS6sF6iHQ",
+      "task_clause": "A patient is stabbed in the neck. You suspect damage to the accessory nerve in the posterior triangle. You would test nerve function by asking the patient to\nOption A: extend their neck against resistance.\nOption B: extend their neck without impairment.\nOption C: lift their shoulders against resistance.\nOption D: lift their shoulders without impairment.\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Historian",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 1094
+      }
+    }
+  },
+  {
+    "timestamp": 1773072829.691906,
+    "run_id": "yZhCninDWJFi",
+    "round_idx": 0,
+    "from_node": "27tT",
+    "to_node": "z9xR",
+    "contract": {
+      "contract_id": "6Knf5JBpqB",
+      "task_clause": "A patient is stabbed in the neck. You suspect damage to the accessory nerve in the posterior triangle. You would test nerve function by asking the patient to\nOption A: extend their neck against resistance.\nOption B: extend their neck without impairment.\nOption C: lift their shoulders against resistance.\nOption D: lift their shoulders without impairment.\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Critic",
+        "receiver_role": "Historian",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 1094
+      }
+    }
+  },
+  {
+    "timestamp": 1773072829.691935,
+    "run_id": "yZhCninDWJFi",
+    "round_idx": 0,
+    "from_node": "zHvu",
+    "to_node": "z9xR",
+    "contract": {
+      "contract_id": "RiAkRqe5UY",
+      "task_clause": "A patient is stabbed in the neck. You suspect damage to the accessory nerve in the posterior triangle. You would test nerve function by asking the patient to\nOption A: extend their neck against resistance.\nOption B: extend their neck without impairment.\nOption C: lift their shoulders against resistance.\nOption D: lift their shoulders without impairment.\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Mathematician",
+        "receiver_role": "Historian",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 1094
+      }
+    }
+  },
+  {
+    "timestamp": 1773072829.6919608,
+    "run_id": "yZhCninDWJFi",
+    "round_idx": 0,
+    "from_node": "ydcL",
+    "to_node": "z9xR",
+    "contract": {
+      "contract_id": "6Jj5RxCs2K",
+      "task_clause": "A patient is stabbed in the neck. You suspect damage to the accessory nerve in the posterior triangle. You would test nerve function by asking the patient to\nOption A: extend their neck against resistance.\nOption B: extend their neck without impairment.\nOption C: lift their shoulders against resistance.\nOption D: lift their shoulders without impairment.\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Psychologist",
+        "receiver_role": "Historian",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 1094
+      }
+    }
+  },
+  {
+    "timestamp": 1773072831.3153722,
+    "run_id": "yZhCninDWJFi",
+    "round_idx": 1,
+    "from_node": "ppM2",
+    "to_node": "8zeh",
+    "contract": {
+      "contract_id": "ULqNB5LJ6T",
+      "task_clause": "A patient is stabbed in the neck. You suspect damage to the accessory nerve in the posterior triangle. You would test nerve function by asking the patient to\nOption A: extend their neck against resistance.\nOption B: extend their neck without impairment.\nOption C: lift their shoulders against resistance.\nOption D: lift their shoulders without impairment.\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "You are the top decision-maker and are good at analyzing and summarizing other people's opinions, finding errors and giving final answers.",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 1
+      }
+    }
+  },
+  {
+    "timestamp": 1773072831.3154185,
+    "run_id": "yZhCninDWJFi",
+    "round_idx": 1,
+    "from_node": "27tT",
+    "to_node": "8zeh",
+    "contract": {
+      "contract_id": "anXXL75aX6",
+      "task_clause": "A patient is stabbed in the neck. You suspect damage to the accessory nerve in the posterior triangle. You would test nerve function by asking the patient to\nOption A: extend their neck against resistance.\nOption B: extend their neck without impairment.\nOption C: lift their shoulders against resistance.\nOption D: lift their shoulders without impairment.\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Critic",
+        "receiver_role": "You are the top decision-maker and are good at analyzing and summarizing other people's opinions, finding errors and giving final answers.",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 1
+      }
+    }
+  },
+  {
+    "timestamp": 1773072831.3154502,
+    "run_id": "yZhCninDWJFi",
+    "round_idx": 1,
+    "from_node": "zHvu",
+    "to_node": "8zeh",
+    "contract": {
+      "contract_id": "YVnSnHc9b2",
+      "task_clause": "A patient is stabbed in the neck. You suspect damage to the accessory nerve in the posterior triangle. You would test nerve function by asking the patient to\nOption A: extend their neck against resistance.\nOption B: extend their neck without impairment.\nOption C: lift their shoulders against resistance.\nOption D: lift their shoulders without impairment.\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Mathematician",
+        "receiver_role": "You are the top decision-maker and are good at analyzing and summarizing other people's opinions, finding errors and giving final answers.",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 1
+      }
+    }
+  },
+  {
+    "timestamp": 1773072831.3154786,
+    "run_id": "yZhCninDWJFi",
+    "round_idx": 1,
+    "from_node": "ydcL",
+    "to_node": "8zeh",
+    "contract": {
+      "contract_id": "XkKcBt5q2k",
+      "task_clause": "A patient is stabbed in the neck. You suspect damage to the accessory nerve in the posterior triangle. You would test nerve function by asking the patient to\nOption A: extend their neck against resistance.\nOption B: extend their neck without impairment.\nOption C: lift their shoulders against resistance.\nOption D: lift their shoulders without impairment.\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Psychologist",
+        "receiver_role": "You are the top decision-maker and are good at analyzing and summarizing other people's opinions, finding errors and giving final answers.",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 1
+      }
+    }
+  },
+  {
+    "timestamp": 1773072831.3155036,
+    "run_id": "yZhCninDWJFi",
+    "round_idx": 1,
+    "from_node": "z9xR",
+    "to_node": "8zeh",
+    "contract": {
+      "contract_id": "JM8LGMzVbG",
+      "task_clause": "A patient is stabbed in the neck. You suspect damage to the accessory nerve in the posterior triangle. You would test nerve function by asking the patient to\nOption A: extend their neck against resistance.\nOption B: extend their neck without impairment.\nOption C: lift their shoulders against resistance.\nOption D: lift their shoulders without impairment.\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Historian",
+        "receiver_role": "You are the top decision-maker and are good at analyzing and summarizing other people's opinions, finding errors and giving final answers.",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 1
+      }
+    }
+  }
+]

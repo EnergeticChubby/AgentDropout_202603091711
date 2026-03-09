@@ -66,6 +66,8 @@ def parse_args():
     parser.add_argument('--diff',action='store_true')
     parser.add_argument('--dec',action='store_true')
     parser.add_argument('--cot',action='store_true')
+    parser.add_argument('--enable_contracts', action='store_true')
+    parser.add_argument('--contract_output_dir', type=str, default="artifacts/tests/phase1/contracts/raw")
     
     args = parser.parse_args()
     result_path = AgentPrune_ROOT / "result"
@@ -97,6 +99,8 @@ async def main():
                   rounds=args.num_rounds,
                   diff=args.diff,
                   dec=args.dec,
+                  enable_contracts=args.enable_contracts,
+                  contract_output_dir=args.contract_output_dir,
                   **kwargs)
 
     if args.dec:

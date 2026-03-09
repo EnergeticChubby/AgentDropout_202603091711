@@ -8,6 +8,9 @@ import asyncio
 from AgentDropout.graph.node import Node
 from AgentDropout.agents.agent_registry import AgentRegistry
 import random
+from AgentDropout.contracts.synthesizer import ContractSynthesizer
+from AgentDropout.contracts.verifier import ContractVerifier
+from AgentDropout.contracts.audit import ContractAuditLog
 
 class Graph(ABC):
     """
@@ -46,6 +49,8 @@ class Graph(ABC):
                 initial_temporal_probability: float = 0.5,
                 fixed_temporal_masks:List[List[int]] = None,
                 node_kwargs:List[Dict] = None,
+                enable_contracts: bool = False,
+                contract_output_dir: str = "artifacts/tests/phase1/contracts/raw",
                 ):
 
         if fixed_spatial_masks is None:
@@ -73,6 +78,11 @@ class Graph(ABC):
         self.node_kwargs = node_kwargs if node_kwargs is not None else [{} for _ in agent_names]
         self.diff=diff
         self.rounds=rounds
+        self.enable_contracts = enable_contracts
+        self.contract_synthesizer = ContractSynthesizer() if enable_contracts else None
+        self.contract_verifier = ContractVerifier() if enable_contracts else None
+        self.contract_audit = ContractAuditLog(contract_output_dir) if enable_contracts else None
+        self._contract_run_id = None
         # self.dec=False
         self.dec_1=False
         self.skip_nodes = []
@@ -311,12 +321,54 @@ class Graph(ABC):
                     
         return torch.sum(torch.stack(log_probs))
 
+    def _begin_contract_run(self):
+        if not self.enable_contracts or self.contract_audit is None:
+            return
+        self._contract_run_id = shortuuid.ShortUUID().random(length=12)
+        self.contract_audit.reset()
+
+    def _record_contract_for_node(self, node_id: str, round_idx: int, input: Dict[str, str]):
+        if not self.enable_contracts or self.contract_audit is None:
+            return
+        if node_id in self.nodes:
+            node = self.find_node(node_id)
+        elif self.decision_node.id == node_id:
+            node = self.decision_node
+        else:
+            return
+        predecessors = node.spatial_predecessors if len(node.spatial_predecessors) else []
+        if len(predecessors) == 0:
+            predecessors = [node]
+        for predecessor in predecessors:
+            contract = self.contract_synthesizer.synthesize(
+                domain=self.domain,
+                task=input.get("task", ""),
+                sender_role=getattr(predecessor, "role", predecessor.node_name),
+                receiver_role=getattr(node, "role", node.node_name),
+                context={"round": round_idx},
+            )
+            verification = self.contract_verifier.verify(contract, node.outputs)
+            self.contract_audit.record(
+                run_id=self._contract_run_id,
+                round_idx=round_idx,
+                from_node=predecessor.id,
+                to_node=node.id,
+                contract=contract,
+                verification=verification,
+            )
+
+    def _finalize_contract_run(self):
+        if not self.enable_contracts or self.contract_audit is None:
+            return None
+        return self.contract_audit.flush(self._contract_run_id)
+
 
     def run(self, inputs: Any, 
                   num_rounds:int = 3, 
                   max_tries: int = 3, 
                   max_time: int = 600,) -> List[Any]:
         # inputs:{'task':"xxx"}
+        self._begin_contract_run()
         log_probs = 0
         for round in range(num_rounds):
             log_probs += self.construct_spatial_connection()
@@ -331,6 +383,7 @@ class Graph(ABC):
                 while tries < max_tries:
                     try:
                         self.nodes[current_node_id].execute(inputs) # output is saved in the node.outputs
+                        self._record_contract_for_node(current_node_id, round, inputs)
                         break
                     except Exception as e:
                         print(f"Error during execution of node {current_node_id}: {e}")
@@ -346,9 +399,11 @@ class Graph(ABC):
             
         self.connect_decision_node()
         self.decision_node.execute(inputs)
+        self._record_contract_for_node(self.decision_node.id, num_rounds, inputs)
         final_answers = self.decision_node.outputs
         if len(final_answers) == 0:
             final_answers.append("No answer of the decision node")
+        self._finalize_contract_run()
             
         return final_answers, log_probs
 
@@ -359,6 +414,7 @@ class Graph(ABC):
                   skip: bool=False,
                   case: bool=False) -> List[Any]:
         # inputs:{'task':"xxx"}
+        self._begin_contract_run()
         log_probs = 0
         log_probs_skip = 0
         all_answers = []
@@ -465,6 +521,7 @@ class Graph(ABC):
                                 self.find_node(current_node_id).outputs = ['None.']
                                 break
                         await asyncio.wait_for(self.nodes[current_node_id].async_execute(input),timeout=max_time) # output is saved in the node.outputs
+                        self._record_contract_for_node(current_node_id, round, input)
                         # print(self.find_node(current_node_id).outputs)
                         break
                     except Exception as e:
@@ -485,11 +542,13 @@ class Graph(ABC):
         if len(self.potential_spatial_edges)>0:
             self.connect_decision_node()
             await self.decision_node.async_execute(input)
+            self._record_contract_for_node(self.decision_node.id, num_rounds, input)
             final_answers = self.decision_node.outputs
         else:
             final_answers = list(self.nodes.values())[0].outputs
         if len(final_answers) == 0:
             final_answers.append("No answer of the decision node")
+        self._finalize_contract_run()
         # print(log_probs)
         # if skip:
         #     return final_answers, selected_index
