@@ -1,5 +1,9 @@
-from AgentPrune.graph.node import Node
-from AgentPrune.graph.graph import Graph
+from AgentDropout.graph.node import Node
+
+try:
+    from AgentDropout.graph.graph import Graph
+except ModuleNotFoundError:
+    Graph = None
 
 __all__ = ["Node",
            "Graph",]

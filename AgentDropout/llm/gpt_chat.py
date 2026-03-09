@@ -15,8 +15,14 @@ from AgentDropout.llm.llm_registry import LLMRegistry
 
 
 load_dotenv()
-MINE_BASE_URL = ""
-MINE_API_KEYS = ""
+MINE_BASE_URL = os.getenv("MINE_BASE_URL", "")
+MINE_API_KEYS = os.getenv("MINE_API_KEYS", "")
+
+
+def configure_openai_endpoint(base_url: str, api_key: str) -> None:
+    global MINE_BASE_URL, MINE_API_KEYS
+    MINE_BASE_URL = base_url
+    MINE_API_KEYS = api_key
 
 # print(MINE_BASE_URL)
 
@@ -50,12 +56,27 @@ MINE_API_KEYS = ""
 
 @retry(wait=wait_random_exponential(max=100), stop=stop_after_attempt(3))
 async def achat(model: str, msg: List[Dict],):
+    if not MINE_BASE_URL or not MINE_API_KEYS:
+        raise RuntimeError("MINE_BASE_URL or MINE_API_KEYS is not configured.")
     api_kwargs = dict(api_key = MINE_API_KEYS, base_url = MINE_BASE_URL)
     aclient = AsyncOpenAI(**api_kwargs)
     try:
         async with async_timeout.timeout(1000):
             completion = await aclient.chat.completions.create(model=model,messages=msg)
-        response_message = completion.choices[0].message.content
+        response_message = None
+        if isinstance(completion, str):
+            response_message = completion
+        elif isinstance(completion, dict):
+            if "choices" in completion and completion["choices"]:
+                response_message = completion["choices"][0].get("message", {}).get("content")
+            elif "content" in completion:
+                response_message = completion["content"]
+        elif hasattr(completion, "choices") and completion.choices:
+            response_message = completion.choices[0].message.content
+        elif hasattr(completion, "content"):
+            response_message = completion.content
+        if response_message is None:
+            response_message = str(completion)
         
         if isinstance(response_message, str):
             prompt = "".join([item['content'] for item in msg])

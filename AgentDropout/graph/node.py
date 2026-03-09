@@ -1,7 +1,6 @@
 import shortuuid
 from typing import List, Any, Optional,Dict
 from abc import ABC, abstractmethod
-import warnings
 import asyncio
 
 
@@ -61,7 +60,8 @@ class Node(ABC):
         self.outputs: List[Any] = []
         self.raw_inputs: List[Any] = []
         self.role = ""
-        self.last_memory: Dict[str,List[Any]] = {'inputs':[],'outputs':[],'raw_inputs':[]}        
+        self.last_memory: Dict[str,List[Any]] = {'inputs':[],'outputs':[],'raw_inputs':[]}
+        self.protocol_snapshot: Dict[str, Any] = {}
 
     @property
     def node_name(self):
@@ -143,8 +143,10 @@ class Node(ABC):
     
     def execute(self, input:Any, **kwargs):
         self.outputs = []
+        self.raw_inputs = [input]
         spatial_info:Dict[str,Dict] = self.get_spatial_info()
         temporal_info:Dict[str,Dict] = self.get_temporal_info()
+        self.inputs = [{"spatial": spatial_info, "temporal": temporal_info}]
         results = [self._execute(input, spatial_info, temporal_info, **kwargs)]
 
         for result in results:
@@ -157,8 +159,10 @@ class Node(ABC):
     async def async_execute(self, input:Any, **kwargs):
 
         self.outputs = []
+        self.raw_inputs = [input]
         spatial_info:Dict[str,Any] = self.get_spatial_info()
         temporal_info:Dict[str,Any] = self.get_temporal_info()
+        self.inputs = [{"spatial": spatial_info, "temporal": temporal_info}]
         # print(temporal_info)
         tasks = [asyncio.create_task(self._async_execute(input, spatial_info, temporal_info, **kwargs))]
         results = await asyncio.gather(*tasks, return_exceptions=False)

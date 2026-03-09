@@ -7,6 +7,13 @@ import asyncio
 
 from AgentDropout.graph.node import Node
 from AgentDropout.agents.agent_registry import AgentRegistry
+from AgentDropout.protocols import (
+    DisclosureObject,
+    DisclosureType,
+    PrivateWorkspace,
+    ProtocolConfig,
+    PublicBlackboard,
+)
 import random
 
 class Graph(ABC):
@@ -46,14 +53,15 @@ class Graph(ABC):
                 initial_temporal_probability: float = 0.5,
                 fixed_temporal_masks:List[List[int]] = None,
                 node_kwargs:List[Dict] = None,
+                protocol_config: Optional[Dict[str, Any]] = None,
                 ):
-        
-        self.fixed_spatial_masks = torch.tensor(fixed_spatial_masks)
-        self.fixed_temporal_masks = torch.tensor(fixed_temporal_masks)
+
         if fixed_spatial_masks is None:
             fixed_spatial_masks = [[1 if i!=j else 0 for j in range(len(agent_names))] for i in range(len(agent_names))]
         if fixed_temporal_masks is None:
             fixed_temporal_masks = [[1 for j in range(len(agent_names))] for i in range(len(agent_names))]
+        self.fixed_spatial_masks = torch.tensor(fixed_spatial_masks)
+        self.fixed_temporal_masks = torch.tensor(fixed_temporal_masks)
         fixed_spatial_masks = torch.tensor(fixed_spatial_masks).view(-1)
         fixed_temporal_masks = torch.tensor(fixed_temporal_masks).view(-1)
         # print(fixed_temporal_masks)
@@ -73,6 +81,13 @@ class Graph(ABC):
         self.node_kwargs = node_kwargs if node_kwargs is not None else [{} for _ in agent_names]
         self.diff=diff
         self.rounds=rounds
+        self.protocol_config = ProtocolConfig.from_dict(protocol_config)
+        self.public_blackboard = PublicBlackboard()
+        self.private_workspace = PrivateWorkspace()
+        self.ledger_store: Dict[str, Any] = {}
+        self.abpp_state: Dict[str, Any] = {"admissibility_records": [], "disputes": []}
+        self.execution_trace: List[Dict[str, Any]] = []
+        self.last_execution_trace: List[Dict[str, Any]] = []
         # self.dec=False
         self.dec_1=False
         self.skip_nodes = []
@@ -171,6 +186,45 @@ class Graph(ABC):
             for node2_id in self.nodes.keys():
                 self.potential_spatial_edges.append([node1_id,node2_id])
                 self.potential_temporal_edges.append([node1_id,node2_id])
+
+    def reset_protocol_state(self):
+        self.public_blackboard.reset()
+        self.private_workspace.reset()
+        self.ledger_store = {}
+        self.abpp_state = {"admissibility_records": [], "disputes": []}
+        self.execution_trace = []
+
+    def _record_private_output(self, node_id: str, round_idx: int):
+        node = self.find_node(node_id)
+        if not node.outputs:
+            return
+        output = node.outputs[-1] if isinstance(node.outputs, list) else node.outputs
+        disclosure = DisclosureObject(
+            disclosure_id=shortuuid.ShortUUID().random(length=8),
+            agent_id=node_id,
+            disclosure_type=DisclosureType.UNCERTAINTY_REPORT,
+            content=str(output),
+            round_idx=round_idx,
+            metadata={"role": node.role, "source": "raw_output"},
+        )
+        self.private_workspace.add(node_id, disclosure)
+
+    def _record_round_trace(self, round_idx: int, round_answers: Dict[str, Any], selected_index: Any):
+        if isinstance(selected_index, torch.Tensor):
+            selected = int(selected_index.item())
+        else:
+            selected = int(selected_index) if isinstance(selected_index, int) else -1
+        trace = {
+            "round_idx": round_idx,
+            "active_edge_count": self.num_edges,
+            "selected_skip_index": selected,
+            "public_disclosure_count": len(self.public_blackboard.disclosures),
+            "private_disclosure_count": sum(
+                len(items) for items in self.private_workspace.objects_by_agent.values()
+            ),
+            "round_answers": round_answers,
+        }
+        self.execution_trace.append(trace)
 
     def clear_spatial_connection(self):
         """
@@ -317,8 +371,10 @@ class Graph(ABC):
                   max_tries: int = 3, 
                   max_time: int = 600,) -> List[Any]:
         # inputs:{'task':"xxx"}
+        self.reset_protocol_state()
         log_probs = 0
         for round in range(num_rounds):
+            round_answers = {}
             log_probs += self.construct_spatial_connection()
             log_probs += self.construct_temporal_connection(round)
             
@@ -331,6 +387,7 @@ class Graph(ABC):
                 while tries < max_tries:
                     try:
                         self.nodes[current_node_id].execute(inputs) # output is saved in the node.outputs
+                        self._record_private_output(current_node_id, round)
                         break
                     except Exception as e:
                         print(f"Error during execution of node {current_node_id}: {e}")
@@ -341,6 +398,9 @@ class Graph(ABC):
                     in_degree[successor.id] -= 1
                     if in_degree[successor.id] == 0:
                         zero_in_degree_queue.append(successor.id)
+            for node in self.nodes:
+                round_answers[self.nodes[node].role+str(node)] = self.nodes[node].outputs
+            self._record_round_trace(round, round_answers, selected_index=-1)
             
             self.update_memory()
             
@@ -359,6 +419,7 @@ class Graph(ABC):
                   skip: bool=False,
                   case: bool=False) -> List[Any]:
         # inputs:{'task':"xxx"}
+        self.reset_protocol_state()
         log_probs = 0
         log_probs_skip = 0
         all_answers = []
@@ -465,6 +526,7 @@ class Graph(ABC):
                                 self.find_node(current_node_id).outputs = ['None.']
                                 break
                         await asyncio.wait_for(self.nodes[current_node_id].async_execute(input),timeout=max_time) # output is saved in the node.outputs
+                        self._record_private_output(current_node_id, round)
                         # print(self.find_node(current_node_id).outputs)
                         break
                     except Exception as e:
@@ -479,6 +541,7 @@ class Graph(ABC):
             for node in self.nodes:
                 round_answers[self.nodes[node].role+str(node)] = self.nodes[node].outputs
             all_answers.append(round_answers)
+            self._record_round_trace(round, round_answers, selected_index)
             self.update_memory()
         
         # if self.dec_1==False:
@@ -490,6 +553,7 @@ class Graph(ABC):
             final_answers = list(self.nodes.values())[0].outputs
         if len(final_answers) == 0:
             final_answers.append("No answer of the decision node")
+        self.last_execution_trace = self.execution_trace.copy()
         # print(log_probs)
         # if skip:
         #     return final_answers, selected_index

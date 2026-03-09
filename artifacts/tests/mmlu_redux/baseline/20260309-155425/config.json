@@ -1,0 +1,25 @@
+{
+  "phase_name": "baseline",
+  "llm_name": "qwen3-8b",
+  "base_url": "https://llm.undefined.qzz.io/",
+  "api_key": "<redacted>",
+  "dataset_name": "edinburgh-dawg/mmlu-redux",
+  "split": "test",
+  "subject_limit": 1,
+  "questions_per_subject": 2,
+  "num_shards": 8,
+  "parallel_shards": 8,
+  "eval_batch_size": 1,
+  "seed": 42,
+  "mode": "FullConnected",
+  "agent_names": [
+    "AnalyzeAgent"
+  ],
+  "agent_nums": [
+    5
+  ],
+  "decision_method": "FinalMajorVote",
+  "num_rounds": 2,
+  "output_root": "artifacts/tests/mmlu_redux",
+  "run_dir": "/workspace/artifacts/tests/mmlu_redux/baseline/20260309-155425"
+}
