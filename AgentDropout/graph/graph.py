@@ -8,6 +8,8 @@ import asyncio
 from AgentDropout.graph.node import Node
 from AgentDropout.agents.agent_registry import AgentRegistry
 from AgentDropout.protocols import (
+    ABPPProtocol,
+    AdmissibilityEngine,
     ClaimParser,
     DisclosureObject,
     DisclosureType,
@@ -98,6 +100,8 @@ class Graph(ABC):
         self.mirm_gate = MIRMGate()
         self.claim_parser = ClaimParser()
         self.epistemic_ledger = EpistemicLedger()
+        self.admissibility_engine = AdmissibilityEngine()
+        self.abpp_protocol = ABPPProtocol(engine=self.admissibility_engine)
         # self.dec=False
         self.dec_1=False
         self.skip_nodes = []
@@ -243,6 +247,16 @@ class Graph(ABC):
             token_budget=max(1, self.protocol_config.token_budget),
         )
         for item in selected:
+            if self.protocol_config.enable_abpp:
+                admissible = self.abpp_protocol.process_disclosure(
+                    disclosure=item,
+                    state=self.abpp_state,
+                    risk_level=self.protocol_config.risk_level,
+                )
+                item.metadata["abpp_admissible"] = admissible
+                if not admissible:
+                    item.metadata["mirm_selected"] = False
+                    continue
             item.metadata["mirm_selected"] = True
             self.public_blackboard.add_disclosure(item)
         for item in rejected:

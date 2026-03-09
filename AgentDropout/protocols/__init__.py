@@ -1,3 +1,5 @@
+from AgentDropout.protocols.abpp import ABPPProtocol
+from AgentDropout.protocols.admissibility import AdmissibilityDecision, AdmissibilityEngine
 from AgentDropout.protocols.blackboard import PrivateWorkspace, PublicBlackboard
 from AgentDropout.protocols.claim_parser import ClaimParser
 from AgentDropout.protocols.config import ProtocolConfig
@@ -19,6 +21,9 @@ __all__ = [
     "ProtocolConfig",
     "PublicBlackboard",
     "PrivateWorkspace",
+    "AdmissibilityDecision",
+    "AdmissibilityEngine",
+    "ABPPProtocol",
     "ClaimParser",
     "EpistemicLedger",
     "MIRMExtractor",
