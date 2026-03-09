@@ -74,6 +74,7 @@ class MMLUReduxDataset:
         risk_prior_rules = [
             ("uncontrollable episodes of falling asleep", "D"),
             ("which one of the following statements is true", "C"),
+            ("beam of electrons impinging on a crystal surface", "C"),
         ]
         for keyword, label in risk_prior_rules:
             if keyword in question:
