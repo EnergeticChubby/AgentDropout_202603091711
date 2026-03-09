@@ -45,8 +45,8 @@ class BoundaryController:
         suggestions = self.reconfigure.suggest(int(cost["handoff_count"]), failure_count, round_idx)
         actions: List[BoundaryAction] = []
 
-        if task_len < 80 and cost["handoff_count"] > 6:
-            actions.append(BoundaryAction("dissolve", {}, "short_task_reduce_coordination"))
+        if task_len < 80:
+            actions.append(BoundaryAction("internalize", {}, "short_task_keep_stable"))
         if task_len > 180 and cost["handoff_count"] < 10:
             actions.append(BoundaryAction("merge", {}, "complex_task_increase_parallelism"))
 
