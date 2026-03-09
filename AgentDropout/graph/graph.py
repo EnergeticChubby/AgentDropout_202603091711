@@ -54,6 +54,7 @@ class Graph(ABC):
                 phase_sequence: Optional[List[str]] = None,
                 instrumentation_output_path: Optional[str] = None,
                 attention_policy=None,
+                risk_weights: Optional[Dict[str, float]] = None,
                 ):
         
         self.fixed_spatial_masks = torch.tensor(fixed_spatial_masks)
@@ -84,6 +85,7 @@ class Graph(ABC):
         self.phase_scheduler = PhaseScheduler(phase_sequence)
         self.instrumentation = Instrumentation(run_id=self.id, output_path=instrumentation_output_path)
         self.attention_policy = attention_policy or RuleBasedAttentionPolicy()
+        self.risk_weights = risk_weights or {}
         self._current_phase = "init"
         self._current_round = -1
         set_token_usage_hook(self._on_token_usage)
@@ -430,6 +432,7 @@ class Graph(ABC):
             round_idx=num_rounds,
             attention_policy=self.attention_policy,
             attention_context={"phase": "aggregate", "conflict_peers": []},
+            risk_weights=self.risk_weights,
         )
         final_answers = self.decision_node.outputs
         if len(final_answers) == 0:
@@ -616,6 +619,7 @@ class Graph(ABC):
                 round_idx=num_rounds,
                 attention_policy=self.attention_policy,
                 attention_context={"phase": "aggregate", "conflict_peers": []},
+                risk_weights=self.risk_weights,
             )
             final_answers = self.decision_node.outputs
         else:

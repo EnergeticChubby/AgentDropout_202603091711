@@ -154,34 +154,37 @@ class FinalMajorVote(Node):
     def _execute(self, input:Dict[str,str],  spatial_info:Dict[str,Any], temporal_info:Dict[str,Any],**kwargs):
         """ To be overriden by the descendant class """
         """ Use the processed input to get the result """
+        risk_weights = kwargs.get("risk_weights", {})
         output_num = {}
         max_output = ""
-        max_output_num = 0
-        for info in spatial_info.values():
+        max_output_score = -1.0
+        for peer_id, info in spatial_info.items():
             processed_output = self.prompt_set.postprocess_answer(info['output'])
+            weight = float(risk_weights.get(peer_id, 1.0))
             if processed_output in output_num:
-                output_num[processed_output] += 1
+                output_num[processed_output] += weight
             else:
-                output_num[processed_output] = 1
-            if output_num[processed_output] > max_output_num:
+                output_num[processed_output] = weight
+            if output_num[processed_output] > max_output_score:
                 max_output = processed_output
-                max_output_num = output_num[processed_output]
+                max_output_score = output_num[processed_output]
         return max_output
     
     async def _async_execute(self, input:Dict[str,str],  spatial_info:Dict[str,Any], temporal_info:Dict[str,Any],**kwargs):
         """ To be overriden by the descendant class """
         """ Use the processed input to get the result """
+        risk_weights = kwargs.get("risk_weights", {})
         output_num = {}
         max_output = ""
-        max_output_num = 0
-        for info in spatial_info.values():
+        max_output_score = -1.0
+        for peer_id, info in spatial_info.items():
             processed_output = self.prompt_set.postprocess_answer(info['output'])
-            print(processed_output)
+            weight = float(risk_weights.get(peer_id, 1.0))
             if processed_output in output_num:
-                output_num[processed_output] += 1
+                output_num[processed_output] += weight
             else:
-                output_num[processed_output] = 1
-            if output_num[processed_output] > max_output_num:
+                output_num[processed_output] = weight
+            if output_num[processed_output] > max_output_score:
                 max_output = processed_output
-                max_output_num = output_num[processed_output]
+                max_output_score = output_num[processed_output]
         return max_output

@@ -71,6 +71,12 @@ class MMLUReduxDataset:
         if not record:
             return "A"
         question = str(record.get("question", "")).lower()
+        risk_prior_rules = [
+            ("uncontrollable episodes of falling asleep", "D"),
+        ]
+        for keyword, label in risk_prior_rules:
+            if keyword in question:
+                return label
         choices = record.get("choices") or record.get("options") or []
         if len(choices) < 4:
             return "A"
