@@ -1,0 +1,92 @@
+****************
+Knowlegable Expert
+
+You are a knowlegable expert in question answering.
+Please give several key entities that need to be searched in wikipedia to solve the problem. 
+Key entities that need to be searched are included between two '@' when output, for example: @catfish effect@, @broken window effect@, @Shakespeare@.
+If there is no entity in the question that needs to be searched in Wikipedia, you don't have to provide it
+
+****************
+Critic
+
+You are an excellent critic.
+Please point out potential issues in other agent's analysis point by point.
+
+****************
+Mathematician
+
+You are a mathematician who is good at math games, arithmetic calculation, and long-term planning.
+
+****************
+Psychologist
+
+You are a psychologist.
+You are good at psychology, sociology, and philosophy.
+You give people scientific suggestions that will make them feel better.
+
+****************
+Historian
+
+You research and analyze cultural, economic, political, and social events in the past, collect data from primary sources and use it to develop theories about what happened during various periods of history.
+
+[['xTzo', 'xTzo'], ['xTzo', '9Bb9'], ['xTzo', 'kqvx'], ['xTzo', 'yHn2'], ['xTzo', 'DLqx'], ['9Bb9', 'xTzo'], ['9Bb9', '9Bb9'], ['9Bb9', 'kqvx'], ['9Bb9', 'yHn2'], ['9Bb9', 'DLqx'], ['kqvx', 'xTzo'], ['kqvx', '9Bb9'], ['kqvx', 'kqvx'], ['kqvx', 'yHn2'], ['kqvx', 'DLqx'], ['yHn2', 'xTzo'], ['yHn2', '9Bb9'], ['yHn2', 'kqvx'], ['yHn2', 'yHn2'], ['yHn2', 'DLqx'], ['DLqx', 'xTzo'], ['DLqx', '9Bb9'], ['DLqx', 'kqvx'], ['DLqx', 'yHn2'], ['DLqx', 'DLqx']]
+Final spatial logits:  Parameter containing:
+tensor([10., 10., 10., 10., 10., 10., 10., 10., 10., 10., 10., 10., 10., 10.,
+        10., 10., 10., 10., 10., 10., 10., 10., 10., 10., 10.])
+Final temporal logits:  Parameter containing:
+tensor([10., 10., 10., 10., 10., 10., 10., 10., 10., 10., 10., 10., 10., 10.,
+        10., 10., 10., 10., 10., 10., 10., 10., 10., 10., 10.])
+Final spatial masks:  Parameter containing:
+tensor([0, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1,
+        0])
+Final temporal masks:  Parameter containing:
+tensor([1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+        1])
+Final spatial sparsity: tensor(0.8000)
+Final temporal sparsity: tensor(1.)
+Evaluating AgentDropout on MMLUDataset split test
+  0%|          | 0/1 [00:00<?, ?it/s]100%|██████████| 1/1 [00:17<00:00, 17.82s/it]100%|██████████| 1/1 [00:17<00:00, 17.82s/it]
+--------------------------------------------------------------------------------
+T
+I
+A
+A
+B
+T
+B
+A
+A
+B
+T
+I
+L
+A
+B
+@
+A
+G
+A
+B
+Batch time 17.822
+Raw answer: ['A']
+Postprocessed answer: A
+Correct answer: A
+Accuracy: 100.0% (1/1)
+Raw answer: ['T']
+Postprocessed answer: T
+Correct answer: A
+Accuracy: 50.0% (1/2)
+Raw answer: ['A']
+Postprocessed answer: A
+Correct answer: A
+Accuracy: 66.7% (2/3)
+Raw answer: ['A']
+Postprocessed answer: A
+Correct answer: A
+Accuracy: 75.0% (3/4)
+Cost 0.0
+PromptTokens 0.0
+CompletionTokens 0.0
+Accuracy: 75.0% (3/4)
+Done!
+Score: 0.75

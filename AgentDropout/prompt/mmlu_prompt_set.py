@@ -1,5 +1,6 @@
 from typing import Union, Dict, Any, List
 import itertools
+import re
 
 from AgentDropout.prompt.prompt_set import PromptSet
 from AgentDropout.prompt.prompt_set_registry import PromptSetRegistry
@@ -208,6 +209,20 @@ class MMLUPromptSet(PromptSet):
                 answer = ""
         if not isinstance(answer, str):
             raise Exception("Expected string")
-        if len(answer) > 0:
-            answer = answer[0] # Try to format the answer by taking the first letter
-        return answer
+        text = answer.strip()
+        if len(text) == 0:
+            return ""
+
+        pattern_answer_is = re.search(r"(?:answer is|answer:)\s*([ABCD])", text, re.IGNORECASE)
+        if pattern_answer_is:
+            return pattern_answer_is.group(1).upper()
+
+        standalone = re.findall(r"\b([ABCD])\b", text.upper())
+        if standalone:
+            return standalone[0]
+
+        fallback = re.findall(r"[ABCD]", text.upper())
+        if fallback:
+            return fallback[0]
+
+        return text[0].upper()
