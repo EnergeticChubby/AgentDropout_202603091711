@@ -73,6 +73,8 @@ def parse_args():
     parser.add_argument('--contract_output_dir', type=str, default="artifacts/tests/phase1/contracts/raw")
     parser.add_argument('--enable_knowledge', action='store_true')
     parser.add_argument('--knowledge_output_dir', type=str, default="artifacts/tests/phase2/knowledge/raw")
+    parser.add_argument('--enable_boundary', action='store_true')
+    parser.add_argument('--boundary_output_dir', type=str, default="artifacts/tests/phase3/boundary/raw")
     args = parser.parse_args()
     result_path = AgentPrune_ROOT / "result"
     os.makedirs(result_path, exist_ok=True)
@@ -113,6 +115,8 @@ async def main():
                 contract_output_dir=args.contract_output_dir,
                 enable_knowledge=args.enable_knowledge,
                 knowledge_output_dir=args.knowledge_output_dir,
+                enable_boundary=args.enable_boundary,
+                boundary_output_dir=args.boundary_output_dir,
                 **kwargs)
     
     if args.dec:

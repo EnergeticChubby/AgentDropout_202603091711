@@ -19,6 +19,7 @@ from AgentDropout.knowledge.compiler import KnowledgeCompiler
 from AgentDropout.knowledge.actions import KnowledgeActionExecutor
 from AgentDropout.knowledge.recovery import KnowledgeRecovery
 from AgentDropout.knowledge.metrics import KnowledgeMetrics
+from AgentDropout.boundary.controller import BoundaryController
 
 class Graph(ABC):
     """
@@ -61,6 +62,8 @@ class Graph(ABC):
                 contract_output_dir: str = "artifacts/tests/phase1/contracts/raw",
                 enable_knowledge: bool = False,
                 knowledge_output_dir: str = "artifacts/tests/phase2/knowledge/raw",
+                enable_boundary: bool = False,
+                boundary_output_dir: str = "artifacts/tests/phase3/boundary/raw",
                 ):
 
         if fixed_spatial_masks is None:
@@ -105,6 +108,8 @@ class Graph(ABC):
         self.knowledge_recovery = KnowledgeRecovery(self.knowledge_store, self.knowledge_board) if enable_knowledge else None
         self.knowledge_metrics = KnowledgeMetrics() if enable_knowledge else None
         self._knowledge_run_id = None
+        self.enable_boundary = enable_boundary
+        self.boundary_controller = BoundaryController(boundary_output_dir) if enable_boundary else None
         # self.dec=False
         self.dec_1=False
         self.skip_nodes = []
@@ -425,6 +430,21 @@ class Graph(ABC):
             json.dump(metrics, f, indent=2)
         return {"store_path": store_path, "board_path": board_path, "metrics_path": metrics_path, **metrics}
 
+    def _begin_boundary_run(self):
+        if not self.enable_boundary or self.boundary_controller is None:
+            return
+        self.boundary_controller.begin_run()
+
+    def _apply_boundary(self, round_idx: int, task: str, failure_count: int = 0):
+        if not self.enable_boundary or self.boundary_controller is None:
+            return None
+        return self.boundary_controller.apply(self, round_idx, task, failure_count=failure_count)
+
+    def _finalize_boundary_run(self):
+        if not self.enable_boundary or self.boundary_controller is None:
+            return None
+        return self.boundary_controller.flush()
+
 
     def run(self, inputs: Any, 
                   num_rounds:int = 3, 
@@ -433,10 +453,13 @@ class Graph(ABC):
         # inputs:{'task':"xxx"}
         self._begin_contract_run()
         self._begin_knowledge_run()
+        self._begin_boundary_run()
         log_probs = 0
         for round in range(num_rounds):
             log_probs += self.construct_spatial_connection()
             log_probs += self.construct_temporal_connection(round)
+            task_text = inputs.get("task", "") if isinstance(inputs, dict) else str(inputs)
+            self._apply_boundary(round, task_text)
             
             in_degree = {node_id: len(node.spatial_predecessors) for node_id, node in self.nodes.items()}
             zero_in_degree_queue = [node_id for node_id, deg in in_degree.items() if deg == 0]
@@ -471,6 +494,7 @@ class Graph(ABC):
             final_answers.append("No answer of the decision node")
         self._finalize_contract_run()
         self._finalize_knowledge_run()
+        self._finalize_boundary_run()
             
         return final_answers, log_probs
 
@@ -483,6 +507,7 @@ class Graph(ABC):
         # inputs:{'task':"xxx"}
         self._begin_contract_run()
         self._begin_knowledge_run()
+        self._begin_boundary_run()
         log_probs = 0
         log_probs_skip = 0
         all_answers = []
@@ -494,6 +519,7 @@ class Graph(ABC):
             else:
                 log_probs += self.construct_spatial_connection_diff(round)
                 log_probs += self.construct_temporal_connection_diff(round)
+            self._apply_boundary(round, input.get("task", ""))
             
             # print(self.num_edges)
 
@@ -620,6 +646,7 @@ class Graph(ABC):
             final_answers.append("No answer of the decision node")
         self._finalize_contract_run()
         self._finalize_knowledge_run()
+        self._finalize_boundary_run()
         # print(log_probs)
         # if skip:
         #     return final_answers, selected_index
