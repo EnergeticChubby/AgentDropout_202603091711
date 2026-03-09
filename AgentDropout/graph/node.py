@@ -5,6 +5,8 @@ import warnings
 import asyncio
 import time
 
+from AgentDropout.core.message_schema import coerce_multilayer_message, render_multilayer_message
+
 
 class Node(ABC):
     """
@@ -130,6 +132,8 @@ class Node(ABC):
         instrumentation=None,
         phase: str = "unknown",
         round_idx: Optional[int] = None,
+        attention_policy=None,
+        attention_context: Optional[Dict[str, Any]] = None,
     ) -> Dict[str,Dict]:
         """ Return a dict that maps id to info. """
         spatial_info = {}
@@ -142,17 +146,50 @@ class Node(ABC):
                     continue
                 else:
                     predecessor_output = predecessor_outputs
-                spatial_info[predecessor.id] = {"role":predecessor.role,"output":predecessor_output}
+                structured_output = coerce_multilayer_message(predecessor_output)
+                read_level = 4
+                read_reason = "default_full"
+                if attention_policy is not None:
+                    decision = attention_policy.decide_level(
+                        phase=phase,
+                        receiver_id=self.id,
+                        predecessor_id=predecessor.id,
+                        predecessor_output=predecessor_output,
+                        context=attention_context or {},
+                    )
+                    read_level = int(decision.level)
+                    read_reason = decision.reason
+
+                rendered_output = render_multilayer_message(structured_output, read_level)
+                if read_level == 0:
+                    self._emit_event(
+                        instrumentation,
+                        event_type="message_skip",
+                        phase=phase,
+                        round_idx=round_idx,
+                        peer_id=predecessor.id,
+                        read_level=read_level,
+                        metadata={"edge_type": "spatial", "reason": read_reason},
+                    )
+                    continue
+
+                spatial_info[predecessor.id] = {
+                    "role": predecessor.role,
+                    "output": rendered_output,
+                    "output_struct": structured_output,
+                    "read_level": read_level,
+                }
                 self._emit_event(
                     instrumentation,
                     event_type="message_read",
                     phase=phase,
                     round_idx=round_idx,
                     peer_id=predecessor.id,
-                    read_level=4,
+                    read_level=read_level,
                     metadata={
                         "edge_type": "spatial",
-                        "message_length": len(str(predecessor_output)),
+                        "message_length": len(str(rendered_output)),
+                        "reason": read_reason,
                     },
                 )
 
@@ -163,6 +200,8 @@ class Node(ABC):
         instrumentation=None,
         phase: str = "unknown",
         round_idx: Optional[int] = None,
+        attention_policy=None,
+        attention_context: Optional[Dict[str, Any]] = None,
     ) -> Dict[str,Any]:
         temporal_info = {}
         if self.temporal_predecessors is not None:
@@ -174,17 +213,49 @@ class Node(ABC):
                     continue
                 else:
                     predecessor_output = predecessor_outputs
-                temporal_info[predecessor.id] = {"role":predecessor.role,"output":predecessor_output}
+                structured_output = coerce_multilayer_message(predecessor_output)
+                read_level = 4
+                read_reason = "default_full"
+                if attention_policy is not None:
+                    decision = attention_policy.decide_level(
+                        phase=phase,
+                        receiver_id=self.id,
+                        predecessor_id=predecessor.id,
+                        predecessor_output=predecessor_output,
+                        context=attention_context or {},
+                    )
+                    read_level = int(decision.level)
+                    read_reason = decision.reason
+
+                rendered_output = render_multilayer_message(structured_output, read_level)
+                if read_level == 0:
+                    self._emit_event(
+                        instrumentation,
+                        event_type="message_skip",
+                        phase=phase,
+                        round_idx=round_idx,
+                        peer_id=predecessor.id,
+                        read_level=read_level,
+                        metadata={"edge_type": "temporal", "reason": read_reason},
+                    )
+                    continue
+                temporal_info[predecessor.id] = {
+                    "role": predecessor.role,
+                    "output": rendered_output,
+                    "output_struct": structured_output,
+                    "read_level": read_level,
+                }
                 self._emit_event(
                     instrumentation,
                     event_type="message_read",
                     phase=phase,
                     round_idx=round_idx,
                     peer_id=predecessor.id,
-                    read_level=4,
+                    read_level=read_level,
                     metadata={
                         "edge_type": "temporal",
-                        "message_length": len(str(predecessor_output)),
+                        "message_length": len(str(rendered_output)),
+                        "reason": read_reason,
                     },
                 )
         
@@ -195,17 +266,23 @@ class Node(ABC):
         instrumentation = kwargs.get("instrumentation")
         phase = kwargs.get("phase", "unknown")
         round_idx = kwargs.get("round_idx")
+        attention_policy = kwargs.get("attention_policy")
+        attention_context = kwargs.get("attention_context")
         self._emit_event(instrumentation, "node_execute_start", phase, round_idx)
         start_ts = time.perf_counter()
         spatial_info:Dict[str,Dict] = self.get_spatial_info(
             instrumentation=instrumentation,
             phase=phase,
             round_idx=round_idx,
+            attention_policy=attention_policy,
+            attention_context=attention_context,
         )
         temporal_info:Dict[str,Dict] = self.get_temporal_info(
             instrumentation=instrumentation,
             phase=phase,
             round_idx=round_idx,
+            attention_policy=attention_policy,
+            attention_context=attention_context,
         )
         results = [self._execute(input, spatial_info, temporal_info, **kwargs)]
 
@@ -231,17 +308,23 @@ class Node(ABC):
         instrumentation = kwargs.get("instrumentation")
         phase = kwargs.get("phase", "unknown")
         round_idx = kwargs.get("round_idx")
+        attention_policy = kwargs.get("attention_policy")
+        attention_context = kwargs.get("attention_context")
         self._emit_event(instrumentation, "node_execute_start", phase, round_idx)
         start_ts = time.perf_counter()
         spatial_info:Dict[str,Any] = self.get_spatial_info(
             instrumentation=instrumentation,
             phase=phase,
             round_idx=round_idx,
+            attention_policy=attention_policy,
+            attention_context=attention_context,
         )
         temporal_info:Dict[str,Any] = self.get_temporal_info(
             instrumentation=instrumentation,
             phase=phase,
             round_idx=round_idx,
+            attention_policy=attention_policy,
+            attention_context=attention_context,
         )
         # print(temporal_info)
         tasks = [asyncio.create_task(self._async_execute(input, spatial_info, temporal_info, **kwargs))]

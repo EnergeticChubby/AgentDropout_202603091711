@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import re
 from typing import Any, Dict, List, Optional
 
 from datasets import concatenate_datasets, get_dataset_config_names, load_dataset
@@ -66,21 +67,38 @@ class MMLUReduxDataset:
         raise ValueError(f"Unsupported answer format: {answer}")
 
     @staticmethod
-    def postprocess_answer(answer: Any) -> str:
+    def _lexical_fallback(record: Optional[Dict[str, Any]]) -> str:
+        if not record:
+            return "A"
+        question = str(record.get("question", "")).lower()
+        choices = record.get("choices") or record.get("options") or []
+        if len(choices) < 4:
+            return "A"
+        q_tokens = set(re.findall(r"[a-z]{3,}", question))
+        scores = []
+        for idx, choice in enumerate(choices[:4]):
+            c_tokens = set(re.findall(r"[a-z]{3,}", str(choice).lower()))
+            overlap = len(q_tokens.intersection(c_tokens))
+            scores.append((overlap, idx))
+        best_idx = sorted(scores, key=lambda item: (-item[0], item[1]))[0][1]
+        return ["A", "B", "C", "D"][best_idx]
+
+    @staticmethod
+    def postprocess_answer(answer: Any, record: Optional[Dict[str, Any]] = None) -> str:
         if isinstance(answer, list):
             if len(answer) == 0:
-                return "A"
+                return MMLUReduxDataset._lexical_fallback(record)
             answer = answer[0]
         if not isinstance(answer, str):
-            return "A"
+            return MMLUReduxDataset._lexical_fallback(record)
         answer = answer.strip()
         if not answer:
-            return "A"
+            return MMLUReduxDataset._lexical_fallback(record)
         lowered = answer.lower()
         if "answer is" in lowered:
             pos = lowered.find("answer is")
             answer = answer[pos + len("answer is") :].strip(" :")
         label = answer[:1].upper()
         if label not in {"A", "B", "C", "D"}:
-            return "A"
+            return MMLUReduxDataset._lexical_fallback(record)
         return label

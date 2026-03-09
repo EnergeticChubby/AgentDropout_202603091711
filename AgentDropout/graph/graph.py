@@ -7,7 +7,9 @@ import asyncio
 
 from AgentDropout.graph.node import Node
 from AgentDropout.agents.agent_registry import AgentRegistry
+from AgentDropout.core.attention_policy import RuleBasedAttentionPolicy
 from AgentDropout.core.instrumentation import Instrumentation
+from AgentDropout.core.message_schema import detect_conflict_peer_ids
 from AgentDropout.core.phase import PhaseScheduler
 from AgentDropout.llm.price import set_token_usage_hook
 import random
@@ -51,6 +53,7 @@ class Graph(ABC):
                 node_kwargs:List[Dict] = None,
                 phase_sequence: Optional[List[str]] = None,
                 instrumentation_output_path: Optional[str] = None,
+                attention_policy=None,
                 ):
         
         self.fixed_spatial_masks = torch.tensor(fixed_spatial_masks)
@@ -80,6 +83,7 @@ class Graph(ABC):
         self.rounds=rounds
         self.phase_scheduler = PhaseScheduler(phase_sequence)
         self.instrumentation = Instrumentation(run_id=self.id, output_path=instrumentation_output_path)
+        self.attention_policy = attention_policy or RuleBasedAttentionPolicy()
         self._current_phase = "init"
         self._current_round = -1
         set_token_usage_hook(self._on_token_usage)
@@ -134,6 +138,18 @@ class Graph(ABC):
             round_idx=self._current_round,
             metadata=payload,
         )
+
+    def _build_attention_context(self, node_id: str, phase: str) -> Dict[str, Any]:
+        node = self.nodes[node_id]
+        peer_outputs: Dict[str, Any] = {}
+        for predecessor in node.spatial_predecessors:
+            peer_outputs[predecessor.id] = predecessor.outputs[-1] if predecessor.outputs else ""
+        conflict_peers = detect_conflict_peer_ids(peer_outputs)
+        return {
+            "phase": phase,
+            "conflict_peers": conflict_peers,
+            "high_uncertainty": len(conflict_peers) >= 2,
+        }
         
     @property
     def spatial_adj_matrix(self):
@@ -365,11 +381,14 @@ class Graph(ABC):
                 tries = 0
                 while tries < max_tries:
                     try:
+                        attention_context = self._build_attention_context(current_node_id, phase)
                         self.nodes[current_node_id].execute(
                             inputs,
                             instrumentation=self.instrumentation,
                             phase=phase,
                             round_idx=round_idx,
+                            attention_policy=self.attention_policy,
+                            attention_context=attention_context,
                         ) # output is saved in the node.outputs
                         break
                     except Exception as e:
@@ -409,6 +428,8 @@ class Graph(ABC):
             instrumentation=self.instrumentation,
             phase="aggregate",
             round_idx=num_rounds,
+            attention_policy=self.attention_policy,
+            attention_context={"phase": "aggregate", "conflict_peers": []},
         )
         final_answers = self.decision_node.outputs
         if len(final_answers) == 0:
@@ -528,6 +549,7 @@ class Graph(ABC):
                 tries = 0
                 while tries < max_tries:
                     try:
+                        attention_context = self._build_attention_context(current_node_id, phase)
                         # if current_node_id in need_skip:
                         if list(self.nodes).index(current_node_id) == selected_index and skip:
                             # print(111)
@@ -544,6 +566,8 @@ class Graph(ABC):
                                 instrumentation=self.instrumentation,
                                 phase=phase,
                                 round_idx=round_idx,
+                                attention_policy=self.attention_policy,
+                                attention_context=attention_context,
                             ),
                             timeout=max_time,
                         ) # output is saved in the node.outputs
@@ -590,6 +614,8 @@ class Graph(ABC):
                 instrumentation=self.instrumentation,
                 phase="aggregate",
                 round_idx=num_rounds,
+                attention_policy=self.attention_policy,
+                attention_context={"phase": "aggregate", "conflict_peers": []},
             )
             final_answers = self.decision_node.outputs
         else:

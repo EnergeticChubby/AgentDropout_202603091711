@@ -161,7 +161,7 @@ async def evaluate_shard(args):
 
         input_dict = dataset.record_to_input(record)
         raw_answer, _ = await realized_graph.arun(input_dict, num_rounds=args.num_rounds)
-        prediction = dataset.postprocess_answer(raw_answer)
+        prediction = dataset.postprocess_answer(raw_answer, record=record)
         target = dataset.record_to_target_answer(record)
         is_correct = prediction == target
         total_correct += int(is_correct)

@@ -4,6 +4,7 @@ from AgentDropout.graph.node import Node
 from AgentDropout.agents.agent_registry import AgentRegistry
 from AgentDropout.llm.llm_registry import LLMRegistry
 from AgentDropout.prompt.prompt_set_registry import PromptSetRegistry
+from AgentDropout.core.message_schema import build_multilayer_message
 from AgentDropout.tools.coding.python_executor import PyExecutor
 
 @AgentRegistry.register('CodeWriting')
@@ -66,7 +67,7 @@ class CodeWriting(Node):
         system_prompt, user_prompt = self._process_inputs(input, spatial_info, temporal_info)
         message = [{'role':'system','content':system_prompt},{'role':'user','content':user_prompt}]
         response = self.llm.gen(message)
-        return response
+        return build_multilayer_message(response)
 
     async def _async_execute(self, input:Dict[str,str],  spatial_info:Dict[str,Any], temporal_info:Dict[str,Any],**kwargs):
         """ To be overriden by the descendant class """
@@ -76,7 +77,7 @@ class CodeWriting(Node):
         system_prompt, user_prompt = self._process_inputs(input, spatial_info, temporal_info)
         ## test
         if system_prompt == "is_solved":
-            return user_prompt
+            return build_multilayer_message(user_prompt)
         message = [{'role':'system','content':system_prompt},{'role':'user','content':user_prompt}]
         response = await self.llm.agen(message)
-        return response
+        return build_multilayer_message(response)

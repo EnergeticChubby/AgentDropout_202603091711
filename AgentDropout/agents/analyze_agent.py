@@ -6,6 +6,7 @@ from AgentDropout.graph.node import Node
 from AgentDropout.agents.agent_registry import AgentRegistry
 from AgentDropout.llm.llm_registry import LLMRegistry
 from AgentDropout.prompt.prompt_set_registry import PromptSetRegistry
+from AgentDropout.core.message_schema import build_multilayer_message
 from AgentDropout.tools.search.wiki import search_wiki_main
 
 def find_strings_between_pluses(text):
@@ -57,7 +58,7 @@ class AnalyzeAgent(Node):
         system_prompt, user_prompt = self._process_inputs(input, spatial_info, temporal_info)
         message = [{'role':'system','content':system_prompt},{'role':'user','content':user_prompt}]
         response = self.llm.gen(message)
-        return response
+        return build_multilayer_message(response)
 
     async def _async_execute(self, input:Dict[str,str],  spatial_info:Dict[str,Dict], temporal_info:Dict[str,Dict],**kwargs):
         """ To be overriden by the descendant class """
@@ -68,4 +69,4 @@ class AnalyzeAgent(Node):
         if self.wiki_summary != "":
             response += f"\n\n{self.wiki_summary}"
             self.wiki_summary = ""
-        return response
+        return build_multilayer_message(response)
