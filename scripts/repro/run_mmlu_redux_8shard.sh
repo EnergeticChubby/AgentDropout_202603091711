@@ -7,6 +7,8 @@ DATASET_NAME="${DATASET_NAME:-edinburgh-dawg/mmlu-redux}"
 NUM_SHARDS=8
 LIMIT_QUESTIONS="${LIMIT_QUESTIONS:-8}"
 EXTRA_ARGS="${EXTRA_ARGS:-}"
+BOUNDARY_METRICS_DIR="${BOUNDARY_METRICS_DIR:-}"
+BOUNDARY_BONUS_WEIGHT="${BOUNDARY_BONUS_WEIGHT:-0.05}"
 TIMESTAMP="$(date +%Y%m%d-%H%M%S)"
 ARTIFACT_ROOT="artifacts/tests/${PHASE_NAME}/mmlu_redux"
 RAW_DIR="${ARTIFACT_ROOT}/raw/${TIMESTAMP}"
@@ -18,6 +20,7 @@ echo "[INFO] Running ${DATASET_NAME} with ${NUM_SHARDS} shards"
 echo "[INFO] Model: ${MODEL_NAME}"
 echo "[INFO] limit_questions per shard: ${LIMIT_QUESTIONS}"
 echo "[INFO] extra_args: ${EXTRA_ARGS}"
+echo "[INFO] boundary_metrics_dir: ${BOUNDARY_METRICS_DIR:-<none>}"
 echo "[INFO] Logs: ${RAW_DIR}"
 
 for SHARD_IDX in $(seq 0 $((NUM_SHARDS - 1))); do
@@ -37,6 +40,8 @@ wait
 python3 scripts/repro/summarize_mmlu_redux.py \
   --raw_dir "${RAW_DIR}" \
   --summary_json "${SUMMARY_DIR}/${TIMESTAMP}.json" \
-  --summary_md "${SUMMARY_DIR}/${TIMESTAMP}.md"
+  --summary_md "${SUMMARY_DIR}/${TIMESTAMP}.md" \
+  --boundary_dir "${BOUNDARY_METRICS_DIR}" \
+  --boundary_bonus_weight "${BOUNDARY_BONUS_WEIGHT}"
 
 echo "[INFO] Done. Summary saved to ${SUMMARY_DIR}/${TIMESTAMP}.json"
