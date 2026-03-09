@@ -10,6 +10,7 @@ from AgentDropout.agents.agent_registry import AgentRegistry
 from AgentDropout.core.attention_policy import RuleBasedAttentionPolicy
 from AgentDropout.core.instrumentation import Instrumentation
 from AgentDropout.core.message_schema import detect_conflict_peer_ids
+from AgentDropout.core.memory import GovernanceConstitution, MemoryGovernance, MemoryObject, MemoryStore
 from AgentDropout.core.phase import PhaseScheduler
 from AgentDropout.llm.price import set_token_usage_hook
 import random
@@ -86,6 +87,8 @@ class Graph(ABC):
         self.instrumentation = Instrumentation(run_id=self.id, output_path=instrumentation_output_path)
         self.attention_policy = attention_policy or RuleBasedAttentionPolicy()
         self.risk_weights = risk_weights or {}
+        self.memory_store = MemoryStore()
+        self.memory_governance = MemoryGovernance(self.memory_store, GovernanceConstitution())
         self._current_phase = "init"
         self._current_round = -1
         set_token_usage_hook(self._on_token_usage)
@@ -415,6 +418,14 @@ class Graph(ABC):
                         zero_in_degree_queue.append(successor.id)
             
             self.update_memory()
+            expire_result = self.memory_governance.expire()
+            if expire_result.get("expired", 0) > 0:
+                self._emit_event(
+                    event_type="memory_expire",
+                    phase=phase,
+                    round_idx=round_idx,
+                    metadata=expire_result,
+                )
             self._emit_event(
                 event_type="round_end",
                 phase=phase,
@@ -600,6 +611,14 @@ class Graph(ABC):
                 round_answers[self.nodes[node].role+str(node)] = self.nodes[node].outputs
             all_answers.append(round_answers)
             self.update_memory()
+            expire_result = self.memory_governance.expire()
+            if expire_result.get("expired", 0) > 0:
+                self._emit_event(
+                    event_type="memory_expire",
+                    phase=phase,
+                    round_idx=round_idx,
+                    metadata=expire_result,
+                )
             self._emit_event(
                 event_type="round_end",
                 phase=phase,
@@ -639,14 +658,38 @@ class Graph(ABC):
             return final_answers, log_probs
     
     def update_memory(self):
+        phase_to_pool = {
+            "propose": "local",
+            "critique": "team",
+            "verify": "verified",
+            "aggregate": "global",
+        }
+        pool = phase_to_pool.get(self._current_phase, "team")
         for id,node in self.nodes.items():
             node.update_memory()
+            latest_output = node.outputs[-1] if node.outputs else ""
+            memory = MemoryObject(
+                content=str(latest_output),
+                type="analysis" if self._current_phase != "aggregate" else "decision",
+                source_agent=id,
+                provenance={"graph_id": self.id, "round_idx": self._current_round},
+                phase=self._current_phase,
+                evidence_strength=0.8 if self._current_phase == "verify" else 0.5,
+                signers=[id] if self._current_phase != "verify" else [id, "verifier"],
+            )
+            governance_result = self.memory_governance.safe_write(pool=pool, memory=memory)
             self._emit_event(
                 event_type="memory_write",
                 phase=self._current_phase,
                 round_idx=self._current_round,
                 agent_id=id,
-                metadata={"output_items": len(node.outputs)},
+                metadata={
+                    "output_items": len(node.outputs),
+                    "pool": pool,
+                    "verification_status": memory.verification_status,
+                    "governance_status": governance_result.get("status"),
+                    "governance_reason": governance_result.get("reason"),
+                },
             )
     
     def check_cycle(self, new_node, target_nodes):

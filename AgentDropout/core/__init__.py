@@ -8,6 +8,7 @@ from AgentDropout.core.risk_card import RiskCard
 from AgentDropout.core.risk_optimizer import RiskParityOptimizer, TeamOptimizationResult
 from AgentDropout.core.covariance_store import CovarianceStore, compute_pairwise_error_covariance
 from AgentDropout.core.value_estimator import HeuristicValueEstimator
+from AgentDropout.core.memory import GovernanceConstitution, MemoryGovernance, MemoryObject, MemoryStore
 
 __all__ = [
     "EventRecord",
@@ -25,4 +26,8 @@ __all__ = [
     "TeamOptimizationResult",
     "CovarianceStore",
     "compute_pairwise_error_covariance",
+    "MemoryObject",
+    "MemoryStore",
+    "MemoryGovernance",
+    "GovernanceConstitution",
 ]

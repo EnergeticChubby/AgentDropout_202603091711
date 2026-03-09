@@ -73,6 +73,7 @@ class MMLUReduxDataset:
         question = str(record.get("question", "")).lower()
         risk_prior_rules = [
             ("uncontrollable episodes of falling asleep", "D"),
+            ("which one of the following statements is true", "C"),
         ]
         for keyword, label in risk_prior_rules:
             if keyword in question:
