@@ -10,6 +10,9 @@ from AgentDropout.agents.agent_registry import AgentRegistry
 from AgentDropout.protocols import (
     DisclosureObject,
     DisclosureType,
+    MIRMGate,
+    MIRMExtractor,
+    MIRMScorer,
     PrivateWorkspace,
     ProtocolConfig,
     PublicBlackboard,
@@ -88,6 +91,9 @@ class Graph(ABC):
         self.abpp_state: Dict[str, Any] = {"admissibility_records": [], "disputes": []}
         self.execution_trace: List[Dict[str, Any]] = []
         self.last_execution_trace: List[Dict[str, Any]] = []
+        self.mirm_extractor = MIRMExtractor()
+        self.mirm_scorer = MIRMScorer()
+        self.mirm_gate = MIRMGate()
         # self.dec=False
         self.dec_1=False
         self.skip_nodes = []
@@ -208,6 +214,34 @@ class Graph(ABC):
             metadata={"role": node.role, "source": "raw_output"},
         )
         self.private_workspace.add(node_id, disclosure)
+
+    def _process_mirm_disclosures(self, node_id: str, round_idx: int):
+        if not self.protocol_config.enable_mirm:
+            return
+        node = self.find_node(node_id)
+        if not node.outputs:
+            return
+        output = node.outputs[-1] if isinstance(node.outputs, list) else node.outputs
+        extracted = self.mirm_extractor.extract(
+            agent_id=node_id,
+            round_idx=round_idx,
+            raw_text=str(output),
+        )
+        if not extracted:
+            return
+        for item in extracted:
+            self.private_workspace.add(node_id, item)
+        scored = self.mirm_scorer.score(extracted, self.public_blackboard)
+        selected, rejected = self.mirm_gate.select(
+            scored_candidates=scored,
+            top_k=max(1, self.protocol_config.topk_disclosure),
+            token_budget=max(1, self.protocol_config.token_budget),
+        )
+        for item in selected:
+            item.metadata["mirm_selected"] = True
+            self.public_blackboard.add_disclosure(item)
+        for item in rejected:
+            item.metadata["mirm_selected"] = False
 
     def _record_round_trace(self, round_idx: int, round_answers: Dict[str, Any], selected_index: Any):
         if isinstance(selected_index, torch.Tensor):
@@ -388,6 +422,7 @@ class Graph(ABC):
                     try:
                         self.nodes[current_node_id].execute(inputs) # output is saved in the node.outputs
                         self._record_private_output(current_node_id, round)
+                        self._process_mirm_disclosures(current_node_id, round)
                         break
                     except Exception as e:
                         print(f"Error during execution of node {current_node_id}: {e}")
@@ -527,6 +562,7 @@ class Graph(ABC):
                                 break
                         await asyncio.wait_for(self.nodes[current_node_id].async_execute(input),timeout=max_time) # output is saved in the node.outputs
                         self._record_private_output(current_node_id, round)
+                        self._process_mirm_disclosures(current_node_id, round)
                         # print(self.find_node(current_node_id).outputs)
                         break
                     except Exception as e:

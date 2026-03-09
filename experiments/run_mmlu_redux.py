@@ -64,6 +64,11 @@ def parse_args():
     parser.add_argument("--decision_method", type=str, default="FinalRefer")
     parser.add_argument("--num_rounds", type=int, default=1)
     parser.add_argument("--output_root", type=str, default="artifacts/tests/mmlu_redux")
+    parser.add_argument("--enable_mirm", action="store_true")
+    parser.add_argument("--enable_edel", action="store_true")
+    parser.add_argument("--enable_abpp", action="store_true")
+    parser.add_argument("--token_budget", type=int, default=512)
+    parser.add_argument("--topk_disclosure", type=int, default=3)
     return parser.parse_args()
 
 
@@ -175,6 +180,13 @@ async def evaluate_single_shard(
         rounds=args.num_rounds,
         diff=False,
         dec=False,
+        protocol_config={
+            "enable_mirm": args.enable_mirm,
+            "enable_edel": args.enable_edel,
+            "enable_abpp": args.enable_abpp,
+            "token_budget": args.token_budget,
+            "topk_disclosure": args.topk_disclosure,
+        },
         **kwargs,
     )
 
