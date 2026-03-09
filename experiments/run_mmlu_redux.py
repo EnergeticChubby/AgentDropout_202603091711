@@ -40,6 +40,10 @@ class ShardResult:
     total: int
     correct: int
     accuracy: float
+    avg_public_disclosures: float
+    avg_total_claims: float
+    avg_verified_claims: float
+    quality_score: float
     output_file: str
 
 
@@ -166,7 +170,17 @@ async def evaluate_single_shard(
         output_path = run_dir / f"shard_{shard_id:02d}_raw_outputs.json"
         with open(output_path, "w", encoding="utf-8") as fp:
             json.dump([], fp, ensure_ascii=False, indent=2)
-        return ShardResult(shard_id=shard_id, total=0, correct=0, accuracy=0.0, output_file=str(output_path))
+        return ShardResult(
+            shard_id=shard_id,
+            total=0,
+            correct=0,
+            accuracy=0.0,
+            avg_public_disclosures=0.0,
+            avg_total_claims=0.0,
+            avg_verified_claims=0.0,
+            quality_score=0.0,
+            output_file=str(output_path),
+        )
 
     agent_names = [name for name, num in zip(args.agent_names, args.agent_nums) for _ in range(num)]
     kwargs = get_kwargs(args.mode, len(agent_names))
@@ -192,6 +206,10 @@ async def evaluate_single_shard(
 
     shard_outputs = []
     correct = 0
+    public_disclosure_total = 0
+    claim_total = 0
+    verified_claim_total = 0
+    evaluated = 0
 
     for start in range(0, len(records), args.eval_batch_size):
         batch = records[start:start + args.eval_batch_size]
@@ -202,11 +220,17 @@ async def evaluate_single_shard(
             graphs.append(realized_graph)
             tasks.append(asyncio.create_task(realized_graph.arun(record.to_input(), num_rounds=args.num_rounds, case=True)))
         batch_results = await asyncio.gather(*tasks)
-        for record, (raw_answer, _, all_answers) in zip(batch, batch_results):
+        for record, realized_graph, (raw_answer, _, all_answers) in zip(batch, graphs, batch_results):
             pred = parse_choice_letter(raw_answer)
             gold = record.answer_letter
             is_correct = pred == gold
             correct += int(is_correct)
+            evaluated += 1
+            public_disclosure_count = len(realized_graph.public_blackboard.disclosures)
+            ledger_stats = realized_graph.epistemic_ledger.stats()
+            public_disclosure_total += public_disclosure_count
+            claim_total += ledger_stats["total_claims"]
+            verified_claim_total += ledger_stats["verified_claims"]
             shard_outputs.append(
                 {
                     "subject": record.subject,
@@ -217,11 +241,20 @@ async def evaluate_single_shard(
                     "is_correct": is_correct,
                     "raw_answer": raw_answer,
                     "all_round_answers": all_answers,
+                    "protocol_stats": {
+                        "public_disclosures": public_disclosure_count,
+                        "ledger_total_claims": ledger_stats["total_claims"],
+                        "ledger_verified_claims": ledger_stats["verified_claims"],
+                    },
                 }
             )
 
     total = len(records)
     accuracy = correct / total if total else 0.0
+    avg_public_disclosures = public_disclosure_total / evaluated if evaluated else 0.0
+    avg_total_claims = claim_total / evaluated if evaluated else 0.0
+    avg_verified_claims = verified_claim_total / evaluated if evaluated else 0.0
+    quality_score = accuracy + 0.01 * avg_verified_claims + 0.001 * avg_public_disclosures
     output_path = run_dir / f"shard_{shard_id:02d}_raw_outputs.json"
     with open(output_path, "w", encoding="utf-8") as fp:
         json.dump(shard_outputs, fp, ensure_ascii=False, indent=2)
@@ -230,6 +263,10 @@ async def evaluate_single_shard(
         total=total,
         correct=correct,
         accuracy=accuracy,
+        avg_public_disclosures=avg_public_disclosures,
+        avg_total_claims=avg_total_claims,
+        avg_verified_claims=avg_verified_claims,
+        quality_score=quality_score,
         output_file=str(output_path),
     )
 
@@ -254,10 +291,18 @@ async def run_sharded_benchmark(args, run_dir: Path) -> Dict[str, object]:
     total = sum(item.total for item in shard_results)
     correct = sum(item.correct for item in shard_results)
     accuracy = correct / total if total else 0.0
+    weighted_public = sum(item.avg_public_disclosures * item.total for item in shard_results) / total if total else 0.0
+    weighted_claims = sum(item.avg_total_claims * item.total for item in shard_results) / total if total else 0.0
+    weighted_verified = sum(item.avg_verified_claims * item.total for item in shard_results) / total if total else 0.0
+    quality_score = accuracy + 0.01 * weighted_verified + 0.001 * weighted_public
     return {
         "total": total,
         "correct": correct,
         "accuracy": accuracy,
+        "avg_public_disclosures": weighted_public,
+        "avg_total_claims": weighted_claims,
+        "avg_verified_claims": weighted_verified,
+        "quality_score": quality_score,
         "shards": [asdict(item) for item in shard_results],
     }
 

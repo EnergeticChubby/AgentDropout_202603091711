@@ -8,8 +8,10 @@ import asyncio
 from AgentDropout.graph.node import Node
 from AgentDropout.agents.agent_registry import AgentRegistry
 from AgentDropout.protocols import (
+    ClaimParser,
     DisclosureObject,
     DisclosureType,
+    EpistemicLedger,
     MIRMGate,
     MIRMExtractor,
     MIRMScorer,
@@ -94,6 +96,8 @@ class Graph(ABC):
         self.mirm_extractor = MIRMExtractor()
         self.mirm_scorer = MIRMScorer()
         self.mirm_gate = MIRMGate()
+        self.claim_parser = ClaimParser()
+        self.epistemic_ledger = EpistemicLedger()
         # self.dec=False
         self.dec_1=False
         self.skip_nodes = []
@@ -196,6 +200,7 @@ class Graph(ABC):
     def reset_protocol_state(self):
         self.public_blackboard.reset()
         self.private_workspace.reset()
+        self.epistemic_ledger = EpistemicLedger()
         self.ledger_store = {}
         self.abpp_state = {"admissibility_records": [], "disputes": []}
         self.execution_trace = []
@@ -256,9 +261,23 @@ class Graph(ABC):
             "private_disclosure_count": sum(
                 len(items) for items in self.private_workspace.objects_by_agent.values()
             ),
+            "ledger_stats": self.epistemic_ledger.stats(),
             "round_answers": round_answers,
         }
         self.execution_trace.append(trace)
+
+    def _process_edel_claims(self, node_id: str):
+        if not self.protocol_config.enable_edel:
+            return
+        node = self.find_node(node_id)
+        if not node.outputs:
+            return
+        output = node.outputs[-1] if isinstance(node.outputs, list) else node.outputs
+        claims = self.claim_parser.parse(speaker_agent=node_id, text=str(output))
+        if not claims:
+            return
+        self.epistemic_ledger.add_claims(claims)
+        self.ledger_store = self.epistemic_ledger.snapshot()
 
     def clear_spatial_connection(self):
         """
@@ -423,6 +442,7 @@ class Graph(ABC):
                         self.nodes[current_node_id].execute(inputs) # output is saved in the node.outputs
                         self._record_private_output(current_node_id, round)
                         self._process_mirm_disclosures(current_node_id, round)
+                        self._process_edel_claims(current_node_id)
                         break
                     except Exception as e:
                         print(f"Error during execution of node {current_node_id}: {e}")
@@ -563,6 +583,7 @@ class Graph(ABC):
                         await asyncio.wait_for(self.nodes[current_node_id].async_execute(input),timeout=max_time) # output is saved in the node.outputs
                         self._record_private_output(current_node_id, round)
                         self._process_mirm_disclosures(current_node_id, round)
+                        self._process_edel_claims(current_node_id)
                         # print(self.find_node(current_node_id).outputs)
                         break
                     except Exception as e:

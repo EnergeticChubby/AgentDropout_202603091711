@@ -1,0 +1,30 @@
+{
+  "phase_name": "phase-C",
+  "llm_name": "qwen3-8b",
+  "base_url": "https://llm.undefined.qzz.io/",
+  "api_key": "<redacted>",
+  "dataset_name": "edinburgh-dawg/mmlu-redux",
+  "split": "test",
+  "subject_limit": 1,
+  "questions_per_subject": 1,
+  "num_shards": 8,
+  "parallel_shards": 8,
+  "eval_batch_size": 1,
+  "seed": 42,
+  "mode": "DirectAnswer",
+  "agent_names": [
+    "AnalyzeAgent"
+  ],
+  "agent_nums": [
+    1
+  ],
+  "decision_method": "FinalRefer",
+  "num_rounds": 1,
+  "output_root": "artifacts/tests/mmlu_redux",
+  "enable_mirm": true,
+  "enable_edel": true,
+  "enable_abpp": false,
+  "token_budget": 256,
+  "topk_disclosure": 2,
+  "run_dir": "/workspace/artifacts/tests/mmlu_redux/phase-C/20260309-160341"
+}
