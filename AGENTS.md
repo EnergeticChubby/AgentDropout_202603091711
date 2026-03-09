@@ -18,7 +18,15 @@ The codebase internally references `AgentPrune` (the predecessor project name) i
 
 ### Running experiments
 
-Experiments require an **OpenAI-compatible LLM API** configured via `MINE_BASE_URL` and `MINE_API_KEYS` in `AgentDropout/llm/gpt_chat.py`, or via `.env` file (`BASE_URL` / `API_KEY`). Without an API endpoint, experiments will fail at the LLM call stage.
+Experiments require an **OpenAI-compatible LLM API**. The secrets `MINE_BASE_URL` and `MINE_API_KEYS` are provided via environment variables but the code in `AgentDropout/llm/gpt_chat.py` hardcodes them as empty strings. To use the env vars at runtime, you must patch the module globals:
+
+```python
+import os, AgentDropout.llm.gpt_chat as m
+m.MINE_BASE_URL = os.environ["MINE_BASE_URL"]
+m.MINE_API_KEYS = os.environ["MINE_API_KEYS"]
+```
+
+**Token counting caveat:** `AgentDropout/llm/price.py` uses `tiktoken.encoding_for_model()` which only recognizes OpenAI model names (e.g. `gpt-3.5-turbo`, `gpt-4o`). If the API endpoint uses non-standard model names (e.g. OpenRouter's `openai/gpt-4o-mini`), `cost_count` will throw. Monkey-patch `cost_count` in both `price` and `gpt_chat` modules to catch the exception and estimate tokens by `len(text)//4`.
 
 Experiments also require **dataset files** (JSONL) downloaded from HuggingFace and placed in `datasets/` (e.g., `datasets/gsm8k/gsm8k.jsonl`). See `README.md` Quick Start for CLI usage.
 
