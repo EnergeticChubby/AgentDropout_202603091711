@@ -68,6 +68,8 @@ def parse_args():
     parser.add_argument('--cot',action='store_true')
     parser.add_argument('--enable_contracts', action='store_true')
     parser.add_argument('--contract_output_dir', type=str, default="artifacts/tests/phase1/contracts/raw")
+    parser.add_argument('--enable_knowledge', action='store_true')
+    parser.add_argument('--knowledge_output_dir', type=str, default="artifacts/tests/phase2/knowledge/raw")
     args = parser.parse_args()
     result_path = AgentPrune_ROOT / "result"
     os.makedirs(result_path, exist_ok=True)
@@ -97,6 +99,8 @@ async def main():
                   dec=args.dec,
                   enable_contracts=args.enable_contracts,
                   contract_output_dir=args.contract_output_dir,
+                  enable_knowledge=args.enable_knowledge,
+                  knowledge_output_dir=args.knowledge_output_dir,
                   **kwargs)
     if args.shard_idx < 0 or args.shard_idx >= args.num_shards:
         raise ValueError("--shard_idx must be in [0, num_shards).")

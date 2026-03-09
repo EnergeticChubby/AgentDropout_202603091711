@@ -4,6 +4,7 @@ from abc import ABC
 import numpy as np
 import torch
 import asyncio
+import json
 
 from AgentDropout.graph.node import Node
 from AgentDropout.agents.agent_registry import AgentRegistry
@@ -11,6 +12,13 @@ import random
 from AgentDropout.contracts.synthesizer import ContractSynthesizer
 from AgentDropout.contracts.verifier import ContractVerifier
 from AgentDropout.contracts.audit import ContractAuditLog
+from AgentDropout.knowledge.extractor import PropositionExtractor
+from AgentDropout.knowledge.store import EpistemicStateStore
+from AgentDropout.knowledge.board import SharedKnowledgeBoard
+from AgentDropout.knowledge.compiler import KnowledgeCompiler
+from AgentDropout.knowledge.actions import KnowledgeActionExecutor
+from AgentDropout.knowledge.recovery import KnowledgeRecovery
+from AgentDropout.knowledge.metrics import KnowledgeMetrics
 
 class Graph(ABC):
     """
@@ -51,6 +59,8 @@ class Graph(ABC):
                 node_kwargs:List[Dict] = None,
                 enable_contracts: bool = False,
                 contract_output_dir: str = "artifacts/tests/phase1/contracts/raw",
+                enable_knowledge: bool = False,
+                knowledge_output_dir: str = "artifacts/tests/phase2/knowledge/raw",
                 ):
 
         if fixed_spatial_masks is None:
@@ -83,6 +93,18 @@ class Graph(ABC):
         self.contract_verifier = ContractVerifier() if enable_contracts else None
         self.contract_audit = ContractAuditLog(contract_output_dir) if enable_contracts else None
         self._contract_run_id = None
+        self.enable_knowledge = enable_knowledge
+        self.knowledge_output_dir = knowledge_output_dir
+        self.knowledge_extractor = PropositionExtractor() if enable_knowledge else None
+        self.knowledge_store = EpistemicStateStore() if enable_knowledge else None
+        self.knowledge_board = SharedKnowledgeBoard() if enable_knowledge else None
+        self.knowledge_compiler = KnowledgeCompiler() if enable_knowledge else None
+        self.knowledge_action_executor = (
+            KnowledgeActionExecutor(self.knowledge_store, self.knowledge_board) if enable_knowledge else None
+        )
+        self.knowledge_recovery = KnowledgeRecovery(self.knowledge_store, self.knowledge_board) if enable_knowledge else None
+        self.knowledge_metrics = KnowledgeMetrics() if enable_knowledge else None
+        self._knowledge_run_id = None
         # self.dec=False
         self.dec_1=False
         self.skip_nodes = []
@@ -362,6 +384,47 @@ class Graph(ABC):
             return None
         return self.contract_audit.flush(self._contract_run_id)
 
+    def _begin_knowledge_run(self):
+        if not self.enable_knowledge or self.knowledge_store is None:
+            return
+        self._knowledge_run_id = shortuuid.ShortUUID().random(length=12)
+        self.knowledge_store = EpistemicStateStore()
+        self.knowledge_board = SharedKnowledgeBoard()
+        self.knowledge_action_executor = KnowledgeActionExecutor(self.knowledge_store, self.knowledge_board)
+        self.knowledge_recovery = KnowledgeRecovery(self.knowledge_store, self.knowledge_board)
+
+    def _record_knowledge_for_node(self, node_id: str, round_idx: int):
+        if not self.enable_knowledge or self.knowledge_store is None:
+            return
+        node = self.nodes.get(node_id)
+        if node is None and self.decision_node.id == node_id:
+            node = self.decision_node
+        if node is None:
+            return
+        propositions = self.knowledge_extractor.extract(
+            output=node.outputs,
+            source_node=node_id,
+            source_role=getattr(node, "role", node.node_name),
+        )
+        for proposition in propositions:
+            proposition.metadata["round"] = round_idx
+            self.knowledge_store.add(proposition)
+        plan = self.knowledge_compiler.compile(propositions, self.domain)
+        self.knowledge_action_executor.execute(plan)
+        self.knowledge_recovery.recover()
+
+    def _finalize_knowledge_run(self):
+        if not self.enable_knowledge or self.knowledge_store is None:
+            return None
+        output_root = f"{self.knowledge_output_dir}/{self._knowledge_run_id}"
+        store_path = self.knowledge_store.flush(f"{output_root}.store.json")
+        board_path = self.knowledge_board.flush(f"{output_root}.board.json")
+        metrics = self.knowledge_metrics.compute(self.knowledge_store, self.knowledge_board)
+        metrics_path = f"{output_root}.metrics.json"
+        with open(metrics_path, "w", encoding="utf-8") as f:
+            json.dump(metrics, f, indent=2)
+        return {"store_path": store_path, "board_path": board_path, "metrics_path": metrics_path, **metrics}
+
 
     def run(self, inputs: Any, 
                   num_rounds:int = 3, 
@@ -369,6 +432,7 @@ class Graph(ABC):
                   max_time: int = 600,) -> List[Any]:
         # inputs:{'task':"xxx"}
         self._begin_contract_run()
+        self._begin_knowledge_run()
         log_probs = 0
         for round in range(num_rounds):
             log_probs += self.construct_spatial_connection()
@@ -384,6 +448,7 @@ class Graph(ABC):
                     try:
                         self.nodes[current_node_id].execute(inputs) # output is saved in the node.outputs
                         self._record_contract_for_node(current_node_id, round, inputs)
+                        self._record_knowledge_for_node(current_node_id, round)
                         break
                     except Exception as e:
                         print(f"Error during execution of node {current_node_id}: {e}")
@@ -400,10 +465,12 @@ class Graph(ABC):
         self.connect_decision_node()
         self.decision_node.execute(inputs)
         self._record_contract_for_node(self.decision_node.id, num_rounds, inputs)
+        self._record_knowledge_for_node(self.decision_node.id, num_rounds)
         final_answers = self.decision_node.outputs
         if len(final_answers) == 0:
             final_answers.append("No answer of the decision node")
         self._finalize_contract_run()
+        self._finalize_knowledge_run()
             
         return final_answers, log_probs
 
@@ -415,6 +482,7 @@ class Graph(ABC):
                   case: bool=False) -> List[Any]:
         # inputs:{'task':"xxx"}
         self._begin_contract_run()
+        self._begin_knowledge_run()
         log_probs = 0
         log_probs_skip = 0
         all_answers = []
@@ -522,6 +590,7 @@ class Graph(ABC):
                                 break
                         await asyncio.wait_for(self.nodes[current_node_id].async_execute(input),timeout=max_time) # output is saved in the node.outputs
                         self._record_contract_for_node(current_node_id, round, input)
+                        self._record_knowledge_for_node(current_node_id, round)
                         # print(self.find_node(current_node_id).outputs)
                         break
                     except Exception as e:
@@ -543,12 +612,14 @@ class Graph(ABC):
             self.connect_decision_node()
             await self.decision_node.async_execute(input)
             self._record_contract_for_node(self.decision_node.id, num_rounds, input)
+            self._record_knowledge_for_node(self.decision_node.id, num_rounds)
             final_answers = self.decision_node.outputs
         else:
             final_answers = list(self.nodes.values())[0].outputs
         if len(final_answers) == 0:
             final_answers.append("No answer of the decision node")
         self._finalize_contract_run()
+        self._finalize_knowledge_run()
         # print(log_probs)
         # if skip:
         #     return final_answers, selected_index
