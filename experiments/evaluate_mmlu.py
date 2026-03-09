@@ -10,7 +10,7 @@ import time
 from AgentDropout.utils.globals import Time
 from pathlib import Path
 import sys
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 sys.stdout.reconfigure(encoding='utf-8')
 
 from AgentDropout.utils.const import AgentPrune_ROOT
@@ -54,7 +54,9 @@ async def evaluate(
     current_time = Time.instance().value or time.strftime("%Y-%m-%d-%H-%M-%S", time.localtime())
     result_dir = Path(f"{AgentPrune_ROOT}/result/mmlu")
     result_dir.mkdir(parents=True, exist_ok=True)
-    result_file = result_dir / f"{args.domain}_llama3_{current_time}.json"
+    dataset_tag = getattr(args, "dataset_name", "mmlu").replace("/", "__")
+    shard_idx = getattr(args, "shard_idx", 0)
+    result_file = result_dir / f"{args.domain}_{dataset_tag}_shard{shard_idx}_{current_time}.json"
 
     for i_batch, record_batch in tqdm(enumerate(eval_loader(batch_size=eval_batch_size)), total=num_batches):
         print(80*'-')

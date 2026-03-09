@@ -1,15 +1,15 @@
 import sys, os
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 sys.stdout.reconfigure(encoding='utf-8')
 
 import asyncio
 from typing import Union, Literal, List
 import argparse
 import random
+import os
 
 from AgentDropout.graph.graph import Graph
 from datasets.mmlu_dataset import MMLUDataset
-from datasets.MMLU.download import download
 from experiments.train_mmlu import train
 from experiments.evaluate_mmlu import evaluate
 from AgentDropout.utils.const import AgentPrune_ROOT
@@ -43,8 +43,20 @@ def parse_args():
                         help="Number of optimization/inference rounds for one query")
     parser.add_argument('--pruning_rate', type=float, default=0.25,
                         help="The Rate of Pruning. Default 0.05.")
-    parser.add_argument('--llm_name', type=str, default="gpt-3.5-turbo",
+    parser.add_argument('--llm_name', type=str, default=os.getenv("LLM_MODEL_NAME", "qwen3-8b"),
                         help="Model name, None runs the default ChatGPT4")
+    parser.add_argument('--dataset_name', type=str, default="edinburgh-dawg/mmlu-redux",
+                        help="Dataset name. Use 'edinburgh-dawg/mmlu-redux' for benchmark.")
+    parser.add_argument('--train_split', type=str, default="validation",
+                        help="Training split name for the selected dataset.")
+    parser.add_argument('--eval_split', type=str, default="test",
+                        help="Evaluation split name for the selected dataset.")
+    parser.add_argument('--num_shards', type=int, default=8,
+                        help="Number of shards for parallel evaluation.")
+    parser.add_argument('--shard_idx', type=int, default=0,
+                        help="Current shard index [0, num_shards).")
+    parser.add_argument('--limit_questions', type=int, default=32,
+                        help="Max questions per shard for one benchmark run.")
     parser.add_argument('--domain', type=str, default="mmlu",
                         help="Domain (the same as dataset name), default 'MMLU'")
     parser.add_argument('--decision_method', type=str, default="FinalRefer",
@@ -70,7 +82,7 @@ async def main():
     agent_names = [name for name,num in zip(args.agent_names,args.agent_nums) for _ in range(num)]
     # print(agent_names)
     kwargs = get_kwargs(mode,len(agent_names))
-    limit_questions = 153
+    limit_questions = args.limit_questions
     
     graph = Graph(domain=args.domain,
                   llm_name=args.llm_name,
@@ -82,9 +94,22 @@ async def main():
                   diff=args.diff,
                   dec=args.dec,
                   **kwargs)
-    download()
-    dataset_train = MMLUDataset('dev')
-    dataset_val = MMLUDataset('val')
+    if args.shard_idx < 0 or args.shard_idx >= args.num_shards:
+        raise ValueError("--shard_idx must be in [0, num_shards).")
+    dataset_train = None
+    if args.optimized_spatial or args.optimized_temporal:
+        dataset_train = MMLUDataset(
+            split=args.train_split,
+            dataset_name=args.dataset_name,
+            num_shards=args.num_shards,
+            shard_idx=args.shard_idx,
+        )
+    dataset_val = MMLUDataset(
+        split=args.eval_split,
+        dataset_name=args.dataset_name,
+        num_shards=args.num_shards,
+        shard_idx=args.shard_idx,
+    )
     
     if args.optimized_spatial or args.optimized_temporal:
         await train(graph=graph,dataset=dataset_train,num_iters=args.num_iterations,num_rounds=args.num_rounds,

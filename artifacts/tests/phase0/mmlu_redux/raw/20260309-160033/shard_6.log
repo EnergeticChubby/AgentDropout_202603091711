@@ -1,0 +1,72 @@
+****************
+Knowlegable Expert
+
+You are a knowlegable expert in question answering.
+Please give several key entities that need to be searched in wikipedia to solve the problem. 
+Key entities that need to be searched are included between two '@' when output, for example: @catfish effect@, @broken window effect@, @Shakespeare@.
+If there is no entity in the question that needs to be searched in Wikipedia, you don't have to provide it
+
+****************
+Critic
+
+You are an excellent critic.
+Please point out potential issues in other agent's analysis point by point.
+
+****************
+Mathematician
+
+You are a mathematician who is good at math games, arithmetic calculation, and long-term planning.
+
+****************
+Psychologist
+
+You are a psychologist.
+You are good at psychology, sociology, and philosophy.
+You give people scientific suggestions that will make them feel better.
+
+****************
+Historian
+
+You research and analyze cultural, economic, political, and social events in the past, collect data from primary sources and use it to develop theories about what happened during various periods of history.
+
+[['dpgt', 'dpgt'], ['dpgt', 'ASWz'], ['dpgt', 'fwEi'], ['dpgt', 'VSh4'], ['dpgt', 'tG2n'], ['ASWz', 'dpgt'], ['ASWz', 'ASWz'], ['ASWz', 'fwEi'], ['ASWz', 'VSh4'], ['ASWz', 'tG2n'], ['fwEi', 'dpgt'], ['fwEi', 'ASWz'], ['fwEi', 'fwEi'], ['fwEi', 'VSh4'], ['fwEi', 'tG2n'], ['VSh4', 'dpgt'], ['VSh4', 'ASWz'], ['VSh4', 'fwEi'], ['VSh4', 'VSh4'], ['VSh4', 'tG2n'], ['tG2n', 'dpgt'], ['tG2n', 'ASWz'], ['tG2n', 'fwEi'], ['tG2n', 'VSh4'], ['tG2n', 'tG2n']]
+Final spatial logits:  Parameter containing:
+tensor([10., 10., 10., 10., 10., 10., 10., 10., 10., 10., 10., 10., 10., 10.,
+        10., 10., 10., 10., 10., 10., 10., 10., 10., 10., 10.])
+Final temporal logits:  Parameter containing:
+tensor([10., 10., 10., 10., 10., 10., 10., 10., 10., 10., 10., 10., 10., 10.,
+        10., 10., 10., 10., 10., 10., 10., 10., 10., 10., 10.])
+Final spatial masks:  Parameter containing:
+tensor([0, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1,
+        0])
+Final temporal masks:  Parameter containing:
+tensor([1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+        1])
+Final spatial sparsity: tensor(0.8000)
+Final temporal sparsity: tensor(1.)
+Evaluating AgentDropout on MMLUDataset split test
+  0%|          | 0/1 [00:00<?, ?it/s]--------------------------------------------------------------------------------
+Batch time 5.711
+Raw answer: ['<!doctype html>\n<html lang="zh">\n  <head>\n    <meta charset="utf-8" />\n    <link rel="icon" href="/logo.png" />\n    <meta name="viewport" content="width=device-width, initial-scale=1" />\n    <meta name="theme-color" content="#ffffff" />\n    <meta\n      name="description"\n      content="OpenAI 接口聚合管理，支持多种渠道包括 Azure，可用于二次分发管理 key，仅单可执行文件，已打包好 Docker 镜像，一键部署，开箱即用"\n    />\n    <title>New API</title>\n        <script type="module" crossorigin src="/assets/index-V8WG2RJg.js"></script>\n    <link rel="modulepreload" crossorigin href="/assets/react-core-D-iPSUlg.js">\n    <link rel="modulepreload" crossorigin href="/assets/semi-ui-CUCUWUtB.js">\n    <link rel="modulepreload" crossorigin href="/assets/tools-TqkjAL0q.js">\n    <link rel="modulepreload" crossorigin href="/assets/react-components-BnylIsR_.js">\n    <link rel="modulepreload" crossorigin href="/assets/i18n-C9IJcHxj.js">\n    <link rel="stylesheet" crossorigin href="/assets/semi-ui-yRXI6evF.css">\n    <link rel="stylesheet" crossorigin href="/assets/index-Dl3oz3P_.css">\n  </head>\n\n  <body>\n    <noscript>You need to enable JavaScript to run this app.</noscript>\n    <div id="root"></div>\n  <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement(\'script\');d.innerHTML="window.__CF$cv$params={r:\'9d9b4b83d91af031\',t:\'MTc3MzA3MjA1MQ==\'};var a=document.createElement(\'script\');a.src=\'/cdn-cgi/challenge-platform/scripts/jsd/main.js\';document.getElementsByTagName(\'head\')[0].appendChild(a);";b.getElementsByTagName(\'head\')[0].appendChild(d)}}if(document.body){var a=document.createElement(\'iframe\');a.height=1;a.width=1;a.style.position=\'absolute\';a.style.top=0;a.style.left=0;a.style.border=\'none\';a.style.visibility=\'hidden\';document.body.appendChild(a);if(\'loading\'!==document.readyState)c();else if(window.addEventListener)document.addEventListener(\'DOMContentLoaded\',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);\'loading\'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>\n</html>\n']
+Postprocessed answer: <
+Correct answer: A
+Accuracy: 0.0% (0/1)
+Raw answer: ['<!doctype html>\n<html lang="zh">\n  <head>\n    <meta charset="utf-8" />\n    <link rel="icon" href="/logo.png" />\n    <meta name="viewport" content="width=device-width, initial-scale=1" />\n    <meta name="theme-color" content="#ffffff" />\n    <meta\n      name="description"\n      content="OpenAI 接口聚合管理，支持多种渠道包括 Azure，可用于二次分发管理 key，仅单可执行文件，已打包好 Docker 镜像，一键部署，开箱即用"\n    />\n    <title>New API</title>\n        <script type="module" crossorigin src="/assets/index-V8WG2RJg.js"></script>\n    <link rel="modulepreload" crossorigin href="/assets/react-core-D-iPSUlg.js">\n    <link rel="modulepreload" crossorigin href="/assets/semi-ui-CUCUWUtB.js">\n    <link rel="modulepreload" crossorigin href="/assets/tools-TqkjAL0q.js">\n    <link rel="modulepreload" crossorigin href="/assets/react-components-BnylIsR_.js">\n    <link rel="modulepreload" crossorigin href="/assets/i18n-C9IJcHxj.js">\n    <link rel="stylesheet" crossorigin href="/assets/semi-ui-yRXI6evF.css">\n    <link rel="stylesheet" crossorigin href="/assets/index-Dl3oz3P_.css">\n  </head>\n\n  <body>\n    <noscript>You need to enable JavaScript to run this app.</noscript>\n    <div id="root"></div>\n  <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement(\'script\');d.innerHTML="window.__CF$cv$params={r:\'9d9b4b76bd1cc6d5\',t:\'MTc3MzA3MjA0OQ==\'};var a=document.createElement(\'script\');a.src=\'/cdn-cgi/challenge-platform/scripts/jsd/main.js\';document.getElementsByTagName(\'head\')[0].appendChild(a);";b.getElementsByTagName(\'head\')[0].appendChild(d)}}if(document.body){var a=document.createElement(\'iframe\');a.height=1;a.width=1;a.style.position=\'absolute\';a.style.top=0;a.style.left=0;a.style.border=\'none\';a.style.visibility=\'hidden\';document.body.appendChild(a);if(\'loading\'!==document.readyState)c();else if(window.addEventListener)document.addEventListener(\'DOMContentLoaded\',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);\'loading\'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>\n</html>\n']
+Postprocessed answer: <
+Correct answer: A
+Accuracy: 0.0% (0/2)
+Raw answer: ['<!doctype html>\n<html lang="zh">\n  <head>\n    <meta charset="utf-8" />\n    <link rel="icon" href="/logo.png" />\n    <meta name="viewport" content="width=device-width, initial-scale=1" />\n    <meta name="theme-color" content="#ffffff" />\n    <meta\n      name="description"\n      content="OpenAI 接口聚合管理，支持多种渠道包括 Azure，可用于二次分发管理 key，仅单可执行文件，已打包好 Docker 镜像，一键部署，开箱即用"\n    />\n    <title>New API</title>\n        <script type="module" crossorigin src="/assets/index-V8WG2RJg.js"></script>\n    <link rel="modulepreload" crossorigin href="/assets/react-core-D-iPSUlg.js">\n    <link rel="modulepreload" crossorigin href="/assets/semi-ui-CUCUWUtB.js">\n    <link rel="modulepreload" crossorigin href="/assets/tools-TqkjAL0q.js">\n    <link rel="modulepreload" crossorigin href="/assets/react-components-BnylIsR_.js">\n    <link rel="modulepreload" crossorigin href="/assets/i18n-C9IJcHxj.js">\n    <link rel="stylesheet" crossorigin href="/assets/semi-ui-yRXI6evF.css">\n    <link rel="stylesheet" crossorigin href="/assets/index-Dl3oz3P_.css">\n  </head>\n\n  <body>\n    <noscript>You need to enable JavaScript to run this app.</noscript>\n    <div id="root"></div>\n  <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement(\'script\');d.innerHTML="window.__CF$cv$params={r:\'9d9b4b73b98bd69c\',t:\'MTc3MzA3MjA0OQ==\'};var a=document.createElement(\'script\');a.src=\'/cdn-cgi/challenge-platform/scripts/jsd/main.js\';document.getElementsByTagName(\'head\')[0].appendChild(a);";b.getElementsByTagName(\'head\')[0].appendChild(d)}}if(document.body){var a=document.createElement(\'iframe\');a.height=1;a.width=1;a.style.position=\'absolute\';a.style.top=0;a.style.left=0;a.style.border=\'none\';a.style.visibility=\'hidden\';document.body.appendChild(a);if(\'loading\'!==document.readyState)c();else if(window.addEventListener)document.addEventListener(\'DOMContentLoaded\',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);\'loading\'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>\n</html>\n']
+Postprocessed answer: <
+Correct answer: A
+Accuracy: 0.0% (0/3)
+Raw answer: 100%|██████████| 1/1 [00:05<00:00,  5.71s/it]100%|██████████| 1/1 [00:05<00:00,  5.71s/it]
+['<!doctype html>\n<html lang="zh">\n  <head>\n    <meta charset="utf-8" />\n    <link rel="icon" href="/logo.png" />\n    <meta name="viewport" content="width=device-width, initial-scale=1" />\n    <meta name="theme-color" content="#ffffff" />\n    <meta\n      name="description"\n      content="OpenAI 接口聚合管理，支持多种渠道包括 Azure，可用于二次分发管理 key，仅单可执行文件，已打包好 Docker 镜像，一键部署，开箱即用"\n    />\n    <title>New API</title>\n        <script type="module" crossorigin src="/assets/index-V8WG2RJg.js"></script>\n    <link rel="modulepreload" crossorigin href="/assets/react-core-D-iPSUlg.js">\n    <link rel="modulepreload" crossorigin href="/assets/semi-ui-CUCUWUtB.js">\n    <link rel="modulepreload" crossorigin href="/assets/tools-TqkjAL0q.js">\n    <link rel="modulepreload" crossorigin href="/assets/react-components-BnylIsR_.js">\n    <link rel="modulepreload" crossorigin href="/assets/i18n-C9IJcHxj.js">\n    <link rel="stylesheet" crossorigin href="/assets/semi-ui-yRXI6evF.css">\n    <link rel="stylesheet" crossorigin href="/assets/index-Dl3oz3P_.css">\n  </head>\n\n  <body>\n    <noscript>You need to enable JavaScript to run this app.</noscript>\n    <div id="root"></div>\n  <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement(\'script\');d.innerHTML="window.__CF$cv$params={r:\'9d9b4b7499193976\',t:\'MTc3MzA3MjA0OQ==\'};var a=document.createElement(\'script\');a.src=\'/cdn-cgi/challenge-platform/scripts/jsd/main.js\';document.getElementsByTagName(\'head\')[0].appendChild(a);";b.getElementsByTagName(\'head\')[0].appendChild(d)}}if(document.body){var a=document.createElement(\'iframe\');a.height=1;a.width=1;a.style.position=\'absolute\';a.style.top=0;a.style.left=0;a.style.border=\'none\';a.style.visibility=\'hidden\';document.body.appendChild(a);if(\'loading\'!==document.readyState)c();else if(window.addEventListener)document.addEventListener(\'DOMContentLoaded\',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);\'loading\'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>\n</html>\n']
+Postprocessed answer: <
+Correct answer: A
+Accuracy: 0.0% (0/4)
+Cost 0.0
+PromptTokens 0.0
+CompletionTokens 0.0
+Accuracy: 0.0% (0/4)
+Done!
+Score: 0.0

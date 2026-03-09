@@ -4,9 +4,9 @@ from tenacity import retry, wait_random_exponential, stop_after_attempt, wait_fi
 from typing import Dict, Any
 from dotenv import load_dotenv
 import os
+import asyncio
 from openai import AsyncOpenAI
 import async_timeout
-from transformers import AutoTokenizer
 
 from AgentDropout.llm.format import Message
 from AgentDropout.llm.price import cost_count, cost_count_llama3, cost_count_deepseek
@@ -15,8 +15,53 @@ from AgentDropout.llm.llm_registry import LLMRegistry
 
 
 load_dotenv()
-MINE_BASE_URL = ""
-MINE_API_KEYS = ""
+
+
+def _normalize_openai_base_url(url: str) -> str:
+    if not url:
+        return url
+    normalized = url.rstrip("/")
+    if not normalized.endswith("/v1"):
+        normalized = f"{normalized}/v1"
+    return normalized
+
+
+DEFAULT_BASE_URL = _normalize_openai_base_url(os.getenv("OPENAI_BASE_URL", os.getenv("MINE_BASE_URL", "")))
+DEFAULT_API_KEY = os.getenv("OPENAI_API_KEY", os.getenv("MINE_API_KEYS", ""))
+DEEPSEEK_BASE_URL = os.getenv("DEEPSEEK_BASE_URL", "")
+DEEPSEEK_API_KEY = os.getenv("DEEPSEEK_API_KEY", "")
+LOCAL_OPENAI_BASE_URL = os.getenv("LOCAL_OPENAI_BASE_URL", "http://localhost:6789/v1")
+LOCAL_OPENAI_API_KEY = os.getenv("LOCAL_OPENAI_API_KEY", "API-KEY")
+
+
+def _run_async(coro):
+    try:
+        loop = asyncio.get_running_loop()
+    except RuntimeError:
+        loop = None
+    if loop and loop.is_running():
+        new_loop = asyncio.new_event_loop()
+        try:
+            return new_loop.run_until_complete(coro)
+        finally:
+            new_loop.close()
+    return asyncio.run(coro)
+
+
+def _extract_completion_text(completion):
+    if isinstance(completion, str):
+        return completion
+    if isinstance(completion, dict):
+        if "choices" in completion and completion["choices"]:
+            message = completion["choices"][0].get("message", {})
+            return message.get("content", "")
+        return completion.get("content", "")
+    if hasattr(completion, "choices") and completion.choices:
+        message = completion.choices[0].message
+        if isinstance(message, dict):
+            return message.get("content", "")
+        return getattr(message, "content", "")
+    return ""
 
 # print(MINE_BASE_URL)
 
@@ -50,14 +95,20 @@ MINE_API_KEYS = ""
 
 @retry(wait=wait_random_exponential(max=100), stop=stop_after_attempt(3))
 async def achat(model: str, msg: List[Dict],):
-    api_kwargs = dict(api_key = MINE_API_KEYS, base_url = MINE_BASE_URL)
+    if not DEFAULT_API_KEY:
+        raise RuntimeError("OPENAI_API_KEY (or MINE_API_KEYS) is not configured.")
+    api_kwargs = {"api_key": DEFAULT_API_KEY}
+    if DEFAULT_BASE_URL:
+        api_kwargs["base_url"] = DEFAULT_BASE_URL
     aclient = AsyncOpenAI(**api_kwargs)
     try:
         async with async_timeout.timeout(1000):
             completion = await aclient.chat.completions.create(model=model,messages=msg)
-        response_message = completion.choices[0].message.content
+        response_message = _extract_completion_text(completion)
         
         if isinstance(response_message, str):
+            if "<!doctype html>" in response_message.lower():
+                raise RuntimeError("Received HTML response from LLM endpoint; verify base_url and gateway configuration.")
             prompt = "".join([item['content'] for item in msg])
             cost_count(prompt, response_message, model)
             return response_message
@@ -67,17 +118,18 @@ async def achat(model: str, msg: List[Dict],):
 
 # @retry(wait=wait_random_exponential(max=100), stop=stop_after_attempt(6))
 async def achat_deepseek(model: str, msg: List[Dict],):
-    model = ''
-    # print(1111111)
-    api_kwargs = dict(api_key = deepseek_api, base_url = deepseek_url)
+    if not DEEPSEEK_API_KEY or not DEEPSEEK_BASE_URL:
+        raise RuntimeError("DEEPSEEK_API_KEY/DEEPSEEK_BASE_URL is not configured.")
+    api_kwargs = dict(api_key=DEEPSEEK_API_KEY, base_url=DEEPSEEK_BASE_URL)
     aclient = AsyncOpenAI(**api_kwargs)
     try:
         async with async_timeout.timeout(1000):
             completion = await aclient.chat.completions.create(model=model,messages=msg)
-        # print(completion)
-        response_message = completion.choices[0].message.content
+        response_message = _extract_completion_text(completion)
         
         if isinstance(response_message, str):
+            if "<!doctype html>" in response_message.lower():
+                raise RuntimeError("Received HTML response from LLM endpoint; verify base_url and gateway configuration.")
             prompt = "".join([item['content'] for item in msg])
             cost_count_deepseek(prompt, response_message, model)
             return response_message
@@ -89,14 +141,16 @@ async def achat_deepseek(model: str, msg: List[Dict],):
 @retry(wait=wait_fixed(2), stop=stop_after_attempt(5))
 async def achat_llama(model: str, msg: List[Dict]):
     # print(111111111111)
-    api_kwargs = dict(api_key = "API-KEY", base_url = "http://localhost:6789/v1")
+    api_kwargs = dict(api_key=LOCAL_OPENAI_API_KEY, base_url=LOCAL_OPENAI_BASE_URL)
     aclient = AsyncOpenAI(**api_kwargs)
     try:
         async with async_timeout.timeout(1000):
             completion = await aclient.chat.completions.create(model=model,messages=msg)
-        response_message = completion.choices[0].message.content
+        response_message = _extract_completion_text(completion)
         
         if isinstance(response_message, str):
+            if "<!doctype html>" in response_message.lower():
+                raise RuntimeError("Received HTML response from LLM endpoint; verify base_url and gateway configuration.")
             prompt = "".join([item['content'] for item in msg])
             cost_count_llama3(prompt, response_message, model)
             return response_message
@@ -138,7 +192,7 @@ class GPTChat(LLM):
         temperature: Optional[float] = None,
         num_comps: Optional[int] = None,
     ) -> Union[List[str], str]:
-        pass
+        return _run_async(self.agen(messages, max_tokens, temperature, num_comps))
 
 @LLMRegistry.register('deepseek')
 class DeepseekChat(LLM):
@@ -172,7 +226,7 @@ class DeepseekChat(LLM):
         temperature: Optional[float] = None,
         num_comps: Optional[int] = None,
     ) -> Union[List[str], str]:
-        pass
+        return _run_async(self.agen(messages, max_tokens, temperature, num_comps))
 
 @LLMRegistry.register('llama')
 class LlamaChat(LLM):
@@ -208,4 +262,4 @@ class LlamaChat(LLM):
         temperature: Optional[float] = None,
         num_comps: Optional[int] = None,
     ) -> Union[List[str], str]:
-        pass
+        return _run_async(self.agen(messages, max_tokens, temperature, num_comps))

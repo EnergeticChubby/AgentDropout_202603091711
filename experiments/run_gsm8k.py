@@ -11,7 +11,8 @@ import torch.nn.functional as F
 import copy
 from typing import List,Union,Literal
 import random
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+import os
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 sys.stdout.reconfigure(encoding='utf-8')
 
 from AgentDropout.utils.const import AgentPrune_ROOT
@@ -45,7 +46,7 @@ def parse_args():
     parser = argparse.ArgumentParser(description="AgentPrune Experiments on gsm8k")
     parser.add_argument("--dataset_json", type=str, default="datasets/gsm8k/gsm8k.jsonl")
     parser.add_argument("--result_file", type=str, default=None)
-    parser.add_argument("--llm_name", type=str, default="gpt-3.5-turbo")
+    parser.add_argument("--llm_name", type=str, default=os.getenv("LLM_MODEL_NAME", "qwen3-8b"))
     parser.add_argument('--mode', type=str, default='FullConnected',
                         choices=['DirectAnswer', 'FullConnected', 'Random', 'Chain','Debate','Layered','Star'],
                         help="Mode of operation. Default is 'FullConnected'.")

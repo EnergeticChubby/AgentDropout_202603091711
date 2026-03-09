@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 from pytube import YouTube
-from AgentPrune.utils.const import AgentPrune_ROOT
+from AgentDropout.utils.const import AgentPrune_ROOT
 
 def Youtube(url, has_subtitles):
     # get video id from url
@@ -14,8 +14,10 @@ def Youtube(url, has_subtitles):
     if has_subtitles:
         # Download the video to a location
         print('Downloading video')
-        video_stream.download(output_path="{AgentPrune_ROOT}/workspace",filename=f"{video_id}.mp4")
+        output_dir = AgentPrune_ROOT / "workspace"
+        output_dir.mkdir(parents=True, exist_ok=True)
+        video_stream.download(output_path=str(output_dir), filename=f"{video_id}.mp4")
         print('Video downloaded successfully')
-        return f"{AgentPrune_ROOT}/workspace/{video_id}.mp4"
+        return str(output_dir / f"{video_id}.mp4")
     else:
         return video_stream.url 
