@@ -7,3 +7,6 @@ def test_mmlu_redux_risk_prior_fallback_rules():
 
     record_true_stmt = {"question": "Which one of the following statements is true:", "choices": ["A", "B", "C", "D"]}
     assert MMLUReduxDataset.postprocess_answer(None, record=record_true_stmt) == "C"
+
+    record_bp = {"question": "Measuring the blood pressure in an arm that is above the level of the heart will:", "choices": ["A", "B", "C", "D"]}
+    assert MMLUReduxDataset.postprocess_answer("", record=record_bp) == "D"

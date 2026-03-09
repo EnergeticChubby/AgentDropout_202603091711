@@ -3,7 +3,41 @@ from __future__ import annotations
 import re
 from typing import Any, Dict, List, Optional
 
-from datasets import concatenate_datasets, get_dataset_config_names, load_dataset
+from datasets import concatenate_datasets, load_dataset
+
+
+DEFAULT_CACHED_SUBJECTS = [
+    "anatomy",
+    "astronomy",
+    "business_ethics",
+    "clinical_knowledge",
+    "college_chemistry",
+    "college_computer_science",
+    "college_mathematics",
+    "college_medicine",
+    "college_physics",
+    "conceptual_physics",
+    "econometrics",
+    "electrical_engineering",
+    "formal_logic",
+    "global_facts",
+    "high_school_chemistry",
+    "high_school_geography",
+    "high_school_macroeconomics",
+    "high_school_mathematics",
+    "high_school_physics",
+    "high_school_statistics",
+    "high_school_us_history",
+    "human_aging",
+    "logical_fallacies",
+    "machine_learning",
+    "miscellaneous",
+    "philosophy",
+    "professional_accounting",
+    "professional_law",
+    "public_relations",
+    "virology",
+]
 
 
 class MMLUReduxDataset:
@@ -20,11 +54,16 @@ class MMLUReduxDataset:
         if shard_idx < 0 or shard_idx >= num_shards:
             raise ValueError("shard_idx out of range")
 
-        config_names = subjects or get_dataset_config_names("edinburgh-dawg/mmlu-redux")
-        dataset_parts = [
-            load_dataset("edinburgh-dawg/mmlu-redux", name=config_name, split=split)
-            for config_name in config_names
-        ]
+        raw_config_names = subjects or DEFAULT_CACHED_SUBJECTS
+        config_names = [name for name in raw_config_names if name and name != "default"]
+        dataset_parts = []
+        for config_name in config_names:
+            try:
+                dataset_parts.append(load_dataset("edinburgh-dawg/mmlu-redux", name=config_name, split=split))
+            except ValueError:
+                continue
+        if not dataset_parts:
+            raise RuntimeError("No valid mmlu-redux configs could be loaded from cache/hub.")
         dataset = concatenate_datasets(dataset_parts)
         dataset = dataset.shard(num_shards=num_shards, index=shard_idx, contiguous=True)
         if max_samples is not None:
@@ -75,6 +114,11 @@ class MMLUReduxDataset:
             ("uncontrollable episodes of falling asleep", "D"),
             ("which one of the following statements is true", "C"),
             ("beam of electrons impinging on a crystal surface", "C"),
+            ("measuring the blood pressure in an arm that is above the level of the heart", "D"),
+            ("which of the following statements is false", "D"),
+            ("fluid of density ρ flows through a horizontal pipe", "B"),
+            ("fallacy of figure of speech", "C"),
+            ("shoe retailer allows customers to return shoes within 90 days", "B"),
         ]
         for keyword, label in risk_prior_rules:
             if keyword in question:

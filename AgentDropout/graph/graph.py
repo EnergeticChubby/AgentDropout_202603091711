@@ -56,6 +56,7 @@ class Graph(ABC):
                 instrumentation_output_path: Optional[str] = None,
                 attention_policy=None,
                 risk_weights: Optional[Dict[str, float]] = None,
+                enable_memory_governance: bool = True,
                 ):
         
         self.fixed_spatial_masks = torch.tensor(fixed_spatial_masks)
@@ -87,6 +88,7 @@ class Graph(ABC):
         self.instrumentation = Instrumentation(run_id=self.id, output_path=instrumentation_output_path)
         self.attention_policy = attention_policy or RuleBasedAttentionPolicy()
         self.risk_weights = risk_weights or {}
+        self.enable_memory_governance = enable_memory_governance
         self.memory_store = MemoryStore()
         self.memory_governance = MemoryGovernance(self.memory_store, GovernanceConstitution())
         self._current_phase = "init"
@@ -418,14 +420,15 @@ class Graph(ABC):
                         zero_in_degree_queue.append(successor.id)
             
             self.update_memory()
-            expire_result = self.memory_governance.expire()
-            if expire_result.get("expired", 0) > 0:
-                self._emit_event(
-                    event_type="memory_expire",
-                    phase=phase,
-                    round_idx=round_idx,
-                    metadata=expire_result,
-                )
+            if self.enable_memory_governance:
+                expire_result = self.memory_governance.expire()
+                if expire_result.get("expired", 0) > 0:
+                    self._emit_event(
+                        event_type="memory_expire",
+                        phase=phase,
+                        round_idx=round_idx,
+                        metadata=expire_result,
+                    )
             self._emit_event(
                 event_type="round_end",
                 phase=phase,
@@ -611,14 +614,15 @@ class Graph(ABC):
                 round_answers[self.nodes[node].role+str(node)] = self.nodes[node].outputs
             all_answers.append(round_answers)
             self.update_memory()
-            expire_result = self.memory_governance.expire()
-            if expire_result.get("expired", 0) > 0:
-                self._emit_event(
-                    event_type="memory_expire",
-                    phase=phase,
-                    round_idx=round_idx,
-                    metadata=expire_result,
-                )
+            if self.enable_memory_governance:
+                expire_result = self.memory_governance.expire()
+                if expire_result.get("expired", 0) > 0:
+                    self._emit_event(
+                        event_type="memory_expire",
+                        phase=phase,
+                        round_idx=round_idx,
+                        metadata=expire_result,
+                    )
             self._emit_event(
                 event_type="round_end",
                 phase=phase,
@@ -658,6 +662,18 @@ class Graph(ABC):
             return final_answers, log_probs
     
     def update_memory(self):
+        if not self.enable_memory_governance:
+            for id,node in self.nodes.items():
+                node.update_memory()
+                self._emit_event(
+                    event_type="memory_write",
+                    phase=self._current_phase,
+                    round_idx=self._current_round,
+                    agent_id=id,
+                    metadata={"output_items": len(node.outputs), "pool": "plain_shared", "governance_status": "disabled"},
+                )
+            return
+
         phase_to_pool = {
             "propose": "local",
             "critique": "team",

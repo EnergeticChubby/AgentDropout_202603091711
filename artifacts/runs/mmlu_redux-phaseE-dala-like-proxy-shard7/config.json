@@ -1,0 +1,19 @@
+{
+  "llm_name": "qwen3-8b",
+  "split": "test",
+  "num_shards": 8,
+  "shard_idx": 7,
+  "max_samples": 1,
+  "batch_size": 8,
+  "num_rounds": 1,
+  "mode": "Star",
+  "decision_method": "FinalMajorVote",
+  "agent_names": [
+    "AnalyzeAgent"
+  ],
+  "agent_nums": [
+    5
+  ],
+  "disable_memory_governance": false,
+  "run_tag": "phaseE-dala-like-proxy"
+}

@@ -1,9 +1,9 @@
 import json
 import os
 import subprocess
-from dataclasses import dataclass, asdict
+from dataclasses import dataclass
 from pathlib import Path
-from typing import Dict, List
+from typing import Dict, List, Sequence, Union
 
 
 @dataclass
@@ -16,11 +16,14 @@ class MMLURunConfig:
     num_rounds: int = 1
     mode: str = "DirectAnswer"
     decision_method: str = "FinalDirect"
-    agent_names: str = "AnalyzeAgent"
-    agent_nums: int = 1
+    agent_names: Union[str, Sequence[str]] = "AnalyzeAgent"
+    agent_nums: Union[int, Sequence[int]] = 1
+    disable_memory_governance: bool = False
 
 
 def run_mmlu_redux(config: MMLURunConfig, workspace: str = ".") -> Dict:
+    agent_names = [config.agent_names] if isinstance(config.agent_names, str) else list(config.agent_names)
+    agent_nums = [config.agent_nums] if isinstance(config.agent_nums, int) else list(config.agent_nums)
     command = [
         "python3",
         "experiments/run_mmlu_redux.py",
@@ -39,14 +42,22 @@ def run_mmlu_redux(config: MMLURunConfig, workspace: str = ".") -> Dict:
         "--decision_method",
         config.decision_method,
         "--agent_names",
-        config.agent_names,
+        *agent_names,
         "--agent_nums",
-        str(config.agent_nums),
+        *[str(num) for num in agent_nums],
         "--run_tag",
         config.run_tag,
     ]
+    if config.disable_memory_governance:
+        command.append("--disable_memory_governance")
     env = os.environ.copy()
-    process = subprocess.run(command, cwd=workspace, env=env, capture_output=True, text=True, check=True)
+    process = subprocess.run(command, cwd=workspace, env=env, capture_output=True, text=True, check=False)
+    if process.returncode != 0:
+        raise RuntimeError(
+            f"run_mmlu_redux failed for {config.run_tag} with code {process.returncode}\n"
+            f"stdout:\n{process.stdout}\n"
+            f"stderr:\n{process.stderr}"
+        )
     summary_line = process.stdout.strip().splitlines()[-1]
     payload = json.loads(summary_line)
     return payload

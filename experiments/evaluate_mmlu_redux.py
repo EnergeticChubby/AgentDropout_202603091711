@@ -33,6 +33,7 @@ def parse_args():
     parser.add_argument("--decision_method", type=str, default="FinalRefer")
     parser.add_argument("--agent_names", nargs="+", type=str, default=["AnalyzeAgent"])
     parser.add_argument("--agent_nums", nargs="+", type=int, default=[5])
+    parser.add_argument("--disable_memory_governance", action="store_true")
     parser.add_argument("--run_tag", type=str, default=None)
     return parser.parse_args()
 
@@ -141,6 +142,7 @@ async def evaluate_shard(args):
         diff=False,
         dec=False,
         phase_sequence=["propose", "critique", "verify", "aggregate"],
+        enable_memory_governance=not args.disable_memory_governance,
         **get_kwargs(args.mode, len(agent_names)),
     )
 

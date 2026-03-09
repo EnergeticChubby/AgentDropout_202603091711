@@ -6,13 +6,14 @@
   "max_samples": 1,
   "batch_size": 8,
   "num_rounds": 1,
-  "mode": "DirectAnswer",
-  "decision_method": "FinalDirect",
+  "mode": "FullConnected",
+  "decision_method": "FinalMajorVote",
   "agent_names": [
     "AnalyzeAgent"
   ],
   "agent_nums": [
-    1
+    5
   ],
+  "disable_memory_governance": false,
   "run_tag": "phaseE-topology-only"
 }

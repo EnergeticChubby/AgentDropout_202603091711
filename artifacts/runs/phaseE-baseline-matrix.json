@@ -1,46 +1,158 @@
 {
   "matrix": [
     {
-      "run_tag": "phaseE-topology-only",
+      "baseline": "topology_only",
+      "proxy_of": "Topology only（AgentDropout/AgentPrune style）",
+      "run_tag": "phaseE-matrix-topology-only",
       "config": {
-        "mode": "DirectAnswer",
-        "decision_method": "FinalDirect",
-        "agent_names": "AnalyzeAgent",
-        "agent_nums": 1,
-        "max_samples": 1
+        "mode": "FullConnected",
+        "decision_method": "FinalMajorVote",
+        "agent_names": [
+          "AnalyzeAgent"
+        ],
+        "agent_nums": [
+          5
+        ],
+        "max_samples": 1,
+        "num_rounds": 1,
+        "disable_memory_governance": false
       },
-      "accuracy": 0.875,
-      "num_samples": 8,
+      "accuracy": 1.0,
+      "num_samples": 1,
       "cost": 0.0,
-      "latency": 0.9498457908630371
+      "latency": 1.9879043102264404
     },
     {
-      "run_tag": "phaseE-summary-only",
+      "baseline": "dala_like_proxy",
+      "proxy_of": "DALA-like 发言侧策略（以 Star 拓扑中心发言作为近似代理）",
+      "run_tag": "phaseE-matrix-dala-like-proxy",
       "config": {
-        "mode": "DirectAnswer",
-        "decision_method": "FinalDirect",
-        "agent_names": "AnalyzeAgent",
-        "agent_nums": 1,
-        "max_samples": 1
+        "mode": "Star",
+        "decision_method": "FinalMajorVote",
+        "agent_names": [
+          "AnalyzeAgent"
+        ],
+        "agent_nums": [
+          5
+        ],
+        "max_samples": 1,
+        "num_rounds": 1,
+        "disable_memory_governance": false
       },
-      "accuracy": 0.875,
-      "num_samples": 8,
+      "accuracy": 1.0,
+      "num_samples": 1,
       "cost": 0.0,
-      "latency": 1.418341875076294
+      "latency": 2.023603677749634
     },
     {
-      "run_tag": "phaseE-single-strong",
+      "baseline": "summary_only",
+      "proxy_of": "Summary-only 极简基线",
+      "run_tag": "phaseE-matrix-summary-only",
       "config": {
         "mode": "DirectAnswer",
         "decision_method": "FinalDirect",
-        "agent_names": "AnalyzeAgent",
-        "agent_nums": 1,
-        "max_samples": 1
+        "agent_names": [
+          "AnalyzeAgent"
+        ],
+        "agent_nums": [
+          1
+        ],
+        "max_samples": 1,
+        "num_rounds": 1,
+        "disable_memory_governance": false
       },
-      "accuracy": 0.875,
-      "num_samples": 8,
+      "accuracy": 1.0,
+      "num_samples": 1,
       "cost": 0.0,
-      "latency": 0.9498312473297119
+      "latency": 0.6803770065307617
+    },
+    {
+      "baseline": "plain_shared_memory",
+      "proxy_of": "Plain shared memory（禁用 Commons governance）",
+      "run_tag": "phaseE-matrix-plain-memory",
+      "config": {
+        "mode": "FullConnected",
+        "decision_method": "FinalMajorVote",
+        "agent_names": [
+          "AnalyzeAgent"
+        ],
+        "agent_nums": [
+          5
+        ],
+        "max_samples": 1,
+        "num_rounds": 1,
+        "disable_memory_governance": true
+      },
+      "accuracy": 1.0,
+      "num_samples": 1,
+      "cost": 0.0,
+      "latency": 9.785087585449219
+    },
+    {
+      "baseline": "rollback_only_proxy",
+      "proxy_of": "rollback-only（以 two-round debate 近似）",
+      "run_tag": "phaseE-matrix-rollback-proxy",
+      "config": {
+        "mode": "Debate",
+        "decision_method": "FinalMajorVote",
+        "agent_names": [
+          "AnalyzeAgent"
+        ],
+        "agent_nums": [
+          5
+        ],
+        "max_samples": 1,
+        "num_rounds": 2,
+        "disable_memory_governance": false
+      },
+      "accuracy": 1.0,
+      "num_samples": 1,
+      "cost": 0.0,
+      "latency": 3.7705931663513184
+    },
+    {
+      "baseline": "naive_diversity_random_ensemble",
+      "proxy_of": "naive diversity / random ensemble",
+      "run_tag": "phaseE-matrix-random-ensemble",
+      "config": {
+        "mode": "Random",
+        "decision_method": "FinalMajorVote",
+        "agent_names": [
+          "AnalyzeAgent"
+        ],
+        "agent_nums": [
+          5
+        ],
+        "max_samples": 1,
+        "num_rounds": 1,
+        "disable_memory_governance": false
+      },
+      "accuracy": 1.0,
+      "num_samples": 1,
+      "cost": 0.0,
+      "latency": 2.6858534812927246
+    },
+    {
+      "baseline": "single_strong_model",
+      "proxy_of": "single strong model",
+      "run_tag": "phaseE-matrix-single-strong",
+      "config": {
+        "mode": "DirectAnswer",
+        "decision_method": "FinalDirect",
+        "agent_names": [
+          "AnalyzeAgent"
+        ],
+        "agent_nums": [
+          1
+        ],
+        "max_samples": 1,
+        "num_rounds": 1,
+        "disable_memory_governance": false
+      },
+      "accuracy": 1.0,
+      "num_samples": 1,
+      "cost": 0.0,
+      "latency": 0.8806767463684082
     }
   ]
 }

@@ -1,7 +1,7 @@
 {
   "llm_name": "qwen3-8b",
   "split": "test",
-  "num_shards": 8,
+  "num_shards": 1,
   "shard_idx": 0,
   "max_samples": 1,
   "batch_size": 8,
@@ -14,5 +14,6 @@
   "agent_nums": [
     1
   ],
+  "disable_memory_governance": false,
   "run_tag": "phaseE-summary-only"
 }

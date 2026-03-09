@@ -5,7 +5,7 @@
 - num_samples: 8
 - accuracy: 0.875000
 - total_correct: 7
-- elapsed_seconds_max_shard: 1.418
+- elapsed_seconds_max_shard: 1.045
 - prompt_tokens: 0.0
 - completion_tokens: 0.0
 - cost: 0.0

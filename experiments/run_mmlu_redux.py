@@ -23,6 +23,7 @@ def parse_args():
     parser.add_argument("--decision_method", type=str, default="FinalRefer")
     parser.add_argument("--agent_names", nargs="+", type=str, default=["AnalyzeAgent"])
     parser.add_argument("--agent_nums", nargs="+", type=int, default=[5])
+    parser.add_argument("--disable_memory_governance", action="store_true")
     parser.add_argument("--run_tag", type=str, default=None)
     return parser.parse_args()
 
@@ -55,6 +56,8 @@ async def run_single_shard(args, shard_idx: int):
         command.extend(["--agent_names", *args.agent_names])
     if args.agent_nums:
         command.extend(["--agent_nums", *[str(num) for num in args.agent_nums]])
+    if args.disable_memory_governance:
+        command.append("--disable_memory_governance")
 
     process = await asyncio.create_subprocess_exec(
         *command,
