@@ -1,12 +1,16 @@
 from AgentDropout.utils.globals import Cost, PromptTokens, CompletionTokens, Tokenizer, Deepseek_Tokenizer
 import tiktoken
+from typing import Callable, Optional, Dict, Any
 
 # GPT-4:  https://platform.openai.com/docs/models/gpt-4-and-gpt-4-turbo
 # GPT3.5: https://platform.openai.com/docs/models/gpt-3-5
 # DALL-E: https://openai.com/pricing
 
 def cal_token(model:str, text:str):
-    encoder = tiktoken.encoding_for_model(model)
+    try:
+        encoder = tiktoken.encoding_for_model(model)
+    except KeyError:
+        encoder = tiktoken.get_encoding("cl100k_base")
     num_tokens = len(encoder.encode(text))
     return num_tokens
 
@@ -46,6 +50,14 @@ def cost_count(prompt, response, model_name):
     Cost.instance().value += price
     PromptTokens.instance().value += prompt_len
     CompletionTokens.instance().value += completion_len
+    _dispatch_usage_event(
+        {
+            "model_name": model_name,
+            "prompt_tokens": prompt_len,
+            "completion_tokens": completion_len,
+            "price": price,
+        }
+    )
 
     # print(f"Prompt Tokens: {prompt_len}, Completion Tokens: {completion_len}")
     return price, prompt_len, completion_len
@@ -64,6 +76,14 @@ def cost_count_llama3(prompt, response, model):
     # Cost.instance().value += price
     PromptTokens.instance().value += prompt_len
     CompletionTokens.instance().value += completion_len
+    _dispatch_usage_event(
+        {
+            "model_name": model,
+            "prompt_tokens": prompt_len,
+            "completion_tokens": completion_len,
+            "price": price,
+        }
+    )
 
     # print(f"Prompt Tokens: {prompt_len}, Completion Tokens: {completion_len}")
     return price, prompt_len, completion_len
@@ -85,6 +105,14 @@ def cost_count_deepseek(prompt, response, model):
     Cost.instance().value += price
     PromptTokens.instance().value += prompt_len
     CompletionTokens.instance().value += completion_len
+    _dispatch_usage_event(
+        {
+            "model_name": model,
+            "prompt_tokens": prompt_len,
+            "completion_tokens": completion_len,
+            "price": price,
+        }
+    )
 
     # print(f"Prompt Tokens: {prompt_len}, Completion Tokens: {completion_len}")
     return price, prompt_len, completion_len
@@ -215,6 +243,23 @@ OPENAI_MODEL_INFO ={
         }
     }
 }
+
+
+_TOKEN_USAGE_HOOK: Optional[Callable[[Dict[str, Any]], None]] = None
+
+
+def set_token_usage_hook(hook: Optional[Callable[[Dict[str, Any]], None]]) -> None:
+    global _TOKEN_USAGE_HOOK
+    _TOKEN_USAGE_HOOK = hook
+
+
+def _dispatch_usage_event(payload: Dict[str, Any]) -> None:
+    if _TOKEN_USAGE_HOOK is None:
+        return
+    try:
+        _TOKEN_USAGE_HOOK(payload)
+    except Exception:
+        return
 
 
 

@@ -7,6 +7,9 @@ import asyncio
 
 from AgentDropout.graph.node import Node
 from AgentDropout.agents.agent_registry import AgentRegistry
+from AgentDropout.core.instrumentation import Instrumentation
+from AgentDropout.core.phase import PhaseScheduler
+from AgentDropout.llm.price import set_token_usage_hook
 import random
 
 class Graph(ABC):
@@ -46,6 +49,8 @@ class Graph(ABC):
                 initial_temporal_probability: float = 0.5,
                 fixed_temporal_masks:List[List[int]] = None,
                 node_kwargs:List[Dict] = None,
+                phase_sequence: Optional[List[str]] = None,
+                instrumentation_output_path: Optional[str] = None,
                 ):
         
         self.fixed_spatial_masks = torch.tensor(fixed_spatial_masks)
@@ -73,6 +78,11 @@ class Graph(ABC):
         self.node_kwargs = node_kwargs if node_kwargs is not None else [{} for _ in agent_names]
         self.diff=diff
         self.rounds=rounds
+        self.phase_scheduler = PhaseScheduler(phase_sequence)
+        self.instrumentation = Instrumentation(run_id=self.id, output_path=instrumentation_output_path)
+        self._current_phase = "init"
+        self._current_round = -1
+        set_token_usage_hook(self._on_token_usage)
         # self.dec=False
         self.dec_1=False
         self.skip_nodes = []
@@ -108,6 +118,22 @@ class Graph(ABC):
             self.spatial_logits = torch.nn.ParameterList([torch.nn.Parameter(torch.ones(len(self.potential_spatial_edges), requires_grad=optimized_spatial) * init_spatial_logit,requires_grad=optimized_spatial) for _ in range(rounds)])
             self.temporal_logits = torch.nn.ParameterList([torch.nn.Parameter(torch.ones(len(self.potential_temporal_edges), requires_grad=optimized_temporal) * init_temporal_logit,requires_grad=optimized_temporal) for _ in range(rounds-1)])
             self.temporal_masks = torch.nn.ParameterList([torch.nn.Parameter(fixed_temporal_masks.clone(), requires_grad=False) for _ in range(rounds-1)])
+
+    def _emit_event(self, event_type: str, phase: str, round_idx: Optional[int] = None, **kwargs):
+        self.instrumentation.emit(
+            event_type=event_type,
+            phase=phase,
+            round_idx=round_idx,
+            **kwargs,
+        )
+
+    def _on_token_usage(self, payload: Dict[str, Any]) -> None:
+        self._emit_event(
+            event_type="token_usage",
+            phase=self._current_phase,
+            round_idx=self._current_round,
+            metadata=payload,
+        )
         
     @property
     def spatial_adj_matrix(self):
@@ -318,9 +344,18 @@ class Graph(ABC):
                   max_time: int = 600,) -> List[Any]:
         # inputs:{'task':"xxx"}
         log_probs = 0
-        for round in range(num_rounds):
+        for round_idx in range(num_rounds):
+            phase = self.phase_scheduler.phase_at(round_idx)
+            self._current_phase = phase
+            self._current_round = round_idx
+            self._emit_event(
+                event_type="round_start",
+                phase=phase,
+                round_idx=round_idx,
+                metadata={"num_nodes": self.num_nodes, "num_edges": self.num_edges},
+            )
             log_probs += self.construct_spatial_connection()
-            log_probs += self.construct_temporal_connection(round)
+            log_probs += self.construct_temporal_connection(round_idx)
             
             in_degree = {node_id: len(node.spatial_predecessors) for node_id, node in self.nodes.items()}
             zero_in_degree_queue = [node_id for node_id, deg in in_degree.items() if deg == 0]
@@ -330,7 +365,12 @@ class Graph(ABC):
                 tries = 0
                 while tries < max_tries:
                     try:
-                        self.nodes[current_node_id].execute(inputs) # output is saved in the node.outputs
+                        self.nodes[current_node_id].execute(
+                            inputs,
+                            instrumentation=self.instrumentation,
+                            phase=phase,
+                            round_idx=round_idx,
+                        ) # output is saved in the node.outputs
                         break
                     except Exception as e:
                         print(f"Error during execution of node {current_node_id}: {e}")
@@ -338,17 +378,42 @@ class Graph(ABC):
                 for successor in self.nodes[current_node_id].spatial_successors:
                     if successor.id not in self.nodes.keys():
                         continue
+                    self._emit_event(
+                        event_type="message_send",
+                        phase=phase,
+                        round_idx=round_idx,
+                        agent_id=current_node_id,
+                        peer_id=successor.id,
+                        metadata={
+                            "edge_type": "spatial",
+                            "message_length": len(str(self.nodes[current_node_id].outputs)),
+                        },
+                    )
                     in_degree[successor.id] -= 1
                     if in_degree[successor.id] == 0:
                         zero_in_degree_queue.append(successor.id)
             
             self.update_memory()
+            self._emit_event(
+                event_type="round_end",
+                phase=phase,
+                round_idx=round_idx,
+                metadata={"num_nodes": self.num_nodes, "num_edges": self.num_edges},
+            )
             
         self.connect_decision_node()
-        self.decision_node.execute(inputs)
+        self._current_phase = "aggregate"
+        self._current_round = num_rounds
+        self.decision_node.execute(
+            inputs,
+            instrumentation=self.instrumentation,
+            phase="aggregate",
+            round_idx=num_rounds,
+        )
         final_answers = self.decision_node.outputs
         if len(final_answers) == 0:
             final_answers.append("No answer of the decision node")
+        self.instrumentation.to_jsonl()
             
         return final_answers, log_probs
 
@@ -362,14 +427,23 @@ class Graph(ABC):
         log_probs = 0
         log_probs_skip = 0
         all_answers = []
-        for round in range(num_rounds):
+        for round_idx in range(num_rounds):
+            phase = self.phase_scheduler.phase_at(round_idx)
+            self._current_phase = phase
+            self._current_round = round_idx
+            self._emit_event(
+                event_type="round_start",
+                phase=phase,
+                round_idx=round_idx,
+                metadata={"num_nodes": self.num_nodes, "num_edges": self.num_edges},
+            )
             round_answers = {}
             if not self.diff:
                 log_probs += self.construct_spatial_connection()
-                log_probs += self.construct_temporal_connection(round)
+                log_probs += self.construct_temporal_connection(round_idx)
             else:
-                log_probs += self.construct_spatial_connection_diff(round)
-                log_probs += self.construct_temporal_connection_diff(round)
+                log_probs += self.construct_spatial_connection_diff(round_idx)
+                log_probs += self.construct_temporal_connection_diff(round_idx)
             
             # print(self.num_edges)
 
@@ -381,7 +455,7 @@ class Graph(ABC):
 
             selected_index=-1
 
-            if round <= 5 and skip:
+            if round_idx <= 5 and skip:
                 # log_probs = 0
                 min_logit=100
                 min_node=None
@@ -401,16 +475,16 @@ class Graph(ABC):
                         last_id = list(self.nodes).index(last_node.id)
                         count+=1
                         # logits_count+=torch.sigmoid(t*self.spatial_logits_1[round][in_id*5+last_id])
-                        logits_count+=t*self.spatial_logits_1[round][in_id*5+last_id]
-                        loss_t+=torch.log(1-torch.sigmoid(self.spatial_logits_1[round][in_id*5+last_id]))
-                        loss_f+=torch.log(torch.sigmoid(self.spatial_logits_1[round][in_id*5+last_id]))
+                        logits_count+=t*self.spatial_logits_1[round_idx][in_id*5+last_id]
+                        loss_t+=torch.log(1-torch.sigmoid(self.spatial_logits_1[round_idx][in_id*5+last_id]))
+                        loss_f+=torch.log(torch.sigmoid(self.spatial_logits_1[round_idx][in_id*5+last_id]))
                     for last_node in node.spatial_predecessors:
                         last_id = list(self.nodes).index(last_node.id)
                         count+=1
                         # logits_count+=torch.sigmoid(t*self.spatial_logits_1[round][last_id*5+in_id])
-                        logits_count+=t*self.spatial_logits_1[round][last_id*5+in_id]
-                        loss_t+=torch.log(1-torch.sigmoid(self.spatial_logits_1[round][last_id*5+in_id]))
-                        loss_f+=torch.log(torch.sigmoid(self.spatial_logits_1[round][last_id*5+in_id]))
+                        logits_count+=t*self.spatial_logits_1[round_idx][last_id*5+in_id]
+                        loss_t+=torch.log(1-torch.sigmoid(self.spatial_logits_1[round_idx][last_id*5+in_id]))
+                        loss_f+=torch.log(torch.sigmoid(self.spatial_logits_1[round_idx][last_id*5+in_id]))
                     # for last_node in node.temporal_predecessors:
                     #     last_id = list(self.nodes).index(last_node.id)
                     #     count+=1
@@ -461,10 +535,18 @@ class Graph(ABC):
                             self.find_node(current_node_id).outputs = ['None.']
                             break
                         elif self.skip_nodes:
-                            if list(self.nodes).index(current_node_id) == self.skip_nodes[round]:
+                            if list(self.nodes).index(current_node_id) == self.skip_nodes[round_idx]:
                                 self.find_node(current_node_id).outputs = ['None.']
                                 break
-                        await asyncio.wait_for(self.nodes[current_node_id].async_execute(input),timeout=max_time) # output is saved in the node.outputs
+                        await asyncio.wait_for(
+                            self.nodes[current_node_id].async_execute(
+                                input,
+                                instrumentation=self.instrumentation,
+                                phase=phase,
+                                round_idx=round_idx,
+                            ),
+                            timeout=max_time,
+                        ) # output is saved in the node.outputs
                         # print(self.find_node(current_node_id).outputs)
                         break
                     except Exception as e:
@@ -473,6 +555,17 @@ class Graph(ABC):
                 for successor in self.nodes[current_node_id].spatial_successors:
                     if successor.id not in self.nodes.keys():
                         continue
+                    self._emit_event(
+                        event_type="message_send",
+                        phase=phase,
+                        round_idx=round_idx,
+                        agent_id=current_node_id,
+                        peer_id=successor.id,
+                        metadata={
+                            "edge_type": "spatial",
+                            "message_length": len(str(self.nodes[current_node_id].outputs)),
+                        },
+                    )
                     in_degree[successor.id] -= 1
                     if in_degree[successor.id] == 0:
                         zero_in_degree_queue.append(successor.id)
@@ -480,11 +573,24 @@ class Graph(ABC):
                 round_answers[self.nodes[node].role+str(node)] = self.nodes[node].outputs
             all_answers.append(round_answers)
             self.update_memory()
+            self._emit_event(
+                event_type="round_end",
+                phase=phase,
+                round_idx=round_idx,
+                metadata={"num_nodes": self.num_nodes, "num_edges": self.num_edges},
+            )
         
         # if self.dec_1==False:
         if len(self.potential_spatial_edges)>0:
             self.connect_decision_node()
-            await self.decision_node.async_execute(input)
+            self._current_phase = "aggregate"
+            self._current_round = num_rounds
+            await self.decision_node.async_execute(
+                input,
+                instrumentation=self.instrumentation,
+                phase="aggregate",
+                round_idx=num_rounds,
+            )
             final_answers = self.decision_node.outputs
         else:
             final_answers = list(self.nodes.values())[0].outputs
@@ -494,6 +600,7 @@ class Graph(ABC):
         # if skip:
         #     return final_answers, selected_index
         # else:
+        self.instrumentation.to_jsonl()
         if skip:
             return final_answers, log_probs_skip
         elif case:
@@ -504,6 +611,13 @@ class Graph(ABC):
     def update_memory(self):
         for id,node in self.nodes.items():
             node.update_memory()
+            self._emit_event(
+                event_type="memory_write",
+                phase=self._current_phase,
+                round_idx=self._current_round,
+                agent_id=id,
+                metadata={"output_items": len(node.outputs)},
+            )
     
     def check_cycle(self, new_node, target_nodes):
         if new_node in target_nodes:

@@ -3,6 +3,7 @@ from typing import List, Any, Optional,Dict
 from abc import ABC, abstractmethod
 import warnings
 import asyncio
+import time
 
 
 class Node(ABC):
@@ -110,7 +111,26 @@ class Node(ABC):
         self.last_memory['outputs'] = self.outputs
         self.last_memory['raw_inputs'] = self.raw_inputs
 
-    def get_spatial_info(self)->Dict[str,Dict]:
+    def _emit_event(self, instrumentation, event_type: str, phase: str, round_idx: Optional[int], **kwargs):
+        if instrumentation is None:
+            return
+        try:
+            instrumentation.emit(
+                event_type=event_type,
+                phase=phase,
+                round_idx=round_idx,
+                agent_id=self.id,
+                **kwargs,
+            )
+        except Exception:
+            return
+
+    def get_spatial_info(
+        self,
+        instrumentation=None,
+        phase: str = "unknown",
+        round_idx: Optional[int] = None,
+    ) -> Dict[str,Dict]:
         """ Return a dict that maps id to info. """
         spatial_info = {}
         if self.spatial_predecessors is not None:
@@ -123,10 +143,27 @@ class Node(ABC):
                 else:
                     predecessor_output = predecessor_outputs
                 spatial_info[predecessor.id] = {"role":predecessor.role,"output":predecessor_output}
+                self._emit_event(
+                    instrumentation,
+                    event_type="message_read",
+                    phase=phase,
+                    round_idx=round_idx,
+                    peer_id=predecessor.id,
+                    read_level=4,
+                    metadata={
+                        "edge_type": "spatial",
+                        "message_length": len(str(predecessor_output)),
+                    },
+                )
 
         return spatial_info
 
-    def get_temporal_info(self)->Dict[str,Any]:
+    def get_temporal_info(
+        self,
+        instrumentation=None,
+        phase: str = "unknown",
+        round_idx: Optional[int] = None,
+    ) -> Dict[str,Any]:
         temporal_info = {}
         if self.temporal_predecessors is not None:
             for predecessor in self.temporal_predecessors:
@@ -138,27 +175,74 @@ class Node(ABC):
                 else:
                     predecessor_output = predecessor_outputs
                 temporal_info[predecessor.id] = {"role":predecessor.role,"output":predecessor_output}
+                self._emit_event(
+                    instrumentation,
+                    event_type="message_read",
+                    phase=phase,
+                    round_idx=round_idx,
+                    peer_id=predecessor.id,
+                    read_level=4,
+                    metadata={
+                        "edge_type": "temporal",
+                        "message_length": len(str(predecessor_output)),
+                    },
+                )
         
         return temporal_info
     
     def execute(self, input:Any, **kwargs):
         self.outputs = []
-        spatial_info:Dict[str,Dict] = self.get_spatial_info()
-        temporal_info:Dict[str,Dict] = self.get_temporal_info()
+        instrumentation = kwargs.get("instrumentation")
+        phase = kwargs.get("phase", "unknown")
+        round_idx = kwargs.get("round_idx")
+        self._emit_event(instrumentation, "node_execute_start", phase, round_idx)
+        start_ts = time.perf_counter()
+        spatial_info:Dict[str,Dict] = self.get_spatial_info(
+            instrumentation=instrumentation,
+            phase=phase,
+            round_idx=round_idx,
+        )
+        temporal_info:Dict[str,Dict] = self.get_temporal_info(
+            instrumentation=instrumentation,
+            phase=phase,
+            round_idx=round_idx,
+        )
         results = [self._execute(input, spatial_info, temporal_info, **kwargs)]
 
         for result in results:
             if not isinstance(result, list):
                 result = [result]
             self.outputs.extend(result)
+        elapsed_ms = (time.perf_counter() - start_ts) * 1000
+        self._emit_event(
+            instrumentation,
+            event_type="node_execute_end",
+            phase=phase,
+            round_idx=round_idx,
+            latency_ms=elapsed_ms,
+            metadata={"output_items": len(self.outputs)},
+        )
         return self.outputs
 
 
     async def async_execute(self, input:Any, **kwargs):
 
         self.outputs = []
-        spatial_info:Dict[str,Any] = self.get_spatial_info()
-        temporal_info:Dict[str,Any] = self.get_temporal_info()
+        instrumentation = kwargs.get("instrumentation")
+        phase = kwargs.get("phase", "unknown")
+        round_idx = kwargs.get("round_idx")
+        self._emit_event(instrumentation, "node_execute_start", phase, round_idx)
+        start_ts = time.perf_counter()
+        spatial_info:Dict[str,Any] = self.get_spatial_info(
+            instrumentation=instrumentation,
+            phase=phase,
+            round_idx=round_idx,
+        )
+        temporal_info:Dict[str,Any] = self.get_temporal_info(
+            instrumentation=instrumentation,
+            phase=phase,
+            round_idx=round_idx,
+        )
         # print(temporal_info)
         tasks = [asyncio.create_task(self._async_execute(input, spatial_info, temporal_info, **kwargs))]
         results = await asyncio.gather(*tasks, return_exceptions=False)
@@ -166,6 +250,15 @@ class Node(ABC):
             if not isinstance(result, list):
                 result = [result]
             self.outputs.extend(result)
+        elapsed_ms = (time.perf_counter() - start_ts) * 1000
+        self._emit_event(
+            instrumentation,
+            event_type="node_execute_end",
+            phase=phase,
+            round_idx=round_idx,
+            latency_ms=elapsed_ms,
+            metadata={"output_items": len(self.outputs)},
+        )
         return self.outputs
                
     @abstractmethod

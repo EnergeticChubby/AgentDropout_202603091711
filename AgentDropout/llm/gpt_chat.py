@@ -15,8 +15,12 @@ from AgentDropout.llm.llm_registry import LLMRegistry
 
 
 load_dotenv()
-MINE_BASE_URL = ""
-MINE_API_KEYS = ""
+MINE_BASE_URL = os.getenv("OPENAI_BASE_URL", os.getenv("LLM_BASE_URL", ""))
+MINE_API_KEYS = os.getenv("OPENAI_API_KEY", os.getenv("LLM_API_KEY", ""))
+DEEPSEEK_BASE_URL = os.getenv("DEEPSEEK_BASE_URL", "")
+DEEPSEEK_API_KEY = os.getenv("DEEPSEEK_API_KEY", "")
+LOCAL_LLM_BASE_URL = os.getenv("LOCAL_LLM_BASE_URL", "http://localhost:6789/v1")
+LOCAL_LLM_API_KEY = os.getenv("LOCAL_LLM_API_KEY", "API-KEY")
 
 # print(MINE_BASE_URL)
 
@@ -55,7 +59,16 @@ async def achat(model: str, msg: List[Dict],):
     try:
         async with async_timeout.timeout(1000):
             completion = await aclient.chat.completions.create(model=model,messages=msg)
-        response_message = completion.choices[0].message.content
+        if isinstance(completion, str):
+            response_message = completion
+        elif isinstance(completion, dict):
+            choices = completion.get("choices", [])
+            if len(choices) > 0:
+                response_message = choices[0].get("message", {}).get("content", "")
+            else:
+                response_message = str(completion)
+        else:
+            response_message = completion.choices[0].message.content
         
         if isinstance(response_message, str):
             prompt = "".join([item['content'] for item in msg])
@@ -67,9 +80,9 @@ async def achat(model: str, msg: List[Dict],):
 
 # @retry(wait=wait_random_exponential(max=100), stop=stop_after_attempt(6))
 async def achat_deepseek(model: str, msg: List[Dict],):
-    model = ''
+    model = model or ""
     # print(1111111)
-    api_kwargs = dict(api_key = deepseek_api, base_url = deepseek_url)
+    api_kwargs = dict(api_key=DEEPSEEK_API_KEY, base_url=DEEPSEEK_BASE_URL)
     aclient = AsyncOpenAI(**api_kwargs)
     try:
         async with async_timeout.timeout(1000):
@@ -89,7 +102,7 @@ async def achat_deepseek(model: str, msg: List[Dict],):
 @retry(wait=wait_fixed(2), stop=stop_after_attempt(5))
 async def achat_llama(model: str, msg: List[Dict]):
     # print(111111111111)
-    api_kwargs = dict(api_key = "API-KEY", base_url = "http://localhost:6789/v1")
+    api_kwargs = dict(api_key=LOCAL_LLM_API_KEY, base_url=LOCAL_LLM_BASE_URL)
     aclient = AsyncOpenAI(**api_kwargs)
     try:
         async with async_timeout.timeout(1000):

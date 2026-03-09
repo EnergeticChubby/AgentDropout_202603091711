@@ -1,0 +1,22 @@
+phase: A
+name: instrumentation-phase-state-simulator
+
+goals:
+  - implement_event_instrumentation
+  - implement_phase_scheduler
+  - implement_offline_simulator
+  - establish_mmlu_redux_8shard_baseline
+
+graph_defaults:
+  mode: FullConnected
+  num_rounds: 1
+  decision_method: FinalRefer
+  agent_names: [AnalyzeAgent]
+  agent_nums: [5]
+
+benchmark:
+  dataset: edinburgh-dawg/mmlu-redux
+  split: test
+  num_shards: 8
+  max_samples_per_shard: 2
+  compare_to: phase_0_baseline
