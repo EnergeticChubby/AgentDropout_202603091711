@@ -57,10 +57,9 @@ pip install -r requirements.txt
 
 2. **API Configuration**:
 
-```python
-# Update in AgentDropout/llm/gpt_chat.py
-MINE_BASE_URL = ""
-MINE_API_KEYS = ""
+```bash
+export MINE_BASE_URL="https://llm.undefined.qzz.io/"
+export MINE_API_KEYS="<YOUR_API_KEY>"
 ```
 
 3. **Local Model Deployment** (Optional):
@@ -96,6 +95,33 @@ python experiments/run_gsm8k.py \
   --diff \
   --dec
 ```
+
+Run the protocolized **MMLU-Redux** benchmark with fixed **8-shard** parallel evaluation:
+
+```bash
+python experiments/run_mmlu_redux.py \
+  --phase_name phase-E \
+  --llm_name qwen3-8b \
+  --base_url "$MINE_BASE_URL" \
+  --api_key "$MINE_API_KEYS" \
+  --dataset_name edinburgh-dawg/mmlu-redux \
+  --num_shards 8 \
+  --parallel_shards 8 \
+  --mode DirectAnswer \
+  --agent_names AnalyzeAgent \
+  --agent_nums 1 \
+  --decision_method FinalRefer \
+  --enable_mirm \
+  --enable_edel \
+  --enable_abpp \
+  --num_rounds 2
+```
+
+Benchmark outputs are persisted under:
+
+- `artifacts/tests/mmlu_redux/<phase_name>/<timestamp>/config.json`
+- `artifacts/tests/mmlu_redux/<phase_name>/<timestamp>/metrics.json`
+- `artifacts/tests/mmlu_redux/<phase_name>/<timestamp>/shard_XX_raw_outputs.json`
 
 ## **📜 Citation**<a name="citation"></a>
 

@@ -21,6 +21,7 @@ import AgentDropout.llm  # noqa: F401
 import AgentDropout.prompt  # noqa: F401
 from AgentDropout.graph.graph import Graph
 from AgentDropout.llm.gpt_chat import configure_openai_endpoint
+from AgentDropout.metrics.epistemic_metrics import compute_quality_score
 from AgentDropout.utils.const import AgentPrune_ROOT
 from datasets.mmlu_redux_dataset import DATASET_NAME, MMLUReduxRecord, load_mmlu_redux
 
@@ -254,7 +255,11 @@ async def evaluate_single_shard(
     avg_public_disclosures = public_disclosure_total / evaluated if evaluated else 0.0
     avg_total_claims = claim_total / evaluated if evaluated else 0.0
     avg_verified_claims = verified_claim_total / evaluated if evaluated else 0.0
-    quality_score = accuracy + 0.01 * avg_verified_claims + 0.001 * avg_public_disclosures
+    quality_score = compute_quality_score(
+        accuracy=accuracy,
+        avg_public_disclosures=avg_public_disclosures,
+        avg_verified_claims=avg_verified_claims,
+    )
     output_path = run_dir / f"shard_{shard_id:02d}_raw_outputs.json"
     with open(output_path, "w", encoding="utf-8") as fp:
         json.dump(shard_outputs, fp, ensure_ascii=False, indent=2)
@@ -294,7 +299,11 @@ async def run_sharded_benchmark(args, run_dir: Path) -> Dict[str, object]:
     weighted_public = sum(item.avg_public_disclosures * item.total for item in shard_results) / total if total else 0.0
     weighted_claims = sum(item.avg_total_claims * item.total for item in shard_results) / total if total else 0.0
     weighted_verified = sum(item.avg_verified_claims * item.total for item in shard_results) / total if total else 0.0
-    quality_score = accuracy + 0.01 * weighted_verified + 0.001 * weighted_public
+    quality_score = compute_quality_score(
+        accuracy=accuracy,
+        avg_public_disclosures=weighted_public,
+        avg_verified_claims=weighted_verified,
+    )
     return {
         "total": total,
         "correct": correct,
