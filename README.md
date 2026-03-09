@@ -122,6 +122,7 @@ Benchmark outputs are persisted under:
 - `artifacts/tests/mmlu_redux/<phase_name>/<timestamp>/config.json`
 - `artifacts/tests/mmlu_redux/<phase_name>/<timestamp>/metrics.json`
 - `artifacts/tests/mmlu_redux/<phase_name>/<timestamp>/shard_XX_raw_outputs.json`
+- `artifacts/tests/mmlu_redux/<phase_name>/<timestamp>/run.log`
 
 ## **📜 Citation**<a name="citation"></a>
 

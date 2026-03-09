@@ -4,6 +4,7 @@ import copy
 import json
 import os
 import random
+import subprocess
 import sys
 import time
 from dataclasses import asdict, dataclass
@@ -33,6 +34,17 @@ def set_seed(seed: int) -> None:
     if torch.cuda.is_available():
         torch.cuda.manual_seed(seed)
         torch.cuda.manual_seed_all(seed)
+
+
+def get_git_commit_hash() -> str:
+    try:
+        return subprocess.check_output(
+            ["git", "rev-parse", "HEAD"],
+            stderr=subprocess.DEVNULL,
+            text=True,
+        ).strip()
+    except Exception:
+        return "unknown"
 
 
 @dataclass
@@ -330,13 +342,34 @@ async def main():
     config_payload = vars(args).copy()
     if "api_key" in config_payload and config_payload["api_key"]:
         config_payload["api_key"] = "<redacted>"
+    config_payload["git_commit"] = get_git_commit_hash()
     config_payload["run_dir"] = str(run_dir)
     with open(run_dir / "config.json", "w", encoding="utf-8") as fp:
         json.dump(config_payload, fp, ensure_ascii=False, indent=2)
 
+    started_at = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())
     metrics = await run_sharded_benchmark(args, run_dir)
     with open(run_dir / "metrics.json", "w", encoding="utf-8") as fp:
         json.dump(metrics, fp, ensure_ascii=False, indent=2)
+
+    finished_at = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())
+    run_log = {
+        "started_at": started_at,
+        "finished_at": finished_at,
+        "phase_name": args.phase_name,
+        "run_dir": str(run_dir),
+        "git_commit": config_payload["git_commit"],
+        "summary": {
+            "total": metrics.get("total", 0),
+            "correct": metrics.get("correct", 0),
+            "accuracy": metrics.get("accuracy", 0.0),
+            "quality_score": metrics.get("quality_score", 0.0),
+            "num_shards": args.num_shards,
+            "parallel_shards": args.parallel_shards,
+        },
+    }
+    with open(run_dir / "run.log", "w", encoding="utf-8") as fp:
+        fp.write(json.dumps(run_log, ensure_ascii=False, indent=2))
 
     print(json.dumps({"run_dir": str(run_dir), **metrics}, ensure_ascii=False, indent=2))
 
