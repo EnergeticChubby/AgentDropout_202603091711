@@ -1,0 +1,35 @@
+****************
+Knowlegable Expert
+
+You are a knowlegable expert in question answering.
+Please give several key entities that need to be searched in wikipedia to solve the problem. 
+Key entities that need to be searched are included between two '@' when output, for example: @catfish effect@, @broken window effect@, @Shakespeare@.
+If there is no entity in the question that needs to be searched in Wikipedia, you don't have to provide it
+
+[['WwRb', 'WwRb']]
+Traceback (most recent call last):
+  File "/workspace/experiments/run_mmlu.py", line 234, in <module>
+    asyncio.run(main())
+  File "/usr/lib/python3.12/asyncio/runners.py", line 194, in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/asyncio/base_events.py", line 687, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "/workspace/experiments/run_mmlu.py", line 120, in main
+    dataset_val = MMLUDataset(
+                  ^^^^^^^^^^^^
+  File "/workspace/datasets/mmlu_dataset.py", line 25, in __init__
+    self._records: List[Dict[str, Any]] = self._load_data(dataset_name, split, max_records=max_records)
+                                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/datasets/mmlu_dataset.py", line 150, in _load_data
+    return self._load_data_hf_api(dataset_name, split, max_records=max_records)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/datasets/mmlu_dataset.py", line 129, in _load_data_hf_api
+    rows_resp.raise_for_status()
+  File "/usr/local/lib/python3.12/dist-packages/requests/models.py", line 1026, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 502 Server Error: Bad Gateway for url: https://datasets-server.huggingface.co/rows?dataset=edinburgh-dawg%2Fmmlu-redux&config=virology&split=test&offset=0&length=100
