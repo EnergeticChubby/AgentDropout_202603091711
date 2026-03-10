@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773159936.4436798,
+    "run_id": "5CC3NmtVSxTB",
+    "round_idx": 0,
+    "from_node": "Lkz4",
+    "to_node": "Lkz4",
+    "contract": {
+      "contract_id": "DUmUzxcjpi",
+      "task_clause": "What is the mass of one molecule of cholesterol (C27H46O, molecular mass = 386)?\nOption A: 6.41 \u00d7 10^-22 g\nOption B: 1.5 \u00d7 10^-21 g\nOption C: 1.38 \u00d7 10^-21 g\nOption D: 3 \u00d7 10^-23 g\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 1038
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773159937.8930478,
+    "run_id": "5CC3NmtVSxTB",
+    "round_idx": 1,
+    "from_node": "Lkz4",
+    "to_node": "LTXz",
+    "contract": {
+      "contract_id": "oeCzYirKT3",
+      "task_clause": "What is the mass of one molecule of cholesterol (C27H46O, molecular mass = 386)?\nOption A: 6.41 \u00d7 10^-22 g\nOption B: 1.5 \u00d7 10^-21 g\nOption C: 1.38 \u00d7 10^-21 g\nOption D: 3 \u00d7 10^-23 g\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "You are the top decision-maker and are good at analyzing and summarizing other people's opinions, finding errors and giving final answers.",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 1
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

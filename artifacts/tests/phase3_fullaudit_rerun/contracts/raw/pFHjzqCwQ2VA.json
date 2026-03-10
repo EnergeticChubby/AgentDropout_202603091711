@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773164706.0642812,
+    "run_id": "pFHjzqCwQ2VA",
+    "round_idx": 0,
+    "from_node": "sNzf",
+    "to_node": "sNzf",
+    "contract": {
+      "contract_id": "L9LhQhp5wu",
+      "task_clause": "If there is a 70% chance that it will rain on a given day, what is the percent chance that it will NOT rain on that same day?\nOption A: 0%\nOption B: 30%\nOption C: 50%\nOption D: 70%\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 450
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773164707.661415,
+    "run_id": "pFHjzqCwQ2VA",
+    "round_idx": 1,
+    "from_node": "sNzf",
+    "to_node": "XwEK",
+    "contract": {
+      "contract_id": "nhc8pQsZ8M",
+      "task_clause": "If there is a 70% chance that it will rain on a given day, what is the percent chance that it will NOT rain on that same day?\nOption A: 0%\nOption B: 30%\nOption C: 50%\nOption D: 70%\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "You are the top decision-maker and are good at analyzing and summarizing other people's opinions, finding errors and giving final answers.",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 1
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

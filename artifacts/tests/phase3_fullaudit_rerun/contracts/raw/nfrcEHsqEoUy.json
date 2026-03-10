@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773159385.3228035,
+    "run_id": "nfrcEHsqEoUy",
+    "round_idx": 0,
+    "from_node": "HMqf",
+    "to_node": "HMqf",
+    "contract": {
+      "contract_id": "B6uXXnCRMQ",
+      "task_clause": "The equation \u0394H = \u0394U + P\u0394V is applicable\nOption A: always\nOption B: only for constant pressure processes\nOption C: only for constant temperature processes\nOption D: only for constant volume processes\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 250
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773159387.5355885,
+    "run_id": "nfrcEHsqEoUy",
+    "round_idx": 1,
+    "from_node": "HMqf",
+    "to_node": "Yjgv",
+    "contract": {
+      "contract_id": "iHMvZTx6Qu",
+      "task_clause": "The equation \u0394H = \u0394U + P\u0394V is applicable\nOption A: always\nOption B: only for constant pressure processes\nOption C: only for constant temperature processes\nOption D: only for constant volume processes\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "You are the top decision-maker and are good at analyzing and summarizing other people's opinions, finding errors and giving final answers.",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 1
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

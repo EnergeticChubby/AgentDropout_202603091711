@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773161773.905434,
+    "run_id": "hB3jR6DsfPh3",
+    "round_idx": 0,
+    "from_node": "BCxi",
+    "to_node": "BCxi",
+    "contract": {
+      "contract_id": "VqT27hSSfW",
+      "task_clause": "This question refers to the following information.\n\"We have witnessed for more than a quarter of a century the struggles of the two great political parties for power and plunder, while grievous wrongs have been inflicted upon the suffering people. We charge that the controlling influences dominating both these parties have permitted the existing dreadful conditions to develop without serious effort to prevent or restrain them. Neither do they now promise us any substantial reform. They have agreed together to ignore, in the coming campaign, every issue but one. They propose to drown the outcries of a plundered people with the uproar of a sham battle over the tariff, so that capitalists, corporations, national banks, rings, trusts, watered stock, the demonetization of silver and the oppress",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 440
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773161776.5207214,
+    "run_id": "hB3jR6DsfPh3",
+    "round_idx": 1,
+    "from_node": "BCxi",
+    "to_node": "G3BB",
+    "contract": {
+      "contract_id": "Zf4M3g2pbC",
+      "task_clause": "This question refers to the following information.\n\"We have witnessed for more than a quarter of a century the struggles of the two great political parties for power and plunder, while grievous wrongs have been inflicted upon the suffering people. We charge that the controlling influences dominating both these parties have permitted the existing dreadful conditions to develop without serious effort to prevent or restrain them. Neither do they now promise us any substantial reform. They have agreed together to ignore, in the coming campaign, every issue but one. They propose to drown the outcries of a plundered people with the uproar of a sham battle over the tariff, so that capitalists, corporations, national banks, rings, trusts, watered stock, the demonetization of silver and the oppress",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "You are the top decision-maker and are good at analyzing and summarizing other people's opinions, finding errors and giving final answers.",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 1
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773162679.7407892,
+    "run_id": "XF3XhPp7Modv",
+    "round_idx": 0,
+    "from_node": "YAJR",
+    "to_node": "YAJR",
+    "contract": {
+      "contract_id": "WoXSttmHYt",
+      "task_clause": "According to Locke, a man in the state of nature will relinquish his absolute freedom to the state because _____.\nOption A: he will also enjoy absolute freedom when subject to the state\nOption B: in the state of nature the enjoyment of his freedom is very uncertain and vulnerable\nOption C: he wants to have absolute power over others\nOption D: he rejects the laws of the state of nature\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 48
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773162681.3243773,
+    "run_id": "XF3XhPp7Modv",
+    "round_idx": 1,
+    "from_node": "YAJR",
+    "to_node": "ZMeQ",
+    "contract": {
+      "contract_id": "U5gneNmeuB",
+      "task_clause": "According to Locke, a man in the state of nature will relinquish his absolute freedom to the state because _____.\nOption A: he will also enjoy absolute freedom when subject to the state\nOption B: in the state of nature the enjoyment of his freedom is very uncertain and vulnerable\nOption C: he wants to have absolute power over others\nOption D: he rejects the laws of the state of nature\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "You are the top decision-maker and are good at analyzing and summarizing other people's opinions, finding errors and giving final answers.",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 1
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

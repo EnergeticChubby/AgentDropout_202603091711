@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773159556.6522224,
+    "run_id": "owR77UBtFkDr",
+    "round_idx": 0,
+    "from_node": "GkGG",
+    "to_node": "GkGG",
+    "contract": {
+      "contract_id": "2EYLpdojo5",
+      "task_clause": "A recent poll reported that 43% of Americans approve of the job the president is doing, with a margin of sampling error of \u00b13.2% at a 95% level of confidence. Which of these correctly interprets that margin of error?\nOption A: There is a 3.2% percent chance that the proportion of all Americans who approve of the job the president is doing is not 43%.\nOption B: There is a 95% chance that the proportion of all Americans who approve of the job the president is doing is 43%.\nOption C: About 95% of polls conducted in this way will find that between 39.8% and 46.2% of those sampled approve of the job the president is doing.\nOption D: About 95% of polls conducted in this way will give a sample proportion within 3.2 percentage points of the actual proportion of all Americans who approve of the job",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 478
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773159558.0034847,
+    "run_id": "owR77UBtFkDr",
+    "round_idx": 1,
+    "from_node": "GkGG",
+    "to_node": "mbdm",
+    "contract": {
+      "contract_id": "6jXXgpZqM6",
+      "task_clause": "A recent poll reported that 43% of Americans approve of the job the president is doing, with a margin of sampling error of \u00b13.2% at a 95% level of confidence. Which of these correctly interprets that margin of error?\nOption A: There is a 3.2% percent chance that the proportion of all Americans who approve of the job the president is doing is not 43%.\nOption B: There is a 95% chance that the proportion of all Americans who approve of the job the president is doing is 43%.\nOption C: About 95% of polls conducted in this way will find that between 39.8% and 46.2% of those sampled approve of the job the president is doing.\nOption D: About 95% of polls conducted in this way will give a sample proportion within 3.2 percentage points of the actual proportion of all Americans who approve of the job",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "You are the top decision-maker and are good at analyzing and summarizing other people's opinions, finding errors and giving final answers.",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 1
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

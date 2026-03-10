@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773164045.7057035,
+    "run_id": "7ndQjvSyFHBa",
+    "round_idx": 0,
+    "from_node": "Q8V9",
+    "to_node": "Q8V9",
+    "contract": {
+      "contract_id": "MVKCH72hHg",
+      "task_clause": "Which of the following statements is correct regarding a shareholder\u201a\u00c4\u00f4s right to inspect corporate books and records? The right\nOption A: Is absolute.\nOption B: Is conditioned upon the demanding shareholder owning at least $5000 worth of stock.\nOption C: Requires that the demand to inspect be for a proper purpose.\nOption D: Exists only when fraud or illegality is alleged.\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 709
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773164077.1716602,
+    "run_id": "7ndQjvSyFHBa",
+    "round_idx": 1,
+    "from_node": "Q8V9",
+    "to_node": "LqpF",
+    "contract": {
+      "contract_id": "Q2Xx9xxzWF",
+      "task_clause": "Which of the following statements is correct regarding a shareholder\u201a\u00c4\u00f4s right to inspect corporate books and records? The right\nOption A: Is absolute.\nOption B: Is conditioned upon the demanding shareholder owning at least $5000 worth of stock.\nOption C: Requires that the demand to inspect be for a proper purpose.\nOption D: Exists only when fraud or illegality is alleged.\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "You are the top decision-maker and are good at analyzing and summarizing other people's opinions, finding errors and giving final answers.",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 1
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773162487.0569677,
+    "run_id": "54nqjSknyZtv",
+    "round_idx": 0,
+    "from_node": "YAJR",
+    "to_node": "YAJR",
+    "contract": {
+      "contract_id": "rRsmkAbDFY",
+      "task_clause": "A girl of mass m and a boy of mass 2m are sitting on opposite sides of a see-saw with its fulcrum in the center. Right now, the boy and girl are equally far from the fulcrum, and it tilts in favor of the boy. Which of the following would NOT be a possible method to balance the see-saw?\nOption A: Move the boy to half his original distance from the fulcrum.\nOption B: Move the girl to double her original distance from the fulcrum.\nOption C: Allow a second girl of mass m to join the first.\nOption D: Move the fulcrum to half its original distance from the boy.\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 433
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773162490.0613525,
+    "run_id": "54nqjSknyZtv",
+    "round_idx": 1,
+    "from_node": "YAJR",
+    "to_node": "ZMeQ",
+    "contract": {
+      "contract_id": "jdH63e2jdP",
+      "task_clause": "A girl of mass m and a boy of mass 2m are sitting on opposite sides of a see-saw with its fulcrum in the center. Right now, the boy and girl are equally far from the fulcrum, and it tilts in favor of the boy. Which of the following would NOT be a possible method to balance the see-saw?\nOption A: Move the boy to half his original distance from the fulcrum.\nOption B: Move the girl to double her original distance from the fulcrum.\nOption C: Allow a second girl of mass m to join the first.\nOption D: Move the fulcrum to half its original distance from the boy.\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "You are the top decision-maker and are good at analyzing and summarizing other people's opinions, finding errors and giving final answers.",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 1
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

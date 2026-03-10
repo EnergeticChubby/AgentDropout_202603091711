@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773162186.8821833,
+    "run_id": "Zji9Wmv8Ruxy",
+    "round_idx": 0,
+    "from_node": "YAJR",
+    "to_node": "YAJR",
+    "contract": {
+      "contract_id": "s9kJxuRVwf",
+      "task_clause": "All of the following are example of sensory, or neural, adaptation EXCEPT:\nOption A: After putting on a shirt, you eventually no longer feel the sensation of the fabric on your back.\nOption B: After first walking into a crowded room, you no longer are distracted by the buzz of conversation around you.\nOption C: After first walking outside on a sunny day, you no longer are blinded by the initial brightness of the light.\nOption D: After first walking into an anatomy lab, you no longer notice the smell of formaldehyde.\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 89
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773162188.3458598,
+    "run_id": "Zji9Wmv8Ruxy",
+    "round_idx": 1,
+    "from_node": "YAJR",
+    "to_node": "ZMeQ",
+    "contract": {
+      "contract_id": "uMiMsQbgiN",
+      "task_clause": "All of the following are example of sensory, or neural, adaptation EXCEPT:\nOption A: After putting on a shirt, you eventually no longer feel the sensation of the fabric on your back.\nOption B: After first walking into a crowded room, you no longer are distracted by the buzz of conversation around you.\nOption C: After first walking outside on a sunny day, you no longer are blinded by the initial brightness of the light.\nOption D: After first walking into an anatomy lab, you no longer notice the smell of formaldehyde.\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "You are the top decision-maker and are good at analyzing and summarizing other people's opinions, finding errors and giving final answers.",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 1
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

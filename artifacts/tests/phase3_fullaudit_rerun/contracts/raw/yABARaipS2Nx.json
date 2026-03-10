@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773163699.8945167,
+    "run_id": "yABARaipS2Nx",
+    "round_idx": 0,
+    "from_node": "Q8V9",
+    "to_node": "Q8V9",
+    "contract": {
+      "contract_id": "qoV37kNEM3",
+      "task_clause": "This question refers to the following information.\n\"Whereas it is expedient that new provisions and regulations should be established for improving the revenue of this kingdom, and for extending and securing the navigation and commerce between Great Britain and your Majesty's dominions in America, which, by the peace, have been so happily enlarged: and whereas it is just and necessary, that a revenue be raised, in your Majesty's said dominions in America, for defraying the expenses of defending, protecting, and securing the same; we, your Majesty's most dutiful and loyal subjects, the commons of Great Britain, in parliament assembled, being desirous to make some provision, in this present session of parliament, towards raising the said revenue in America, have resolved to give and grant un",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 170
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773163701.4230652,
+    "run_id": "yABARaipS2Nx",
+    "round_idx": 1,
+    "from_node": "Q8V9",
+    "to_node": "LqpF",
+    "contract": {
+      "contract_id": "yhGtkki7YG",
+      "task_clause": "This question refers to the following information.\n\"Whereas it is expedient that new provisions and regulations should be established for improving the revenue of this kingdom, and for extending and securing the navigation and commerce between Great Britain and your Majesty's dominions in America, which, by the peace, have been so happily enlarged: and whereas it is just and necessary, that a revenue be raised, in your Majesty's said dominions in America, for defraying the expenses of defending, protecting, and securing the same; we, your Majesty's most dutiful and loyal subjects, the commons of Great Britain, in parliament assembled, being desirous to make some provision, in this present session of parliament, towards raising the said revenue in America, have resolved to give and grant un",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "You are the top decision-maker and are good at analyzing and summarizing other people's opinions, finding errors and giving final answers.",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 1
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

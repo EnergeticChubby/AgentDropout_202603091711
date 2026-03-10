@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773162433.3384893,
+    "run_id": "s5ej4os4SJ7n",
+    "round_idx": 0,
+    "from_node": "YAJR",
+    "to_node": "YAJR",
+    "contract": {
+      "contract_id": "FCgMw48QjJ",
+      "task_clause": "Which of the following will cause the aggregate demand curve to shift to the left?\nOption A: Expectations of surpluses of goods in the future\nOption B: A decrease in income taxes\nOption C: An increase in government spending\nOption D: An increase in foreign income\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 319
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773162434.7736096,
+    "run_id": "s5ej4os4SJ7n",
+    "round_idx": 1,
+    "from_node": "YAJR",
+    "to_node": "ZMeQ",
+    "contract": {
+      "contract_id": "nxyzBeLuCh",
+      "task_clause": "Which of the following will cause the aggregate demand curve to shift to the left?\nOption A: Expectations of surpluses of goods in the future\nOption B: A decrease in income taxes\nOption C: An increase in government spending\nOption D: An increase in foreign income\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "You are the top decision-maker and are good at analyzing and summarizing other people's opinions, finding errors and giving final answers.",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 1
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

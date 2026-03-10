@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773159361.6652544,
+    "run_id": "j4cFf36gaBeJ",
+    "round_idx": 0,
+    "from_node": "myNn",
+    "to_node": "myNn",
+    "contract": {
+      "contract_id": "dQ5bt83kZV",
+      "task_clause": "Which of the following conditions is characterized by the presence of kidney stones (renal calculi)?\nOption A: Glomerulonephritis\nOption B: Interstitial nephritis\nOption C: Nephrolithiasis\nOption D: Polycystic kidney\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 17
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773159363.88802,
+    "run_id": "j4cFf36gaBeJ",
+    "round_idx": 1,
+    "from_node": "myNn",
+    "to_node": "ZCxg",
+    "contract": {
+      "contract_id": "6Ph568f7jR",
+      "task_clause": "Which of the following conditions is characterized by the presence of kidney stones (renal calculi)?\nOption A: Glomerulonephritis\nOption B: Interstitial nephritis\nOption C: Nephrolithiasis\nOption D: Polycystic kidney\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "You are the top decision-maker and are good at analyzing and summarizing other people's opinions, finding errors and giving final answers.",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 1
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

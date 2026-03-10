@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773163417.2936368,
+    "run_id": "fob3B2fB8hSx",
+    "round_idx": 0,
+    "from_node": "Q8V9",
+    "to_node": "Q8V9",
+    "contract": {
+      "contract_id": "SuZcPm2DwX",
+      "task_clause": "Which one of the following is NOT an advantage of urban agriculture?\nOption A: Helping to solve the problem of solid waste disposal\nOption B: Fresh produce for sale to others\nOption C: Beautification of a dingy urban area\nOption D: Renewed or purified water supplies\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 384
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773163418.9045913,
+    "run_id": "fob3B2fB8hSx",
+    "round_idx": 1,
+    "from_node": "Q8V9",
+    "to_node": "LqpF",
+    "contract": {
+      "contract_id": "tabXUjDG9o",
+      "task_clause": "Which one of the following is NOT an advantage of urban agriculture?\nOption A: Helping to solve the problem of solid waste disposal\nOption B: Fresh produce for sale to others\nOption C: Beautification of a dingy urban area\nOption D: Renewed or purified water supplies\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "You are the top decision-maker and are good at analyzing and summarizing other people's opinions, finding errors and giving final answers.",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 1
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

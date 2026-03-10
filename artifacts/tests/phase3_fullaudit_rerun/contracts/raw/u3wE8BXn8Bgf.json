@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773160286.1897182,
+    "run_id": "u3wE8BXn8Bgf",
+    "round_idx": 0,
+    "from_node": "8dcf",
+    "to_node": "8dcf",
+    "contract": {
+      "contract_id": "nrS2N2FGcc",
+      "task_clause": "A corporation is ________ from its managers, employees, investors and customers. It therefore has _______ succession and also ________.\nOption A: Indistinguishable, Perpetual, Does not own its own assets\nOption B: Independent, Limited, Owns its own assets\nOption C: Independent, Perpetual, Owns its own assets\nOption D: Indistinguishable, Perpetual, Owns its own assets\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 379
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773160287.5501342,
+    "run_id": "u3wE8BXn8Bgf",
+    "round_idx": 1,
+    "from_node": "8dcf",
+    "to_node": "dVDK",
+    "contract": {
+      "contract_id": "dKn8VL8L7J",
+      "task_clause": "A corporation is ________ from its managers, employees, investors and customers. It therefore has _______ succession and also ________.\nOption A: Indistinguishable, Perpetual, Does not own its own assets\nOption B: Independent, Limited, Owns its own assets\nOption C: Independent, Perpetual, Owns its own assets\nOption D: Indistinguishable, Perpetual, Owns its own assets\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "You are the top decision-maker and are good at analyzing and summarizing other people's opinions, finding errors and giving final answers.",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 1
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

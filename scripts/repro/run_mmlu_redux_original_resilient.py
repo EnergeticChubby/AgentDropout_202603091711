@@ -3,7 +3,9 @@ import json
 import os
 import re
 import shutil
+import shlex
 import subprocess
+import sys
 import time
 from pathlib import Path
 from typing import Any, Dict, List, Tuple
@@ -15,6 +17,9 @@ RATE_LIMIT_PATTERN = re.compile(
 )
 SCORE_PATTERN = re.compile(r"Score:\s*([0-9]*\.?[0-9]+)")
 ACCURACY_PATTERN = re.compile(r"Accuracy:\s*[0-9.]+%\s*\((\d+)/(\d+)\)")
+WORKSPACE_ROOT = Path(__file__).resolve().parents[2]
+if str(WORKSPACE_ROOT) not in sys.path:
+    sys.path.insert(0, str(WORKSPACE_ROOT))
 
 
 def _build_cmd(args: argparse.Namespace, shard_idx: int, batch_size: int) -> List[str]:
@@ -46,6 +51,8 @@ def _build_cmd(args: argparse.Namespace, shard_idx: int, batch_size: int) -> Lis
         "--decision_method",
         args.decision_method,
     ]
+    if args.extra_args:
+        cmd.extend(shlex.split(args.extra_args))
     return cmd
 
 
@@ -272,6 +279,7 @@ def main() -> None:
     parser.add_argument("--retry_backoff_sec", type=int, default=30)
     parser.add_argument("--max_retry_backoff_sec", type=int, default=300)
     parser.add_argument("--first_pass_parallel", action="store_true")
+    parser.add_argument("--extra_args", default="")
     args = parser.parse_args()
 
     timestamp = time.strftime("%Y%m%d-%H%M%S", time.localtime())

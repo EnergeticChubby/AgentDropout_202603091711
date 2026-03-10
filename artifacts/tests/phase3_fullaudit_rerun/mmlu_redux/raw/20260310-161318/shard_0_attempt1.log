@@ -1,0 +1,170 @@
+[COMMAND] python3 experiments/run_mmlu.py --dataset_name edinburgh-dawg/mmlu-redux --num_shards 8 --shard_idx 0 --limit_questions 10000 --llm_name qwen3-8b --eval_split test --mode FullConnected --agent_names AnalyzeAgent --agent_nums 1 --num_rounds 1 --batch_size 8 --decision_method FinalRefer --enable_contracts --contract_output_dir artifacts/tests/phase3_fullaudit_rerun/contracts/raw --enable_knowledge --knowledge_output_dir artifacts/tests/phase3_fullaudit_rerun/knowledge/raw --enable_boundary --boundary_output_dir artifacts/tests/phase3_fullaudit_rerun/boundary/raw
+[START_TS] 1773159272.882157
+****************
+Knowlegable Expert
+
+You are a knowlegable expert in question answering.
+Please give several key entities that need to be searched in wikipedia to solve the problem. 
+Key entities that need to be searched are included between two '@' when output, for example: @catfish effect@, @broken window effect@, @Shakespeare@.
+If there is no entity in the question that needs to be searched in Wikipedia, you don't have to provide it
+
+[['EwFb', 'EwFb']]
+Final spatial logits:  Parameter containing:
+tensor([10.])
+Final temporal logits:  Parameter containing:
+tensor([10.])
+Final spatial masks:  Parameter containing:
+tensor([0])
+Final temporal masks:  Parameter containing:
+tensor([1])
+Final spatial sparsity: tensor(0.)
+Final temporal sparsity: tensor(1.)
+Evaluating AgentDropout on MMLUDataset split test
+  0%|          | 0/47 [00:00<?, ?it/s]  2%|▏         | 1/47 [00:06<04:55,  6.42s/it]  4%|▍         | 2/47 [00:26<11:03, 14.73s/it]  4%|▍         | 2/47 [00:53<19:59, 26.66s/it]
+--------------------------------------------------------------------------------
+Batch time 6.418
+Raw answer: ['D']
+Postprocessed answer: D
+Correct answer: D
+Accuracy: 100.0% (1/1)
+Raw answer: ['C']
+Postprocessed answer: C
+Correct answer: C
+Accuracy: 100.0% (2/2)
+Raw answer: ['C']
+Postprocessed answer: C
+Correct answer: C
+Accuracy: 100.0% (3/3)
+Raw answer: ['D']
+Postprocessed answer: D
+Correct answer: D
+Accuracy: 100.0% (4/4)
+Raw answer: ['D']
+Postprocessed answer: D
+Correct answer: D
+Accuracy: 100.0% (5/5)
+Raw answer: ['D']
+Postprocessed answer: D
+Correct answer: C
+Accuracy: 83.3% (5/6)
+Raw answer: ['C']
+Postprocessed answer: C
+Correct answer: C
+Accuracy: 85.7% (6/7)
+Raw answer: ['D']
+Postprocessed answer: D
+Correct answer: A
+Accuracy: 75.0% (6/8)
+Cost 0.0
+PromptTokens 0.0
+CompletionTokens 0.0
+--------------------------------------------------------------------------------
+Batch time 20.553
+Raw answer: ['C']
+Postprocessed answer: C
+Correct answer: C
+Accuracy: 77.8% (7/9)
+Raw answer: ['A']
+Postprocessed answer: A
+Correct answer: A
+Accuracy: 80.0% (8/10)
+Raw answer: ['D']
+Postprocessed answer: D
+Correct answer: D
+Accuracy: 81.8% (9/11)
+Raw answer: ['C']
+Postprocessed answer: C
+Correct answer: A
+Accuracy: 75.0% (9/12)
+Raw answer: ['C']
+Postprocessed answer: C
+Correct answer: C
+Accuracy: 76.9% (10/13)
+Raw answer: ['C']
+Postprocessed answer: C
+Correct answer: C
+Accuracy: 78.6% (11/14)
+Raw answer: ['B']
+Postprocessed answer: B
+Correct answer: B
+Accuracy: 80.0% (12/15)
+Raw answer: ['D']
+Postprocessed answer: D
+Correct answer: A
+Accuracy: 75.0% (12/16)
+Cost 0.0
+PromptTokens 0.0
+CompletionTokens 0.0
+--------------------------------------------------------------------------------
+Error during execution of node EwFb: RetryError[<Future at 0x7f9233620920 state=finished raised RuntimeError>]
+Error during execution of node EwFb: RetryError[<Future at 0x7f923326d100 state=finished raised RuntimeError>]
+Traceback (most recent call last):
+  File "/workspace/AgentDropout/llm/gpt_chat.py", line 106, in achat
+    completion = await aclient.chat.completions.create(model=model,messages=msg)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/.local/lib/python3.12/site-packages/openai/resources/chat/completions/completions.py", line 2714, in create
+    return await self._post(
+           ^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/.local/lib/python3.12/site-packages/openai/_base_client.py", line 1884, in post
+    return await self.request(cast_to, opts, stream=stream, stream_cls=stream_cls)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/.local/lib/python3.12/site-packages/openai/_base_client.py", line 1669, in request
+    raise self._make_status_error_from_response(err.response) from None
+openai.RateLimitError: Error code: 429
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/ubuntu/.local/lib/python3.12/site-packages/tenacity/asyncio/__init__.py", line 116, in __call__
+    result = await fn(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/AgentDropout/llm/gpt_chat.py", line 117, in achat
+    raise RuntimeError(f"Failed to complete the async chat request: {e}")
+RuntimeError: Failed to complete the async chat request: Error code: 429
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/workspace/experiments/run_mmlu.py", line 234, in <module>
+    asyncio.run(main())
+  File "/usr/lib/python3.12/asyncio/runners.py", line 194, in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/asyncio/base_events.py", line 687, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "/workspace/experiments/run_mmlu.py", line 153, in main
+    score = await evaluate(graph=graph,dataset=dataset_val,num_rounds=args.num_rounds,limit_questions=limit_questions,eval_batch_size=args.batch_size,args=args)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/experiments/evaluate_mmlu.py", line 77, in evaluate
+    raw_results = await asyncio.gather(*answer_log_probs)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/AgentDropout/graph/graph.py", line 639, in arun
+    await self.decision_node.async_execute(input)
+  File "/workspace/AgentDropout/graph/node.py", line 164, in async_execute
+    results = await asyncio.gather(*tasks, return_exceptions=False)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/AgentDropout/agents/final_decision.py", line 104, in _async_execute
+    response = await self.llm.agen(message)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/AgentDropout/llm/gpt_chat.py", line 186, in agen
+    return await achat(self.model_name,messages)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/.local/lib/python3.12/site-packages/tenacity/asyncio/__init__.py", line 193, in async_wrapped
+    return await copy(fn, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/.local/lib/python3.12/site-packages/tenacity/asyncio/__init__.py", line 112, in __call__
+    do = await self.iter(retry_state=retry_state)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/.local/lib/python3.12/site-packages/tenacity/asyncio/__init__.py", line 157, in iter
+    result = await action(retry_state)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/.local/lib/python3.12/site-packages/tenacity/_utils.py", line 111, in inner
+    return call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/.local/lib/python3.12/site-packages/tenacity/__init__.py", line 414, in exc_check
+    raise retry_exc from fut.exception()
+tenacity.RetryError: RetryError[<Future at 0x7f9233256a50 state=finished raised RuntimeError>]

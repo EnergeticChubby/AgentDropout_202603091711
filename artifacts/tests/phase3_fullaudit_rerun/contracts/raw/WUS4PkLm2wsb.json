@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773159587.0668256,
+    "run_id": "WUS4PkLm2wsb",
+    "round_idx": 0,
+    "from_node": "GkGG",
+    "to_node": "GkGG",
+    "contract": {
+      "contract_id": "PKayQX8pqW",
+      "task_clause": "Which of the following describes the fallacy of false consolation?\nOption A: arguing against a position based only on negative personal feelings toward the position\nOption B: responding to charges of wrongdoing by saying others do things as bad or worse\nOption C: arguing that someone is not really harmed because things could be worse or by pointing out what they have to be thankful for\nOption D: using threats of harm instead of reasoning to get agreement\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 30
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773159588.4175427,
+    "run_id": "WUS4PkLm2wsb",
+    "round_idx": 1,
+    "from_node": "GkGG",
+    "to_node": "mbdm",
+    "contract": {
+      "contract_id": "WJPeMhRhv2",
+      "task_clause": "Which of the following describes the fallacy of false consolation?\nOption A: arguing against a position based only on negative personal feelings toward the position\nOption B: responding to charges of wrongdoing by saying others do things as bad or worse\nOption C: arguing that someone is not really harmed because things could be worse or by pointing out what they have to be thankful for\nOption D: using threats of harm instead of reasoning to get agreement\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "You are the top decision-maker and are good at analyzing and summarizing other people's opinions, finding errors and giving final answers.",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 1
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773159979.283089,
+    "run_id": "JjBM6Pr3bCbF",
+    "round_idx": 0,
+    "from_node": "Lkz4",
+    "to_node": "Lkz4",
+    "contract": {
+      "contract_id": "3bXk944v3K",
+      "task_clause": "Which of the following would be included in U.S. GDP calculations?\nOption A: An auto mechanic fixing his dentist\u2019s car for a filling\nOption B: A stay-at-home dad providing childcare for his children\nOption C: A worker donating $200 to the Red Cross\nOption D: High school students spending their Saturdays building homes for the homeless\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 41
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773159980.730669,
+    "run_id": "JjBM6Pr3bCbF",
+    "round_idx": 1,
+    "from_node": "Lkz4",
+    "to_node": "LTXz",
+    "contract": {
+      "contract_id": "gjWLKW9Di3",
+      "task_clause": "Which of the following would be included in U.S. GDP calculations?\nOption A: An auto mechanic fixing his dentist\u2019s car for a filling\nOption B: A stay-at-home dad providing childcare for his children\nOption C: A worker donating $200 to the Red Cross\nOption D: High school students spending their Saturdays building homes for the homeless\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "You are the top decision-maker and are good at analyzing and summarizing other people's opinions, finding errors and giving final answers.",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 1
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

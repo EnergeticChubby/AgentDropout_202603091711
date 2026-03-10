@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773159573.1357086,
+    "run_id": "4yLfrujUWwhj",
+    "round_idx": 0,
+    "from_node": "GkGG",
+    "to_node": "GkGG",
+    "contract": {
+      "contract_id": "BZReoZKfgw",
+      "task_clause": "This question refers to the following information.\n\"Wherever I go\u2014the street, the shop, the house, or the steamboat\u2014I hear the people talk in such a way as to indicate that they are yet unable to conceive of the Negro as possessing any rights at all. Men who are honorable in their dealings with their white neighbors will cheat a Negro without feeling a single twinge of their honor. To kill a Negro they do not deem murder; to debauch a Negro woman they do not think fornication; to take the property away from a Negro they do not consider robbery. The people boast that when they get freedmen affairs in their own hands, to use their own classic expression, 'the niggers will catch hell.'\n\"The reason of all this is simple and manifest. The whites esteem the blacks their property by natural right",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 1542
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773159574.507105,
+    "run_id": "4yLfrujUWwhj",
+    "round_idx": 1,
+    "from_node": "GkGG",
+    "to_node": "mbdm",
+    "contract": {
+      "contract_id": "Gd8fkAD32A",
+      "task_clause": "This question refers to the following information.\n\"Wherever I go\u2014the street, the shop, the house, or the steamboat\u2014I hear the people talk in such a way as to indicate that they are yet unable to conceive of the Negro as possessing any rights at all. Men who are honorable in their dealings with their white neighbors will cheat a Negro without feeling a single twinge of their honor. To kill a Negro they do not deem murder; to debauch a Negro woman they do not think fornication; to take the property away from a Negro they do not consider robbery. The people boast that when they get freedmen affairs in their own hands, to use their own classic expression, 'the niggers will catch hell.'\n\"The reason of all this is simple and manifest. The whites esteem the blacks their property by natural right",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "You are the top decision-maker and are good at analyzing and summarizing other people's opinions, finding errors and giving final answers.",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 1
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

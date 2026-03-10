@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773162567.9971597,
+    "run_id": "CBudHUVN2BPm",
+    "round_idx": 0,
+    "from_node": "YAJR",
+    "to_node": "YAJR",
+    "contract": {
+      "contract_id": "8UxRMdjLn2",
+      "task_clause": "This question refers to the following information.\n\"On the 4th of March next this party [the Republican party] will take possession of the government. It has announced that the South shall be excluded from the common territory, that the judicial tribunal shall be made sectional, and that a war must be waged against slavery until it shall cease throughout the United States. The guarantees of the Constitution will then no longer exist; the equal rights of the states will be lost. The slaveholding states will no longer have the power of self-government or self-protection, and the federal government will have become their enemy.\n\"We, therefore, the people of South Carolina, by our delegates in convention assembled, have solemnly declared that the Union heretofore existing between this state an",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 872
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773162569.36603,
+    "run_id": "CBudHUVN2BPm",
+    "round_idx": 1,
+    "from_node": "YAJR",
+    "to_node": "ZMeQ",
+    "contract": {
+      "contract_id": "bEqunqnJSn",
+      "task_clause": "This question refers to the following information.\n\"On the 4th of March next this party [the Republican party] will take possession of the government. It has announced that the South shall be excluded from the common territory, that the judicial tribunal shall be made sectional, and that a war must be waged against slavery until it shall cease throughout the United States. The guarantees of the Constitution will then no longer exist; the equal rights of the states will be lost. The slaveholding states will no longer have the power of self-government or self-protection, and the federal government will have become their enemy.\n\"We, therefore, the people of South Carolina, by our delegates in convention assembled, have solemnly declared that the Union heretofore existing between this state an",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "You are the top decision-maker and are good at analyzing and summarizing other people's opinions, finding errors and giving final answers.",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 1
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

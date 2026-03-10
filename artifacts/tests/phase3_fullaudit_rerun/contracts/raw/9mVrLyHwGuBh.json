@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773164512.7913725,
+    "run_id": "9mVrLyHwGuBh",
+    "round_idx": 0,
+    "from_node": "sNzf",
+    "to_node": "sNzf",
+    "contract": {
+      "contract_id": "SKgqYXMt8s",
+      "task_clause": "Let f(x, y) = x^3 + y^3 + 3xy for all real x and y. Then there exist distinct points P and Q such that f has a\nOption A: local maximum at P and at Q\nOption B: saddle point at P and at Q\nOption C: local maximum at P and a saddle point at Q\nOption D: local minimum at P and a saddle point at Q\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 503
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773164514.814373,
+    "run_id": "9mVrLyHwGuBh",
+    "round_idx": 1,
+    "from_node": "sNzf",
+    "to_node": "XwEK",
+    "contract": {
+      "contract_id": "CA5izXC6Nq",
+      "task_clause": "Let f(x, y) = x^3 + y^3 + 3xy for all real x and y. Then there exist distinct points P and Q such that f has a\nOption A: local maximum at P and at Q\nOption B: saddle point at P and at Q\nOption C: local maximum at P and a saddle point at Q\nOption D: local minimum at P and a saddle point at Q\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "You are the top decision-maker and are good at analyzing and summarizing other people's opinions, finding errors and giving final answers.",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 1
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

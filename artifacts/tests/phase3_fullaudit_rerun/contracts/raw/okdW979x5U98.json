@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773164451.4921944,
+    "run_id": "okdW979x5U98",
+    "round_idx": 0,
+    "from_node": "sNzf",
+    "to_node": "sNzf",
+    "contract": {
+      "contract_id": "2qNQMApLBP",
+      "task_clause": "Which one sentence explains most accurately why spin trapping is often used to detect free radical intermediates?\nOption A: spin trapping provides more structural information than direct detection by EPR\nOption B: spin trapping makes it easy to quantify free radical intermediates\nOption C: steady state concentration of free radical intermediates is often too low to enable direct detection by EPR\nOption D: detection of spin adducts requires lower power than direct detection of radical intermediates\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 68
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773164453.5478778,
+    "run_id": "okdW979x5U98",
+    "round_idx": 1,
+    "from_node": "sNzf",
+    "to_node": "XwEK",
+    "contract": {
+      "contract_id": "oJwuswLPoF",
+      "task_clause": "Which one sentence explains most accurately why spin trapping is often used to detect free radical intermediates?\nOption A: spin trapping provides more structural information than direct detection by EPR\nOption B: spin trapping makes it easy to quantify free radical intermediates\nOption C: steady state concentration of free radical intermediates is often too low to enable direct detection by EPR\nOption D: detection of spin adducts requires lower power than direct detection of radical intermediates\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "You are the top decision-maker and are good at analyzing and summarizing other people's opinions, finding errors and giving final answers.",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 1
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

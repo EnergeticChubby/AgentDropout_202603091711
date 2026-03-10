@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773163598.3403575,
+    "run_id": "dZgA2jCRnNxK",
+    "round_idx": 0,
+    "from_node": "Q8V9",
+    "to_node": "Q8V9",
+    "contract": {
+      "contract_id": "KmguupojCH",
+      "task_clause": "The distribution of salaries of a county school system with 4,752 employees is known to be right skewed, with the superintendent\u2019s salary an outlier on the higher side. A random sample of 20 employees was taken and their salaries recorded. A 95 percent t-confidence interval for the mean salary of the county school system employees is ($15,360, $32,470). The t-confidence interval is not appropriate in this situation because\nOption A: the sample size is too small compared to the number of employees in the system to give a fair representation\nOption B: the skewed salary distribution tells us that assumption of normality of the sampled population will not be satisfied\nOption C: the population standard deviation of the salaries of employees of this county school system is not known\nOption D: th",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 284
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773163600.2054102,
+    "run_id": "dZgA2jCRnNxK",
+    "round_idx": 1,
+    "from_node": "Q8V9",
+    "to_node": "LqpF",
+    "contract": {
+      "contract_id": "teRbiMazSL",
+      "task_clause": "The distribution of salaries of a county school system with 4,752 employees is known to be right skewed, with the superintendent\u2019s salary an outlier on the higher side. A random sample of 20 employees was taken and their salaries recorded. A 95 percent t-confidence interval for the mean salary of the county school system employees is ($15,360, $32,470). The t-confidence interval is not appropriate in this situation because\nOption A: the sample size is too small compared to the number of employees in the system to give a fair representation\nOption B: the skewed salary distribution tells us that assumption of normality of the sampled population will not be satisfied\nOption C: the population standard deviation of the salaries of employees of this county school system is not known\nOption D: th",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "You are the top decision-maker and are good at analyzing and summarizing other people's opinions, finding errors and giving final answers.",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 1
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773161503.575887,
+    "run_id": "qR5ZVNckqSQR",
+    "round_idx": 0,
+    "from_node": "BCxi",
+    "to_node": "BCxi",
+    "contract": {
+      "contract_id": "NKqBMi9V3x",
+      "task_clause": "The sarcoplasmic reticulum in muscle cells acts as a:\nOption A: store of digestive enzymes.\nOption B: store of sodium ions.\nOption C: store of lipid.\nOption D: store of calcium ions.\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 56
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773161505.078597,
+    "run_id": "qR5ZVNckqSQR",
+    "round_idx": 1,
+    "from_node": "BCxi",
+    "to_node": "G3BB",
+    "contract": {
+      "contract_id": "W5DWrPK8RY",
+      "task_clause": "The sarcoplasmic reticulum in muscle cells acts as a:\nOption A: store of digestive enzymes.\nOption B: store of sodium ions.\nOption C: store of lipid.\nOption D: store of calcium ions.\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "You are the top decision-maker and are good at analyzing and summarizing other people's opinions, finding errors and giving final answers.",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 1
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

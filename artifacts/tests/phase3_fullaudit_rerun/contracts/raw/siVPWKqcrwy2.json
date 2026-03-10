@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773164652.6145236,
+    "run_id": "siVPWKqcrwy2",
+    "round_idx": 0,
+    "from_node": "sNzf",
+    "to_node": "sNzf",
+    "contract": {
+      "contract_id": "Cb2QbjVyeu",
+      "task_clause": "Which would be the easiest way to burn an iron nail?\nOption A: Hold an iron nail with crucible tongs, and heat strongly in the flame of a Bunsen burner.\nOption B: Use the method in (A), but use an oxyacetylene torch to reach a higher temperature.\nOption C: Grind the nail into very small, dust-sized particles, and spray them into a flame\nOption D: Dissolve the nail in acid to make the oxide.\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 159
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773164654.2399666,
+    "run_id": "siVPWKqcrwy2",
+    "round_idx": 1,
+    "from_node": "sNzf",
+    "to_node": "XwEK",
+    "contract": {
+      "contract_id": "yGgMRE8KAX",
+      "task_clause": "Which would be the easiest way to burn an iron nail?\nOption A: Hold an iron nail with crucible tongs, and heat strongly in the flame of a Bunsen burner.\nOption B: Use the method in (A), but use an oxyacetylene torch to reach a higher temperature.\nOption C: Grind the nail into very small, dust-sized particles, and spray them into a flame\nOption D: Dissolve the nail in acid to make the oxide.\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "You are the top decision-maker and are good at analyzing and summarizing other people's opinions, finding errors and giving final answers.",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 1
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

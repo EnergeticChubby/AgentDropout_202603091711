@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773161475.772509,
+    "run_id": "WaRUAf24aaKV",
+    "round_idx": 0,
+    "from_node": "BCxi",
+    "to_node": "BCxi",
+    "contract": {
+      "contract_id": "p5yPLsm8FL",
+      "task_clause": "Which of the following sorting algorithms has average-case and worst-case running times of O(n log n)?\nOption A: Bubble sort\nOption B: Insertion sort\nOption C: Merge sort\nOption D: Quicksort\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 321
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773161477.279974,
+    "run_id": "WaRUAf24aaKV",
+    "round_idx": 1,
+    "from_node": "BCxi",
+    "to_node": "G3BB",
+    "contract": {
+      "contract_id": "uzMDGVGnS2",
+      "task_clause": "Which of the following sorting algorithms has average-case and worst-case running times of O(n log n)?\nOption A: Bubble sort\nOption B: Insertion sort\nOption C: Merge sort\nOption D: Quicksort\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "You are the top decision-maker and are good at analyzing and summarizing other people's opinions, finding errors and giving final answers.",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 1
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773159379.4114892,
+    "run_id": "4fXmyrAAxNNX",
+    "round_idx": 0,
+    "from_node": "myNn",
+    "to_node": "myNn",
+    "contract": {
+      "contract_id": "zA2sSaAhNM",
+      "task_clause": "What are the three differing types of stakeholder theory according to Donaldson and Preston (1995)?\nOption A: Normative, Descriptive and Economic\nOption B: Normative, Moral and Instrumental\nOption C: Political, Descriptive and Instrumental\nOption D: Normative, Descriptive and Instrumental\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 151
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773159395.7786646,
+    "run_id": "4fXmyrAAxNNX",
+    "round_idx": 1,
+    "from_node": "myNn",
+    "to_node": "ZCxg",
+    "contract": {
+      "contract_id": "oN9v5wfLcJ",
+      "task_clause": "What are the three differing types of stakeholder theory according to Donaldson and Preston (1995)?\nOption A: Normative, Descriptive and Economic\nOption B: Normative, Moral and Instrumental\nOption C: Political, Descriptive and Instrumental\nOption D: Normative, Descriptive and Instrumental\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "You are the top decision-maker and are good at analyzing and summarizing other people's opinions, finding errors and giving final answers.",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 1
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

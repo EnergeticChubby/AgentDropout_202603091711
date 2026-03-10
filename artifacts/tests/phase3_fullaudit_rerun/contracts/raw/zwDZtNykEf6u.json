@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773159441.2288175,
+    "run_id": "zwDZtNykEf6u",
+    "round_idx": 0,
+    "from_node": "GkGG",
+    "to_node": "GkGG",
+    "contract": {
+      "contract_id": "PVfkbSLufo",
+      "task_clause": "In response to period of extreme psychological trauma, a patient begins experiencing a feeling of detachment. He says, \u201cI felt like it wasn\u2019t real while it was happening. I was just watching myself do it without any control. I mean, you know, I knew it was happening but I didn\u2019t feel like it was.\u201d The patient is describing:\nOption A: Dissociative identity disorder\nOption B: An anxiety disorder\nOption C: Depersonalization disorder\nOption D: A schizophrenic episode\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 28
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773159442.6734247,
+    "run_id": "zwDZtNykEf6u",
+    "round_idx": 1,
+    "from_node": "GkGG",
+    "to_node": "mbdm",
+    "contract": {
+      "contract_id": "834nAkbBiw",
+      "task_clause": "In response to period of extreme psychological trauma, a patient begins experiencing a feeling of detachment. He says, \u201cI felt like it wasn\u2019t real while it was happening. I was just watching myself do it without any control. I mean, you know, I knew it was happening but I didn\u2019t feel like it was.\u201d The patient is describing:\nOption A: Dissociative identity disorder\nOption B: An anxiety disorder\nOption C: Depersonalization disorder\nOption D: A schizophrenic episode\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "You are the top decision-maker and are good at analyzing and summarizing other people's opinions, finding errors and giving final answers.",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 1
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

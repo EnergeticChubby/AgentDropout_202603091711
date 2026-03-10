@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773160016.2253532,
+    "run_id": "DQd4D7x3AEUa",
+    "round_idx": 0,
+    "from_node": "Lkz4",
+    "to_node": "Lkz4",
+    "contract": {
+      "contract_id": "LUPamp4F4W",
+      "task_clause": "A 2 \u03bcF capacitor is connected directly to a battery. When the capacitor is fully charged, it stores 600 \u03bcC of charge. An experimenter replaces the 2 \u03bcF capacitor with three 18 \u03bcF capacitors in series connected to the same battery. Once the capacitors are fully charged, what charge is stored on each capacitor?\nOption A: 100 \u03bcC\nOption B: 200 \u03bcC\nOption C: 600 \u03bcC\nOption D: 1800 \u03bcC\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 366
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773160017.735602,
+    "run_id": "DQd4D7x3AEUa",
+    "round_idx": 1,
+    "from_node": "Lkz4",
+    "to_node": "LTXz",
+    "contract": {
+      "contract_id": "UmzqYGryik",
+      "task_clause": "A 2 \u03bcF capacitor is connected directly to a battery. When the capacitor is fully charged, it stores 600 \u03bcC of charge. An experimenter replaces the 2 \u03bcF capacitor with three 18 \u03bcF capacitors in series connected to the same battery. Once the capacitors are fully charged, what charge is stored on each capacitor?\nOption A: 100 \u03bcC\nOption B: 200 \u03bcC\nOption C: 600 \u03bcC\nOption D: 1800 \u03bcC\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "You are the top decision-maker and are good at analyzing and summarizing other people's opinions, finding errors and giving final answers.",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 1
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

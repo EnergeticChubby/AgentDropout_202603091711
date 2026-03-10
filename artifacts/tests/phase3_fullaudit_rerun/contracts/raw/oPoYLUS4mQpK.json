@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773159380.374266,
+    "run_id": "oPoYLUS4mQpK",
+    "round_idx": 0,
+    "from_node": "myNn",
+    "to_node": "myNn",
+    "contract": {
+      "contract_id": "5PHbVah65e",
+      "task_clause": "Which of the following is true about an abdominal mass?\nOption A: A pulsatile mass is always due to an aortic aneurysm\nOption B: An enlarged kidney is dull to percussion\nOption C: A large mass arising out of the pelvis which disappears following urethral catheterization is caused by an ovarian cyst\nOption D: An indentible mass is caused by faecal loading of the colon\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 373
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773159382.1289935,
+    "run_id": "oPoYLUS4mQpK",
+    "round_idx": 1,
+    "from_node": "myNn",
+    "to_node": "ZCxg",
+    "contract": {
+      "contract_id": "NtUcZhj7tv",
+      "task_clause": "Which of the following is true about an abdominal mass?\nOption A: A pulsatile mass is always due to an aortic aneurysm\nOption B: An enlarged kidney is dull to percussion\nOption C: A large mass arising out of the pelvis which disappears following urethral catheterization is caused by an ovarian cyst\nOption D: An indentible mass is caused by faecal loading of the colon\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "You are the top decision-maker and are good at analyzing and summarizing other people's opinions, finding errors and giving final answers.",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 1
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773159637.3181007,
+    "run_id": "ZjuqLcotZ7JK",
+    "round_idx": 0,
+    "from_node": "GkGG",
+    "to_node": "GkGG",
+    "contract": {
+      "contract_id": "5jw4EUTbQy",
+      "task_clause": "According to usual practice, a long-time regular customer left her car at an auto mechanic's shop with written instructions to \"check and tune up the engine; make sure the brakes are good and working; examine the tires; also, check and repair all major systems because I am driving cross country next week.\" She did not see the mechanic or discuss with him the price or other details. When she picked up the car, there was a bill for $5,000 on the dash board. All of the services and parts were workmanlike, not defective and pertained to the areas in the instructions. She refused to pay, claiming that there was no agreement and that the mechanic should have called for advance approval. Can she be held responsible for contractual services performed?\nOption A: No, because there is always an impli",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 66
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773159638.8374765,
+    "run_id": "ZjuqLcotZ7JK",
+    "round_idx": 1,
+    "from_node": "GkGG",
+    "to_node": "mbdm",
+    "contract": {
+      "contract_id": "N9pBsgMdv6",
+      "task_clause": "According to usual practice, a long-time regular customer left her car at an auto mechanic's shop with written instructions to \"check and tune up the engine; make sure the brakes are good and working; examine the tires; also, check and repair all major systems because I am driving cross country next week.\" She did not see the mechanic or discuss with him the price or other details. When she picked up the car, there was a bill for $5,000 on the dash board. All of the services and parts were workmanlike, not defective and pertained to the areas in the instructions. She refused to pay, claiming that there was no agreement and that the mechanic should have called for advance approval. Can she be held responsible for contractual services performed?\nOption A: No, because there is always an impli",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "You are the top decision-maker and are good at analyzing and summarizing other people's opinions, finding errors and giving final answers.",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 1
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

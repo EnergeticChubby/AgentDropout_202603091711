@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773159316.0912895,
+    "run_id": "JSjtDmcSa2tC",
+    "round_idx": 0,
+    "from_node": "77Rp",
+    "to_node": "77Rp",
+    "contract": {
+      "contract_id": "YNLM5GBRXL",
+      "task_clause": "Why do scientists think Mars was once warmer and wetter?\nOption A: Mars shows evidence of significant volcanism which implies that the climate was once warmer and therefore wetter\nOption B: early observations showed what appeared to be changing vegetation patterns and canals indicating the presence of water\nOption C: there are many geologic features on Mars that are difficult to explain unless liquid water was once stable at the surface\nOption D: all planets tend to begin with warm wet climates and gradually become cold and dry with smaller planets cooling faster than larger planets\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 256
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773159319.4541893,
+    "run_id": "JSjtDmcSa2tC",
+    "round_idx": 1,
+    "from_node": "77Rp",
+    "to_node": "wQ7r",
+    "contract": {
+      "contract_id": "449Uu4RFJs",
+      "task_clause": "Why do scientists think Mars was once warmer and wetter?\nOption A: Mars shows evidence of significant volcanism which implies that the climate was once warmer and therefore wetter\nOption B: early observations showed what appeared to be changing vegetation patterns and canals indicating the presence of water\nOption C: there are many geologic features on Mars that are difficult to explain unless liquid water was once stable at the surface\nOption D: all planets tend to begin with warm wet climates and gradually become cold and dry with smaller planets cooling faster than larger planets\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "You are the top decision-maker and are good at analyzing and summarizing other people's opinions, finding errors and giving final answers.",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 1
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

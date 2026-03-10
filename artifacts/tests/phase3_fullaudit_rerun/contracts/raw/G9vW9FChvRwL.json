@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773159637.168951,
+    "run_id": "G9vW9FChvRwL",
+    "round_idx": 0,
+    "from_node": "GkGG",
+    "to_node": "GkGG",
+    "contract": {
+      "contract_id": "bqrPkbbEp2",
+      "task_clause": "A man was prosecuted for assault and battery after he admitted striking a victim with a pool cue during a barroom argument. The man claimed that he acted in self-defense after he was attacked by the victim, who was drunk and belligerent. As his first defense witness, the man calls his neighbor to testify that the man is a good neighbor. The neighbor's testimony is\nOption A: admissible, because it is relevant to show the improbability of the man's having committed an unprovoked attack.\nOption B: admissible, because it is relevant to support the man's credibility.\nOption C: inadmissible, because it is merely the opinion of a character witness.\nOption D: inadmissible, because it is not directed toward a pertinent trait of the man's character.\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 64
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773159638.5425894,
+    "run_id": "G9vW9FChvRwL",
+    "round_idx": 1,
+    "from_node": "GkGG",
+    "to_node": "mbdm",
+    "contract": {
+      "contract_id": "qWMwGtu8Sh",
+      "task_clause": "A man was prosecuted for assault and battery after he admitted striking a victim with a pool cue during a barroom argument. The man claimed that he acted in self-defense after he was attacked by the victim, who was drunk and belligerent. As his first defense witness, the man calls his neighbor to testify that the man is a good neighbor. The neighbor's testimony is\nOption A: admissible, because it is relevant to show the improbability of the man's having committed an unprovoked attack.\nOption B: admissible, because it is relevant to support the man's credibility.\nOption C: inadmissible, because it is merely the opinion of a character witness.\nOption D: inadmissible, because it is not directed toward a pertinent trait of the man's character.\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "You are the top decision-maker and are good at analyzing and summarizing other people's opinions, finding errors and giving final answers.",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 1
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

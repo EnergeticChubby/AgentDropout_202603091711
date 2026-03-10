@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773163506.1142664,
+    "run_id": "RunVaX5hVzKX",
+    "round_idx": 0,
+    "from_node": "Q8V9",
+    "to_node": "Q8V9",
+    "contract": {
+      "contract_id": "F8cdEArWic",
+      "task_clause": "Expansionary monetary policy is designed to\nOption A: decrease the interest rate increase private investment increase aggregate demand and increase domestic output.\nOption B: decrease the interest rate increase private investment increase aggregate demand and increase the unemployment rate.\nOption C: increase the interest rate increase private investment increase aggregate demand and increase domestic output.\nOption D: increase the interest rate decrease private investment increase aggregate demand and increase domestic output.\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 440
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773163507.638791,
+    "run_id": "RunVaX5hVzKX",
+    "round_idx": 1,
+    "from_node": "Q8V9",
+    "to_node": "LqpF",
+    "contract": {
+      "contract_id": "eiwPypEmdx",
+      "task_clause": "Expansionary monetary policy is designed to\nOption A: decrease the interest rate increase private investment increase aggregate demand and increase domestic output.\nOption B: decrease the interest rate increase private investment increase aggregate demand and increase the unemployment rate.\nOption C: increase the interest rate increase private investment increase aggregate demand and increase domestic output.\nOption D: increase the interest rate decrease private investment increase aggregate demand and increase domestic output.\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "You are the top decision-maker and are good at analyzing and summarizing other people's opinions, finding errors and giving final answers.",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 1
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

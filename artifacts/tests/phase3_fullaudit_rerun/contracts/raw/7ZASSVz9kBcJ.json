@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773161920.6095335,
+    "run_id": "7ZASSVz9kBcJ",
+    "round_idx": 0,
+    "from_node": "BCxi",
+    "to_node": "BCxi",
+    "contract": {
+      "contract_id": "zXPHq7vGNq",
+      "task_clause": "A surgeon operated on a patient in an operating room in the Marina General Hospital. The surgeon was assisted by an intern, who was assigned to the operation by the hospital, and a nurse, who was on the staff of the hospital. During the patient's convalescence, the patient complained of pain not explicable as an ordinary post-operative symptom. On investigation, it turned out that the intern and nurse, who had worked together in bandaging him, had done so in such a way as to constrict certain blood vessels. The faulty bandaging had caused acute pain and retarded the patient's recovery. After the patient's eventual recovery, he sued the intern, claiming $20,000 in damages. Before the case went to trial, the patient and intern agreed to a settlement in which the intern paid the patient $12,0",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 355
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773161922.025305,
+    "run_id": "7ZASSVz9kBcJ",
+    "round_idx": 1,
+    "from_node": "BCxi",
+    "to_node": "G3BB",
+    "contract": {
+      "contract_id": "faAca2tpth",
+      "task_clause": "A surgeon operated on a patient in an operating room in the Marina General Hospital. The surgeon was assisted by an intern, who was assigned to the operation by the hospital, and a nurse, who was on the staff of the hospital. During the patient's convalescence, the patient complained of pain not explicable as an ordinary post-operative symptom. On investigation, it turned out that the intern and nurse, who had worked together in bandaging him, had done so in such a way as to constrict certain blood vessels. The faulty bandaging had caused acute pain and retarded the patient's recovery. After the patient's eventual recovery, he sued the intern, claiming $20,000 in damages. Before the case went to trial, the patient and intern agreed to a settlement in which the intern paid the patient $12,0",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "You are the top decision-maker and are good at analyzing and summarizing other people's opinions, finding errors and giving final answers.",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 1
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

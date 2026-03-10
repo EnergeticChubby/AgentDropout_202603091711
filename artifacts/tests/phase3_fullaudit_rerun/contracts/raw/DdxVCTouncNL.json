@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773163398.4066093,
+    "run_id": "DdxVCTouncNL",
+    "round_idx": 0,
+    "from_node": "Q8V9",
+    "to_node": "Q8V9",
+    "contract": {
+      "contract_id": "UUWGUnv6HV",
+      "task_clause": "SO2Cl2 \u2192 SO2(g) + Cl2(g) At 600 K, SO2Cl2 will decompose to form sulfur dioxide and chlorine gas via the above equation. If the reaction is found to be first order overall, which of the following will cause an increase in the half life of SO2Cl2?\nOption A: Increasing the initial concentration of SO2Cl2\nOption B: Increasing the temperature at which the reaction occurs\nOption C: Decreasing the overall pressure in the container\nOption D: None of these will increase the half life\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 69
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773163400.3074222,
+    "run_id": "DdxVCTouncNL",
+    "round_idx": 1,
+    "from_node": "Q8V9",
+    "to_node": "LqpF",
+    "contract": {
+      "contract_id": "BZm6Y2Ux7T",
+      "task_clause": "SO2Cl2 \u2192 SO2(g) + Cl2(g) At 600 K, SO2Cl2 will decompose to form sulfur dioxide and chlorine gas via the above equation. If the reaction is found to be first order overall, which of the following will cause an increase in the half life of SO2Cl2?\nOption A: Increasing the initial concentration of SO2Cl2\nOption B: Increasing the temperature at which the reaction occurs\nOption C: Decreasing the overall pressure in the container\nOption D: None of these will increase the half life\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "You are the top decision-maker and are good at analyzing and summarizing other people's opinions, finding errors and giving final answers.",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 1
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

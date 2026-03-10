@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773164875.6171122,
+    "run_id": "RpJocPbFKATy",
+    "round_idx": 0,
+    "from_node": "sNzf",
+    "to_node": "sNzf",
+    "contract": {
+      "contract_id": "AYwSVmHdRy",
+      "task_clause": "While riding her bicycle along the street, a woman was struck by a vehicle that she didn't see. Subsequently, the woman sued the driver of the vehicle to recover damages for her injuries. At trial, the woman calls a police officer to testify that a few minutes after the accident, a driver stopped him and said, \"Hey, officer, I just saw an accident involving a red truck that hit this girl who was riding a bicycle. The truck left the scene of the accident and I followed it to a warehouse. \" The police officer then testified that he immediately drove to the warehouse and saw the defendant sitting in a red truck that was parked in the lot. The driver is available to testify at trial. Upon objection by the defendant's attorney, the police officer's testimony regarding the driver's statement sho",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 71
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773164877.14548,
+    "run_id": "RpJocPbFKATy",
+    "round_idx": 1,
+    "from_node": "sNzf",
+    "to_node": "XwEK",
+    "contract": {
+      "contract_id": "nw2ZoLbAs4",
+      "task_clause": "While riding her bicycle along the street, a woman was struck by a vehicle that she didn't see. Subsequently, the woman sued the driver of the vehicle to recover damages for her injuries. At trial, the woman calls a police officer to testify that a few minutes after the accident, a driver stopped him and said, \"Hey, officer, I just saw an accident involving a red truck that hit this girl who was riding a bicycle. The truck left the scene of the accident and I followed it to a warehouse. \" The police officer then testified that he immediately drove to the warehouse and saw the defendant sitting in a red truck that was parked in the lot. The driver is available to testify at trial. Upon objection by the defendant's attorney, the police officer's testimony regarding the driver's statement sho",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "You are the top decision-maker and are good at analyzing and summarizing other people's opinions, finding errors and giving final answers.",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 1
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

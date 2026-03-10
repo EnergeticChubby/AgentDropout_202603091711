@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773160682.2095063,
+    "run_id": "nnbwXTZaQEQH",
+    "round_idx": 0,
+    "from_node": "8dcf",
+    "to_node": "8dcf",
+    "contract": {
+      "contract_id": "PiCV237oiY",
+      "task_clause": "In year 6, an IRS agent completed an examination of a corporation\u2019s year 5 tax return and proposed an adjustment that will result in an increase in taxable income for each of years 1 through year 5. All returns were filed on the original due date. The proposed adjustment relates to the disallowance of corporate jet usage for personal reasons. The agent does not find the error to be fraudulent or substantial in nature. Which of the following statements regarding this adjustment is correct?\nOption A: The adjustment is improper because an agent may only propose adjustments to the year under examination.\nOption B: The adjustment is proper because there is no statute of limitations for improperly claiming personal expenses as business expenses\nOption C: The adjustment is proper because it relat",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 403
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773160683.7862978,
+    "run_id": "nnbwXTZaQEQH",
+    "round_idx": 1,
+    "from_node": "8dcf",
+    "to_node": "dVDK",
+    "contract": {
+      "contract_id": "HATscE6gxc",
+      "task_clause": "In year 6, an IRS agent completed an examination of a corporation\u2019s year 5 tax return and proposed an adjustment that will result in an increase in taxable income for each of years 1 through year 5. All returns were filed on the original due date. The proposed adjustment relates to the disallowance of corporate jet usage for personal reasons. The agent does not find the error to be fraudulent or substantial in nature. Which of the following statements regarding this adjustment is correct?\nOption A: The adjustment is improper because an agent may only propose adjustments to the year under examination.\nOption B: The adjustment is proper because there is no statute of limitations for improperly claiming personal expenses as business expenses\nOption C: The adjustment is proper because it relat",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "You are the top decision-maker and are good at analyzing and summarizing other people's opinions, finding errors and giving final answers.",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 1
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

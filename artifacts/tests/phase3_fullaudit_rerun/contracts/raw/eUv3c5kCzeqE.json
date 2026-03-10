@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773160015.234503,
+    "run_id": "eUv3c5kCzeqE",
+    "round_idx": 0,
+    "from_node": "Lkz4",
+    "to_node": "Lkz4",
+    "contract": {
+      "contract_id": "GVzuAv566z",
+      "task_clause": "Which of the following is a correct statement?\nOption A: The probability of a Type II error does not depend on the probability of a Type I error.\nOption B: In conducting a hypothesis test, it is possible to simultaneously make both a Type I and a Type II error.\nOption C: A Type II error will result if one incorrectly assumes the data are normally distributed.\nOption D: When you choose a significance level \u03b1, you're setting the probability of a Type I error to exactly \u03b1.\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 53
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773160021.9642675,
+    "run_id": "eUv3c5kCzeqE",
+    "round_idx": 1,
+    "from_node": "Lkz4",
+    "to_node": "LTXz",
+    "contract": {
+      "contract_id": "tKLLWRrtW3",
+      "task_clause": "Which of the following is a correct statement?\nOption A: The probability of a Type II error does not depend on the probability of a Type I error.\nOption B: In conducting a hypothesis test, it is possible to simultaneously make both a Type I and a Type II error.\nOption C: A Type II error will result if one incorrectly assumes the data are normally distributed.\nOption D: When you choose a significance level \u03b1, you're setting the probability of a Type I error to exactly \u03b1.\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "You are the top decision-maker and are good at analyzing and summarizing other people's opinions, finding errors and giving final answers.",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 1
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

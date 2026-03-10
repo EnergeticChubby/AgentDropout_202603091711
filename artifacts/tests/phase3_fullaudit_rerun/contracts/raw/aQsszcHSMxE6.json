@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773160152.7153463,
+    "run_id": "aQsszcHSMxE6",
+    "round_idx": 0,
+    "from_node": "Lkz4",
+    "to_node": "Lkz4",
+    "contract": {
+      "contract_id": "5XPoMxoxYh",
+      "task_clause": "A state has the following hit-and-run statute in effect:\"Any driver of a motor vehicle (including but not limited to automobiles, trucks, buses, or motorcycles) involved in an accident or collision resulting in injury or death to a human being shall immediately stop his or her vehicle at the scene of such accident or collision, render necessary aid to the injured victim, and furnish the police or other person(s) at the scene with his or her name, address and driver's license. Any violation or noncompliance with said statute shall be punished by imprisonment for not less than three years nor more than seven years. \"The defendant was involved in an accident that involved injuries to the other driver. The defendant, however, knowing his license to be revoked and afraid of being arrested, fled",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 452
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773160154.1949775,
+    "run_id": "aQsszcHSMxE6",
+    "round_idx": 1,
+    "from_node": "Lkz4",
+    "to_node": "LTXz",
+    "contract": {
+      "contract_id": "6taFV9ESVm",
+      "task_clause": "A state has the following hit-and-run statute in effect:\"Any driver of a motor vehicle (including but not limited to automobiles, trucks, buses, or motorcycles) involved in an accident or collision resulting in injury or death to a human being shall immediately stop his or her vehicle at the scene of such accident or collision, render necessary aid to the injured victim, and furnish the police or other person(s) at the scene with his or her name, address and driver's license. Any violation or noncompliance with said statute shall be punished by imprisonment for not less than three years nor more than seven years. \"The defendant was involved in an accident that involved injuries to the other driver. The defendant, however, knowing his license to be revoked and afraid of being arrested, fled",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "You are the top decision-maker and are good at analyzing and summarizing other people's opinions, finding errors and giving final answers.",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 1
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

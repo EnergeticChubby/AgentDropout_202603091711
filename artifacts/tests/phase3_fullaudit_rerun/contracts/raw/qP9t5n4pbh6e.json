@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773159638.4498158,
+    "run_id": "qP9t5n4pbh6e",
+    "round_idx": 0,
+    "from_node": "GkGG",
+    "to_node": "GkGG",
+    "contract": {
+      "contract_id": "ddnP2mgrMz",
+      "task_clause": "A defendant was convicted of fraud after a jury trial in state court. The conviction was affirmed on direct appeal. The defendant timely moved for postconviction relief under the Sixth Amendment on the ground that his attorney had provided ineffective assistance of counsel. The trial judge, after a hearing, found that the attorney had performed deficiently by failing to raise a proper objection that would have resulted in exclusion of important prosecution evidence. What more, if anything, must the trial court find in order to sustain the defendant's Sixth Amendment claim?\nOption A: Nothing more, because the unjustifiable failure to object to important prosecution evidence is structural error.\nOption B: That the attorney was court-appointed and not privately retained.\nOption C: That there ",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 505
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773159639.95892,
+    "run_id": "qP9t5n4pbh6e",
+    "round_idx": 1,
+    "from_node": "GkGG",
+    "to_node": "mbdm",
+    "contract": {
+      "contract_id": "aiSTABtSUr",
+      "task_clause": "A defendant was convicted of fraud after a jury trial in state court. The conviction was affirmed on direct appeal. The defendant timely moved for postconviction relief under the Sixth Amendment on the ground that his attorney had provided ineffective assistance of counsel. The trial judge, after a hearing, found that the attorney had performed deficiently by failing to raise a proper objection that would have resulted in exclusion of important prosecution evidence. What more, if anything, must the trial court find in order to sustain the defendant's Sixth Amendment claim?\nOption A: Nothing more, because the unjustifiable failure to object to important prosecution evidence is structural error.\nOption B: That the attorney was court-appointed and not privately retained.\nOption C: That there ",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "You are the top decision-maker and are good at analyzing and summarizing other people's opinions, finding errors and giving final answers.",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 1
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773162595.3741078,
+    "run_id": "GXUVyAqxSQW2",
+    "round_idx": 0,
+    "from_node": "YAJR",
+    "to_node": "YAJR",
+    "contract": {
+      "contract_id": "nhFusr6AfA",
+      "task_clause": "The appeal to anonymous authority fallacy consists of\nOption A: reasoning that an act or series of acts should be carried out because they will have no significant consequences, when there is no evidence there will be no consequences.\nOption B: arguing that a claim should be accepted based on the evidence that a large number of people accept it\nOption C: arguing that something should be done because it has been done in the past\nOption D: arguing a claim should be accepted based only on the assertion that unidentified authorities accept it\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 39
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773162596.8412554,
+    "run_id": "GXUVyAqxSQW2",
+    "round_idx": 1,
+    "from_node": "YAJR",
+    "to_node": "ZMeQ",
+    "contract": {
+      "contract_id": "YEYkvoT7d4",
+      "task_clause": "The appeal to anonymous authority fallacy consists of\nOption A: reasoning that an act or series of acts should be carried out because they will have no significant consequences, when there is no evidence there will be no consequences.\nOption B: arguing that a claim should be accepted based on the evidence that a large number of people accept it\nOption C: arguing that something should be done because it has been done in the past\nOption D: arguing a claim should be accepted based only on the assertion that unidentified authorities accept it\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "You are the top decision-maker and are good at analyzing and summarizing other people's opinions, finding errors and giving final answers.",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 1
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

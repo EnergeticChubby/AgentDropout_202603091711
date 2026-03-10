@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773162105.2114186,
+    "run_id": "ZEFjkSsc9vip",
+    "round_idx": 0,
+    "from_node": "YAJR",
+    "to_node": "YAJR",
+    "contract": {
+      "contract_id": "o8TaR7C74d",
+      "task_clause": "Which of the following statements about nuclear binding energies is NOT true?\nOption A: Binding energy per nucleon reaches a maximum for 56Fe.\nOption B: Nuclear binding energies have about the same magnitude as chemical bond energies.\nOption C: Nuclei have slightly less mass than the sum of their component nucleons.\nOption D: The nuclei of heavy elements have more neutrons than protons in order to provide sufficient binding energy to hold the nuclei together.\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 143
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773162106.6420748,
+    "run_id": "ZEFjkSsc9vip",
+    "round_idx": 1,
+    "from_node": "YAJR",
+    "to_node": "ZMeQ",
+    "contract": {
+      "contract_id": "GsuRKy9Z6x",
+      "task_clause": "Which of the following statements about nuclear binding energies is NOT true?\nOption A: Binding energy per nucleon reaches a maximum for 56Fe.\nOption B: Nuclear binding energies have about the same magnitude as chemical bond energies.\nOption C: Nuclei have slightly less mass than the sum of their component nucleons.\nOption D: The nuclei of heavy elements have more neutrons than protons in order to provide sufficient binding energy to hold the nuclei together.\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "You are the top decision-maker and are good at analyzing and summarizing other people's opinions, finding errors and giving final answers.",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 1
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

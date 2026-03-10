@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773161905.4835446,
+    "run_id": "HeNRza72RyDs",
+    "round_idx": 0,
+    "from_node": "BCxi",
+    "to_node": "BCxi",
+    "contract": {
+      "contract_id": "FB4gfvUWkz",
+      "task_clause": "Which of the following procedures would an auditor most likely complete to test the existence assertion of property, plant and equipment?\nOption A: Obtaining a listing of all current-year additions, vouching significant additions to original invoices, and determining that they have been placed in service.\nOption B: Obtaining a detailed fixed-asset register and ensuring items are appropriately capitalized.\nOption C: Obtaining a listing of current-year additions and verifying that items are recorded in the proper period.\nOption D: Obtaining a detailed fixed-asset register and ensuring depreciation methods are applied consistently.\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 854
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773161906.863236,
+    "run_id": "HeNRza72RyDs",
+    "round_idx": 1,
+    "from_node": "BCxi",
+    "to_node": "G3BB",
+    "contract": {
+      "contract_id": "SZbYY5QrAN",
+      "task_clause": "Which of the following procedures would an auditor most likely complete to test the existence assertion of property, plant and equipment?\nOption A: Obtaining a listing of all current-year additions, vouching significant additions to original invoices, and determining that they have been placed in service.\nOption B: Obtaining a detailed fixed-asset register and ensuring items are appropriately capitalized.\nOption C: Obtaining a listing of current-year additions and verifying that items are recorded in the proper period.\nOption D: Obtaining a detailed fixed-asset register and ensuring depreciation methods are applied consistently.\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "You are the top decision-maker and are good at analyzing and summarizing other people's opinions, finding errors and giving final answers.",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 1
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

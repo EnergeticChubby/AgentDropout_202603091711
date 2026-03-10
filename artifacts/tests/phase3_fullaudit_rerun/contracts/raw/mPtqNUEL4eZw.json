@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773160082.2205846,
+    "run_id": "mPtqNUEL4eZw",
+    "round_idx": 0,
+    "from_node": "Lkz4",
+    "to_node": "Lkz4",
+    "contract": {
+      "contract_id": "yeCSHGoEBR",
+      "task_clause": "Which of the following best describes the fallacy of self-evident truths?\nOption A: arguing that a claim is true based only on evidence that an authority figure accepts the claim.\nOption B: arguing a claim should be accepted based only on evidence that unidentified authorities accept it.\nOption C: arguing that a claim should be accepted based on evidence that is not presented, but is asserted to be well known or obvious.\nOption D: arguing someone should accept a claim based only on the evidence that he or she has the favorable characteristics to understand the truth of the claim.\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 69
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773160083.893173,
+    "run_id": "mPtqNUEL4eZw",
+    "round_idx": 1,
+    "from_node": "Lkz4",
+    "to_node": "LTXz",
+    "contract": {
+      "contract_id": "54SaaF4Vkg",
+      "task_clause": "Which of the following best describes the fallacy of self-evident truths?\nOption A: arguing that a claim is true based only on evidence that an authority figure accepts the claim.\nOption B: arguing a claim should be accepted based only on evidence that unidentified authorities accept it.\nOption C: arguing that a claim should be accepted based on evidence that is not presented, but is asserted to be well known or obvious.\nOption D: arguing someone should accept a claim based only on the evidence that he or she has the favorable characteristics to understand the truth of the claim.\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "You are the top decision-maker and are good at analyzing and summarizing other people's opinions, finding errors and giving final answers.",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 1
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773164755.7810197,
+    "run_id": "ob3MCLsSBnMb",
+    "round_idx": 0,
+    "from_node": "sNzf",
+    "to_node": "sNzf",
+    "contract": {
+      "contract_id": "LXjx4CuJn9",
+      "task_clause": "The observed times (in minutes) it takes a runner to complete a marathon are normally distributed. The z-score for his running time this week is \u20132. Which one of the following statements is a correct interpretation of his z-score?\nOption A: This week his time was two minutes lower than his time last week.\nOption B: This week his time was two minutes lower than his best time ever.\nOption C: This week his time was two minutes lower than his average time.\nOption D: This week his time was two standard deviations lower than his average time.\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 485
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773164757.409367,
+    "run_id": "ob3MCLsSBnMb",
+    "round_idx": 1,
+    "from_node": "sNzf",
+    "to_node": "XwEK",
+    "contract": {
+      "contract_id": "GyCqg94ryv",
+      "task_clause": "The observed times (in minutes) it takes a runner to complete a marathon are normally distributed. The z-score for his running time this week is \u20132. Which one of the following statements is a correct interpretation of his z-score?\nOption A: This week his time was two minutes lower than his time last week.\nOption B: This week his time was two minutes lower than his best time ever.\nOption C: This week his time was two minutes lower than his average time.\nOption D: This week his time was two standard deviations lower than his average time.\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "You are the top decision-maker and are good at analyzing and summarizing other people's opinions, finding errors and giving final answers.",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 1
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]
