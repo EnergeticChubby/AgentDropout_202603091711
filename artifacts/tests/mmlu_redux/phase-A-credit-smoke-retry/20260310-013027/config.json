@@ -1,0 +1,31 @@
+{
+  "phase_name": "phase-A-credit-smoke-retry",
+  "llm_name": "qwen/qwen3-8b",
+  "base_url": "<redacted>",
+  "api_key": "<redacted>",
+  "dataset_name": "edinburgh-dawg/mmlu-redux",
+  "split": "test",
+  "subject_limit": 1,
+  "questions_per_subject": 1,
+  "num_shards": 8,
+  "parallel_shards": 8,
+  "eval_batch_size": 1,
+  "seed": 42,
+  "mode": "DirectAnswer",
+  "agent_names": [
+    "AnalyzeAgent"
+  ],
+  "agent_nums": [
+    1
+  ],
+  "decision_method": "FinalRefer",
+  "num_rounds": 1,
+  "output_root": "artifacts/tests/mmlu_redux",
+  "enable_mirm": false,
+  "enable_edel": false,
+  "enable_abpp": false,
+  "token_budget": 512,
+  "topk_disclosure": 3,
+  "git_commit": "7caacb94b91b6689e4b2c94a99444380823724f1",
+  "run_dir": "/workspace/artifacts/tests/mmlu_redux/phase-A-credit-smoke-retry/20260310-013027"
+}
