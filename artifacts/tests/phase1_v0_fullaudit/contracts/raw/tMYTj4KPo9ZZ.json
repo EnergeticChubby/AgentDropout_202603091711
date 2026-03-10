@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773104689.3667276,
+    "run_id": "tMYTj4KPo9ZZ",
+    "round_idx": 0,
+    "from_node": "AgfV",
+    "to_node": "AgfV",
+    "contract": {
+      "contract_id": "PZFqtBTBrf",
+      "task_clause": "Statement 1| The Stanford Sentiment Treebank contained movie reviews, not book reviews. Statement 2| The Penn Treebank has been used for language modeling.\nOption A: True, True\nOption B: False, False\nOption C: True, False\nOption D: False, True\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 190
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773104689.3668242,
+    "run_id": "tMYTj4KPo9ZZ",
+    "round_idx": 1,
+    "from_node": "AgfV",
+    "to_node": "kT9r",
+    "contract": {
+      "contract_id": "t6Tpgxxw2U",
+      "task_clause": "Statement 1| The Stanford Sentiment Treebank contained movie reviews, not book reviews. Statement 2| The Penn Treebank has been used for language modeling.\nOption A: True, True\nOption B: False, False\nOption C: True, False\nOption D: False, True\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 190
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

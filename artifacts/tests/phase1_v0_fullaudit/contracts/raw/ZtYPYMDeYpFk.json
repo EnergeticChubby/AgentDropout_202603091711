@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773104629.2077928,
+    "run_id": "ZtYPYMDeYpFk",
+    "round_idx": 0,
+    "from_node": "UmiG",
+    "to_node": "UmiG",
+    "contract": {
+      "contract_id": "preNkXxnvx",
+      "task_clause": "What happens to the image formed by a concave mirror as the object is moved from far away to near the focal point?\nOption A: The image moves away from the mirror and gets shorter.\nOption B: The image moves away from the mirror and gets taller.\nOption C: The image moves toward the mirror and gets shorter.\nOption D: The image moves toward the mirror and gets taller.\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 137
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773104629.2083542,
+    "run_id": "ZtYPYMDeYpFk",
+    "round_idx": 1,
+    "from_node": "UmiG",
+    "to_node": "Zw3L",
+    "contract": {
+      "contract_id": "HCX6FXuDjw",
+      "task_clause": "What happens to the image formed by a concave mirror as the object is moved from far away to near the focal point?\nOption A: The image moves away from the mirror and gets shorter.\nOption B: The image moves away from the mirror and gets taller.\nOption C: The image moves toward the mirror and gets shorter.\nOption D: The image moves toward the mirror and gets taller.\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 137
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

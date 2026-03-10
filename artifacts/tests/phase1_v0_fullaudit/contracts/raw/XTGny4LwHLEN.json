@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773104482.9903107,
+    "run_id": "XTGny4LwHLEN",
+    "round_idx": 0,
+    "from_node": "uXEU",
+    "to_node": "uXEU",
+    "contract": {
+      "contract_id": "vEmYNFqNvJ",
+      "task_clause": "Which of the following are steroid-based molecules?\nI. Testosterone\nII. Triglycerides\nIII. Progesterone\nIV. DNA\nOption A: I only\nOption B: I, II, and III\nOption C: I and III\nOption D: I, III, and IV\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 414
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773104482.9904103,
+    "run_id": "XTGny4LwHLEN",
+    "round_idx": 1,
+    "from_node": "uXEU",
+    "to_node": "kaVo",
+    "contract": {
+      "contract_id": "XPiqdFQ58C",
+      "task_clause": "Which of the following are steroid-based molecules?\nI. Testosterone\nII. Triglycerides\nIII. Progesterone\nIV. DNA\nOption A: I only\nOption B: I, II, and III\nOption C: I and III\nOption D: I, III, and IV\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 414
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

@@ -1,0 +1,54 @@
+[
+  {
+    "timestamp": 1773104507.7560499,
+    "run_id": "ZDopDdhFZWLu",
+    "round_idx": 1,
+    "from_node": "joZz",
+    "to_node": "jxBj",
+    "contract": {
+      "contract_id": "QyHFRCPDRZ",
+      "task_clause": "Let f(x,y) = x^2 - 2xy + y^3 for all real x and y. Which of the following is true?\nOption A: f has all of its relative extrema on the line x = y.\nOption B: f has all of its relative extrema on the parabola x = y^2.\nOption C: f has a relative minimum at (0, 0).\nOption D: f has an absolute minimum at (2/3, 2/3).\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": false,
+      "violations": [
+        "empty_deliverable"
+      ],
+      "details": {
+        "output_length": 0
+      }
+    },
+    "dispute": {
+      "action": "rework",
+      "reason": "empty_deliverable",
+      "metadata": {
+        "rollback_to": "upstream_node"
+      }
+    }
+  }
+]

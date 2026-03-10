@@ -1,0 +1,54 @@
+[
+  {
+    "timestamp": 1773104459.8944087,
+    "run_id": "qHS54cDeQQti",
+    "round_idx": 1,
+    "from_node": "AgfV",
+    "to_node": "kT9r",
+    "contract": {
+      "contract_id": "hP3fKha9iR",
+      "task_clause": "Mars has an atmosphere that is almost entirely carbon dioxide.Why isn't there a strong greenhouse effect keeping the planet warm?\nOption A: Mars does not have enough internal heat to drive the greenhouse effect\nOption B: Mars is too far from the sun for the greenhouse effect to work\nOption C: the greenhouse effect requires an ozone layer which Mars does not have\nOption D: the atmosphere on Mars is too thin to trap a significant amount of heat\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": false,
+      "violations": [
+        "empty_deliverable"
+      ],
+      "details": {
+        "output_length": 0
+      }
+    },
+    "dispute": {
+      "action": "rework",
+      "reason": "empty_deliverable",
+      "metadata": {
+        "rollback_to": "upstream_node"
+      }
+    }
+  }
+]

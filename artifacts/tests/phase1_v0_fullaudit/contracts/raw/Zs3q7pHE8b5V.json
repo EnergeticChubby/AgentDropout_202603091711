@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773104522.158771,
+    "run_id": "Zs3q7pHE8b5V",
+    "round_idx": 0,
+    "from_node": "joZz",
+    "to_node": "joZz",
+    "contract": {
+      "contract_id": "J9gBx6SdLV",
+      "task_clause": "Which of the following decimal numbers has an exact representation in binary notation?\nOption A: 0.1\nOption B: 0.2\nOption C: 0.3\nOption D: 0.5\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 218
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773104522.1588953,
+    "run_id": "Zs3q7pHE8b5V",
+    "round_idx": 1,
+    "from_node": "joZz",
+    "to_node": "jxBj",
+    "contract": {
+      "contract_id": "PNdXE93FfX",
+      "task_clause": "Which of the following decimal numbers has an exact representation in binary notation?\nOption A: 0.1\nOption B: 0.2\nOption C: 0.3\nOption D: 0.5\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 218
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

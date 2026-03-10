@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773104401.4981136,
+    "run_id": "dCbCnC9oxtKB",
+    "round_idx": 0,
+    "from_node": "YcR2",
+    "to_node": "YcR2",
+    "contract": {
+      "contract_id": "9SGJfdeXRi",
+      "task_clause": "The Large Magellanic Cloud is ...\nOption A: a dwarf galaxy orbiting the Milky Way.\nOption B: the closest planetary nebula to the Earth.\nOption C: a bright star cluster discovered by Magellan.\nOption D: the outer arm of the Milky Way named after Magellan.\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 238
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773104401.498205,
+    "run_id": "dCbCnC9oxtKB",
+    "round_idx": 1,
+    "from_node": "YcR2",
+    "to_node": "zAEy",
+    "contract": {
+      "contract_id": "334WTYRS2L",
+      "task_clause": "The Large Magellanic Cloud is ...\nOption A: a dwarf galaxy orbiting the Milky Way.\nOption B: the closest planetary nebula to the Earth.\nOption C: a bright star cluster discovered by Magellan.\nOption D: the outer arm of the Milky Way named after Magellan.\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 238
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

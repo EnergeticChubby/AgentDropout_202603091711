@@ -1,0 +1,54 @@
+[
+  {
+    "timestamp": 1773104531.5853992,
+    "run_id": "ccVobiKL6zma",
+    "round_idx": 1,
+    "from_node": "RKB3",
+    "to_node": "p79Q",
+    "contract": {
+      "contract_id": "dMc7839VY9",
+      "task_clause": "Which of the following statements are true concerning the Box-Jenkins approach to diagnostic testing for ARMA models?\n\n(i) The tests will show whether the identified model is either too large or too small\n\n(ii) The tests involve checking the model residuals for autocorrelation, heteroscedasticity, and non-normality\n\n(iii) If the model suggested at the identification stage is appropriate, the acf and pacf for the residuals should show no additional structure\n\n(iv) If the model suggested at the identification stage is appropriate, the coefficients on the additional variables under the overfitting approach will be statistically insignificant\nOption A: (ii) and (iv) only\nOption B: (i) and (iii) only\nOption C: (i), (ii), and (iii) only\nOption D: (i), (ii), (iii), and (iv)\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": false,
+      "violations": [
+        "empty_deliverable"
+      ],
+      "details": {
+        "output_length": 0
+      }
+    },
+    "dispute": {
+      "action": "rework",
+      "reason": "empty_deliverable",
+      "metadata": {
+        "rollback_to": "upstream_node"
+      }
+    }
+  }
+]

@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773104788.8675234,
+    "run_id": "qtUemc9ZX2kh",
+    "round_idx": 0,
+    "from_node": "AgfV",
+    "to_node": "AgfV",
+    "contract": {
+      "contract_id": "XULxEXhGkc",
+      "task_clause": "A wife and her husband were having dinner at a restaurant when the wife excused herself to go to the bathroom. The restaurant was owned and operated by a chef. As the wife was walking past a table where another customer was seated, she slipped and fell on an egg roll that had been lying on the floor for quite some time, although the chef was unaware that it had fallen onto the floor. When she fell, her head struck a serving tray that was located in the aisle. The fall caused the wife to suffer a severe concussion. The customer knew that the egg roll was on the floor, and although he could have done so, he did not warn the wife. If the wife asserts a claim against the chef for the injuries she suffered from the fall, she will most likely\nOption A: recover, because the egg roll on the floor ",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 1770
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773104788.8676512,
+    "run_id": "qtUemc9ZX2kh",
+    "round_idx": 1,
+    "from_node": "AgfV",
+    "to_node": "kT9r",
+    "contract": {
+      "contract_id": "zEycCLagtT",
+      "task_clause": "A wife and her husband were having dinner at a restaurant when the wife excused herself to go to the bathroom. The restaurant was owned and operated by a chef. As the wife was walking past a table where another customer was seated, she slipped and fell on an egg roll that had been lying on the floor for quite some time, although the chef was unaware that it had fallen onto the floor. When she fell, her head struck a serving tray that was located in the aisle. The fall caused the wife to suffer a severe concussion. The customer knew that the egg roll was on the floor, and although he could have done so, he did not warn the wife. If the wife asserts a claim against the chef for the injuries she suffered from the fall, she will most likely\nOption A: recover, because the egg roll on the floor ",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 1770
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

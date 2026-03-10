@@ -1,0 +1,54 @@
+[
+  {
+    "timestamp": 1773104730.0573976,
+    "run_id": "Rgc8dDUnALMa",
+    "round_idx": 1,
+    "from_node": "AgfV",
+    "to_node": "kT9r",
+    "contract": {
+      "contract_id": "uc3iH4XZWc",
+      "task_clause": "Which of the following is true of a convolution kernel?\nOption A: Convolving an image with $\\begin{bmatrix}1 & 0 & 0\\\\ 0 & 1 & 0 \\\\ 0 & 0 & 1 \\end{bmatrix}$ would not change the image\nOption B: Convolving an image with $\\begin{bmatrix}0 & 0 & 0\\\\ 0 & 1 & 0 \\\\ 0 & 0 & 0 \\end{bmatrix}$ would not change the image\nOption C: Convolving an image with $\\begin{bmatrix}1 & 1 & 1\\\\ 1 & 1 & 1 \\\\ 1 & 1 & 1 \\end{bmatrix}$ would not change the image\nOption D: Convolving an image with $\\begin{bmatrix}0 & 0 & 0\\\\ 0 & 0 & 0 \\\\ 0 & 0 & 0 \\end{bmatrix}$ would not change the image\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": false,
+      "violations": [
+        "empty_deliverable"
+      ],
+      "details": {
+        "output_length": 0
+      }
+    },
+    "dispute": {
+      "action": "rework",
+      "reason": "empty_deliverable",
+      "metadata": {
+        "rollback_to": "upstream_node"
+      }
+    }
+  }
+]

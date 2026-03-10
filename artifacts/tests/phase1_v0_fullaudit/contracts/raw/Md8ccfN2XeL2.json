@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773104808.4904184,
+    "run_id": "Md8ccfN2XeL2",
+    "round_idx": 0,
+    "from_node": "RKB3",
+    "to_node": "RKB3",
+    "contract": {
+      "contract_id": "4kigWiN5pi",
+      "task_clause": "An investment project cost $1 million to undertake and will deliver $2 million in five years\u2019 time. The discount rate is 10%. What is the project\u2019s NPV?\nOption A: $1,000,000\nOption B: $300,000\nOption C: $2,000,000\nOption D: $242,000\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 580
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773104808.4905455,
+    "run_id": "Md8ccfN2XeL2",
+    "round_idx": 1,
+    "from_node": "RKB3",
+    "to_node": "p79Q",
+    "contract": {
+      "contract_id": "jZSEjsy5WZ",
+      "task_clause": "An investment project cost $1 million to undertake and will deliver $2 million in five years\u2019 time. The discount rate is 10%. What is the project\u2019s NPV?\nOption A: $1,000,000\nOption B: $300,000\nOption C: $2,000,000\nOption D: $242,000\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 580
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

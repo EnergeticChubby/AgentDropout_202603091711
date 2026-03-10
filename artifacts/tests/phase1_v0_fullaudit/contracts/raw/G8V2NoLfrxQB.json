@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773104404.5878508,
+    "run_id": "G8V2NoLfrxQB",
+    "round_idx": 0,
+    "from_node": "Gg9m",
+    "to_node": "Gg9m",
+    "contract": {
+      "contract_id": "MzwmLf68LC",
+      "task_clause": "Calculate spin density on the central carbon atom of malonic acid radical (\u2022CH(COOH)2) if the hyperfine value for the \u03b1-hydrogen atom is 21.9 G.\nOption A: 0.95\nOption B: 0.85\nOption C: 0.15\nOption D: 0.65\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 1234
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773104404.5880265,
+    "run_id": "G8V2NoLfrxQB",
+    "round_idx": 1,
+    "from_node": "Gg9m",
+    "to_node": "AhFg",
+    "contract": {
+      "contract_id": "8jpHdoGJzT",
+      "task_clause": "Calculate spin density on the central carbon atom of malonic acid radical (\u2022CH(COOH)2) if the hyperfine value for the \u03b1-hydrogen atom is 21.9 G.\nOption A: 0.95\nOption B: 0.85\nOption C: 0.15\nOption D: 0.65\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 1234
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

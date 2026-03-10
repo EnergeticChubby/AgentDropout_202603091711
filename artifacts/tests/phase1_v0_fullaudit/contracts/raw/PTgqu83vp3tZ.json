@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773104472.3661082,
+    "run_id": "PTgqu83vp3tZ",
+    "round_idx": 0,
+    "from_node": "uXEU",
+    "to_node": "uXEU",
+    "contract": {
+      "contract_id": "dCxUoTArKt",
+      "task_clause": "Which of the following is (are) characteristic of mass spectrometry?\r\nI. Analyte molecules are converted to gaseous ions.\r\nII. The ions are separated according to their mass-to-charge ratio.\r\nIII. In addition to compound identification, mass spectra can be utilized to determine precise isotopic masses and isotopic ratios.\nOption A: II only\nOption B: I and II only\nOption C: I and III only\nOption D: I, II, and III\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 753
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773104472.3662488,
+    "run_id": "PTgqu83vp3tZ",
+    "round_idx": 1,
+    "from_node": "uXEU",
+    "to_node": "kaVo",
+    "contract": {
+      "contract_id": "QTHy7QFCq4",
+      "task_clause": "Which of the following is (are) characteristic of mass spectrometry?\r\nI. Analyte molecules are converted to gaseous ions.\r\nII. The ions are separated according to their mass-to-charge ratio.\r\nIII. In addition to compound identification, mass spectra can be utilized to determine precise isotopic masses and isotopic ratios.\nOption A: II only\nOption B: I and II only\nOption C: I and III only\nOption D: I, II, and III\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 753
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

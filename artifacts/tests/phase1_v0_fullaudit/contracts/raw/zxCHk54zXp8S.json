@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773104674.0933077,
+    "run_id": "zxCHk54zXp8S",
+    "round_idx": 0,
+    "from_node": "uXEU",
+    "to_node": "uXEU",
+    "contract": {
+      "contract_id": "vMYFuVJJZ5",
+      "task_clause": "Which of the following statements about images is true?\nOption A: Images produced by concave lenses are always real.\nOption B: Images produced by concave mirros are always real.\nOption C: Images produced by convex lenses can be both real and virtual.\nOption D: Images produced by convex mirrors can be both real and virtual.\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 201
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773104674.093423,
+    "run_id": "zxCHk54zXp8S",
+    "round_idx": 1,
+    "from_node": "uXEU",
+    "to_node": "kaVo",
+    "contract": {
+      "contract_id": "VBNVkV9rHT",
+      "task_clause": "Which of the following statements about images is true?\nOption A: Images produced by concave lenses are always real.\nOption B: Images produced by concave mirros are always real.\nOption C: Images produced by convex lenses can be both real and virtual.\nOption D: Images produced by convex mirrors can be both real and virtual.\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 201
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

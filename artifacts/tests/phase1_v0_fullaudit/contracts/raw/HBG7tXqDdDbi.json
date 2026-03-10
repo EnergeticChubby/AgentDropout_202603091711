@@ -1,0 +1,54 @@
+[
+  {
+    "timestamp": 1773104799.8968468,
+    "run_id": "HBG7tXqDdDbi",
+    "round_idx": 1,
+    "from_node": "uXEU",
+    "to_node": "kaVo",
+    "contract": {
+      "contract_id": "vHCFDRpFUw",
+      "task_clause": "A woman duly executed a will under which she devised her farm to her nephew and bequeathed the residue of her estate to her niece. For 12 years after executing her will, the woman lived on her farm. Then she sold it and used the sales proceeds to purchase a home in the city, in which she lived until she died, never having changed her will. Following the admission of the will to probate, both the nephew and the niece claimed ownership of the home. There is no applicable statute. Who is the owner of the home?\nOption A: The nephew, because of the doctrine of ademption.\nOption B: The nephew, because of the doctrine of equitable estoppel.\nOption C: The niece, because of the doctrine of lapse.\nOption D: The niece, because she is the residuary legatee.\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": false,
+      "violations": [
+        "empty_deliverable"
+      ],
+      "details": {
+        "output_length": 0
+      }
+    },
+    "dispute": {
+      "action": "rework",
+      "reason": "empty_deliverable",
+      "metadata": {
+        "rollback_to": "upstream_node"
+      }
+    }
+  }
+]

@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773104817.259688,
+    "run_id": "VDfdSFGo2Z2w",
+    "round_idx": 0,
+    "from_node": "RKB3",
+    "to_node": "RKB3",
+    "contract": {
+      "contract_id": "WnBhU9ztTf",
+      "task_clause": "An updated version of classification shows the parvovirus family as having how many genera?\nOption A: Having 5 genera\nOption B: A very large number of virus types\nOption C: Only a single virus\nOption D: Only three viruses\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 121
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773104817.2598133,
+    "run_id": "VDfdSFGo2Z2w",
+    "round_idx": 1,
+    "from_node": "RKB3",
+    "to_node": "p79Q",
+    "contract": {
+      "contract_id": "e9PVWav5De",
+      "task_clause": "An updated version of classification shows the parvovirus family as having how many genera?\nOption A: Having 5 genera\nOption B: A very large number of virus types\nOption C: Only a single virus\nOption D: Only three viruses\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 121
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

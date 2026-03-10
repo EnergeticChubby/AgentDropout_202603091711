@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773104746.796429,
+    "run_id": "7pmbemEuSPK4",
+    "round_idx": 0,
+    "from_node": "joZz",
+    "to_node": "joZz",
+    "contract": {
+      "contract_id": "AiF8kgsJaQ",
+      "task_clause": "In year 6, an IRS agent completed an examination of a corporation\u2019s year 5 tax return and proposed an adjustment that will result in an increase in taxable income for each of years 1 through year 5. All returns were filed on the original due date. The proposed adjustment relates to the disallowance of corporate jet usage for personal reasons. The agent does not find the error to be fraudulent or substantial in nature. Which of the following statements regarding this adjustment is correct?\nOption A: The adjustment is improper because an agent may only propose adjustments to the year under examination.\nOption B: The adjustment is proper because there is no statute of limitations for improperly claiming personal expenses as business expenses\nOption C: The adjustment is proper because it relat",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 163
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773104746.7971246,
+    "run_id": "7pmbemEuSPK4",
+    "round_idx": 1,
+    "from_node": "joZz",
+    "to_node": "jxBj",
+    "contract": {
+      "contract_id": "9Gs7YfXKs7",
+      "task_clause": "In year 6, an IRS agent completed an examination of a corporation\u2019s year 5 tax return and proposed an adjustment that will result in an increase in taxable income for each of years 1 through year 5. All returns were filed on the original due date. The proposed adjustment relates to the disallowance of corporate jet usage for personal reasons. The agent does not find the error to be fraudulent or substantial in nature. Which of the following statements regarding this adjustment is correct?\nOption A: The adjustment is improper because an agent may only propose adjustments to the year under examination.\nOption B: The adjustment is proper because there is no statute of limitations for improperly claiming personal expenses as business expenses\nOption C: The adjustment is proper because it relat",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 163
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

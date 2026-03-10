@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773104553.5645046,
+    "run_id": "u3iVyhwxqjku",
+    "round_idx": 0,
+    "from_node": "AgfV",
+    "to_node": "AgfV",
+    "contract": {
+      "contract_id": "ftmg2SGk2d",
+      "task_clause": "Which of the following is expected to have the largest bond polarity?\nOption A: S\u2013O\nOption B: P\u2013F\nOption C: C\u2013B\nOption D: C\u2013N\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 345
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773104553.5646148,
+    "run_id": "u3iVyhwxqjku",
+    "round_idx": 1,
+    "from_node": "AgfV",
+    "to_node": "kT9r",
+    "contract": {
+      "contract_id": "Ne3uAtKFJA",
+      "task_clause": "Which of the following is expected to have the largest bond polarity?\nOption A: S\u2013O\nOption B: P\u2013F\nOption C: C\u2013B\nOption D: C\u2013N\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 345
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

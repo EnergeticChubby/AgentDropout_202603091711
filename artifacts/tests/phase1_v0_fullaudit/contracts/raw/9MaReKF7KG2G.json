@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773104689.5676694,
+    "run_id": "9MaReKF7KG2G",
+    "round_idx": 0,
+    "from_node": "AgfV",
+    "to_node": "AgfV",
+    "contract": {
+      "contract_id": "EajNQjp4CM",
+      "task_clause": "Which of the following people would benefit most if the value of the United States dollar increased relative to the Japanese yen?\nOption A: A United States car dealer importing Japanese cars\nOption B: A Japanese tourist vacationing in the United States\nOption C: A worker in the United States beer industry\nOption D: A Japanese baker buying United States wheat\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 188
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773104689.567822,
+    "run_id": "9MaReKF7KG2G",
+    "round_idx": 1,
+    "from_node": "AgfV",
+    "to_node": "kT9r",
+    "contract": {
+      "contract_id": "x7FZsoe7vA",
+      "task_clause": "Which of the following people would benefit most if the value of the United States dollar increased relative to the Japanese yen?\nOption A: A United States car dealer importing Japanese cars\nOption B: A Japanese tourist vacationing in the United States\nOption C: A worker in the United States beer industry\nOption D: A Japanese baker buying United States wheat\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 188
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

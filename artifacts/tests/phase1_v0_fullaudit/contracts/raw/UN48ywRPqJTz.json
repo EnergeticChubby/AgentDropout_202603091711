@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773104606.2641761,
+    "run_id": "UN48ywRPqJTz",
+    "round_idx": 0,
+    "from_node": "RKB3",
+    "to_node": "RKB3",
+    "contract": {
+      "contract_id": "eJEar5Cupt",
+      "task_clause": " Use the following key to translate the given formula of PL to natural, English sentences.\nA: Marina reads a Percy Jackson book.\nB: Izzy plays Minecraft.\nC: Emily stops working.\nD: Russell makes dinner.\nE: Ashleigh stops by.\n(~A \u2228 ~B) \u2283 C\nOption A: If neither Marina reads a Percy Jackson book nor Izzy plays Minecraft, then Emily stops working.\nOption B: If it's not the case that both Marina reads a Percy Jackson book and Izzy plays Minecraft, then Emily stops working.\nOption C: Either Marina not reading a Percy Jackson book or Izzy not playing Minecraft entails that Emily stops working.\nOption D: Emily stopping working is a sufficient condition for either Marina not reading a Percy Jackson book or Izzy not playing Minecraft.\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 622
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773104606.264751,
+    "run_id": "UN48ywRPqJTz",
+    "round_idx": 1,
+    "from_node": "RKB3",
+    "to_node": "p79Q",
+    "contract": {
+      "contract_id": "jtDxHq4KEh",
+      "task_clause": " Use the following key to translate the given formula of PL to natural, English sentences.\nA: Marina reads a Percy Jackson book.\nB: Izzy plays Minecraft.\nC: Emily stops working.\nD: Russell makes dinner.\nE: Ashleigh stops by.\n(~A \u2228 ~B) \u2283 C\nOption A: If neither Marina reads a Percy Jackson book nor Izzy plays Minecraft, then Emily stops working.\nOption B: If it's not the case that both Marina reads a Percy Jackson book and Izzy plays Minecraft, then Emily stops working.\nOption C: Either Marina not reading a Percy Jackson book or Izzy not playing Minecraft entails that Emily stops working.\nOption D: Emily stopping working is a sufficient condition for either Marina not reading a Percy Jackson book or Izzy not playing Minecraft.\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 622
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

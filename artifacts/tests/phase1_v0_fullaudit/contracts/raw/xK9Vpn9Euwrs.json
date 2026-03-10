@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773104629.368865,
+    "run_id": "xK9Vpn9Euwrs",
+    "round_idx": 0,
+    "from_node": "AgfV",
+    "to_node": "AgfV",
+    "contract": {
+      "contract_id": "JfbU4TXanJ",
+      "task_clause": "Suppose that Tiger Woods buys a golf ball in England for $1 and the marginal propensity to consume in England is 0.75. What is the total increase in England's real GDP resulting from Mr. Woods' purchase?\nOption A: $1 \nOption B: $1.25 \nOption C: $1.75 \nOption D: $4 \n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 311
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773104629.3689647,
+    "run_id": "xK9Vpn9Euwrs",
+    "round_idx": 1,
+    "from_node": "AgfV",
+    "to_node": "kT9r",
+    "contract": {
+      "contract_id": "JrnUgXaZbc",
+      "task_clause": "Suppose that Tiger Woods buys a golf ball in England for $1 and the marginal propensity to consume in England is 0.75. What is the total increase in England's real GDP resulting from Mr. Woods' purchase?\nOption A: $1 \nOption B: $1.25 \nOption C: $1.75 \nOption D: $4 \n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 311
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

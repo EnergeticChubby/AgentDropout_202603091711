@@ -1,0 +1,54 @@
+[
+  {
+    "timestamp": 1773104717.0680299,
+    "run_id": "ccS8xr44dW75",
+    "round_idx": 1,
+    "from_node": "Gg9m",
+    "to_node": "AhFg",
+    "contract": {
+      "contract_id": "i442RrfN6o",
+      "task_clause": "Aristotle states that if we ask what the highest good of human action is:\nOption A: there is no agreement about the answer.\nOption B: most people agree that it is pleasure.\nOption C: nearly everyone agrees that it is happiness.\nOption D: there is no objective answer to this question.\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": false,
+      "violations": [
+        "empty_deliverable"
+      ],
+      "details": {
+        "output_length": 0
+      }
+    },
+    "dispute": {
+      "action": "rework",
+      "reason": "empty_deliverable",
+      "metadata": {
+        "rollback_to": "upstream_node"
+      }
+    }
+  }
+]

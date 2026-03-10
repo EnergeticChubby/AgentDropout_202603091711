@@ -1,0 +1,54 @@
+[
+  {
+    "timestamp": 1773104784.6882148,
+    "run_id": "gswzuEdJcFNE",
+    "round_idx": 1,
+    "from_node": "uXEU",
+    "to_node": "kaVo",
+    "contract": {
+      "contract_id": "EqnAGTGiGZ",
+      "task_clause": "At 1:00 a. m. one night, two police officers were driving past a tavern when they noticed a man vomiting outside. They stopped their patrol car and walked over to the man, whom they recognized as a troublemaker from the neighboring town. Realizing that the man was extremely intoxicated, they grabbed him and shoved him into their patrol car. They drove the man around in the police car for a few minutes and told him he had two choices. They would either take him to jail for the night or drive him to the city limits and drop him off there. The man indicated that he didn't want to go to jail. One of the officers then said, \"Does that mean you want us to drop you off at the city limits?\" The man replied, \"Yes. \" They then drove him to the city limits and left him along a busy highway. Moments l",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": false,
+      "violations": [
+        "empty_deliverable"
+      ],
+      "details": {
+        "output_length": 0
+      }
+    },
+    "dispute": {
+      "action": "rework",
+      "reason": "empty_deliverable",
+      "metadata": {
+        "rollback_to": "upstream_node"
+      }
+    }
+  }
+]

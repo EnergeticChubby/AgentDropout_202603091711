@@ -1,0 +1,54 @@
+[
+  {
+    "timestamp": 1773104794.8914711,
+    "run_id": "jVdRgtwa6tie",
+    "round_idx": 1,
+    "from_node": "Gg9m",
+    "to_node": "AhFg",
+    "contract": {
+      "contract_id": "LaaPuxvgpR",
+      "task_clause": "PreP is most effective for which group:\nOption A: Men with frequent unprotected sex\nOption B: Men with infrequent unprotected sex\nOption C: Women with frequent unprotected sex\nOption D: Women with infrequent unprotected sex\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": false,
+      "violations": [
+        "empty_deliverable"
+      ],
+      "details": {
+        "output_length": 0
+      }
+    },
+    "dispute": {
+      "action": "rework",
+      "reason": "empty_deliverable",
+      "metadata": {
+        "rollback_to": "upstream_node"
+      }
+    }
+  }
+]

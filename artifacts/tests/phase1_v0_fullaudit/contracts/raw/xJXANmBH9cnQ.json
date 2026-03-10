@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773104481.186072,
+    "run_id": "xJXANmBH9cnQ",
+    "round_idx": 0,
+    "from_node": "AgfV",
+    "to_node": "AgfV",
+    "contract": {
+      "contract_id": "tbQ2PGCf6h",
+      "task_clause": "Which of the following problems can be solved by a standard greedy algorithm?\nI. Finding a minimum spanning tree in an undirected graph with positive-integer edge weights\nII. Finding a maximum clique in an undirected graph\nIII. Finding a maximum flow from a source node to a sink node in a directed graph with positive-integer edge capacities\nOption A: I only\nOption B: II only\nOption C: III only\nOption D: I and II only\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 342
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773104481.1874447,
+    "run_id": "xJXANmBH9cnQ",
+    "round_idx": 1,
+    "from_node": "AgfV",
+    "to_node": "kT9r",
+    "contract": {
+      "contract_id": "WzTp342iGA",
+      "task_clause": "Which of the following problems can be solved by a standard greedy algorithm?\nI. Finding a minimum spanning tree in an undirected graph with positive-integer edge weights\nII. Finding a maximum clique in an undirected graph\nIII. Finding a maximum flow from a source node to a sink node in a directed graph with positive-integer edge capacities\nOption A: I only\nOption B: II only\nOption C: III only\nOption D: I and II only\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 342
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

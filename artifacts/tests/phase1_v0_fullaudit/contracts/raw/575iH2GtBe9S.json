@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773104552.3790102,
+    "run_id": "575iH2GtBe9S",
+    "round_idx": 0,
+    "from_node": "YcR2",
+    "to_node": "YcR2",
+    "contract": {
+      "contract_id": "Cg7ayrkDFY",
+      "task_clause": "A 2.35-gram sample was dissolved in water, and the chloride ions were precipitated by adding silver nitrate (Ag+ + Cl- \u2192 AgCl). If 0.435 g of precipitate was obtained, what is the percentage of chlorine in the sample?\nOption A: 10.80%\nOption B: 4.60%\nOption C: 43.50%\nOption D: 18%\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 164
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773104552.3791163,
+    "run_id": "575iH2GtBe9S",
+    "round_idx": 1,
+    "from_node": "YcR2",
+    "to_node": "zAEy",
+    "contract": {
+      "contract_id": "8YYnweiMQf",
+      "task_clause": "A 2.35-gram sample was dissolved in water, and the chloride ions were precipitated by adding silver nitrate (Ag+ + Cl- \u2192 AgCl). If 0.435 g of precipitate was obtained, what is the percentage of chlorine in the sample?\nOption A: 10.80%\nOption B: 4.60%\nOption C: 43.50%\nOption D: 18%\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 164
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

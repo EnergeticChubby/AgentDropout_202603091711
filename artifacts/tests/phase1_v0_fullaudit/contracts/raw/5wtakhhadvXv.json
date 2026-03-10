@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773104538.9620848,
+    "run_id": "5wtakhhadvXv",
+    "round_idx": 0,
+    "from_node": "joZz",
+    "to_node": "joZz",
+    "contract": {
+      "contract_id": "jMu29r62U6",
+      "task_clause": "Consider the following statements: (1) As countries get richer, the population tends to report higher average life satisfaction. (2) Important life events such as marriage or divorce do affect our happiness, but have surprisingly little long-term impact. Which of these statements is True/False, as of 2020?\nOption A: True, True\nOption B: True, False\nOption C: False, True\nOption D: False, False\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 2138
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773104538.9622145,
+    "run_id": "5wtakhhadvXv",
+    "round_idx": 1,
+    "from_node": "joZz",
+    "to_node": "jxBj",
+    "contract": {
+      "contract_id": "KbUnmYUuwV",
+      "task_clause": "Consider the following statements: (1) As countries get richer, the population tends to report higher average life satisfaction. (2) Important life events such as marriage or divorce do affect our happiness, but have surprisingly little long-term impact. Which of these statements is True/False, as of 2020?\nOption A: True, True\nOption B: True, False\nOption C: False, True\nOption D: False, False\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 2138
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

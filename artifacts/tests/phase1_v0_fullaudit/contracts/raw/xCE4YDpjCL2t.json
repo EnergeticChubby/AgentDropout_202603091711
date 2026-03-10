@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773104522.4277055,
+    "run_id": "xCE4YDpjCL2t",
+    "round_idx": 0,
+    "from_node": "Gg9m",
+    "to_node": "Gg9m",
+    "contract": {
+      "contract_id": "gZo3dyeKnT",
+      "task_clause": "When you scale up an object to 3 times its linear size, the surface area increases by\nOption A: 3 and the volume by 9.\nOption B: 3 and the volume by 27.\nOption C: 9 and the volume by 27.\nOption D: 4 and the volume by 8.\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 165
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773104522.4278734,
+    "run_id": "xCE4YDpjCL2t",
+    "round_idx": 1,
+    "from_node": "Gg9m",
+    "to_node": "AhFg",
+    "contract": {
+      "contract_id": "4zZBHcirLy",
+      "task_clause": "When you scale up an object to 3 times its linear size, the surface area increases by\nOption A: 3 and the volume by 9.\nOption B: 3 and the volume by 27.\nOption C: 9 and the volume by 27.\nOption D: 4 and the volume by 8.\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 165
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

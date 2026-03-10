@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773104746.9763935,
+    "run_id": "QYUMKG6CEZ7V",
+    "round_idx": 0,
+    "from_node": "UmiG",
+    "to_node": "UmiG",
+    "contract": {
+      "contract_id": "Jes3QT7t4y",
+      "task_clause": "Louis owns a chemical company that has been irresponsibly disposing of chemical waste and contaminating the community's water supply. Although he knew the company was cutting costs in its waste disposal, he publicly claims to have had no knowledge of the irresponsible practices, blames it on the company's general manager and fires him. What image restoration strategy is Louis using?\nOption A: denial\nOption B: evasion of responsibility\nOption C: reducing the offensiveness\nOption D: corrective action\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 192
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773104746.9775066,
+    "run_id": "QYUMKG6CEZ7V",
+    "round_idx": 1,
+    "from_node": "UmiG",
+    "to_node": "Zw3L",
+    "contract": {
+      "contract_id": "okKcmoGSKm",
+      "task_clause": "Louis owns a chemical company that has been irresponsibly disposing of chemical waste and contaminating the community's water supply. Although he knew the company was cutting costs in its waste disposal, he publicly claims to have had no knowledge of the irresponsible practices, blames it on the company's general manager and fires him. What image restoration strategy is Louis using?\nOption A: denial\nOption B: evasion of responsibility\nOption C: reducing the offensiveness\nOption D: corrective action\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 192
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

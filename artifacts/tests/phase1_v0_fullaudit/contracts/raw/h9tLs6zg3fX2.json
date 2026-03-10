@@ -1,0 +1,54 @@
+[
+  {
+    "timestamp": 1773104783.5209563,
+    "run_id": "h9tLs6zg3fX2",
+    "round_idx": 1,
+    "from_node": "YcR2",
+    "to_node": "zAEy",
+    "contract": {
+      "contract_id": "pGuSeRFEX2",
+      "task_clause": "Dawn Corp. uses a standard cost system. During the year both the labor rate variance and the labor efficiency variance were unfavorable. Dawn wrote the variances off directly to cost of goods sold. If Dawn had allocated the variances to work in process finished goods and cost of goods sold instead what would have been the effects on current ratio and net income? Current Net ratio income\nOption A: Increases Increases\nOption B: Increases Decreases\nOption C: Decreases Increases\nOption D: Decreases Decreases\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": false,
+      "violations": [
+        "empty_deliverable"
+      ],
+      "details": {
+        "output_length": 0
+      }
+    },
+    "dispute": {
+      "action": "rework",
+      "reason": "empty_deliverable",
+      "metadata": {
+        "rollback_to": "upstream_node"
+      }
+    }
+  }
+]

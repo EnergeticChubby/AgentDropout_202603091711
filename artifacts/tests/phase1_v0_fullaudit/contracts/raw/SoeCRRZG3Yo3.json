@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773104616.9714172,
+    "run_id": "SoeCRRZG3Yo3",
+    "round_idx": 0,
+    "from_node": "joZz",
+    "to_node": "joZz",
+    "contract": {
+      "contract_id": "yF9HQsVGwW",
+      "task_clause": "A test for heartworm in dogs shows a positive result in 96% of dogs that actually have heartworm, and shows a negative result in 98% of dogs with no heartworm. If heartworm actually occurs in 10% of dogs, what is the probability that a randomly selected dog that tested positive for heartworm actually has heartworm?\nOption A: 11%\nOption B: 18%\nOption C: 84%\nOption D: 88%\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 449
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773104616.9715388,
+    "run_id": "SoeCRRZG3Yo3",
+    "round_idx": 1,
+    "from_node": "joZz",
+    "to_node": "jxBj",
+    "contract": {
+      "contract_id": "tybBfYGsF5",
+      "task_clause": "A test for heartworm in dogs shows a positive result in 96% of dogs that actually have heartworm, and shows a negative result in 98% of dogs with no heartworm. If heartworm actually occurs in 10% of dogs, what is the probability that a randomly selected dog that tested positive for heartworm actually has heartworm?\nOption A: 11%\nOption B: 18%\nOption C: 84%\nOption D: 88%\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 449
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

@@ -1,0 +1,54 @@
+[
+  {
+    "timestamp": 1773104632.0896175,
+    "run_id": "DnWdWpeoSqUa",
+    "round_idx": 1,
+    "from_node": "UmiG",
+    "to_node": "Zw3L",
+    "contract": {
+      "contract_id": "JbKu7KjhLo",
+      "task_clause": "A rigid, solid container of constant volume holds an ideal gas of volume v1 and temperature T1 and pressure P1. The temperature is increased in an isochoric process. Which of the following is NOT true?\nOption A: The average speed of the molecules increases.\nOption B: The pressure increases.\nOption C: The kinetic energy of the system increases.\nOption D: The volume increases.\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": false,
+      "violations": [
+        "empty_deliverable"
+      ],
+      "details": {
+        "output_length": 0
+      }
+    },
+    "dispute": {
+      "action": "rework",
+      "reason": "empty_deliverable",
+      "metadata": {
+        "rollback_to": "upstream_node"
+      }
+    }
+  }
+]

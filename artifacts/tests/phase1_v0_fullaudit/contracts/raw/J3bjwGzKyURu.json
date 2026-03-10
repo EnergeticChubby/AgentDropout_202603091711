@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773104472.190982,
+    "run_id": "J3bjwGzKyURu",
+    "round_idx": 0,
+    "from_node": "KQwS",
+    "to_node": "KQwS",
+    "contract": {
+      "contract_id": "QnVXdLHttC",
+      "task_clause": "When an emergency opening into the airway is required, the cricothyroid membrane should be pierced immediately\nOption A: superior to the thyroid cartilage.\nOption B: inferior to the thyroid cartilage.\nOption C: inferior to the cricoid cartilage.\nOption D: superior to the thyroid isthmus.\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 220
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773104472.1910913,
+    "run_id": "J3bjwGzKyURu",
+    "round_idx": 1,
+    "from_node": "KQwS",
+    "to_node": "D9Pj",
+    "contract": {
+      "contract_id": "7ArKorSGTz",
+      "task_clause": "When an emergency opening into the airway is required, the cricothyroid membrane should be pierced immediately\nOption A: superior to the thyroid cartilage.\nOption B: inferior to the thyroid cartilage.\nOption C: inferior to the cricoid cartilage.\nOption D: superior to the thyroid isthmus.\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 220
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

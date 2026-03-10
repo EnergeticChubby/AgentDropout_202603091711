@@ -1,0 +1,54 @@
+[
+  {
+    "timestamp": 1773104736.0677164,
+    "run_id": "ayuiStwvCJAU",
+    "round_idx": 1,
+    "from_node": "AgfV",
+    "to_node": "kT9r",
+    "contract": {
+      "contract_id": "jFxNRKHCLH",
+      "task_clause": " For Socrates, the belief that \"virtue is knowledge\" is related to his claim that \"the unexamined life is not worth living,\" because he believes that:\nOption A: the unexamined life is one in which we live day to day without asking questions about who we are and why we are here in the first place.\nOption B: the Delphic oracle identified Socrates as the wisest person on earth because he claimed to know nothing.\nOption C: by questioning traditional beliefs, we learn to recognize how some answers seem to be more satisfactory than others.\nOption D: the only way to be a good or worthwhile person is to know how human beings should behave based on universal norms or values.\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": false,
+      "violations": [
+        "empty_deliverable"
+      ],
+      "details": {
+        "output_length": 0
+      }
+    },
+    "dispute": {
+      "action": "rework",
+      "reason": "empty_deliverable",
+      "metadata": {
+        "rollback_to": "upstream_node"
+      }
+    }
+  }
+]

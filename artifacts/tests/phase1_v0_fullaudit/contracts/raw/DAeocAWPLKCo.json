@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773104626.7949114,
+    "run_id": "DAeocAWPLKCo",
+    "round_idx": 0,
+    "from_node": "Gg9m",
+    "to_node": "Gg9m",
+    "contract": {
+      "contract_id": "MjCYMLDWEs",
+      "task_clause": "A cylinder with a movable piston contains a gas at pressure P = 1 \u00d7 10^5 Pa, volume V = 20 cm^3, and temperature T = 273 K. The piston is moved downward in a slow steady fashion allowing heat to escape the gas and the temperature to remain constant. If the final volume of the gas is 5 cm^3, what will be the resulting pressure?\nOption A: 0.25 \u00d7 10^5 Pa\nOption B: 2 \u00d7 10^5 Pa\nOption C: 4 \u00d7 10^5 Pa\nOption D: 8 \u00d7 10^5 Pa\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 122
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773104626.795152,
+    "run_id": "DAeocAWPLKCo",
+    "round_idx": 1,
+    "from_node": "Gg9m",
+    "to_node": "AhFg",
+    "contract": {
+      "contract_id": "hb9d4GrbWv",
+      "task_clause": "A cylinder with a movable piston contains a gas at pressure P = 1 \u00d7 10^5 Pa, volume V = 20 cm^3, and temperature T = 273 K. The piston is moved downward in a slow steady fashion allowing heat to escape the gas and the temperature to remain constant. If the final volume of the gas is 5 cm^3, what will be the resulting pressure?\nOption A: 0.25 \u00d7 10^5 Pa\nOption B: 2 \u00d7 10^5 Pa\nOption C: 4 \u00d7 10^5 Pa\nOption D: 8 \u00d7 10^5 Pa\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 122
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

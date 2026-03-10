@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773104616.5708206,
+    "run_id": "shFrguCLHzzM",
+    "round_idx": 0,
+    "from_node": "YcR2",
+    "to_node": "YcR2",
+    "contract": {
+      "contract_id": "tQe2xyPkDG",
+      "task_clause": "A soccer ball, at rest on the ground, is kicked with an initial velocity of 10 m/s at a launch angle of 30\u00b0. Calculate its total flight time, assuming that air resistance is negligible.\nOption A: 0.5 s\nOption B: 1 s\nOption C: 2 s\nOption D: 4 s\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 244
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773104616.5709352,
+    "run_id": "shFrguCLHzzM",
+    "round_idx": 1,
+    "from_node": "YcR2",
+    "to_node": "zAEy",
+    "contract": {
+      "contract_id": "qpYGTVuVXa",
+      "task_clause": "A soccer ball, at rest on the ground, is kicked with an initial velocity of 10 m/s at a launch angle of 30\u00b0. Calculate its total flight time, assuming that air resistance is negligible.\nOption A: 0.5 s\nOption B: 1 s\nOption C: 2 s\nOption D: 4 s\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 244
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

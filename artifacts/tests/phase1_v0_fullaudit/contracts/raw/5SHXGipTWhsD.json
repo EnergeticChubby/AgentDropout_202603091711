@@ -1,0 +1,54 @@
+[
+  {
+    "timestamp": 1773104781.759928,
+    "run_id": "5SHXGipTWhsD",
+    "round_idx": 1,
+    "from_node": "KQwS",
+    "to_node": "D9Pj",
+    "contract": {
+      "contract_id": "KaUKp6ghga",
+      "task_clause": "A lumber supplier and a fence company signed the following agreement on May 1:\"The supplier promises to sell and the fence company promises to buy 7,000 sections of redwood stockade fence at $30 per section. Each section is to be made of good quality split redwood poles and is to be 7 feet long and 6 feet high; 1,000 sections are to be delivered by seller on or before June 1, and 1,000 sections by the first day in each of the following six months. Payment for the sections to be made within 10 days of delivery. \"The first shipment of 1,000 sections arrived on May 27, and the fence company sent its payment on June5. The second shipment arrived on July 1, and the fence company made payment on July 5. The August shipment arrived on the afternoon of August 1. After the initial inspection, the r",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": false,
+      "violations": [
+        "empty_deliverable"
+      ],
+      "details": {
+        "output_length": 0
+      }
+    },
+    "dispute": {
+      "action": "rework",
+      "reason": "empty_deliverable",
+      "metadata": {
+        "rollback_to": "upstream_node"
+      }
+    }
+  }
+]

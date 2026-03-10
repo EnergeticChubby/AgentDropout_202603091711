@@ -1,0 +1,54 @@
+[
+  {
+    "timestamp": 1773104778.5248091,
+    "run_id": "iBDNuNJKfdto",
+    "round_idx": 1,
+    "from_node": "YcR2",
+    "to_node": "zAEy",
+    "contract": {
+      "contract_id": "AJe9vVM8ih",
+      "task_clause": "During an engagement to compile the financial statements of a nonissuer an accountant becomes aware that management had stated land at appraised value and that if GAAP had been followed both the land account and stockholders' equity would have been decreased by $1 million a material amount. The accountant decides to modify the standard compilation report because management will not revise the financial statements. Under these circumstances the accountant should\nOption A: Issue either an adverse opinion or a qualified opinion depending on materiality because of the departure from GAAP.\nOption B: Add a separate paragraph to the accountant's report that restricts the distribution of the financial statements to \u201a\u00c4\u00fainternal use only.\u201a\u00c4\u00f9\nOption C: Add a separate paragraph to the accountant's rep",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": false,
+      "violations": [
+        "empty_deliverable"
+      ],
+      "details": {
+        "output_length": 0
+      }
+    },
+    "dispute": {
+      "action": "rework",
+      "reason": "empty_deliverable",
+      "metadata": {
+        "rollback_to": "upstream_node"
+      }
+    }
+  }
+]

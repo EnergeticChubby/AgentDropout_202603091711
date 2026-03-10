@@ -1,0 +1,54 @@
+[
+  {
+    "timestamp": 1773104727.4515376,
+    "run_id": "qzvmivJQ4fwX",
+    "round_idx": 1,
+    "from_node": "RKB3",
+    "to_node": "p79Q",
+    "contract": {
+      "contract_id": "bV4LTJmN6S",
+      "task_clause": "John noticed that the angle formed by the minute hand and hour hand on a standard 12-hour clock was 110 degrees when he left home after 6 p.m.; it was also 110 degrees when he returned after 6 p.m. but before 7 p.m. that same night. If he left home for more than five minutes, for how many minutes was he away?\nOption A: 36\nOption B: 40\nOption C: 38\nOption D: 43\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": false,
+      "violations": [
+        "empty_deliverable"
+      ],
+      "details": {
+        "output_length": 0
+      }
+    },
+    "dispute": {
+      "action": "rework",
+      "reason": "empty_deliverable",
+      "metadata": {
+        "rollback_to": "upstream_node"
+      }
+    }
+  }
+]

@@ -1,0 +1,54 @@
+[
+  {
+    "timestamp": 1773104516.9231124,
+    "run_id": "KDy2JLunGb2d",
+    "round_idx": 1,
+    "from_node": "uXEU",
+    "to_node": "kaVo",
+    "contract": {
+      "contract_id": "t4Fe5r6tan",
+      "task_clause": "Which of the following may be consequences of one or more of the CLRM assumptions being violated?\n\ni) The coefficient estimates are not optimal\n\n\nii) The standard error estimates are not optimal\n\n\niii) The distributions assumed for the test statistics are inappropriate\n\n\niv) Conclusions regarding the strength of relationships between the dependent\n\nand independent variables may be invalid.\nOption A: (ii) and (iv) only\nOption B: (i) and (iii) only\nOption C: (i), (ii), and (iii) only\nOption D: (i), (ii), (iii), and (iv)\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": false,
+      "violations": [
+        "empty_deliverable"
+      ],
+      "details": {
+        "output_length": 0
+      }
+    },
+    "dispute": {
+      "action": "rework",
+      "reason": "empty_deliverable",
+      "metadata": {
+        "rollback_to": "upstream_node"
+      }
+    }
+  }
+]

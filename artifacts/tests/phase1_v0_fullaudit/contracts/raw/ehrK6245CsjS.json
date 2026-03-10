@@ -1,0 +1,54 @@
+[
+  {
+    "timestamp": 1773104523.7503476,
+    "run_id": "ehrK6245CsjS",
+    "round_idx": 1,
+    "from_node": "RKB3",
+    "to_node": "p79Q",
+    "contract": {
+      "contract_id": "mar4VyWUsM",
+      "task_clause": "An individual is born with a mutation causing her to partially retain a form of fetal hemoglobin into adulthood. Compared to a normal individual, this person would exhibit:\nOption A: no differences from a normal adult.\nOption B: significantly reduced oxygen binding in the lungs.\nOption C: no symptoms, since retention of fetal hemoglobin would be fatal.\nOption D: increased oxygen binding to hemoglobin in the tissues.\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": false,
+      "violations": [
+        "empty_deliverable"
+      ],
+      "details": {
+        "output_length": 0
+      }
+    },
+    "dispute": {
+      "action": "rework",
+      "reason": "empty_deliverable",
+      "metadata": {
+        "rollback_to": "upstream_node"
+      }
+    }
+  }
+]

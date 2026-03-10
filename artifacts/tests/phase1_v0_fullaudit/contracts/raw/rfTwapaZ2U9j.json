@@ -1,0 +1,54 @@
+[
+  {
+    "timestamp": 1773104798.938684,
+    "run_id": "rfTwapaZ2U9j",
+    "round_idx": 1,
+    "from_node": "KQwS",
+    "to_node": "D9Pj",
+    "contract": {
+      "contract_id": "fNQ3TZM7B3",
+      "task_clause": "What happens during the 'incubation period'?\nOption A: The virus is cleared from the body by the immune system\nOption B: Virus replication happens at an intracellular level\nOption C: This period commonly lasts for a few days\nOption D: This period commonly lasts for a few hours\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": false,
+      "violations": [
+        "empty_deliverable"
+      ],
+      "details": {
+        "output_length": 0
+      }
+    },
+    "dispute": {
+      "action": "rework",
+      "reason": "empty_deliverable",
+      "metadata": {
+        "rollback_to": "upstream_node"
+      }
+    }
+  }
+]

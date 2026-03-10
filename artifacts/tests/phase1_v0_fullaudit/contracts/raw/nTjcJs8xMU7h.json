@@ -1,0 +1,54 @@
+[
+  {
+    "timestamp": 1773104639.1364765,
+    "run_id": "nTjcJs8xMU7h",
+    "round_idx": 1,
+    "from_node": "AgfV",
+    "to_node": "kT9r",
+    "contract": {
+      "contract_id": "BSXYvAesuC",
+      "task_clause": "The amount of paint that David needs to cover a cube is directly proportional to the surface area. If David can completely cover a cube of side length 2 feet with exactly 16 quarts of paint, how big a cube (in terms of edge length in feet) can David cover with 169 quarts of paint?\nOption A: \\frac{13}{4}\nOption B: 8\nOption C: \\frac{13}{2}\nOption D: 13\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": false,
+      "violations": [
+        "empty_deliverable"
+      ],
+      "details": {
+        "output_length": 0
+      }
+    },
+    "dispute": {
+      "action": "rework",
+      "reason": "empty_deliverable",
+      "metadata": {
+        "rollback_to": "upstream_node"
+      }
+    }
+  }
+]

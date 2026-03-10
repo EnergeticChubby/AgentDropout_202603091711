@@ -1,0 +1,54 @@
+[
+  {
+    "timestamp": 1773104783.460925,
+    "run_id": "qvKZhX66S6pq",
+    "round_idx": 1,
+    "from_node": "AgfV",
+    "to_node": "kT9r",
+    "contract": {
+      "contract_id": "v6PQdCGYeM",
+      "task_clause": "Which of the following should a practitioner perform as part of an engagement for agreed-upon procedures in accordance with Statements on Standards for Attestation Engagements?\nOption A: Issue a report on findings based on specified procedures performed.\nOption B: Assess whether the procedures meet the needs of the parties.\nOption C: Express negative assurance on findings of work performed.\nOption D: Report the differences between agreed-upon and audit procedures.\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": false,
+      "violations": [
+        "empty_deliverable"
+      ],
+      "details": {
+        "output_length": 0
+      }
+    },
+    "dispute": {
+      "action": "rework",
+      "reason": "empty_deliverable",
+      "metadata": {
+        "rollback_to": "upstream_node"
+      }
+    }
+  }
+]

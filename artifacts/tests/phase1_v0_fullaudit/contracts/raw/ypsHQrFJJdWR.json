@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773104544.6858552,
+    "run_id": "ypsHQrFJJdWR",
+    "round_idx": 0,
+    "from_node": "YcR2",
+    "to_node": "YcR2",
+    "contract": {
+      "contract_id": "Uj4rQSBuQW",
+      "task_clause": " Which of the given formulas of PL is the best symbolization of the following sentence?\nPablo will go to the store if, and only if, his brother drives him and pays for gas.\nOption A: (P \u2261 D) \u2261 G\nOption B: (D \u2022 G) \u2283 P\nOption C: P \u2283 (D \u2022 G)\nOption D: P \u2261 (D \u2022 G)\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 1671
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773104544.6859741,
+    "run_id": "ypsHQrFJJdWR",
+    "round_idx": 1,
+    "from_node": "YcR2",
+    "to_node": "zAEy",
+    "contract": {
+      "contract_id": "aiJzNRD3NC",
+      "task_clause": " Which of the given formulas of PL is the best symbolization of the following sentence?\nPablo will go to the store if, and only if, his brother drives him and pays for gas.\nOption A: (P \u2261 D) \u2261 G\nOption B: (D \u2022 G) \u2283 P\nOption C: P \u2283 (D \u2022 G)\nOption D: P \u2261 (D \u2022 G)\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 1671
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

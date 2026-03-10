@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773104747.2998421,
+    "run_id": "c57GNYRdbkQy",
+    "round_idx": 0,
+    "from_node": "UmiG",
+    "to_node": "UmiG",
+    "contract": {
+      "contract_id": "Gx9T2bSukC",
+      "task_clause": "Which areas of the world are rabies free?\nOption A: USA\nOption B: Norway\nOption C: EU\nOption D: Island nations, UK, NZ and Australia\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 845
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773104747.3003917,
+    "run_id": "c57GNYRdbkQy",
+    "round_idx": 1,
+    "from_node": "UmiG",
+    "to_node": "Zw3L",
+    "contract": {
+      "contract_id": "eoSy83o7a9",
+      "task_clause": "Which areas of the world are rabies free?\nOption A: USA\nOption B: Norway\nOption C: EU\nOption D: Island nations, UK, NZ and Australia\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 845
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

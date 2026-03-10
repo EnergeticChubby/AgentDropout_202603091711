@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773104671.9472978,
+    "run_id": "h2XwZSAEHWxV",
+    "round_idx": 0,
+    "from_node": "KQwS",
+    "to_node": "KQwS",
+    "contract": {
+      "contract_id": "BQeFa45bxx",
+      "task_clause": "At the peak of a typical business cycle which of the following is likely the greatest threat to the macroeconomy?\nOption A: Unemployment\nOption B: Bankruptcy\nOption C: Declining labor productivity\nOption D: Inflation\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 410
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773104671.9474368,
+    "run_id": "h2XwZSAEHWxV",
+    "round_idx": 1,
+    "from_node": "KQwS",
+    "to_node": "D9Pj",
+    "contract": {
+      "contract_id": "wKLqnRNnDM",
+      "task_clause": "At the peak of a typical business cycle which of the following is likely the greatest threat to the macroeconomy?\nOption A: Unemployment\nOption B: Bankruptcy\nOption C: Declining labor productivity\nOption D: Inflation\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 410
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

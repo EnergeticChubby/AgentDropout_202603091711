@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773104620.0693278,
+    "run_id": "vsm4WA66X58e",
+    "round_idx": 0,
+    "from_node": "UmiG",
+    "to_node": "UmiG",
+    "contract": {
+      "contract_id": "Aerqrm4gNB",
+      "task_clause": "The crowding-out effect from government borrowing is best described as\nOption A: the rightward shift in AD in response to the decreasing interest rates from contractionary fiscal policy.\nOption B: the leftward shift in AD in response to the rising interest rates from expansionary fiscal policy.\nOption C: the effect of the President increasing the money supply which decreases real interest rates and increases AD.\nOption D: the effect on the economy of hearing the chairperson of the central bank say that he or she believes that the economy is in a recession.\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 164
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773104620.0694473,
+    "run_id": "vsm4WA66X58e",
+    "round_idx": 1,
+    "from_node": "UmiG",
+    "to_node": "Zw3L",
+    "contract": {
+      "contract_id": "phUvdnTrFy",
+      "task_clause": "The crowding-out effect from government borrowing is best described as\nOption A: the rightward shift in AD in response to the decreasing interest rates from contractionary fiscal policy.\nOption B: the leftward shift in AD in response to the rising interest rates from expansionary fiscal policy.\nOption C: the effect of the President increasing the money supply which decreases real interest rates and increases AD.\nOption D: the effect on the economy of hearing the chairperson of the central bank say that he or she believes that the economy is in a recession.\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 164
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

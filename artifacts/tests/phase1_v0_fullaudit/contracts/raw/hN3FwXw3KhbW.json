@@ -1,0 +1,54 @@
+[
+  {
+    "timestamp": 1773104784.1526828,
+    "run_id": "hN3FwXw3KhbW",
+    "round_idx": 1,
+    "from_node": "uXEU",
+    "to_node": "kaVo",
+    "contract": {
+      "contract_id": "EbTsS4PNqT",
+      "task_clause": "An avowed member of an antigovernment organization was elected president of a union. A senator, in his investigation of infiltration by antigovernment organizations of national labor unions, found a provision in a law passed by Congress that makes it a crime for a member of an antigovernment organization to act as an official of a labor union. After a subsequent legislative hearing, the president is dismissed from his position by the executive committee of the union. During a legislative hearing, the senator made derogatory statements about the president's involvement in an antigovernment organization. In determining whether the president has a valid cause of action against the senator for defamation, which of the following most accurately summarizes the applicable rule of law?\nOption A: C",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": false,
+      "violations": [
+        "empty_deliverable"
+      ],
+      "details": {
+        "output_length": 0
+      }
+    },
+    "dispute": {
+      "action": "rework",
+      "reason": "empty_deliverable",
+      "metadata": {
+        "rollback_to": "upstream_node"
+      }
+    }
+  }
+]

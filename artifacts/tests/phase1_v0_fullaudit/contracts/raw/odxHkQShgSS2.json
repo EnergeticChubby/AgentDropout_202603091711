@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773104674.4966764,
+    "run_id": "odxHkQShgSS2",
+    "round_idx": 0,
+    "from_node": "KQwS",
+    "to_node": "KQwS",
+    "contract": {
+      "contract_id": "WNi26y66mv",
+      "task_clause": "The mean daily demand for bread at a popular bakery is 2,500 loaves, with a standard deviation of 225 loaves. Every morning the bakery bakes 3,000 loaves. What is the probability that today it will run out of bread? Assume that the mean daily demand for bread at this bakery is normally distributed.\nOption A: 0.8333\nOption B: 0.1667\nOption C: 0.9869\nOption D: 0.0132\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 1338
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773104674.496793,
+    "run_id": "odxHkQShgSS2",
+    "round_idx": 1,
+    "from_node": "KQwS",
+    "to_node": "D9Pj",
+    "contract": {
+      "contract_id": "RKi2pfrZL3",
+      "task_clause": "The mean daily demand for bread at a popular bakery is 2,500 loaves, with a standard deviation of 225 loaves. Every morning the bakery bakes 3,000 loaves. What is the probability that today it will run out of bread? Assume that the mean daily demand for bread at this bakery is normally distributed.\nOption A: 0.8333\nOption B: 0.1667\nOption C: 0.9869\nOption D: 0.0132\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 1338
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

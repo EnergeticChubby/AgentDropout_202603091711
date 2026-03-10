@@ -1,0 +1,54 @@
+[
+  {
+    "timestamp": 1773104781.8302965,
+    "run_id": "MzTjUqNZLsRm",
+    "round_idx": 1,
+    "from_node": "joZz",
+    "to_node": "jxBj",
+    "contract": {
+      "contract_id": "v3FbRuEePY",
+      "task_clause": "In return for a 20% partnership interest, Skinner contributed $5,000 cash and land with a $12,000 basis and a $20,000 fair market value to the partnership. The land was subject to a $10,000 mortgage that the partnership assumed. In addition, the partnership had $20,000 in recourse liabilities that would be shared by partners according to their partnership interests. What amount represents Skinner\u2019s basis in the partnership interest?\nOption A: $27,000\nOption B: $21,000\nOption C: $19,000\nOption D: $13,000\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": false,
+      "violations": [
+        "empty_deliverable"
+      ],
+      "details": {
+        "output_length": 0
+      }
+    },
+    "dispute": {
+      "action": "rework",
+      "reason": "empty_deliverable",
+      "metadata": {
+        "rollback_to": "upstream_node"
+      }
+    }
+  }
+]

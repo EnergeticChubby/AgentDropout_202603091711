@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773104548.590328,
+    "run_id": "cDsM4iCy4nWA",
+    "round_idx": 0,
+    "from_node": "Gg9m",
+    "to_node": "Gg9m",
+    "contract": {
+      "contract_id": "KUkif37RZW",
+      "task_clause": "A 25 g sample of a liquid was heated to 100 \u00b0C and then quickly transferred to an insulated container holding 100 g of water at 22 \u00b0C. The temperature of the mixture rose to reach a final temperature of 35 \u00b0C. Which of the following can be concluded?\nOption A: The sample temperature changed more than the water temperature did; therefore the sample lost more heat energy than the water gained.\nOption B: The sample temperature changed more than the water temperature did, but the sample lost the same amount of heat energy as the water gained.\nOption C: The sample temperature changed more than the water temperature did; therefore the CP of the sample must be greater than the CP of the water.\nOption D: The final temperature is less than the average starting temperature of the sample and the wate",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 420
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773104548.5904508,
+    "run_id": "cDsM4iCy4nWA",
+    "round_idx": 1,
+    "from_node": "Gg9m",
+    "to_node": "AhFg",
+    "contract": {
+      "contract_id": "fD744pdjiM",
+      "task_clause": "A 25 g sample of a liquid was heated to 100 \u00b0C and then quickly transferred to an insulated container holding 100 g of water at 22 \u00b0C. The temperature of the mixture rose to reach a final temperature of 35 \u00b0C. Which of the following can be concluded?\nOption A: The sample temperature changed more than the water temperature did; therefore the sample lost more heat energy than the water gained.\nOption B: The sample temperature changed more than the water temperature did, but the sample lost the same amount of heat energy as the water gained.\nOption C: The sample temperature changed more than the water temperature did; therefore the CP of the sample must be greater than the CP of the water.\nOption D: The final temperature is less than the average starting temperature of the sample and the wate",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 420
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

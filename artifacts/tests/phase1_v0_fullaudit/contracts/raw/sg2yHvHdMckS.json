@@ -1,0 +1,54 @@
+[
+  {
+    "timestamp": 1773104656.287153,
+    "run_id": "sg2yHvHdMckS",
+    "round_idx": 1,
+    "from_node": "YcR2",
+    "to_node": "zAEy",
+    "contract": {
+      "contract_id": "wP6Eo7eCXL",
+      "task_clause": "This question refers to the following information.\n\"I was once a tool of oppression\nAnd as green as a sucker could be\nAnd monopolies banded together\nTo beat a poor hayseed like me.\n\"The railroads and old party bosses\nTogether did sweetly agree;\nAnd they thought there would be little trouble\nIn working a hayseed like me. . . .\"\n\u2014\"The Hayseed\"\nThe song, and the movement that it was connected to, highlight which of the following developments in the broader society in the late 1800s?\nOption A: Corruption in government\u2014especially as it related to big business\u2014energized the public to demand increased popular control and reform of local, state, and national governments.\nOption B: A large-scale movement of struggling African American and white farmers, as well as urban factory workers, was able to",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": false,
+      "violations": [
+        "empty_deliverable"
+      ],
+      "details": {
+        "output_length": 0
+      }
+    },
+    "dispute": {
+      "action": "rework",
+      "reason": "empty_deliverable",
+      "metadata": {
+        "rollback_to": "upstream_node"
+      }
+    }
+  }
+]

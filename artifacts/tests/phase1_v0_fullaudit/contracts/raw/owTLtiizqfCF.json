@@ -1,0 +1,54 @@
+[
+  {
+    "timestamp": 1773104596.4531684,
+    "run_id": "owTLtiizqfCF",
+    "round_idx": 1,
+    "from_node": "UmiG",
+    "to_node": "Zw3L",
+    "contract": {
+      "contract_id": "doBiXcVDkb",
+      "task_clause": "A 2.0 L flask holds 0.40 g of helium gas. If the helium is evacuated into a larger container while the temperature is held constant, what will the effect on the entropy of the helium be?\nOption A: It will remain constant as the number of helium molecules does not change.\nOption B: It will decrease as the gas will be more ordered in the larger flask.\nOption C: It will decrease because the molecules will collide with the sides of the larger flask less often than they did in the smaller flask.\nOption D: It will increase as the gas molecules will be more dispersed in the larger flask.\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": false,
+      "violations": [
+        "empty_deliverable"
+      ],
+      "details": {
+        "output_length": 0
+      }
+    },
+    "dispute": {
+      "action": "rework",
+      "reason": "empty_deliverable",
+      "metadata": {
+        "rollback_to": "upstream_node"
+      }
+    }
+  }
+]

@@ -1,0 +1,54 @@
+[
+  {
+    "timestamp": 1773104571.0526495,
+    "run_id": "ztzMBs8XaJpE",
+    "round_idx": 1,
+    "from_node": "joZz",
+    "to_node": "jxBj",
+    "contract": {
+      "contract_id": "C2nG87auRF",
+      "task_clause": "Which of the following statements are true concerning a triangular or recursive system?\n\ni) The parameters can be validly estimated using separate applications of OLS to\n\neach equation\n\n\nii) The independent variables may be correlated with the error terms in other\n\nequations\n\n\niii) An application of 2SLS would lead to unbiased but inefficient parameter estimates\n\n\niv) The independent variables may be correlated with the error terms in the equations\n\nin which they appear as independent variables\nOption A: (ii) and (iv) only\nOption B: (i) and (iii) only\nOption C: (i), (ii), and (iii) only\nOption D: (i), (ii), (iii), and (iv)\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": false,
+      "violations": [
+        "empty_deliverable"
+      ],
+      "details": {
+        "output_length": 0
+      }
+    },
+    "dispute": {
+      "action": "rework",
+      "reason": "empty_deliverable",
+      "metadata": {
+        "rollback_to": "upstream_node"
+      }
+    }
+  }
+]

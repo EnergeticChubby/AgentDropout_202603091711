@@ -1,0 +1,54 @@
+[
+  {
+    "timestamp": 1773104731.4470274,
+    "run_id": "RG9q29iYDnTD",
+    "round_idx": 1,
+    "from_node": "RKB3",
+    "to_node": "p79Q",
+    "contract": {
+      "contract_id": "xjuhrEjTjL",
+      "task_clause": "When nominal GDP is rising we would expect money demand to\nOption A: increase as consumers demand more money as a financial asset increasing the interest rate.\nOption B: increase as consumers demand more money for transactions increasing the interest rate.\nOption C: decrease as the purchasing power of the dollar is falling decreasing the interest rate.\nOption D: decrease as consumers demand more money for transactions increasing the interest rate.\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": false,
+      "violations": [
+        "empty_deliverable"
+      ],
+      "details": {
+        "output_length": 0
+      }
+    },
+    "dispute": {
+      "action": "rework",
+      "reason": "empty_deliverable",
+      "metadata": {
+        "rollback_to": "upstream_node"
+      }
+    }
+  }
+]

@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773104672.4929276,
+    "run_id": "jWhdBZHsjHcN",
+    "round_idx": 0,
+    "from_node": "KQwS",
+    "to_node": "KQwS",
+    "contract": {
+      "contract_id": "yrpEFyG7gq",
+      "task_clause": "A man stands with his hands to his sides on a frictionless platform that is rotating. Which of the following could change the angular momentum of the man-platform system?\nOption A: The man catches a baseball thrown to him by a friend.\nOption B: The man thrusts his arms out away from his body\nOption C: The man thrusts his arms out away from his body, and then quickly brings his arms back to his side again.\nOption D: The man jumps straight up in the air and lands back on the platform.\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 209
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773104672.4935484,
+    "run_id": "jWhdBZHsjHcN",
+    "round_idx": 1,
+    "from_node": "KQwS",
+    "to_node": "D9Pj",
+    "contract": {
+      "contract_id": "SGhNhaizwF",
+      "task_clause": "A man stands with his hands to his sides on a frictionless platform that is rotating. Which of the following could change the angular momentum of the man-platform system?\nOption A: The man catches a baseball thrown to him by a friend.\nOption B: The man thrusts his arms out away from his body\nOption C: The man thrusts his arms out away from his body, and then quickly brings his arms back to his side again.\nOption D: The man jumps straight up in the air and lands back on the platform.\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 209
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

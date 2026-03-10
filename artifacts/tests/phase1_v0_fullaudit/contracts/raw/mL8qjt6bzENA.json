@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773104559.2561262,
+    "run_id": "mL8qjt6bzENA",
+    "round_idx": 0,
+    "from_node": "YcR2",
+    "to_node": "YcR2",
+    "contract": {
+      "contract_id": "KumQU6dAxo",
+      "task_clause": " Use the following key to translate the given formula of PL to natural, English sentences.\nA: Marina reads a Percy Jackson book.\nB: Izzy plays Minecraft.\nC: Emily stops working.\nD: Russell makes dinner.\nE: Ashleigh stops by.\n(A \u2228 ~E) \u2261 (D \u2022 ~B)\nOption A: Either Marina reading a Percy Jackson book or Ashleigh not stopping by is a necessary condition for both Russell making dinner and Izzy not playing Minecraft.\nOption B: Either Marina reading a Percy Jackson book or Ashleigh not stopping by is a necessary and sufficient condition for Russell making dinner and Izzy playing Minecraft.\nOption C: Marina reads a Percy Jackson book unless Ashleigh stops by if, and only if, both Russell makes dinner and Izzy doesn't play Minecraft.\nOption D: Either Marina reads a Percy Jackson book or Ashleigh doe",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 824
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773104559.2563472,
+    "run_id": "mL8qjt6bzENA",
+    "round_idx": 1,
+    "from_node": "YcR2",
+    "to_node": "zAEy",
+    "contract": {
+      "contract_id": "FokALQGzQR",
+      "task_clause": " Use the following key to translate the given formula of PL to natural, English sentences.\nA: Marina reads a Percy Jackson book.\nB: Izzy plays Minecraft.\nC: Emily stops working.\nD: Russell makes dinner.\nE: Ashleigh stops by.\n(A \u2228 ~E) \u2261 (D \u2022 ~B)\nOption A: Either Marina reading a Percy Jackson book or Ashleigh not stopping by is a necessary condition for both Russell making dinner and Izzy not playing Minecraft.\nOption B: Either Marina reading a Percy Jackson book or Ashleigh not stopping by is a necessary and sufficient condition for Russell making dinner and Izzy playing Minecraft.\nOption C: Marina reads a Percy Jackson book unless Ashleigh stops by if, and only if, both Russell makes dinner and Izzy doesn't play Minecraft.\nOption D: Either Marina reads a Percy Jackson book or Ashleigh doe",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 824
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

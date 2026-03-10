@@ -1,0 +1,54 @@
+[
+  {
+    "timestamp": 1773104656.3047285,
+    "run_id": "YbH3riu3UnKS",
+    "round_idx": 1,
+    "from_node": "uXEU",
+    "to_node": "kaVo",
+    "contract": {
+      "contract_id": "FSu9eAVTgr",
+      "task_clause": "A virus is spreading throughout the population of a town, and the number of people who have the virus doubles every 3 days. If there are 1,000 people in the town, and 10 people have the virus on January 1st, what is the earliest date at which the entire town would be infected with the virus, given that there are 365 days in a year, and 31 days in the month of January?\nOption A: January 10th\nOption B: January 21st\nOption C: January 31st\nOption D: February 10th\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": false,
+      "violations": [
+        "empty_deliverable"
+      ],
+      "details": {
+        "output_length": 0
+      }
+    },
+    "dispute": {
+      "action": "rework",
+      "reason": "empty_deliverable",
+      "metadata": {
+        "rollback_to": "upstream_node"
+      }
+    }
+  }
+]

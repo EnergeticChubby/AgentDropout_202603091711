@@ -1,0 +1,54 @@
+[
+  {
+    "timestamp": 1773104659.1656504,
+    "run_id": "xLdVPxGUHp3A",
+    "round_idx": 1,
+    "from_node": "KQwS",
+    "to_node": "D9Pj",
+    "contract": {
+      "contract_id": "Fs9DncsVh3",
+      "task_clause": "This question refers to the following information.\nTonight, the daughter of a woman whose highest goal was a future for her children talks to our nation's oldest political party about a future for us all. Tonight, the daughter of working Americans tells all Americans that the future is within our reach, if we're willing to reach for it. Tonight, the daughter of an immigrant from Italy has been chosen to run for (vice) president in the new land my father came to love.\u2026 Americans want to live by the same set of rules. But under this administration, the rules are rigged against too many of our people. It isn't right that every year the share of taxes paid by individual citizens is going up, while the share paid by large corporations is getting smaller and smaller.\u2026 It isn't right that young c",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": false,
+      "violations": [
+        "empty_deliverable"
+      ],
+      "details": {
+        "output_length": 0
+      }
+    },
+    "dispute": {
+      "action": "rework",
+      "reason": "empty_deliverable",
+      "metadata": {
+        "rollback_to": "upstream_node"
+      }
+    }
+  }
+]

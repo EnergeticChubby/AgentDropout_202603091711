@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773104746.9762948,
+    "run_id": "SVDvQuWca5ZK",
+    "round_idx": 0,
+    "from_node": "UmiG",
+    "to_node": "UmiG",
+    "contract": {
+      "contract_id": "n7mDGJRcZK",
+      "task_clause": "Kanji Company had sales last year of $265 million, including cash sales of $25 million. If its average collection period was 36 days, its ending accounts receivable balance is closest to . (Assume a 365-day year.)\nOption A: $26.1 million\nOption B: $23.7 million\nOption C: $7.4 million\nOption D: $18.7 million\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 289
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773104746.9770505,
+    "run_id": "SVDvQuWca5ZK",
+    "round_idx": 1,
+    "from_node": "UmiG",
+    "to_node": "Zw3L",
+    "contract": {
+      "contract_id": "ZtVXxJxGWE",
+      "task_clause": "Kanji Company had sales last year of $265 million, including cash sales of $25 million. If its average collection period was 36 days, its ending accounts receivable balance is closest to . (Assume a 365-day year.)\nOption A: $26.1 million\nOption B: $23.7 million\nOption C: $7.4 million\nOption D: $18.7 million\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 289
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

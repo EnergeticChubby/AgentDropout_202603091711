@@ -1,0 +1,54 @@
+[
+  {
+    "timestamp": 1773104778.2976887,
+    "run_id": "ncc9FPHHiVDh",
+    "round_idx": 1,
+    "from_node": "joZz",
+    "to_node": "jxBj",
+    "contract": {
+      "contract_id": "dQzuSHaFqq",
+      "task_clause": "Early theories of mass communication suggested that audiences were passive recipients of media messages and thus vulnerable to manipulation. Which of the following best describes current thinking?\nOption A: Audiences are more vulnerable and passive than ever before.\nOption B: Television viewing, in particular, creates increased activity in the right hemisphere of the brain.\nOption C: Active receivers are not uniformly affected by mass communication messages.\nOption D: Technology has led to increasingly passive recipients at the ends of message transmission systems.\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": false,
+      "violations": [
+        "empty_deliverable"
+      ],
+      "details": {
+        "output_length": 0
+      }
+    },
+    "dispute": {
+      "action": "rework",
+      "reason": "empty_deliverable",
+      "metadata": {
+        "rollback_to": "upstream_node"
+      }
+    }
+  }
+]

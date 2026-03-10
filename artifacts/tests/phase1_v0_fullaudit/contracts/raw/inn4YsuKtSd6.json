@@ -1,0 +1,54 @@
+[
+  {
+    "timestamp": 1773104615.9572678,
+    "run_id": "inn4YsuKtSd6",
+    "round_idx": 1,
+    "from_node": "RKB3",
+    "to_node": "p79Q",
+    "contract": {
+      "contract_id": "PMXUfAgp2k",
+      "task_clause": "S(s) + O2(g) \u2192 SO2(g)\nOption A: one atom of S reacts with one molecule of O2 to yield one molecule of SO2\nOption B: one mole of sulfur atoms reacts with one mole of oxygen molecules to yield one mole of sulfur dioxide molecules\nOption C: this reaction goes to completion\nOption D: adding S(s) will change the equilibrium constant\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": false,
+      "violations": [
+        "empty_deliverable"
+      ],
+      "details": {
+        "output_length": 0
+      }
+    },
+    "dispute": {
+      "action": "rework",
+      "reason": "empty_deliverable",
+      "metadata": {
+        "rollback_to": "upstream_node"
+      }
+    }
+  }
+]

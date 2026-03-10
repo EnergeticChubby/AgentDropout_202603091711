@@ -1,0 +1,54 @@
+[
+  {
+    "timestamp": 1773104785.1862404,
+    "run_id": "LCJJX7PZADjx",
+    "round_idx": 1,
+    "from_node": "KQwS",
+    "to_node": "D9Pj",
+    "contract": {
+      "contract_id": "zjPfeHT9nH",
+      "task_clause": "A contractor and home owner were bargaining on the price for the construction of a new home. The contractor made a number of offers for construction to the home owner including one for $100,000. Which of the following communications would not terminate the offer so that a subsequent acceptance could be effective\nOption A: The home owner asks the contractor if they would be willing to build the house for $95,000.\nOption B: The contractor contacts the home owner and states that the offer is withdrawn.\nOption C: The contractor dies before the home owner accepts but the contractor's son intends to continue the business.\nOption D: The home owner states \"I accept your offer but the price is to be $97,000.\"\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": false,
+      "violations": [
+        "empty_deliverable"
+      ],
+      "details": {
+        "output_length": 0
+      }
+    },
+    "dispute": {
+      "action": "rework",
+      "reason": "empty_deliverable",
+      "metadata": {
+        "rollback_to": "upstream_node"
+      }
+    }
+  }
+]

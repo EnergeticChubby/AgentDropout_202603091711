@@ -1,0 +1,54 @@
+[
+  {
+    "timestamp": 1773104459.6585705,
+    "run_id": "3PVpUnEQgDgd",
+    "round_idx": 1,
+    "from_node": "Gg9m",
+    "to_node": "AhFg",
+    "contract": {
+      "contract_id": "fmpGqEcdGH",
+      "task_clause": "Why is Saturn almost as big as Jupiter despite its smaller mass?\nOption A: Jupiter's greater mass compresses it more thus increasing its density.\nOption B: Saturn has a larger proportion of hydrogen and helium than Jupiter and is therefore less dense.\nOption C: Saturn is further from the Sun thus cooler and therefore less compact.\nOption D: Saturn's rings make the planet look bigger.\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": false,
+      "violations": [
+        "empty_deliverable"
+      ],
+      "details": {
+        "output_length": 0
+      }
+    },
+    "dispute": {
+      "action": "rework",
+      "reason": "empty_deliverable",
+      "metadata": {
+        "rollback_to": "upstream_node"
+      }
+    }
+  }
+]

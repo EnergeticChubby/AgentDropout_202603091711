@@ -1,0 +1,54 @@
+[
+  {
+    "timestamp": 1773104785.598531,
+    "run_id": "BSmepRpHVerV",
+    "round_idx": 1,
+    "from_node": "AgfV",
+    "to_node": "kT9r",
+    "contract": {
+      "contract_id": "KPDACUEiFV",
+      "task_clause": "A defendant was charged with vehicular battery after driving through a red light and crashing into a woman's small convertible. The woman suffered massive internal injuries and lapsed into a coma for several hours after she reached the hospital. The woman's best friend, who was a passenger in the car, miraculously received only a few minor bruises. After the collision, the passenger stayed with the woman trying to comfort her until the ambulance arrived. At trial, the passenger is called to testify. \u0080\u0098While on the witness stand, she gazes with sorrow at the woman, who is still wearing a cast on her leg. The passenger testifies that the first thing she remembered seeing after the accident was the woman's bloodied body trapped in the mangled wreckage. The state's attorney then asked the pass",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": false,
+      "violations": [
+        "empty_deliverable"
+      ],
+      "details": {
+        "output_length": 0
+      }
+    },
+    "dispute": {
+      "action": "rework",
+      "reason": "empty_deliverable",
+      "metadata": {
+        "rollback_to": "upstream_node"
+      }
+    }
+  }
+]

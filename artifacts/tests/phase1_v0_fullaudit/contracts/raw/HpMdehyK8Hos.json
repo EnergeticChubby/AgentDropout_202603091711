@@ -1,0 +1,54 @@
+[
+  {
+    "timestamp": 1773104512.6281676,
+    "run_id": "HpMdehyK8Hos",
+    "round_idx": 1,
+    "from_node": "joZz",
+    "to_node": "jxBj",
+    "contract": {
+      "contract_id": "5LvW5wTtML",
+      "task_clause": "The hypothalamus controls the stress response of the body by releasing CRF, which leads to eventual release of cortisol, the body\u2019s stress hormone, systemically. This trigger is eventually suppressed by which mechanism?\nOption A: Constriction of blood flow to the adrenal gland.\nOption B: Exhaustion of the body\u2019s store of CRF.\nOption C: Negative feedback loop of cortisol.\nOption D: Release of CRF-inhibitory factor.\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": false,
+      "violations": [
+        "empty_deliverable"
+      ],
+      "details": {
+        "output_length": 0
+      }
+    },
+    "dispute": {
+      "action": "rework",
+      "reason": "empty_deliverable",
+      "metadata": {
+        "rollback_to": "upstream_node"
+      }
+    }
+  }
+]

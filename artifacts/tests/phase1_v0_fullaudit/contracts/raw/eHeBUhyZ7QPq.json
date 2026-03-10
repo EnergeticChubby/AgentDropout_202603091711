@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773104403.7379577,
+    "run_id": "eHeBUhyZ7QPq",
+    "round_idx": 0,
+    "from_node": "joZz",
+    "to_node": "joZz",
+    "contract": {
+      "contract_id": "eZxyf97GDU",
+      "task_clause": "Which statement concerning the atrioventricular bundle is correct?\nOption A: It is formed of autonomic nerve processes and is the only electrical connection between the atria and the ventricles.\nOption B: It is formed of Purkinje fibres and is the only electrical connection between the atria and the ventricles\nOption C: It is formed of autonomic nerve processes and forms one of several electrical connections between the atria and ventricles.\nOption D: It is formed of Purkinje fibres and forms one of several electrical connections between the atria and ventricles.\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 363
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773104403.7380495,
+    "run_id": "eHeBUhyZ7QPq",
+    "round_idx": 1,
+    "from_node": "joZz",
+    "to_node": "jxBj",
+    "contract": {
+      "contract_id": "JDKvskJQs5",
+      "task_clause": "Which statement concerning the atrioventricular bundle is correct?\nOption A: It is formed of autonomic nerve processes and is the only electrical connection between the atria and the ventricles.\nOption B: It is formed of Purkinje fibres and is the only electrical connection between the atria and the ventricles\nOption C: It is formed of autonomic nerve processes and forms one of several electrical connections between the atria and ventricles.\nOption D: It is formed of Purkinje fibres and forms one of several electrical connections between the atria and ventricles.\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 363
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

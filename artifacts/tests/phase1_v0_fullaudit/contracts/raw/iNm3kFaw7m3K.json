@@ -1,0 +1,54 @@
+[
+  {
+    "timestamp": 1773104779.246972,
+    "run_id": "iNm3kFaw7m3K",
+    "round_idx": 1,
+    "from_node": "uXEU",
+    "to_node": "kaVo",
+    "contract": {
+      "contract_id": "w3P7nJR6mW",
+      "task_clause": "A company is considering a move to a Software-as-a-Service (SaaS) offering instead of a traditional in-house application. Which of the following concerns is unique to SaaS?\nOption A: Disaster recovery capabilities and documented recovery procedures.\nOption B: User credential setup and control over the actions that employees can perform.\nOption C: Allocation of software expenses and overhead charged to departments.\nOption D: Ownership of processed data and costs of data migrations.\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": false,
+      "violations": [
+        "empty_deliverable"
+      ],
+      "details": {
+        "output_length": 0
+      }
+    },
+    "dispute": {
+      "action": "rework",
+      "reason": "empty_deliverable",
+      "metadata": {
+        "rollback_to": "upstream_node"
+      }
+    }
+  }
+]

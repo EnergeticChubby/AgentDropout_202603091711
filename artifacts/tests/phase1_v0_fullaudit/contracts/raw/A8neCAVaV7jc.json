@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773104538.7838411,
+    "run_id": "A8neCAVaV7jc",
+    "round_idx": 0,
+    "from_node": "UmiG",
+    "to_node": "UmiG",
+    "contract": {
+      "contract_id": "wG65XY7s2f",
+      "task_clause": "Under certain conditions, a beam of electrons impinging on a crystal surface will diffract and a scattering pattern of the beam can be obtained. What is the approximate kinetic energy of the electrons needed in order to see the pattern? (Assume the lattice spacing of the crystal to be 0.4 nm.)\nOption A: 0.1 eV\nOption B: 1 eV\nOption C: 10 eV\nOption D: 100 eV\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 1503
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773104538.78397,
+    "run_id": "A8neCAVaV7jc",
+    "round_idx": 1,
+    "from_node": "UmiG",
+    "to_node": "Zw3L",
+    "contract": {
+      "contract_id": "6KRRHLp6Ha",
+      "task_clause": "Under certain conditions, a beam of electrons impinging on a crystal surface will diffract and a scattering pattern of the beam can be obtained. What is the approximate kinetic energy of the electrons needed in order to see the pattern? (Assume the lattice spacing of the crystal to be 0.4 nm.)\nOption A: 0.1 eV\nOption B: 1 eV\nOption C: 10 eV\nOption D: 100 eV\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 1503
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

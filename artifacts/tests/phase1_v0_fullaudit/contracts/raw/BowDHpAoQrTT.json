@@ -1,0 +1,54 @@
+[
+  {
+    "timestamp": 1773104795.9263182,
+    "run_id": "BowDHpAoQrTT",
+    "round_idx": 1,
+    "from_node": "Gg9m",
+    "to_node": "AhFg",
+    "contract": {
+      "contract_id": "PyCTBebxm2",
+      "task_clause": "Under the Sales Article of the UCC, which of the following circumstances best describes how the implied warranty of fitness for a particular purpose arises in a sale of goods transaction?\nOption A: The buyer is purchasing the goods for a particular purpose and is relying on the seller\u2019s skill or judgment to select suitable goods.\nOption B: The buyer is purchasing the goods for a particular purpose and the seller is a merchant in such goods.\nOption C: The seller knows the particular purpose for which the buyer will use the goods and knows the buyer is relying on the seller\u2019s skill or judgment to select suitable goods.\nOption D: The seller knows the particular purpose for which the buyer will use the goods and the seller is a merchant in such goods.\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": false,
+      "violations": [
+        "empty_deliverable"
+      ],
+      "details": {
+        "output_length": 0
+      }
+    },
+    "dispute": {
+      "action": "rework",
+      "reason": "empty_deliverable",
+      "metadata": {
+        "rollback_to": "upstream_node"
+      }
+    }
+  }
+]

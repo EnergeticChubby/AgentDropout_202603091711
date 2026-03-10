@@ -1,0 +1,54 @@
+[
+  {
+    "timestamp": 1773104504.727485,
+    "run_id": "8heKkRnsa38F",
+    "round_idx": 1,
+    "from_node": "RKB3",
+    "to_node": "p79Q",
+    "contract": {
+      "contract_id": "azEnw6HzZo",
+      "task_clause": "Which of the following are true:\nOption A: It is possible to place an linear order relation \u2264 on the complex numbers C such that (C, +, \u00d7, \u2264) is not an ordered field.\nOption B: It is possible to place a linear order relation on the complex numbers C which make (C, +, \u00d7, \u2264) an ordered field.\nOption C: Neither (a) nor (b)\nOption D: Both (a) and (b).\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": false,
+      "violations": [
+        "empty_deliverable"
+      ],
+      "details": {
+        "output_length": 0
+      }
+    },
+    "dispute": {
+      "action": "rework",
+      "reason": "empty_deliverable",
+      "metadata": {
+        "rollback_to": "upstream_node"
+      }
+    }
+  }
+]

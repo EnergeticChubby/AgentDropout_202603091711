@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773104549.3676221,
+    "run_id": "ipoBvGBgXiT7",
+    "round_idx": 0,
+    "from_node": "Gg9m",
+    "to_node": "Gg9m",
+    "contract": {
+      "contract_id": "e5CfGcQWMT",
+      "task_clause": "Select the best translation into predicate logic: Cecilia breaks my heart if, and only if, Maria is either a problem or a girl.\nOption A: Bc \u2261 (Pm \u2228 Gm)\nOption B: Bc \u2261 (Pm \u2022 Gm)\nOption C: Bc \u2283 (Pm \u2228 Gm)\nOption D: Cb \u2283 (Pm \u2022 Gm)\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 1144
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773104549.3677742,
+    "run_id": "ipoBvGBgXiT7",
+    "round_idx": 1,
+    "from_node": "Gg9m",
+    "to_node": "AhFg",
+    "contract": {
+      "contract_id": "sBroGkEYG7",
+      "task_clause": "Select the best translation into predicate logic: Cecilia breaks my heart if, and only if, Maria is either a problem or a girl.\nOption A: Bc \u2261 (Pm \u2228 Gm)\nOption B: Bc \u2261 (Pm \u2022 Gm)\nOption C: Bc \u2283 (Pm \u2228 Gm)\nOption D: Cb \u2283 (Pm \u2022 Gm)\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 1144
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773104747.004365,
+    "run_id": "hUoBEmQtvgUS",
+    "round_idx": 0,
+    "from_node": "joZz",
+    "to_node": "joZz",
+    "contract": {
+      "contract_id": "9AV29A3Nc2",
+      "task_clause": "A defendant is on trial for attempting to cash a forged check at a bank. A teller at the bank is called to testify. The teller testified that she was on duty when the defendant came to her station and handed her a check drawn on the account of another customer. She recognized the forgery because she knew the other customer's signature since he was one of her regulars. The teller further testified that after becoming suspicious, she placed the check down on the counter and turned to talk to her supervisor. As she did so, the defendant picked up the check and left the bank before she could say anything. The check that the defendant presented at the bank was not recovered by law enforcement authorities and was not offered as evidence. The teller's testimony regarding the forged signature on t",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 268
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773104747.0044596,
+    "run_id": "hUoBEmQtvgUS",
+    "round_idx": 1,
+    "from_node": "joZz",
+    "to_node": "jxBj",
+    "contract": {
+      "contract_id": "BPN3kUzU42",
+      "task_clause": "A defendant is on trial for attempting to cash a forged check at a bank. A teller at the bank is called to testify. The teller testified that she was on duty when the defendant came to her station and handed her a check drawn on the account of another customer. She recognized the forgery because she knew the other customer's signature since he was one of her regulars. The teller further testified that after becoming suspicious, she placed the check down on the counter and turned to talk to her supervisor. As she did so, the defendant picked up the check and left the bank before she could say anything. The check that the defendant presented at the bank was not recovered by law enforcement authorities and was not offered as evidence. The teller's testimony regarding the forged signature on t",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 268
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

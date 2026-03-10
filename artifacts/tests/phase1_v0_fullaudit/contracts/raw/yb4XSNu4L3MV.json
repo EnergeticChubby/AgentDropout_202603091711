@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773104747.5636897,
+    "run_id": "yb4XSNu4L3MV",
+    "round_idx": 0,
+    "from_node": "UmiG",
+    "to_node": "UmiG",
+    "contract": {
+      "contract_id": "wYbgSZmwdd",
+      "task_clause": "For many years, a husband and a wife tried to have a child, but the wife was unable to get pregnant. Her family physician had advised her that she was infertile and that it was impossible for her to become pregnant. After missing her period for three months and experiencing other symptoms of pregnancy, the wife consulted the physician. Without administering a pregnancy test, the physician examined the wife and concluded that she had the flu. He prescribed tetracycline, an antibiotic drug, which the wife took for two weeks. After discontinuing the tetracycline, the wife continued to experience nausea, fatigue, and other symptoms of pregnancy. She then consulted a different doctor, who administered a pregnancy test, which revealed that the wife was, in fact, four months pregnant. Thereafter,",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 179
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773104747.563809,
+    "run_id": "yb4XSNu4L3MV",
+    "round_idx": 1,
+    "from_node": "UmiG",
+    "to_node": "Zw3L",
+    "contract": {
+      "contract_id": "TAqUDrFHvn",
+      "task_clause": "For many years, a husband and a wife tried to have a child, but the wife was unable to get pregnant. Her family physician had advised her that she was infertile and that it was impossible for her to become pregnant. After missing her period for three months and experiencing other symptoms of pregnancy, the wife consulted the physician. Without administering a pregnancy test, the physician examined the wife and concluded that she had the flu. He prescribed tetracycline, an antibiotic drug, which the wife took for two weeks. After discontinuing the tetracycline, the wife continued to experience nausea, fatigue, and other symptoms of pregnancy. She then consulted a different doctor, who administered a pregnancy test, which revealed that the wife was, in fact, four months pregnant. Thereafter,",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 179
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

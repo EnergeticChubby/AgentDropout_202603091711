@@ -1,0 +1,54 @@
+[
+  {
+    "timestamp": 1773104457.8759563,
+    "run_id": "YcZgtSKgtoZu",
+    "round_idx": 1,
+    "from_node": "uXEU",
+    "to_node": "kaVo",
+    "contract": {
+      "contract_id": "MEkwn8gDFR",
+      "task_clause": "Which of these combinations of clinical features is most suggestive of mixed mitral valve disease with a predominance of mitral regurgitation?\nOption A: Displaced apex beat; soft first heart sound; pan-systolic murmur; short mid-diastolic murmur\nOption B: Irregularly, irregular pulse; displaced apex beat; ejection systolic murmur; short mid-diastolic murmur\nOption C: Displaced apex beat; normal first heart sound; pan-systolic murmur; long mid-diastolic murmur\nOption D: Tapping apex beat; loud first heart sound; pan-systolic murmur; long mid-diastolic murmur\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": false,
+      "violations": [
+        "empty_deliverable"
+      ],
+      "details": {
+        "output_length": 0
+      }
+    },
+    "dispute": {
+      "action": "rework",
+      "reason": "empty_deliverable",
+      "metadata": {
+        "rollback_to": "upstream_node"
+      }
+    }
+  }
+]

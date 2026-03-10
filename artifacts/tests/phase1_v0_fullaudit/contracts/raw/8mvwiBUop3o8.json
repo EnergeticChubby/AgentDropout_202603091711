@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773104628.6915035,
+    "run_id": "8mvwiBUop3o8",
+    "round_idx": 0,
+    "from_node": "UmiG",
+    "to_node": "UmiG",
+    "contract": {
+      "contract_id": "yXSg5Xtmrb",
+      "task_clause": "When a patient complains to the doctor about a certain set of symptoms, the doctor diagnoses the patient with Condition A 15% of the time. If a patient with these symptoms is diagnosed with Condition A, he or she is diagnosed with Condition B 70% of the time. A patient with these symptoms that is not diagnosed with Condition A is diagnosed with Condition B 10% of the time. What is the probability that a patient with this set of symptoms will be diagnosed with at least one of these conditions?\nOption A: 0.235\nOption B: 0.25\nOption C: 0.765\nOption D: 0.85\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 1076
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773104628.699459,
+    "run_id": "8mvwiBUop3o8",
+    "round_idx": 1,
+    "from_node": "UmiG",
+    "to_node": "Zw3L",
+    "contract": {
+      "contract_id": "Nx26Pd9wSf",
+      "task_clause": "When a patient complains to the doctor about a certain set of symptoms, the doctor diagnoses the patient with Condition A 15% of the time. If a patient with these symptoms is diagnosed with Condition A, he or she is diagnosed with Condition B 70% of the time. A patient with these symptoms that is not diagnosed with Condition A is diagnosed with Condition B 10% of the time. What is the probability that a patient with this set of symptoms will be diagnosed with at least one of these conditions?\nOption A: 0.235\nOption B: 0.25\nOption C: 0.765\nOption D: 0.85\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 1076
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

@@ -1,0 +1,54 @@
+[
+  {
+    "timestamp": 1773104657.8994584,
+    "run_id": "AUKiqqpoyeHo",
+    "round_idx": 1,
+    "from_node": "KQwS",
+    "to_node": "D9Pj",
+    "contract": {
+      "contract_id": "HKSzqoAJ5t",
+      "task_clause": "In an experiment designed to study the photoelectric effect, it is observed that low-intensity visible light of wavelength 550 nm produced no photoelectrons. Which of the following best describes what would occur if the intensity of this light were increased dramatically?\nOption A: Almost immediately, photoelectrons would be produced with a kinetic energy equal to the energy of the incident photons.\nOption B: Almost immediately, photoelectrons would be produced with a kinetic energy equal to the energy of the incident photons minus the work function of the metal.\nOption C: After several seconds, necessary for the electrons to absorb sufficient energy from the incident light, photoelectrons would be produced with a kinetic energy equal to the energy of the incident photons minus the work fu",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": false,
+      "violations": [
+        "empty_deliverable"
+      ],
+      "details": {
+        "output_length": 0
+      }
+    },
+    "dispute": {
+      "action": "rework",
+      "reason": "empty_deliverable",
+      "metadata": {
+        "rollback_to": "upstream_node"
+      }
+    }
+  }
+]

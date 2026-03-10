@@ -1,0 +1,54 @@
+[
+  {
+    "timestamp": 1773104513.4631867,
+    "run_id": "UkkgQFYxL4aP",
+    "round_idx": 1,
+    "from_node": "Gg9m",
+    "to_node": "AhFg",
+    "contract": {
+      "contract_id": "fduXNeywVL",
+      "task_clause": "Two scientists at a conference on evolution take to the stage on day 3 to argue their theories against one other. Each is a devout student of their own philosophy. The first scientist contends that organisms evolved via the increase of organs that were used the most during their time. They would then pass these on to subsequent generations. The second scientist, however, believed that advantages each organism possessed were absent for a long time, randomly occurred, and when they were beneficial, that organism would rapidly populate the population over a short period of time, evolutionarily speaking. Which of the following statements would strengthen the second scientist\u2019s argument?\nOption A: A study that shows that bodybuilders who train more have larger children.\nOption B: A taxonomy stu",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": false,
+      "violations": [
+        "empty_deliverable"
+      ],
+      "details": {
+        "output_length": 0
+      }
+    },
+    "dispute": {
+      "action": "rework",
+      "reason": "empty_deliverable",
+      "metadata": {
+        "rollback_to": "upstream_node"
+      }
+    }
+  }
+]

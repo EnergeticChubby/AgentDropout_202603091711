@@ -1,0 +1,54 @@
+[
+  {
+    "timestamp": 1773104698.0407739,
+    "run_id": "4jqrAw7PnSLM",
+    "round_idx": 1,
+    "from_node": "YcR2",
+    "to_node": "zAEy",
+    "contract": {
+      "contract_id": "pDzeZGx3TV",
+      "task_clause": "This question refers to the following information.\nPerhaps, however, I am more conscious of the importance of civil liberties in this particular moment of our history than anyone else, because I travel through the country and meet people and see things that have happened to little people, I realize what it means to democracy to preserve our civil liberties.\nAll through the years we have had to fight for civil liberty, and we know that there are times when the light grows rather dim, and every time that happens democracy is in danger. Now, largely because of the troubled state of the world as a whole, civil liberties have disappeared in many other countries.\nIt is impossible, of course, to be at war and keep freedom of the press and freedom of speech and freedom of assembly. They disappear ",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": false,
+      "violations": [
+        "empty_deliverable"
+      ],
+      "details": {
+        "output_length": 0
+      }
+    },
+    "dispute": {
+      "action": "rework",
+      "reason": "empty_deliverable",
+      "metadata": {
+        "rollback_to": "upstream_node"
+      }
+    }
+  }
+]

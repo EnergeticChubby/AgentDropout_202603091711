@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773104486.1629417,
+    "run_id": "vZqEhGiGqY7e",
+    "round_idx": 0,
+    "from_node": "Gg9m",
+    "to_node": "Gg9m",
+    "contract": {
+      "contract_id": "aQDSFG2pqJ",
+      "task_clause": "Consider the system of linear equations\nw + 3x + 2y + 2z = 0\nw + 4x + y = 0\n3w + 5x + 10 y + 14z = 0\n2w + 5x + 5y + 6z = 0\nwith solutions of the form (w, x, y, z), where w x, y, and z are real. Which of the following statements is FALSE?\nOption A: The system is consistent.\nOption B: The system has infinitely many solutions.\nOption C: The sum of any two solutions is a solution.\nOption D: Every solution is a scalar multiple of (-5, 1, 1, 0).\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 2378
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773104486.1630583,
+    "run_id": "vZqEhGiGqY7e",
+    "round_idx": 1,
+    "from_node": "Gg9m",
+    "to_node": "AhFg",
+    "contract": {
+      "contract_id": "YBu4FhTR35",
+      "task_clause": "Consider the system of linear equations\nw + 3x + 2y + 2z = 0\nw + 4x + y = 0\n3w + 5x + 10 y + 14z = 0\n2w + 5x + 5y + 6z = 0\nwith solutions of the form (w, x, y, z), where w x, y, and z are real. Which of the following statements is FALSE?\nOption A: The system is consistent.\nOption B: The system has infinitely many solutions.\nOption C: The sum of any two solutions is a solution.\nOption D: Every solution is a scalar multiple of (-5, 1, 1, 0).\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 2378
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

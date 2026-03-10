@@ -1,0 +1,54 @@
+[
+  {
+    "timestamp": 1773104657.6169631,
+    "run_id": "o6MyREcGxgjn",
+    "round_idx": 1,
+    "from_node": "KQwS",
+    "to_node": "D9Pj",
+    "contract": {
+      "contract_id": "mYHUfaYdj5",
+      "task_clause": "This question refers to the following information.\n\"We found that not only was it a civil war, an effort by a people who had for years been seeking their liberation from any colonial influence whatsoever, but also we found that the Vietnamese whom we had enthusiastically molded after our own image were hard put to take up the fight against the threat we were supposedly saving them from.\n\"We found most people didn't even know the difference between communism and democracy. They only wanted to work in rice paddies without helicopters strafing them and bombs with napalm burning their villages and tearing their country apart. They wanted everything to do with the war, particularly with this foreign presence of the United States of America, to leave them alone in peace, and they practiced the a",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": false,
+      "violations": [
+        "empty_deliverable"
+      ],
+      "details": {
+        "output_length": 0
+      }
+    },
+    "dispute": {
+      "action": "rework",
+      "reason": "empty_deliverable",
+      "metadata": {
+        "rollback_to": "upstream_node"
+      }
+    }
+  }
+]

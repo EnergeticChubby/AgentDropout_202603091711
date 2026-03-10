@@ -1,0 +1,54 @@
+[
+  {
+    "timestamp": 1773104515.2502577,
+    "run_id": "bmsS344M2iss",
+    "round_idx": 1,
+    "from_node": "YcR2",
+    "to_node": "zAEy",
+    "contract": {
+      "contract_id": "r7wPRUtnNp",
+      "task_clause": "One approach to handling fuzzy logic data might be to design a computer using ternary (base-3) logic so that data could be stored as \u201ctrue,\u201d \u201cfalse,\u201d and \u201cunknown.\u201d If each ternary logic element is called a flit, how many flits are required to represent at least 256 different values?\nOption A: 4\nOption B: 5\nOption C: 6\nOption D: 7\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": false,
+      "violations": [
+        "empty_deliverable"
+      ],
+      "details": {
+        "output_length": 0
+      }
+    },
+    "dispute": {
+      "action": "rework",
+      "reason": "empty_deliverable",
+      "metadata": {
+        "rollback_to": "upstream_node"
+      }
+    }
+  }
+]

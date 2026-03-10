@@ -1,0 +1,54 @@
+[
+  {
+    "timestamp": 1773104653.6048968,
+    "run_id": "D6b8AeY2iSiR",
+    "round_idx": 1,
+    "from_node": "AgfV",
+    "to_node": "kT9r",
+    "contract": {
+      "contract_id": "a2UjwnZEqy",
+      "task_clause": "A spherical charge distribution varies with the radius r by the equation \u03c1 = ar, where \u03c1 is the volume charge density and a is a positive constant. The distribution goes out to a radius R. Which of the following is true of the electric field strength due to this charge distribution at a distance r from the center?\nOption A: It increases as r approaches infinity.\nOption B: It decreases linearly for r > R.\nOption C: It increases linearly for r > R.\nOption D: It increases non-linearly for r < R.\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": false,
+      "violations": [
+        "empty_deliverable"
+      ],
+      "details": {
+        "output_length": 0
+      }
+    },
+    "dispute": {
+      "action": "rework",
+      "reason": "empty_deliverable",
+      "metadata": {
+        "rollback_to": "upstream_node"
+      }
+    }
+  }
+]

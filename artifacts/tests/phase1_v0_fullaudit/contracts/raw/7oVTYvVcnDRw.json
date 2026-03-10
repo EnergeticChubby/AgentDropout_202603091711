@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773104606.003582,
+    "run_id": "7oVTYvVcnDRw",
+    "round_idx": 0,
+    "from_node": "KQwS",
+    "to_node": "KQwS",
+    "contract": {
+      "contract_id": "WSgzjCZqfC",
+      "task_clause": " Select the best translation into predicate logic. Some firefighters rescue victims from danger. (Dx: x is danger; Fx: x is a firefighter; Vx: x is a victim; Rxyz: x rescues y from z)\nOption A: (\u2203x){Fx \u2022 (\u2200y)[Dy \u2283 (\u2203z)(Vz \u2022 Rxyz)]}\nOption B: (\u2203x){Fx \u2022 (\u2203y)[Vy \u2022 (\u2203z)(Dz \u2022 Rxyz)]}\nOption C: (\u2203x){Fx \u2022 (\u2203y)(\u2203z)[(Vy \u2022 Dz) \u2022 Rxzy]}\nOption D: (\u2200x){Fx \u2283 (\u2203y)[Vy . (\u2203z)(Dz \u2022 Rxyz)]}\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 1650
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773104606.0036876,
+    "run_id": "7oVTYvVcnDRw",
+    "round_idx": 1,
+    "from_node": "KQwS",
+    "to_node": "D9Pj",
+    "contract": {
+      "contract_id": "LMwgw3gbrK",
+      "task_clause": " Select the best translation into predicate logic. Some firefighters rescue victims from danger. (Dx: x is danger; Fx: x is a firefighter; Vx: x is a victim; Rxyz: x rescues y from z)\nOption A: (\u2203x){Fx \u2022 (\u2200y)[Dy \u2283 (\u2203z)(Vz \u2022 Rxyz)]}\nOption B: (\u2203x){Fx \u2022 (\u2203y)[Vy \u2022 (\u2203z)(Dz \u2022 Rxyz)]}\nOption C: (\u2203x){Fx \u2022 (\u2203y)(\u2203z)[(Vy \u2022 Dz) \u2022 Rxzy]}\nOption D: (\u2200x){Fx \u2283 (\u2203y)[Vy . (\u2203z)(Dz \u2022 Rxyz)]}\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 1650
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

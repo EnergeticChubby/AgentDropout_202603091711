@@ -1,0 +1,54 @@
+[
+  {
+    "timestamp": 1773104581.1171224,
+    "run_id": "wAB43XweYcMN",
+    "round_idx": 1,
+    "from_node": "joZz",
+    "to_node": "jxBj",
+    "contract": {
+      "contract_id": "CbksX69pE7",
+      "task_clause": "Note that statistical tables are not necessary to answer this question. For a sample of 1000 observations, the Dickey-Fuller test statistic values are\nOption A: More negative than (i.e. bigger in absolute value than) those in the left hand tail of a normal distribution\nOption B: Less negative than (i.e. smaller in absolute value than) those in the left hand tail of a normal distribution\nOption C: Obtained from an analytical formula for the density of the Dickey-Fuller distribution\nOption D: More negative (i.e. bigger in absolute value) for a 10% size of test than a 5% test.\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": false,
+      "violations": [
+        "empty_deliverable"
+      ],
+      "details": {
+        "output_length": 0
+      }
+    },
+    "dispute": {
+      "action": "rework",
+      "reason": "empty_deliverable",
+      "metadata": {
+        "rollback_to": "upstream_node"
+      }
+    }
+  }
+]
