@@ -8,6 +8,20 @@ import requests
 import time
 
 class MMLUDataset(ABC):
+    @staticmethod
+    def _request_json_with_retry(url: str, params: Dict[str, Any], timeout: int = 30, retries: int = 5) -> Dict[str, Any]:
+        last_error = None
+        for attempt in range(retries):
+            try:
+                resp = requests.get(url, params=params, timeout=timeout)
+                resp.raise_for_status()
+                return resp.json()
+            except Exception as exc:
+                last_error = exc
+                # Exponential backoff with small cap.
+                time.sleep(min(2 ** attempt, 8))
+        raise RuntimeError(f"Failed request after {retries} retries: url={url} params={params}") from last_error
+
     def __init__(self,
         split: str,
         dataset_name: str = "edinburgh-dawg/mmlu-redux",
@@ -103,9 +117,12 @@ class MMLUDataset(ABC):
     def _load_data_hf_api(cls, dataset_name: str, split: str, max_records: int | None = None) -> List[Dict[str, Any]]:
         splits_url = "https://datasets-server.huggingface.co/splits"
         rows_url = "https://datasets-server.huggingface.co/rows"
-        split_resp = requests.get(splits_url, params={"dataset": dataset_name}, timeout=30)
-        split_resp.raise_for_status()
-        split_payload = split_resp.json()
+        split_payload = cls._request_json_with_retry(
+            splits_url,
+            params={"dataset": dataset_name},
+            timeout=30,
+            retries=5,
+        )
         configs = sorted({item["config"] for item in split_payload["splits"] if item["split"] == split})
         if not configs:
             raise ValueError(f"No configs found for dataset={dataset_name} split={split}")
@@ -115,7 +132,7 @@ class MMLUDataset(ABC):
         for config in configs:
             offset = 0
             while True:
-                rows_resp = requests.get(
+                rows_payload = cls._request_json_with_retry(
                     rows_url,
                     params={
                         "dataset": dataset_name,
@@ -125,9 +142,8 @@ class MMLUDataset(ABC):
                         "length": page_size,
                     },
                     timeout=30,
+                    retries=5,
                 )
-                rows_resp.raise_for_status()
-                rows_payload = rows_resp.json()
                 rows = rows_payload.get("rows", [])
                 if not rows:
                     break
