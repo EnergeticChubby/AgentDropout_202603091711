@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773104991.3744693,
+    "run_id": "yUawYHASgKsw",
+    "round_idx": 0,
+    "from_node": "sXo9",
+    "to_node": "sXo9",
+    "contract": {
+      "contract_id": "CWtBCG52Dg",
+      "task_clause": "When an ideal gas is allowed to expand isothermally, which one of the following is true?\nOption A: q = 0\nOption B: w = 0\nOption C: E = 0\nOption D: q = -w\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 470
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773104991.374575,
+    "run_id": "yUawYHASgKsw",
+    "round_idx": 1,
+    "from_node": "sXo9",
+    "to_node": "gHHw",
+    "contract": {
+      "contract_id": "zD4R5hLbdn",
+      "task_clause": "When an ideal gas is allowed to expand isothermally, which one of the following is true?\nOption A: q = 0\nOption B: w = 0\nOption C: E = 0\nOption D: q = -w\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 470
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

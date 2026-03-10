@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773104929.454027,
+    "run_id": "gpfhLTG7yEpe",
+    "round_idx": 0,
+    "from_node": "B5bH",
+    "to_node": "B5bH",
+    "contract": {
+      "contract_id": "Sh8i9q8ooL",
+      "task_clause": "If A is the 2 by 2 matrix whose (i, j) entry is equal to i + j, and B is the 3 by 3 matrix whose (i, j) entry is equal to i + j, find the value of the sum detA + detB.\nOption A: -2\nOption B: -1\nOption C: 0\nOption D: 2\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 764
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773104929.4541264,
+    "run_id": "gpfhLTG7yEpe",
+    "round_idx": 1,
+    "from_node": "B5bH",
+    "to_node": "UzZg",
+    "contract": {
+      "contract_id": "LfvfVuy6ga",
+      "task_clause": "If A is the 2 by 2 matrix whose (i, j) entry is equal to i + j, and B is the 3 by 3 matrix whose (i, j) entry is equal to i + j, find the value of the sum detA + detB.\nOption A: -2\nOption B: -1\nOption C: 0\nOption D: 2\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 764
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

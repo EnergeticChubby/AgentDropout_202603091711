@@ -1,0 +1,54 @@
+[
+  {
+    "timestamp": 1773105177.3456836,
+    "run_id": "LyeUd9eXQuRk",
+    "round_idx": 1,
+    "from_node": "sXo9",
+    "to_node": "gHHw",
+    "contract": {
+      "contract_id": "yao79RqvMS",
+      "task_clause": "Long was a purchasing agent for Frost, a sole proprietor. Long had express authority to place purchase orders with Frost's suppliers. Long conducted business on the Internet and had little contact with Frost. After Frost was declared incompetent in a judicial proceeding, Long placed an order with Grant Corp. on Frost's behalf. Both Long and Grant were unaware of Frost's incompetence. Will Frost or Frost's legal representative be liable to Grant?\nOption A: Yes, because Long's agency survived Frost's incompetence.\nOption B: Yes, because the order was valid regardless of Frost's incompetence.\nOption C: No, because Grant dealt only with Long.\nOption D: No, because Long did not have authority to enter into the contract.\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": false,
+      "violations": [
+        "empty_deliverable"
+      ],
+      "details": {
+        "output_length": 0
+      }
+    },
+    "dispute": {
+      "action": "rework",
+      "reason": "empty_deliverable",
+      "metadata": {
+        "rollback_to": "upstream_node"
+      }
+    }
+  }
+]

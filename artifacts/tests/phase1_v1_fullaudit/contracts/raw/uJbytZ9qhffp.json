@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773105066.9834452,
+    "run_id": "uJbytZ9qhffp",
+    "round_idx": 0,
+    "from_node": "B5bH",
+    "to_node": "B5bH",
+    "contract": {
+      "contract_id": "y3YsEiRh9m",
+      "task_clause": "A wooden block experiences a frictional force, f, as it slides across a table. If a block of the same material with half the height and twice the length were to slide across the table, what would be the frictional force it experienced?\nOption A: (1/2)f\nOption B: f\nOption C: 2f\nOption D: 4f\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 1187
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773105066.9835458,
+    "run_id": "uJbytZ9qhffp",
+    "round_idx": 1,
+    "from_node": "B5bH",
+    "to_node": "UzZg",
+    "contract": {
+      "contract_id": "tg378AkZPL",
+      "task_clause": "A wooden block experiences a frictional force, f, as it slides across a table. If a block of the same material with half the height and twice the length were to slide across the table, what would be the frictional force it experienced?\nOption A: (1/2)f\nOption B: f\nOption C: 2f\nOption D: 4f\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 1187
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

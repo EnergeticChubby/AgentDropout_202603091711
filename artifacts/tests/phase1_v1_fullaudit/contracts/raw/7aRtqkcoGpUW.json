@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773104949.3410573,
+    "run_id": "7aRtqkcoGpUW",
+    "round_idx": 0,
+    "from_node": "g7Fb",
+    "to_node": "g7Fb",
+    "contract": {
+      "contract_id": "wD8m68MEPs",
+      "task_clause": "Two single-user workstations are attached to the same local area network. On one of these workstations, file pages are accessed over the network from a file server; the average access time per page is 0.1 second. On the other of these workstations, file pages are accessed from a local disk; the average access time per page is 0.05 second. A particular compilation requires 30 seconds of computation and 200 file page accesses. What is the ratio of the total time required by this compilation if run on the diskless (file server) workstation to the total time required if run on the workstation with the local disk, if it is assumed that computation is not overlapped with file access?\nOption A: 1/1\nOption B: 5/4\nOption C: 5/3\nOption D: 10/5\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 394
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773104949.3411574,
+    "run_id": "7aRtqkcoGpUW",
+    "round_idx": 1,
+    "from_node": "g7Fb",
+    "to_node": "YLz9",
+    "contract": {
+      "contract_id": "MqSDzoxpZr",
+      "task_clause": "Two single-user workstations are attached to the same local area network. On one of these workstations, file pages are accessed over the network from a file server; the average access time per page is 0.1 second. On the other of these workstations, file pages are accessed from a local disk; the average access time per page is 0.05 second. A particular compilation requires 30 seconds of computation and 200 file page accesses. What is the ratio of the total time required by this compilation if run on the diskless (file server) workstation to the total time required if run on the workstation with the local disk, if it is assumed that computation is not overlapped with file access?\nOption A: 1/1\nOption B: 5/4\nOption C: 5/3\nOption D: 10/5\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 394
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

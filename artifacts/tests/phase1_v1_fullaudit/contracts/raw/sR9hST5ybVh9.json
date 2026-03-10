@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773105069.4679585,
+    "run_id": "sR9hST5ybVh9",
+    "round_idx": 0,
+    "from_node": "m3Gv",
+    "to_node": "m3Gv",
+    "contract": {
+      "contract_id": "XixjdqeVvo",
+      "task_clause": "Ben rolls two fair six-sided dice. What is the expected value of the larger of the two numbers rolled? Express your answer as a fraction. (If the two numbers are the same, we take that number to be the \"larger\" number.)\nOption A: \\frac{161}{6}\nOption B: \\frac{161}{36}\nOption C: 161\nOption D: \\frac{161}{3}\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 1783
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773105069.468087,
+    "run_id": "sR9hST5ybVh9",
+    "round_idx": 1,
+    "from_node": "m3Gv",
+    "to_node": "7u8u",
+    "contract": {
+      "contract_id": "j9CgatfE5E",
+      "task_clause": "Ben rolls two fair six-sided dice. What is the expected value of the larger of the two numbers rolled? Express your answer as a fraction. (If the two numbers are the same, we take that number to be the \"larger\" number.)\nOption A: \\frac{161}{6}\nOption B: \\frac{161}{36}\nOption C: 161\nOption D: \\frac{161}{3}\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 1783
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

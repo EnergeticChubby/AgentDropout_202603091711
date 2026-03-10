@@ -1,0 +1,54 @@
+[
+  {
+    "timestamp": 1773104990.1908128,
+    "run_id": "2t8fj4QZpdnH",
+    "round_idx": 1,
+    "from_node": "sXo9",
+    "to_node": "gHHw",
+    "contract": {
+      "contract_id": "ZVs3jEbXHi",
+      "task_clause": "A 25 g sample of a liquid was heated to 100 \u00b0C and then quickly transferred to an insulated container holding 100 g of water at 22 \u00b0C. The temperature of the mixture rose to reach a final temperature of 35 \u00b0C. Which of the following can be concluded?\nOption A: The sample temperature changed more than the water temperature did; therefore the sample lost more heat energy than the water gained.\nOption B: The sample temperature changed more than the water temperature did, but the sample lost the same amount of heat energy as the water gained.\nOption C: The sample temperature changed more than the water temperature did; therefore the CP of the sample must be greater than the CP of the water.\nOption D: The final temperature is less than the average starting temperature of the sample and the wate",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": false,
+      "violations": [
+        "empty_deliverable"
+      ],
+      "details": {
+        "output_length": 0
+      }
+    },
+    "dispute": {
+      "action": "rework",
+      "reason": "empty_deliverable",
+      "metadata": {
+        "rollback_to": "upstream_node"
+      }
+    }
+  }
+]

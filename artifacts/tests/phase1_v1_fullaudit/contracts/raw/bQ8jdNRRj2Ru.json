@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773105119.1430054,
+    "run_id": "bQ8jdNRRj2Ru",
+    "round_idx": 0,
+    "from_node": "4BT9",
+    "to_node": "4BT9",
+    "contract": {
+      "contract_id": "7Fxiukfvjv",
+      "task_clause": "Labor productivity and economic growth increase if\nOption A: a nation subsidizes education for all citizens.\nOption B: a nation imposes tariffs and quotas on imported goods.\nOption C: a nation removes penalties for firms that pollute natural resources.\nOption D: a nation ignores societal barriers like discrimination.\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 268
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773105119.146316,
+    "run_id": "bQ8jdNRRj2Ru",
+    "round_idx": 1,
+    "from_node": "4BT9",
+    "to_node": "JwhD",
+    "contract": {
+      "contract_id": "qx5AE4j7tY",
+      "task_clause": "Labor productivity and economic growth increase if\nOption A: a nation subsidizes education for all citizens.\nOption B: a nation imposes tariffs and quotas on imported goods.\nOption C: a nation removes penalties for firms that pollute natural resources.\nOption D: a nation ignores societal barriers like discrimination.\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 268
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

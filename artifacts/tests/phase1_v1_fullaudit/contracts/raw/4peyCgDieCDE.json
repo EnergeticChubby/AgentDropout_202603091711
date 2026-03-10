@@ -1,0 +1,54 @@
+[
+  {
+    "timestamp": 1773104904.6474774,
+    "run_id": "4peyCgDieCDE",
+    "round_idx": 1,
+    "from_node": "B5bH",
+    "to_node": "UzZg",
+    "contract": {
+      "contract_id": "FDNyZ4zcas",
+      "task_clause": "The palatine processes begin to fuse at\nOption A: six weeks post-fertilization.\nOption B: eight weeks post-fertilization.\nOption C: ten weeks post-fertilization.\nOption D: twelve weeks post-fertilization.\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": false,
+      "violations": [
+        "empty_deliverable"
+      ],
+      "details": {
+        "output_length": 0
+      }
+    },
+    "dispute": {
+      "action": "rework",
+      "reason": "empty_deliverable",
+      "metadata": {
+        "rollback_to": "upstream_node"
+      }
+    }
+  }
+]

@@ -1,0 +1,54 @@
+[
+  {
+    "timestamp": 1773104904.7383616,
+    "run_id": "3BF5TbBTGVmj",
+    "round_idx": 1,
+    "from_node": "sXo9",
+    "to_node": "gHHw",
+    "contract": {
+      "contract_id": "qTpiaimMYN",
+      "task_clause": "The relationship between ethics and the law can be described as\u2026\nOption A: Incredibly close, in fact, in all instances what is ethical is also what is legal and vice versa.\nOption B: Not close, ethics and the law share a small amount of overlap, but fundamentally address differing questions and themes.\nOption C: Close, as there is considerable overlap between ethics and law, but the two are not equivalent.\nOption D: Not at all close, ethics and the law are virtually incompatible.\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": false,
+      "violations": [
+        "empty_deliverable"
+      ],
+      "details": {
+        "output_length": 0
+      }
+    },
+    "dispute": {
+      "action": "rework",
+      "reason": "empty_deliverable",
+      "metadata": {
+        "rollback_to": "upstream_node"
+      }
+    }
+  }
+]

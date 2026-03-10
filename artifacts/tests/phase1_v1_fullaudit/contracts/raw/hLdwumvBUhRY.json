@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773105131.5014222,
+    "run_id": "hLdwumvBUhRY",
+    "round_idx": 0,
+    "from_node": "g7Fb",
+    "to_node": "g7Fb",
+    "contract": {
+      "contract_id": "JyktxJhLRv",
+      "task_clause": "As reported on CNN, in a May 1999 national poll 43% of high school students expressed fear about going to school. Which of the following best describes what is meant by the poll having a margin of error of 5%?\nOption A: It is likely that the true proportion of high school students afraid to go to school is between 38% and 48%.\nOption B: Five percent of the students refused to participate in the poll.\nOption C: Between 38% and 48% of those surveyed expressed fear about going to school.\nOption D: There is a 0.05 probability that the 43% result is in error.\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 102
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773105131.5015464,
+    "run_id": "hLdwumvBUhRY",
+    "round_idx": 1,
+    "from_node": "g7Fb",
+    "to_node": "YLz9",
+    "contract": {
+      "contract_id": "MXT7ZZxqjZ",
+      "task_clause": "As reported on CNN, in a May 1999 national poll 43% of high school students expressed fear about going to school. Which of the following best describes what is meant by the poll having a margin of error of 5%?\nOption A: It is likely that the true proportion of high school students afraid to go to school is between 38% and 48%.\nOption B: Five percent of the students refused to participate in the poll.\nOption C: Between 38% and 48% of those surveyed expressed fear about going to school.\nOption D: There is a 0.05 probability that the 43% result is in error.\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 102
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

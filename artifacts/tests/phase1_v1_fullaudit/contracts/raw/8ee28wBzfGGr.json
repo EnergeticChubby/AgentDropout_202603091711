@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773105008.634131,
+    "run_id": "8ee28wBzfGGr",
+    "round_idx": 0,
+    "from_node": "m3Gv",
+    "to_node": "m3Gv",
+    "contract": {
+      "contract_id": "quLvdpdq5P",
+      "task_clause": " Select the best translation into predicate logic: Some students work hard.\nOption A: (\u2203x)(Wx \u2228 Sx)\nOption B: (\u2203x)(Sx \u2228 Wx)\nOption C: (\u2203x)(Sx \u2022 Wx)\nOption D: (\u2203x)(Sx \u2283 Wx)\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 1308
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773105008.63422,
+    "run_id": "8ee28wBzfGGr",
+    "round_idx": 1,
+    "from_node": "m3Gv",
+    "to_node": "7u8u",
+    "contract": {
+      "contract_id": "u3wbJDHcQL",
+      "task_clause": " Select the best translation into predicate logic: Some students work hard.\nOption A: (\u2203x)(Wx \u2228 Sx)\nOption B: (\u2203x)(Sx \u2228 Wx)\nOption C: (\u2203x)(Sx \u2022 Wx)\nOption D: (\u2203x)(Sx \u2283 Wx)\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 1308
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

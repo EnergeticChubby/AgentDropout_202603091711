@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773104991.473753,
+    "run_id": "dBxfBDfV9HM3",
+    "round_idx": 0,
+    "from_node": "sXo9",
+    "to_node": "sXo9",
+    "contract": {
+      "contract_id": "aehjexJzDs",
+      "task_clause": "There are a number of experiments for the determination of the molecular mass of a gas. One method begins by heating a solid or liquid in a flask to produce a gaseous product. The gas passes through a tube and displaces water in an inverted, water-filled bottle. The mass of the starting material is measured, along with the volume of the displaced water and the temperature of the system. The pressure in the inverted water-filled bottle is equal to the external pressure. Once the barometric pressure has been recorded, what other information is needed to finish the experiment?\nOption A: The heat of formation of the gas\nOption B: The density of the water\nOption C: The mass of the displaced water\nOption D: The vapor pressure of the water\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 230
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773104991.473937,
+    "run_id": "dBxfBDfV9HM3",
+    "round_idx": 1,
+    "from_node": "sXo9",
+    "to_node": "gHHw",
+    "contract": {
+      "contract_id": "V7nZRsgZmm",
+      "task_clause": "There are a number of experiments for the determination of the molecular mass of a gas. One method begins by heating a solid or liquid in a flask to produce a gaseous product. The gas passes through a tube and displaces water in an inverted, water-filled bottle. The mass of the starting material is measured, along with the volume of the displaced water and the temperature of the system. The pressure in the inverted water-filled bottle is equal to the external pressure. Once the barometric pressure has been recorded, what other information is needed to finish the experiment?\nOption A: The heat of formation of the gas\nOption B: The density of the water\nOption C: The mass of the displaced water\nOption D: The vapor pressure of the water\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 230
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

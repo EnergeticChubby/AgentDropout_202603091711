@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773105265.5108323,
+    "run_id": "3yoMvhRBVmBJ",
+    "round_idx": 0,
+    "from_node": "jNWN",
+    "to_node": "jNWN",
+    "contract": {
+      "contract_id": "KCTZsdbsi5",
+      "task_clause": "An owner of an adult bookstore was angry that a city ordinance had been passed requiring that all \"adult\" establishments be located in areas zoned industrial. This owner was located in a tourist area downtown and was very profitable. Claiming his First Amendment rights were being violated, he filed suit in court. The court will likely find for:\nOption A: The owner, as his First Amendment rights were indeed breached.\nOption B: The city, because they have a right to regulate offensive activities.\nOption C: The city, because it does not unreasonably limit alternative avenues of communication.\nOption D: The owner, as it is a legitimate business.\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 454
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773105265.5109246,
+    "run_id": "3yoMvhRBVmBJ",
+    "round_idx": 1,
+    "from_node": "jNWN",
+    "to_node": "vDn4",
+    "contract": {
+      "contract_id": "JhqvwsuppB",
+      "task_clause": "An owner of an adult bookstore was angry that a city ordinance had been passed requiring that all \"adult\" establishments be located in areas zoned industrial. This owner was located in a tourist area downtown and was very profitable. Claiming his First Amendment rights were being violated, he filed suit in court. The court will likely find for:\nOption A: The owner, as his First Amendment rights were indeed breached.\nOption B: The city, because they have a right to regulate offensive activities.\nOption C: The city, because it does not unreasonably limit alternative avenues of communication.\nOption D: The owner, as it is a legitimate business.\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 454
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

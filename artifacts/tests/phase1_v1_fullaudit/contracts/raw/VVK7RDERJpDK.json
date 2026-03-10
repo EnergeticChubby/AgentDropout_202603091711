@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773105263.5912666,
+    "run_id": "VVK7RDERJpDK",
+    "round_idx": 0,
+    "from_node": "FFZM",
+    "to_node": "FFZM",
+    "contract": {
+      "contract_id": "Z2CNR5gPku",
+      "task_clause": "Which of the following procedures would an accountant least likely perform during an engagement to review the financial statements of a nonissuer?\nOption A: Make inquiries of management about actions taken at board of directors' meetings.\nOption B: Study the relationships of financial statement elements expected to conform to predictable patterns.\nOption C: Identify internal control activities that are likely to prevent or detect material misstatements.\nOption D: Compare the financial statements with anticipated results in budgets and forecasts.\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 269
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773105263.591393,
+    "run_id": "VVK7RDERJpDK",
+    "round_idx": 1,
+    "from_node": "FFZM",
+    "to_node": "qUKj",
+    "contract": {
+      "contract_id": "tsKdHgLq4E",
+      "task_clause": "Which of the following procedures would an accountant least likely perform during an engagement to review the financial statements of a nonissuer?\nOption A: Make inquiries of management about actions taken at board of directors' meetings.\nOption B: Study the relationships of financial statement elements expected to conform to predictable patterns.\nOption C: Identify internal control activities that are likely to prevent or detect material misstatements.\nOption D: Compare the financial statements with anticipated results in budgets and forecasts.\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 269
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

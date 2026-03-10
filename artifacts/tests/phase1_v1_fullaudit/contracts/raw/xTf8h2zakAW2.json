@@ -1,0 +1,54 @@
+[
+  {
+    "timestamp": 1773104973.2666237,
+    "run_id": "xTf8h2zakAW2",
+    "round_idx": 1,
+    "from_node": "eHLa",
+    "to_node": "vgxf",
+    "contract": {
+      "contract_id": "EqAu6L6FsH",
+      "task_clause": "Suppose that 100 separate firms were tested to determine how many of them \"beat the market\" using a Jensen-type regression, and it is found that 3 fund managers significantly do so. Does this suggest prima facie evidence for stock market inefficiency?\nOption A: Yes\nOption B: No\nOption C: In order to answer this question, you would need to test every fund manager trading in that market\nOption D: There is insufficient information given in the question to draw a conclusion about market efficiency.\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": false,
+      "violations": [
+        "empty_deliverable"
+      ],
+      "details": {
+        "output_length": 0
+      }
+    },
+    "dispute": {
+      "action": "rework",
+      "reason": "empty_deliverable",
+      "metadata": {
+        "rollback_to": "upstream_node"
+      }
+    }
+  }
+]

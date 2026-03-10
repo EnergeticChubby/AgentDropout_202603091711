@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773104861.6778924,
+    "run_id": "nBhRLyVFTW8n",
+    "round_idx": 0,
+    "from_node": "g7Fb",
+    "to_node": "g7Fb",
+    "contract": {
+      "contract_id": "qfLB5797on",
+      "task_clause": "________ is any business effort to influence government or public policy. It includes activities such as __________, political advertising, financial contributions, ________ action and political ________.\nOption A: Private regulation, Lobbying, Environmental, Fundraising\nOption B: Private regulation, Consumer Marketing, Legal, Fundraising\nOption C: Corporate political activity, Lobbying, Legal, Campaigning\nOption D: Corporate political activity, Consumer marketing, Environmental, Campaigning\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 167
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773104861.6779869,
+    "run_id": "nBhRLyVFTW8n",
+    "round_idx": 1,
+    "from_node": "g7Fb",
+    "to_node": "YLz9",
+    "contract": {
+      "contract_id": "ZSdGu4LZRB",
+      "task_clause": "________ is any business effort to influence government or public policy. It includes activities such as __________, political advertising, financial contributions, ________ action and political ________.\nOption A: Private regulation, Lobbying, Environmental, Fundraising\nOption B: Private regulation, Consumer Marketing, Legal, Fundraising\nOption C: Corporate political activity, Lobbying, Legal, Campaigning\nOption D: Corporate political activity, Consumer marketing, Environmental, Campaigning\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 167
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

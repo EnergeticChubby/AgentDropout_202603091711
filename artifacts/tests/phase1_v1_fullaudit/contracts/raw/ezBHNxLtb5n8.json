@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773105284.700531,
+    "run_id": "ezBHNxLtb5n8",
+    "round_idx": 0,
+    "from_node": "4BT9",
+    "to_node": "4BT9",
+    "contract": {
+      "contract_id": "fBeo5TPWVZ",
+      "task_clause": "Why are drug combinations essential for HIV?\nOption A: Single drugs are not completely inhibitory\nOption B: Mutations negate the effect of one drug\nOption C: Combinations of antibiotics are effective versus TB\nOption D: The virus cannot mutate vs a combination\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 786
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773105284.7006388,
+    "run_id": "ezBHNxLtb5n8",
+    "round_idx": 1,
+    "from_node": "4BT9",
+    "to_node": "JwhD",
+    "contract": {
+      "contract_id": "4mEEFf8w6N",
+      "task_clause": "Why are drug combinations essential for HIV?\nOption A: Single drugs are not completely inhibitory\nOption B: Mutations negate the effect of one drug\nOption C: Combinations of antibiotics are effective versus TB\nOption D: The virus cannot mutate vs a combination\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 786
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

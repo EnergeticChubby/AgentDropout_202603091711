@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773104861.9975436,
+    "run_id": "pTnnodVm2DFG",
+    "round_idx": 0,
+    "from_node": "sXo9",
+    "to_node": "sXo9",
+    "contract": {
+      "contract_id": "c4Fi8NpCm2",
+      "task_clause": "Which of the following methods has led to the most discoveries of massive planets orbiting near their parent stars?\nOption A: detecting the gravitational effect of an orbiting planet by looking for the Doppler shifts in the star's spectrum\nOption B: detecting the shift of the star's position against the sky due to the planet's gravitational pull\nOption C: detecting a planet ejected from a binary star system\nOption D: detecting the starlight reflected off the planet\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 120
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773104861.997638,
+    "run_id": "pTnnodVm2DFG",
+    "round_idx": 1,
+    "from_node": "sXo9",
+    "to_node": "gHHw",
+    "contract": {
+      "contract_id": "idCLYPaomz",
+      "task_clause": "Which of the following methods has led to the most discoveries of massive planets orbiting near their parent stars?\nOption A: detecting the gravitational effect of an orbiting planet by looking for the Doppler shifts in the star's spectrum\nOption B: detecting the shift of the star's position against the sky due to the planet's gravitational pull\nOption C: detecting a planet ejected from a binary star system\nOption D: detecting the starlight reflected off the planet\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 120
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

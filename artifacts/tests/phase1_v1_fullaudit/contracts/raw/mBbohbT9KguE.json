@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773105197.1853578,
+    "run_id": "mBbohbT9KguE",
+    "round_idx": 0,
+    "from_node": "FFZM",
+    "to_node": "FFZM",
+    "contract": {
+      "contract_id": "VpD5XKCaLu",
+      "task_clause": "From 1971 to 1997 the Democratic Republic of Congo was known as what?\nOption A: Zaire\nOption B: Angola\nOption C: Rhodesia\nOption D: Belgian Congo\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 270
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773105197.185456,
+    "run_id": "mBbohbT9KguE",
+    "round_idx": 1,
+    "from_node": "FFZM",
+    "to_node": "qUKj",
+    "contract": {
+      "contract_id": "f3VwA7YpAW",
+      "task_clause": "From 1971 to 1997 the Democratic Republic of Congo was known as what?\nOption A: Zaire\nOption B: Angola\nOption C: Rhodesia\nOption D: Belgian Congo\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 270
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

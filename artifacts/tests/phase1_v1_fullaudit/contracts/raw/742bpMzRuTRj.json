@@ -1,0 +1,54 @@
+[
+  {
+    "timestamp": 1773104904.545917,
+    "run_id": "742bpMzRuTRj",
+    "round_idx": 1,
+    "from_node": "eHLa",
+    "to_node": "vgxf",
+    "contract": {
+      "contract_id": "tp72iH4edN",
+      "task_clause": "_______ and _______ are both examples of _______ -based theories which are based on basic universal principles of right and wrong.\nOption A: Ethics of duty, Ethics of rights and justice, Principle\nOption B: Utilitarianism, Egoism, Principle\nOption C: Ethics of duty, Utilitarianism, Consequentialist\nOption D: Egoism, Ethics of rights and justice, Consequentialist\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": false,
+      "violations": [
+        "empty_deliverable"
+      ],
+      "details": {
+        "output_length": 0
+      }
+    },
+    "dispute": {
+      "action": "rework",
+      "reason": "empty_deliverable",
+      "metadata": {
+        "rollback_to": "upstream_node"
+      }
+    }
+  }
+]

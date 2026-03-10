@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773105067.23579,
+    "run_id": "JZBVByXodYiE",
+    "round_idx": 0,
+    "from_node": "m3Gv",
+    "to_node": "m3Gv",
+    "contract": {
+      "contract_id": "9AXFWM4XqF",
+      "task_clause": "Which of the following is a component of the M 1 measure of money supply?\nOption A: Savings deposits\nOption B: Gold bullion\nOption C: Cash and coins\nOption D: 30-year Treasury certificates\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 348
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773105067.2358813,
+    "run_id": "JZBVByXodYiE",
+    "round_idx": 1,
+    "from_node": "m3Gv",
+    "to_node": "7u8u",
+    "contract": {
+      "contract_id": "zzAxrS9iEv",
+      "task_clause": "Which of the following is a component of the M 1 measure of money supply?\nOption A: Savings deposits\nOption B: Gold bullion\nOption C: Cash and coins\nOption D: 30-year Treasury certificates\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 348
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

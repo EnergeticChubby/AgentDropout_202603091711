@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773105265.8697684,
+    "run_id": "rJYs2S7EP7QY",
+    "round_idx": 0,
+    "from_node": "eHLa",
+    "to_node": "eHLa",
+    "contract": {
+      "contract_id": "uoVApB24mi",
+      "task_clause": "A buyer purchased a new convertible from an automobile dealership. A few weeks later, the buyer began smelling a pungent gasoline odor in the vehicle. The buyer immediately took the car to the dealership and told the service manager what was wrong. The service manager indicated that he would take care of the problem and contact the buyer when the car was ready. The next day, the buyer was informed that the problem had been corrected and the car was available for pickup. The buyer then went to the dealership, took possession of his car, and drove off. After traveling about five miles, the buyer again smelled gasoline fumes. Irritated that the problem had not been corrected, the buyer decided to drive back to the dealership. As he was doing so, the car suddenly exploded, and the buyer suffer",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 370
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773105265.8698611,
+    "run_id": "rJYs2S7EP7QY",
+    "round_idx": 1,
+    "from_node": "eHLa",
+    "to_node": "vgxf",
+    "contract": {
+      "contract_id": "SxdCbFasPA",
+      "task_clause": "A buyer purchased a new convertible from an automobile dealership. A few weeks later, the buyer began smelling a pungent gasoline odor in the vehicle. The buyer immediately took the car to the dealership and told the service manager what was wrong. The service manager indicated that he would take care of the problem and contact the buyer when the car was ready. The next day, the buyer was informed that the problem had been corrected and the car was available for pickup. The buyer then went to the dealership, took possession of his car, and drove off. After traveling about five miles, the buyer again smelled gasoline fumes. Irritated that the problem had not been corrected, the buyer decided to drive back to the dealership. As he was doing so, the car suddenly exploded, and the buyer suffer",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 370
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

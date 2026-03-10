@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773104992.3647132,
+    "run_id": "WUPdEmFxLENV",
+    "round_idx": 0,
+    "from_node": "FFZM",
+    "to_node": "FFZM",
+    "contract": {
+      "contract_id": "PGtKqwEWqd",
+      "task_clause": "Let M be a single-tape, deterministic Turing machine with tape alphabet {blank,0,1}, and let C denote the (possibly infinite) computation of M starting with a blank tape. The input to each problem below is M, together with a positive integer n. Which of the following problems is (are) decidable?\nI. The computation C lasts for at least n steps.\nII. The computation C lasts for at least n steps, and M prints a 1 at some point after the nth step.\nIII. M scans at least n distinct tape squares during the computation C.\nOption A: None\nOption B: III only\nOption C: I and II only\nOption D: I and III only\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 330
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773104992.364841,
+    "run_id": "WUPdEmFxLENV",
+    "round_idx": 1,
+    "from_node": "FFZM",
+    "to_node": "qUKj",
+    "contract": {
+      "contract_id": "67KL5mZLVZ",
+      "task_clause": "Let M be a single-tape, deterministic Turing machine with tape alphabet {blank,0,1}, and let C denote the (possibly infinite) computation of M starting with a blank tape. The input to each problem below is M, together with a positive integer n. Which of the following problems is (are) decidable?\nI. The computation C lasts for at least n steps.\nII. The computation C lasts for at least n steps, and M prints a 1 at some point after the nth step.\nIII. M scans at least n distinct tape squares during the computation C.\nOption A: None\nOption B: III only\nOption C: I and II only\nOption D: I and III only\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 330
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

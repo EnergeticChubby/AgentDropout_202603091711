@@ -1,0 +1,54 @@
+[
+  {
+    "timestamp": 1773104913.2480655,
+    "run_id": "NrPTTMuajgLJ",
+    "round_idx": 1,
+    "from_node": "4BT9",
+    "to_node": "JwhD",
+    "contract": {
+      "contract_id": "v289x42c5j",
+      "task_clause": "Which one of the following statements about the growth of the mandible is correct?\nOption A: The mental symphysis closes at about 1 year postnatally\nOption B: The condylar growth cartilage ceases activity at puberty\nOption C: The ossification centre appears about 8 weeks I.U.L medial to Meckel's cartilage\nOption D: The functional matrix acting on the angle of the mandible is the lateral pterygoid muscle\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": false,
+      "violations": [
+        "empty_deliverable"
+      ],
+      "details": {
+        "output_length": 0
+      }
+    },
+    "dispute": {
+      "action": "rework",
+      "reason": "empty_deliverable",
+      "metadata": {
+        "rollback_to": "upstream_node"
+      }
+    }
+  }
+]

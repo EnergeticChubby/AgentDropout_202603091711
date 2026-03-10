@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773105264.1946084,
+    "run_id": "fmb8VgtuQJx5",
+    "round_idx": 0,
+    "from_node": "eHLa",
+    "to_node": "eHLa",
+    "contract": {
+      "contract_id": "6jcqLCBJtG",
+      "task_clause": "A university student, a citizen of State A, believes that her university violated federal law when it eliminated funding for the women's varsity volleyball team. She has sued the university, a nonprofit corporation located and incorporated in State B, and the university's athletic director, a citizen of State B, in federal court in State B. What is the best method of serving the defendants?\nOption A: Service as required by State B's rules of civil procedure.\nOption B: Service by a process server's leaving copies of the summons and complaint with copies of the summons and complaint with secretaries in the respective offices of the athletic director and the university president.\nOption C: Service by emailing copies of the summons and complaint to the athletic director and the university pres",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 259
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773105264.1947176,
+    "run_id": "fmb8VgtuQJx5",
+    "round_idx": 1,
+    "from_node": "eHLa",
+    "to_node": "vgxf",
+    "contract": {
+      "contract_id": "62BTYpM7hc",
+      "task_clause": "A university student, a citizen of State A, believes that her university violated federal law when it eliminated funding for the women's varsity volleyball team. She has sued the university, a nonprofit corporation located and incorporated in State B, and the university's athletic director, a citizen of State B, in federal court in State B. What is the best method of serving the defendants?\nOption A: Service as required by State B's rules of civil procedure.\nOption B: Service by a process server's leaving copies of the summons and complaint with copies of the summons and complaint with secretaries in the respective offices of the athletic director and the university president.\nOption C: Service by emailing copies of the summons and complaint to the athletic director and the university pres",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 259
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

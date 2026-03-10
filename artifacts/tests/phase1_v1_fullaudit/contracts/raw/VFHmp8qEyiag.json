@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773104994.7145395,
+    "run_id": "VFHmp8qEyiag",
+    "round_idx": 0,
+    "from_node": "4BT9",
+    "to_node": "4BT9",
+    "contract": {
+      "contract_id": "nuVfRdxLLj",
+      "task_clause": "Which of the following sets of bit strings CANNOT be described with a regular expression?\nOption A: All bit strings whose number of zeros is a multiple of five\nOption B: All bit strings starting with a zero and ending with a one\nOption C: All bit strings with an even number of zeros\nOption D: All bit strings with more ones than zeros\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 878
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773104994.714667,
+    "run_id": "VFHmp8qEyiag",
+    "round_idx": 1,
+    "from_node": "4BT9",
+    "to_node": "JwhD",
+    "contract": {
+      "contract_id": "UYgU9USCqY",
+      "task_clause": "Which of the following sets of bit strings CANNOT be described with a regular expression?\nOption A: All bit strings whose number of zeros is a multiple of five\nOption B: All bit strings starting with a zero and ending with a one\nOption C: All bit strings with an even number of zeros\nOption D: All bit strings with more ones than zeros\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 878
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773105252.7115579,
+    "run_id": "Hv2t8VocDjTu",
+    "round_idx": 0,
+    "from_node": "4BT9",
+    "to_node": "4BT9",
+    "contract": {
+      "contract_id": "pC6hjaMa2D",
+      "task_clause": "Which of the following characteristics most likely would heighten an auditor's concern about the risk of material misstatements arising from fraudulent financial reporting?\nOption A: The entity's industry is experiencing declining customer demand.\nOption B: Employees who handle cash receipts are not bonded.\nOption C: Bank reconciliations usually include in-transit deposits.\nOption D: Equipment is often sold at a loss before being fully depreciated.\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 226
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773105252.711649,
+    "run_id": "Hv2t8VocDjTu",
+    "round_idx": 1,
+    "from_node": "4BT9",
+    "to_node": "JwhD",
+    "contract": {
+      "contract_id": "9hytUejRpi",
+      "task_clause": "Which of the following characteristics most likely would heighten an auditor's concern about the risk of material misstatements arising from fraudulent financial reporting?\nOption A: The entity's industry is experiencing declining customer demand.\nOption B: Employees who handle cash receipts are not bonded.\nOption C: Bank reconciliations usually include in-transit deposits.\nOption D: Equipment is often sold at a loss before being fully depreciated.\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 226
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

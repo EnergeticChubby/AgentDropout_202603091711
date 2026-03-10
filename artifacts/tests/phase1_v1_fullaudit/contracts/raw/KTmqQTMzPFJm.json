@@ -1,0 +1,54 @@
+[
+  {
+    "timestamp": 1773104970.775927,
+    "run_id": "KTmqQTMzPFJm",
+    "round_idx": 1,
+    "from_node": "B5bH",
+    "to_node": "UzZg",
+    "contract": {
+      "contract_id": "xHJmTipGqv",
+      "task_clause": "The electron transport chain, which is embedded in the mitochondrial membrane, exists primarily to generate new molecules of ATP for use by the cell. This is accomplished by a positive gradient of H+ ions that are formed outside the membrane which then pass back through a specialized channel known as ATP synthase. The energy created from this phosphorylates an ATP to an ATP, known as oxidative phosphorylation. The mechanism by which H+ returns to the inside of the mitochondria is known as what?\nOption A: Passive transport\nOption B: Passive diffusion\nOption C: Active transport\nOption D: Endocytosis\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": false,
+      "violations": [
+        "empty_deliverable"
+      ],
+      "details": {
+        "output_length": 0
+      }
+    },
+    "dispute": {
+      "action": "rework",
+      "reason": "empty_deliverable",
+      "metadata": {
+        "rollback_to": "upstream_node"
+      }
+    }
+  }
+]

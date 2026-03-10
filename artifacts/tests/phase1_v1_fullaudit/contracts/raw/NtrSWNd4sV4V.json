@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773105209.142957,
+    "run_id": "NtrSWNd4sV4V",
+    "round_idx": 0,
+    "from_node": "B5bH",
+    "to_node": "B5bH",
+    "contract": {
+      "contract_id": "YZWd98WBfS",
+      "task_clause": "Which of the following techniques effectively measures improvements in product quality as a result of internal failure costs?\nOption A: Inspection of in-process goods.\nOption B: Recording the number of products returned over time.\nOption C: Tracking the number of products reworked.\nOption D: Tracking warranty expenses over time.\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 156
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773105209.1430511,
+    "run_id": "NtrSWNd4sV4V",
+    "round_idx": 1,
+    "from_node": "B5bH",
+    "to_node": "UzZg",
+    "contract": {
+      "contract_id": "Zwkf6hsNZR",
+      "task_clause": "Which of the following techniques effectively measures improvements in product quality as a result of internal failure costs?\nOption A: Inspection of in-process goods.\nOption B: Recording the number of products returned over time.\nOption C: Tracking the number of products reworked.\nOption D: Tracking warranty expenses over time.\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 156
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

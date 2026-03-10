@@ -1,0 +1,54 @@
+[
+  {
+    "timestamp": 1773105107.418591,
+    "run_id": "fJYmWfD69M9B",
+    "round_idx": 1,
+    "from_node": "eHLa",
+    "to_node": "vgxf",
+    "contract": {
+      "contract_id": "T74VccmB6S",
+      "task_clause": "A box of mass m slides on a horizontal surface with initial speed v0. It feels no forces other than gravity and the force from the surface. If the coefficient of kinetic friction between the box and the surface is \u03bc, how far does the box slide before coming to rest?\nOption A: v0^2/(2\u03bcg)\nOption B: v0^2/(\u03bcg)\nOption C: 2v0^2/(\u03bcg)\nOption D: mv0^2/(\u03bcg)\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": false,
+      "violations": [
+        "empty_deliverable"
+      ],
+      "details": {
+        "output_length": 0
+      }
+    },
+    "dispute": {
+      "action": "rework",
+      "reason": "empty_deliverable",
+      "metadata": {
+        "rollback_to": "upstream_node"
+      }
+    }
+  }
+]

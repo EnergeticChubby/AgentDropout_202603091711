@@ -1,0 +1,54 @@
+[
+  {
+    "timestamp": 1773105233.5469995,
+    "run_id": "tyFtBz8x3Zyv",
+    "round_idx": 1,
+    "from_node": "g7Fb",
+    "to_node": "YLz9",
+    "contract": {
+      "contract_id": "pCjTMiL42G",
+      "task_clause": "A man was driving his car when he suddenly hit a pedestrian as she was crossing the street. Following the accident, an ambulance was summoned and the pedestrian was taken to a nearby hospital. The man, who also drove to the hospital, approached the pedestrian in the emergency room while she was being treated for her injuries. When the pedestrian saw the man, she told him, \"You went through that red light. You could have killed me. \" She then asked the man for $5,000 to cover her anticipated medical expenses. The man replied that he would have to think about it. Shortly thereafter, the man sent a letter to the pedestrian in which he wrote, \"I realize I drove through the red light. Naturally, I would like to settle this without any litigation. I'm willing to pay all your medical expenses and",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": false,
+      "violations": [
+        "empty_deliverable"
+      ],
+      "details": {
+        "output_length": 0
+      }
+    },
+    "dispute": {
+      "action": "rework",
+      "reason": "empty_deliverable",
+      "metadata": {
+        "rollback_to": "upstream_node"
+      }
+    }
+  }
+]

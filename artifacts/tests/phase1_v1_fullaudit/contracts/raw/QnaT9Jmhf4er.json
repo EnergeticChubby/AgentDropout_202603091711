@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773105207.0760384,
+    "run_id": "QnaT9Jmhf4er",
+    "round_idx": 0,
+    "from_node": "B5bH",
+    "to_node": "B5bH",
+    "contract": {
+      "contract_id": "V2aqZpdJFE",
+      "task_clause": "Which of the following factors should an external auditor obtain updated information about when assessing an internal auditor\u2019s competence?\nOption A: The reporting status of the internal auditor within the organization.\nOption B: The educational level and professional experiences of the internal auditor.\nOption C: Whether policies prohibit the internal auditor from auditing areas where relatives are employed.\nOption D: Whether the board of directors, audit committee, or owner-manager oversees employment decisions related to the internal auditor.\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 426
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773105207.0761335,
+    "run_id": "QnaT9Jmhf4er",
+    "round_idx": 1,
+    "from_node": "B5bH",
+    "to_node": "UzZg",
+    "contract": {
+      "contract_id": "k2yn5qubj6",
+      "task_clause": "Which of the following factors should an external auditor obtain updated information about when assessing an internal auditor\u2019s competence?\nOption A: The reporting status of the internal auditor within the organization.\nOption B: The educational level and professional experiences of the internal auditor.\nOption C: Whether policies prohibit the internal auditor from auditing areas where relatives are employed.\nOption D: Whether the board of directors, audit committee, or owner-manager oversees employment decisions related to the internal auditor.\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 426
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

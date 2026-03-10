@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773105061.2052867,
+    "run_id": "Kjj6rnJGBXyd",
+    "round_idx": 0,
+    "from_node": "B5bH",
+    "to_node": "B5bH",
+    "contract": {
+      "contract_id": "K4BXEYBFwq",
+      "task_clause": "A person can stand outside on a cold day for hours without ill effect, but falling into a cold lake can kill a person in a matter of minutes. Which of the following is the primary reason for this phenomenon?\nOption A: The molecules of the person are, on average, moving faster than those of the surroundings.\nOption B: Thermal energy moves from high concentration areas (hot) to low concentration areas (cold).\nOption C: As heat flows out of the person and warms the fluid surrounding the person, the warmer fluid rises, allowing fresh cool fluid to come in contact with the person and increasing the rate of heat transfer.\nOption D: Water has more molecules per volume than air, increasing molecular contact with the person.\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 105
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773105061.205936,
+    "run_id": "Kjj6rnJGBXyd",
+    "round_idx": 1,
+    "from_node": "B5bH",
+    "to_node": "UzZg",
+    "contract": {
+      "contract_id": "H6QxzmRS87",
+      "task_clause": "A person can stand outside on a cold day for hours without ill effect, but falling into a cold lake can kill a person in a matter of minutes. Which of the following is the primary reason for this phenomenon?\nOption A: The molecules of the person are, on average, moving faster than those of the surroundings.\nOption B: Thermal energy moves from high concentration areas (hot) to low concentration areas (cold).\nOption C: As heat flows out of the person and warms the fluid surrounding the person, the warmer fluid rises, allowing fresh cool fluid to come in contact with the person and increasing the rate of heat transfer.\nOption D: Water has more molecules per volume than air, increasing molecular contact with the person.\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 105
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

@@ -1,0 +1,54 @@
+[
+  {
+    "timestamp": 1773105234.982645,
+    "run_id": "5N6DRxSqSKCo",
+    "round_idx": 1,
+    "from_node": "m3Gv",
+    "to_node": "7u8u",
+    "contract": {
+      "contract_id": "ZM8jg53Jaz",
+      "task_clause": "A city enacted an ordinance prohibiting the singing and chanting of songs from 1:00P. M. to 1:00A. M. by two or more persons if such noise is audible off the premises where the singing takes place. The ordinance expressly exempted from its purview the singing or chanting of religious songs. After the ordinance was enacted and went into effect, several college students were walking down the street on their way to a victory celebration following a big college football game. They began loudly chanting, \"We're number 1. . . we're number 1. \" One of the residents who lived on the street was greatly disturbed by the noise and reported the incident to the police, who were immediately summoned to the scene. The students who engaged in the chanting were arrested and charged with violating the ordin",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": false,
+      "violations": [
+        "empty_deliverable"
+      ],
+      "details": {
+        "output_length": 0
+      }
+    },
+    "dispute": {
+      "action": "rework",
+      "reason": "empty_deliverable",
+      "metadata": {
+        "rollback_to": "upstream_node"
+      }
+    }
+  }
+]

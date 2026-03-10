@@ -1,0 +1,54 @@
+[
+  {
+    "timestamp": 1773105188.0775454,
+    "run_id": "GMnHDSRCrESB",
+    "round_idx": 1,
+    "from_node": "jNWN",
+    "to_node": "vDn4",
+    "contract": {
+      "contract_id": "DE5YoRmzoy",
+      "task_clause": "Philosophy is concerned primarily with identifying beliefs about human existence and evaluating arguments that support those beliefs.  These activities can be summarized in two questions that drive philosophical investigations:\nOption A: why should we bother? and what are the consequences of our believing one thing over another?\nOption B: what do you mean? and how do you know?\nOption C: who really believes X? and how can we explain differences in people's beliefs?\nOption D: how do philosophers argue? and are their differences important?\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": false,
+      "violations": [
+        "empty_deliverable"
+      ],
+      "details": {
+        "output_length": 0
+      }
+    },
+    "dispute": {
+      "action": "rework",
+      "reason": "empty_deliverable",
+      "metadata": {
+        "rollback_to": "upstream_node"
+      }
+    }
+  }
+]

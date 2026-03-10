@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773105063.290506,
+    "run_id": "XVW42rKSAGnp",
+    "round_idx": 0,
+    "from_node": "B5bH",
+    "to_node": "B5bH",
+    "contract": {
+      "contract_id": "3dWz46PEFB",
+      "task_clause": "In Collision A, two carts collide and bounce off each other. In Collision B, a ball sticks to a rigid rod, which begins to rotate about the combined center of mass. Which of the following statements about quantities in each collision is correct?\nOption A: Collision A: each cart experiences the same force, time of collision, and change in kinetic energy. Collision B: the ball and the rod each experience the same torque, time of collision, and change in rotational kinetic energy.\nOption B: Collision A: each cart experiences the same force, time of collision, and change in linear momentum. Collision B: the ball and the rod each experience the same torque, time of collision, and change in angular momentum.\nOption C: Collision A: each cart experiences the same force, time of collision, and chan",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 265
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773105063.2906084,
+    "run_id": "XVW42rKSAGnp",
+    "round_idx": 1,
+    "from_node": "B5bH",
+    "to_node": "UzZg",
+    "contract": {
+      "contract_id": "Bqo6NVuF4D",
+      "task_clause": "In Collision A, two carts collide and bounce off each other. In Collision B, a ball sticks to a rigid rod, which begins to rotate about the combined center of mass. Which of the following statements about quantities in each collision is correct?\nOption A: Collision A: each cart experiences the same force, time of collision, and change in kinetic energy. Collision B: the ball and the rod each experience the same torque, time of collision, and change in rotational kinetic energy.\nOption B: Collision A: each cart experiences the same force, time of collision, and change in linear momentum. Collision B: the ball and the rod each experience the same torque, time of collision, and change in angular momentum.\nOption C: Collision A: each cart experiences the same force, time of collision, and chan",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 265
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

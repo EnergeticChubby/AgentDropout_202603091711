@@ -1,0 +1,54 @@
+[
+  {
+    "timestamp": 1773105042.5137124,
+    "run_id": "Pi4HNoU5RRpp",
+    "round_idx": 1,
+    "from_node": "B5bH",
+    "to_node": "UzZg",
+    "contract": {
+      "contract_id": "W9wGzANMKf",
+      "task_clause": "Which of the following are alternative names for the dependent variable (usually denoted by y) in linear regression analysis?\n\n(i) The regressand\n\n(ii) The regressor\n\n(iii) The explained variable\n\n(iv) The explanatory variable\nOption A: (ii) and (iv) only\nOption B: (i) and (iii) only\nOption C: (i), (ii), and (iii) only\nOption D: (i), (ii), (iii), and (iv)\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": false,
+      "violations": [
+        "empty_deliverable"
+      ],
+      "details": {
+        "output_length": 0
+      }
+    },
+    "dispute": {
+      "action": "rework",
+      "reason": "empty_deliverable",
+      "metadata": {
+        "rollback_to": "upstream_node"
+      }
+    }
+  }
+]

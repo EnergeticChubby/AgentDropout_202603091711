@@ -1,0 +1,54 @@
+[
+  {
+    "timestamp": 1773104972.8901098,
+    "run_id": "oDcu4ZZzqVTh",
+    "round_idx": 1,
+    "from_node": "g7Fb",
+    "to_node": "YLz9",
+    "contract": {
+      "contract_id": "o843JCACHJ",
+      "task_clause": "Suppose V is a real vector space of finite dimension n. Call the set of matrices from V into itself M(V). Let T be in M(V). Consider the two subspaces U = {X \u2208 M(V) : TX = XT} and W = {TX \u2212 XT : X \u2208 M(V)}. Which of the following must be TRUE?\nI. If V has a basis containing only eigenvectors of T then U = M(V).\nII. dim (U) + dim (W) = n^2\nIII. dim (U) < n\nOption A: I only\nOption B: II only\nOption C: III only\nOption D: I and II only\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": false,
+      "violations": [
+        "empty_deliverable"
+      ],
+      "details": {
+        "output_length": 0
+      }
+    },
+    "dispute": {
+      "action": "rework",
+      "reason": "empty_deliverable",
+      "metadata": {
+        "rollback_to": "upstream_node"
+      }
+    }
+  }
+]

@@ -1,0 +1,54 @@
+[
+  {
+    "timestamp": 1773105191.5996737,
+    "run_id": "jQoEZr9NQU2J",
+    "round_idx": 1,
+    "from_node": "FFZM",
+    "to_node": "qUKj",
+    "contract": {
+      "contract_id": "ZNQv9eedLc",
+      "task_clause": "This question refers to the following information.\nOn Being Brought from Africa to America\n'Twas mercy brought me from my Pagan land,\nTaught my benighted soul to understand\nThat there's a God, that there's a Saviour too;\nOnce I redemption neither sought nor knew.\nSome view our sable race with scornful eye,\n\"Their colour is a diabolic die.\"\nRemember, Christians, Negroes, black as Cain,\nMay be refin'd, and join th' angelic train.\n\u2014Phillis Wheatley, Poems on Various Subjects, Religious and Moral, 1773\nThe sentiments expressed in Wheatley's poem most directly reflect which of the following continuities in U.S. history?\nOption A: Debates over religious freedom\nOption B: Debates over social justice\nOption C: Debates over immigration\nOption D: Debates over freedom of expression\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": false,
+      "violations": [
+        "empty_deliverable"
+      ],
+      "details": {
+        "output_length": 0
+      }
+    },
+    "dispute": {
+      "action": "rework",
+      "reason": "empty_deliverable",
+      "metadata": {
+        "rollback_to": "upstream_node"
+      }
+    }
+  }
+]

@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773105274.4744608,
+    "run_id": "A4QpsSA3da4u",
+    "round_idx": 0,
+    "from_node": "FFZM",
+    "to_node": "FFZM",
+    "contract": {
+      "contract_id": "MtWn4r9oS6",
+      "task_clause": "Which of the following factors most likely would cause an accountant not to accept an engagement to compile the financial statements of a nonissuer?\nOption A: A lack of segregation of duties in the entity's accounting and payroll departments.\nOption B: Indications that reports of asset misappropriation are not investigated by management.\nOption C: The entity's intention to omit from the financial statements substantially all of the disclosures required by GAAP.\nOption D: Management's acknowledgement that the financial statements will be included in a written personal financial plan.\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 146
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773105274.4745536,
+    "run_id": "A4QpsSA3da4u",
+    "round_idx": 1,
+    "from_node": "FFZM",
+    "to_node": "qUKj",
+    "contract": {
+      "contract_id": "vUKYGVVr8D",
+      "task_clause": "Which of the following factors most likely would cause an accountant not to accept an engagement to compile the financial statements of a nonissuer?\nOption A: A lack of segregation of duties in the entity's accounting and payroll departments.\nOption B: Indications that reports of asset misappropriation are not investigated by management.\nOption C: The entity's intention to omit from the financial statements substantially all of the disclosures required by GAAP.\nOption D: Management's acknowledgement that the financial statements will be included in a written personal financial plan.\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 146
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

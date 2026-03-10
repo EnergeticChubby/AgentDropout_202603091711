@@ -1,0 +1,54 @@
+[
+  {
+    "timestamp": 1773105230.7855718,
+    "run_id": "dpoJ3sHFjaeE",
+    "round_idx": 1,
+    "from_node": "B5bH",
+    "to_node": "UzZg",
+    "contract": {
+      "contract_id": "btvVpAUQ2f",
+      "task_clause": "A female employee was fired as an executive assistant at a time when she was seven months pregnant. She brought a Title VII civil rights action in federal court for gender discrimination against the employer. At trial, a former co-worker of the woman was not allowed to testify that she heard the human relations manager saying in an informal meeting that the plaintiff and her predecessor were both fired due to what the manager described as \"pregnancy complications.\" The proposed witness had been a vice-president of the company and a close adviser to the president. Without the benefit of that vital testimony, the jury entered a verdict for the defendant employer. On appeal, the plaintiff argued that the testimony should have been allowed and that it was not hearsay under the federal rules. W",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": false,
+      "violations": [
+        "empty_deliverable"
+      ],
+      "details": {
+        "output_length": 0
+      }
+    },
+    "dispute": {
+      "action": "rework",
+      "reason": "empty_deliverable",
+      "metadata": {
+        "rollback_to": "upstream_node"
+      }
+    }
+  }
+]

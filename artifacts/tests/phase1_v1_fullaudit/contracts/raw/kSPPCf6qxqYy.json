@@ -1,0 +1,54 @@
+[
+  {
+    "timestamp": 1773105117.9879355,
+    "run_id": "kSPPCf6qxqYy",
+    "round_idx": 1,
+    "from_node": "g7Fb",
+    "to_node": "YLz9",
+    "contract": {
+      "contract_id": "iJWep3jk7J",
+      "task_clause": "This question refers to the following information.\nNow, we have organized a society, and we call it \"Share Our Wealth Society,\" a society with the motto \"Every Man a King.\"\u2026\nWe propose to limit the wealth of big men in the country. There is an average of $15,000 in wealth to every family in America. That is right here today.\nWe do not propose to divide it up equally. We do not propose a division of wealth, but we do propose to limit poverty that we will allow to be inflicted on any man's family. We will not say we are going to try to guarantee any equality \u2026 but we do say that one third of the average is low enough for any one family to hold, that there should be a guarantee of a family wealth of around $5,000; enough for a home, an automobile, a radio, and the ordinary conveniences, and t",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": false,
+      "violations": [
+        "empty_deliverable"
+      ],
+      "details": {
+        "output_length": 0
+      }
+    },
+    "dispute": {
+      "action": "rework",
+      "reason": "empty_deliverable",
+      "metadata": {
+        "rollback_to": "upstream_node"
+      }
+    }
+  }
+]

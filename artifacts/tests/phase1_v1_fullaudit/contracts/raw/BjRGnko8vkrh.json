@@ -1,0 +1,54 @@
+[
+  {
+    "timestamp": 1773104912.72,
+    "run_id": "BjRGnko8vkrh",
+    "round_idx": 1,
+    "from_node": "FFZM",
+    "to_node": "qUKj",
+    "contract": {
+      "contract_id": "6QRYmJZkna",
+      "task_clause": "A silyl radical bearing an Si-H\u00b7 fragment has a g value of 2.0033 and a pair of lines separated by 15.5 MHz. Express the splitting in units of mT, Gauss and cm-1.\nOption A: 15.5 MHz = 11.104 mT = 27.201 Gauss = 0.862 x 10^-4 cm-1\nOption B: 15.5 MHz = 7.352 mT = 10.104 Gauss = 18.39 x 10^-4 cm-1\nOption C: 15.5 MHz = 1.55 mT = 0.562 Gauss = 31.0 x 10^-4 cm-1\nOption D: 15.5 MHz = 0.553 mT = 5.530 Gauss = 5.17 x 10^-4 cm-1\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": false,
+      "violations": [
+        "empty_deliverable"
+      ],
+      "details": {
+        "output_length": 0
+      }
+    },
+    "dispute": {
+      "action": "rework",
+      "reason": "empty_deliverable",
+      "metadata": {
+        "rollback_to": "upstream_node"
+      }
+    }
+  }
+]

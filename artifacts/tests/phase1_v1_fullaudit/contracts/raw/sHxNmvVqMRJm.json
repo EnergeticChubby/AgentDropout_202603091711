@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773105252.055987,
+    "run_id": "sHxNmvVqMRJm",
+    "round_idx": 0,
+    "from_node": "jNWN",
+    "to_node": "jNWN",
+    "contract": {
+      "contract_id": "tHda2fEnXh",
+      "task_clause": "The simple linear regression between stock and market returns\nOption A: fits the errors to obtain a more precise estimate of the stock\u2019s beta.\nOption B: minimises the stock\u2019s alpha, i.e. its idiosyncratic component.\nOption C: estimates the alpha of stock returns and their dependence on the market returns.\nOption D: models market returns as a function of the stock returns and its beta.\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 310
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773105252.0565588,
+    "run_id": "sHxNmvVqMRJm",
+    "round_idx": 1,
+    "from_node": "jNWN",
+    "to_node": "vDn4",
+    "contract": {
+      "contract_id": "Zz8MHc8mcq",
+      "task_clause": "The simple linear regression between stock and market returns\nOption A: fits the errors to obtain a more precise estimate of the stock\u2019s beta.\nOption B: minimises the stock\u2019s alpha, i.e. its idiosyncratic component.\nOption C: estimates the alpha of stock returns and their dependence on the market returns.\nOption D: models market returns as a function of the stock returns and its beta.\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 310
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

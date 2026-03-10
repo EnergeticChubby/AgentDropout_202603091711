@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773105067.391122,
+    "run_id": "fXxBMesDk6Au",
+    "round_idx": 0,
+    "from_node": "m3Gv",
+    "to_node": "m3Gv",
+    "contract": {
+      "contract_id": "7RVRpLKyy4",
+      "task_clause": "A student is experimenting with a simple spring-block oscillator of spring constant k and amplitude A. The block attached to the spring has a mass of m. If the student places a small block of mass m on top of the original block, which of the following is true?\nOption A: The small block is most likely to slide off when the original block is at maximum displacement from the equilibrium position, but will not slide off as long as the coefficient of static friction between the blocks is greater than kA/[(M+m)g].\nOption B: The small block is most likely to slide off when the original block is at the equilibrium position, but will not slide off as long as the coefficient of static friction between the blocks is greater than kA/[(M+m)g].\nOption C: The small block is most likely to slide off when ",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 293
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773105067.3912122,
+    "run_id": "fXxBMesDk6Au",
+    "round_idx": 1,
+    "from_node": "m3Gv",
+    "to_node": "7u8u",
+    "contract": {
+      "contract_id": "5BCSXca5wK",
+      "task_clause": "A student is experimenting with a simple spring-block oscillator of spring constant k and amplitude A. The block attached to the spring has a mass of m. If the student places a small block of mass m on top of the original block, which of the following is true?\nOption A: The small block is most likely to slide off when the original block is at maximum displacement from the equilibrium position, but will not slide off as long as the coefficient of static friction between the blocks is greater than kA/[(M+m)g].\nOption B: The small block is most likely to slide off when the original block is at the equilibrium position, but will not slide off as long as the coefficient of static friction between the blocks is greater than kA/[(M+m)g].\nOption C: The small block is most likely to slide off when ",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 293
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

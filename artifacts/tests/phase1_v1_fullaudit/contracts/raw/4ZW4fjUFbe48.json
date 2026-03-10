@@ -1,0 +1,54 @@
+[
+  {
+    "timestamp": 1773105098.8569016,
+    "run_id": "4ZW4fjUFbe48",
+    "round_idx": 1,
+    "from_node": "g7Fb",
+    "to_node": "YLz9",
+    "contract": {
+      "contract_id": "LUmeUiDZod",
+      "task_clause": "An insurance agent is successful in selling a life insurance policy to 20 percent of the customers he contacts. He decides to construct a simulation to estimate the mean number of customers he needs to contact before being able to sell a policy. Which of the following schemes should he use to do the simulation?\nOption A: Assign numbers 0, 1 to successfully selling a policy to a customer and numbers 2, 3, 4, 5, 6, 7, 8, 9 to failing to sell a policy to a customer.\nOption B: Assign numbers 0, 1 to successfully selling a policy to a customer and numbers 2, 3, 4 to failing to sell a policy to a customer.\nOption C: Assign number 0 to successfully selling a policy to a customer and number 1 to failing to sell a policy to a customer.\nOption D: Assign numbers 0, 1, 2, 3, 4 to successfully selling ",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": false,
+      "violations": [
+        "empty_deliverable"
+      ],
+      "details": {
+        "output_length": 0
+      }
+    },
+    "dispute": {
+      "action": "rework",
+      "reason": "empty_deliverable",
+      "metadata": {
+        "rollback_to": "upstream_node"
+      }
+    }
+  }
+]

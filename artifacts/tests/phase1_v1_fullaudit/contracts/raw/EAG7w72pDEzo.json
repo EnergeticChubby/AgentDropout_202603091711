@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773105263.9746964,
+    "run_id": "EAG7w72pDEzo",
+    "round_idx": 0,
+    "from_node": "B5bH",
+    "to_node": "B5bH",
+    "contract": {
+      "contract_id": "rRbevvs6zd",
+      "task_clause": "Lake Trust a simple trust reported the following items of income and expense during the year: Dividend income $2500 Taxable interest income 2000 Capital gains (allocable to corpus) 5000 Accounting fees (allocable to income) (500) Trustee fees (allocable to income) (750) What is Lake's distributable net income?\nOption A: $9,500\nOption B: $8,250\nOption C: $5,000\nOption D: 3250\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 530
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773105263.9748268,
+    "run_id": "EAG7w72pDEzo",
+    "round_idx": 1,
+    "from_node": "B5bH",
+    "to_node": "UzZg",
+    "contract": {
+      "contract_id": "NWh7NmfWv5",
+      "task_clause": "Lake Trust a simple trust reported the following items of income and expense during the year: Dividend income $2500 Taxable interest income 2000 Capital gains (allocable to corpus) 5000 Accounting fees (allocable to income) (500) Trustee fees (allocable to income) (750) What is Lake's distributable net income?\nOption A: $9,500\nOption B: $8,250\nOption C: $5,000\nOption D: 3250\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 530
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

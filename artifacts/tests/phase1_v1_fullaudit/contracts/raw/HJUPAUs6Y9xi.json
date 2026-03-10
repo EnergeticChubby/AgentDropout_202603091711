@@ -1,0 +1,54 @@
+[
+  {
+    "timestamp": 1773105187.7722275,
+    "run_id": "HJUPAUs6Y9xi",
+    "round_idx": 1,
+    "from_node": "jNWN",
+    "to_node": "vDn4",
+    "contract": {
+      "contract_id": "X6pJFhSAgB",
+      "task_clause": "This question refers to the following information.\n\"We are men; we have souls, we have passions, we have feelings, we have hopes, we have desires, like any other race in the world. The cry is raised all over the world today of Canada for the Canadians, of America for the Americans, of England for the English, of France for the French, of Germany for the Germans\u2014do you think it is unreasonable that we, the Blacks of the world, should raise the cry of Africa for the Africans?\"\n\u2014Marcus Garvey, 1920\nThe passage above presents a position in which of the following ongoing debates in American history?\nOption A: The debate between interventionism and isolationism in foreign policy.\nOption B: The debate between separatism and integration when it came to the place of African Americans in American so",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": false,
+      "violations": [
+        "empty_deliverable"
+      ],
+      "details": {
+        "output_length": 0
+      }
+    },
+    "dispute": {
+      "action": "rework",
+      "reason": "empty_deliverable",
+      "metadata": {
+        "rollback_to": "upstream_node"
+      }
+    }
+  }
+]

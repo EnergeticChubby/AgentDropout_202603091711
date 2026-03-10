@@ -1,0 +1,54 @@
+[
+  {
+    "timestamp": 1773105240.2475135,
+    "run_id": "BRGCdLjRvVqd",
+    "round_idx": 1,
+    "from_node": "g7Fb",
+    "to_node": "YLz9",
+    "contract": {
+      "contract_id": "MYcuNZ9mLf",
+      "task_clause": "A defendant was arrested and prosecuted for the crime of false pretenses. At trial, the defendant testified that she prophesied the victim's imminent death. The defendant admitted that she told the victim she could save him if he brought a large sum of money wrapped in a handkerchief to a ritual. After the ritual, the defendant returned the handkerchief to the victim filled with waste paper rather than the money. After the defendant was convicted of false pretenses, she moved for a new trial and offered the affidavits of several jurors who sat on the case. An affidavit containing which of the following facts will most likely furnish the defendant's best basis for securing a new trial?\nOption A: A juror misunderstood the judge's instructions regarding the burden of proof.\nOption B: A juror,",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": false,
+      "violations": [
+        "empty_deliverable"
+      ],
+      "details": {
+        "output_length": 0
+      }
+    },
+    "dispute": {
+      "action": "rework",
+      "reason": "empty_deliverable",
+      "metadata": {
+        "rollback_to": "upstream_node"
+      }
+    }
+  }
+]

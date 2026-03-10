@@ -1,0 +1,54 @@
+[
+  {
+    "timestamp": 1773105043.5995967,
+    "run_id": "fagPFNzHimxP",
+    "round_idx": 1,
+    "from_node": "jNWN",
+    "to_node": "vDn4",
+    "contract": {
+      "contract_id": "ZyGXknSt2f",
+      "task_clause": "Which of the following is a disadvantage of the random effects approach to estimating a panel model?\nOption A: The approach may not be valid if the composite error term is correlated with one or more of the explanatory variables\nOption B: The number of parameters to estimate may be large, resulting in a loss of degrees of freedom\nOption C: The random effects approach can only capture cross-sectional heterogeneity and not temporal variation in the dependent variable.\nOption D: All of (a) to (c) are potential disadvantages of the random effects approach.\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": false,
+      "violations": [
+        "empty_deliverable"
+      ],
+      "details": {
+        "output_length": 0
+      }
+    },
+    "dispute": {
+      "action": "rework",
+      "reason": "empty_deliverable",
+      "metadata": {
+        "rollback_to": "upstream_node"
+      }
+    }
+  }
+]

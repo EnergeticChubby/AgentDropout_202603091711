@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773105184.515979,
+    "run_id": "JTxRgFH3CqEM",
+    "round_idx": 0,
+    "from_node": "jNWN",
+    "to_node": "jNWN",
+    "contract": {
+      "contract_id": "Uem4b2aaUR",
+      "task_clause": "Which of the following best describes the fallacy of poisoning the well?\nOption A: a way of suppressing evidence that eliminates a source of evidence from consideration by claiming the source is flawed, when there is no true relationship between the alleged flaw and the reliability of the source\nOption B: arguing that a claim should be accepted based on evidence that is not presented, but asserted to be well known or obvious.\nOption C: arguing something should be done based only on evidence that it's been done that way in the past, or should be believed only because it's been believed for a long time.\nOption D: reasoning that a claim is true based only on the evidence that it has been made so often.\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 83
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773105184.516086,
+    "run_id": "JTxRgFH3CqEM",
+    "round_idx": 1,
+    "from_node": "jNWN",
+    "to_node": "vDn4",
+    "contract": {
+      "contract_id": "U5dDF6VJxU",
+      "task_clause": "Which of the following best describes the fallacy of poisoning the well?\nOption A: a way of suppressing evidence that eliminates a source of evidence from consideration by claiming the source is flawed, when there is no true relationship between the alleged flaw and the reliability of the source\nOption B: arguing that a claim should be accepted based on evidence that is not presented, but asserted to be well known or obvious.\nOption C: arguing something should be done based only on evidence that it's been done that way in the past, or should be believed only because it's been believed for a long time.\nOption D: reasoning that a claim is true based only on the evidence that it has been made so often.\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 83
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

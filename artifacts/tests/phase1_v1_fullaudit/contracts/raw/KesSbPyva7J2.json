@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773105140.3807364,
+    "run_id": "KesSbPyva7J2",
+    "round_idx": 0,
+    "from_node": "sXo9",
+    "to_node": "sXo9",
+    "contract": {
+      "contract_id": "WT2wNJeMYZ",
+      "task_clause": "A defendant was prosecuted for assault and battery after he admitted striking the victim with a pool cue during a barroom argument. The defendant claimed that he acted in self-defense after he was attacked by the victim, who was drunk and belligerent. At trial, the defendant called a witness who testified that the victim was the aggressor in the altercation. On cross-examination of the witness, the prosecuting attorney asked the witness the following question:\"Isn't it true that when you filed your federal income tax return last year, you failed to report the interest income from your savings accounts?\" The prosecuting attorney was informed of this fact by the witness's accountant. Upon objection by the defendant's attorney, the prosecutor's question is\nOption A: improper, because it is no",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 124
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773105140.380882,
+    "run_id": "KesSbPyva7J2",
+    "round_idx": 1,
+    "from_node": "sXo9",
+    "to_node": "gHHw",
+    "contract": {
+      "contract_id": "dWYWjPssW8",
+      "task_clause": "A defendant was prosecuted for assault and battery after he admitted striking the victim with a pool cue during a barroom argument. The defendant claimed that he acted in self-defense after he was attacked by the victim, who was drunk and belligerent. At trial, the defendant called a witness who testified that the victim was the aggressor in the altercation. On cross-examination of the witness, the prosecuting attorney asked the witness the following question:\"Isn't it true that when you filed your federal income tax return last year, you failed to report the interest income from your savings accounts?\" The prosecuting attorney was informed of this fact by the witness's accountant. Upon objection by the defendant's attorney, the prosecutor's question is\nOption A: improper, because it is no",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 124
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

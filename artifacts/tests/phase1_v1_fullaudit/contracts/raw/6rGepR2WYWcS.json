@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773104980.2859743,
+    "run_id": "6rGepR2WYWcS",
+    "round_idx": 0,
+    "from_node": "sXo9",
+    "to_node": "sXo9",
+    "contract": {
+      "contract_id": "V8wMVxStPc",
+      "task_clause": "A 25 g sample of a liquid was heated to 95 \u00b0C and then quickly transferred to an insulated container holding 100 g of water at 26 \u00b0C. The temperature of the mixture rose to reach a final temperature of 37 \u00b0C. Which of the following can be concluded?\nOption A: The sample lost more heat energy than the water gained because the sample temperature changed more than the water temperature did.\nOption B: The final temperature is less than the average starting temperatures; therefore the equilibrium constant must be less than 1.\nOption C: The sample temperature changed more than the water temperature did; therefore the heat capacity of the sample must be greater than the heat capacity of the water.\nOption D: Even though the sample temperature changed more than the water temperature did, the sample",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 635
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773104980.2860906,
+    "run_id": "6rGepR2WYWcS",
+    "round_idx": 1,
+    "from_node": "sXo9",
+    "to_node": "gHHw",
+    "contract": {
+      "contract_id": "LkWVdeSWxz",
+      "task_clause": "A 25 g sample of a liquid was heated to 95 \u00b0C and then quickly transferred to an insulated container holding 100 g of water at 26 \u00b0C. The temperature of the mixture rose to reach a final temperature of 37 \u00b0C. Which of the following can be concluded?\nOption A: The sample lost more heat energy than the water gained because the sample temperature changed more than the water temperature did.\nOption B: The final temperature is less than the average starting temperatures; therefore the equilibrium constant must be less than 1.\nOption C: The sample temperature changed more than the water temperature did; therefore the heat capacity of the sample must be greater than the heat capacity of the water.\nOption D: Even though the sample temperature changed more than the water temperature did, the sample",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 635
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

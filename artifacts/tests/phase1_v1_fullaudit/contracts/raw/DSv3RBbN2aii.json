@@ -1,0 +1,54 @@
+[
+  {
+    "timestamp": 1773105139.7643847,
+    "run_id": "DSv3RBbN2aii",
+    "round_idx": 1,
+    "from_node": "4BT9",
+    "to_node": "JwhD",
+    "contract": {
+      "contract_id": "NwRvheo7dq",
+      "task_clause": "Two objects, a sphere and a block of the same mass, are released from rest at the top of an inclined plane. The sphere rolls down the inclined plane without slipping. The block slides down the plane without friction. Which object reaches the bottom of the ramp first?\nOption A: The sphere, because it gains rotational kinetic energy, but the block does not\nOption B: The sphere, because it gains mechanical energy due to the torque exerted on it, but the block does not\nOption C: The block, because it does not lose mechanical energy due to friction, but the sphere does\nOption D: The block, because it does not gain rotational kinetic energy, but the sphere does\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": false,
+      "violations": [
+        "empty_deliverable"
+      ],
+      "details": {
+        "output_length": 0
+      }
+    },
+    "dispute": {
+      "action": "rework",
+      "reason": "empty_deliverable",
+      "metadata": {
+        "rollback_to": "upstream_node"
+      }
+    }
+  }
+]

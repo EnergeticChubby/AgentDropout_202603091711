@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773105049.7603612,
+    "run_id": "TqKkzpVRwYUx",
+    "round_idx": 0,
+    "from_node": "4BT9",
+    "to_node": "4BT9",
+    "contract": {
+      "contract_id": "S4vbTqfCsP",
+      "task_clause": " Select the best translation into predicate logic. All birds live in some nest. (Bx: x is a bird; Nx: x is a nest; Lxy: x lives in y)\nOption A: (\u2200x)(\u2200y)[(Bx \u2022 Ny) \u2283 Lxy]\nOption B: (\u2200x)[Bx \u2283 (\u2203y)(Ny \u2022 Lxy)]\nOption C: (\u2200x)[(\u2203y)(Ny \u2022 Bx) \u2283 Lxy]\nOption D: (\u2200x)(\u2203y)[(Bx \u2022 Ny) \u2283 Lxy]\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 1216
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773105049.7604675,
+    "run_id": "TqKkzpVRwYUx",
+    "round_idx": 1,
+    "from_node": "4BT9",
+    "to_node": "JwhD",
+    "contract": {
+      "contract_id": "tjkz6LAXQB",
+      "task_clause": " Select the best translation into predicate logic. All birds live in some nest. (Bx: x is a bird; Nx: x is a nest; Lxy: x lives in y)\nOption A: (\u2200x)(\u2200y)[(Bx \u2022 Ny) \u2283 Lxy]\nOption B: (\u2200x)[Bx \u2283 (\u2203y)(Ny \u2022 Lxy)]\nOption C: (\u2200x)[(\u2203y)(Ny \u2022 Bx) \u2283 Lxy]\nOption D: (\u2200x)(\u2203y)[(Bx \u2022 Ny) \u2283 Lxy]\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 1216
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773105275.654778,
+    "run_id": "V2QCMpVejUhn",
+    "round_idx": 0,
+    "from_node": "4BT9",
+    "to_node": "4BT9",
+    "contract": {
+      "contract_id": "qVTTwbedZn",
+      "task_clause": "After two men robbed a local bank, they left the bank and went in different directions with a plan to meet three days later at the train station. Two days after the robbeiy, one of the men was involved in an auto accident. The man was rushed to the hospital and taken to the x-ray room. A doctor positioned the man so that the x-ray technician would be able to take x-rays of his lower back area. Based on the man's complaints about the area of pain, the doctor stated, \"It seems as if you might have a fractured pelvis. If you do, you'll have to stay in bed for several weeks. \" The man responded that he couldn't do that because he had to meet the other man tomorrow. A technician who was in the room at the time overheard the man's response to the doctor. Subsequently, both men are charged with r",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 831
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773105275.6548862,
+    "run_id": "V2QCMpVejUhn",
+    "round_idx": 1,
+    "from_node": "4BT9",
+    "to_node": "JwhD",
+    "contract": {
+      "contract_id": "VHGzSnBHYQ",
+      "task_clause": "After two men robbed a local bank, they left the bank and went in different directions with a plan to meet three days later at the train station. Two days after the robbeiy, one of the men was involved in an auto accident. The man was rushed to the hospital and taken to the x-ray room. A doctor positioned the man so that the x-ray technician would be able to take x-rays of his lower back area. Based on the man's complaints about the area of pain, the doctor stated, \"It seems as if you might have a fractured pelvis. If you do, you'll have to stay in bed for several weeks. \" The man responded that he couldn't do that because he had to meet the other man tomorrow. A technician who was in the room at the time overheard the man's response to the doctor. Subsequently, both men are charged with r",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 831
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

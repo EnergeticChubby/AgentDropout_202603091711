@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773104859.886178,
+    "run_id": "gBbHCs4AUcge",
+    "round_idx": 0,
+    "from_node": "sXo9",
+    "to_node": "sXo9",
+    "contract": {
+      "contract_id": "hUtnJ9JtcW",
+      "task_clause": "Which of one of the following statements about the postnatal growth of the maxilla is correct?\nOption A: Pneumatisation by enlargement of the developing maxillary sinus ceases at puberty\nOption B: Space is created for the eruption of the permanent molars by resorption of the maxillary tuberosity\nOption C: The zygomaticomaxillary sutures contribute to increase in height and length of the maxilla\nOption D: The intermaxillary suture closes about eight years postnatally\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 258
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773104859.8862684,
+    "run_id": "gBbHCs4AUcge",
+    "round_idx": 1,
+    "from_node": "sXo9",
+    "to_node": "gHHw",
+    "contract": {
+      "contract_id": "9pu2tiwMXo",
+      "task_clause": "Which of one of the following statements about the postnatal growth of the maxilla is correct?\nOption A: Pneumatisation by enlargement of the developing maxillary sinus ceases at puberty\nOption B: Space is created for the eruption of the permanent molars by resorption of the maxillary tuberosity\nOption C: The zygomaticomaxillary sutures contribute to increase in height and length of the maxilla\nOption D: The intermaxillary suture closes about eight years postnatally\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 258
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

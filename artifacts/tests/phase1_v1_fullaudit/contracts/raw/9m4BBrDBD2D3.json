@@ -1,0 +1,54 @@
+[
+  {
+    "timestamp": 1773105042.0872679,
+    "run_id": "9m4BBrDBD2D3",
+    "round_idx": 1,
+    "from_node": "sXo9",
+    "to_node": "gHHw",
+    "contract": {
+      "contract_id": "3zqxRdNyWm",
+      "task_clause": "The circumference of a helium-filled balloon is measured for three different conditions: at room temperature, after being in a warm oven for 30 minutes, and after being in a freezer for 30 minutes. A student plotting the circumference cubed C^3 as a function of temperature T, should expect to find which of the following?\nOption A: a cubic relationship between C^3 and T\nOption B: an indirect relationship between C^3 and T\nOption C: an extrapolated temperature T where C^3 reaches zero\nOption D: a maximum C^3 as the temperature T increases\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": false,
+      "violations": [
+        "empty_deliverable"
+      ],
+      "details": {
+        "output_length": 0
+      }
+    },
+    "dispute": {
+      "action": "rework",
+      "reason": "empty_deliverable",
+      "metadata": {
+        "rollback_to": "upstream_node"
+      }
+    }
+  }
+]

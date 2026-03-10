@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773105010.752733,
+    "run_id": "t5onHNuhum94",
+    "round_idx": 0,
+    "from_node": "FFZM",
+    "to_node": "FFZM",
+    "contract": {
+      "contract_id": "QFWAed2J9R",
+      "task_clause": "Which of the following may need to be balanced using the ion-electron method ?\nOption A: BaCl2 + Al2(SO4)3 \u2192 AlCl3 + BaSO4\nOption B: H+ + OH- \u2192 H2O\nOption C: NaOH + H3PO4 \u2192 Na2HPO4 + H2O\nOption D: C2H2(g) + N2O(g) \u2192 CO2(g) + H2O(g) + N2(g)\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 2006
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773105010.752838,
+    "run_id": "t5onHNuhum94",
+    "round_idx": 1,
+    "from_node": "FFZM",
+    "to_node": "qUKj",
+    "contract": {
+      "contract_id": "ziycDUjUDr",
+      "task_clause": "Which of the following may need to be balanced using the ion-electron method ?\nOption A: BaCl2 + Al2(SO4)3 \u2192 AlCl3 + BaSO4\nOption B: H+ + OH- \u2192 H2O\nOption C: NaOH + H3PO4 \u2192 Na2HPO4 + H2O\nOption D: C2H2(g) + N2O(g) \u2192 CO2(g) + H2O(g) + N2(g)\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 2006
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

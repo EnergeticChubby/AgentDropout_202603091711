@@ -1,0 +1,54 @@
+[
+  {
+    "timestamp": 1773104912.986027,
+    "run_id": "ryWn8QXujmdU",
+    "round_idx": 1,
+    "from_node": "FFZM",
+    "to_node": "qUKj",
+    "contract": {
+      "contract_id": "fPuHV8Wkox",
+      "task_clause": "Why is it thought that the climate on Mars changed when the planet lost its strong magnetic field?\nOption A: without a strong magnetic field the ozone layer was destroyed by the solar wind which stopped the greenhouse effect and cooled Mars down.\nOption B: without a strong magnetic field which enhances the greenhouse effect Mars cooled down.\nOption C: without a strong magnetic field the solar wind stripped away most of the atmosphere significantly reducing the greenhouse effect and cooling Mars down\nOption D: without a strong magnetic field the planet recieves fewer charged particles from the solar wind and therefore is not heated as much\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": false,
+      "violations": [
+        "empty_deliverable"
+      ],
+      "details": {
+        "output_length": 0
+      }
+    },
+    "dispute": {
+      "action": "rework",
+      "reason": "empty_deliverable",
+      "metadata": {
+        "rollback_to": "upstream_node"
+      }
+    }
+  }
+]

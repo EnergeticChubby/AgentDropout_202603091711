@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773105239.808491,
+    "run_id": "dxVvWHW2GUfC",
+    "round_idx": 0,
+    "from_node": "jNWN",
+    "to_node": "jNWN",
+    "contract": {
+      "contract_id": "vw8v4oyyoK",
+      "task_clause": "An entity engaged an accountant to review its financial statements in accordance with Statements on Standards for Accounting and Review Services. The accountant determined that the entity maintained its accounts on a comprehensive basis of accounting other than generally accepted accounting principles (GAAP). In this situation, the accountant most likely would have taken which of the following actions?\nOption A: Withdrawn from the engagement because the entity has not been following GAAP.\nOption B: Advised management to make the adjustments necessary for the account balances to conform with GAAP.\nOption C: Modified the review report to reflect the fact that the financial statements were presented on another comprehensive basis of accounting.\nOption D: Requested that management justify the ",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 220
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773105239.8085907,
+    "run_id": "dxVvWHW2GUfC",
+    "round_idx": 1,
+    "from_node": "jNWN",
+    "to_node": "vDn4",
+    "contract": {
+      "contract_id": "cQNZwmary5",
+      "task_clause": "An entity engaged an accountant to review its financial statements in accordance with Statements on Standards for Accounting and Review Services. The accountant determined that the entity maintained its accounts on a comprehensive basis of accounting other than generally accepted accounting principles (GAAP). In this situation, the accountant most likely would have taken which of the following actions?\nOption A: Withdrawn from the engagement because the entity has not been following GAAP.\nOption B: Advised management to make the adjustments necessary for the account balances to conform with GAAP.\nOption C: Modified the review report to reflect the fact that the financial statements were presented on another comprehensive basis of accounting.\nOption D: Requested that management justify the ",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 220
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

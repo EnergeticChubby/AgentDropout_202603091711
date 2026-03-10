@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773105264.0742137,
+    "run_id": "RyBPw3TzUrtr",
+    "round_idx": 0,
+    "from_node": "jNWN",
+    "to_node": "jNWN",
+    "contract": {
+      "contract_id": "jH5VyHMZ2F",
+      "task_clause": "A defendant was arrested and charged with conspiracy to receive stolen property. At his arraignment, the defendant was represented by counsel. He was then released after posting bond. Following his release, the defendant resumed his job as a bartender at a local bar. Three weeks before the defendant's scheduled trial, an informant entered the bar. After a few drinks, the informant began conversing with the defendant, who was on duty at the time. Unknown to the defendant, the man was a paid police informant. During the course of their conversation, the informant told the defendant that he had read about his arrest in the newspapers and questioned the defendant about the names of his accomplices. Unsuspectingly, the defendant made some admissions, which the informant then passed on to the pr",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 238
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773105264.0743084,
+    "run_id": "RyBPw3TzUrtr",
+    "round_idx": 1,
+    "from_node": "jNWN",
+    "to_node": "vDn4",
+    "contract": {
+      "contract_id": "L3WW3LrvUx",
+      "task_clause": "A defendant was arrested and charged with conspiracy to receive stolen property. At his arraignment, the defendant was represented by counsel. He was then released after posting bond. Following his release, the defendant resumed his job as a bartender at a local bar. Three weeks before the defendant's scheduled trial, an informant entered the bar. After a few drinks, the informant began conversing with the defendant, who was on duty at the time. Unknown to the defendant, the man was a paid police informant. During the course of their conversation, the informant told the defendant that he had read about his arrest in the newspapers and questioned the defendant about the names of his accomplices. Unsuspectingly, the defendant made some admissions, which the informant then passed on to the pr",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 238
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]
