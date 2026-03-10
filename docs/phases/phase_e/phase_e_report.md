@@ -33,6 +33,14 @@
   - phase-D accuracy: `0.750`
   - phase-E accuracy: `1.000` (`phaseE-final-v3`)
   - status: ✅ improved
+- Full-scale revalidation benchmark (2026-03-10):
+  - phase-D full accuracy: `0.244333` (`phaseD-full-audit`, 3000 samples)
+  - phase-E full accuracy: `0.248333` (`phaseE-full-audit`, 3000 samples)
+  - status: ✅ improved
+- Dataset audit:
+  - `python3 experiments/audit_mmlu_redux_dataset.py`
+  - artifact: `artifacts/runs/mmlu_redux-dataset-audit.json`
+  - effective evaluated scope: 30 subjects, 3000 test samples.
 
 ## Risks / Notes
 - DALA-like / rollback-only rows are proxies built from available topology/round controls in current codebase.
