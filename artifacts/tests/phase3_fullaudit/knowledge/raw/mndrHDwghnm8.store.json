@@ -1,0 +1,198 @@
+{
+  "YSuwmrVNxBeB": {
+    "proposition_id": "YSuwmrVNxBeB",
+    "text": "@Matrix multiplication time complexity@, @Strassen's algorithm@, @Schur's complement@, @Karatsuba algorithm@",
+    "source_node": "RaPi",
+    "source_role": "Knowlegable Expert",
+    "confidence": 0.5,
+    "status": "belief",
+    "scope": "pairwise",
+    "dependencies": [],
+    "evidence": [],
+    "metadata": {
+      "round": 0
+    }
+  },
+  "ondTuPnDqHMn": {
+    "proposition_id": "ondTuPnDqHMn",
+    "text": "To determine the condition for which it takes less time to compute the product as (N_1N_2)N_3 than to compute it as N_1(N_2 N_3), we must consider the time complexity of different matrix multiplication algorithms",
+    "source_node": "RaPi",
+    "source_role": "Knowlegable Expert",
+    "confidence": 0.5,
+    "status": "belief",
+    "scope": "pairwise",
+    "dependencies": [],
+    "evidence": [],
+    "metadata": {
+      "round": 0
+    }
+  },
+  "U5QRbgWPUXVz": {
+    "proposition_id": "U5QRbgWPUXVz",
+    "text": "Matrix multiplication typically takes time proportional to the product of the dimensions of the matrices",
+    "source_node": "RaPi",
+    "source_role": "Knowlegable Expert",
+    "confidence": 0.5,
+    "status": "belief",
+    "scope": "pairwise",
+    "dependencies": [],
+    "evidence": [],
+    "metadata": {
+      "round": 0
+    }
+  },
+  "3FinkkyXnY8C": {
+    "proposition_id": "3FinkkyXnY8C",
+    "text": "For matrices N_1, N_2, and N_3 with dimensions w \\* x, x \\* y, and y \\* z, the time complexity for computing N_1(N_2 N_3) is O((w * x) * (x * y)) = O(w * x * x * y) = O(wxy^2)",
+    "source_node": "RaPi",
+    "source_role": "Knowlegable Expert",
+    "confidence": 0.5,
+    "status": "belief",
+    "scope": "pairwise",
+    "dependencies": [],
+    "evidence": [],
+    "metadata": {
+      "round": 0
+    }
+  },
+  "QQT7M2fTFNdd": {
+    "proposition_id": "QQT7M2fTFNdd",
+    "text": "The time complexity for computing (N_1N_2)N_3 would be O((w * x) * (x * y)) for N_1N_2 = O(wxy) and O(wxy * z) for N_3",
+    "source_node": "RaPi",
+    "source_role": "Knowlegable Expert",
+    "confidence": 0.5,
+    "status": "belief",
+    "scope": "pairwise",
+    "dependencies": [],
+    "evidence": [],
+    "metadata": {
+      "round": 0
+    }
+  },
+  "K9CDtW4xBEhT": {
+    "proposition_id": "K9CDtW4xBEhT",
+    "text": "Thus, the time complexity for (N_1N_2)N_3 is O(wxy) + O(wxy * z) = O(wxy^2 + wxyz) = O (wxy * z), given xy>1",
+    "source_node": "RaPi",
+    "source_role": "Knowlegable Expert",
+    "confidence": 0.5,
+    "status": "belief",
+    "scope": "pairwise",
+    "dependencies": [],
+    "evidence": [],
+    "metadata": {
+      "round": 0
+    }
+  },
+  "PJAgrRhpc7dN": {
+    "proposition_id": "PJAgrRhpc7dN",
+    "text": "With O(wxy^2) for N_1(N_2 N_3) and O (wxy * z) for (N_1N_2)N_3, (N_1N_2)N_3 takes less time if  wxy * z < wxy^2",
+    "source_node": "RaPi",
+    "source_role": "Knowlegable Expert",
+    "confidence": 0.5,
+    "status": "belief",
+    "scope": "pairwise",
+    "dependencies": [],
+    "evidence": [],
+    "metadata": {
+      "round": 0
+    }
+  },
+  "qaiXyW4AWfpf": {
+    "proposition_id": "qaiXyW4AWfpf",
+    "text": "@Matrix multiplication time complexity@, @Strassen's algorithm@, @Schur's complement@, @Karatsuba algorithm@",
+    "source_node": "DtjM",
+    "source_role": "",
+    "confidence": 0.5,
+    "status": "belief",
+    "scope": "pairwise",
+    "dependencies": [],
+    "evidence": [],
+    "metadata": {
+      "round": 1
+    }
+  },
+  "crvBv7Lm88jj": {
+    "proposition_id": "crvBv7Lm88jj",
+    "text": "To determine the condition for which it takes less time to compute the product as (N_1N_2)N_3 than to compute it as N_1(N_2 N_3), we must consider the time complexity of different matrix multiplication algorithms",
+    "source_node": "DtjM",
+    "source_role": "",
+    "confidence": 0.5,
+    "status": "belief",
+    "scope": "pairwise",
+    "dependencies": [],
+    "evidence": [],
+    "metadata": {
+      "round": 1
+    }
+  },
+  "aTJd6FhuAn5s": {
+    "proposition_id": "aTJd6FhuAn5s",
+    "text": "Matrix multiplication typically takes time proportional to the product of the dimensions of the matrices",
+    "source_node": "DtjM",
+    "source_role": "",
+    "confidence": 0.5,
+    "status": "belief",
+    "scope": "pairwise",
+    "dependencies": [],
+    "evidence": [],
+    "metadata": {
+      "round": 1
+    }
+  },
+  "7a4ZWzx3Z9XK": {
+    "proposition_id": "7a4ZWzx3Z9XK",
+    "text": "For matrices N_1, N_2, and N_3 with dimensions w \\* x, x \\* y, and y \\* z, the time complexity for computing N_1(N_2 N_3) is O((w * x) * (x * y)) = O(w * x * x * y) = O(wxy^2)",
+    "source_node": "DtjM",
+    "source_role": "",
+    "confidence": 0.5,
+    "status": "belief",
+    "scope": "pairwise",
+    "dependencies": [],
+    "evidence": [],
+    "metadata": {
+      "round": 1
+    }
+  },
+  "yJk9GxHpMfEF": {
+    "proposition_id": "yJk9GxHpMfEF",
+    "text": "The time complexity for computing (N_1N_2)N_3 would be O((w * x) * (x * y)) for N_1N_2 = O(wxy) and O(wxy * z) for N_3",
+    "source_node": "DtjM",
+    "source_role": "",
+    "confidence": 0.5,
+    "status": "belief",
+    "scope": "pairwise",
+    "dependencies": [],
+    "evidence": [],
+    "metadata": {
+      "round": 1
+    }
+  },
+  "BNZG5sL7zNjg": {
+    "proposition_id": "BNZG5sL7zNjg",
+    "text": "Thus, the time complexity for (N_1N_2)N_3 is O(wxy) + O(wxy * z) = O(wxy^2 + wxyz) = O (wxy * z), given xy>1",
+    "source_node": "DtjM",
+    "source_role": "",
+    "confidence": 0.5,
+    "status": "belief",
+    "scope": "pairwise",
+    "dependencies": [],
+    "evidence": [],
+    "metadata": {
+      "round": 1
+    }
+  },
+  "n64xuZd23Mok": {
+    "proposition_id": "n64xuZd23Mok",
+    "text": "With O(wxy^2) for N_1(N_2 N_3) and O (wxy * z) for (N_1N_2)N_3, (N_1N_2)N_3 takes less time if  wxy * z < wxy^2",
+    "source_node": "DtjM",
+    "source_role": "",
+    "confidence": 0.5,
+    "status": "belief",
+    "scope": "pairwise",
+    "dependencies": [],
+    "evidence": [],
+    "metadata": {
+      "round": 1
+    }
+  }
+}

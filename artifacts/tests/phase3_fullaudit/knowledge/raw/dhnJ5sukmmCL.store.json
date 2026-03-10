@@ -1,0 +1,226 @@
+{
+  "je3ajmNsgz2e": {
+    "proposition_id": "je3ajmNsgz2e",
+    "text": "To answer this question, we need to consider the properties of Boolean formulas using the connectives \u2227 (and) and \u2228 (or) without negation (\u00ac)",
+    "source_node": "RaPi",
+    "source_role": "Knowlegable Expert",
+    "confidence": 0.5,
+    "status": "belief",
+    "scope": "pairwise",
+    "dependencies": [],
+    "evidence": [],
+    "metadata": {
+      "round": 0
+    }
+  },
+  "5aZh8tSkgDjX": {
+    "proposition_id": "5aZh8tSkgDjX",
+    "text": "To express 'at least three of p_1, p_2, p_3, p_4 are true', we can use the combination of 'exactly three of p_1, p_2, p_3, p_4 are true' and 'exactly four of p_1, p_2, p_3, p_4 are true'",
+    "source_node": "RaPi",
+    "source_role": "Knowlegable Expert",
+    "confidence": 0.5,
+    "status": "belief",
+    "scope": "pairwise",
+    "dependencies": [],
+    "evidence": [],
+    "metadata": {
+      "round": 0
+    }
+  },
+  "uesPQ7c4sYCY": {
+    "proposition_id": "uesPQ7c4sYCY",
+    "text": "This could be expressed by (I) p_1 \u2227 (p_2 \u2228 p_3 \u2228 p_4) \u2228 (p_2 \u2227 p_3 \u2228 p_1) \u2228 (p_2 \u2227 p_3 \u2227 p_4)",
+    "source_node": "RaPi",
+    "source_role": "Knowlegable Expert",
+    "confidence": 0.5,
+    "status": "belief",
+    "scope": "pairwise",
+    "dependencies": [],
+    "evidence": [],
+    "metadata": {
+      "round": 0
+    }
+  },
+  "RGy7e5ZrDjqj": {
+    "proposition_id": "RGy7e5ZrDjqj",
+    "text": "However a simpler formula would be (p_1 \u2227 p_2) \u2228 (p_1 \u2227 p_3) \u2228 (p_1 \u2227 p_4) \u2228 (p_2 \u2227 p_3) \u2228 (p_2 \u2227 p_4) \u2228 (p_3 \u2227 p_4)",
+    "source_node": "RaPi",
+    "source_role": "Knowlegable Expert",
+    "confidence": 0.5,
+    "status": "belief",
+    "scope": "pairwise",
+    "dependencies": [],
+    "evidence": [],
+    "metadata": {
+      "round": 0
+    }
+  },
+  "bCwYoevaJnwu": {
+    "proposition_id": "bCwYoevaJnwu",
+    "text": "This can directly be obtained using the @pairwise disjunction@ property",
+    "source_node": "RaPi",
+    "source_role": "Knowlegable Expert",
+    "confidence": 0.5,
+    "status": "belief",
+    "scope": "pairwise",
+    "dependencies": [],
+    "evidence": [],
+    "metadata": {
+      "round": 0
+    }
+  },
+  "9WpftVWgdC2z": {
+    "proposition_id": "9WpftVWgdC2z",
+    "text": "To express 'exactly three of p_1, p_2, p_3, p_4 are true', it can be expressed using the property of combination of three @pairwise disjunction@",
+    "source_node": "RaPi",
+    "source_role": "Knowlegable Expert",
+    "confidence": 0.5,
+    "status": "belief",
+    "scope": "pairwise",
+    "dependencies": [],
+    "evidence": [],
+    "metadata": {
+      "round": 0
+    }
+  },
+  "g3cHesGzdeMF": {
+    "proposition_id": "g3cHesGzdeMF",
+    "text": "The best way to view it is using the @pairwise disjunction@ property and using the (p_1 OR p_2 OR p_3) and NOT (p_1 AND p_2 AND p_3) to get ((p_1 OR p_2 OR p_3) AND (p_1 AND p_2))  OR ((p_1 OR p_2 OR p_3) AND (p_1 AND p_3))  OR ((p_1 OR p_2 OR p_3) AND (p_2 AND p_3)) OR ((p_4 OR p_1 OR p_2) AND (p_4 AND p_1))  OR ((p_4 OR p_1 OR p_2) AND (p_4 AND p_2) ) OR ((p_2 OR p_1 OR p_3) AND (p_2 AND p_3  )  OR ((p_4 OR p_1 OR p_3) AND (p_4 AND p_3) ) OR  ((p_4 OR p_1 OR p_2) AND (p_4 AND p_2)) OR ((p_3 OR p_1 OR p_2) AND (p_3 AND p_2  )  OR  ((p_1 OR p_1 OR p_2 OR p_3 OR p_4) AND  (p_2 AND p_1))    OR ((p_4 OR p_2 OR p_1 OR p_3) AND (p_4 AND p_3))   OR ((p_4 OR p_1 OR p_3) AND (p_2 AND p_1))  OR ((p_4 OR p_1 OR p_3) AND (p_2 AND p_3))  OR ((p_4 OR p_3 OR p_1 OR p_2) AND (p_2 AND p_3) )  OR (p_2 OR p_3 OR p_1 OR p_4) AND (p_2 AND p_3 AND p_1) OR (p_1 OR p_3 OR p_2 OR p_4 AND (p_1 AND p_3 AND p_2))",
+    "source_node": "RaPi",
+    "source_role": "Knowlegable Expert",
+    "confidence": 0.5,
+    "status": "belief",
+    "scope": "pairwise",
+    "dependencies": [],
+    "evidence": [],
+    "metadata": {
+      "round": 0
+    }
+  },
+  "prRhC33aiUfP": {
+    "proposition_id": "prRhC33aiUfP",
+    "text": "However an easier way of looking at it would be using the formula:",
+    "source_node": "RaPi",
+    "source_role": "Knowlegable Expert",
+    "confidence": 0.5,
+    "status": "belief",
+    "scope": "pairwise",
+    "dependencies": [],
+    "evidence": [],
+    "metadata": {
+      "round": 0
+    }
+  },
+  "VbFHxveHFdHb": {
+    "proposition_id": "VbFHxveHFdHb",
+    "text": "To answer this question, we need to consider the properties of Boolean formulas using the connectives \u2227 (and) and \u2228 (or) without negation (\u00ac)",
+    "source_node": "DtjM",
+    "source_role": "",
+    "confidence": 0.5,
+    "status": "belief",
+    "scope": "pairwise",
+    "dependencies": [],
+    "evidence": [],
+    "metadata": {
+      "round": 1
+    }
+  },
+  "ZgZVZjUp7GNg": {
+    "proposition_id": "ZgZVZjUp7GNg",
+    "text": "To express 'at least three of p_1, p_2, p_3, p_4 are true', we can use the combination of 'exactly three of p_1, p_2, p_3, p_4 are true' and 'exactly four of p_1, p_2, p_3, p_4 are true'",
+    "source_node": "DtjM",
+    "source_role": "",
+    "confidence": 0.5,
+    "status": "belief",
+    "scope": "pairwise",
+    "dependencies": [],
+    "evidence": [],
+    "metadata": {
+      "round": 1
+    }
+  },
+  "y8Rva9nuTtv2": {
+    "proposition_id": "y8Rva9nuTtv2",
+    "text": "This could be expressed by (I) p_1 \u2227 (p_2 \u2228 p_3 \u2228 p_4) \u2228 (p_2 \u2227 p_3 \u2228 p_1) \u2228 (p_2 \u2227 p_3 \u2227 p_4)",
+    "source_node": "DtjM",
+    "source_role": "",
+    "confidence": 0.5,
+    "status": "belief",
+    "scope": "pairwise",
+    "dependencies": [],
+    "evidence": [],
+    "metadata": {
+      "round": 1
+    }
+  },
+  "BhWBAotNMN2f": {
+    "proposition_id": "BhWBAotNMN2f",
+    "text": "However a simpler formula would be (p_1 \u2227 p_2) \u2228 (p_1 \u2227 p_3) \u2228 (p_1 \u2227 p_4) \u2228 (p_2 \u2227 p_3) \u2228 (p_2 \u2227 p_4) \u2228 (p_3 \u2227 p_4)",
+    "source_node": "DtjM",
+    "source_role": "",
+    "confidence": 0.5,
+    "status": "belief",
+    "scope": "pairwise",
+    "dependencies": [],
+    "evidence": [],
+    "metadata": {
+      "round": 1
+    }
+  },
+  "3EK9yp5HcNjH": {
+    "proposition_id": "3EK9yp5HcNjH",
+    "text": "This can directly be obtained using the @pairwise disjunction@ property",
+    "source_node": "DtjM",
+    "source_role": "",
+    "confidence": 0.5,
+    "status": "belief",
+    "scope": "pairwise",
+    "dependencies": [],
+    "evidence": [],
+    "metadata": {
+      "round": 1
+    }
+  },
+  "v7Ri2dvC8WSR": {
+    "proposition_id": "v7Ri2dvC8WSR",
+    "text": "To express 'exactly three of p_1, p_2, p_3, p_4 are true', it can be expressed using the property of combination of three @pairwise disjunction@",
+    "source_node": "DtjM",
+    "source_role": "",
+    "confidence": 0.5,
+    "status": "belief",
+    "scope": "pairwise",
+    "dependencies": [],
+    "evidence": [],
+    "metadata": {
+      "round": 1
+    }
+  },
+  "TkRGGQSnnRcH": {
+    "proposition_id": "TkRGGQSnnRcH",
+    "text": "The best way to view it is using the @pairwise disjunction@ property and using the (p_1 OR p_2 OR p_3) and NOT (p_1 AND p_2 AND p_3) to get ((p_1 OR p_2 OR p_3) AND (p_1 AND p_2))  OR ((p_1 OR p_2 OR p_3) AND (p_1 AND p_3))  OR ((p_1 OR p_2 OR p_3) AND (p_2 AND p_3)) OR ((p_4 OR p_1 OR p_2) AND (p_4 AND p_1))  OR ((p_4 OR p_1 OR p_2) AND (p_4 AND p_2) ) OR ((p_2 OR p_1 OR p_3) AND (p_2 AND p_3  )  OR ((p_4 OR p_1 OR p_3) AND (p_4 AND p_3) ) OR  ((p_4 OR p_1 OR p_2) AND (p_4 AND p_2)) OR ((p_3 OR p_1 OR p_2) AND (p_3 AND p_2  )  OR  ((p_1 OR p_1 OR p_2 OR p_3 OR p_4) AND  (p_2 AND p_1))    OR ((p_4 OR p_2 OR p_1 OR p_3) AND (p_4 AND p_3))   OR ((p_4 OR p_1 OR p_3) AND (p_2 AND p_1))  OR ((p_4 OR p_1 OR p_3) AND (p_2 AND p_3))  OR ((p_4 OR p_3 OR p_1 OR p_2) AND (p_2 AND p_3) )  OR (p_2 OR p_3 OR p_1 OR p_4) AND (p_2 AND p_3 AND p_1) OR (p_1 OR p_3 OR p_2 OR p_4 AND (p_1 AND p_3 AND p_2))",
+    "source_node": "DtjM",
+    "source_role": "",
+    "confidence": 0.5,
+    "status": "belief",
+    "scope": "pairwise",
+    "dependencies": [],
+    "evidence": [],
+    "metadata": {
+      "round": 1
+    }
+  },
+  "vNWwF8p9d4nK": {
+    "proposition_id": "vNWwF8p9d4nK",
+    "text": "However an easier way of looking at it would be using the formula:",
+    "source_node": "DtjM",
+    "source_role": "",
+    "confidence": 0.5,
+    "status": "belief",
+    "scope": "pairwise",
+    "dependencies": [],
+    "evidence": [],
+    "metadata": {
+      "round": 1
+    }
+  }
+}
