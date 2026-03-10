@@ -59,6 +59,8 @@ def parse_args():
     parser.add_argument('--diff',action='store_true')
     parser.add_argument('--dec',action='store_true')
     parser.add_argument('--cot',action='store_true')
+    parser.add_argument('--limit_questions', type=int, default=153,
+                        help="Number of validation questions to evaluate. Use <=0 for full split.")
     args = parser.parse_args()
     result_path = AgentPrune_ROOT / "result"
     os.makedirs(result_path, exist_ok=True)
@@ -75,7 +77,7 @@ async def main():
     agent_names = [name for name,num in zip(args.agent_names,args.agent_nums) for _ in range(num)]
     # print(agent_names)
     kwargs = get_kwargs(mode,len(agent_names))
-    limit_questions = 153
+    limit_questions = None if args.limit_questions <= 0 else args.limit_questions
     
     graph = Graph(domain=args.domain,
                   llm_name=args.llm_name,
