@@ -1,9 +1,10 @@
 from __future__ import annotations
 
 import csv
+import shutil
 import time
 from pathlib import Path
-from typing import Dict, List, Optional
+from typing import Dict, List, Optional, Set
 
 import requests
 
@@ -20,7 +21,7 @@ SPLIT_MAP = {
 
 def _api_get(path: str, params: Dict[str, object], timeout: int = 60) -> Dict[str, object]:
     last_error: Optional[Exception] = None
-    for attempt in range(5):
+    for attempt in range(8):
         try:
             response = requests.get(f"{API_BASE}{path}", params=params, timeout=timeout)
             response.raise_for_status()
@@ -30,19 +31,28 @@ def _api_get(path: str, params: Dict[str, object], timeout: int = 60) -> Dict[st
             status_code = exc.response.status_code if exc.response is not None else None
             if status_code not in {429, 500, 502, 503, 504}:
                 raise
-            time.sleep(2 ** attempt)
+            if status_code == 429:
+                time.sleep(min(20 * (attempt + 1), 120))
+            else:
+                time.sleep(min(2 ** attempt, 120))
         except requests.RequestException as exc:
             last_error = exc
-            time.sleep(2 ** attempt)
+            time.sleep(min(2 ** attempt, 120))
     if last_error is not None:
         raise last_error
     raise RuntimeError("Unexpected API failure in _api_get without exception.")
 
 
-def _list_configs() -> List[str]:
+def _list_configs_by_split() -> Dict[str, Set[str]]:
     payload = _api_get("/splits", {"dataset": DATASET_NAME})
-    configs = sorted({entry["config"] for entry in payload.get("splits", [])})
-    return [cfg for cfg in configs if cfg and cfg != "all"]
+    config_to_splits: Dict[str, Set[str]] = {}
+    for entry in payload.get("splits", []):
+        config = entry.get("config")
+        split = entry.get("split")
+        if not config or config == "all" or not split:
+            continue
+        config_to_splits.setdefault(config, set()).add(split)
+    return config_to_splits
 
 
 def _iter_rows(config: str, split: str):
@@ -87,32 +97,45 @@ def _iter_rows(config: str, split: str):
             break
 
 
-def _split_ready(local_split: str) -> bool:
+def _split_ready(local_split: str, expected_configs: List[str]) -> bool:
     split_dir = LOCAL_ROOT / local_split
-    if not split_dir.exists():
+    sentinel = split_dir / ".complete"
+    if not split_dir.exists() or not sentinel.exists():
         return False
-    csv_files = list(split_dir.glob("*.csv"))
-    return len(csv_files) > 0
+    csv_files = sorted(split_dir.glob("*.csv"))
+    if len(csv_files) != len(expected_configs):
+        return False
+    return all(path.stat().st_size > 0 for path in csv_files)
 
 
 def download() -> None:
-    if all(_split_ready(split_name) for split_name in SPLIT_MAP):
-        print("[MMLU] Local CSV files already prepared. Skipping download.")
-        return
-
-    configs = _list_configs()
-    if not configs:
+    configs_by_split = _list_configs_by_split()
+    if not configs_by_split:
         raise RuntimeError("No MMLU configs returned from dataset server.")
 
     for local_split, remote_split in SPLIT_MAP.items():
+        configs = sorted([cfg for cfg, splits in configs_by_split.items() if remote_split in splits])
+        if not configs:
+            continue
+
+        if _split_ready(local_split=local_split, expected_configs=configs):
+            print(f"[MMLU] Local split '{local_split}' already complete. Skipping.")
+            continue
+
         split_dir = LOCAL_ROOT / local_split
+        if split_dir.exists():
+            shutil.rmtree(split_dir)
         split_dir.mkdir(parents=True, exist_ok=True)
         for config in configs:
             csv_path = split_dir / f"{config}.csv"
-            if csv_path.exists() and csv_path.stat().st_size > 0:
-                continue
+            tmp_path = split_dir / f"{config}.csv.part"
             print(f"[MMLU] Downloading config={config} split={remote_split}")
-            with csv_path.open("w", encoding="utf-8", newline="") as fp:
+            with tmp_path.open("w", encoding="utf-8", newline="") as fp:
                 writer = csv.writer(fp)
                 for row in _iter_rows(config=config, split=remote_split):
                     writer.writerow(row)
+            if tmp_path.stat().st_size == 0:
+                tmp_path.unlink(missing_ok=True)
+                continue
+            tmp_path.replace(csv_path)
+        (split_dir / ".complete").write_text("ok\n", encoding="utf-8")
