@@ -32,16 +32,34 @@
   - shell output file contains `Score: 0.0`
 
 ## 3) Endpoint health probe
+- root endpoint (`https://llm.undefined.qzz.io/`):
+  - artifact: `artifacts/runs/qwen3-endpoint-health-probe-root.json`
+  - summary: `num_success=20`, `num_html_like=20`, `html_like_ratio=1.0`
+- `/v1` endpoint (`https://llm.undefined.qzz.io/v1`):
+  - artifact: `artifacts/runs/qwen3-endpoint-health-probe-v1.json`
+  - summary: `num_success=20`, `num_html_like=0`, `html_like_ratio=0.0`
+
+## 4) MMLU rerun after endpoint switch to /v1
+
+### Critical runtime fix
+- `AgentDropout/llm/gpt_chat.py` 优先读取 `OPENAI_BASE_URL/OPENAI_API_KEY`。
+- 仅设置 `LLM_*` 不足以覆盖现有 shell 中的旧 `OPENAI_API_KEY`。
+- 实际跑分时需显式设置：
+  - `OPENAI_BASE_URL="https://llm.undefined.qzz.io/v1"`
+  - `OPENAI_API_KEY="sk-***"`
+
+### Successful original-style run (qwen3-8b)
 - command:
-  - `python3 experiments/probe_qwen3_endpoint_health.py`
-- artifact:
-  - `artifacts/runs/qwen3-endpoint-health-probe.json`
-- summary:
-  - `num_requests=20`
-  - `num_success=20`
-  - `num_html_like=20`
-  - `html_like_ratio=1.0`
+  - `OPENAI_BASE_URL="https://llm.undefined.qzz.io/v1" OPENAI_API_KEY="sk-***" python3 experiments/run_mmlu.py --llm_name qwen3-8b --mode FullConnected --decision_method FinalRefer --batch_size 1 --num_rounds 1 --agent_names AnalyzeAgent --agent_nums 5`
+- status:
+  - completed
+- score:
+  - `0.6928104575163399` (106/153, **69.3%**)
+- evidence:
+  - terminal log: `/home/ubuntu/.cursor/projects/workspace/terminals/873051.txt` (`Score: 0.6928`)
+  - result file: `result/mmlu/mmlu_llama3_2026-03-10-11-37-13.json`
 
 ## Conclusion
-- MMLU data download is complete and legacy pipeline can run.
-- Current low performance is dominated by endpoint behavior: responses are consistently HTML-like payload instead of valid model answers.
+- MMLU data download is complete and legacy pipeline can run with qwen3-8b.
+- Root endpoint returns HTML-like payload and causes invalid evaluation.
+- Switching to `/v1` and setting `OPENAI_*` variables explicitly restores normal responses; original-style MMLU run reaches **69.3%** (>60%).
