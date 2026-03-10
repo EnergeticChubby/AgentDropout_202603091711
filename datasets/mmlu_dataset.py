@@ -88,9 +88,27 @@ class MMLUDataset(ABC):
         if options is None:
             raise ValueError(f"Cannot parse options from record keys: {list(record.keys())}")
 
-        answer_raw = record.get("correct_answer", record.get("answer", record.get("label", "")))
+        answer_raw: Any = ""
+        for candidate in (
+            record.get("correct_answer"),
+            record.get("answer"),
+            record.get("label"),
+        ):
+            if candidate is None:
+                continue
+            if isinstance(candidate, str) and candidate.strip().lower() in {"", "none", "null", "nan"}:
+                continue
+            answer_raw = candidate
+            break
+
         if isinstance(answer_raw, (int, np.integer)):
-            correct_answer = "ABCD"[int(answer_raw)]
+            idx = int(answer_raw)
+            if 0 <= idx <= 3:
+                correct_answer = "ABCD"[idx]
+            elif 1 <= idx <= 4:
+                correct_answer = "ABCD"[idx - 1]
+            else:
+                correct_answer = "A"
         else:
             correct_answer = str(answer_raw).strip()
             if len(correct_answer) > 0 and correct_answer[0] in "ABCD":
@@ -100,7 +118,12 @@ class MMLUDataset(ABC):
             else:
                 try:
                     idx = int(correct_answer)
-                    correct_answer = "ABCD"[idx]
+                    if 0 <= idx <= 3:
+                        correct_answer = "ABCD"[idx]
+                    elif 1 <= idx <= 4:
+                        correct_answer = "ABCD"[idx - 1]
+                    else:
+                        correct_answer = "A"
                 except Exception:
                     correct_answer = "A"
 
