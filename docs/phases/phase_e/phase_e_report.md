@@ -41,6 +41,11 @@
   - `python3 experiments/audit_mmlu_redux_dataset.py`
   - artifact: `artifacts/runs/mmlu_redux-dataset-audit.json`
   - effective evaluated scope: 30 subjects, 3000 test samples.
+- Additional legacy MMLU validation (2026-03-10):
+  - endpoint switched to `/v1`, with `OPENAI_*` env vars explicitly set.
+  - run config: `FullConnected + FinalRefer + AnalyzeAgent x5 + batch_size=1`
+  - result: `69.3%` (106/153)
+  - detail doc: `docs/phases/phase_e/phase_e_mmlu_full.md`
 
 ## Risks / Notes
 - DALA-like / rollback-only rows are proxies built from available topology/round controls in current codebase.
