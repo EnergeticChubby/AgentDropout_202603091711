@@ -232,35 +232,46 @@ async def evaluate_single_shard(
             realized_graph = copy.deepcopy(graph)
             graphs.append(realized_graph)
             tasks.append(asyncio.create_task(realized_graph.arun(record.to_input(), num_rounds=args.num_rounds, case=True)))
-        batch_results = await asyncio.gather(*tasks)
-        for record, realized_graph, (raw_answer, _, all_answers) in zip(batch, graphs, batch_results):
+        batch_results = await asyncio.gather(*tasks, return_exceptions=True)
+        for record, realized_graph, result in zip(batch, graphs, batch_results):
+            error_message = None
+            if isinstance(result, Exception):
+                raw_answer = ""
+                all_answers = []
+                error_message = str(result)
+            else:
+                raw_answer, _, all_answers = result
+
             pred = parse_choice_letter(raw_answer)
             gold = record.answer_letter
             is_correct = pred == gold
             correct += int(is_correct)
             evaluated += 1
+
             public_disclosure_count = len(realized_graph.public_blackboard.disclosures)
             ledger_stats = realized_graph.epistemic_ledger.stats()
             public_disclosure_total += public_disclosure_count
             claim_total += ledger_stats["total_claims"]
             verified_claim_total += ledger_stats["verified_claims"]
-            shard_outputs.append(
-                {
-                    "subject": record.subject,
-                    "question": record.question,
-                    "choices": record.choices,
-                    "gold": gold,
-                    "pred": pred,
-                    "is_correct": is_correct,
-                    "raw_answer": raw_answer,
-                    "all_round_answers": all_answers,
-                    "protocol_stats": {
-                        "public_disclosures": public_disclosure_count,
-                        "ledger_total_claims": ledger_stats["total_claims"],
-                        "ledger_verified_claims": ledger_stats["verified_claims"],
-                    },
-                }
-            )
+
+            row_payload = {
+                "subject": record.subject,
+                "question": record.question,
+                "choices": record.choices,
+                "gold": gold,
+                "pred": pred,
+                "is_correct": is_correct,
+                "raw_answer": raw_answer,
+                "all_round_answers": all_answers,
+                "protocol_stats": {
+                    "public_disclosures": public_disclosure_count,
+                    "ledger_total_claims": ledger_stats["total_claims"],
+                    "ledger_verified_claims": ledger_stats["verified_claims"],
+                },
+            }
+            if error_message is not None:
+                row_payload["error"] = error_message
+            shard_outputs.append(row_payload)
 
     total = len(records)
     accuracy = correct / total if total else 0.0
