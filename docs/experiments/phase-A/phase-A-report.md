@@ -115,6 +115,30 @@ python3 -m pytest -q tests/test_phase_a_protocols.py
 
 Phase A gating condition is satisfied: `phase_A_accuracy > baseline_accuracy`.
 
+### 3.4 Full-scale Phase A audit run (8-shard, full split)
+
+- run directory:
+  - `artifacts/tests/mmlu_redux/phase-A-full-explicit-20260310-complete-r1/20260310-015413`
+- config:
+  - `subject_limit=null`
+  - `questions_per_subject=null`
+  - `num_shards=8`
+  - `parallel_shards=8`
+  - `llm_name=qwen3-8b`
+  - `mode=DirectAnswer`, `AnalyzeAgent x1`, `FinalRefer`
+- result summary:
+  - total = **3000**
+  - correct = **826**
+  - accuracy = **0.2753333333**
+  - quality_score = **0.2753333333**
+- runtime:
+  - started_at = `2026-03-10 01:54:13`
+  - finished_at = `2026-03-10 02:32:22`
+
+Notes:
+- During full-scale execution, a small number of per-sample runtime failures occurred (mostly provider `429` rate-limit responses). The benchmark runner now records these rows with an `error` field and continues execution so the full run can be completed and audited.
+- Error rows counted from shard outputs: `20 / 3000` (`0.6667%`).
+
 ---
 
 ## 4) Reproducibility Steps
