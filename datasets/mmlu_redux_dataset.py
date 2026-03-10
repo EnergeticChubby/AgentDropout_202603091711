@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 from dataclasses import dataclass
+import time
 from typing import Any, Dict, List, Optional
 
 import requests
@@ -34,9 +35,24 @@ class MMLUReduxRecord:
 
 
 def _get_json(url: str, params: Optional[Dict[str, Any]] = None) -> Dict[str, Any]:
-    response = requests.get(url, params=params, timeout=60)
-    response.raise_for_status()
-    return response.json()
+    last_error: Optional[Exception] = None
+    for attempt in range(5):
+        try:
+            response = requests.get(url, params=params, timeout=60)
+            response.raise_for_status()
+            return response.json()
+        except requests.HTTPError as exc:
+            last_error = exc
+            status_code = exc.response.status_code if exc.response is not None else None
+            if status_code not in {429, 500, 502, 503, 504}:
+                raise
+            time.sleep(2 ** attempt)
+        except requests.RequestException as exc:
+            last_error = exc
+            time.sleep(2 ** attempt)
+    if last_error is not None:
+        raise last_error
+    raise RuntimeError("Unexpected _get_json retry failure without captured exception.")
 
 
 def list_subjects(dataset_name: str = DATASET_NAME) -> List[str]:

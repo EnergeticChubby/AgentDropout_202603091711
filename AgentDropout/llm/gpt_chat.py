@@ -54,7 +54,7 @@ def configure_openai_endpoint(base_url: str, api_key: str) -> None:
 #             else:
 #                 raise Exception("api error")
 
-@retry(wait=wait_random_exponential(max=100), stop=stop_after_attempt(3))
+@retry(wait=wait_random_exponential(max=120), stop=stop_after_attempt(8))
 async def achat(
     model: str,
     msg: List[Dict],
