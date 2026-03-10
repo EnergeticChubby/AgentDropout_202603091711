@@ -1,0 +1,54 @@
+[
+  {
+    "timestamp": 1773107131.6430945,
+    "run_id": "24nqaFShR3St",
+    "round_idx": 1,
+    "from_node": "z7yY",
+    "to_node": "ujvF",
+    "contract": {
+      "contract_id": "nVkkr8dtQE",
+      "task_clause": "A solid, metal object is isolated from other charges and has charge distributed on its surface. The charge distribution is not uniform. It may be correctly concluded that the\nOption A: electric field outside the object is zero\nOption B: the electric field outside the object is equal to the electric field inside the object\nOption C: the electric field outside the object is directly proportional to the distance away from the center of mass of the object\nOption D: the electric field outside the object, but very close to the surface, is equal to the surface charge density at any location divided by the permittivity of free space\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": false,
+      "violations": [
+        "empty_deliverable"
+      ],
+      "details": {
+        "output_length": 0
+      }
+    },
+    "dispute": {
+      "action": "rework",
+      "reason": "empty_deliverable",
+      "metadata": {
+        "rollback_to": "upstream_node"
+      }
+    }
+  }
+]

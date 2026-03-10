@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773106959.1107779,
+    "run_id": "AgqPRNCzvLyM",
+    "round_idx": 0,
+    "from_node": "qFTn",
+    "to_node": "qFTn",
+    "contract": {
+      "contract_id": "jP8Nvy9vHK",
+      "task_clause": "Which of the following statements is true about informal carers (as of 2020)?\nOption A: 50% of over 65s are providing informal care.\nOption B: One in six over 65s is providing some form of informal care.\nOption C: Informal carers should not be included in discharge planning.\nOption D: The majority of informal carers are fit and active.\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 170
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773106959.1109424,
+    "run_id": "AgqPRNCzvLyM",
+    "round_idx": 1,
+    "from_node": "qFTn",
+    "to_node": "UfBU",
+    "contract": {
+      "contract_id": "Vw3ktXgmS5",
+      "task_clause": "Which of the following statements is true about informal carers (as of 2020)?\nOption A: 50% of over 65s are providing informal care.\nOption B: One in six over 65s is providing some form of informal care.\nOption C: Informal carers should not be included in discharge planning.\nOption D: The majority of informal carers are fit and active.\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 170
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

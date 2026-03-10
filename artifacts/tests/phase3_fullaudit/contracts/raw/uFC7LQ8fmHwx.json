@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773106896.594824,
+    "run_id": "uFC7LQ8fmHwx",
+    "round_idx": 0,
+    "from_node": "z7yY",
+    "to_node": "z7yY",
+    "contract": {
+      "contract_id": "5nqsf638PA",
+      "task_clause": "Blood flows from the right ventricle of the heart into which of the following structures?\nOption A: Inferior vena cava\nOption B: Left ventricle\nOption C: Pulmonary arteries\nOption D: Pulmonary veins\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 123
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773106896.5950618,
+    "run_id": "uFC7LQ8fmHwx",
+    "round_idx": 1,
+    "from_node": "z7yY",
+    "to_node": "ujvF",
+    "contract": {
+      "contract_id": "Gzt9u5GgKJ",
+      "task_clause": "Blood flows from the right ventricle of the heart into which of the following structures?\nOption A: Inferior vena cava\nOption B: Left ventricle\nOption C: Pulmonary arteries\nOption D: Pulmonary veins\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 123
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

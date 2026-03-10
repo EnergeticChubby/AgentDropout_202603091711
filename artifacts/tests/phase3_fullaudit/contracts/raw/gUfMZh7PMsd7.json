@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773107091.2758803,
+    "run_id": "gUfMZh7PMsd7",
+    "round_idx": 0,
+    "from_node": "rteL",
+    "to_node": "rteL",
+    "contract": {
+      "contract_id": "UsX9jdierR",
+      "task_clause": "Three 25.00 mL samples of approximately 0.10 M phenol, C6H5OH, Ka = 1.0 \u00d7 10^-10 were removed from a container and placed in separate 250 mL beakers. The samples were titrated with standard potassium hydroxide, KOH, solution. Cresol red was the acid-base indicator used in the titration. The samples required 31.75, 32.38, and 41.75 mL to reach the endpoint. Which of the following might explain why one of the samples required significantly more base to reach the endpoint?\nOption A: The indicator was added too late.\nOption B: The wrong indicator was used.\nOption C: There was a base contaminating the unclean beaker.\nOption D: There was an acid contaminating the unclean beaker.\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 287
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773107091.276017,
+    "run_id": "gUfMZh7PMsd7",
+    "round_idx": 1,
+    "from_node": "rteL",
+    "to_node": "KBJH",
+    "contract": {
+      "contract_id": "2LB8EmRBXs",
+      "task_clause": "Three 25.00 mL samples of approximately 0.10 M phenol, C6H5OH, Ka = 1.0 \u00d7 10^-10 were removed from a container and placed in separate 250 mL beakers. The samples were titrated with standard potassium hydroxide, KOH, solution. Cresol red was the acid-base indicator used in the titration. The samples required 31.75, 32.38, and 41.75 mL to reach the endpoint. Which of the following might explain why one of the samples required significantly more base to reach the endpoint?\nOption A: The indicator was added too late.\nOption B: The wrong indicator was used.\nOption C: There was a base contaminating the unclean beaker.\nOption D: There was an acid contaminating the unclean beaker.\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 287
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

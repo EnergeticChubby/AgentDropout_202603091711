@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773107277.172578,
+    "run_id": "fTp8KSynRU3L",
+    "round_idx": 0,
+    "from_node": "n6RJ",
+    "to_node": "n6RJ",
+    "contract": {
+      "contract_id": "t6AuEy8CV6",
+      "task_clause": "Given two Boolean random variables, A and B, where P(A) = 1/2, P(B) = 1/3, and P(A | \u00acB) = 1/4, what is P(A | B)?\nOption A: 1/6\nOption B: 1/4\nOption C: 3/4\nOption D: 1\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 241
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773107277.172786,
+    "run_id": "fTp8KSynRU3L",
+    "round_idx": 1,
+    "from_node": "n6RJ",
+    "to_node": "CyeL",
+    "contract": {
+      "contract_id": "CuzMsBySiX",
+      "task_clause": "Given two Boolean random variables, A and B, where P(A) = 1/2, P(B) = 1/3, and P(A | \u00acB) = 1/4, what is P(A | B)?\nOption A: 1/6\nOption B: 1/4\nOption C: 3/4\nOption D: 1\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 241
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

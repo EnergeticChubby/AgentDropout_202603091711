@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773107006.1671305,
+    "run_id": "Ptp7VeQa9RjB",
+    "round_idx": 0,
+    "from_node": "RaPi",
+    "to_node": "RaPi",
+    "contract": {
+      "contract_id": "GXjsLwECD7",
+      "task_clause": "Suppose A and B are n x n invertible matrices, where n > 1, and I is the n x n identity matrix. If A and B are similar matrices, which of the following statements must be true?\tI. A - 2I and B - 2I are similar matrices. II. A and B have the same trace.\t III. A^-1 and B^-1 are similar matrices.\nOption A: I only\nOption B: II only\nOption C: III only\nOption D: I, II, and III\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 1467
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773107006.1674464,
+    "run_id": "Ptp7VeQa9RjB",
+    "round_idx": 1,
+    "from_node": "RaPi",
+    "to_node": "DtjM",
+    "contract": {
+      "contract_id": "4eA3t4GeS8",
+      "task_clause": "Suppose A and B are n x n invertible matrices, where n > 1, and I is the n x n identity matrix. If A and B are similar matrices, which of the following statements must be true?\tI. A - 2I and B - 2I are similar matrices. II. A and B have the same trace.\t III. A^-1 and B^-1 are similar matrices.\nOption A: I only\nOption B: II only\nOption C: III only\nOption D: I, II, and III\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 1467
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

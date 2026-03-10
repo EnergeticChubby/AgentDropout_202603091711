@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773107091.991569,
+    "run_id": "Tf25zbTJCZU9",
+    "round_idx": 0,
+    "from_node": "RaPi",
+    "to_node": "RaPi",
+    "contract": {
+      "contract_id": "y7Aro9h3vV",
+      "task_clause": "Purely mechanical instrument cannot be used for dynamic measurements because they have\nOption A: high inertia.\nOption B: higher response time.\nOption C: large time constant.\nOption D: all of the above.\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 291
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773107091.9917262,
+    "run_id": "Tf25zbTJCZU9",
+    "round_idx": 1,
+    "from_node": "RaPi",
+    "to_node": "DtjM",
+    "contract": {
+      "contract_id": "DVmoPkWNfv",
+      "task_clause": "Purely mechanical instrument cannot be used for dynamic measurements because they have\nOption A: high inertia.\nOption B: higher response time.\nOption C: large time constant.\nOption D: all of the above.\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 291
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

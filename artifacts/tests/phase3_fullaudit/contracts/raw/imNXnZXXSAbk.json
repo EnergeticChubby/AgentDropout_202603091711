@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773106939.9903867,
+    "run_id": "imNXnZXXSAbk",
+    "round_idx": 0,
+    "from_node": "RaPi",
+    "to_node": "RaPi",
+    "contract": {
+      "contract_id": "KZFHosibpW",
+      "task_clause": "The most rapid method to resynthesize ATP during exercise is through:\nOption A: glycolysis.\nOption B: phosphocreatine breakdown.\nOption C: tricarboxylic acid cycle (Krebs' cycle).\nOption D: glycogenolysis.\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 337
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773106939.9905605,
+    "run_id": "imNXnZXXSAbk",
+    "round_idx": 1,
+    "from_node": "RaPi",
+    "to_node": "DtjM",
+    "contract": {
+      "contract_id": "ewjff7RTby",
+      "task_clause": "The most rapid method to resynthesize ATP during exercise is through:\nOption A: glycolysis.\nOption B: phosphocreatine breakdown.\nOption C: tricarboxylic acid cycle (Krebs' cycle).\nOption D: glycogenolysis.\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 337
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

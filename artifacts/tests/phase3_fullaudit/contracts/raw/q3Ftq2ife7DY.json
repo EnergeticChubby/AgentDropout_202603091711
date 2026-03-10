@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773107246.393177,
+    "run_id": "q3Ftq2ife7DY",
+    "round_idx": 0,
+    "from_node": "RaPi",
+    "to_node": "RaPi",
+    "contract": {
+      "contract_id": "fF8vyRjoQx",
+      "task_clause": "One reason that older adults show high levels of optimism is that\nOption A: Many pessimists die at a younger age\nOption B: They do not really know what is going on\nOption C: This may be a warning sign for dementia\nOption D: Our measures have low validity\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 174
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773107246.3934562,
+    "run_id": "q3Ftq2ife7DY",
+    "round_idx": 1,
+    "from_node": "RaPi",
+    "to_node": "DtjM",
+    "contract": {
+      "contract_id": "T9wWqJDMed",
+      "task_clause": "One reason that older adults show high levels of optimism is that\nOption A: Many pessimists die at a younger age\nOption B: They do not really know what is going on\nOption C: This may be a warning sign for dementia\nOption D: Our measures have low validity\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 174
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

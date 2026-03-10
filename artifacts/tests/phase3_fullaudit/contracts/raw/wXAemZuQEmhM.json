@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773107068.2031677,
+    "run_id": "wXAemZuQEmhM",
+    "round_idx": 0,
+    "from_node": "YYAX",
+    "to_node": "YYAX",
+    "contract": {
+      "contract_id": "DDgEcc3Sqv",
+      "task_clause": "Identify the antecedent of the following conditional proposition: The Bees win their first game only if either the Aardvarks or the Chipmunks do not win their first games.\nOption A: The Aardvarks do not win their first game.\nOption B: The Bees win their first game.\nOption C: The Chipmunks do not win their first game.\nOption D: Either the Aardvarks or the Chipmunks do not win their first games.\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 181
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773107068.2038264,
+    "run_id": "wXAemZuQEmhM",
+    "round_idx": 1,
+    "from_node": "YYAX",
+    "to_node": "ei5M",
+    "contract": {
+      "contract_id": "SJ7MqCPxrw",
+      "task_clause": "Identify the antecedent of the following conditional proposition: The Bees win their first game only if either the Aardvarks or the Chipmunks do not win their first games.\nOption A: The Aardvarks do not win their first game.\nOption B: The Bees win their first game.\nOption C: The Chipmunks do not win their first game.\nOption D: Either the Aardvarks or the Chipmunks do not win their first games.\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 181
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

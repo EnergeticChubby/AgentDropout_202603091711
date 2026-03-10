@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773107250.1808167,
+    "run_id": "Vs5A6a3HHPz9",
+    "round_idx": 0,
+    "from_node": "RaPi",
+    "to_node": "RaPi",
+    "contract": {
+      "contract_id": "Rfe9sGo4MM",
+      "task_clause": "Which of the following improves attitudes toward aging and older adults?\nOption A: Staying away from older adults\nOption B: Education about older adults\nOption C: Travelling to older communities\nOption D: Watching the portrayals of older adults in movies and on TV\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 293
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773107250.180976,
+    "run_id": "Vs5A6a3HHPz9",
+    "round_idx": 1,
+    "from_node": "RaPi",
+    "to_node": "DtjM",
+    "contract": {
+      "contract_id": "rKMY3RAuFW",
+      "task_clause": "Which of the following improves attitudes toward aging and older adults?\nOption A: Staying away from older adults\nOption B: Education about older adults\nOption C: Travelling to older communities\nOption D: Watching the portrayals of older adults in movies and on TV\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 293
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

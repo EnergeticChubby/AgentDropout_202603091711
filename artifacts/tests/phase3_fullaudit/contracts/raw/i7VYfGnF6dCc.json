@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773107092.8008018,
+    "run_id": "i7VYfGnF6dCc",
+    "round_idx": 0,
+    "from_node": "YYAX",
+    "to_node": "YYAX",
+    "contract": {
+      "contract_id": "DFYdabGp3N",
+      "task_clause": "Find the volume of the solid generated when the region bounded by the y-axis, y = e^x, and y = 2 is rotated around the y-axis.\nOption A: 0.296\nOption B: 0.592\nOption C: 2.427\nOption D: 3.998\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 428
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773107092.8010707,
+    "run_id": "i7VYfGnF6dCc",
+    "round_idx": 1,
+    "from_node": "YYAX",
+    "to_node": "ei5M",
+    "contract": {
+      "contract_id": "nCJJVs9jrQ",
+      "task_clause": "Find the volume of the solid generated when the region bounded by the y-axis, y = e^x, and y = 2 is rotated around the y-axis.\nOption A: 0.296\nOption B: 0.592\nOption C: 2.427\nOption D: 3.998\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 428
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

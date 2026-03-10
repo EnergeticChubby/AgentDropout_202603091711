@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773107347.1317117,
+    "run_id": "A2A5DCcB8GP2",
+    "round_idx": 0,
+    "from_node": "n6RJ",
+    "to_node": "n6RJ",
+    "contract": {
+      "contract_id": "m6XeVuzKct",
+      "task_clause": "There are three basic types of persuasive advertising campaigns. Which of the following is NOT one of them?\nOption A: Product-oriented\nOption B: Person-oriented\nOption C: Idea-oriented\nOption D: Result-oriented\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 482
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773107347.132,
+    "run_id": "A2A5DCcB8GP2",
+    "round_idx": 1,
+    "from_node": "n6RJ",
+    "to_node": "CyeL",
+    "contract": {
+      "contract_id": "WW2h9QrXgX",
+      "task_clause": "There are three basic types of persuasive advertising campaigns. Which of the following is NOT one of them?\nOption A: Product-oriented\nOption B: Person-oriented\nOption C: Idea-oriented\nOption D: Result-oriented\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 482
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

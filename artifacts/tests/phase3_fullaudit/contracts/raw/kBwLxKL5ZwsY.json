@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773107144.2849617,
+    "run_id": "kBwLxKL5ZwsY",
+    "round_idx": 0,
+    "from_node": "6ZQU",
+    "to_node": "6ZQU",
+    "contract": {
+      "contract_id": "5aKaiXKe77",
+      "task_clause": "Find the length of the curve y = ln x between the points where y = 1/2 and y = 1.\nOption A: 0.53\nOption B: 0.86\nOption C: 1.18\nOption D: 1.36\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 2114
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773107144.2852864,
+    "run_id": "kBwLxKL5ZwsY",
+    "round_idx": 1,
+    "from_node": "6ZQU",
+    "to_node": "ScdH",
+    "contract": {
+      "contract_id": "tkrPFJJSQn",
+      "task_clause": "Find the length of the curve y = ln x between the points where y = 1/2 and y = 1.\nOption A: 0.53\nOption B: 0.86\nOption C: 1.18\nOption D: 1.36\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 2114
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

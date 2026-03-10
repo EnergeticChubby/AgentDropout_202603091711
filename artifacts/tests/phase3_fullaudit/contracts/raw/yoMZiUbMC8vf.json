@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773107221.361982,
+    "run_id": "yoMZiUbMC8vf",
+    "round_idx": 0,
+    "from_node": "8cWT",
+    "to_node": "8cWT",
+    "contract": {
+      "contract_id": "jRHM5xazBm",
+      "task_clause": "This question refers to the following information.\n\"Lincoln was strongly anti-slavery, but he was not an abolitionist or a Radical Republican and never claimed to be one. He made a sharp distinction between his frequently reiterated personal wish that 'all men everywhere could be free' and his official duties as a legislator, congressman, and president in a legal and constitutional system that recognized the South's right to property in slaves. Even after issuing the Emancipation Proclamation he continued to declare his preference for gradual abolition. While his racial views changed during the Civil War, he never became a principled egalitarian in the manner of abolitionists such as Frederick Douglass or Wendell Phillips or Radical Republicans like Charles Sumner.\"\n\u2014Eric Foner, The Fiery ",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 236
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773107221.3624525,
+    "run_id": "yoMZiUbMC8vf",
+    "round_idx": 1,
+    "from_node": "8cWT",
+    "to_node": "ePAf",
+    "contract": {
+      "contract_id": "6a3rj9hxMT",
+      "task_clause": "This question refers to the following information.\n\"Lincoln was strongly anti-slavery, but he was not an abolitionist or a Radical Republican and never claimed to be one. He made a sharp distinction between his frequently reiterated personal wish that 'all men everywhere could be free' and his official duties as a legislator, congressman, and president in a legal and constitutional system that recognized the South's right to property in slaves. Even after issuing the Emancipation Proclamation he continued to declare his preference for gradual abolition. While his racial views changed during the Civil War, he never became a principled egalitarian in the manner of abolitionists such as Frederick Douglass or Wendell Phillips or Radical Republicans like Charles Sumner.\"\n\u2014Eric Foner, The Fiery ",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 236
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773107026.6926003,
+    "run_id": "Qxpzz75feAEo",
+    "round_idx": 0,
+    "from_node": "n6RJ",
+    "to_node": "n6RJ",
+    "contract": {
+      "contract_id": "QyXu9mjxyM",
+      "task_clause": "Of the following, which best characterizes computers that use memory-mapped I/O?\nOption A: The computer provides special instructions for manipulating I/O ports.\nOption B: I/O ports are placed at addresses on the bus and are accessed just like other memory locations.\nOption C: To perform an I/O operation, it is sufficient to place the data in an address register and call the channel to perform the operation.\nOption D: Ports are referenced only by memory-mapped instructions of the computer and are located at hardwired memory locations.\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 137
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773107026.6927648,
+    "run_id": "Qxpzz75feAEo",
+    "round_idx": 1,
+    "from_node": "n6RJ",
+    "to_node": "CyeL",
+    "contract": {
+      "contract_id": "HAbiqLJJK6",
+      "task_clause": "Of the following, which best characterizes computers that use memory-mapped I/O?\nOption A: The computer provides special instructions for manipulating I/O ports.\nOption B: I/O ports are placed at addresses on the bus and are accessed just like other memory locations.\nOption C: To perform an I/O operation, it is sufficient to place the data in an address register and call the channel to perform the operation.\nOption D: Ports are referenced only by memory-mapped instructions of the computer and are located at hardwired memory locations.\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 137
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

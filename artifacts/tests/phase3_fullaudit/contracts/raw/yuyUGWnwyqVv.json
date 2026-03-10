@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773106884.9604087,
+    "run_id": "yuyUGWnwyqVv",
+    "round_idx": 0,
+    "from_node": "6ZQU",
+    "to_node": "6ZQU",
+    "contract": {
+      "contract_id": "XvmhWCH2Zq",
+      "task_clause": "When you examine a patient who has suffered an unfavourable fracture of the body of the mandible, you would expect the\nOption A: anterior fragment to be displaced downwards by the action of the digastric muscle.\nOption B: posterior fragment to be displaced anteriorly by the action of the lateral pterygoid muscle.\nOption C: anterior fragment to be displaced backwards by action of the temporalis muscle.\nOption D: posterior fragment to be displaced medially by action of the medial pterygoid muscle.\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 204
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773106884.9605625,
+    "run_id": "yuyUGWnwyqVv",
+    "round_idx": 1,
+    "from_node": "6ZQU",
+    "to_node": "ScdH",
+    "contract": {
+      "contract_id": "X99Tj2Bbvj",
+      "task_clause": "When you examine a patient who has suffered an unfavourable fracture of the body of the mandible, you would expect the\nOption A: anterior fragment to be displaced downwards by the action of the digastric muscle.\nOption B: posterior fragment to be displaced anteriorly by the action of the lateral pterygoid muscle.\nOption C: anterior fragment to be displaced backwards by action of the temporalis muscle.\nOption D: posterior fragment to be displaced medially by action of the medial pterygoid muscle.\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 204
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

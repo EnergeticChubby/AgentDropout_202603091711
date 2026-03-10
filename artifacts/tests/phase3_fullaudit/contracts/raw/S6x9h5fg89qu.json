@@ -1,0 +1,54 @@
+[
+  {
+    "timestamp": 1773107107.359765,
+    "run_id": "S6x9h5fg89qu",
+    "round_idx": 1,
+    "from_node": "n6RJ",
+    "to_node": "CyeL",
+    "contract": {
+      "contract_id": "V6CxephCL6",
+      "task_clause": "Choose the reaction expected to have the greatest decrease in entropy.\nOption A: C(s) + CO2(g) \u2192 2 CO(g)\nOption B: 2 Na(s) + O2(g) \u2192 Na2O2(s)\nOption C: CH4(g) + 2 O2(g) \u2192 CO2(g) + 2 H2O(g)\nOption D: 2 NI3(s) \u2192 3 I2(s) + N2(g)\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": false,
+      "violations": [
+        "empty_deliverable"
+      ],
+      "details": {
+        "output_length": 0
+      }
+    },
+    "dispute": {
+      "action": "rework",
+      "reason": "empty_deliverable",
+      "metadata": {
+        "rollback_to": "upstream_node"
+      }
+    }
+  }
+]

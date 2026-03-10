@@ -1,0 +1,54 @@
+[
+  {
+    "timestamp": 1773107176.9163163,
+    "run_id": "4WTQ2D3JRa5a",
+    "round_idx": 1,
+    "from_node": "6ZQU",
+    "to_node": "ScdH",
+    "contract": {
+      "contract_id": "n37DSwS7ds",
+      "task_clause": "If the Japanese economy suffers a deep prolonged recession in what ways would U.S. net exports and the values of the dollar and yen change? U.S. NET EXPORTS     VALUE OF DOLLAR     VALUE OF YEN\nOption A: Decreases     Increases     Increases\nOption B: Decreases     Decreases     Decreases\nOption C: Decreases     Decreases     Increases\nOption D: Increases     Decreases     Increases\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": false,
+      "violations": [
+        "empty_deliverable"
+      ],
+      "details": {
+        "output_length": 0
+      }
+    },
+    "dispute": {
+      "action": "rework",
+      "reason": "empty_deliverable",
+      "metadata": {
+        "rollback_to": "upstream_node"
+      }
+    }
+  }
+]

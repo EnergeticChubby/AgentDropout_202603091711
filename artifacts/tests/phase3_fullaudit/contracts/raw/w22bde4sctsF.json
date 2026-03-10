@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773107031.7718458,
+    "run_id": "w22bde4sctsF",
+    "round_idx": 0,
+    "from_node": "YYAX",
+    "to_node": "YYAX",
+    "contract": {
+      "contract_id": "M9NSUbDSBq",
+      "task_clause": "Select the best translation into predicate logic: If Delilah is in New York City, then Juana is in Bogota or Layla is in San Juan.\nOption A: Nd \u2283 (Bj \u2022 Sl)\nOption B: Dn \u2261 (Bx \u2022 Ly)\nOption C: Nd \u2261 (Bj \u2022 Sl)\nOption D: Nd \u2283 (Bj \u2228 Sl)\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 544
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773107031.7721224,
+    "run_id": "w22bde4sctsF",
+    "round_idx": 1,
+    "from_node": "YYAX",
+    "to_node": "ei5M",
+    "contract": {
+      "contract_id": "Ex68PZBdsw",
+      "task_clause": "Select the best translation into predicate logic: If Delilah is in New York City, then Juana is in Bogota or Layla is in San Juan.\nOption A: Nd \u2283 (Bj \u2022 Sl)\nOption B: Dn \u2261 (Bx \u2022 Ly)\nOption C: Nd \u2261 (Bj \u2022 Sl)\nOption D: Nd \u2283 (Bj \u2228 Sl)\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 544
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773107361.661793,
+    "run_id": "RdjHgfVioNx8",
+    "round_idx": 0,
+    "from_node": "rteL",
+    "to_node": "rteL",
+    "contract": {
+      "contract_id": "fFecq3d8pF",
+      "task_clause": "Before his conversion, what was Tolstoy surrounded by?\nOption A: what is considered complete happiness\nOption B: things that no one would want\nOption C: what is considered heavenly bliss\nOption D: what is considered deep insight\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 16
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773107361.661964,
+    "run_id": "RdjHgfVioNx8",
+    "round_idx": 1,
+    "from_node": "rteL",
+    "to_node": "KBJH",
+    "contract": {
+      "contract_id": "TsgFLNbvcH",
+      "task_clause": "Before his conversion, what was Tolstoy surrounded by?\nOption A: what is considered complete happiness\nOption B: things that no one would want\nOption C: what is considered heavenly bliss\nOption D: what is considered deep insight\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 16
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

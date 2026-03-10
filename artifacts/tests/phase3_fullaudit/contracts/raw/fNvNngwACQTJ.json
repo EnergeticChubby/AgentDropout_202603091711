@@ -1,0 +1,54 @@
+[
+  {
+    "timestamp": 1773107120.20494,
+    "run_id": "fNvNngwACQTJ",
+    "round_idx": 1,
+    "from_node": "8cWT",
+    "to_node": "ePAf",
+    "contract": {
+      "contract_id": "9aDsu7HHtJ",
+      "task_clause": "A horse is attached to a cart that is at rest behind it. Which force, or combination of forces, explains how the horse-cart system can accelerate from rest?\nOption A: The forward static friction force of the ground on the horse is greater than any friction forces acting backward on the cart, providing a forward acceleration.\nOption B: The forward force of the horse on the cart is greater than the backward force of the cart on the horse, providing a forward acceleration.\nOption C: The force of the horse\u2019s muscles on the rest of the horse-cart system provides the necessary acceleration.\nOption D: The upward normal force of the ground on the horse is greater than the horse\u2019s weight, providing an upward acceleration.\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": false,
+      "violations": [
+        "empty_deliverable"
+      ],
+      "details": {
+        "output_length": 0
+      }
+    },
+    "dispute": {
+      "action": "rework",
+      "reason": "empty_deliverable",
+      "metadata": {
+        "rollback_to": "upstream_node"
+      }
+    }
+  }
+]

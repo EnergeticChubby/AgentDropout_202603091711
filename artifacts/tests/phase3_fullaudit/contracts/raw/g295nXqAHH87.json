@@ -1,0 +1,54 @@
+[
+  {
+    "timestamp": 1773107279.140029,
+    "run_id": "g295nXqAHH87",
+    "round_idx": 1,
+    "from_node": "YYAX",
+    "to_node": "ei5M",
+    "contract": {
+      "contract_id": "oLLobA4bgm",
+      "task_clause": "The sole shareholder of an S corporation contributed equipment with a fair market value of $20,000 and a basis of $6,000 subject to $12,000 liability. What amount is the gain, if any, that the shareholder must recognize\nOption A: $0\nOption B: $6,000\nOption C: $8,000\nOption D: $12,000\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": false,
+      "violations": [
+        "empty_deliverable"
+      ],
+      "details": {
+        "output_length": 0
+      }
+    },
+    "dispute": {
+      "action": "rework",
+      "reason": "empty_deliverable",
+      "metadata": {
+        "rollback_to": "upstream_node"
+      }
+    }
+  }
+]

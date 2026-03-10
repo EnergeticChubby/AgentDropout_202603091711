@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773107156.0081196,
+    "run_id": "3SCcKNePDqps",
+    "round_idx": 0,
+    "from_node": "qFTn",
+    "to_node": "qFTn",
+    "contract": {
+      "contract_id": "jEfpUV4zUU",
+      "task_clause": "Which of the following is an example of contractionary monetary policy?\nOption A: The Fed lowers the reserve ratio.\nOption B: The Fed lowers the discount rate.\nOption C: The Fed increases taxes on household income.\nOption D: The Fed sells Treasury securities to commercial banks.\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 214
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773107156.0083406,
+    "run_id": "3SCcKNePDqps",
+    "round_idx": 1,
+    "from_node": "qFTn",
+    "to_node": "UfBU",
+    "contract": {
+      "contract_id": "T3b3ZkMJJp",
+      "task_clause": "Which of the following is an example of contractionary monetary policy?\nOption A: The Fed lowers the reserve ratio.\nOption B: The Fed lowers the discount rate.\nOption C: The Fed increases taxes on household income.\nOption D: The Fed sells Treasury securities to commercial banks.\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 214
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

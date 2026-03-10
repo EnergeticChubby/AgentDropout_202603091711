@@ -1,0 +1,27 @@
+{
+  "total_contracts": 1,
+  "passed_contracts": 0,
+  "failed_contracts": 1,
+  "acceptance_pass_precision": 0.0,
+  "silent_failure_rate": 1.0,
+  "rework_rate": 1.0,
+  "rollback_frequency": 1,
+  "dispute_actions": {
+    "rework": 1
+  },
+  "repair_suggestions": {
+    "violation_counts": {
+      "empty_deliverable": 1
+    },
+    "task_violation_counts": {
+      "qa::empty_deliverable": 1
+    },
+    "recommendations": [
+      {
+        "target_clause": "acceptance_test",
+        "change": "require_non_empty",
+        "trigger": "empty_deliverable"
+      }
+    ]
+  }
+}

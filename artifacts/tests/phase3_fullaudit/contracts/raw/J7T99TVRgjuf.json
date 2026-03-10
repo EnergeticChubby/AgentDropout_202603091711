@@ -1,0 +1,54 @@
+[
+  {
+    "timestamp": 1773107268.7942057,
+    "run_id": "J7T99TVRgjuf",
+    "round_idx": 1,
+    "from_node": "z7yY",
+    "to_node": "ujvF",
+    "contract": {
+      "contract_id": "FiBPiPfXfL",
+      "task_clause": "Which of the following events most likely would indicate the existence of related party transactions?\nOption A: Insuring the lives of key executives and listing the entity as beneficiary.\nOption B: Selling real estate at a price that differs significantly from its appraised value.\nOption C: Making a loan with specific scheduled terms for repayment of the funds.\nOption D: Granting stock options to key executives at favorable prices.\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": false,
+      "violations": [
+        "empty_deliverable"
+      ],
+      "details": {
+        "output_length": 0
+      }
+    },
+    "dispute": {
+      "action": "rework",
+      "reason": "empty_deliverable",
+      "metadata": {
+        "rollback_to": "upstream_node"
+      }
+    }
+  }
+]

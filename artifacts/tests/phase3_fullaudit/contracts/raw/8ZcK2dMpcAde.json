@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773107250.0412667,
+    "run_id": "8ZcK2dMpcAde",
+    "round_idx": 0,
+    "from_node": "rteL",
+    "to_node": "rteL",
+    "contract": {
+      "contract_id": "eJnVW3o6FJ",
+      "task_clause": "Neural networks:\nOption A: Optimize a convex objective function\nOption B: Can only be trained with stochastic gradient descent\nOption C: Can use a mix of different activation functions\nOption D: None of the above\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 132
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773107250.0414467,
+    "run_id": "8ZcK2dMpcAde",
+    "round_idx": 1,
+    "from_node": "rteL",
+    "to_node": "KBJH",
+    "contract": {
+      "contract_id": "YAGZqd64z8",
+      "task_clause": "Neural networks:\nOption A: Optimize a convex objective function\nOption B: Can only be trained with stochastic gradient descent\nOption C: Can use a mix of different activation functions\nOption D: None of the above\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 132
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

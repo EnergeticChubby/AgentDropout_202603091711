@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773107137.56846,
+    "run_id": "jggWz9T2KaMq",
+    "round_idx": 0,
+    "from_node": "6ZQU",
+    "to_node": "6ZQU",
+    "contract": {
+      "contract_id": "6a6cLLPXus",
+      "task_clause": "If two non-zero vectors are added together, and the resultant vector is zero, what must be true of the two vectors?\nOption A: They have equal magnitude and are pointed in the same direction.\nOption B: They have equal magnitude and are pointed in opposite directions.\nOption C: They have different magnitudes and are pointed in opposite directions.\nOption D: It is not possible for the sum of two non-zero vectors to be zero.\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 199
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773107137.5686038,
+    "run_id": "jggWz9T2KaMq",
+    "round_idx": 1,
+    "from_node": "6ZQU",
+    "to_node": "ScdH",
+    "contract": {
+      "contract_id": "X2RL72MoGQ",
+      "task_clause": "If two non-zero vectors are added together, and the resultant vector is zero, what must be true of the two vectors?\nOption A: They have equal magnitude and are pointed in the same direction.\nOption B: They have equal magnitude and are pointed in opposite directions.\nOption C: They have different magnitudes and are pointed in opposite directions.\nOption D: It is not possible for the sum of two non-zero vectors to be zero.\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 199
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

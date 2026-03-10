@@ -1,0 +1,54 @@
+[
+  {
+    "timestamp": 1773107111.783908,
+    "run_id": "FD5MwxATN4GK",
+    "round_idx": 1,
+    "from_node": "n6RJ",
+    "to_node": "CyeL",
+    "contract": {
+      "contract_id": "dqT7tHz22g",
+      "task_clause": "Commutator in DC generator is used for\nOption A: collecting of current\nOption B: reduce losses\nOption C: increase efficiency\nOption D: convert AC armature current in to DC\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": false,
+      "violations": [
+        "empty_deliverable"
+      ],
+      "details": {
+        "output_length": 0
+      }
+    },
+    "dispute": {
+      "action": "rework",
+      "reason": "empty_deliverable",
+      "metadata": {
+        "rollback_to": "upstream_node"
+      }
+    }
+  }
+]

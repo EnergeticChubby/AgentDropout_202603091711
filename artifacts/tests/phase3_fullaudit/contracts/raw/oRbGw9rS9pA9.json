@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773107028.8919833,
+    "run_id": "oRbGw9rS9pA9",
+    "round_idx": 0,
+    "from_node": "qFTn",
+    "to_node": "qFTn",
+    "contract": {
+      "contract_id": "uKGKZqQBca",
+      "task_clause": "Which of the following sets has the greatest cardinality?\nOption A: R\nOption B: The set of all functions from Z to Z\nOption C: The set of all functions from R to {0, 1}\nOption D: The set of all finite subsets of R\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 305
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773107028.8921242,
+    "run_id": "oRbGw9rS9pA9",
+    "round_idx": 1,
+    "from_node": "qFTn",
+    "to_node": "UfBU",
+    "contract": {
+      "contract_id": "AjX2gs3bhk",
+      "task_clause": "Which of the following sets has the greatest cardinality?\nOption A: R\nOption B: The set of all functions from Z to Z\nOption C: The set of all functions from R to {0, 1}\nOption D: The set of all finite subsets of R\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 305
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

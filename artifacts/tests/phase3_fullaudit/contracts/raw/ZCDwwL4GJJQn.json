@@ -1,0 +1,54 @@
+[
+  {
+    "timestamp": 1773107173.261773,
+    "run_id": "ZCDwwL4GJJQn",
+    "round_idx": 1,
+    "from_node": "6ZQU",
+    "to_node": "ScdH",
+    "contract": {
+      "contract_id": "ZvnHTkW5dj",
+      "task_clause": "This question refers to the following information.\n\"Permit us, then, earnestly to recommend these articles to the immediate and dispassionate attention of the legislatures of the respective states. Let them be candidly reviewed under a sense of the difficulty of combining in one system the various sentiments and interests of a continent divided into so many sovereign and independent communities, under a conviction of the absolute necessity of uniting all our councils and all our strength, to maintain and defend our common liberties\u2026.\"\nJournals of the Continental Congress, 1777\nThe most notable achievement of the United States under the Articles of Confederation was\nOption A: the creation of a strong executive office to lead the national government\nOption B: the empowerment of Congress to r",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": false,
+      "violations": [
+        "empty_deliverable"
+      ],
+      "details": {
+        "output_length": 0
+      }
+    },
+    "dispute": {
+      "action": "rework",
+      "reason": "empty_deliverable",
+      "metadata": {
+        "rollback_to": "upstream_node"
+      }
+    }
+  }
+]

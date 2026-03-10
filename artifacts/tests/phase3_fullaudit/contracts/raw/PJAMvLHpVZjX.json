@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773107091.36676,
+    "run_id": "PJAMvLHpVZjX",
+    "round_idx": 0,
+    "from_node": "qFTn",
+    "to_node": "qFTn",
+    "contract": {
+      "contract_id": "qSqurZYK7d",
+      "task_clause": "The subatomic particle with the most penetrating ability is\nOption A: a beta particle\nOption B: a neutron\nOption C: a proton\nOption D: an alpha particle\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 248
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773107091.3669727,
+    "run_id": "PJAMvLHpVZjX",
+    "round_idx": 1,
+    "from_node": "qFTn",
+    "to_node": "UfBU",
+    "contract": {
+      "contract_id": "X4PkH5hP92",
+      "task_clause": "The subatomic particle with the most penetrating ability is\nOption A: a beta particle\nOption B: a neutron\nOption C: a proton\nOption D: an alpha particle\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 248
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

@@ -1,0 +1,54 @@
+[
+  {
+    "timestamp": 1773107240.4295077,
+    "run_id": "2CtJQahyAeGF",
+    "round_idx": 1,
+    "from_node": "qFTn",
+    "to_node": "UfBU",
+    "contract": {
+      "contract_id": "y8gXUy6bPe",
+      "task_clause": "Which of the following best describes the fallacy of figure of speech?\nOption A: Using emotionally charged language to create an impression about the subject of a claim, without making an argument that the language fits the subject.\nOption B: Treating something that exists in the mind as if it was a real object.\nOption C: Confusing figurative language with literal language.\nOption D: A form of loaded language that uses an emotionally charged restatement of the claim in place of support for the claim.\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": false,
+      "violations": [
+        "empty_deliverable"
+      ],
+      "details": {
+        "output_length": 0
+      }
+    },
+    "dispute": {
+      "action": "rework",
+      "reason": "empty_deliverable",
+      "metadata": {
+        "rollback_to": "upstream_node"
+      }
+    }
+  }
+]

@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773107309.572399,
+    "run_id": "Upcu7oKNpXzw",
+    "round_idx": 0,
+    "from_node": "8cWT",
+    "to_node": "8cWT",
+    "contract": {
+      "contract_id": "dkJJAefZLt",
+      "task_clause": "Parent gave securities with an adjusted basis of $10000 and fair market value of $9000 to a child. Later the child sold the securities for $7000. What is the child's basis for the securities sold?\nOption A: $10,000\nOption B: $9,000\nOption C: $7,000\nOption D: 0\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 390
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773107309.572572,
+    "run_id": "Upcu7oKNpXzw",
+    "round_idx": 1,
+    "from_node": "8cWT",
+    "to_node": "ePAf",
+    "contract": {
+      "contract_id": "77FaSSph93",
+      "task_clause": "Parent gave securities with an adjusted basis of $10000 and fair market value of $9000 to a child. Later the child sold the securities for $7000. What is the child's basis for the securities sold?\nOption A: $10,000\nOption B: $9,000\nOption C: $7,000\nOption D: 0\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 390
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

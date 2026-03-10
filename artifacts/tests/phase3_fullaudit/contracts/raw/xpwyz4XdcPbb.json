@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773107071.188153,
+    "run_id": "xpwyz4XdcPbb",
+    "round_idx": 0,
+    "from_node": "z7yY",
+    "to_node": "z7yY",
+    "contract": {
+      "contract_id": "zGrVn3acLF",
+      "task_clause": "Use indirect truth tables to determine whether the following argument is valid. If the argument is invalid, choose an option which presents a counterexample. (There may be other counterexamples as well.)\nE \u2283 F\nG \u2283 ~F / ~G \u2228 ~E\nOption A: Valid\nOption B: Invalid. Counterexample when E, F, and G are true\nOption C: Invalid. Counterexample when E and G are true and F is false\nOption D: Invalid. Counterexample when F and G are true and E is false\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 2079
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773107071.188436,
+    "run_id": "xpwyz4XdcPbb",
+    "round_idx": 1,
+    "from_node": "z7yY",
+    "to_node": "ujvF",
+    "contract": {
+      "contract_id": "yr4e4hRaEq",
+      "task_clause": "Use indirect truth tables to determine whether the following argument is valid. If the argument is invalid, choose an option which presents a counterexample. (There may be other counterexamples as well.)\nE \u2283 F\nG \u2283 ~F / ~G \u2228 ~E\nOption A: Valid\nOption B: Invalid. Counterexample when E, F, and G are true\nOption C: Invalid. Counterexample when E and G are true and F is false\nOption D: Invalid. Counterexample when F and G are true and E is false\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 2079
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

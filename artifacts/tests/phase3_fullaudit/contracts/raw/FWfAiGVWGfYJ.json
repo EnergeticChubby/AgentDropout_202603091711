@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773107327.772455,
+    "run_id": "FWfAiGVWGfYJ",
+    "round_idx": 0,
+    "from_node": "qFTn",
+    "to_node": "qFTn",
+    "contract": {
+      "contract_id": "DUBbhtXecr",
+      "task_clause": "A regular customer at a lounge is aware that the owner customarily keeps a gun hidden behind the bar. One night the customer was sitting at the bar and ordered a club soda. After serving him, the owner walked to the other end of the bar to wait on another customer. As he did so, the customer leaned over the bar and grabbed the gun. The customer pointed the gun at the owner and said, \"This is a robbery. . . hand over all your money. \"Knowing the gun was unloaded, the owner refused to comply. The customer dropped the gun and ran out of the bar. Besides larceny of the gun, the customer will be convicted of\nOption A: attempted larceny.\nOption B: attempted robbery.\nOption C: assault.\nOption D: assault and attempted larceny.\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 42
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773107327.772618,
+    "run_id": "FWfAiGVWGfYJ",
+    "round_idx": 1,
+    "from_node": "qFTn",
+    "to_node": "UfBU",
+    "contract": {
+      "contract_id": "wMrrm5HMmL",
+      "task_clause": "A regular customer at a lounge is aware that the owner customarily keeps a gun hidden behind the bar. One night the customer was sitting at the bar and ordered a club soda. After serving him, the owner walked to the other end of the bar to wait on another customer. As he did so, the customer leaned over the bar and grabbed the gun. The customer pointed the gun at the owner and said, \"This is a robbery. . . hand over all your money. \"Knowing the gun was unloaded, the owner refused to comply. The customer dropped the gun and ran out of the bar. Besides larceny of the gun, the customer will be convicted of\nOption A: attempted larceny.\nOption B: attempted robbery.\nOption C: assault.\nOption D: assault and attempted larceny.\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 42
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

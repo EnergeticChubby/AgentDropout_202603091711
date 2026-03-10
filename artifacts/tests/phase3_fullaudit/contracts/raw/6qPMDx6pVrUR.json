@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773107007.3683577,
+    "run_id": "6qPMDx6pVrUR",
+    "round_idx": 0,
+    "from_node": "8cWT",
+    "to_node": "8cWT",
+    "contract": {
+      "contract_id": "YBfcHoGRvN",
+      "task_clause": "Glycolysis is the name given to the pathway involving the conversion of:\nOption A: glycogen to glucose-1-phosphate.\nOption B: glycogen or glucose to fructose.\nOption C: glycogen or glucose to pyruvate or lactate.\nOption D: glycogen or glucose to pyruvate or acetyl CoA.\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 59
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773107007.368528,
+    "run_id": "6qPMDx6pVrUR",
+    "round_idx": 1,
+    "from_node": "8cWT",
+    "to_node": "ePAf",
+    "contract": {
+      "contract_id": "7rd5Ygp89u",
+      "task_clause": "Glycolysis is the name given to the pathway involving the conversion of:\nOption A: glycogen to glucose-1-phosphate.\nOption B: glycogen or glucose to fructose.\nOption C: glycogen or glucose to pyruvate or lactate.\nOption D: glycogen or glucose to pyruvate or acetyl CoA.\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 59
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

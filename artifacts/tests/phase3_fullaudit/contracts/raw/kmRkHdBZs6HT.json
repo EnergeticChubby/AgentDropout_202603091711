@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773106882.9098873,
+    "run_id": "kmRkHdBZs6HT",
+    "round_idx": 0,
+    "from_node": "rteL",
+    "to_node": "rteL",
+    "contract": {
+      "contract_id": "kivTYnhzdf",
+      "task_clause": "Which of the following muscles are derived from the first brachial arch?\nOption A: The muscles of mastication\nOption B: The muscles of mastication and anterior belly of digastric\nOption C: The muscles of mastication and anterior and posterior bellies of digastric\nOption D: The muscles of mastication, anterior and posterior bellies of digastric and geniohyoid\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 88
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773106882.910053,
+    "run_id": "kmRkHdBZs6HT",
+    "round_idx": 1,
+    "from_node": "rteL",
+    "to_node": "KBJH",
+    "contract": {
+      "contract_id": "wpLXZbAy97",
+      "task_clause": "Which of the following muscles are derived from the first brachial arch?\nOption A: The muscles of mastication\nOption B: The muscles of mastication and anterior belly of digastric\nOption C: The muscles of mastication and anterior and posterior bellies of digastric\nOption D: The muscles of mastication, anterior and posterior bellies of digastric and geniohyoid\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 88
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

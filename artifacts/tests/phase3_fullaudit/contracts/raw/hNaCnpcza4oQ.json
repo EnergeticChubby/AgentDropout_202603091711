@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773107156.6099823,
+    "run_id": "hNaCnpcza4oQ",
+    "round_idx": 0,
+    "from_node": "qFTn",
+    "to_node": "qFTn",
+    "contract": {
+      "contract_id": "BCgzobPTPp",
+      "task_clause": "For all real numbers $r$ and $s$, define the mathematical operation $\\#$ such that the following conditions apply: $r\\ \\#\\ 0 = r, r\\ \\#\\ s = s\\ \\#\\ r$, and $(r + 1)\\ \\#\\ s = (r\\ \\#\\ s) + s + 1$. What is the value of $11\\ \\#\\ 5$?\nOption A: 11\nOption B: 12\nOption C: 64\nOption D: 71\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 742
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773107156.6103778,
+    "run_id": "hNaCnpcza4oQ",
+    "round_idx": 1,
+    "from_node": "qFTn",
+    "to_node": "UfBU",
+    "contract": {
+      "contract_id": "AfueyQSe9c",
+      "task_clause": "For all real numbers $r$ and $s$, define the mathematical operation $\\#$ such that the following conditions apply: $r\\ \\#\\ 0 = r, r\\ \\#\\ s = s\\ \\#\\ r$, and $(r + 1)\\ \\#\\ s = (r\\ \\#\\ s) + s + 1$. What is the value of $11\\ \\#\\ 5$?\nOption A: 11\nOption B: 12\nOption C: 64\nOption D: 71\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 742
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

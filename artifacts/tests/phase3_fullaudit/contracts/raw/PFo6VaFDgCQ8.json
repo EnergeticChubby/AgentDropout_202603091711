@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773106880.4975173,
+    "run_id": "PFo6VaFDgCQ8",
+    "round_idx": 0,
+    "from_node": "RaPi",
+    "to_node": "RaPi",
+    "contract": {
+      "contract_id": "NPJLKAHFAY",
+      "task_clause": "A patient with damage to their cervical sympathetic chain will show the following signs and symptoms.\nOption A: Pupillary constriction\nOption B: Pupillary constriction and vasodilation of facial vessels\nOption C: Pupillary constriction, vasodilation of facial vessels and increased facial sweating\nOption D: Pupillary constriction, vasodilation of facial vessels, increased facial sweating and decreased lacrimation\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 217
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773106880.4977238,
+    "run_id": "PFo6VaFDgCQ8",
+    "round_idx": 1,
+    "from_node": "RaPi",
+    "to_node": "DtjM",
+    "contract": {
+      "contract_id": "FGYJxuC6wY",
+      "task_clause": "A patient with damage to their cervical sympathetic chain will show the following signs and symptoms.\nOption A: Pupillary constriction\nOption B: Pupillary constriction and vasodilation of facial vessels\nOption C: Pupillary constriction, vasodilation of facial vessels and increased facial sweating\nOption D: Pupillary constriction, vasodilation of facial vessels, increased facial sweating and decreased lacrimation\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 217
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

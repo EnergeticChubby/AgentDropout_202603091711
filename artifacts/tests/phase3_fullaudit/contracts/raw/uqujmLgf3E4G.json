@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773107263.3786821,
+    "run_id": "uqujmLgf3E4G",
+    "round_idx": 0,
+    "from_node": "rteL",
+    "to_node": "rteL",
+    "contract": {
+      "contract_id": "HPkHsC3Koe",
+      "task_clause": "What team has won the most World Series?\nOption A: Chicago Cubs\nOption B: Los Angeles Dodgers\nOption C: New York Yankees\nOption D: San Francisco Giants\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 122
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773107263.3788316,
+    "run_id": "uqujmLgf3E4G",
+    "round_idx": 1,
+    "from_node": "rteL",
+    "to_node": "KBJH",
+    "contract": {
+      "contract_id": "yumTa4MiBn",
+      "task_clause": "What team has won the most World Series?\nOption A: Chicago Cubs\nOption B: Los Angeles Dodgers\nOption C: New York Yankees\nOption D: San Francisco Giants\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 122
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

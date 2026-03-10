@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773107137.9683092,
+    "run_id": "NcNnTAyhtKoc",
+    "round_idx": 0,
+    "from_node": "8cWT",
+    "to_node": "8cWT",
+    "contract": {
+      "contract_id": "Yobzeh7yEx",
+      "task_clause": "Under what conditions is the net electric flux through a closed surface proportional to the enclosed charge?\nOption A: under any conditions\nOption B: only when the enclosed charge is symmetrically distributed\nOption C: only when all nearby charges are symmetrically distributed\nOption D: only when there are no charges outside the surface\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 510
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773107137.9686189,
+    "run_id": "NcNnTAyhtKoc",
+    "round_idx": 1,
+    "from_node": "8cWT",
+    "to_node": "ePAf",
+    "contract": {
+      "contract_id": "XhZqqZiDw6",
+      "task_clause": "Under what conditions is the net electric flux through a closed surface proportional to the enclosed charge?\nOption A: under any conditions\nOption B: only when the enclosed charge is symmetrically distributed\nOption C: only when all nearby charges are symmetrically distributed\nOption D: only when there are no charges outside the surface\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 510
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

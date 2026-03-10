@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773107151.8640463,
+    "run_id": "iugFcPxwusup",
+    "round_idx": 0,
+    "from_node": "z7yY",
+    "to_node": "z7yY",
+    "contract": {
+      "contract_id": "H5RT9ShdAd",
+      "task_clause": "A particle is subjected to a conservative force whose potential energy function is U(x) = (x \u2013 2)3 \u2013 12x where U is given in joules when x is measured in meters. Which of the following represents a position of stable equilibrium?\nOption A: x = \u20134\nOption B: x = \u20132\nOption C: x = 0\nOption D: x = 4\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 285
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773107151.864289,
+    "run_id": "iugFcPxwusup",
+    "round_idx": 1,
+    "from_node": "z7yY",
+    "to_node": "ujvF",
+    "contract": {
+      "contract_id": "ZveSKKA7fd",
+      "task_clause": "A particle is subjected to a conservative force whose potential energy function is U(x) = (x \u2013 2)3 \u2013 12x where U is given in joules when x is measured in meters. Which of the following represents a position of stable equilibrium?\nOption A: x = \u20134\nOption B: x = \u20132\nOption C: x = 0\nOption D: x = 4\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 285
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

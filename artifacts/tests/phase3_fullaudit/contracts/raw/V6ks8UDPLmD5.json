@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773107032.0120482,
+    "run_id": "V6ks8UDPLmD5",
+    "round_idx": 0,
+    "from_node": "RaPi",
+    "to_node": "RaPi",
+    "contract": {
+      "contract_id": "k6cuuq9CKh",
+      "task_clause": "Suppose A is a 3 \u00d7 3 matrix such that det(A \u2212 \u03bbI) = \u2212\u03bb^3 + 3\u03bb^2 + \u03bb \u2212 3, where I is the 3 \u00d7 3 identity matrix. Which of the following are TRUE of A?\nI. The trace of A is 3.\nII. The determinate of A is \u22123.\nIII. The matrix A has eigenvalues \u22123 and 1.\nOption A: I only\nOption B: II only\nOption C: III only\nOption D: I and II only\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 1683
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773107032.012355,
+    "run_id": "V6ks8UDPLmD5",
+    "round_idx": 1,
+    "from_node": "RaPi",
+    "to_node": "DtjM",
+    "contract": {
+      "contract_id": "bVAmf3hnup",
+      "task_clause": "Suppose A is a 3 \u00d7 3 matrix such that det(A \u2212 \u03bbI) = \u2212\u03bb^3 + 3\u03bb^2 + \u03bb \u2212 3, where I is the 3 \u00d7 3 identity matrix. Which of the following are TRUE of A?\nI. The trace of A is 3.\nII. The determinate of A is \u22123.\nIII. The matrix A has eigenvalues \u22123 and 1.\nOption A: I only\nOption B: II only\nOption C: III only\nOption D: I and II only\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 1683
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

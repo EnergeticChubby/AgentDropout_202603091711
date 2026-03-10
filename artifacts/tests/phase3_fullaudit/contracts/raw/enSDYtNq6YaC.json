@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773106883.0749938,
+    "run_id": "enSDYtNq6YaC",
+    "round_idx": 0,
+    "from_node": "z7yY",
+    "to_node": "z7yY",
+    "contract": {
+      "contract_id": "U89RPEPB9Q",
+      "task_clause": "A malignant tumour is damaging the patient's glossopharyngeal nerve. They will experience\nOption A: loss of taste over the anterior two-thirds of the tongue.\nOption B: loss of somaesthetic sensation over the anterior two thirds of the tongue.\nOption C: loss of taste and somaesthetic sensation over the posterior third of the tongue.\nOption D: paralysis of the muscles of the tongue.\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 294
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773106883.0752647,
+    "run_id": "enSDYtNq6YaC",
+    "round_idx": 1,
+    "from_node": "z7yY",
+    "to_node": "ujvF",
+    "contract": {
+      "contract_id": "q9fveR3P9U",
+      "task_clause": "A malignant tumour is damaging the patient's glossopharyngeal nerve. They will experience\nOption A: loss of taste over the anterior two-thirds of the tongue.\nOption B: loss of somaesthetic sensation over the anterior two thirds of the tongue.\nOption C: loss of taste and somaesthetic sensation over the posterior third of the tongue.\nOption D: paralysis of the muscles of the tongue.\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 294
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

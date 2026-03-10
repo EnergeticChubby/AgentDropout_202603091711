@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773107070.3728995,
+    "run_id": "SKtfcBRGTAn6",
+    "round_idx": 0,
+    "from_node": "8cWT",
+    "to_node": "8cWT",
+    "contract": {
+      "contract_id": "VphFV5uBYz",
+      "task_clause": "Nitrous acid is a weak acid, while nitric acid is a much stronger acid because\nOption A: the nitrogen in nitric acid is more electronegative than the nitrogen in nitrous acid\nOption B: nitric acid has more oxygen atoms in its formula\nOption C: the \u2013O\u2013H bonds in nitric acid are much weaker than in nitrous acid due to the electron withdrawing of more oxygen atoms on nitric acid\nOption D: nitric acid has the hydrogen atoms bound directly to the nitrogen atom\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 205
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773107070.3731635,
+    "run_id": "SKtfcBRGTAn6",
+    "round_idx": 1,
+    "from_node": "8cWT",
+    "to_node": "ePAf",
+    "contract": {
+      "contract_id": "Bup7e4LbG8",
+      "task_clause": "Nitrous acid is a weak acid, while nitric acid is a much stronger acid because\nOption A: the nitrogen in nitric acid is more electronegative than the nitrogen in nitrous acid\nOption B: nitric acid has more oxygen atoms in its formula\nOption C: the \u2013O\u2013H bonds in nitric acid are much weaker than in nitrous acid due to the electron withdrawing of more oxygen atoms on nitric acid\nOption D: nitric acid has the hydrogen atoms bound directly to the nitrogen atom\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 205
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773107275.524274,
+    "run_id": "tB7HySn2zrVr",
+    "round_idx": 0,
+    "from_node": "8cWT",
+    "to_node": "8cWT",
+    "contract": {
+      "contract_id": "HnN9u4Gyyt",
+      "task_clause": "An audit client has a valid reason for requesting that a certain account receivable that the auditor has selected for confirmation not be confirmed. Under these circumstances the auditor should\nOption A: Verify the account balance by inspecting the client's bank statements and cash receipt records.\nOption B: Select at random a different account for confirmation that is approximately the same size.\nOption C: Request the client's management to document the matter in the management representation letter.\nOption D: Explain to the client that the request will most likely cause the auditor to disclaim an opinion.\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 249
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773107275.524529,
+    "run_id": "tB7HySn2zrVr",
+    "round_idx": 1,
+    "from_node": "8cWT",
+    "to_node": "ePAf",
+    "contract": {
+      "contract_id": "s5AWMkdtHo",
+      "task_clause": "An audit client has a valid reason for requesting that a certain account receivable that the auditor has selected for confirmation not be confirmed. Under these circumstances the auditor should\nOption A: Verify the account balance by inspecting the client's bank statements and cash receipt records.\nOption B: Select at random a different account for confirmation that is approximately the same size.\nOption C: Request the client's management to document the matter in the management representation letter.\nOption D: Explain to the client that the request will most likely cause the auditor to disclaim an opinion.\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 249
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

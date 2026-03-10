@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773107092.4801514,
+    "run_id": "4ZXkQP8zQa7K",
+    "round_idx": 0,
+    "from_node": "YYAX",
+    "to_node": "YYAX",
+    "contract": {
+      "contract_id": "eHdbJUEA9S",
+      "task_clause": "Suppose that elected officials and the central bank agree to combine fiscal and monetary policies to lessen the threat of inflation. Which of the following combinations would likely accomplish this goal? FISCAL POLICY     MONETARY POLICY\nOption A: Decrease taxes     Increase the reserve ratio\nOption B: Decrease spending     Buy government securities\nOption C: Decrease taxes     Sell government securities\nOption D: Increase taxes     Increase the discount ratio\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 1676
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773107092.4804323,
+    "run_id": "4ZXkQP8zQa7K",
+    "round_idx": 1,
+    "from_node": "YYAX",
+    "to_node": "ei5M",
+    "contract": {
+      "contract_id": "uQLuWuRS2d",
+      "task_clause": "Suppose that elected officials and the central bank agree to combine fiscal and monetary policies to lessen the threat of inflation. Which of the following combinations would likely accomplish this goal? FISCAL POLICY     MONETARY POLICY\nOption A: Decrease taxes     Increase the reserve ratio\nOption B: Decrease spending     Buy government securities\nOption C: Decrease taxes     Sell government securities\nOption D: Increase taxes     Increase the discount ratio\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 1676
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

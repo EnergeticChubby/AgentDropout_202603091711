@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773107328.8759017,
+    "run_id": "xh3EqkoxsYGY",
+    "round_idx": 0,
+    "from_node": "qFTn",
+    "to_node": "qFTn",
+    "contract": {
+      "contract_id": "F6MBht86Bo",
+      "task_clause": "While performing an audit of the financial statements of a company for the year ended December 31, year 1, the auditor notes that the company\u2019s sales increased substantially in December, year 1, with a corresponding decrease in January, year 2. In assessing the risk of fraudulent financial reporting or misappropriation of assets, what should be the auditor\u2019s initial indication about the potential for fraud in sales revenue?\nOption A: There is a broad indication of misappropriation of assets.\nOption B: There is an indication of theft of the entity\u2019s assets.\nOption C: There is an indication of embezzling receipts.\nOption D: There is a broad indication of financial reporting fraud.\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 334
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773107328.8760822,
+    "run_id": "xh3EqkoxsYGY",
+    "round_idx": 1,
+    "from_node": "qFTn",
+    "to_node": "UfBU",
+    "contract": {
+      "contract_id": "9tJegNE6iz",
+      "task_clause": "While performing an audit of the financial statements of a company for the year ended December 31, year 1, the auditor notes that the company\u2019s sales increased substantially in December, year 1, with a corresponding decrease in January, year 2. In assessing the risk of fraudulent financial reporting or misappropriation of assets, what should be the auditor\u2019s initial indication about the potential for fraud in sales revenue?\nOption A: There is a broad indication of misappropriation of assets.\nOption B: There is an indication of theft of the entity\u2019s assets.\nOption C: There is an indication of embezzling receipts.\nOption D: There is a broad indication of financial reporting fraud.\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 334
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

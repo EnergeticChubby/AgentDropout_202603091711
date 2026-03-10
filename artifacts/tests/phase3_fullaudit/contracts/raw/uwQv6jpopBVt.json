@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773106896.7735016,
+    "run_id": "uwQv6jpopBVt",
+    "round_idx": 0,
+    "from_node": "6ZQU",
+    "to_node": "6ZQU",
+    "contract": {
+      "contract_id": "VdckCg2WWo",
+      "task_clause": "Which one of the following statements about the growth of the mandible is correct?\nOption A: The mental symphysis closes at about 1 year postnatally\nOption B: The condylar growth cartilage ceases activity at puberty\nOption C: The ossification centre appears about 8 weeks I.U.L medial to Meckel's cartilage\nOption D: The functional matrix acting on the angle of the mandible is the lateral pterygoid muscle\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 216
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773106896.77371,
+    "run_id": "uwQv6jpopBVt",
+    "round_idx": 1,
+    "from_node": "6ZQU",
+    "to_node": "ScdH",
+    "contract": {
+      "contract_id": "EWWEyxX5H3",
+      "task_clause": "Which one of the following statements about the growth of the mandible is correct?\nOption A: The mental symphysis closes at about 1 year postnatally\nOption B: The condylar growth cartilage ceases activity at puberty\nOption C: The ossification centre appears about 8 weeks I.U.L medial to Meckel's cartilage\nOption D: The functional matrix acting on the angle of the mandible is the lateral pterygoid muscle\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 216
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

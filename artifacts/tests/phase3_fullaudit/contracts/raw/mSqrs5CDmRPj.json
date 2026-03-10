@@ -1,0 +1,54 @@
+[
+  {
+    "timestamp": 1773107095.9415193,
+    "run_id": "mSqrs5CDmRPj",
+    "round_idx": 1,
+    "from_node": "n6RJ",
+    "to_node": "CyeL",
+    "contract": {
+      "contract_id": "bCmjDjj7i9",
+      "task_clause": " S Select the best translation into predicate logic. Some kind people help some endangered species. (Ex: x is endangered; Kx: x is kind; Px: x is a person; Sx: x is a species; Hxy: x helps y)\nOption A: (\u2203x){(Kx \u2022 Px) \u2022 (\u2203y)[(Ey \u2022 Sy) \u2022 Hxy]}\nOption B: (\u2203x)(\u2203y){[(Kx \u2022 Sx) \u2022 (Ey \u2022 Py)] \u2022 Hxy}\nOption C: (\u2203x)(\u2203y){[(Kx \u2022 Sx) \u2022 (Ey \u2022 Py)] \u2022 Hyx}\nOption D: (\u2203x)(\u2203y){[(Kx \u2022 Px) \u2022 (Ey \u2022 Sy)] \u2283 Hxy}\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": false,
+      "violations": [
+        "empty_deliverable"
+      ],
+      "details": {
+        "output_length": 0
+      }
+    },
+    "dispute": {
+      "action": "rework",
+      "reason": "empty_deliverable",
+      "metadata": {
+        "rollback_to": "upstream_node"
+      }
+    }
+  }
+]

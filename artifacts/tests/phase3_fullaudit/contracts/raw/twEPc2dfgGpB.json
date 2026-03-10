@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773107327.4788318,
+    "run_id": "twEPc2dfgGpB",
+    "round_idx": 0,
+    "from_node": "RaPi",
+    "to_node": "RaPi",
+    "contract": {
+      "contract_id": "qLzF53nDMC",
+      "task_clause": "Which of the following applies to an accountant conducting a review of interim financial information?\nOption A: The accountant must indicate in the report those circumstances in which generally accepted accounting principles have not been consistently observed in the current period in relation to the preceding period.\nOption B: The accountant must express an opinion on the financial statements taken as a whole.\nOption C: The accountant must maintain independence in mental attitude in all matters relating to the engagement.\nOption D: The accountant must obtain sufficient appropriate evidence by performing procedures to afford a reasonable basis for an opinion.\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 221
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773107327.479086,
+    "run_id": "twEPc2dfgGpB",
+    "round_idx": 1,
+    "from_node": "RaPi",
+    "to_node": "DtjM",
+    "contract": {
+      "contract_id": "in4XGDmMAT",
+      "task_clause": "Which of the following applies to an accountant conducting a review of interim financial information?\nOption A: The accountant must indicate in the report those circumstances in which generally accepted accounting principles have not been consistently observed in the current period in relation to the preceding period.\nOption B: The accountant must express an opinion on the financial statements taken as a whole.\nOption C: The accountant must maintain independence in mental attitude in all matters relating to the engagement.\nOption D: The accountant must obtain sufficient appropriate evidence by performing procedures to afford a reasonable basis for an opinion.\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 221
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]
