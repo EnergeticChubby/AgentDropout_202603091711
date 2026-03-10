@@ -27,11 +27,28 @@ python3 experiments/run_mmlu.py \
 
 ## Result
 
+### A) Original AgentDropout with training (`--optimized_spatial --optimized_temporal`)
+
 - Final score from script stdout:
   - `Score: 0.6993464052287581`
   - Equivalent accuracy on the evaluated set: **69.93% (107/153)**
 - Output record file:
   - `result/mmlu/mmlu_llama3_2026-03-10-07-23-57.json`
+
+### B) Original AgentDropout without training (inference-only baseline)
+
+- Final score from script stdout:
+  - `Score: 0.6535947712418301`
+  - Equivalent accuracy on the evaluated set: **65.36% (100/153)**
+- Output record file:
+  - `result/mmlu/mmlu_llama3_2026-03-10-10-13-11.json`
+
+### Quick comparison
+
+| Setting | Score | Accuracy |
+|---|---:|---:|
+| Original + Training | 0.6993 | 69.93% |
+| Original (No Training) | 0.6536 | 65.36% |
 
 ## Key Diagnostic Finding
 
