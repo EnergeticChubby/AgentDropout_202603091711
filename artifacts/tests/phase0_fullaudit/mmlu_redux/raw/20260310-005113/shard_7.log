@@ -1,0 +1,34 @@
+Traceback (most recent call last):
+  File "/workspace/experiments/run_mmlu.py", line 234, in <module>
+    asyncio.run(main())
+  File "/usr/lib/python3.12/asyncio/runners.py", line 194, in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/asyncio/base_events.py", line 687, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "/workspace/experiments/run_mmlu.py", line 93, in main
+    graph = Graph(domain=args.domain,
+            ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/AgentDropout/graph/graph.py", line 117, in __init__
+    self.init_nodes() # add nodes to the self.nodes
+    ^^^^^^^^^^^^^^^^^
+  File "/workspace/AgentDropout/graph/graph.py", line 200, in init_nodes
+    agent_instance = AgentRegistry.get(agent_name, **kwargs)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/AgentDropout/agents/agent_registry.py", line 27, in get
+    return cls.registry.get(name, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/.local/lib/python3.12/site-packages/class_registry/registry.py", line 114, in get
+    return self.create_instance(self.get_class(key), *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/.local/lib/python3.12/site-packages/class_registry/registry.py", line 145, in create_instance
+    return class_(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/AgentDropout/agents/math_solver.py", line 17, in __init__
+    self.constraint = self.prompt_set.get_constraint(self.role) 
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: MMLUPromptSet.get_constraint() takes 0 positional arguments but 1 was given
