@@ -1,5 +1,8 @@
 import sys, os
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+REPO_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
+sys.path.insert(0, REPO_ROOT)
+sys.path.insert(0, os.path.join(REPO_ROOT, "datasets"))
+sys.path.insert(0, os.path.join(REPO_ROOT, "datasets", "MMLU"))
 sys.stdout.reconfigure(encoding='utf-8')
 
 import asyncio
@@ -8,8 +11,10 @@ import argparse
 import random
 
 from AgentDropout.graph.graph import Graph
-from datasets.mmlu_dataset import MMLUDataset
-from datasets.MMLU.download import download
+from AgentDropout.agents.analyze_agent import AnalyzeAgent  # noqa: F401
+from AgentDropout.agents.final_decision import FinalDirect, FinalMajorVote, FinalRefer  # noqa: F401
+from mmlu_dataset import MMLUDataset
+from download import download
 from experiments.train_mmlu import train
 from experiments.evaluate_mmlu import evaluate
 from AgentDropout.utils.const import AgentPrune_ROOT
