@@ -55,14 +55,30 @@ def configure_openai_endpoint(base_url: str, api_key: str) -> None:
 #                 raise Exception("api error")
 
 @retry(wait=wait_random_exponential(max=100), stop=stop_after_attempt(3))
-async def achat(model: str, msg: List[Dict],):
+async def achat(
+    model: str,
+    msg: List[Dict],
+    max_tokens: Optional[int] = None,
+    temperature: Optional[float] = None,
+    num_comps: Optional[int] = None,
+):
     if not MINE_BASE_URL or not MINE_API_KEYS:
         raise RuntimeError("MINE_BASE_URL or MINE_API_KEYS is not configured.")
     api_kwargs = dict(api_key = MINE_API_KEYS, base_url = MINE_BASE_URL)
     aclient = AsyncOpenAI(**api_kwargs)
     try:
         async with async_timeout.timeout(1000):
-            completion = await aclient.chat.completions.create(model=model,messages=msg)
+            request_kwargs: Dict[str, Any] = {
+                "model": model,
+                "messages": msg,
+            }
+            if max_tokens is not None:
+                request_kwargs["max_tokens"] = max_tokens
+            if temperature is not None:
+                request_kwargs["temperature"] = temperature
+            if num_comps is not None and num_comps > 1:
+                request_kwargs["n"] = num_comps
+            completion = await aclient.chat.completions.create(**request_kwargs)
         response_message = None
         if isinstance(completion, str):
             response_message = completion
@@ -143,6 +159,7 @@ class GPTChat(LLM):
 
         if max_tokens is None:
             max_tokens = self.DEFAULT_MAX_TOKENS
+        max_tokens = min(max_tokens, 256)
         if temperature is None:
             temperature = self.DEFAULT_TEMPERATURE
         if num_comps is None:
@@ -150,7 +167,13 @@ class GPTChat(LLM):
         
         if isinstance(messages, str):
             messages = [Message(role="user", content=messages)]
-        return await achat(self.model_name,messages)
+        return await achat(
+            self.model_name,
+            messages,
+            max_tokens=max_tokens,
+            temperature=temperature,
+            num_comps=num_comps,
+        )
     
     def gen(
         self,
