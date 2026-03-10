@@ -1,0 +1,198 @@
+{
+  "R9GCBWhtEBgc": {
+    "proposition_id": "R9GCBWhtEBgc",
+    "text": "@root set@, @heap@, @call stack@, @global variables@, @active procedures@, @garbage collector@",
+    "source_node": "Yn8W",
+    "source_role": "Knowlegable Expert",
+    "confidence": 0.5,
+    "status": "belief",
+    "scope": "pairwise",
+    "dependencies": [],
+    "evidence": [],
+    "metadata": {
+      "round": 0
+    }
+  },
+  "2MNETAj4GwLG": {
+    "proposition_id": "2MNETAj4GwLG",
+    "text": "Let's analyze each option:",
+    "source_node": "Yn8W",
+    "source_role": "Knowlegable Expert",
+    "confidence": 0.5,
+    "status": "belief",
+    "scope": "pairwise",
+    "dependencies": [],
+    "evidence": [],
+    "metadata": {
+      "round": 0
+    }
+  },
+  "YphMTNGxEGcd": {
+    "proposition_id": "YphMTNGxEGcd",
+    "text": "- Global variables of the program (@global variables@): These are a part of the root set as they can be accessed from anywhere in the program",
+    "source_node": "Yn8W",
+    "source_role": "Knowlegable Expert",
+    "confidence": 0.5,
+    "status": "belief",
+    "scope": "pairwise",
+    "dependencies": [],
+    "evidence": [],
+    "metadata": {
+      "round": 0
+    }
+  },
+  "iDNrU8BL2YHL": {
+    "proposition_id": "iDNrU8BL2YHL",
+    "text": "- Actual parameters of the active procedures (@active procedures@): Parameters passed to procedures (functions) should also be included in the root set because they can be referenced in the procedure and thus considered roots",
+    "source_node": "Yn8W",
+    "source_role": "Knowlegable Expert",
+    "confidence": 0.5,
+    "status": "belief",
+    "scope": "pairwise",
+    "dependencies": [],
+    "evidence": [],
+    "metadata": {
+      "round": 0
+    }
+  },
+  "XLuT6xD84PxD": {
+    "proposition_id": "XLuT6xD84PxD",
+    "text": "- Dynamically allocated objects on the heap (@heap@): These should not be included directly in the root set as they are objects that are being tracked for garbage collection",
+    "source_node": "Yn8W",
+    "source_role": "Knowlegable Expert",
+    "confidence": 0.5,
+    "status": "belief",
+    "scope": "pairwise",
+    "dependencies": [],
+    "evidence": [],
+    "metadata": {
+      "round": 0
+    }
+  },
+  "9cbuwzo3TuAe": {
+    "proposition_id": "9cbuwzo3TuAe",
+    "text": "- Local variables on the call stack (@call stack@): These are part of the root set because local variables in each stack frame can be accessed from their corresponding procedures",
+    "source_node": "Yn8W",
+    "source_role": "Knowlegable Expert",
+    "confidence": 0.5,
+    "status": "belief",
+    "scope": "pairwise",
+    "dependencies": [],
+    "evidence": [],
+    "metadata": {
+      "round": 0
+    }
+  },
+  "uDsENSghtLTh": {
+    "proposition_id": "uDsENSghtLTh",
+    "text": "The correct answer is @Dynamically allocated objects on the heap@",
+    "source_node": "Yn8W",
+    "source_role": "Knowlegable Expert",
+    "confidence": 0.5,
+    "status": "belief",
+    "scope": "pairwise",
+    "dependencies": [],
+    "evidence": [],
+    "metadata": {
+      "round": 0
+    }
+  },
+  "SYSiBi3bVQX8": {
+    "proposition_id": "SYSiBi3bVQX8",
+    "text": "@root set@, @heap@, @call stack@, @global variables@, @active procedures@, @garbage collector@",
+    "source_node": "UkGV",
+    "source_role": "",
+    "confidence": 0.5,
+    "status": "belief",
+    "scope": "pairwise",
+    "dependencies": [],
+    "evidence": [],
+    "metadata": {
+      "round": 1
+    }
+  },
+  "YaEjAZtrjTAT": {
+    "proposition_id": "YaEjAZtrjTAT",
+    "text": "Let's analyze each option:",
+    "source_node": "UkGV",
+    "source_role": "",
+    "confidence": 0.5,
+    "status": "belief",
+    "scope": "pairwise",
+    "dependencies": [],
+    "evidence": [],
+    "metadata": {
+      "round": 1
+    }
+  },
+  "zEELPqz3zAWk": {
+    "proposition_id": "zEELPqz3zAWk",
+    "text": "- Global variables of the program (@global variables@): These are a part of the root set as they can be accessed from anywhere in the program",
+    "source_node": "UkGV",
+    "source_role": "",
+    "confidence": 0.5,
+    "status": "belief",
+    "scope": "pairwise",
+    "dependencies": [],
+    "evidence": [],
+    "metadata": {
+      "round": 1
+    }
+  },
+  "g9uHvXmJFEzr": {
+    "proposition_id": "g9uHvXmJFEzr",
+    "text": "- Actual parameters of the active procedures (@active procedures@): Parameters passed to procedures (functions) should also be included in the root set because they can be referenced in the procedure and thus considered roots",
+    "source_node": "UkGV",
+    "source_role": "",
+    "confidence": 0.5,
+    "status": "belief",
+    "scope": "pairwise",
+    "dependencies": [],
+    "evidence": [],
+    "metadata": {
+      "round": 1
+    }
+  },
+  "LhvtUgWHYwtK": {
+    "proposition_id": "LhvtUgWHYwtK",
+    "text": "- Dynamically allocated objects on the heap (@heap@): These should not be included directly in the root set as they are objects that are being tracked for garbage collection",
+    "source_node": "UkGV",
+    "source_role": "",
+    "confidence": 0.5,
+    "status": "belief",
+    "scope": "pairwise",
+    "dependencies": [],
+    "evidence": [],
+    "metadata": {
+      "round": 1
+    }
+  },
+  "3usSgNV8aBRK": {
+    "proposition_id": "3usSgNV8aBRK",
+    "text": "- Local variables on the call stack (@call stack@): These are part of the root set because local variables in each stack frame can be accessed from their corresponding procedures",
+    "source_node": "UkGV",
+    "source_role": "",
+    "confidence": 0.5,
+    "status": "belief",
+    "scope": "pairwise",
+    "dependencies": [],
+    "evidence": [],
+    "metadata": {
+      "round": 1
+    }
+  },
+  "gNozj9zuGrvG": {
+    "proposition_id": "gNozj9zuGrvG",
+    "text": "The correct answer is @Dynamically allocated objects on the heap@",
+    "source_node": "UkGV",
+    "source_role": "",
+    "confidence": 0.5,
+    "status": "belief",
+    "scope": "pairwise",
+    "dependencies": [],
+    "evidence": [],
+    "metadata": {
+      "round": 1
+    }
+  }
+}
