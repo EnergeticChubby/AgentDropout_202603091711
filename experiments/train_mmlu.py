@@ -49,7 +49,7 @@ async def train(graph:Graph,
             correct_answers = []
             answer_log_probs = []
             add_losses = []
-            for i_record, record in zip(range(20), loader):
+            for i_record, record in zip(range(batch_size), loader):
                 realized_graph = copy.deepcopy(graph)
                 realized_graph.spatial_logits_1 = graph.spatial_logits_1
                 realized_graph.temporal_logits_1 = graph.temporal_logits_1
@@ -163,7 +163,7 @@ async def train(graph:Graph,
         correct_answers = []
         answer_log_probs = []
         add_losses = []
-        for i_record, record in zip(range(10), loader):
+        for i_record, record in zip(range(batch_size), loader):
             realized_graph = copy.deepcopy(graph)
             realized_graph.spatial_logits = graph.spatial_logits
             realized_graph.temporal_logits = graph.temporal_logits

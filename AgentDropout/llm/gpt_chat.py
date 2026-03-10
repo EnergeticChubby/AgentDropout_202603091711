@@ -95,6 +95,9 @@ async def achat(
             response_message = str(completion)
         
         if isinstance(response_message, str):
+            normalized = response_message.strip().lower()
+            if normalized.startswith("<!doctype html") or normalized.startswith("<html"):
+                raise RuntimeError("Received HTML response instead of chat completion.")
             prompt = "".join([item['content'] for item in msg])
             cost_count(prompt, response_message, model)
             return response_message
