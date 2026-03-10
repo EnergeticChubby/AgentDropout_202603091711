@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773106699.2918086,
+    "run_id": "hzeP4aAnjGiK",
+    "round_idx": 0,
+    "from_node": "Yn8W",
+    "to_node": "Yn8W",
+    "contract": {
+      "contract_id": "6VWFh5MJCx",
+      "task_clause": "Surveys of older adults who are living together show that they tend to view cohabitation as\nOption A: A first step toward eventual marriage\nOption B: An alternative to marriage\nOption C: A way to save on expenses\nOption D: Their swan song\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 99
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773106699.2936125,
+    "run_id": "hzeP4aAnjGiK",
+    "round_idx": 1,
+    "from_node": "Yn8W",
+    "to_node": "UkGV",
+    "contract": {
+      "contract_id": "u7WcXZ69EU",
+      "task_clause": "Surveys of older adults who are living together show that they tend to view cohabitation as\nOption A: A first step toward eventual marriage\nOption B: An alternative to marriage\nOption C: A way to save on expenses\nOption D: Their swan song\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 99
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

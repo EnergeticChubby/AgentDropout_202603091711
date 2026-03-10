@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773106619.412141,
+    "run_id": "b6AHPLuY7PiE",
+    "round_idx": 0,
+    "from_node": "zoCn",
+    "to_node": "zoCn",
+    "contract": {
+      "contract_id": "fdHdsEGFxz",
+      "task_clause": "Which of the following is characteristic of a centrally planned economic system?\nOption A: Resources are allocated based on relative prices.\nOption B: The circular flow of goods and services minimizes the role of the federal government.\nOption C: Private ownership of resources is fundamental to economic growth.\nOption D: Government planners decide how best to produce goods and services.\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 312
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773106619.412396,
+    "run_id": "b6AHPLuY7PiE",
+    "round_idx": 1,
+    "from_node": "zoCn",
+    "to_node": "Gie8",
+    "contract": {
+      "contract_id": "E77gYs9o4D",
+      "task_clause": "Which of the following is characteristic of a centrally planned economic system?\nOption A: Resources are allocated based on relative prices.\nOption B: The circular flow of goods and services minimizes the role of the federal government.\nOption C: Private ownership of resources is fundamental to economic growth.\nOption D: Government planners decide how best to produce goods and services.\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 312
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

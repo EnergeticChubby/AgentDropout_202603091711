@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773106554.0746639,
+    "run_id": "zgHmBPZUC7pT",
+    "round_idx": 0,
+    "from_node": "9DvT",
+    "to_node": "9DvT",
+    "contract": {
+      "contract_id": "ReQqvgUpAH",
+      "task_clause": "What do the terms apartheid, ethnic cleansing, and integration all have in common?\nOption A: They all occurred in Nazi Germany during World War I.\nOption B: They are all forms of residential segregation.\nOption C: They are all ways to integrate different ethnic populations in neighborhoods.\nOption D: They are different expressions for the same concept.\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 355
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773106554.074923,
+    "run_id": "zgHmBPZUC7pT",
+    "round_idx": 1,
+    "from_node": "9DvT",
+    "to_node": "MRBq",
+    "contract": {
+      "contract_id": "sWJNKbTH84",
+      "task_clause": "What do the terms apartheid, ethnic cleansing, and integration all have in common?\nOption A: They all occurred in Nazi Germany during World War I.\nOption B: They are all forms of residential segregation.\nOption C: They are all ways to integrate different ethnic populations in neighborhoods.\nOption D: They are different expressions for the same concept.\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 355
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

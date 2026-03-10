@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773106762.8897161,
+    "run_id": "jegeXwmWdZMT",
+    "round_idx": 0,
+    "from_node": "9DvT",
+    "to_node": "9DvT",
+    "contract": {
+      "contract_id": "7ddWGDUM2o",
+      "task_clause": "Which of the following steps in the design of a dog house would be earliest?\nOption A: Acquiring all the tools necessary for the building\nOption B: Purchasing all the materials for building the structure\nOption C: Identifying the color, shape, and style of the exterior surface\nOption D: Accessing the measurements of the dog and all the interior materials\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 386
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773106762.889889,
+    "run_id": "jegeXwmWdZMT",
+    "round_idx": 1,
+    "from_node": "9DvT",
+    "to_node": "MRBq",
+    "contract": {
+      "contract_id": "WRz9whh2X3",
+      "task_clause": "Which of the following steps in the design of a dog house would be earliest?\nOption A: Acquiring all the tools necessary for the building\nOption B: Purchasing all the materials for building the structure\nOption C: Identifying the color, shape, and style of the exterior surface\nOption D: Accessing the measurements of the dog and all the interior materials\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 386
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

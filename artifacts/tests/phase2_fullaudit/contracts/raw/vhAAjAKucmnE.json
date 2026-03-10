@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773105610.3005054,
+    "run_id": "vhAAjAKucmnE",
+    "round_idx": 0,
+    "from_node": "yyrC",
+    "to_node": "yyrC",
+    "contract": {
+      "contract_id": "mcm4PL6Rd9",
+      "task_clause": "You are training a linear regression model for a simple estimation task, and notice that the model is overfitting to the data. You decide to add in $\\ell_2$ regularization to penalize the weights. As you increase the $\\ell_2$ regularization coefficient, what will happen to the bias and variance of the model?\nOption A: Bias increase ; Variance increase\nOption B: Bias increase ; Variance decrease\nOption C: Bias decrease ; Variance increase\nOption D: Bias decrease ; Variance decrease\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 869
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773105610.3007774,
+    "run_id": "vhAAjAKucmnE",
+    "round_idx": 1,
+    "from_node": "yyrC",
+    "to_node": "jWnD",
+    "contract": {
+      "contract_id": "yFeigtDmH9",
+      "task_clause": "You are training a linear regression model for a simple estimation task, and notice that the model is overfitting to the data. You decide to add in $\\ell_2$ regularization to penalize the weights. As you increase the $\\ell_2$ regularization coefficient, what will happen to the bias and variance of the model?\nOption A: Bias increase ; Variance increase\nOption B: Bias increase ; Variance decrease\nOption C: Bias decrease ; Variance increase\nOption D: Bias decrease ; Variance decrease\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 869
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

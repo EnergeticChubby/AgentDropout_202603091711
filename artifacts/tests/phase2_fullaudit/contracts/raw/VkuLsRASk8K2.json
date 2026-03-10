@@ -1,0 +1,54 @@
+[
+  {
+    "timestamp": 1773106730.501168,
+    "run_id": "VkuLsRASk8K2",
+    "round_idx": 1,
+    "from_node": "rNED",
+    "to_node": "33ar",
+    "contract": {
+      "contract_id": "KGhfwcDadR",
+      "task_clause": "The genetic fallacy consists of\nOption A: arguing that a conclusion should be made based on feeling sorry for someone when that feeling is irrelevant to the conclusion\nOption B: responding to charges of wrongdoing by saying the accuser does something just as bad\nOption C: arguing that an idea should be accepted or rejected based only on who originated the idea.\nOption D: causing confusion during refutation because of a real or feigned lack of ability to engage in refutation\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": false,
+      "violations": [
+        "empty_deliverable"
+      ],
+      "details": {
+        "output_length": 0
+      }
+    },
+    "dispute": {
+      "action": "rework",
+      "reason": "empty_deliverable",
+      "metadata": {
+        "rollback_to": "upstream_node"
+      }
+    }
+  }
+]

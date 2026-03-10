@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773106426.589982,
+    "run_id": "ciaCnxkyYUP6",
+    "round_idx": 0,
+    "from_node": "aq9d",
+    "to_node": "aq9d",
+    "contract": {
+      "contract_id": "NnhFWAnABX",
+      "task_clause": "How do scientists know that the majority of meteorites come from the asteroid belt?\nOption A: Bubbles of gas trapped in the crystals within meteorites are identical to the gases trapped in asteroids.\nOption B: The spectra of some meteorites are similar to the spectra of asteroids in the asteroid belt.\nOption C: Collisions are common in the asteroid belt and we can track the fragments from their source asteroid to the Earth where they become meteorites.\nOption D: The asteroid belt is the only possible source of meteorites therefore they must originate there.\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 464
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773106426.590297,
+    "run_id": "ciaCnxkyYUP6",
+    "round_idx": 1,
+    "from_node": "aq9d",
+    "to_node": "npyR",
+    "contract": {
+      "contract_id": "wBM9QmYuCb",
+      "task_clause": "How do scientists know that the majority of meteorites come from the asteroid belt?\nOption A: Bubbles of gas trapped in the crystals within meteorites are identical to the gases trapped in asteroids.\nOption B: The spectra of some meteorites are similar to the spectra of asteroids in the asteroid belt.\nOption C: Collisions are common in the asteroid belt and we can track the fragments from their source asteroid to the Earth where they become meteorites.\nOption D: The asteroid belt is the only possible source of meteorites therefore they must originate there.\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 464
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

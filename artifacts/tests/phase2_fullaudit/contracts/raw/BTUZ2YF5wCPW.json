@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773106791.2289605,
+    "run_id": "BTUZ2YF5wCPW",
+    "round_idx": 0,
+    "from_node": "RspS",
+    "to_node": "RspS",
+    "contract": {
+      "contract_id": "rFScrWHP4u",
+      "task_clause": "After graduating from law school, a graduate moved to a city where she had been offered a position in an entertainment law firm. When she arrived, the graduate was told that her job was contingent on passing the state bar examination, which was being offered in July. In preparing for the bar examination, the graduate planned to take a bar review course. Although she had not pre-enrolled, the graduate planned to attend and pay for the course at registration. On the morning the course was set to begin, the graduate arrived late after getting stuck in freeway traffic. By the time the graduate got to the course location, registration had already been completed. When the graduate looked into the room where the course was being conducted, she saw the lecture had begun, and everyone was inside bu",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 529
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773106791.2292237,
+    "run_id": "BTUZ2YF5wCPW",
+    "round_idx": 1,
+    "from_node": "RspS",
+    "to_node": "NWcH",
+    "contract": {
+      "contract_id": "RpHHs4BBMU",
+      "task_clause": "After graduating from law school, a graduate moved to a city where she had been offered a position in an entertainment law firm. When she arrived, the graduate was told that her job was contingent on passing the state bar examination, which was being offered in July. In preparing for the bar examination, the graduate planned to take a bar review course. Although she had not pre-enrolled, the graduate planned to attend and pay for the course at registration. On the morning the course was set to begin, the graduate arrived late after getting stuck in freeway traffic. By the time the graduate got to the course location, registration had already been completed. When the graduate looked into the room where the course was being conducted, she saw the lecture had begun, and everyone was inside bu",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 529
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

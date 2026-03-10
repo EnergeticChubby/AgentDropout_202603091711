@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773105562.989144,
+    "run_id": "yva3T3azHuye",
+    "round_idx": 0,
+    "from_node": "DcnU",
+    "to_node": "DcnU",
+    "contract": {
+      "contract_id": "6kNVphh666",
+      "task_clause": "The quadratic $2x^2+5x+12=19-7x$ has two solutions. What is the positive difference between these solutions?\nOption A: 2\nOption B: \\sqrt{2}\nOption C: 5\\sqrt{2}\nOption D: 5\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 114
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773105562.9898212,
+    "run_id": "yva3T3azHuye",
+    "round_idx": 1,
+    "from_node": "DcnU",
+    "to_node": "4TBG",
+    "contract": {
+      "contract_id": "aSh6bVFdoP",
+      "task_clause": "The quadratic $2x^2+5x+12=19-7x$ has two solutions. What is the positive difference between these solutions?\nOption A: 2\nOption B: \\sqrt{2}\nOption C: 5\\sqrt{2}\nOption D: 5\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 114
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

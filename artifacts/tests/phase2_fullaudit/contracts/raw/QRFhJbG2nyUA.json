@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773106662.1237957,
+    "run_id": "QRFhJbG2nyUA",
+    "round_idx": 0,
+    "from_node": "rNED",
+    "to_node": "rNED",
+    "contract": {
+      "contract_id": "T6p2ENQTaW",
+      "task_clause": "A sphere starts from rest atop a hill with a constant angle of inclination and is allowed to roll without slipping down the hill. What force provides the torque that causes the sphere to rotate?\nOption A: Static friction\nOption B: Kinetic friction\nOption C: The normal force of the hill on the sphere\nOption D: Gravity\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 213
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773106662.1239638,
+    "run_id": "QRFhJbG2nyUA",
+    "round_idx": 1,
+    "from_node": "rNED",
+    "to_node": "33ar",
+    "contract": {
+      "contract_id": "P6Bvd4cFY3",
+      "task_clause": "A sphere starts from rest atop a hill with a constant angle of inclination and is allowed to roll without slipping down the hill. What force provides the torque that causes the sphere to rotate?\nOption A: Static friction\nOption B: Kinetic friction\nOption C: The normal force of the hill on the sphere\nOption D: Gravity\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 213
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

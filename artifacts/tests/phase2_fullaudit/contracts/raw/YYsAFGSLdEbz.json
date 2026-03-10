@@ -1,0 +1,54 @@
+[
+  {
+    "timestamp": 1773105582.7833362,
+    "run_id": "YYsAFGSLdEbz",
+    "round_idx": 1,
+    "from_node": "bTv2",
+    "to_node": "hvoN",
+    "contract": {
+      "contract_id": "jVmUDDHfx3",
+      "task_clause": "A telephone survey of 400 registered voters showed that 256 had not yet made up their minds 1 month before the election. How sure can we be that between 60% and 68% of the electorate were still undecided at that time?\nOption A: 2.4%\nOption B: 8.0%\nOption C: 64.0%\nOption D: 90.4%\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": false,
+      "violations": [
+        "empty_deliverable"
+      ],
+      "details": {
+        "output_length": 0
+      }
+    },
+    "dispute": {
+      "action": "rework",
+      "reason": "empty_deliverable",
+      "metadata": {
+        "rollback_to": "upstream_node"
+      }
+    }
+  }
+]

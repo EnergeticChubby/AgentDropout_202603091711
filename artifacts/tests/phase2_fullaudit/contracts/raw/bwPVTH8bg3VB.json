@@ -1,0 +1,54 @@
+[
+  {
+    "timestamp": 1773105573.7307112,
+    "run_id": "bwPVTH8bg3VB",
+    "round_idx": 1,
+    "from_node": "bTv2",
+    "to_node": "hvoN",
+    "contract": {
+      "contract_id": "WfB2kSpyZA",
+      "task_clause": "The school principal has to have three different teachers speak at the graduation ceremony\u2014one as the opener, one as the name-reader, and one as the closer. There are 85 teachers on staff. How many possible speaking lineups can the principal have?\nOption A: 592,620\nOption B: 592,704\nOption C: 614,125\nOption D: 614,126\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": false,
+      "violations": [
+        "empty_deliverable"
+      ],
+      "details": {
+        "output_length": 0
+      }
+    },
+    "dispute": {
+      "action": "rework",
+      "reason": "empty_deliverable",
+      "metadata": {
+        "rollback_to": "upstream_node"
+      }
+    }
+  }
+]

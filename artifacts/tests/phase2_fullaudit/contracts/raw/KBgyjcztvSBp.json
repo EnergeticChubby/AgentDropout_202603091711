@@ -1,0 +1,54 @@
+[
+  {
+    "timestamp": 1773106732.5783153,
+    "run_id": "KBgyjcztvSBp",
+    "round_idx": 1,
+    "from_node": "rNED",
+    "to_node": "33ar",
+    "contract": {
+      "contract_id": "v6YnKA4hsS",
+      "task_clause": "Say the incidence of a disease D is about 5 cases per 100 people (i.e., P(D) = 0.05). Let Boolean random variable D mean a patient \u201chas disease D\u201d and let Boolean random variable TP stand for \"tests positive.\" Tests for disease D are known to be very accurate in the sense that the probability of testing positive when you have the disease is 0.99, and the probability of testing negative when you do not have the disease is 0.97. What is P(D | TP), the posterior probability that you have disease D when the test is positive?\nOption A: 0.0495\nOption B: 0.078\nOption C: 0.635\nOption D: 0.97\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": false,
+      "violations": [
+        "empty_deliverable"
+      ],
+      "details": {
+        "output_length": 0
+      }
+    },
+    "dispute": {
+      "action": "rework",
+      "reason": "empty_deliverable",
+      "metadata": {
+        "rollback_to": "upstream_node"
+      }
+    }
+  }
+]

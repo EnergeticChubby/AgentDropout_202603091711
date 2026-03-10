@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773106784.5217795,
+    "run_id": "QXeUAmupcNBU",
+    "round_idx": 0,
+    "from_node": "rNED",
+    "to_node": "rNED",
+    "contract": {
+      "contract_id": "HgML5QnsRf",
+      "task_clause": "Gamma Co. a manufacturer of medical products had a 10% return on assets and an asset turnover of 4:1. What was Gamma's profit margin on sales?\nOption A: 40.00%\nOption B: 10.00%\nOption C: 4.00%\nOption D: 0.025\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 323
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773106784.522053,
+    "run_id": "QXeUAmupcNBU",
+    "round_idx": 1,
+    "from_node": "rNED",
+    "to_node": "33ar",
+    "contract": {
+      "contract_id": "NWSt96XMQN",
+      "task_clause": "Gamma Co. a manufacturer of medical products had a 10% return on assets and an asset turnover of 4:1. What was Gamma's profit margin on sales?\nOption A: 40.00%\nOption B: 10.00%\nOption C: 4.00%\nOption D: 0.025\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 323
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773106619.0876744,
+    "run_id": "6aVnj9iume8B",
+    "round_idx": 0,
+    "from_node": "zoCn",
+    "to_node": "zoCn",
+    "contract": {
+      "contract_id": "fQLkNNxEEi",
+      "task_clause": "Which of the following is true of automatic fiscal policy stabilizers?\nOption A: For a given level of government spending they produce a deficit during a recession and a surplus during an expansion.\nOption B: They serve to prolong recessionary and inflationary periods.\nOption C: The regressive tax system is a fundamental component of automatic stabilizers.\nOption D: For a given level of government spending they produce a surplus during a recession and a surplus during an expansion.\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 307
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773106619.0879223,
+    "run_id": "6aVnj9iume8B",
+    "round_idx": 1,
+    "from_node": "zoCn",
+    "to_node": "Gie8",
+    "contract": {
+      "contract_id": "NcgFkvat5e",
+      "task_clause": "Which of the following is true of automatic fiscal policy stabilizers?\nOption A: For a given level of government spending they produce a deficit during a recession and a surplus during an expansion.\nOption B: They serve to prolong recessionary and inflationary periods.\nOption C: The regressive tax system is a fundamental component of automatic stabilizers.\nOption D: For a given level of government spending they produce a surplus during a recession and a surplus during an expansion.\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 307
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

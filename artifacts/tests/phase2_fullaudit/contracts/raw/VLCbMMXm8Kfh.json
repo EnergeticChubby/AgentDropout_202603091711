@@ -1,0 +1,54 @@
+[
+  {
+    "timestamp": 1773106578.451811,
+    "run_id": "VLCbMMXm8Kfh",
+    "round_idx": 1,
+    "from_node": "Yn8W",
+    "to_node": "UkGV",
+    "contract": {
+      "contract_id": "pLGVpGkV3Y",
+      "task_clause": " Select the best translation into predicate logic. All children go to some school. (Cx: x is a child; Sx: x is a school; Gxy: x goes to y)\nOption A: (\u2200x)(\u2203y)[(Cx \u2022 Sy) \u2022 Gxy)\nOption B: (\u2200x)[Sx \u2283 (\u2203y)(Cy \u2022 Gxy)]\nOption C: (\u2200x)[Cx \u2283 (\u2203y)(Sy \u2022 Gxy)]\nOption D: (\u2200x)[Sx \u2022 (\u2203y)(Cy \u2022 Gxy)]\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": false,
+      "violations": [
+        "empty_deliverable"
+      ],
+      "details": {
+        "output_length": 0
+      }
+    },
+    "dispute": {
+      "action": "rework",
+      "reason": "empty_deliverable",
+      "metadata": {
+        "rollback_to": "upstream_node"
+      }
+    }
+  }
+]

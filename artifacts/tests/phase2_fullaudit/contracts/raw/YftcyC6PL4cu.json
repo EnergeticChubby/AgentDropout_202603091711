@@ -1,0 +1,54 @@
+[
+  {
+    "timestamp": 1773105577.5812414,
+    "run_id": "YftcyC6PL4cu",
+    "round_idx": 1,
+    "from_node": "sd6E",
+    "to_node": "kaAi",
+    "contract": {
+      "contract_id": "DGmEHE2SfN",
+      "task_clause": "A study looked at medical records of about 23,000 patients, mostly in Asia. They found that patients who drank at least three cups of green tea per day had a much lower incidence of depression. In an American newspaper article about this study, which of the following statements should not be made?\nOption A: It is possible that people who drink green tea also tend to have healthier lifestyles than those who don't.\nOption B: It is possible that people who drink green tea also tend to have a more positive outlook on life than those who don't.\nOption C: Because this is observational data, the association between drinking green tea and a lower incidence of depression is not an indication of a causal relationship.\nOption D: People who want to avoid depression should consider drinking green tea o",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": false,
+      "violations": [
+        "empty_deliverable"
+      ],
+      "details": {
+        "output_length": 0
+      }
+    },
+    "dispute": {
+      "action": "rework",
+      "reason": "empty_deliverable",
+      "metadata": {
+        "rollback_to": "upstream_node"
+      }
+    }
+  }
+]

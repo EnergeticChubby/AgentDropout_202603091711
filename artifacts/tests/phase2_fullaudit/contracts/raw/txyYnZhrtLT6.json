@@ -1,0 +1,54 @@
+[
+  {
+    "timestamp": 1773106528.5825708,
+    "run_id": "txyYnZhrtLT6",
+    "round_idx": 1,
+    "from_node": "RspS",
+    "to_node": "NWcH",
+    "contract": {
+      "contract_id": "kN9rXozrR9",
+      "task_clause": "Myoclonic epilepsy and ragged-red fiber (MERRF) is an extremely rare disorder that affects neuromuscular systems. MERRF results from a mutation in mitochondrial DNA (mtDNA) that impairs protein synthesis, oxygen consumption, and energy production. When an affected male and a normal female reproduce, which of the following best predicts the expected phenotypic ratios of the offspring?\nOption A: None of the offspring will be affected\nOption B: All males and no females will be affected\nOption C: Half of males and half of females will be affected\nOption D: One-fourth of the offspring will be affected\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": false,
+      "violations": [
+        "empty_deliverable"
+      ],
+      "details": {
+        "output_length": 0
+      }
+    },
+    "dispute": {
+      "action": "rework",
+      "reason": "empty_deliverable",
+      "metadata": {
+        "rollback_to": "upstream_node"
+      }
+    }
+  }
+]

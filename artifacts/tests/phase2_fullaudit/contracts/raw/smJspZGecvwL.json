@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773106612.4198103,
+    "run_id": "smJspZGecvwL",
+    "round_idx": 0,
+    "from_node": "aUhM",
+    "to_node": "aUhM",
+    "contract": {
+      "contract_id": "XSStsWeWXB",
+      "task_clause": "All of the following are non-basic jobs in the city EXCEPT\nOption A: city firefighter.\nOption B: social worker.\nOption C: dry cleaner.\nOption D: garment factory worker.\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 200
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773106612.4199684,
+    "run_id": "smJspZGecvwL",
+    "round_idx": 1,
+    "from_node": "aUhM",
+    "to_node": "9JKj",
+    "contract": {
+      "contract_id": "Qkz4vtVUYy",
+      "task_clause": "All of the following are non-basic jobs in the city EXCEPT\nOption A: city firefighter.\nOption B: social worker.\nOption C: dry cleaner.\nOption D: garment factory worker.\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 200
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

@@ -1,0 +1,54 @@
+[
+  {
+    "timestamp": 1773106507.0976822,
+    "run_id": "K66zxCNbdz4P",
+    "round_idx": 1,
+    "from_node": "aq9d",
+    "to_node": "npyR",
+    "contract": {
+      "contract_id": "LCQPfSLuEF",
+      "task_clause": "Walking down a street late at night, an adult male pedestrian notices a young female on the ground, not moving. The female is on the opposite side of the street. Crossing the street, the pedestrian notices that the young woman appears both much wealthier than he is and is of a different ethnicity. Seeing no one else present, the pedestrian renders aid. According to the bystander effect, which of the following would change how the pedestrian reacts?\nOption A: The person requiring aid appearing to be of a lower socioeconomic class rather than a higher one\nOption B: The presence of another group of people one block up the street\nOption C: The person requiring aid appearing to be the same ethnicity rather than a different one\nOption D: The presence of one other person who is already approachin",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": false,
+      "violations": [
+        "empty_deliverable"
+      ],
+      "details": {
+        "output_length": 0
+      }
+    },
+    "dispute": {
+      "action": "rework",
+      "reason": "empty_deliverable",
+      "metadata": {
+        "rollback_to": "upstream_node"
+      }
+    }
+  }
+]

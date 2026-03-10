@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773106561.8886187,
+    "run_id": "8kC7mXdXoouD",
+    "round_idx": 0,
+    "from_node": "aq9d",
+    "to_node": "aq9d",
+    "contract": {
+      "contract_id": "nTMwDxAQTa",
+      "task_clause": "In a lap winding dc machine number of conductors are 100 and number of parallel paths are 10. Find the average pitch\nOption A: 10\nOption B: 100\nOption C: 50\nOption D: 1\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 188
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773106561.8891678,
+    "run_id": "8kC7mXdXoouD",
+    "round_idx": 1,
+    "from_node": "aq9d",
+    "to_node": "npyR",
+    "contract": {
+      "contract_id": "FoWuh8H8qJ",
+      "task_clause": "In a lap winding dc machine number of conductors are 100 and number of parallel paths are 10. Find the average pitch\nOption A: 10\nOption B: 100\nOption C: 50\nOption D: 1\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 188
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

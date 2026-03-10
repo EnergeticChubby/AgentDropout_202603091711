@@ -1,0 +1,54 @@
+[
+  {
+    "timestamp": 1773106815.9866827,
+    "run_id": "LRrbXjt9z9J7",
+    "round_idx": 1,
+    "from_node": "Yn8W",
+    "to_node": "UkGV",
+    "contract": {
+      "contract_id": "mSreVH9oXL",
+      "task_clause": "In which one of the following situations would the defendant most likely be found guilty of felony murder?\nOption A: A baseball fan traveled all night to the stadium, planning to purchase tickets from a scalper at the stadium. However, the fan arrived at the stadium after the game had started, and no tickets were available. He proceeded to sneak around the guard at the entrance gate and illegally entered the stadium. He watched the remainder of the game in the standing room only section. The fan became so enraged when the opposition took the lead in the ninth inning that he pulled out a gun from under his jacket and aimed it at the section of spectators in front of him. Before he could be subdued he had fired three shots, killing one person and severely injuring another.\nOption B: A custom",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": false,
+      "violations": [
+        "empty_deliverable"
+      ],
+      "details": {
+        "output_length": 0
+      }
+    },
+    "dispute": {
+      "action": "rework",
+      "reason": "empty_deliverable",
+      "metadata": {
+        "rollback_to": "upstream_node"
+      }
+    }
+  }
+]

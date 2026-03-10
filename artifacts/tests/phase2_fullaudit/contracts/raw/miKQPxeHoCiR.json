@@ -1,0 +1,54 @@
+[
+  {
+    "timestamp": 1773106659.8592103,
+    "run_id": "miKQPxeHoCiR",
+    "round_idx": 1,
+    "from_node": "aq9d",
+    "to_node": "npyR",
+    "contract": {
+      "contract_id": "QkL3B7nJsE",
+      "task_clause": "This question refers to the following information.\n\"With 78 percent of the Union electorate casting ballots, Lincoln was reelected in an Electoral College landslide, 212 to McClellan's 21. The 55% popular vote for the president was the third largest in the nineteenth century, surpassed only by Jackson's first victory in 1828 and Grant's reelection in 1872. McClellan won only New Jersey, Delaware, and Kentucky. Republicans drew support from native-born farmers, skilled and professional workers, those of New England descent, younger voters, and military personnel. Democrats were strongest in the cities and among Irish- and German-Americans (the most populous immigrant groups). It has been estimated that Lincoln received 78% of the vote of Union soldiers and sailors. The figure was not necess",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": false,
+      "violations": [
+        "empty_deliverable"
+      ],
+      "details": {
+        "output_length": 0
+      }
+    },
+    "dispute": {
+      "action": "rework",
+      "reason": "empty_deliverable",
+      "metadata": {
+        "rollback_to": "upstream_node"
+      }
+    }
+  }
+]

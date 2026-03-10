@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773105354.5755565,
+    "run_id": "6GRvznGiFMyw",
+    "round_idx": 0,
+    "from_node": "bTv2",
+    "to_node": "bTv2",
+    "contract": {
+      "contract_id": "SrYx9unLjT",
+      "task_clause": "A radioactive isotope, which is used in diagnostic imaging, has a half-life of 6.0 hours. If a quantity of this isotope has an activity of 150 mCi when it is delivered to a hospital, how much activity will remain 24 hours after delivery? (mCi = microcuries)\nOption A: 150 mCi\nOption B: 38 mCi\nOption C: 19 mCi\nOption D: 9.4 mCi\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 872
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773105354.5758688,
+    "run_id": "6GRvznGiFMyw",
+    "round_idx": 1,
+    "from_node": "bTv2",
+    "to_node": "hvoN",
+    "contract": {
+      "contract_id": "Moda5GGiHc",
+      "task_clause": "A radioactive isotope, which is used in diagnostic imaging, has a half-life of 6.0 hours. If a quantity of this isotope has an activity of 150 mCi when it is delivered to a hospital, how much activity will remain 24 hours after delivery? (mCi = microcuries)\nOption A: 150 mCi\nOption B: 38 mCi\nOption C: 19 mCi\nOption D: 9.4 mCi\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 872
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

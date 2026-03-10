@@ -1,0 +1,54 @@
+[
+  {
+    "timestamp": 1773105570.4983087,
+    "run_id": "BHi8gKohgkhe",
+    "round_idx": 1,
+    "from_node": "DcnU",
+    "to_node": "4TBG",
+    "contract": {
+      "contract_id": "MFrMqNZawJ",
+      "task_clause": "Which of the following is NOT a characteristic of a city in the developing world?\nOption A: Contains modern centers of commerce\nOption B: Has a well-developed infrastructure\nOption C: Experiences large in-migrations of rural people into the city\nOption D: Produces a large share of its country's GDI\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": false,
+      "violations": [
+        "empty_deliverable"
+      ],
+      "details": {
+        "output_length": 0
+      }
+    },
+    "dispute": {
+      "action": "rework",
+      "reason": "empty_deliverable",
+      "metadata": {
+        "rollback_to": "upstream_node"
+      }
+    }
+  }
+]

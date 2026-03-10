@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773106620.4759297,
+    "run_id": "59QKfvxHEck6",
+    "round_idx": 0,
+    "from_node": "zoCn",
+    "to_node": "zoCn",
+    "contract": {
+      "contract_id": "Bn6cHNFLwH",
+      "task_clause": "The GDP Deflator I. is used to calculate inflation rates. II. is an alternative to the CPI. III. is more accurate than the CPI.\nOption A: Only I is true.\nOption B: I and II are true.\nOption C: I and III are true.\nOption D: II and III are true.\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 750
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773106620.4764206,
+    "run_id": "59QKfvxHEck6",
+    "round_idx": 1,
+    "from_node": "zoCn",
+    "to_node": "Gie8",
+    "contract": {
+      "contract_id": "e8bSxYD7qr",
+      "task_clause": "The GDP Deflator I. is used to calculate inflation rates. II. is an alternative to the CPI. III. is more accurate than the CPI.\nOption A: Only I is true.\nOption B: I and II are true.\nOption C: I and III are true.\nOption D: II and III are true.\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 750
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

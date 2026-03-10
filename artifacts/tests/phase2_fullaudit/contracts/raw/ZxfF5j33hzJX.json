@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773105689.2776856,
+    "run_id": "ZxfF5j33hzJX",
+    "round_idx": 0,
+    "from_node": "yyrC",
+    "to_node": "yyrC",
+    "contract": {
+      "contract_id": "ryTJzuxVTQ",
+      "task_clause": "Which of these definitions best describes the 'spiral of silence'?\nOption A: When victims of abuse remain silent about the abuse\nOption B: When people hide their opinions if they do not agree with the majority\nOption C: When people hide their opinions if they are in disagreement with their close peers or family members\nOption D: When public relations uses opinion poll results to generate support for a particular issue\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 146
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773105689.2859976,
+    "run_id": "ZxfF5j33hzJX",
+    "round_idx": 1,
+    "from_node": "yyrC",
+    "to_node": "jWnD",
+    "contract": {
+      "contract_id": "hguT4GEgbP",
+      "task_clause": "Which of these definitions best describes the 'spiral of silence'?\nOption A: When victims of abuse remain silent about the abuse\nOption B: When people hide their opinions if they do not agree with the majority\nOption C: When people hide their opinions if they are in disagreement with their close peers or family members\nOption D: When public relations uses opinion poll results to generate support for a particular issue\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 146
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

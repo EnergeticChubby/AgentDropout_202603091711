@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773105687.8993459,
+    "run_id": "rFTtcadPSnom",
+    "round_idx": 0,
+    "from_node": "yyrC",
+    "to_node": "yyrC",
+    "contract": {
+      "contract_id": "kHWYbrWbvB",
+      "task_clause": "A plaintiff sued a defendant in connection with the dissolution of a partnership they had formed to run a parcel delivery service. They had relied on a business attorney in establishing the business. After the business failed, the plaintiff and the defendant disagreed about their respective obligations. At trial, both have hired new counsel. The plaintiff calls the business attorney to testify to representations the defendant made in meetings she had with the plaintiff and the business attorney. The defendant objects to the business attorney's testimony, invoking the attorney-client privilege. Should the court uphold the defendant's privilege claim?\nOption A: No, because the business attorney's professional relationship with the plaintiff and the defendant has ended.\nOption B: No, because ",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 134
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773105687.8994932,
+    "run_id": "rFTtcadPSnom",
+    "round_idx": 1,
+    "from_node": "yyrC",
+    "to_node": "jWnD",
+    "contract": {
+      "contract_id": "FWDst7AxaX",
+      "task_clause": "A plaintiff sued a defendant in connection with the dissolution of a partnership they had formed to run a parcel delivery service. They had relied on a business attorney in establishing the business. After the business failed, the plaintiff and the defendant disagreed about their respective obligations. At trial, both have hired new counsel. The plaintiff calls the business attorney to testify to representations the defendant made in meetings she had with the plaintiff and the business attorney. The defendant objects to the business attorney's testimony, invoking the attorney-client privilege. Should the court uphold the defendant's privilege claim?\nOption A: No, because the business attorney's professional relationship with the plaintiff and the defendant has ended.\nOption B: No, because ",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 134
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

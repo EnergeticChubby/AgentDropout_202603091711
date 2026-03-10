@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773106619.191075,
+    "run_id": "WzUCz4T9Putj",
+    "round_idx": 0,
+    "from_node": "zoCn",
+    "to_node": "zoCn",
+    "contract": {
+      "contract_id": "2uz98j42ZF",
+      "task_clause": "If g (x) = f (\u2013x) for all real numbers x, and if (3, 2) is a point on the graph of g, which of the following points MUST be on the graph of f ?\nOption A: (3, 2)\nOption B: (3, \u20132)\nOption C: (\u20133, 2)\nOption D: (\u20133, \u20132)\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 206
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773106619.1912344,
+    "run_id": "WzUCz4T9Putj",
+    "round_idx": 1,
+    "from_node": "zoCn",
+    "to_node": "Gie8",
+    "contract": {
+      "contract_id": "LfoTjnRDU9",
+      "task_clause": "If g (x) = f (\u2013x) for all real numbers x, and if (3, 2) is a point on the graph of g, which of the following points MUST be on the graph of f ?\nOption A: (3, 2)\nOption B: (3, \u20132)\nOption C: (\u20133, 2)\nOption D: (\u20133, \u20132)\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 206
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

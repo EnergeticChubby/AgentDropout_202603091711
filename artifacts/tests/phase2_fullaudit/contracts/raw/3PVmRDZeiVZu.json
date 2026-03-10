@@ -1,0 +1,54 @@
+[
+  {
+    "timestamp": 1773106654.8874154,
+    "run_id": "3PVmRDZeiVZu",
+    "round_idx": 1,
+    "from_node": "aq9d",
+    "to_node": "npyR",
+    "contract": {
+      "contract_id": "8G4X6dfddt",
+      "task_clause": "A car rounds a banked curve of uniform radius. Three forces act on the car: a friction force between the tires and the road, the normal force from the road, and the weight of the car. Which provides the centripetal force which keeps the car in circular motion?\nOption A: the friction force alone\nOption B: the normal force alone\nOption C: the weight alone\nOption D: a combination of the normal force and the friction force\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": false,
+      "violations": [
+        "empty_deliverable"
+      ],
+      "details": {
+        "output_length": 0
+      }
+    },
+    "dispute": {
+      "action": "rework",
+      "reason": "empty_deliverable",
+      "metadata": {
+        "rollback_to": "upstream_node"
+      }
+    }
+  }
+]

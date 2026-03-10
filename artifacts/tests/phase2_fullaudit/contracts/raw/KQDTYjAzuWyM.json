@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773106622.0759625,
+    "run_id": "KQDTYjAzuWyM",
+    "round_idx": 0,
+    "from_node": "aUhM",
+    "to_node": "aUhM",
+    "contract": {
+      "contract_id": "wwygQ55zhH",
+      "task_clause": "An ideal battery of constant voltage V supplies current to a circuit that has total resistance R. If R is doubled, what will happen to the total power dissipated by the circuit?\nOption A: It will double.\nOption B: It will quadruple.\nOption C: It will be halved.\nOption D: It will remain the same.\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 306
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773106622.0762262,
+    "run_id": "KQDTYjAzuWyM",
+    "round_idx": 1,
+    "from_node": "aUhM",
+    "to_node": "9JKj",
+    "contract": {
+      "contract_id": "kYtHvx9CXf",
+      "task_clause": "An ideal battery of constant voltage V supplies current to a circuit that has total resistance R. If R is doubled, what will happen to the total power dissipated by the circuit?\nOption A: It will double.\nOption B: It will quadruple.\nOption C: It will be halved.\nOption D: It will remain the same.\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 306
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

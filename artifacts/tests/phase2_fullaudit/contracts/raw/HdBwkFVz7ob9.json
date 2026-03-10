@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773106519.8162591,
+    "run_id": "HdBwkFVz7ob9",
+    "round_idx": 0,
+    "from_node": "zoCn",
+    "to_node": "zoCn",
+    "contract": {
+      "contract_id": "mW65K6HkYY",
+      "task_clause": "In which of the following Asian countries would one find special economic zones (SEZs)?\nOption A: Japan\nOption B: South Korea\nOption C: China\nOption D: Vietnam\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 252
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773106519.8164015,
+    "run_id": "HdBwkFVz7ob9",
+    "round_idx": 1,
+    "from_node": "zoCn",
+    "to_node": "Gie8",
+    "contract": {
+      "contract_id": "FPaZnBp3u3",
+      "task_clause": "In which of the following Asian countries would one find special economic zones (SEZs)?\nOption A: Japan\nOption B: South Korea\nOption C: China\nOption D: Vietnam\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 252
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

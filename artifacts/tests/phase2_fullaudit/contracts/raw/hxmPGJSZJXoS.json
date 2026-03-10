@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773105751.6750748,
+    "run_id": "hxmPGJSZJXoS",
+    "round_idx": 0,
+    "from_node": "3DZy",
+    "to_node": "3DZy",
+    "contract": {
+      "contract_id": "HuMCTi44dv",
+      "task_clause": "A supermarket had just reopened after a two- week closing for renovations. On the morning of the reopening, a woman was shopping when she suddenly fell and suffered a broken leg. Thereafter, the woman sued the supermarket for personal injuries. In her suit, the woman claimed that she tripped over a paint bucket that had been lying in one of the aisles. At trial, the woman called another customer to testify that while he was shopping he heard a thud, turned around and saw the woman fall on the floor. He also testified that he saw an empty paint bucket lying a few feet from the woman's leg. On cross- examination, the customer got into an argumentative exchange with the supermarket's attorney. When asked his opinion of what caused the woman's fall, the customer testified, \"She fell because sh",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 477
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773105751.675258,
+    "run_id": "hxmPGJSZJXoS",
+    "round_idx": 1,
+    "from_node": "3DZy",
+    "to_node": "YzdL",
+    "contract": {
+      "contract_id": "XDCVSVaPSF",
+      "task_clause": "A supermarket had just reopened after a two- week closing for renovations. On the morning of the reopening, a woman was shopping when she suddenly fell and suffered a broken leg. Thereafter, the woman sued the supermarket for personal injuries. In her suit, the woman claimed that she tripped over a paint bucket that had been lying in one of the aisles. At trial, the woman called another customer to testify that while he was shopping he heard a thud, turned around and saw the woman fall on the floor. He also testified that he saw an empty paint bucket lying a few feet from the woman's leg. On cross- examination, the customer got into an argumentative exchange with the supermarket's attorney. When asked his opinion of what caused the woman's fall, the customer testified, \"She fell because sh",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 477
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

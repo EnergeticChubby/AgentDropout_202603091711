@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773105668.7191803,
+    "run_id": "TyBUD3BJ4znc",
+    "round_idx": 0,
+    "from_node": "3DZy",
+    "to_node": "3DZy",
+    "contract": {
+      "contract_id": "9P5dDFzWse",
+      "task_clause": "When speaking with an older adults with some hearing loss, you should\nOption A: Speak a little slower than normal\nOption B: Speak loudly into their best ear\nOption C: Face them so they can watch your lips\nOption D: Ask another person to translate\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 141
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773105668.7193851,
+    "run_id": "TyBUD3BJ4znc",
+    "round_idx": 1,
+    "from_node": "3DZy",
+    "to_node": "YzdL",
+    "contract": {
+      "contract_id": "uozZ42Rf7n",
+      "task_clause": "When speaking with an older adults with some hearing loss, you should\nOption A: Speak a little slower than normal\nOption B: Speak loudly into their best ear\nOption C: Face them so they can watch your lips\nOption D: Ask another person to translate\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 141
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

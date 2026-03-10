@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773106363.6249661,
+    "run_id": "JDkinVJUCFPj",
+    "round_idx": 0,
+    "from_node": "zoCn",
+    "to_node": "zoCn",
+    "contract": {
+      "contract_id": "ar8heXkSmi",
+      "task_clause": "Assume that a debugger places a breakpoint at a load instruction at virtual address 0x77E81234 (hexadecimal notation) in a debugged process P. If the text segment of P begins at 0x77E80000 in P\u2019s virtual address space and if the debugger has mapped this same text segment at 0x01000000 in its virtual address space, which of the following is the virtual address used by the debugger in its WRITE operation, along with a description of how the debugger has mapped the virtual memory page containing this address?\nOption A: 0x01001234; page mapped with READ/WRITE access\nOption B: 0x01001234; page mapped with COPY-ON-WRITE access\nOption C: 0x76E81234; page mapped with READ/WRITE access\nOption D: 0x76E81234; page mapped with COPY-ON-WRITE access\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 282
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773106363.6263611,
+    "run_id": "JDkinVJUCFPj",
+    "round_idx": 1,
+    "from_node": "zoCn",
+    "to_node": "Gie8",
+    "contract": {
+      "contract_id": "e2Le5tZfQ7",
+      "task_clause": "Assume that a debugger places a breakpoint at a load instruction at virtual address 0x77E81234 (hexadecimal notation) in a debugged process P. If the text segment of P begins at 0x77E80000 in P\u2019s virtual address space and if the debugger has mapped this same text segment at 0x01000000 in its virtual address space, which of the following is the virtual address used by the debugger in its WRITE operation, along with a description of how the debugger has mapped the virtual memory page containing this address?\nOption A: 0x01001234; page mapped with READ/WRITE access\nOption B: 0x01001234; page mapped with COPY-ON-WRITE access\nOption C: 0x76E81234; page mapped with READ/WRITE access\nOption D: 0x76E81234; page mapped with COPY-ON-WRITE access\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 282
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

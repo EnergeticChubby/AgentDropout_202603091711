@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773105332.5805542,
+    "run_id": "HBjp5iXoeusk",
+    "round_idx": 0,
+    "from_node": "oszy",
+    "to_node": "oszy",
+    "contract": {
+      "contract_id": "EQjkVqFAoG",
+      "task_clause": "Which of these features suggest that a pulsation in the neck is arterial?\nOption A: A waggling earlobe\nOption B: Positive for hepatojugular reflux\nOption C: No variation with posture\nOption D: Pressure in the root of the neck reduces the impulse\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 369
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773105332.581871,
+    "run_id": "HBjp5iXoeusk",
+    "round_idx": 1,
+    "from_node": "oszy",
+    "to_node": "f3Es",
+    "contract": {
+      "contract_id": "ajgBCaeotu",
+      "task_clause": "Which of these features suggest that a pulsation in the neck is arterial?\nOption A: A waggling earlobe\nOption B: Positive for hepatojugular reflux\nOption C: No variation with posture\nOption D: Pressure in the root of the neck reduces the impulse\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 369
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

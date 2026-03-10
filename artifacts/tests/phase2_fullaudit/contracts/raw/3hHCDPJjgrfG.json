@@ -1,0 +1,54 @@
+[
+  {
+    "timestamp": 1773106424.364004,
+    "run_id": "3hHCDPJjgrfG",
+    "round_idx": 1,
+    "from_node": "aq9d",
+    "to_node": "npyR",
+    "contract": {
+      "contract_id": "wzy2AHYUyH",
+      "task_clause": "When the Heisenberg uncertainty principle is applied to a quantum mechanical particle in the lowest energy level of a one-dimensional box, which of the following is true?\nOption A: Momentum is known exactly, but no information about position can be known.\nOption B: Position is known exactly, but no information about momentum can be known.\nOption C: No information about either position or momentum can be known.\nOption D: Neither position nor momentum can be known exactly.\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": false,
+      "violations": [
+        "empty_deliverable"
+      ],
+      "details": {
+        "output_length": 0
+      }
+    },
+    "dispute": {
+      "action": "rework",
+      "reason": "empty_deliverable",
+      "metadata": {
+        "rollback_to": "upstream_node"
+      }
+    }
+  }
+]

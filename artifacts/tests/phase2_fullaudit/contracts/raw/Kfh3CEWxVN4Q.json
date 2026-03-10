@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773105403.6843243,
+    "run_id": "Kfh3CEWxVN4Q",
+    "round_idx": 0,
+    "from_node": "DcnU",
+    "to_node": "DcnU",
+    "contract": {
+      "contract_id": "bH5S2XtD4f",
+      "task_clause": "The optimum position for performing CPR is to position the patient:\nOption A: in a semi-recumbent posture.\nOption B: tilted to the left to keep the heart perfused.\nOption C: flat on a firm surface.\nOption D: on the floor with the legs raised.\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 251
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773105403.6845605,
+    "run_id": "Kfh3CEWxVN4Q",
+    "round_idx": 1,
+    "from_node": "DcnU",
+    "to_node": "4TBG",
+    "contract": {
+      "contract_id": "QMQt57H3ap",
+      "task_clause": "The optimum position for performing CPR is to position the patient:\nOption A: in a semi-recumbent posture.\nOption B: tilted to the left to keep the heart perfused.\nOption C: flat on a firm surface.\nOption D: on the floor with the legs raised.\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 251
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

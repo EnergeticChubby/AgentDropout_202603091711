@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773106650.3527715,
+    "run_id": "Shupwrpxk7Vd",
+    "round_idx": 0,
+    "from_node": "9DvT",
+    "to_node": "9DvT",
+    "contract": {
+      "contract_id": "mtN9TjW3sZ",
+      "task_clause": "Which of the following is a binomial random variable?\nOption A: The number of tosses before a \"5\" appears when tossing a fair die.\nOption B: The number of points a hockey team receives in 10 games, where two points are awarded for wins, one point for ties, and no points for losses.\nOption C: The number of hearts out of five cards randomly drawn from a deck of 52 cards, without replacement.\nOption D: The number of motorists not wearing seat belts in a random sample of five drivers.\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 1627
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773106650.353075,
+    "run_id": "Shupwrpxk7Vd",
+    "round_idx": 1,
+    "from_node": "9DvT",
+    "to_node": "MRBq",
+    "contract": {
+      "contract_id": "gzrexwTEAf",
+      "task_clause": "Which of the following is a binomial random variable?\nOption A: The number of tosses before a \"5\" appears when tossing a fair die.\nOption B: The number of points a hockey team receives in 10 games, where two points are awarded for wins, one point for ties, and no points for losses.\nOption C: The number of hearts out of five cards randomly drawn from a deck of 52 cards, without replacement.\nOption D: The number of motorists not wearing seat belts in a random sample of five drivers.\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 1627
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

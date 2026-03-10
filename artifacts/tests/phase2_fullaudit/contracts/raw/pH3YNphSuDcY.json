@@ -1,0 +1,54 @@
+[
+  {
+    "timestamp": 1773106486.1228285,
+    "run_id": "pH3YNphSuDcY",
+    "round_idx": 1,
+    "from_node": "aq9d",
+    "to_node": "npyR",
+    "contract": {
+      "contract_id": "8PASUm2ERJ",
+      "task_clause": "Let M be a 5 x 5 real matrix. Exactly four of the following five conditions on M are equivalent to each other. Which of the five conditions is equivalent to NONE of the other four?\nOption A: For any two distinct column vectors u and v of M, the set {u, v} is linearly independent.\nOption B: The homogeneous system Mx = 0 has only the trivial solution.\nOption C: The system of equations Mx = b has a unique solution for each real 5 x 1 column vector b.\nOption D: The determinant of M is nonzero.\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": false,
+      "violations": [
+        "empty_deliverable"
+      ],
+      "details": {
+        "output_length": 0
+      }
+    },
+    "dispute": {
+      "action": "rework",
+      "reason": "empty_deliverable",
+      "metadata": {
+        "rollback_to": "upstream_node"
+      }
+    }
+  }
+]

@@ -1,0 +1,54 @@
+[
+  {
+    "timestamp": 1773105720.5050359,
+    "run_id": "YZQx8z4aCvR4",
+    "round_idx": 1,
+    "from_node": "sd6E",
+    "to_node": "kaAi",
+    "contract": {
+      "contract_id": "ntS6xW5QCN",
+      "task_clause": "The purpose of establishing quality control policies and procedures for deciding whether to accept or continue a client relationship is to\nOption A: Provide reasonable assurance that personnel are adequately trained to fulfill their responsibilities.\nOption B: Minimize the likelihood of associating with clients whose management lacks integrity.\nOption C: Document the matters that are required to be communicated to the audit committee.\nOption D: Enhance the auditor's understanding of the client's business and its industry.\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": false,
+      "violations": [
+        "empty_deliverable"
+      ],
+      "details": {
+        "output_length": 0
+      }
+    },
+    "dispute": {
+      "action": "rework",
+      "reason": "empty_deliverable",
+      "metadata": {
+        "rollback_to": "upstream_node"
+      }
+    }
+  }
+]

@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773106791.3438213,
+    "run_id": "mPmjUhDz6MWp",
+    "round_idx": 0,
+    "from_node": "Yn8W",
+    "to_node": "Yn8W",
+    "contract": {
+      "contract_id": "fkvFoumihH",
+      "task_clause": "Dari Inc. guaranteed the debt of a related party. In December Dari learned that it is probable it will be required to pay between $150000 and $200000 within the next six months in satisfaction of its guarantee but no amount within that range is more likely. What amount of contingent liability should Dari accrue in its December 31 balance sheet?\nOption A: $200,000\nOption B: $175,000\nOption C: $150,000\nOption D: 0\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 481
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773106791.344228,
+    "run_id": "mPmjUhDz6MWp",
+    "round_idx": 1,
+    "from_node": "Yn8W",
+    "to_node": "UkGV",
+    "contract": {
+      "contract_id": "5FVswCq5ZP",
+      "task_clause": "Dari Inc. guaranteed the debt of a related party. In December Dari learned that it is probable it will be required to pay between $150000 and $200000 within the next six months in satisfaction of its guarantee but no amount within that range is more likely. What amount of contingent liability should Dari accrue in its December 31 balance sheet?\nOption A: $200,000\nOption B: $175,000\nOption C: $150,000\nOption D: 0\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 481
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

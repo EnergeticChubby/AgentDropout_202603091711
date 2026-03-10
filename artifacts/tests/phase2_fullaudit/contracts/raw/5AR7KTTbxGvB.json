@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773106777.9815698,
+    "run_id": "5AR7KTTbxGvB",
+    "round_idx": 0,
+    "from_node": "aq9d",
+    "to_node": "aq9d",
+    "contract": {
+      "contract_id": "siTQzU8ymC",
+      "task_clause": "Greene is the sole shareholder of Seagull, a calendar-year S corporation. Greene's basis at the beginning of the year is $15,000. Seagull reported an ordinary loss of $5,000 and $2,000 of municipal bond interest for the year. Seagull distributed cash of $6,000 to Greene on November 1. What is Greene's basis in Seagull at the end of the year?\nOption A: $4,000\nOption B: $6,000\nOption C: $14,000\nOption D: $15,000\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 185
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773106777.981773,
+    "run_id": "5AR7KTTbxGvB",
+    "round_idx": 1,
+    "from_node": "aq9d",
+    "to_node": "npyR",
+    "contract": {
+      "contract_id": "g85iUdm5WH",
+      "task_clause": "Greene is the sole shareholder of Seagull, a calendar-year S corporation. Greene's basis at the beginning of the year is $15,000. Seagull reported an ordinary loss of $5,000 and $2,000 of municipal bond interest for the year. Seagull distributed cash of $6,000 to Greene on November 1. What is Greene's basis in Seagull at the end of the year?\nOption A: $4,000\nOption B: $6,000\nOption C: $14,000\nOption D: $15,000\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 185
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

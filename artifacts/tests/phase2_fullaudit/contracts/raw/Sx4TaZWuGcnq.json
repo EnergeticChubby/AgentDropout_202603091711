@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773106455.7220943,
+    "run_id": "Sx4TaZWuGcnq",
+    "round_idx": 0,
+    "from_node": "Yn8W",
+    "to_node": "Yn8W",
+    "contract": {
+      "contract_id": "68ZLwQ29GY",
+      "task_clause": "A six-sided die (whose faces are numbered 1 through 6, as usual) is known to be counterfeit: The probability of rolling any even number is twice the probability of rolling any odd number. What is the probability that if this die is thrown twice, the first roll will be a 5 and the second roll will be a 6?\nOption A: 2/81\nOption B: 1/18\nOption C: 2/27\nOption D: 1/9\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 1703
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773106455.722409,
+    "run_id": "Sx4TaZWuGcnq",
+    "round_idx": 1,
+    "from_node": "Yn8W",
+    "to_node": "UkGV",
+    "contract": {
+      "contract_id": "DaDKJqu3tf",
+      "task_clause": "A six-sided die (whose faces are numbered 1 through 6, as usual) is known to be counterfeit: The probability of rolling any even number is twice the probability of rolling any odd number. What is the probability that if this die is thrown twice, the first roll will be a 5 and the second roll will be a 6?\nOption A: 2/81\nOption B: 1/18\nOption C: 2/27\nOption D: 1/9\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 1703
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

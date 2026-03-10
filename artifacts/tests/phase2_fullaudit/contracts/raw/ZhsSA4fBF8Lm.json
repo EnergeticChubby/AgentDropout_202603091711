@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773106367.8822021,
+    "run_id": "ZhsSA4fBF8Lm",
+    "round_idx": 0,
+    "from_node": "9DvT",
+    "to_node": "9DvT",
+    "contract": {
+      "contract_id": "8BgJUTvsEm",
+      "task_clause": "Calculate the equilibrium polarization of 13C nuclei in a 20.0 T magnetic field at 300 K.\nOption A: 10.8 x 10^-5\nOption B: 4.11 x 10^-5\nOption C: 3.43 x 10^-5\nOption D: 1.71 x 10^-5\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 335
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773106367.883928,
+    "run_id": "ZhsSA4fBF8Lm",
+    "round_idx": 1,
+    "from_node": "9DvT",
+    "to_node": "MRBq",
+    "contract": {
+      "contract_id": "5t3hWuuGuc",
+      "task_clause": "Calculate the equilibrium polarization of 13C nuclei in a 20.0 T magnetic field at 300 K.\nOption A: 10.8 x 10^-5\nOption B: 4.11 x 10^-5\nOption C: 3.43 x 10^-5\nOption D: 1.71 x 10^-5\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 335
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

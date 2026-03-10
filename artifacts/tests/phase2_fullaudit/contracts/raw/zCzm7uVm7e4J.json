@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773105611.3675935,
+    "run_id": "zCzm7uVm7e4J",
+    "round_idx": 0,
+    "from_node": "sd6E",
+    "to_node": "sd6E",
+    "contract": {
+      "contract_id": "Gyyhrhfzfm",
+      "task_clause": "What is the baseball term for a batter who substitutes for another batter?\nOption A: Switchhitter\nOption B: Shadow hitter\nOption C: Clip hitter\nOption D: Pinch hitter\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 14
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773105611.367795,
+    "run_id": "zCzm7uVm7e4J",
+    "round_idx": 1,
+    "from_node": "sd6E",
+    "to_node": "kaAi",
+    "contract": {
+      "contract_id": "8nL5wyWkck",
+      "task_clause": "What is the baseball term for a batter who substitutes for another batter?\nOption A: Switchhitter\nOption B: Shadow hitter\nOption C: Clip hitter\nOption D: Pinch hitter\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 14
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

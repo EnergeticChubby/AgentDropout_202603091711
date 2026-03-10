@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773105688.045032,
+    "run_id": "fuB8PMem3g6M",
+    "round_idx": 0,
+    "from_node": "yyrC",
+    "to_node": "yyrC",
+    "contract": {
+      "contract_id": "LBZosFrqQt",
+      "task_clause": "Which type of measurement is the most effective choice for evaluating a campaign's impact on audience attitudes?\nOption A: preparing a content analysis of media coverage\nOption B: studying the content of blog postings about your issue\nOption C: analyzing pre and post sales reports for changes in sales\nOption D: conducting a pre and post analysis of constituents' opinions\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 457
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773105688.0453374,
+    "run_id": "fuB8PMem3g6M",
+    "round_idx": 1,
+    "from_node": "yyrC",
+    "to_node": "jWnD",
+    "contract": {
+      "contract_id": "erao4puKJv",
+      "task_clause": "Which type of measurement is the most effective choice for evaluating a campaign's impact on audience attitudes?\nOption A: preparing a content analysis of media coverage\nOption B: studying the content of blog postings about your issue\nOption C: analyzing pre and post sales reports for changes in sales\nOption D: conducting a pre and post analysis of constituents' opinions\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 457
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

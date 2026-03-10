@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773106426.3978767,
+    "run_id": "7BGhxbJJvJpq",
+    "round_idx": 0,
+    "from_node": "rNED",
+    "to_node": "rNED",
+    "contract": {
+      "contract_id": "NDS7spA3kX",
+      "task_clause": "Which of the following must be true about a binary liquid mixture that obeys Raoult\u2019s law?\r\nI. The partial pressure of each component at equilibrium is proportional to its mole fraction in the liquid mixture.\r\nII. The volume of the mixture is equal to the sum of the volumes of each component before mixing.\r\nIII. Intermolecular interactions in the mixture are identical to intermolecular interactions in the pure components.\nOption A: I only\nOption B: III only\nOption C: I and III only\nOption D: I, II, and III\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 161
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773106426.3980474,
+    "run_id": "7BGhxbJJvJpq",
+    "round_idx": 1,
+    "from_node": "rNED",
+    "to_node": "33ar",
+    "contract": {
+      "contract_id": "gTzk5hSqxY",
+      "task_clause": "Which of the following must be true about a binary liquid mixture that obeys Raoult\u2019s law?\r\nI. The partial pressure of each component at equilibrium is proportional to its mole fraction in the liquid mixture.\r\nII. The volume of the mixture is equal to the sum of the volumes of each component before mixing.\r\nIII. Intermolecular interactions in the mixture are identical to intermolecular interactions in the pure components.\nOption A: I only\nOption B: III only\nOption C: I and III only\nOption D: I, II, and III\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 161
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

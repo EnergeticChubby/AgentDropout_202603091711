@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773106574.3801935,
+    "run_id": "5eCA3kthRtpd",
+    "round_idx": 0,
+    "from_node": "Yn8W",
+    "to_node": "Yn8W",
+    "contract": {
+      "contract_id": "dfcCjtqCtU",
+      "task_clause": "Chemical reactions can be classified as either heterogeneous or homogeneous. Which of the following equations below is best classified as a heterogeneous reaction?\nOption A: 2C2H2(g) + 5O2(g) \u2192 4CO2(g) + 2H2O(g)\nOption B: C2H5OH(aq) + O2(aq) \u2192 HC2H3O2(aq) + H2O(aq)\nOption C: C(s) + H2O(g) \u2192 H2(g) + CO(g)\nOption D: C2H2(g) + 5N2O(g) \u2192 CO2(g) + H2O(g) + 5N2(g)\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 129
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773106574.3804152,
+    "run_id": "5eCA3kthRtpd",
+    "round_idx": 1,
+    "from_node": "Yn8W",
+    "to_node": "UkGV",
+    "contract": {
+      "contract_id": "sPtBeGc7ug",
+      "task_clause": "Chemical reactions can be classified as either heterogeneous or homogeneous. Which of the following equations below is best classified as a heterogeneous reaction?\nOption A: 2C2H2(g) + 5O2(g) \u2192 4CO2(g) + 2H2O(g)\nOption B: C2H5OH(aq) + O2(aq) \u2192 HC2H3O2(aq) + H2O(aq)\nOption C: C(s) + H2O(g) \u2192 H2(g) + CO(g)\nOption D: C2H2(g) + 5N2O(g) \u2192 CO2(g) + H2O(g) + 5N2(g)\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 129
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

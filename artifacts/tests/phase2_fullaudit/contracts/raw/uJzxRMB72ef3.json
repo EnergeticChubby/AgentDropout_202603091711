@@ -1,0 +1,54 @@
+[
+  {
+    "timestamp": 1773106719.3581853,
+    "run_id": "uJzxRMB72ef3",
+    "round_idx": 1,
+    "from_node": "aUhM",
+    "to_node": "9JKj",
+    "contract": {
+      "contract_id": "cMoEqtggFP",
+      "task_clause": "Suppose we have the following objective function: $\\argmin_{w} \\frac{1}{2} \\norm{Xw-y}^2_2 + \\frac{1}{2}\\gamma \\norm{w}^2_2$ What is the gradient of $\\frac{1}{2} \\norm{Xw-y}^2_2 + \\frac{1}{2}\\lambda \\norm{w}^2_2$ with respect to $w$?\nOption A: $\\nabla_w f(w) = (X^\\top X + \\lambda I)w - X^\\top y + \\lambda w$\nOption B: $\\nabla_w f(w) = X^\\top X w - X^\\top y + \\lambda$\nOption C: $\\nabla_w f(w) = X^\\top X w - X^\\top y + \\lambda w$\nOption D: $\\nabla_w f(w) = X^\\top X w - X^\\top y + (\\lambda+1) w$\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": false,
+      "violations": [
+        "empty_deliverable"
+      ],
+      "details": {
+        "output_length": 0
+      }
+    },
+    "dispute": {
+      "action": "rework",
+      "reason": "empty_deliverable",
+      "metadata": {
+        "rollback_to": "upstream_node"
+      }
+    }
+  }
+]

@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773106619.8744242,
+    "run_id": "gyGteK4r9j9i",
+    "round_idx": 0,
+    "from_node": "aUhM",
+    "to_node": "aUhM",
+    "contract": {
+      "contract_id": "UiQPQBYvyv",
+      "task_clause": "Which structure(s) traditionally occupies the center of a historic Asian city?\nOption A: A central market\nOption B: High-density housing\nOption C: A religious building\nOption D: Government office buildings\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 107
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773106619.8745546,
+    "run_id": "gyGteK4r9j9i",
+    "round_idx": 1,
+    "from_node": "aUhM",
+    "to_node": "9JKj",
+    "contract": {
+      "contract_id": "D9fhNQu5fg",
+      "task_clause": "Which structure(s) traditionally occupies the center of a historic Asian city?\nOption A: A central market\nOption B: High-density housing\nOption C: A religious building\nOption D: Government office buildings\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 107
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773105605.8433242,
+    "run_id": "GSMcWZBtSDw7",
+    "round_idx": 0,
+    "from_node": "3DZy",
+    "to_node": "3DZy",
+    "contract": {
+      "contract_id": "ZmTot4SXoR",
+      "task_clause": "The distribution of salaries of a county school system with 4,752 employees is known to be right skewed, with the superintendent\u2019s salary an outlier on the higher side. A random sample of 20 employees was taken and their salaries recorded. A 95 percent t-confidence interval for the mean salary of the county school system employees is ($15,360, $32,470). The t-confidence interval is not appropriate in this situation because\nOption A: the sample size is too small compared to the number of employees in the system to give a fair representation\nOption B: the skewed salary distribution tells us that assumption of normality of the sampled population will not be satisfied\nOption C: the population standard deviation of the salaries of employees of this county school system is not known\nOption D: th",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 136
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773105605.8435411,
+    "run_id": "GSMcWZBtSDw7",
+    "round_idx": 1,
+    "from_node": "3DZy",
+    "to_node": "YzdL",
+    "contract": {
+      "contract_id": "PDnUqAQncA",
+      "task_clause": "The distribution of salaries of a county school system with 4,752 employees is known to be right skewed, with the superintendent\u2019s salary an outlier on the higher side. A random sample of 20 employees was taken and their salaries recorded. A 95 percent t-confidence interval for the mean salary of the county school system employees is ($15,360, $32,470). The t-confidence interval is not appropriate in this situation because\nOption A: the sample size is too small compared to the number of employees in the system to give a fair representation\nOption B: the skewed salary distribution tells us that assumption of normality of the sampled population will not be satisfied\nOption C: the population standard deviation of the salaries of employees of this county school system is not known\nOption D: th",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 136
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

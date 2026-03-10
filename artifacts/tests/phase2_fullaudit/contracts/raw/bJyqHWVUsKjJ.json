@@ -1,0 +1,54 @@
+[
+  {
+    "timestamp": 1773106731.7983682,
+    "run_id": "bJyqHWVUsKjJ",
+    "round_idx": 1,
+    "from_node": "aq9d",
+    "to_node": "npyR",
+    "contract": {
+      "contract_id": "w9mHo2AtNs",
+      "task_clause": "This question refers to the following information.\nOur leaders talk about stopping aggression from the north, but this was a struggle among groups of Vietnamese until we intervened. We seem bent upon saving the Vietnamese from Ho Chi Minh even if we have to kill them and demolish their country to do it. As the native people survey bombed-out villages, women and children burned by napalm, rice crops destroyed and cities overrun with our military personnel, they are doubtless saying secretly of the Vietcong guerillas and of the American forces, \"A plague on both your houses.\" \u2026 Stop the bombing, north and south, end search and destroy offensive sweeps, and confine our military action to holding operations on the ground. Bombing the north has failed to halt or seriously check the flow of troo",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": false,
+      "violations": [
+        "empty_deliverable"
+      ],
+      "details": {
+        "output_length": 0
+      }
+    },
+    "dispute": {
+      "action": "rework",
+      "reason": "empty_deliverable",
+      "metadata": {
+        "rollback_to": "upstream_node"
+      }
+    }
+  }
+]

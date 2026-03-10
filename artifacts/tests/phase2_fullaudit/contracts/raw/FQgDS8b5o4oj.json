@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773106365.5759137,
+    "run_id": "FQgDS8b5o4oj",
+    "round_idx": 0,
+    "from_node": "zoCn",
+    "to_node": "zoCn",
+    "contract": {
+      "contract_id": "NN75qjsSZk",
+      "task_clause": "Affirmative action involves ________ attempts to target ______ who are _________ within an organisation's workforce, for instance by trying to ______ the proportion of women, disabled or racial minorities in senior management positions.\nOption A: Proactive, Groups, Under-represented, Increase\nOption B: Passive, Groups, Under-represented, Retain\nOption C: Proactive, Individuals, Represented, Increase\nOption D: Passive, Individuals, Represented, Retain\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 203
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773106365.5761404,
+    "run_id": "FQgDS8b5o4oj",
+    "round_idx": 1,
+    "from_node": "zoCn",
+    "to_node": "Gie8",
+    "contract": {
+      "contract_id": "gU8WzWkQYG",
+      "task_clause": "Affirmative action involves ________ attempts to target ______ who are _________ within an organisation's workforce, for instance by trying to ______ the proportion of women, disabled or racial minorities in senior management positions.\nOption A: Proactive, Groups, Under-represented, Increase\nOption B: Passive, Groups, Under-represented, Retain\nOption C: Proactive, Individuals, Represented, Increase\nOption D: Passive, Individuals, Represented, Retain\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 203
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

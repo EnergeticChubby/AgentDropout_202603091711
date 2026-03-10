@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773105419.787649,
+    "run_id": "mBT9qEo8TSsL",
+    "round_idx": 0,
+    "from_node": "bTv2",
+    "to_node": "bTv2",
+    "contract": {
+      "contract_id": "P3GVp35zcF",
+      "task_clause": "A nonrelativistic particle with a charge twice that of an electron moves through a uniform magnetic field. The field has a strength of \u03c0/4 tesla and is perpendicular to the velocity of the particle. What is the particle\u2019s mass if it has a cyclotron frequency of 1,600 hertz?\nOption A: 2.5 * 10^-23 kg\nOption B: 1.2 * 10^-22 kg\nOption C: 3.3 * 10^-22 kg\nOption D: 5.0 * 10^-21 kg\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 786
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773105419.7890325,
+    "run_id": "mBT9qEo8TSsL",
+    "round_idx": 1,
+    "from_node": "bTv2",
+    "to_node": "hvoN",
+    "contract": {
+      "contract_id": "wF44zSZhpM",
+      "task_clause": "A nonrelativistic particle with a charge twice that of an electron moves through a uniform magnetic field. The field has a strength of \u03c0/4 tesla and is perpendicular to the velocity of the particle. What is the particle\u2019s mass if it has a cyclotron frequency of 1,600 hertz?\nOption A: 2.5 * 10^-23 kg\nOption B: 1.2 * 10^-22 kg\nOption C: 3.3 * 10^-22 kg\nOption D: 5.0 * 10^-21 kg\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 786
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

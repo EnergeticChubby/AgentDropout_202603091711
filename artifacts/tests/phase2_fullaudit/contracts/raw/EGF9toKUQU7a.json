@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773105605.6410272,
+    "run_id": "EGF9toKUQU7a",
+    "round_idx": 0,
+    "from_node": "sd6E",
+    "to_node": "sd6E",
+    "contract": {
+      "contract_id": "dGGJW8C5F9",
+      "task_clause": "An object is placed 10 cm in front of a diverging mirror. What is the focal length of the mirror if the image appears 2 cm behind the mirror?\nOption A: -3/5 cm\nOption B: -5/3 cm\nOption C: -2/5 cm\nOption D: -5/2 cm\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 1743
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773105605.6413167,
+    "run_id": "EGF9toKUQU7a",
+    "round_idx": 1,
+    "from_node": "sd6E",
+    "to_node": "kaAi",
+    "contract": {
+      "contract_id": "BY2HWdsMTz",
+      "task_clause": "An object is placed 10 cm in front of a diverging mirror. What is the focal length of the mirror if the image appears 2 cm behind the mirror?\nOption A: -3/5 cm\nOption B: -5/3 cm\nOption C: -2/5 cm\nOption D: -5/2 cm\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 1743
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

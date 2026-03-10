@@ -1,0 +1,54 @@
+[
+  {
+    "timestamp": 1773106479.7385123,
+    "run_id": "8UmBKBCfry2F",
+    "round_idx": 1,
+    "from_node": "aUhM",
+    "to_node": "9JKj",
+    "contract": {
+      "contract_id": "zmnMJdXSxs",
+      "task_clause": "Which of the following statements is true concerning forecasting in econometrics?\nOption A: Forecasts can only be made for time-series data\nOption B: Mis-specified models are certain to produce inaccurate forecasts\nOption C: Structural forecasts are simpler to produce than those from time series models\nOption D: In-sample forecasting ability is a poor test of model adequacy\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": false,
+      "violations": [
+        "empty_deliverable"
+      ],
+      "details": {
+        "output_length": 0
+      }
+    },
+    "dispute": {
+      "action": "rework",
+      "reason": "empty_deliverable",
+      "metadata": {
+        "rollback_to": "upstream_node"
+      }
+    }
+  }
+]

@@ -1,0 +1,54 @@
+[
+  {
+    "timestamp": 1773106499.259325,
+    "run_id": "c8GFdRv6NSGi",
+    "round_idx": 1,
+    "from_node": "aUhM",
+    "to_node": "9JKj",
+    "contract": {
+      "contract_id": "eapN4iPGf7",
+      "task_clause": "Suppose X is a discrete random variable on the set of positive integers such that for each positive integer n, the probability that X = n is 1/2^n. If Y is a random variable with the same probability distribution and X and Y are independent, what is the probability that the value of at least one of the variables X and Y is greater than 3 ?\nOption A: 1/64\nOption B: 15/64\nOption C: 1/4\nOption D: 3/8\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": false,
+      "violations": [
+        "empty_deliverable"
+      ],
+      "details": {
+        "output_length": 0
+      }
+    },
+    "dispute": {
+      "action": "rework",
+      "reason": "empty_deliverable",
+      "metadata": {
+        "rollback_to": "upstream_node"
+      }
+    }
+  }
+]

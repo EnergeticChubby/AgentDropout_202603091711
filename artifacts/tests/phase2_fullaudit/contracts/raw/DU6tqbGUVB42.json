@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773105543.530308,
+    "run_id": "DU6tqbGUVB42",
+    "round_idx": 0,
+    "from_node": "3DZy",
+    "to_node": "3DZy",
+    "contract": {
+      "contract_id": "yn8FAnJWoV",
+      "task_clause": "Suppose you toss a fair die three times and it comes up an even number each time. Which of the following is a true statement?\nOption A: By the law of large numbers, the next toss is more likely to be an odd number than another even number.\nOption B: Based on the properties of conditional probability the next toss is more likely to be an even number given that three in a row have been even.\nOption C: Dice actually do have memories, and thus the number that comes up on the next toss will be influenced by the previous tosses.\nOption D: The probability that the next toss will again be even is 0.5.\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 1148
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773105543.5311627,
+    "run_id": "DU6tqbGUVB42",
+    "round_idx": 1,
+    "from_node": "3DZy",
+    "to_node": "YzdL",
+    "contract": {
+      "contract_id": "4jpREbyfeh",
+      "task_clause": "Suppose you toss a fair die three times and it comes up an even number each time. Which of the following is a true statement?\nOption A: By the law of large numbers, the next toss is more likely to be an odd number than another even number.\nOption B: Based on the properties of conditional probability the next toss is more likely to be an even number given that three in a row have been even.\nOption C: Dice actually do have memories, and thus the number that comes up on the next toss will be influenced by the previous tosses.\nOption D: The probability that the next toss will again be even is 0.5.\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 1148
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

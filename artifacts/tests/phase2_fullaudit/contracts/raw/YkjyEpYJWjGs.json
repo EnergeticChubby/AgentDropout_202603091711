@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773106685.9843776,
+    "run_id": "YkjyEpYJWjGs",
+    "round_idx": 0,
+    "from_node": "RspS",
+    "to_node": "RspS",
+    "contract": {
+      "contract_id": "2NKkJoU6SK",
+      "task_clause": "To test whether extensive exercise lowers the resting heart rate, a study is performed by randomly selecting half of a group of volunteers to exercise 1 hour each morning, while the rest are instructed to perform no exercise. Is this study an experiment or an observational study?\nOption A: An experiment with a control group and blinding\nOption B: An experiment with blocking\nOption C: An observational study with comparison and randomization\nOption D: None of the above\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 287
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773106685.9845924,
+    "run_id": "YkjyEpYJWjGs",
+    "round_idx": 1,
+    "from_node": "RspS",
+    "to_node": "NWcH",
+    "contract": {
+      "contract_id": "ysCJwFHGdw",
+      "task_clause": "To test whether extensive exercise lowers the resting heart rate, a study is performed by randomly selecting half of a group of volunteers to exercise 1 hour each morning, while the rest are instructed to perform no exercise. Is this study an experiment or an observational study?\nOption A: An experiment with a control group and blinding\nOption B: An experiment with blocking\nOption C: An observational study with comparison and randomization\nOption D: None of the above\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 287
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

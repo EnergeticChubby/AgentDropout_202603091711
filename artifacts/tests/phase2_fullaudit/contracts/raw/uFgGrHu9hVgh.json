@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773106711.4658482,
+    "run_id": "uFgGrHu9hVgh",
+    "round_idx": 0,
+    "from_node": "aUhM",
+    "to_node": "aUhM",
+    "contract": {
+      "contract_id": "sD6oBiCYqQ",
+      "task_clause": "Which of the following statements is TRUE concerning older workers' job performance?\nOption A: Older workers always perform better because of their vast experience\nOption B: Older workers never perform better than younger workers because with age, a worker's skills decline.\nOption C: Job performance for older workers depends both upon the decline of skills and the benefits of experience\nOption D: Most jobs are performed better by younger adults but a few are performed better by older adults\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 270
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773106711.4660032,
+    "run_id": "uFgGrHu9hVgh",
+    "round_idx": 1,
+    "from_node": "aUhM",
+    "to_node": "9JKj",
+    "contract": {
+      "contract_id": "CQGyDQaaFy",
+      "task_clause": "Which of the following statements is TRUE concerning older workers' job performance?\nOption A: Older workers always perform better because of their vast experience\nOption B: Older workers never perform better than younger workers because with age, a worker's skills decline.\nOption C: Job performance for older workers depends both upon the decline of skills and the benefits of experience\nOption D: Most jobs are performed better by younger adults but a few are performed better by older adults\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 270
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

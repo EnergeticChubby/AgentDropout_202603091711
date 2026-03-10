@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773106690.512663,
+    "run_id": "buzZqbSaKqhb",
+    "round_idx": 0,
+    "from_node": "zoCn",
+    "to_node": "zoCn",
+    "contract": {
+      "contract_id": "tCapgAspgw",
+      "task_clause": "Output in country X is 30000 units and there are 3000 persons working while country Z has an output of 40000 units and 8000 workers.\nOption A: The productivity of labor in country Z is 33 percent higher than in country X.\nOption B: The productivity of labor in country Z is 25 percent higher than in country X.\nOption C: The productivity of labor in country X is 33 percent higher than in country Z.\nOption D: The productivity of labor in country X is twice as much as country Z.\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 1249
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773106690.5132124,
+    "run_id": "buzZqbSaKqhb",
+    "round_idx": 1,
+    "from_node": "zoCn",
+    "to_node": "Gie8",
+    "contract": {
+      "contract_id": "YxqP9Ycdfh",
+      "task_clause": "Output in country X is 30000 units and there are 3000 persons working while country Z has an output of 40000 units and 8000 workers.\nOption A: The productivity of labor in country Z is 33 percent higher than in country X.\nOption B: The productivity of labor in country Z is 25 percent higher than in country X.\nOption C: The productivity of labor in country X is 33 percent higher than in country Z.\nOption D: The productivity of labor in country X is twice as much as country Z.\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 1249
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

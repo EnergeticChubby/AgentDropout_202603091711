@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773105321.706386,
+    "run_id": "BxsgGDA3YxGM",
+    "round_idx": 0,
+    "from_node": "oydd",
+    "to_node": "oydd",
+    "contract": {
+      "contract_id": "wx8NxQTXW2",
+      "task_clause": "The thoracic cage is a structural unit important for which of the following functions?\nOption A: Alimentation\nOption B: Menstruation\nOption C: Mentation\nOption D: Respiration\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 269
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773105321.7111032,
+    "run_id": "BxsgGDA3YxGM",
+    "round_idx": 1,
+    "from_node": "oydd",
+    "to_node": "muKu",
+    "contract": {
+      "contract_id": "g6cZVCKZaV",
+      "task_clause": "The thoracic cage is a structural unit important for which of the following functions?\nOption A: Alimentation\nOption B: Menstruation\nOption C: Mentation\nOption D: Respiration\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 269
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

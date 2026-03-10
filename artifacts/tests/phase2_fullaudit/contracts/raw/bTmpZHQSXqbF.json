@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773105410.0138242,
+    "run_id": "bTmpZHQSXqbF",
+    "round_idx": 0,
+    "from_node": "bTv2",
+    "to_node": "bTv2",
+    "contract": {
+      "contract_id": "GaHqVcX74a",
+      "task_clause": "Consider a ball rolling in a horizontal circular path on the inside surface of a cone. The normal force on the ball\nOption A: is mg\nOption B: is greater than mg always\nOption C: may be greater or less than mg\nOption D: is less than mg always\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 266
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773105410.0140295,
+    "run_id": "bTmpZHQSXqbF",
+    "round_idx": 1,
+    "from_node": "bTv2",
+    "to_node": "hvoN",
+    "contract": {
+      "contract_id": "65ASnyNYSU",
+      "task_clause": "Consider a ball rolling in a horizontal circular path on the inside surface of a cone. The normal force on the ball\nOption A: is mg\nOption B: is greater than mg always\nOption C: may be greater or less than mg\nOption D: is less than mg always\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 266
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

@@ -1,0 +1,54 @@
+[
+  {
+    "timestamp": 1773106798.3878038,
+    "run_id": "NiKDAmKeJQPL",
+    "round_idx": 1,
+    "from_node": "zoCn",
+    "to_node": "Gie8",
+    "contract": {
+      "contract_id": "TQxgtsyPqs",
+      "task_clause": "If an auditor includes an emphasis-of-matter paragraph to draw users' attention to a matter relevant to the users' understanding of the financial statements of a nonissuer, then the auditor should\nOption A: Indicate in the audit report that the emphasis-of-matter paragraph is required by law or regulation.\nOption B: Notify the appropriate regulatory authority if the auditor's opinion was modified on the basis of the matter.\nOption C: Modify the introductory paragraph to direct the reader to the emphasis-of-matter paragraph.\nOption D: Include the paragraph immediately after the opinion paragraph in the audit report.\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": false,
+      "violations": [
+        "empty_deliverable"
+      ],
+      "details": {
+        "output_length": 0
+      }
+    },
+    "dispute": {
+      "action": "rework",
+      "reason": "empty_deliverable",
+      "metadata": {
+        "rollback_to": "upstream_node"
+      }
+    }
+  }
+]

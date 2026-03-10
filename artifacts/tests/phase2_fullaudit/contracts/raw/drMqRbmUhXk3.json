@@ -1,0 +1,54 @@
+[
+  {
+    "timestamp": 1773105570.0870044,
+    "run_id": "drMqRbmUhXk3",
+    "round_idx": 1,
+    "from_node": "oydd",
+    "to_node": "muKu",
+    "contract": {
+      "contract_id": "BrMTp8FXhE",
+      "task_clause": "A stone is thrown horizontally with an initial speed of 10 m/s from a bridge. Assuming that air resistance is negligible, how long would it take the stone to strike the water 80 m below the bridge?\nOption A: 1 s\nOption B: 2 s\nOption C: 4 s\nOption D: 8 s\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": false,
+      "violations": [
+        "empty_deliverable"
+      ],
+      "details": {
+        "output_length": 0
+      }
+    },
+    "dispute": {
+      "action": "rework",
+      "reason": "empty_deliverable",
+      "metadata": {
+        "rollback_to": "upstream_node"
+      }
+    }
+  }
+]

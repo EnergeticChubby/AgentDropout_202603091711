@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773105335.1865427,
+    "run_id": "byms65wQKCXf",
+    "round_idx": 0,
+    "from_node": "oszy",
+    "to_node": "oszy",
+    "contract": {
+      "contract_id": "Pm5GStU8cb",
+      "task_clause": "A molecule has a rotational correlation time of 1 ns. At what magnetic field would protons in this molecule have the fastest spin-lattice relaxation? [Use eqns 5.3 and 5.4.]\nOption A: 3.74 T\nOption B: 5.19 T\nOption C: 6.08 T\nOption D: 9.49 T\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 330
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773105335.1867597,
+    "run_id": "byms65wQKCXf",
+    "round_idx": 1,
+    "from_node": "oszy",
+    "to_node": "f3Es",
+    "contract": {
+      "contract_id": "Fx9YHoXtyj",
+      "task_clause": "A molecule has a rotational correlation time of 1 ns. At what magnetic field would protons in this molecule have the fastest spin-lattice relaxation? [Use eqns 5.3 and 5.4.]\nOption A: 3.74 T\nOption B: 5.19 T\nOption C: 6.08 T\nOption D: 9.49 T\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 330
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773105400.2865076,
+    "run_id": "Ytm3BH2ntpKS",
+    "round_idx": 0,
+    "from_node": "bTv2",
+    "to_node": "bTv2",
+    "contract": {
+      "contract_id": "JanBrJMJJV",
+      "task_clause": "What is the ratio of line intensities in the EPR spectrum of the t-Bu radical (CH3)3C\u2022?\nOption A: 1:19:36:84:126:126:84:36:19:1\nOption B: 1:9:36:84:126:126:84:36:9:1\nOption C: 1:9:35:82:120:120:82:35:9:1\nOption D: 1:8:28:56:70:56:28:8:1\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 233
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773105400.2867386,
+    "run_id": "Ytm3BH2ntpKS",
+    "round_idx": 1,
+    "from_node": "bTv2",
+    "to_node": "hvoN",
+    "contract": {
+      "contract_id": "Bo6KxUJZjq",
+      "task_clause": "What is the ratio of line intensities in the EPR spectrum of the t-Bu radical (CH3)3C\u2022?\nOption A: 1:19:36:84:126:126:84:36:19:1\nOption B: 1:9:36:84:126:126:84:36:9:1\nOption C: 1:9:35:82:120:120:82:35:9:1\nOption D: 1:8:28:56:70:56:28:8:1\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 233
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

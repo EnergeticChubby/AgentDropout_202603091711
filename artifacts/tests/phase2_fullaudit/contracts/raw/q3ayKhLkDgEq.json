@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773105403.3061485,
+    "run_id": "q3ayKhLkDgEq",
+    "round_idx": 0,
+    "from_node": "oszy",
+    "to_node": "oszy",
+    "contract": {
+      "contract_id": "4dH75Sv3KF",
+      "task_clause": "Where is the sinoatrial node located?\nOption A: Between the left atrium and the left ventricle\nOption B: Between the right atrium and the right ventricle\nOption C: In the upper wall of the right atrium\nOption D: In the upper wall of the left ventricle\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 136
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773105403.3063335,
+    "run_id": "q3ayKhLkDgEq",
+    "round_idx": 1,
+    "from_node": "oszy",
+    "to_node": "f3Es",
+    "contract": {
+      "contract_id": "rHhMEhMy8m",
+      "task_clause": "Where is the sinoatrial node located?\nOption A: Between the left atrium and the left ventricle\nOption B: Between the right atrium and the right ventricle\nOption C: In the upper wall of the right atrium\nOption D: In the upper wall of the left ventricle\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 136
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

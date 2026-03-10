@@ -1,0 +1,54 @@
+[
+  {
+    "timestamp": 1773106821.9448578,
+    "run_id": "XqDjQqtfbBuz",
+    "round_idx": 1,
+    "from_node": "9DvT",
+    "to_node": "MRBq",
+    "contract": {
+      "contract_id": "UTqQCX9xc8",
+      "task_clause": "During an engagement to review the financial statements of a nonissuer, an accountant becomes aware of several leases that should be capitalized, but are not capitalized. The accountant considers these leases to be material to the financial statements. The accountant decides to modify the standard review report because management will not capitalize the leases. Under these circumstances, the accountant should\nOption A: Issue an adverse opinion because of the departure from GAAP.\nOption B: Express no assurance of any kind on the entity's financial statements.\nOption C: Emphasize that the financial statements are for limited use only.\nOption D: Disclose the departure from GAAP in a separate paragraph of the accountant's report.\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": false,
+      "violations": [
+        "empty_deliverable"
+      ],
+      "details": {
+        "output_length": 0
+      }
+    },
+    "dispute": {
+      "action": "rework",
+      "reason": "empty_deliverable",
+      "metadata": {
+        "rollback_to": "upstream_node"
+      }
+    }
+  }
+]

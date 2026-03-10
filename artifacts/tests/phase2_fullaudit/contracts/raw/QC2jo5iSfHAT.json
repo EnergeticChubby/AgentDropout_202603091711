@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773105611.510253,
+    "run_id": "QC2jo5iSfHAT",
+    "round_idx": 0,
+    "from_node": "3DZy",
+    "to_node": "3DZy",
+    "contract": {
+      "contract_id": "PfZh5gKfNU",
+      "task_clause": "Predicting the amount of rainfall in a region based on various cues is a ______ problem.\nOption A: Supervised learning\nOption B: Unsupervised learning\nOption C: Clustering\nOption D: None of the above\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 372
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773105611.5105114,
+    "run_id": "QC2jo5iSfHAT",
+    "round_idx": 1,
+    "from_node": "3DZy",
+    "to_node": "YzdL",
+    "contract": {
+      "contract_id": "HTPvMS7ocn",
+      "task_clause": "Predicting the amount of rainfall in a region based on various cues is a ______ problem.\nOption A: Supervised learning\nOption B: Unsupervised learning\nOption C: Clustering\nOption D: None of the above\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 372
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

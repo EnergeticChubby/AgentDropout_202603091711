@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773105712.1937125,
+    "run_id": "HBfwcGmHhm5k",
+    "round_idx": 0,
+    "from_node": "sd6E",
+    "to_node": "sd6E",
+    "contract": {
+      "contract_id": "83GxagHGrZ",
+      "task_clause": "Which definition best describes media convergence?\nOption A: The conglomeration of media outlets into large corporations.\nOption B: The way in which all media outlets post similar content to their competitors.\nOption C: The many differing views and cultures expressed in modern media.\nOption D: Information being delivered in different formats via various digital channels.\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 175
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773105712.1939964,
+    "run_id": "HBfwcGmHhm5k",
+    "round_idx": 1,
+    "from_node": "sd6E",
+    "to_node": "kaAi",
+    "contract": {
+      "contract_id": "sLdLj3kcCb",
+      "task_clause": "Which definition best describes media convergence?\nOption A: The conglomeration of media outlets into large corporations.\nOption B: The way in which all media outlets post similar content to their competitors.\nOption C: The many differing views and cultures expressed in modern media.\nOption D: Information being delivered in different formats via various digital channels.\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 175
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

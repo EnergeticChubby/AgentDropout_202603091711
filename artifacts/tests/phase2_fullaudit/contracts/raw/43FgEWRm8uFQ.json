@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773106555.0829425,
+    "run_id": "43FgEWRm8uFQ",
+    "round_idx": 0,
+    "from_node": "zoCn",
+    "to_node": "zoCn",
+    "contract": {
+      "contract_id": "KshuUE2NN6",
+      "task_clause": "A sample of oxygen gas at 50 \u00b0C is heated, reaching a final temperature of 100 \u00b0C. Which statement best describes the behavior of the gas molecules?\nOption A: Their velocity increases by a factor of two.\nOption B: Their velocity increases by a factor of four.\nOption C: Their kinetic energy increases by a factor of 2.\nOption D: Their kinetic energy increases by a factor of less than 2.\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 1299
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773106555.0839093,
+    "run_id": "43FgEWRm8uFQ",
+    "round_idx": 1,
+    "from_node": "zoCn",
+    "to_node": "Gie8",
+    "contract": {
+      "contract_id": "HktZ24Bemr",
+      "task_clause": "A sample of oxygen gas at 50 \u00b0C is heated, reaching a final temperature of 100 \u00b0C. Which statement best describes the behavior of the gas molecules?\nOption A: Their velocity increases by a factor of two.\nOption B: Their velocity increases by a factor of four.\nOption C: Their kinetic energy increases by a factor of 2.\nOption D: Their kinetic energy increases by a factor of less than 2.\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 1299
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

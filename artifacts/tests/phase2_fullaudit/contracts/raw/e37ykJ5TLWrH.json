@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773105750.4604347,
+    "run_id": "e37ykJ5TLWrH",
+    "round_idx": 0,
+    "from_node": "yyrC",
+    "to_node": "yyrC",
+    "contract": {
+      "contract_id": "eoMoFsWmg5",
+      "task_clause": "Bale Co. incurred $100,000 of acquisition costs related to the purchase of the net assets of Dixon Co. The $100,000 should be\nOption A: Allocated on a pro rata basis to the nonmonetary assets acquired.\nOption B: Capitalized as part of goodwill and tested annually for impairment\nOption C: Capitalized as an other asset and amortized over five years.\nOption D: Expensed as incurred in the current period\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 132
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773105750.4606233,
+    "run_id": "e37ykJ5TLWrH",
+    "round_idx": 1,
+    "from_node": "yyrC",
+    "to_node": "jWnD",
+    "contract": {
+      "contract_id": "pCbGGQ9Kct",
+      "task_clause": "Bale Co. incurred $100,000 of acquisition costs related to the purchase of the net assets of Dixon Co. The $100,000 should be\nOption A: Allocated on a pro rata basis to the nonmonetary assets acquired.\nOption B: Capitalized as part of goodwill and tested annually for impairment\nOption C: Capitalized as an other asset and amortized over five years.\nOption D: Expensed as incurred in the current period\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 132
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

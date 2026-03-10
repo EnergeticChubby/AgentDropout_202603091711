@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773105712.4085937,
+    "run_id": "aVZNhmRqVrBN",
+    "round_idx": 0,
+    "from_node": "bTv2",
+    "to_node": "bTv2",
+    "contract": {
+      "contract_id": "8QthCYXFws",
+      "task_clause": "A sister and brother own a ranch as joint tenants. If the sister transfers her interest by quitclaim deed to her friend without the brother's knowledge, what interest, if any, does the friend have in the ranch?\nOption A: No interest.\nOption B: An undivided one-half interest with right of survivorship.\nOption C: An undivided one-half interest without right of survivorship.\nOption D: A lien against the entire property.\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 606
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773105712.4261858,
+    "run_id": "aVZNhmRqVrBN",
+    "round_idx": 1,
+    "from_node": "bTv2",
+    "to_node": "hvoN",
+    "contract": {
+      "contract_id": "JpcEtuKMij",
+      "task_clause": "A sister and brother own a ranch as joint tenants. If the sister transfers her interest by quitclaim deed to her friend without the brother's knowledge, what interest, if any, does the friend have in the ranch?\nOption A: No interest.\nOption B: An undivided one-half interest with right of survivorship.\nOption C: An undivided one-half interest without right of survivorship.\nOption D: A lien against the entire property.\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 606
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773106363.9899096,
+    "run_id": "beeRmoCjJmgm",
+    "round_idx": 0,
+    "from_node": "aUhM",
+    "to_node": "aUhM",
+    "contract": {
+      "contract_id": "AsTcgwEzij",
+      "task_clause": "Which one of the following statements is true:\nOption A: Protons and neutrons have orbital and spin angular momentum.\nOption B: Protons have orbital and spin angular momentum, neutrons have spin angular momentum.\nOption C: Protons and neutrons possess orbital angular momentum only.\nOption D: Protons and neutrons possess spin angular momentum only.\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 227
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773106363.9901445,
+    "run_id": "beeRmoCjJmgm",
+    "round_idx": 1,
+    "from_node": "aUhM",
+    "to_node": "9JKj",
+    "contract": {
+      "contract_id": "t4ApKoMvct",
+      "task_clause": "Which one of the following statements is true:\nOption A: Protons and neutrons have orbital and spin angular momentum.\nOption B: Protons have orbital and spin angular momentum, neutrons have spin angular momentum.\nOption C: Protons and neutrons possess orbital angular momentum only.\nOption D: Protons and neutrons possess spin angular momentum only.\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 227
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

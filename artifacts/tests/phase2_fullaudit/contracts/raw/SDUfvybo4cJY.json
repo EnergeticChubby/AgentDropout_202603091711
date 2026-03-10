@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773105543.7252285,
+    "run_id": "SDUfvybo4cJY",
+    "round_idx": 0,
+    "from_node": "oydd",
+    "to_node": "oydd",
+    "contract": {
+      "contract_id": "tVceUwu9Em",
+      "task_clause": "A medical research team tests for tumor reduction in a sample of patients using three different dosages of an experimental cancer drug. Which of the following is true?\nOption A: There are three explanatory variables and one response variable.\nOption B: There is one explanatory variable with three levels of response.\nOption C: Tumor reduction is the only explanatory variable, but there are three response variables corresponding to the different dosages.\nOption D: There are three levels of a single explanatory variable.\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 119
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773105543.7253625,
+    "run_id": "SDUfvybo4cJY",
+    "round_idx": 1,
+    "from_node": "oydd",
+    "to_node": "muKu",
+    "contract": {
+      "contract_id": "wRtyimSJTR",
+      "task_clause": "A medical research team tests for tumor reduction in a sample of patients using three different dosages of an experimental cancer drug. Which of the following is true?\nOption A: There are three explanatory variables and one response variable.\nOption B: There is one explanatory variable with three levels of response.\nOption C: Tumor reduction is the only explanatory variable, but there are three response variables corresponding to the different dosages.\nOption D: There are three levels of a single explanatory variable.\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 119
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

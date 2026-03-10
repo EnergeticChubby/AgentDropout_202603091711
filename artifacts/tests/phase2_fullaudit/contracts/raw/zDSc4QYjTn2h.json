@@ -1,0 +1,54 @@
+[
+  {
+    "timestamp": 1773105574.2161722,
+    "run_id": "zDSc4QYjTn2h",
+    "round_idx": 1,
+    "from_node": "bTv2",
+    "to_node": "hvoN",
+    "contract": {
+      "contract_id": "9fS6LoJuVL",
+      "task_clause": "Output in country X is 30000 units and there are 3000 persons working while country Z has an output of 40000 units and 8000 workers.\nOption A: The productivity of labor in country Z is 33 percent higher than in country X.\nOption B: The productivity of labor in country Z is 25 percent higher than in country X.\nOption C: The productivity of labor in country X is 33 percent higher than in country Z.\nOption D: The productivity of labor in country X is twice as much as country Z.\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": false,
+      "violations": [
+        "empty_deliverable"
+      ],
+      "details": {
+        "output_length": 0
+      }
+    },
+    "dispute": {
+      "action": "rework",
+      "reason": "empty_deliverable",
+      "metadata": {
+        "rollback_to": "upstream_node"
+      }
+    }
+  }
+]

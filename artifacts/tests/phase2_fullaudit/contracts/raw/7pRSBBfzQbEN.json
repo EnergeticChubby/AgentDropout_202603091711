@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773105563.7835238,
+    "run_id": "7pRSBBfzQbEN",
+    "round_idx": 0,
+    "from_node": "3DZy",
+    "to_node": "3DZy",
+    "contract": {
+      "contract_id": "77ajiwWwb4",
+      "task_clause": "Two people, one of mass 100 kg and the other of mass 50 kg, stand facing each other on an ice-covered (essentially frictionless) pond. If the heavier person pushes on the lighter one with a force F, then\nOption A: the force felt by the heavier person is (-1/2)F\nOption B: the force felt by the person is -2F\nOption C: the magnitude of the acceleration of the lighter person will be half of the magnitude of the acceleration of the heavier person\nOption D: the magnitude of the acceleration of the lighter person will be twice the magnitude of the acceleration of the heavier person\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 84
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773105563.7836955,
+    "run_id": "7pRSBBfzQbEN",
+    "round_idx": 1,
+    "from_node": "3DZy",
+    "to_node": "YzdL",
+    "contract": {
+      "contract_id": "mQtXxxkGH8",
+      "task_clause": "Two people, one of mass 100 kg and the other of mass 50 kg, stand facing each other on an ice-covered (essentially frictionless) pond. If the heavier person pushes on the lighter one with a force F, then\nOption A: the force felt by the heavier person is (-1/2)F\nOption B: the force felt by the person is -2F\nOption C: the magnitude of the acceleration of the lighter person will be half of the magnitude of the acceleration of the heavier person\nOption D: the magnitude of the acceleration of the lighter person will be twice the magnitude of the acceleration of the heavier person\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 84
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

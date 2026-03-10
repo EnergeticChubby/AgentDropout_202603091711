@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773106643.0427103,
+    "run_id": "3ELsYrMXi5Ub",
+    "round_idx": 0,
+    "from_node": "RspS",
+    "to_node": "RspS",
+    "contract": {
+      "contract_id": "iq8c9edNDS",
+      "task_clause": "Among those hurt by inflation are I.   borrowers at fixed interest rates II.   individuals on fixed incomes III.   those with savings earning fixed interest rates IV.   restaurant owners\nOption A: I and II only\nOption B: II and III only\nOption C: II and IV only\nOption D: II III and IV only\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 123
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773106643.0428646,
+    "run_id": "3ELsYrMXi5Ub",
+    "round_idx": 1,
+    "from_node": "RspS",
+    "to_node": "NWcH",
+    "contract": {
+      "contract_id": "VowH9WYLtM",
+      "task_clause": "Among those hurt by inflation are I.   borrowers at fixed interest rates II.   individuals on fixed incomes III.   those with savings earning fixed interest rates IV.   restaurant owners\nOption A: I and II only\nOption B: II and III only\nOption C: II and IV only\nOption D: II III and IV only\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 123
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

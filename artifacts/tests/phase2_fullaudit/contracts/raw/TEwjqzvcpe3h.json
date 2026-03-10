@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773106364.877175,
+    "run_id": "TEwjqzvcpe3h",
+    "round_idx": 0,
+    "from_node": "RspS",
+    "to_node": "RspS",
+    "contract": {
+      "contract_id": "F7dgZvADsb",
+      "task_clause": "Which of the following statements is not a reason why tetramethylsilane is used as a 1H chemical shift reference.\nOption A: Its 1H spectrum is a singlet.\nOption B: Its protons are quite strongly shielded.\nOption C: It dissolves in most organic solvents.\nOption D: Most organic compounds do not contain silicon atoms.\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 207
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773106364.8773544,
+    "run_id": "TEwjqzvcpe3h",
+    "round_idx": 1,
+    "from_node": "RspS",
+    "to_node": "NWcH",
+    "contract": {
+      "contract_id": "5vXbsnBL5n",
+      "task_clause": "Which of the following statements is not a reason why tetramethylsilane is used as a 1H chemical shift reference.\nOption A: Its 1H spectrum is a singlet.\nOption B: Its protons are quite strongly shielded.\nOption C: It dissolves in most organic solvents.\nOption D: Most organic compounds do not contain silicon atoms.\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 207
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

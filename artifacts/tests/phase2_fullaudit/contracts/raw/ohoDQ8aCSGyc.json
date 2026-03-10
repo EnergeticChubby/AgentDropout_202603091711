@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773106507.37668,
+    "run_id": "ohoDQ8aCSGyc",
+    "round_idx": 0,
+    "from_node": "RspS",
+    "to_node": "RspS",
+    "contract": {
+      "contract_id": "ZrM97MkmJb",
+      "task_clause": "Let V be a finite-dimensional real vector space and let P be a linear transformation of V such that P^2 = P. Which of the following must be true?\nI. P is invertible.\nII. P is diagonalizable.\nIII. P is either the identity transformation or the zero transformation.\nOption A: None\nOption B: I only\nOption C: II only\nOption D: III only\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 1247
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773106507.37812,
+    "run_id": "ohoDQ8aCSGyc",
+    "round_idx": 1,
+    "from_node": "RspS",
+    "to_node": "NWcH",
+    "contract": {
+      "contract_id": "8rZDiKU2B3",
+      "task_clause": "Let V be a finite-dimensional real vector space and let P be a linear transformation of V such that P^2 = P. Which of the following must be true?\nI. P is invertible.\nII. P is diagonalizable.\nIII. P is either the identity transformation or the zero transformation.\nOption A: None\nOption B: I only\nOption C: II only\nOption D: III only\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 1247
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

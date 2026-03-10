@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773105735.3208203,
+    "run_id": "JvjoqyJujbMm",
+    "round_idx": 0,
+    "from_node": "oszy",
+    "to_node": "oszy",
+    "contract": {
+      "contract_id": "8E7dW4f5BD",
+      "task_clause": "Which characteristic of information in the statistical tables included in a comprehensive annual financial report differentiates it from information contained in the financial statements? Data covering financial trends Fiscal years\nOption A: Yes Yes\nOption B: Yes No\nOption C: No Yes\nOption D: No No\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 403
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773105735.3209956,
+    "run_id": "JvjoqyJujbMm",
+    "round_idx": 1,
+    "from_node": "oszy",
+    "to_node": "f3Es",
+    "contract": {
+      "contract_id": "a3gH9GTDzX",
+      "task_clause": "Which characteristic of information in the statistical tables included in a comprehensive annual financial report differentiates it from information contained in the financial statements? Data covering financial trends Fiscal years\nOption A: Yes Yes\nOption B: Yes No\nOption C: No Yes\nOption D: No No\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 403
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

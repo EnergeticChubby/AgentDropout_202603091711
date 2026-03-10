@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773106784.8291957,
+    "run_id": "3rLVsHfBDAfB",
+    "round_idx": 0,
+    "from_node": "zoCn",
+    "to_node": "zoCn",
+    "contract": {
+      "contract_id": "UrXpnBEfGG",
+      "task_clause": "A defendant was charged with vehicular battery after driving through a red light and crashing into a woman's small convertible. The woman suffered massive internal injuries and lapsed into a coma for several hours after she reached the hospital. The woman's best friend, who was a passenger in the car, miraculously received only a few minor bruises. After the collision, the passenger stayed with the woman trying to comfort her until the ambulance arrived. At trial, the passenger is called to testify. \u0080\u0098While on the witness stand, she gazes with sorrow at the woman, who is still wearing a cast on her leg. The passenger testifies that the first thing she remembered seeing after the accident was the woman's bloodied body trapped in the mangled wreckage. The state's attorney then asked the pass",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 207
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773106784.8297129,
+    "run_id": "3rLVsHfBDAfB",
+    "round_idx": 1,
+    "from_node": "zoCn",
+    "to_node": "Gie8",
+    "contract": {
+      "contract_id": "WTE3NVzarq",
+      "task_clause": "A defendant was charged with vehicular battery after driving through a red light and crashing into a woman's small convertible. The woman suffered massive internal injuries and lapsed into a coma for several hours after she reached the hospital. The woman's best friend, who was a passenger in the car, miraculously received only a few minor bruises. After the collision, the passenger stayed with the woman trying to comfort her until the ambulance arrived. At trial, the passenger is called to testify. \u0080\u0098While on the witness stand, she gazes with sorrow at the woman, who is still wearing a cast on her leg. The passenger testifies that the first thing she remembered seeing after the accident was the woman's bloodied body trapped in the mangled wreckage. The state's attorney then asked the pass",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 207
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

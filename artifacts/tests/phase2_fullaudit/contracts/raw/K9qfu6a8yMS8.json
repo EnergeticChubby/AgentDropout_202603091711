@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773105712.4115462,
+    "run_id": "K9qfu6a8yMS8",
+    "round_idx": 0,
+    "from_node": "bTv2",
+    "to_node": "bTv2",
+    "contract": {
+      "contract_id": "Mp6ocfzRm2",
+      "task_clause": "A plaintiff has sued a defendant in a court of the state in which both parties reside. The plaintiff alleges only a cause of action arising under a federal statute, although state law provides a similar cause of action. The federal statute provides that claims under the statute can be brought in any court of competent jurisdiction. The statute has not yet been interpreted by any federal court. Should the state court hear the case?\nOption A: No, because cases arising under federal law must be decided in federal court.\nOption B: No, because state courts must abstain in cases arising under federal law until a federal court has decided the federal issue.\nOption C: Yes, because state courts may not discriminate against cases arising under discriminate against cases arising under federal law.\nOp",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 435
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773105712.4271781,
+    "run_id": "K9qfu6a8yMS8",
+    "round_idx": 1,
+    "from_node": "bTv2",
+    "to_node": "hvoN",
+    "contract": {
+      "contract_id": "P2usBmqzsF",
+      "task_clause": "A plaintiff has sued a defendant in a court of the state in which both parties reside. The plaintiff alleges only a cause of action arising under a federal statute, although state law provides a similar cause of action. The federal statute provides that claims under the statute can be brought in any court of competent jurisdiction. The statute has not yet been interpreted by any federal court. Should the state court hear the case?\nOption A: No, because cases arising under federal law must be decided in federal court.\nOption B: No, because state courts must abstain in cases arising under federal law until a federal court has decided the federal issue.\nOption C: Yes, because state courts may not discriminate against cases arising under discriminate against cases arising under federal law.\nOp",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 435
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

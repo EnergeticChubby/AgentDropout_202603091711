@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773105471.21064,
+    "run_id": "9y8cxZGsKiAd",
+    "round_idx": 0,
+    "from_node": "3DZy",
+    "to_node": "3DZy",
+    "contract": {
+      "contract_id": "dEVwWcqAbk",
+      "task_clause": " Which of the given formulas of PL is the best symbolization of the following sentence?\nEither England's importing beef is not a necessary condition for France's subsidizing agriculture, or China promotes human rights if South Africa supplies diamonds.\nOption A: (~F \u2283 E) \u2228 (C \u2261 ~S)\nOption B: (~E \u2283 F) \u2228 (C \u2283 S)\nOption C: (~F \u2283 E) \u2228 (C \u2261 S)\nOption D: ~(F \u2283 E) \u2228 (S \u2283 C)\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 1266
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773105471.2109268,
+    "run_id": "9y8cxZGsKiAd",
+    "round_idx": 1,
+    "from_node": "3DZy",
+    "to_node": "YzdL",
+    "contract": {
+      "contract_id": "XZVu8Zn86P",
+      "task_clause": " Which of the given formulas of PL is the best symbolization of the following sentence?\nEither England's importing beef is not a necessary condition for France's subsidizing agriculture, or China promotes human rights if South Africa supplies diamonds.\nOption A: (~F \u2283 E) \u2228 (C \u2261 ~S)\nOption B: (~E \u2283 F) \u2228 (C \u2283 S)\nOption C: (~F \u2283 E) \u2228 (C \u2261 S)\nOption D: ~(F \u2283 E) \u2228 (S \u2283 C)\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 1266
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

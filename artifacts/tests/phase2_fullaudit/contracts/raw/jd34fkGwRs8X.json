@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773105587.3899732,
+    "run_id": "jd34fkGwRs8X",
+    "round_idx": 0,
+    "from_node": "oszy",
+    "to_node": "oszy",
+    "contract": {
+      "contract_id": "nFeRwLa9j7",
+      "task_clause": "3 cards are chosen at random from a standard 52-card deck. What is the probability that they form a pair? (A 3-card hand is a 'pair' if two of the cards match in rank but the third card is different. For example, 668 is a pair, but 999 is not.)\nOption A: \\frac{1}{8}\nOption B: \\frac{1}{36}\nOption C: \\frac{1}{78}\nOption D: \\frac{72}{425}\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 1526
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773105587.3903143,
+    "run_id": "jd34fkGwRs8X",
+    "round_idx": 1,
+    "from_node": "oszy",
+    "to_node": "f3Es",
+    "contract": {
+      "contract_id": "xPGP7Jj6dC",
+      "task_clause": "3 cards are chosen at random from a standard 52-card deck. What is the probability that they form a pair? (A 3-card hand is a 'pair' if two of the cards match in rank but the third card is different. For example, 668 is a pair, but 999 is not.)\nOption A: \\frac{1}{8}\nOption B: \\frac{1}{36}\nOption C: \\frac{1}{78}\nOption D: \\frac{72}{425}\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 1526
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773106664.6347008,
+    "run_id": "TXXxcpaQUbDR",
+    "round_idx": 0,
+    "from_node": "7pXU",
+    "to_node": "7pXU",
+    "contract": {
+      "contract_id": "5ZcHvTSPDG",
+      "task_clause": "It is known that a lab cart is moving east at 25 cm/s at time t1 = 0.10 s, and then moving east at 15 cm/s at t2 = 0.20 s. Is this enough information to determine the direction of the net force acting on the cart between t1 and t2?\nOption A: Yes, since we know the cart is slowing down, its momentum change is opposite the direction of movement, and the net force is in the direction of momentum change.\nOption B: No, because we don\u2019t know whether forces such as friction or air resistance might be acting on the cart.\nOption C: No, because we don\u2019t know the mass of the cart.\nOption D: Yes, since we know the cart keeps moving to the east, the net force must be in the direction of motion.\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 144
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773106664.6348937,
+    "run_id": "TXXxcpaQUbDR",
+    "round_idx": 1,
+    "from_node": "7pXU",
+    "to_node": "wukB",
+    "contract": {
+      "contract_id": "YLpfj9kAUy",
+      "task_clause": "It is known that a lab cart is moving east at 25 cm/s at time t1 = 0.10 s, and then moving east at 15 cm/s at t2 = 0.20 s. Is this enough information to determine the direction of the net force acting on the cart between t1 and t2?\nOption A: Yes, since we know the cart is slowing down, its momentum change is opposite the direction of movement, and the net force is in the direction of momentum change.\nOption B: No, because we don\u2019t know whether forces such as friction or air resistance might be acting on the cart.\nOption C: No, because we don\u2019t know the mass of the cart.\nOption D: Yes, since we know the cart keeps moving to the east, the net force must be in the direction of motion.\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 144
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

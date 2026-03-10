@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773105689.2809558,
+    "run_id": "NXUpJR7q96E8",
+    "round_idx": 0,
+    "from_node": "yyrC",
+    "to_node": "yyrC",
+    "contract": {
+      "contract_id": "ifqtESEbGM",
+      "task_clause": "Which of the following offers for the sale of widgets is not enforceable if the seller changes his mind prior to acceptance?\nOption A: A merchant tells buyer in writing she will sell the widget for $35,000 and that the offer will be irrevocable for ten days.\nOption B: A merchant writes buyer offering to sell the widget for $35,000.\nOption C: A merchant telegraphs buyer offering to sell the widget for $35,000 and promises to hold the offer open for ten days.\nOption D: A merchant writes buyer offering to sell the widget for $35,000 and stating that the offer will be irrevocable for ten days if buyer will pay $1.00. Buyer pays.\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 826
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773105689.2903678,
+    "run_id": "NXUpJR7q96E8",
+    "round_idx": 1,
+    "from_node": "yyrC",
+    "to_node": "jWnD",
+    "contract": {
+      "contract_id": "VkUKYNfoRw",
+      "task_clause": "Which of the following offers for the sale of widgets is not enforceable if the seller changes his mind prior to acceptance?\nOption A: A merchant tells buyer in writing she will sell the widget for $35,000 and that the offer will be irrevocable for ten days.\nOption B: A merchant writes buyer offering to sell the widget for $35,000.\nOption C: A merchant telegraphs buyer offering to sell the widget for $35,000 and promises to hold the offer open for ten days.\nOption D: A merchant writes buyer offering to sell the widget for $35,000 and stating that the offer will be irrevocable for ten days if buyer will pay $1.00. Buyer pays.\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 826
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773106712.0983496,
+    "run_id": "8ZSQFdqNVNoi",
+    "round_idx": 0,
+    "from_node": "7pXU",
+    "to_node": "7pXU",
+    "contract": {
+      "contract_id": "iAzPff5vYq",
+      "task_clause": "Aristotle states that if we ask what the highest good of human action is:\nOption A: there is no agreement about the answer.\nOption B: most people agree that it is pleasure.\nOption C: nearly everyone agrees that it is happiness.\nOption D: there is no objective answer to this question.\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 132
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773106712.0985708,
+    "run_id": "8ZSQFdqNVNoi",
+    "round_idx": 1,
+    "from_node": "7pXU",
+    "to_node": "wukB",
+    "contract": {
+      "contract_id": "dWRHM4uTRA",
+      "task_clause": "Aristotle states that if we ask what the highest good of human action is:\nOption A: there is no agreement about the answer.\nOption B: most people agree that it is pleasure.\nOption C: nearly everyone agrees that it is happiness.\nOption D: there is no objective answer to this question.\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 132
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

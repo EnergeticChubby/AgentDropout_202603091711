@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773105673.4884162,
+    "run_id": "kZMtsgF3c6f5",
+    "round_idx": 0,
+    "from_node": "DcnU",
+    "to_node": "DcnU",
+    "contract": {
+      "contract_id": "wPPQqJNDsU",
+      "task_clause": "Securities A, B and C have an expected return of respectively 7%, 12% and 5%. What is the expected return of an equal weighted portfolio composed of Securities A and C?\nOption A: 10%\nOption B: 8.50%\nOption C: 6%\nOption D: 12%\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 146
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773105673.4886243,
+    "run_id": "kZMtsgF3c6f5",
+    "round_idx": 1,
+    "from_node": "DcnU",
+    "to_node": "4TBG",
+    "contract": {
+      "contract_id": "RS3ae8yFDw",
+      "task_clause": "Securities A, B and C have an expected return of respectively 7%, 12% and 5%. What is the expected return of an equal weighted portfolio composed of Securities A and C?\nOption A: 10%\nOption B: 8.50%\nOption C: 6%\nOption D: 12%\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 146
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

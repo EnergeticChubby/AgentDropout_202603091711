@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773105534.5024378,
+    "run_id": "d4qk6avxvnok",
+    "round_idx": 0,
+    "from_node": "DcnU",
+    "to_node": "DcnU",
+    "contract": {
+      "contract_id": "WP6pSJbaxv",
+      "task_clause": "To prepare a buffer, all of the following are needed except\nOption A: an acid with a pKa close to the desired pH\nOption B: a conjugate acid along with its conjugate base\nOption C: a buffer capacity sufficient to react with added acid or base\nOption D: triple-distilled water\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 463
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773105534.5026429,
+    "run_id": "d4qk6avxvnok",
+    "round_idx": 1,
+    "from_node": "DcnU",
+    "to_node": "4TBG",
+    "contract": {
+      "contract_id": "cxHNVvyxCa",
+      "task_clause": "To prepare a buffer, all of the following are needed except\nOption A: an acid with a pKa close to the desired pH\nOption B: a conjugate acid along with its conjugate base\nOption C: a buffer capacity sufficient to react with added acid or base\nOption D: triple-distilled water\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 463
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

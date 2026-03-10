@@ -1,0 +1,54 @@
+[
+  {
+    "timestamp": 1773105448.763301,
+    "run_id": "2NfReZMiQ98d",
+    "round_idx": 1,
+    "from_node": "sd6E",
+    "to_node": "kaAi",
+    "contract": {
+      "contract_id": "xXPhCszxAc",
+      "task_clause": "Assume that any assignment statement can be executed in unit time. If as many identical processors as needed are used, what is the minimum number of time units needed to execute the assignments\nA := B + C\nB := A - B\nC := A * E\nD := A/F\nE := B - C\nF := A + B\nwith the same result as if the assignments were executed in the order shown?\nOption A: 1\nOption B: 2\nOption C: 3\nOption D: 4\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": false,
+      "violations": [
+        "empty_deliverable"
+      ],
+      "details": {
+        "output_length": 0
+      }
+    },
+    "dispute": {
+      "action": "rework",
+      "reason": "empty_deliverable",
+      "metadata": {
+        "rollback_to": "upstream_node"
+      }
+    }
+  }
+]

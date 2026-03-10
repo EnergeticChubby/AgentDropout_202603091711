@@ -1,0 +1,54 @@
+[
+  {
+    "timestamp": 1773106800.2998445,
+    "run_id": "6AKR648jvTNg",
+    "round_idx": 1,
+    "from_node": "rNED",
+    "to_node": "33ar",
+    "contract": {
+      "contract_id": "6j6tx3q2bN",
+      "task_clause": "You are the vice president of public relations for a corporation that produces a well-known brand of food products. In the Albany, New York, market, one of your products has recently been found to have some contamination. While apparently not fatal, it has given a large number of consumers severe stomach cramps and other intestinal problems. The cause has been traced back to your product, which is sold throughout the nation. Your CEO wants to know what you would advise to keep the situation from becoming a public relations disaster. What should you recommend?\nOption A: Quickly investigate to make certain your product is definitely the cause of the illness.\nOption B: Stop all sales of the product throughout the nation and issue a recall for that product.\nOption C: Stop sales of the product ",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": false,
+      "violations": [
+        "empty_deliverable"
+      ],
+      "details": {
+        "output_length": 0
+      }
+    },
+    "dispute": {
+      "action": "rework",
+      "reason": "empty_deliverable",
+      "metadata": {
+        "rollback_to": "upstream_node"
+      }
+    }
+  }
+]

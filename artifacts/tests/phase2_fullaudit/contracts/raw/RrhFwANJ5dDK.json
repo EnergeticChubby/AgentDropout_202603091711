@@ -1,0 +1,54 @@
+[
+  {
+    "timestamp": 1773105649.9912953,
+    "run_id": "RrhFwANJ5dDK",
+    "round_idx": 1,
+    "from_node": "yyrC",
+    "to_node": "jWnD",
+    "contract": {
+      "contract_id": "BdJEo9CTj9",
+      "task_clause": "This question refers to the following information.\nThe 1980s have been born in turmoil, strife, and change. This is a time of challenge to our interests and our values and it's a time that tests our wisdom and skills.\nAt this time in Iran, 50 Americans are still held captive, innocent victims of terrorism and anarchy. Also at this moment, massive Soviet troops are attempting to subjugate the fiercely independent and deeply religious people of Afghanistan. These two acts\u2014one of international terrorism and one of military aggression\u2014present a serious challenge to the United States of America and indeed to all the nations of the world. Together we will meet these threats to peace.\u2026\nThree basic developments have helped to shape our challenges: the steady growth and increased projection of Sovi",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": false,
+      "violations": [
+        "empty_deliverable"
+      ],
+      "details": {
+        "output_length": 0
+      }
+    },
+    "dispute": {
+      "action": "rework",
+      "reason": "empty_deliverable",
+      "metadata": {
+        "rollback_to": "upstream_node"
+      }
+    }
+  }
+]

@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773106776.3821237,
+    "run_id": "CQiEb7jsV2Cn",
+    "round_idx": 0,
+    "from_node": "aq9d",
+    "to_node": "aq9d",
+    "contract": {
+      "contract_id": "8dVBQKDhRQ",
+      "task_clause": "A company\u2019s new time clock process requires hourly employees to select an identification number and then choose the clock-in or clock-out button. A video camera captures an image of the employee using the system. Which of the following exposures can the new system be expected to change the least?\nOption A: Fraudulent reporting of employees\u2019 own hours.\nOption B: Errors in employees\u2019 overtime computation\nOption C: Inaccurate accounting of employees\u2019 hours.\nOption D: Recording of other employees\u2019 hours.\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 395
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773106776.3823597,
+    "run_id": "CQiEb7jsV2Cn",
+    "round_idx": 1,
+    "from_node": "aq9d",
+    "to_node": "npyR",
+    "contract": {
+      "contract_id": "MzgNjUdXdh",
+      "task_clause": "A company\u2019s new time clock process requires hourly employees to select an identification number and then choose the clock-in or clock-out button. A video camera captures an image of the employee using the system. Which of the following exposures can the new system be expected to change the least?\nOption A: Fraudulent reporting of employees\u2019 own hours.\nOption B: Errors in employees\u2019 overtime computation\nOption C: Inaccurate accounting of employees\u2019 hours.\nOption D: Recording of other employees\u2019 hours.\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 395
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773105460.4931872,
+    "run_id": "k9NMDTG9uxzg",
+    "round_idx": 0,
+    "from_node": "yyrC",
+    "to_node": "yyrC",
+    "contract": {
+      "contract_id": "4UXpkkUXFB",
+      "task_clause": "Two expressions E and F are said to be unifiable if there are substitutions for the variables of E and F that make the expressions lexically identical. In the following three expressions, only w, x, y, and z are variables.\nI. f(w,w)\nII. f(x,1)\nIII. f(y,g(z))\nWhich pairs of these expressions is (are) pairs of unifiable expressions?\nOption A: (I, II) only\nOption B: (I, III) only\nOption C: (II, III) only\nOption D: (I, II) and (I, III) only\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 2473
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773105460.4934778,
+    "run_id": "k9NMDTG9uxzg",
+    "round_idx": 1,
+    "from_node": "yyrC",
+    "to_node": "jWnD",
+    "contract": {
+      "contract_id": "Zt7bdCDcfR",
+      "task_clause": "Two expressions E and F are said to be unifiable if there are substitutions for the variables of E and F that make the expressions lexically identical. In the following three expressions, only w, x, y, and z are variables.\nI. f(w,w)\nII. f(x,1)\nIII. f(y,g(z))\nWhich pairs of these expressions is (are) pairs of unifiable expressions?\nOption A: (I, II) only\nOption B: (I, III) only\nOption C: (II, III) only\nOption D: (I, II) and (I, III) only\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 2473
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

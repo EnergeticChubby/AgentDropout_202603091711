@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773105712.4020648,
+    "run_id": "F62HK9ZxqCRv",
+    "round_idx": 0,
+    "from_node": "sd6E",
+    "to_node": "sd6E",
+    "contract": {
+      "contract_id": "qJLsmbCEQU",
+      "task_clause": "A furniture store had a truck that an employee of the store used to deliver furniture to the store's customers. One afternoon while the employee was driving the truck to deliver a chair to a customer, the employee negligently ran through a stop sign and hit a car. The driver of the car suffered a leg injury and succeeded in suing the furniture store, recovering $25,000. Assume that all of these events occur in a jurisdiction that has statutes permitting defendants to bring claims for contribution and indemnity. In the event that the furniture store brings suit against its employee (the truck driver) to recover for its losses, the furniture store will recover\nOption A: nothing, because the furniture store was primarily liable for the entire amount of damages.\nOption B: $12,500, because the ",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 771
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773105712.4023478,
+    "run_id": "F62HK9ZxqCRv",
+    "round_idx": 1,
+    "from_node": "sd6E",
+    "to_node": "kaAi",
+    "contract": {
+      "contract_id": "vHkeMFi4Di",
+      "task_clause": "A furniture store had a truck that an employee of the store used to deliver furniture to the store's customers. One afternoon while the employee was driving the truck to deliver a chair to a customer, the employee negligently ran through a stop sign and hit a car. The driver of the car suffered a leg injury and succeeded in suing the furniture store, recovering $25,000. Assume that all of these events occur in a jurisdiction that has statutes permitting defendants to bring claims for contribution and indemnity. In the event that the furniture store brings suit against its employee (the truck driver) to recover for its losses, the furniture store will recover\nOption A: nothing, because the furniture store was primarily liable for the entire amount of damages.\nOption B: $12,500, because the ",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 771
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

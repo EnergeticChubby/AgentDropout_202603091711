@@ -1,0 +1,54 @@
+[
+  {
+    "timestamp": 1773106650.714243,
+    "run_id": "bTyZ6YCAXwEN",
+    "round_idx": 1,
+    "from_node": "7pXU",
+    "to_node": "wukB",
+    "contract": {
+      "contract_id": "Q2k6waoH4Q",
+      "task_clause": "A farmer who raises hens for egg production wants his eggs to have a mean mass of 56 grams. He is considering the purchase of a different type of hen, so he took a random sample of 18 eggs laid by this type of hen. The distribution of the masses is symmetric and mound-shaped with a mean of 54.1 grams and no outliers. The farmer conducted a t-test to see if there is evidence that the eggs from these hens have a mean mass that is different from 56 g and got a test statistic of t= -1.973. If he uses a 5% significance level, which is the correct conclusion and reason?\nOption A: Because tis more extreme than \u00b11.96, he should reject the null hypothesis. He has convincing evidence at the 5% significance level that the mean mass of eggs from these hens is different from 56 grams.\nOption B: Because",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": false,
+      "violations": [
+        "empty_deliverable"
+      ],
+      "details": {
+        "output_length": 0
+      }
+    },
+    "dispute": {
+      "action": "rework",
+      "reason": "empty_deliverable",
+      "metadata": {
+        "rollback_to": "upstream_node"
+      }
+    }
+  }
+]

@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773105644.4086301,
+    "run_id": "qGXyj9LcFD2G",
+    "round_idx": 0,
+    "from_node": "oszy",
+    "to_node": "oszy",
+    "contract": {
+      "contract_id": "AKDBGRBbTa",
+      "task_clause": " In his discussion of the Divided Line, Plato says that, in contrast to mere belief or opinion, knowledge is a belief for which we give reasons or justifications by appealing:\nOption A: to what our senses reveal to us about how things appear to us, not how they  really are.\nOption B: beyond the Forms to images of goodness, beauty, and truth obtained from particular objects.\nOption C: to what we sincerely believe is true about the Forms based on our experiences in the world.\nOption D: beyond sense experience to unchanging ideas (Forms) that are perceived as rationally ordered.\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 24
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773105644.4088087,
+    "run_id": "qGXyj9LcFD2G",
+    "round_idx": 1,
+    "from_node": "oszy",
+    "to_node": "f3Es",
+    "contract": {
+      "contract_id": "Tw2FWpN3JB",
+      "task_clause": " In his discussion of the Divided Line, Plato says that, in contrast to mere belief or opinion, knowledge is a belief for which we give reasons or justifications by appealing:\nOption A: to what our senses reveal to us about how things appear to us, not how they  really are.\nOption B: beyond the Forms to images of goodness, beauty, and truth obtained from particular objects.\nOption C: to what we sincerely believe is true about the Forms based on our experiences in the world.\nOption D: beyond sense experience to unchanging ideas (Forms) that are perceived as rationally ordered.\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 24
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773106686.8562803,
+    "run_id": "6GBxtw3nc9LB",
+    "round_idx": 0,
+    "from_node": "7pXU",
+    "to_node": "7pXU",
+    "contract": {
+      "contract_id": "QWJu25GNri",
+      "task_clause": "Hume claims that a person who is unaffected by images of human happiness or misery will also be indifferent to:\nOption A: art and beauty.\nOption B: virtue and vice.\nOption C: his own well-being.\nOption D: all of the above.\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 98
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773106686.8564143,
+    "run_id": "6GBxtw3nc9LB",
+    "round_idx": 1,
+    "from_node": "7pXU",
+    "to_node": "wukB",
+    "contract": {
+      "contract_id": "3gkVFUbkYV",
+      "task_clause": "Hume claims that a person who is unaffected by images of human happiness or misery will also be indifferent to:\nOption A: art and beauty.\nOption B: virtue and vice.\nOption C: his own well-being.\nOption D: all of the above.\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 98
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

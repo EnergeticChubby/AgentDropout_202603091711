@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773105711.3918192,
+    "run_id": "snmYKxRxtKt6",
+    "round_idx": 0,
+    "from_node": "3DZy",
+    "to_node": "3DZy",
+    "contract": {
+      "contract_id": "kTHekd9JTb",
+      "task_clause": "A man was charged with first-degree murder. Two lawyers were appointed to represent him because the prosecution planned to seek the death penalty. On the first day of trial, the air-conditioning malfunctioned in the courtroom, so the judge directed that the selection of the jurors take place in his chambers. Because of the large number of potential jurors, the judge directed that only one lawyer for the prosecution and one for the defense participate in the jury selection process. The defendant remained in the courtroom during the questioning of the jurors. Once the jury was selected, the trial was postponed until the next day, when the air-conditioning was again working. Did the court's jury selection process violate the defendant's federal constitutional rights?\nOption A: No, because a d",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 165
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773105711.392281,
+    "run_id": "snmYKxRxtKt6",
+    "round_idx": 1,
+    "from_node": "3DZy",
+    "to_node": "YzdL",
+    "contract": {
+      "contract_id": "72w65RCgxd",
+      "task_clause": "A man was charged with first-degree murder. Two lawyers were appointed to represent him because the prosecution planned to seek the death penalty. On the first day of trial, the air-conditioning malfunctioned in the courtroom, so the judge directed that the selection of the jurors take place in his chambers. Because of the large number of potential jurors, the judge directed that only one lawyer for the prosecution and one for the defense participate in the jury selection process. The defendant remained in the courtroom during the questioning of the jurors. Once the jury was selected, the trial was postponed until the next day, when the air-conditioning was again working. Did the court's jury selection process violate the defendant's federal constitutional rights?\nOption A: No, because a d",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 165
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773106367.6908329,
+    "run_id": "DHbfrxfAkQb3",
+    "round_idx": 0,
+    "from_node": "9DvT",
+    "to_node": "9DvT",
+    "contract": {
+      "contract_id": "8hRcXbNTkx",
+      "task_clause": "Loss of somatic sensation over the anterior two-thirds of the tongue indicates damage to the\nOption A: lingual branch of the mandibular trigeminal nerve.\nOption B: chorda tympani branch of the facial nerve.\nOption C: lingual branch of the glossopharyngeal nerve.\nOption D: hypoglossal nerve.\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 609
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773106367.691053,
+    "run_id": "DHbfrxfAkQb3",
+    "round_idx": 1,
+    "from_node": "9DvT",
+    "to_node": "MRBq",
+    "contract": {
+      "contract_id": "jiF4FYyWKH",
+      "task_clause": "Loss of somatic sensation over the anterior two-thirds of the tongue indicates damage to the\nOption A: lingual branch of the mandibular trigeminal nerve.\nOption B: chorda tympani branch of the facial nerve.\nOption C: lingual branch of the glossopharyngeal nerve.\nOption D: hypoglossal nerve.\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 609
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

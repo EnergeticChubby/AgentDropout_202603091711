@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773106455.3848326,
+    "run_id": "kUXKJJv9ngeU",
+    "round_idx": 0,
+    "from_node": "aUhM",
+    "to_node": "aUhM",
+    "contract": {
+      "contract_id": "fxi478buKk",
+      "task_clause": "Let T be a depth-first search tree of a connected undirected graph G. For each vertex v of T, let pre(v) be the number of nodes visited up to and including v during a preorder traversal of T, and post(v) be the number of nodes visited up to and including v during a postorder traversal of T. The lowest common ancestor of vertices u and v in T is a vertex w of T such that w is an ancestor of both u and v, and no child of w is an ancestor of both u and v. Let (u, v) be an edge in G that is not in T, such that pre(u) < pre(v). Which of the following statements about u and v must be true?\nI. post(u) < post(v)\nII. u is an ancestor of v in T.\nIII. If w is the lowest common ancestor of u and v in T, then w = u.\nOption A: I only\nOption B: II only\nOption C: III only\nOption D: II and III\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 1177
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773106455.3851676,
+    "run_id": "kUXKJJv9ngeU",
+    "round_idx": 1,
+    "from_node": "aUhM",
+    "to_node": "9JKj",
+    "contract": {
+      "contract_id": "6F62b5gzxn",
+      "task_clause": "Let T be a depth-first search tree of a connected undirected graph G. For each vertex v of T, let pre(v) be the number of nodes visited up to and including v during a preorder traversal of T, and post(v) be the number of nodes visited up to and including v during a postorder traversal of T. The lowest common ancestor of vertices u and v in T is a vertex w of T such that w is an ancestor of both u and v, and no child of w is an ancestor of both u and v. Let (u, v) be an edge in G that is not in T, such that pre(u) < pre(v). Which of the following statements about u and v must be true?\nI. post(u) < post(v)\nII. u is an ancestor of v in T.\nIII. If w is the lowest common ancestor of u and v in T, then w = u.\nOption A: I only\nOption B: II only\nOption C: III only\nOption D: II and III\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 1177
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

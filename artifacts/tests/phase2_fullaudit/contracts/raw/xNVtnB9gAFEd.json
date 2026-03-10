@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773105332.1928,
+    "run_id": "xNVtnB9gAFEd",
+    "round_idx": 0,
+    "from_node": "yyrC",
+    "to_node": "yyrC",
+    "contract": {
+      "contract_id": "oTZVU5ppjj",
+      "task_clause": "Sodium bicarbonate ingestion improves middle distance running performance by:\nOption A: elevating the pH and buffering capacity of the extracellular fluid allowing a faster efflux of hydrogen ions from muscle.\nOption B: reducing the pH and buffering capacity of the extracellular fluid allowing a faster efflux of hydrogen ions from muscle.\nOption C: elevating the pH and buffering capacity of the extracellular fluid allowing a faster influx of hydrogen ions into muscle.\nOption D: elevating the pre-exercise muscle pH.\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 237
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773105332.1929457,
+    "run_id": "xNVtnB9gAFEd",
+    "round_idx": 1,
+    "from_node": "yyrC",
+    "to_node": "jWnD",
+    "contract": {
+      "contract_id": "3zBWsHFC8Q",
+      "task_clause": "Sodium bicarbonate ingestion improves middle distance running performance by:\nOption A: elevating the pH and buffering capacity of the extracellular fluid allowing a faster efflux of hydrogen ions from muscle.\nOption B: reducing the pH and buffering capacity of the extracellular fluid allowing a faster efflux of hydrogen ions from muscle.\nOption C: elevating the pH and buffering capacity of the extracellular fluid allowing a faster influx of hydrogen ions into muscle.\nOption D: elevating the pre-exercise muscle pH.\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 237
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

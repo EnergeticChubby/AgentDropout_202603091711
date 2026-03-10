@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773106585.607264,
+    "run_id": "nzeo6RJh3K56",
+    "round_idx": 0,
+    "from_node": "7pXU",
+    "to_node": "7pXU",
+    "contract": {
+      "contract_id": "o3eVzAuJHX",
+      "task_clause": "What is the percentage of children aged 13-15 in the United States who reported being bullied at least once in the past couple of months as of 2015?\nOption A: 26%\nOption B: 46%\nOption C: 66%\nOption D: 86%\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 267
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773106585.6074033,
+    "run_id": "nzeo6RJh3K56",
+    "round_idx": 1,
+    "from_node": "7pXU",
+    "to_node": "wukB",
+    "contract": {
+      "contract_id": "GqXHae6dtR",
+      "task_clause": "What is the percentage of children aged 13-15 in the United States who reported being bullied at least once in the past couple of months as of 2015?\nOption A: 26%\nOption B: 46%\nOption C: 66%\nOption D: 86%\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 267
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

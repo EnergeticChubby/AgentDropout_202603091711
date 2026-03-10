@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773105734.9140956,
+    "run_id": "WABNVCKN3BZY",
+    "round_idx": 0,
+    "from_node": "bTv2",
+    "to_node": "bTv2",
+    "contract": {
+      "contract_id": "zpDzEFuu34",
+      "task_clause": "For which of the following preliminary questions of fact will the trial court judge, not the jury, determine admissibility?\nOption A: Whether the voice on a sound recording is that of the defendant.\nOption B: Whether defendant's copy of a document accurately reflects the contents of the original writing.\nOption C: Whether a conspiracy existed and defendant and declarant were members of the conspiracy before admitting an alleged declaration by a co-conspirator.\nOption D: A plaintiff sues on a lost writing, and the defendant contends that it was not lost because it never existed. The question to be decided is whether the original writing ever existed.\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 389
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773105734.9143205,
+    "run_id": "WABNVCKN3BZY",
+    "round_idx": 1,
+    "from_node": "bTv2",
+    "to_node": "hvoN",
+    "contract": {
+      "contract_id": "Kb43aYmekq",
+      "task_clause": "For which of the following preliminary questions of fact will the trial court judge, not the jury, determine admissibility?\nOption A: Whether the voice on a sound recording is that of the defendant.\nOption B: Whether defendant's copy of a document accurately reflects the contents of the original writing.\nOption C: Whether a conspiracy existed and defendant and declarant were members of the conspiracy before admitting an alleged declaration by a co-conspirator.\nOption D: A plaintiff sues on a lost writing, and the defendant contends that it was not lost because it never existed. The question to be decided is whether the original writing ever existed.\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 389
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

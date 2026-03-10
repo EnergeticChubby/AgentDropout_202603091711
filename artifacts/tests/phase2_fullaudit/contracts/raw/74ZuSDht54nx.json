@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773106429.8789353,
+    "run_id": "74ZuSDht54nx",
+    "round_idx": 0,
+    "from_node": "RspS",
+    "to_node": "RspS",
+    "contract": {
+      "contract_id": "NKoCnM5f4k",
+      "task_clause": "Which of the following is not true?\nOption A: The Earth and Venus are in a 1:1 orbital resonance (for every 1 Earth orbit there is exactly 1 Venus orbit)\nOption B: Neptune and Pluto are in a 3:2 orbital resonance (for every 3 Neptune orbits there are exactly 2 Pluto orbits)\nOption C: The Kirkwood Gaps in the asteroid belt are due to resonances with Jupiter\nOption D: Neptune and Pluto won't collide because of their orbital resonance\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 301
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773106429.8791468,
+    "run_id": "74ZuSDht54nx",
+    "round_idx": 1,
+    "from_node": "RspS",
+    "to_node": "NWcH",
+    "contract": {
+      "contract_id": "gteSMeo6RZ",
+      "task_clause": "Which of the following is not true?\nOption A: The Earth and Venus are in a 1:1 orbital resonance (for every 1 Earth orbit there is exactly 1 Venus orbit)\nOption B: Neptune and Pluto are in a 3:2 orbital resonance (for every 3 Neptune orbits there are exactly 2 Pluto orbits)\nOption C: The Kirkwood Gaps in the asteroid belt are due to resonances with Jupiter\nOption D: Neptune and Pluto won't collide because of their orbital resonance\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 301
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

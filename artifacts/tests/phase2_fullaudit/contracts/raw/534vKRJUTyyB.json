@@ -1,0 +1,54 @@
+[
+  {
+    "timestamp": 1773105602.0523975,
+    "run_id": "534vKRJUTyyB",
+    "round_idx": 1,
+    "from_node": "bTv2",
+    "to_node": "hvoN",
+    "contract": {
+      "contract_id": "k8UbL9pWCH",
+      "task_clause": "This question refers to the following information.\n\"Your sentiments, that our affairs are drawing rapidly to a crisis, accord with my own. What the event will be is also beyond the reach of my foresight. We have errors to correct. We have probably had too good an opinion of human nature in forming our confederation. Experience has taught us that men will not adopt and carry into execution measures the best calculated for their own good without the intervention of a coercive power. I do not conceive that we can exist long as a nation without having lodged somewhere a power which will pervade the whole Union in as energetic a manner as the authority of the state governments extends over the several states. . . .\n\"What astonishing changes a few years are capable of producing. I am told that e",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": false,
+      "violations": [
+        "empty_deliverable"
+      ],
+      "details": {
+        "output_length": 0
+      }
+    },
+    "dispute": {
+      "action": "rework",
+      "reason": "empty_deliverable",
+      "metadata": {
+        "rollback_to": "upstream_node"
+      }
+    }
+  }
+]

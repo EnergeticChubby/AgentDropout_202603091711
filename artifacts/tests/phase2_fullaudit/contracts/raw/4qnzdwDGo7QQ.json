@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773106742.3202956,
+    "run_id": "4qnzdwDGo7QQ",
+    "round_idx": 0,
+    "from_node": "7pXU",
+    "to_node": "7pXU",
+    "contract": {
+      "contract_id": "gFVCwTBEcJ",
+      "task_clause": "A man was prosecuted for assault and battery after he admitted striking a victim with a pool cue during a barroom argument. The man claimed that he acted in self-defense after he was attacked by the victim, who was drunk and belligerent. As his first defense witness, the man calls his neighbor to testify that the man is a good neighbor. The neighbor's testimony is\nOption A: admissible, because it is relevant to show the improbability of the man's having committed an unprovoked attack.\nOption B: admissible, because it is relevant to support the man's credibility.\nOption C: inadmissible, because it is merely the opinion of a character witness.\nOption D: inadmissible, because it is not directed toward a pertinent trait of the man's character.\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 177
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773106742.3209093,
+    "run_id": "4qnzdwDGo7QQ",
+    "round_idx": 1,
+    "from_node": "7pXU",
+    "to_node": "wukB",
+    "contract": {
+      "contract_id": "tuHudkMaCK",
+      "task_clause": "A man was prosecuted for assault and battery after he admitted striking a victim with a pool cue during a barroom argument. The man claimed that he acted in self-defense after he was attacked by the victim, who was drunk and belligerent. As his first defense witness, the man calls his neighbor to testify that the man is a good neighbor. The neighbor's testimony is\nOption A: admissible, because it is relevant to show the improbability of the man's having committed an unprovoked attack.\nOption B: admissible, because it is relevant to support the man's credibility.\nOption C: inadmissible, because it is merely the opinion of a character witness.\nOption D: inadmissible, because it is not directed toward a pertinent trait of the man's character.\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 177
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

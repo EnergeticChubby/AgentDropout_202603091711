@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773105647.9258547,
+    "run_id": "7ctvFEUth24c",
+    "round_idx": 0,
+    "from_node": "sd6E",
+    "to_node": "sd6E",
+    "contract": {
+      "contract_id": "wYARjmuAnn",
+      "task_clause": "The genetic fallacy consists of\nOption A: arguing that a conclusion should be made based on feeling sorry for someone when that feeling is irrelevant to the conclusion\nOption B: responding to charges of wrongdoing by saying the accuser does something just as bad\nOption C: arguing that an idea should be accepted or rejected based only on who originated the idea.\nOption D: causing confusion during refutation because of a real or feigned lack of ability to engage in refutation\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 52
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773105647.9260285,
+    "run_id": "7ctvFEUth24c",
+    "round_idx": 1,
+    "from_node": "sd6E",
+    "to_node": "kaAi",
+    "contract": {
+      "contract_id": "uJMPZaU3aT",
+      "task_clause": "The genetic fallacy consists of\nOption A: arguing that a conclusion should be made based on feeling sorry for someone when that feeling is irrelevant to the conclusion\nOption B: responding to charges of wrongdoing by saying the accuser does something just as bad\nOption C: arguing that an idea should be accepted or rejected based only on who originated the idea.\nOption D: causing confusion during refutation because of a real or feigned lack of ability to engage in refutation\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 52
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

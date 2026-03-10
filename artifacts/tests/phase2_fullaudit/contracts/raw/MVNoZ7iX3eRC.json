@@ -1,0 +1,54 @@
+[
+  {
+    "timestamp": 1773105593.89153,
+    "run_id": "MVNoZ7iX3eRC",
+    "round_idx": 1,
+    "from_node": "oszy",
+    "to_node": "f3Es",
+    "contract": {
+      "contract_id": "mxBEQy3SbY",
+      "task_clause": "This question refers to the following information.\n\"The law of love, peace and liberty in the states extending to Jews, Turks and Egyptians, as they are considered sonnes of Adam, which is the glory of the outward state of Holland, soe love, peace and liberty, extending to all in Christ Jesus, condemns hatred, war and bondage. And because our Saviour sayeth it is impossible but that offences will come, but woe unto him by whom they cometh, our desire is not to offend one of his little ones, in whatsoever form, name or title hee appears in, whether Presbyterian, Independent, Baptist or Quaker, but shall be glad to see anything of God in any of them, desiring to doe unto all men as we desire all men should doe unto us, which is the true law both of Church and State; for our Saviour sayeth th",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": false,
+      "violations": [
+        "empty_deliverable"
+      ],
+      "details": {
+        "output_length": 0
+      }
+    },
+    "dispute": {
+      "action": "rework",
+      "reason": "empty_deliverable",
+      "metadata": {
+        "rollback_to": "upstream_node"
+      }
+    }
+  }
+]

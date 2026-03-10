@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773106383.4268188,
+    "run_id": "jcNh73iP2JAb",
+    "round_idx": 0,
+    "from_node": "rNED",
+    "to_node": "rNED",
+    "contract": {
+      "contract_id": "mkARKrh3f9",
+      "task_clause": "Which sequence describes the systemic circulation?\nOption A: Left ventricle \u2192 aorta \u2192 arteries \u2192 veins \u2192 capillaries\nOption B: Left ventricle \u2192 aorta \u2192 arteries \u2192capillaries \u2192 veins\nOption C: Right ventricle \u2192 pulmonary trunk \u2192 arteries \u2192 capillaries \u2192veins\nOption D: Right ventricle \u2192 pulmonary trunk \u2192 arteries \u2192 veins \u2192 capillaries\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 291
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773106383.4455712,
+    "run_id": "jcNh73iP2JAb",
+    "round_idx": 1,
+    "from_node": "rNED",
+    "to_node": "33ar",
+    "contract": {
+      "contract_id": "5avFrniJAA",
+      "task_clause": "Which sequence describes the systemic circulation?\nOption A: Left ventricle \u2192 aorta \u2192 arteries \u2192 veins \u2192 capillaries\nOption B: Left ventricle \u2192 aorta \u2192 arteries \u2192capillaries \u2192 veins\nOption C: Right ventricle \u2192 pulmonary trunk \u2192 arteries \u2192 capillaries \u2192veins\nOption D: Right ventricle \u2192 pulmonary trunk \u2192 arteries \u2192 veins \u2192 capillaries\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 291
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

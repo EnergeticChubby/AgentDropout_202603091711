@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773106778.6124492,
+    "run_id": "CguvXbcBwNB8",
+    "round_idx": 0,
+    "from_node": "9DvT",
+    "to_node": "9DvT",
+    "contract": {
+      "contract_id": "yELgRhDTMF",
+      "task_clause": "A defendant was prosecuted for murder. At trial, the prosecutor called a police detective to testify. The detective, who questioned the defendant at the station house after his arrest, testified that the defendant initially declared his innocence. The detective further testified that when given the opportunity to take a lie detector test, the defendant refused. The defendant's attorney did not object to the detective's testimony. The defendant was convicted and sentenced to prison. The defendant, who is now represented by a new attorney, appeals, claiming that it was error to admit the detective's testimony. The appellate court should find\nOption A: plain error, because the trial court should have acted on its own motion to order reference to the lie detector test stricken.\nOption B: plain",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 403
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773106778.612605,
+    "run_id": "CguvXbcBwNB8",
+    "round_idx": 1,
+    "from_node": "9DvT",
+    "to_node": "MRBq",
+    "contract": {
+      "contract_id": "sqojtH9phq",
+      "task_clause": "A defendant was prosecuted for murder. At trial, the prosecutor called a police detective to testify. The detective, who questioned the defendant at the station house after his arrest, testified that the defendant initially declared his innocence. The detective further testified that when given the opportunity to take a lie detector test, the defendant refused. The defendant's attorney did not object to the detective's testimony. The defendant was convicted and sentenced to prison. The defendant, who is now represented by a new attorney, appeals, claiming that it was error to admit the detective's testimony. The appellate court should find\nOption A: plain error, because the trial court should have acted on its own motion to order reference to the lie detector test stricken.\nOption B: plain",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 403
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

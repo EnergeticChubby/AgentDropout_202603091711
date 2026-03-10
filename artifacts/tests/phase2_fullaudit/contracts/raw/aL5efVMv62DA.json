@@ -1,0 +1,54 @@
+[
+  {
+    "timestamp": 1773106570.7448525,
+    "run_id": "aL5efVMv62DA",
+    "round_idx": 1,
+    "from_node": "7pXU",
+    "to_node": "wukB",
+    "contract": {
+      "contract_id": "iJiMDFafd2",
+      "task_clause": "Identify the conclusion of the following argument. All of psychology has gotten stuck in moral prejudices and fears. No one has come close to understanding it as the development of the will to power. However, if a person even begins to regard the effects of hatred, envy, covetousness, and the lust to rule as conditions of life and furthermore, as factors essential to the general economy of life, he will begin to get seasick. At this point, he begins to lose himself, and sail over morality. Thus, psychology becomes again the path to fundamental problems. (Friedrich Nietzsche, Beyond Good and Evil)\nOption A: All of psychology has gotten stuck in moral prejudices and fears.\nOption B: No one has come close to understanding it as the development of the will to power.\nOption C: If a person even ",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": false,
+      "violations": [
+        "empty_deliverable"
+      ],
+      "details": {
+        "output_length": 0
+      }
+    },
+    "dispute": {
+      "action": "rework",
+      "reason": "empty_deliverable",
+      "metadata": {
+        "rollback_to": "upstream_node"
+      }
+    }
+  }
+]

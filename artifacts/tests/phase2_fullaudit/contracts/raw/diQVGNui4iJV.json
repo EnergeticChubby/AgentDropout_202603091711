@@ -1,0 +1,54 @@
+[
+  {
+    "timestamp": 1773105649.282896,
+    "run_id": "diQVGNui4iJV",
+    "round_idx": 1,
+    "from_node": "bTv2",
+    "to_node": "hvoN",
+    "contract": {
+      "contract_id": "2q4J3Ti2kF",
+      "task_clause": "Which of the following describes he fallacy of appeal to pride?\nOption A: arguing a claim should be accepted based only on evidence that unidentified authorities accept it.\nOption B: arguing someone should accept a claim based only on the evidence that he or she has the favorable characteristics to understand the truth of the claim.\nOption C: arguing something should be done based only on evidence that it's been done that way in the past, or should be believed only because it's been believed for a long time.\nOption D: arguing that an act or series of acts should be carried out because they will have no significant consequences, when there is no evidence for the lack of significant effects.\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": false,
+      "violations": [
+        "empty_deliverable"
+      ],
+      "details": {
+        "output_length": 0
+      }
+    },
+    "dispute": {
+      "action": "rework",
+      "reason": "empty_deliverable",
+      "metadata": {
+        "rollback_to": "upstream_node"
+      }
+    }
+  }
+]

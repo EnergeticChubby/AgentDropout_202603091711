@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773106651.574632,
+    "run_id": "UZsqCGANWRHJ",
+    "round_idx": 0,
+    "from_node": "rNED",
+    "to_node": "rNED",
+    "contract": {
+      "contract_id": "G9MQ3FBzSg",
+      "task_clause": "A farmer wants to know whether a new fertilizer has increased the mean weight of his apples. With the old fertilizer, the mean weight was 4.0 ounces per apple. The farmer decides to test H0: \u03bc = 4.0 ounces versus Ha : \u03bc > 4.0 ounces, at a 5 percent level of significance, where \u03bc = the mean weight of apples using the new fertilizer. The weights of apples are approximately normally distributed. The farmer takes a random sample of 16 apples and computes a mean of 4.3 ounces and a standard deviation of 0.6 ounces. Which of the following gives the p-value for this test?\nOption A: P(Z > 2)\nOption B: P(Z < 2)\nOption C: P(t > 2) with 15 degrees of freedom\nOption D: P(t < 2) with 15 degrees of freedom\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 217
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773106651.5747848,
+    "run_id": "UZsqCGANWRHJ",
+    "round_idx": 1,
+    "from_node": "rNED",
+    "to_node": "33ar",
+    "contract": {
+      "contract_id": "vFHoAYbNXw",
+      "task_clause": "A farmer wants to know whether a new fertilizer has increased the mean weight of his apples. With the old fertilizer, the mean weight was 4.0 ounces per apple. The farmer decides to test H0: \u03bc = 4.0 ounces versus Ha : \u03bc > 4.0 ounces, at a 5 percent level of significance, where \u03bc = the mean weight of apples using the new fertilizer. The weights of apples are approximately normally distributed. The farmer takes a random sample of 16 apples and computes a mean of 4.3 ounces and a standard deviation of 0.6 ounces. Which of the following gives the p-value for this test?\nOption A: P(Z > 2)\nOption B: P(Z < 2)\nOption C: P(t > 2) with 15 degrees of freedom\nOption D: P(t < 2) with 15 degrees of freedom\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 217
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

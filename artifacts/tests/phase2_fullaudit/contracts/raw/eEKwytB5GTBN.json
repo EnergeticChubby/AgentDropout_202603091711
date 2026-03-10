@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773105711.527916,
+    "run_id": "eEKwytB5GTBN",
+    "round_idx": 0,
+    "from_node": "sd6E",
+    "to_node": "sd6E",
+    "contract": {
+      "contract_id": "UmUa6cB6Ub",
+      "task_clause": "A man invited several friends to come over to his house to watch a movie on television. While they were watching the movie, freezing rain fell outside, coating everything with a thin layer of very slippery ice. When the movie ended, one of the man's guests slipped on the ice as soon as he took a step out of the door and onto the front stoop of the man's house. Which of the following would best describe the duty of care owed by the man to his guest?\nOption A: No duty of care.\nOption B: A duty to inspect the premises for unknown dangers and disclose their existence to others.\nOption C: A duty to warn of any known dangerous condition on the premises.\nOption D: An absolute duty of care.\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 188
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773105711.528179,
+    "run_id": "eEKwytB5GTBN",
+    "round_idx": 1,
+    "from_node": "sd6E",
+    "to_node": "kaAi",
+    "contract": {
+      "contract_id": "CPd7noewY3",
+      "task_clause": "A man invited several friends to come over to his house to watch a movie on television. While they were watching the movie, freezing rain fell outside, coating everything with a thin layer of very slippery ice. When the movie ended, one of the man's guests slipped on the ice as soon as he took a step out of the door and onto the front stoop of the man's house. Which of the following would best describe the duty of care owed by the man to his guest?\nOption A: No duty of care.\nOption B: A duty to inspect the premises for unknown dangers and disclose their existence to others.\nOption C: A duty to warn of any known dangerous condition on the premises.\nOption D: An absolute duty of care.\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 188
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

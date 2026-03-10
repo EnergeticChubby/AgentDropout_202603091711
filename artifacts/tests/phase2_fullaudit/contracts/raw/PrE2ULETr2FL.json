@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773106686.1922402,
+    "run_id": "PrE2ULETr2FL",
+    "round_idx": 0,
+    "from_node": "RspS",
+    "to_node": "RspS",
+    "contract": {
+      "contract_id": "euo7oXBSFq",
+      "task_clause": "Which of the following are harmed by unexpectedly high rates of inflation?\nOption A: Borrowers repaying a long-term loan at a fixed interest rate.\nOption B: Savers who have put their money in long-term assets that pay a fixed interest rate.\nOption C: Workers who have negotiated cost-of-living raises into their contracts.\nOption D: Renters of apartments who have signed a lease that holds rent constant for two years.\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 307
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773106686.192452,
+    "run_id": "PrE2ULETr2FL",
+    "round_idx": 1,
+    "from_node": "RspS",
+    "to_node": "NWcH",
+    "contract": {
+      "contract_id": "Awqrs3ajLQ",
+      "task_clause": "Which of the following are harmed by unexpectedly high rates of inflation?\nOption A: Borrowers repaying a long-term loan at a fixed interest rate.\nOption B: Savers who have put their money in long-term assets that pay a fixed interest rate.\nOption C: Workers who have negotiated cost-of-living raises into their contracts.\nOption D: Renters of apartments who have signed a lease that holds rent constant for two years.\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 307
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

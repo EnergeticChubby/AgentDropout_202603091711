@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773106802.2780287,
+    "run_id": "xPcP7YX7YYhz",
+    "round_idx": 0,
+    "from_node": "aUhM",
+    "to_node": "aUhM",
+    "contract": {
+      "contract_id": "ytBmov5Nxf",
+      "task_clause": "A man borrowed $150,000 from a bank to remodel his home and executed a promissory note agreeing to repay the loan over a 10-year period. The loan was secured by a mortgage on the home. The bank promptly recorded the mortgage, which was the only lien on the home at that time. Several months later, the man borrowed $40,000 from his mother in order to purchase a new truck and gave his mother a mortgage on the home to secure repayment of the debt. The mother promptly recorded the mortgage. The man later lost his job and was struggling to make loan payments to both the bank and his mother. To accommodate the man's financial situation, the bank extended the amortization period of its loan to substantially reduce the amount of each monthly payment. The bank did not alter the interest rate or incr",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 319
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773106802.2782598,
+    "run_id": "xPcP7YX7YYhz",
+    "round_idx": 1,
+    "from_node": "aUhM",
+    "to_node": "9JKj",
+    "contract": {
+      "contract_id": "DUwYfWUiAp",
+      "task_clause": "A man borrowed $150,000 from a bank to remodel his home and executed a promissory note agreeing to repay the loan over a 10-year period. The loan was secured by a mortgage on the home. The bank promptly recorded the mortgage, which was the only lien on the home at that time. Several months later, the man borrowed $40,000 from his mother in order to purchase a new truck and gave his mother a mortgage on the home to secure repayment of the debt. The mother promptly recorded the mortgage. The man later lost his job and was struggling to make loan payments to both the bank and his mother. To accommodate the man's financial situation, the bank extended the amortization period of its loan to substantially reduce the amount of each monthly payment. The bank did not alter the interest rate or incr",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 319
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

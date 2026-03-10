@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773106823.1180577,
+    "run_id": "KmHj8rVPHf7p",
+    "round_idx": 0,
+    "from_node": "zoCn",
+    "to_node": "zoCn",
+    "contract": {
+      "contract_id": "Fhc4mS29k5",
+      "task_clause": "A company owned a night club that was built on a pier extending into a major riverbed. For several months sections of the building had been wobbling noticeably, particularly during inclement weather, when the river pounded more aggressively against the structure. Several employees and customers complained but the general manager did not respond. One windy night a section of the pier collapsed into the river, killing 28 customers and employees. It was revealed that officials had on several prior occasions cited the club for violating applicable safety regulations. The police arrested the general manager and charged him with involuntary manslaughter. He defended on the basis that his omissions to act were legally insufficient to establish manslaughter. What will the court decide?\nOption A: T",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 448
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773106823.1183252,
+    "run_id": "KmHj8rVPHf7p",
+    "round_idx": 1,
+    "from_node": "zoCn",
+    "to_node": "Gie8",
+    "contract": {
+      "contract_id": "XnaHcwZMNp",
+      "task_clause": "A company owned a night club that was built on a pier extending into a major riverbed. For several months sections of the building had been wobbling noticeably, particularly during inclement weather, when the river pounded more aggressively against the structure. Several employees and customers complained but the general manager did not respond. One windy night a section of the pier collapsed into the river, killing 28 customers and employees. It was revealed that officials had on several prior occasions cited the club for violating applicable safety regulations. The police arrested the general manager and charged him with involuntary manslaughter. He defended on the basis that his omissions to act were legally insufficient to establish manslaughter. What will the court decide?\nOption A: T",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 448
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

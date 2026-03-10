@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773106489.0199337,
+    "run_id": "WHiab5NZXaMu",
+    "round_idx": 0,
+    "from_node": "Yn8W",
+    "to_node": "Yn8W",
+    "contract": {
+      "contract_id": "WLg8qWH2LL",
+      "task_clause": "At 20\u00b0C, a pipe open at both ends resonates at a frequency of 440 hertz. At what frequency does the same pipe resonate on a particularly cold day when the speed of sound is 3 percent lower than it would be at 20\u00b0C ?\nOption A: 414 Hz\nOption B: 427 Hz\nOption C: 433 Hz\nOption D: 440 Hz\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 296
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773106489.020156,
+    "run_id": "WHiab5NZXaMu",
+    "round_idx": 1,
+    "from_node": "Yn8W",
+    "to_node": "UkGV",
+    "contract": {
+      "contract_id": "GEZQBPYwex",
+      "task_clause": "At 20\u00b0C, a pipe open at both ends resonates at a frequency of 440 hertz. At what frequency does the same pipe resonate on a particularly cold day when the speed of sound is 3 percent lower than it would be at 20\u00b0C ?\nOption A: 414 Hz\nOption B: 427 Hz\nOption C: 433 Hz\nOption D: 440 Hz\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 296
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

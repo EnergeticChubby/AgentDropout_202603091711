@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773105407.6679518,
+    "run_id": "ibK3jCifTEqS",
+    "round_idx": 0,
+    "from_node": "sd6E",
+    "to_node": "sd6E",
+    "contract": {
+      "contract_id": "XrNq2CX8mq",
+      "task_clause": "Consider the following equations concerning a stack module that has the operations Push, Pop, Top, and IsEmpty. Which of the equations does NOT represent the conventional semantics of a stack?\nOption A: IsEmpty(Push(Stack,Elem)) = true\nOption B: Pop(Push(Stack,Elem)) = Stack\nOption C: Top(Push(Stack,Elem)) = Elem\nOption D: IsEmpty(Push(Push(Stack,Elem1),Elem2)) = false\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 1494
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773105407.668273,
+    "run_id": "ibK3jCifTEqS",
+    "round_idx": 1,
+    "from_node": "sd6E",
+    "to_node": "kaAi",
+    "contract": {
+      "contract_id": "7894K339Dp",
+      "task_clause": "Consider the following equations concerning a stack module that has the operations Push, Pop, Top, and IsEmpty. Which of the equations does NOT represent the conventional semantics of a stack?\nOption A: IsEmpty(Push(Stack,Elem)) = true\nOption B: Pop(Push(Stack,Elem)) = Stack\nOption C: Top(Push(Stack,Elem)) = Elem\nOption D: IsEmpty(Push(Push(Stack,Elem1),Elem2)) = false\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 1494
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

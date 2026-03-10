@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773105460.3696983,
+    "run_id": "ggoqv2PpiGui",
+    "round_idx": 0,
+    "from_node": "DcnU",
+    "to_node": "DcnU",
+    "contract": {
+      "contract_id": "nxuZb3ZxPD",
+      "task_clause": "What is the most likely outcome of this modification?\n\ufeff\nAn RNA strand that normally produces a transmembrane protein that facilitates potassium entry into muscle cells is modified to produce a different strand. The original strand is as follows:\n\n GAAUAGAUGGGAAGCGCCAGAUACAGUAACAGA\u2026 \n\nThe modified sequence is as follows:\n\n GAAUAGAUGGGAAGCGCCAGAUACAGUACCAGA\u2026\nOption A: Absence of the protein\nOption B: Production of a similar-sized but dysfunctional protein\nOption C: No change\nOption D: Production of a larger, likely dysfunctional protein\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 226
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773105460.3698614,
+    "run_id": "ggoqv2PpiGui",
+    "round_idx": 1,
+    "from_node": "DcnU",
+    "to_node": "4TBG",
+    "contract": {
+      "contract_id": "eSi29ES5iD",
+      "task_clause": "What is the most likely outcome of this modification?\n\ufeff\nAn RNA strand that normally produces a transmembrane protein that facilitates potassium entry into muscle cells is modified to produce a different strand. The original strand is as follows:\n\n GAAUAGAUGGGAAGCGCCAGAUACAGUAACAGA\u2026 \n\nThe modified sequence is as follows:\n\n GAAUAGAUGGGAAGCGCCAGAUACAGUACCAGA\u2026\nOption A: Absence of the protein\nOption B: Production of a similar-sized but dysfunctional protein\nOption C: No change\nOption D: Production of a larger, likely dysfunctional protein\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 226
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

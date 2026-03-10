@@ -1,0 +1,54 @@
+[
+  {
+    "timestamp": 1773106750.967146,
+    "run_id": "5XHhjUmMfQzZ",
+    "round_idx": 1,
+    "from_node": "9DvT",
+    "to_node": "MRBq",
+    "contract": {
+      "contract_id": "xfqhjXvBSX",
+      "task_clause": "In spite of the fact that Socrates claims to be ignorant of the essence or nature of certain things like justice, he is wise insofar as he recognizes that without such knowledge actions are rationally unjustified.  That is, his wisdom consists in his recognition not only that he is ignorant of such essences but also that:\nOption A: justice, like knowledge, requires that we admit that we know nothing and never will.\nOption B: he knows what he is supposed to be looking for--knowledge of the essences of things.\nOption C: knowledge of the essences of things is impossible, because that would require that we know what we are looking for before we know what it is we are looking for.\nOption D: his method of asking questions about essences is itself unjustified because he does not know why he engag",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": false,
+      "violations": [
+        "empty_deliverable"
+      ],
+      "details": {
+        "output_length": 0
+      }
+    },
+    "dispute": {
+      "action": "rework",
+      "reason": "empty_deliverable",
+      "metadata": {
+        "rollback_to": "upstream_node"
+      }
+    }
+  }
+]

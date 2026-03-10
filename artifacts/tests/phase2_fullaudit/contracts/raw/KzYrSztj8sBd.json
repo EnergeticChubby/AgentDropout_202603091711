@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773105712.1053715,
+    "run_id": "KzYrSztj8sBd",
+    "round_idx": 0,
+    "from_node": "3DZy",
+    "to_node": "3DZy",
+    "contract": {
+      "contract_id": "KVJxj8BPnR",
+      "task_clause": "Lemon owned 2000 shares of Spectrol Corp. common stock that were purchased in year 1 at $10.50 per share. In year 4 Lemon received a 5% non-taxable dividend of Spectrol common stock. In year 5 the stock split 2-for-1. In the current year Lemon sold 800 shares. What is Lemon's basis in the 800 shares of stock sold?\nOption A: $4,000\nOption B: $8,000\nOption C: $8,400\nOption D: 16800\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 144
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773105712.107115,
+    "run_id": "KzYrSztj8sBd",
+    "round_idx": 1,
+    "from_node": "3DZy",
+    "to_node": "YzdL",
+    "contract": {
+      "contract_id": "z5MGgwx4CJ",
+      "task_clause": "Lemon owned 2000 shares of Spectrol Corp. common stock that were purchased in year 1 at $10.50 per share. In year 4 Lemon received a 5% non-taxable dividend of Spectrol common stock. In year 5 the stock split 2-for-1. In the current year Lemon sold 800 shares. What is Lemon's basis in the 800 shares of stock sold?\nOption A: $4,000\nOption B: $8,000\nOption C: $8,400\nOption D: 16800\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 144
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

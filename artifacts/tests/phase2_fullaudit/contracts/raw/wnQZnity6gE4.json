@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773106699.5420375,
+    "run_id": "wnQZnity6gE4",
+    "round_idx": 0,
+    "from_node": "rNED",
+    "to_node": "rNED",
+    "contract": {
+      "contract_id": "igDUdZRcLh",
+      "task_clause": "Philosophy is concerned primarily with identifying beliefs about human existence and evaluating arguments that support those beliefs.  These activities can be summarized in two questions that drive philosophical investigations:\nOption A: why should we bother? and what are the consequences of our believing one thing over another?\nOption B: what do you mean? and how do you know?\nOption C: who really believes X? and how can we explain differences in people's beliefs?\nOption D: how do philosophers argue? and are their differences important?\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 270
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773106699.5447557,
+    "run_id": "wnQZnity6gE4",
+    "round_idx": 1,
+    "from_node": "rNED",
+    "to_node": "33ar",
+    "contract": {
+      "contract_id": "kzxW7JKD9k",
+      "task_clause": "Philosophy is concerned primarily with identifying beliefs about human existence and evaluating arguments that support those beliefs.  These activities can be summarized in two questions that drive philosophical investigations:\nOption A: why should we bother? and what are the consequences of our believing one thing over another?\nOption B: what do you mean? and how do you know?\nOption C: who really believes X? and how can we explain differences in people's beliefs?\nOption D: how do philosophers argue? and are their differences important?\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 270
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

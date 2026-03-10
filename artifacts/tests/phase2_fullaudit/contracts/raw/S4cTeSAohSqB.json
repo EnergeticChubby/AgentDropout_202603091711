@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773106554.4140923,
+    "run_id": "S4cTeSAohSqB",
+    "round_idx": 0,
+    "from_node": "9DvT",
+    "to_node": "9DvT",
+    "contract": {
+      "contract_id": "QDvYeCrRsK",
+      "task_clause": " Use indirect truth tables to determine whether the following argument is valid. If the argument is invalid, choose an option which presents a counterexample. (There may be other counterexamples as well.)\nL \u2283 [(M \u2228 ~N) \u2283 O]\n(N \u2283 O) \u2283 (~P \u2283 Q)\nR \u2283 ~Q / L \u2283 (R \u2283 P)\nOption A: Valid\nOption B: Invalid. Counterexample when L, M, O, Q, and R are true and N and P are false\nOption C: Invalid. Counterexample when L, N, O, Q, and R are true and M and P are false\nOption D: Invalid. Counterexample when L, N, and R are true and M, O, P, and Q are false\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 1098
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773106554.4145672,
+    "run_id": "S4cTeSAohSqB",
+    "round_idx": 1,
+    "from_node": "9DvT",
+    "to_node": "MRBq",
+    "contract": {
+      "contract_id": "Hg9VXmak3R",
+      "task_clause": " Use indirect truth tables to determine whether the following argument is valid. If the argument is invalid, choose an option which presents a counterexample. (There may be other counterexamples as well.)\nL \u2283 [(M \u2228 ~N) \u2283 O]\n(N \u2283 O) \u2283 (~P \u2283 Q)\nR \u2283 ~Q / L \u2283 (R \u2283 P)\nOption A: Valid\nOption B: Invalid. Counterexample when L, M, O, Q, and R are true and N and P are false\nOption C: Invalid. Counterexample when L, N, O, Q, and R are true and M and P are false\nOption D: Invalid. Counterexample when L, N, and R are true and M, O, P, and Q are false\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 1098
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

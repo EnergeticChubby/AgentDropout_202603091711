@@ -1,0 +1,54 @@
+[
+  {
+    "timestamp": 1773105576.4986517,
+    "run_id": "SCrq3Dop7dUi",
+    "round_idx": 1,
+    "from_node": "sd6E",
+    "to_node": "kaAi",
+    "contract": {
+      "contract_id": "UW3wehVuhz",
+      "task_clause": "Standing waves are produced by a 100-Hz generator in a string of fixed length. The tension in the string is increased until a new set of standing waves is produced. Will the wavelength of the new standing waves be greater than or less than the wavelength of the original standing waves?\nOption A: Less, because the tension in the string varies directly with the wave speed, which varies inversely with the wavelength.\nOption B: Greater, because the tension in the string varies directly with the wave speed, which varies inversely with the wavelength.\nOption C: Greater, because the tension in the string varies directly with the wave speed, which varies directly with the wavelength.\nOption D: Less, because the tension in the string varies directly with the wave speed, which varies directly with t",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": false,
+      "violations": [
+        "empty_deliverable"
+      ],
+      "details": {
+        "output_length": 0
+      }
+    },
+    "dispute": {
+      "action": "rework",
+      "reason": "empty_deliverable",
+      "metadata": {
+        "rollback_to": "upstream_node"
+      }
+    }
+  }
+]

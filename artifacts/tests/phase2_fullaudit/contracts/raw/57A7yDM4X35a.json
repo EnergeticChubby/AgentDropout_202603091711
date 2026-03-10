@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773105477.471713,
+    "run_id": "57A7yDM4X35a",
+    "round_idx": 0,
+    "from_node": "bTv2",
+    "to_node": "bTv2",
+    "contract": {
+      "contract_id": "AAanXYoSvb",
+      "task_clause": " Use indirect truth tables to determine whether each set of propositions is consistent. If the set is consistent, choose an option with a consistent valuation. (There may be other consistent valuations.)\n(E \u2283 F) \u2283 G\n(~E \u2228 F) \u2261 (H \u2228 I)\nI \u2283 (J \u2283 ~H)\n~G \u2283 ~J\nOption A: Inconsistent\nOption B: Consistent. Consistent valuation when E is true and F, G, H, I, and J are false\nOption C: Consistent. Consistent valuation when E and H are true and F, G, I, and J are false\nOption D: Consistent. Consistent valuation when E and I are true and F, G, H, and J are false\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 1728
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773105477.472063,
+    "run_id": "57A7yDM4X35a",
+    "round_idx": 1,
+    "from_node": "bTv2",
+    "to_node": "hvoN",
+    "contract": {
+      "contract_id": "Q99WvfD99b",
+      "task_clause": " Use indirect truth tables to determine whether each set of propositions is consistent. If the set is consistent, choose an option with a consistent valuation. (There may be other consistent valuations.)\n(E \u2283 F) \u2283 G\n(~E \u2228 F) \u2261 (H \u2228 I)\nI \u2283 (J \u2283 ~H)\n~G \u2283 ~J\nOption A: Inconsistent\nOption B: Consistent. Consistent valuation when E is true and F, G, H, I, and J are false\nOption C: Consistent. Consistent valuation when E and H are true and F, G, I, and J are false\nOption D: Consistent. Consistent valuation when E and I are true and F, G, H, and J are false\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 1728
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

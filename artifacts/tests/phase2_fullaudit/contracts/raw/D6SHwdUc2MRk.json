@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773106492.8203676,
+    "run_id": "D6SHwdUc2MRk",
+    "round_idx": 0,
+    "from_node": "rNED",
+    "to_node": "rNED",
+    "contract": {
+      "contract_id": "FNF3y8Z5rF",
+      "task_clause": "A certain molecule acts by binding to cytochrome oxidase A3, the final enzyme in the electron transport chain. Administration of a large dose of this substance to a human would likely:\nOption A: Lead to death due to an inability of the cell to pass electrons to oxygen, thus stopping aerobic respiration and asphyxiating the cells.\nOption B: Lead to death due to an inadequate supply of ADP to accept a phosphate group at the ATP synthase enzyme.\nOption C: Have no effect as cells would switch which macronutrient they metabolize to circumvent the blocked biochemical pathway.\nOption D: Increase the cell\u2019s ATP production as negative feedback would cause the cell to up-regulate anaerobic pathways.\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 203
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773106492.820638,
+    "run_id": "D6SHwdUc2MRk",
+    "round_idx": 1,
+    "from_node": "rNED",
+    "to_node": "33ar",
+    "contract": {
+      "contract_id": "DxZwyW9Vuj",
+      "task_clause": "A certain molecule acts by binding to cytochrome oxidase A3, the final enzyme in the electron transport chain. Administration of a large dose of this substance to a human would likely:\nOption A: Lead to death due to an inability of the cell to pass electrons to oxygen, thus stopping aerobic respiration and asphyxiating the cells.\nOption B: Lead to death due to an inadequate supply of ADP to accept a phosphate group at the ATP synthase enzyme.\nOption C: Have no effect as cells would switch which macronutrient they metabolize to circumvent the blocked biochemical pathway.\nOption D: Increase the cell\u2019s ATP production as negative feedback would cause the cell to up-regulate anaerobic pathways.\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 203
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

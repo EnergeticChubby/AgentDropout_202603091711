@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773105404.0930624,
+    "run_id": "a4dZdKrfBrwG",
+    "round_idx": 0,
+    "from_node": "yyrC",
+    "to_node": "yyrC",
+    "contract": {
+      "contract_id": "S8MohfyLuj",
+      "task_clause": "The crown of a very carious tooth suddenly fractures while the patient is standing eating at a take-away food outlet and a fragment is inhaled. It is more likely to enter the\nOption A: right lung because the right main bronchus is wider and more vertical than the left.\nOption B: left lung because the left main bronchus is wider and more vertical than the right.\nOption C: right lung or left lung because the two main bronchi are of equal size and at the same angulation.\nOption D: right or left lung because there are no factors predisposing to the fragment going in one particular direction.\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 153
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773105404.0932875,
+    "run_id": "a4dZdKrfBrwG",
+    "round_idx": 1,
+    "from_node": "yyrC",
+    "to_node": "jWnD",
+    "contract": {
+      "contract_id": "Hc25ZCq65F",
+      "task_clause": "The crown of a very carious tooth suddenly fractures while the patient is standing eating at a take-away food outlet and a fragment is inhaled. It is more likely to enter the\nOption A: right lung because the right main bronchus is wider and more vertical than the left.\nOption B: left lung because the left main bronchus is wider and more vertical than the right.\nOption C: right lung or left lung because the two main bronchi are of equal size and at the same angulation.\nOption D: right or left lung because there are no factors predisposing to the fragment going in one particular direction.\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 153
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

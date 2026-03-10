@@ -1,0 +1,54 @@
+[
+  {
+    "timestamp": 1773106794.1838338,
+    "run_id": "fzePWCA67rcc",
+    "round_idx": 1,
+    "from_node": "zoCn",
+    "to_node": "Gie8",
+    "contract": {
+      "contract_id": "oLMRrKk2wF",
+      "task_clause": "A plaintiff has sued a defendant in a court of the state in which both parties reside. The plaintiff alleges only a cause of action arising under a federal statute, although state law provides a similar cause of action. The federal statute provides that claims under the statute can be brought in any court of competent jurisdiction. The statute has not yet been interpreted by any federal court. Should the state court hear the case?\nOption A: No, because cases arising under federal law must be decided in federal court.\nOption B: No, because state courts must abstain in cases arising under federal law until a federal court has decided the federal issue.\nOption C: Yes, because state courts may not discriminate against cases arising under discriminate against cases arising under federal law.\nOp",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": false,
+      "violations": [
+        "empty_deliverable"
+      ],
+      "details": {
+        "output_length": 0
+      }
+    },
+    "dispute": {
+      "action": "rework",
+      "reason": "empty_deliverable",
+      "metadata": {
+        "rollback_to": "upstream_node"
+      }
+    }
+  }
+]

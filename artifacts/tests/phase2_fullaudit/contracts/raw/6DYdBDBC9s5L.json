@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773105409.6871495,
+    "run_id": "6DYdBDBC9s5L",
+    "round_idx": 0,
+    "from_node": "bTv2",
+    "to_node": "bTv2",
+    "contract": {
+      "contract_id": "UB4XtEwsPW",
+      "task_clause": "A team of engineers constructing signal lights for airplanes that they can use to guide them to runways are attempting to determine the brightness needed for the pilot to be able to detect the tower at 1 mile away. They set the light to a test brightness and establish communication with an inbound pilot. When the pilot is 1 mile away from the tower, he says he cannot see the light. In terms of Signal Detection Theory, what would this be called?\nOption A: Hit\nOption B: Miss\nOption C: False alarm\nOption D: Correct rejection\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 410
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773105409.6874156,
+    "run_id": "6DYdBDBC9s5L",
+    "round_idx": 1,
+    "from_node": "bTv2",
+    "to_node": "hvoN",
+    "contract": {
+      "contract_id": "BtikDtFFD9",
+      "task_clause": "A team of engineers constructing signal lights for airplanes that they can use to guide them to runways are attempting to determine the brightness needed for the pilot to be able to detect the tower at 1 mile away. They set the light to a test brightness and establish communication with an inbound pilot. When the pilot is 1 mile away from the tower, he says he cannot see the light. In terms of Signal Detection Theory, what would this be called?\nOption A: Hit\nOption B: Miss\nOption C: False alarm\nOption D: Correct rejection\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 410
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

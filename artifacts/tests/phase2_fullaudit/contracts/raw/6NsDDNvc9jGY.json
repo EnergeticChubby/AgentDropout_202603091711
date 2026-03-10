@@ -1,0 +1,54 @@
+[
+  {
+    "timestamp": 1773105571.2551525,
+    "run_id": "6NsDDNvc9jGY",
+    "round_idx": 1,
+    "from_node": "oydd",
+    "to_node": "muKu",
+    "contract": {
+      "contract_id": "naNbwKVzDt",
+      "task_clause": "This question refers to the following information.\n\"Since the foundations of the American commonwealth were laid in colonial times over 300 years ago, vigorous complaint and more or less bitter persecution have been aimed at newcomers to our shores. Also the congressional reports of about 1840 are full of abuse of English, Scotch, Welsh immigrants as paupers, criminals, and so forth. Old citizens in Detroit of Irish and German descent have told me of the fierce tirades and propaganda directed against the great waves of Irish and Germans who came over from 1840 on for a few decades to escape civil, racial, and religious persecution in their native lands. The \"Know-Nothings,\" lineal ancestors of the Ku-Klux Klan, bitterly denounced the Irish and Germans as mongrels, scum, foreigners, and a m",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": false,
+      "violations": [
+        "empty_deliverable"
+      ],
+      "details": {
+        "output_length": 0
+      }
+    },
+    "dispute": {
+      "action": "rework",
+      "reason": "empty_deliverable",
+      "metadata": {
+        "rollback_to": "upstream_node"
+      }
+    }
+  }
+]

@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773105673.3012288,
+    "run_id": "L9YBu9iBBYRz",
+    "round_idx": 0,
+    "from_node": "DcnU",
+    "to_node": "DcnU",
+    "contract": {
+      "contract_id": "R7hL5quSLL",
+      "task_clause": "Which of the following factors most likely would cause a CPA not to accept a new audit engagement?\nOption A: Management reputation for failing to provide schedules to prior auditors on a timely basis.\nOption B: The CPA's inability to review the predecessor auditor's working papers.\nOption C: Management's unwillingness to make all financial records available to the CPA.\nOption D: The CPA's lack of understanding of the entity's operations and industry.\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 125
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773105673.3013747,
+    "run_id": "L9YBu9iBBYRz",
+    "round_idx": 1,
+    "from_node": "DcnU",
+    "to_node": "4TBG",
+    "contract": {
+      "contract_id": "HD3HpQSDYN",
+      "task_clause": "Which of the following factors most likely would cause a CPA not to accept a new audit engagement?\nOption A: Management reputation for failing to provide schedules to prior auditors on a timely basis.\nOption B: The CPA's inability to review the predecessor auditor's working papers.\nOption C: Management's unwillingness to make all financial records available to the CPA.\nOption D: The CPA's lack of understanding of the entity's operations and industry.\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 125
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

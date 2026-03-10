@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773106779.255773,
+    "run_id": "dKHNgwEj7zBs",
+    "round_idx": 0,
+    "from_node": "aq9d",
+    "to_node": "aq9d",
+    "contract": {
+      "contract_id": "g3oXexDdZG",
+      "task_clause": "The builder of a new house sold the house to a buyer, conveying it to the buyer by warranty deed. One year later, the buyer sold the house to a woman for $50,000 more than the buyer had paid, conveying it to the woman by a quitclaim deed. Four months after moving in, the woman discovered a number of latent defects in the foundation that caused the house's basement to take on water during heavy rains. The woman contacted the builder about the problem. Toward the end of their heated conversation, the builder yelled at her, \"So get it fixed!\" After the woman had the foundation repaired by a cement contractor at a cost of $25,000, she successfully sued the builder to recover that amount from him. What is the most likely reason that the woman was successful?\nOption A: The court found an implied",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 199
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773106779.2559834,
+    "run_id": "dKHNgwEj7zBs",
+    "round_idx": 1,
+    "from_node": "aq9d",
+    "to_node": "npyR",
+    "contract": {
+      "contract_id": "ksQeuS3vZL",
+      "task_clause": "The builder of a new house sold the house to a buyer, conveying it to the buyer by warranty deed. One year later, the buyer sold the house to a woman for $50,000 more than the buyer had paid, conveying it to the woman by a quitclaim deed. Four months after moving in, the woman discovered a number of latent defects in the foundation that caused the house's basement to take on water during heavy rains. The woman contacted the builder about the problem. Toward the end of their heated conversation, the builder yelled at her, \"So get it fixed!\" After the woman had the foundation repaired by a cement contractor at a cost of $25,000, she successfully sued the builder to recover that amount from him. What is the most likely reason that the woman was successful?\nOption A: The court found an implied",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 199
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

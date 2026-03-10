@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773106612.4055617,
+    "run_id": "yhkB6fdgHzSW",
+    "round_idx": 0,
+    "from_node": "aUhM",
+    "to_node": "aUhM",
+    "contract": {
+      "contract_id": "uRWLzFNp3V",
+      "task_clause": "A confined ideal gas undergoes a cyclical process in three steps\u2014an isobaric step, followed by an isochoric step, followed by an isothermal step. Which of the following must be true?\nOption A: The change in internal energy of the gas is equal to the work done during the isobaric step.\nOption B: The change in internal energy of the gas is equal to the work done during the isobaric step minus the work done during the isothermal step.\nOption C: The total work done during the cycle is positive.\nOption D: The total work done during the cycle is equal but opposite to the net amount of heat transferred.\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 392
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773106612.4059825,
+    "run_id": "yhkB6fdgHzSW",
+    "round_idx": 1,
+    "from_node": "aUhM",
+    "to_node": "9JKj",
+    "contract": {
+      "contract_id": "G7dpw8VsB5",
+      "task_clause": "A confined ideal gas undergoes a cyclical process in three steps\u2014an isobaric step, followed by an isochoric step, followed by an isothermal step. Which of the following must be true?\nOption A: The change in internal energy of the gas is equal to the work done during the isobaric step.\nOption B: The change in internal energy of the gas is equal to the work done during the isobaric step minus the work done during the isothermal step.\nOption C: The total work done during the cycle is positive.\nOption D: The total work done during the cycle is equal but opposite to the net amount of heat transferred.\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 392
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

@@ -1,0 +1,98 @@
+[
+  {
+    "timestamp": 1773105644.6709614,
+    "run_id": "gWnmPrzbw2Av",
+    "round_idx": 0,
+    "from_node": "oszy",
+    "to_node": "oszy",
+    "contract": {
+      "contract_id": "DLbJRwbmSt",
+      "task_clause": "Statement 1| We learn a classifier f by boosting weak learners h. The functional form of f\u2019s decision boundary is the same as h\u2019s, but with different parameters. (e.g., if h was a linear classifier, then f is also a linear classifier). Statement 2| Cross validation can be used to select the number of iterations in boosting; this procedure may help reduce overfitting.\nOption A: True, True\nOption B: False, False\nOption C: True, False\nOption D: False, True\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "Knowlegable Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 640
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773105644.6712306,
+    "run_id": "gWnmPrzbw2Av",
+    "round_idx": 1,
+    "from_node": "oszy",
+    "to_node": "f3Es",
+    "contract": {
+      "contract_id": "Bov94FWCVn",
+      "task_clause": "Statement 1| We learn a classifier f by boosting weak learners h. The functional form of f\u2019s decision boundary is the same as h\u2019s, but with different parameters. (e.g., if h was a linear classifier, then f is also a linear classifier). Statement 2| Cross validation can be used to select the number of iterations in boosting; this procedure may help reduce overfitting.\nOption A: True, True\nOption B: False, False\nOption C: True, False\nOption D: False, True\n",
+      "decision_rights": "analysis_autonomy_medium",
+      "deliverable_schema": "option_or_explanation",
+      "evidence_obligation": [
+        "brief_rationale"
+      ],
+      "uncertainty_report": [
+        "low_confidence_points"
+      ],
+      "acceptance_test": [
+        "non_empty"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 1536
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "mmlu",
+        "task_type": "qa",
+        "sender_role": "Knowlegable Expert",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 640
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]
