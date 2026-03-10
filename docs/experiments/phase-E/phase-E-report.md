@@ -78,6 +78,35 @@ Comparison:
 
 Phase E satisfies the phase-to-phase performance gate.
 
+## 3.3 Full-scale Phase E audit run (8-shard, full split)
+
+- run directory:
+  - `artifacts/tests/mmlu_redux/phase-E-full-explicit-20260310-r1/20260310-023806`
+- config:
+  - `subject_limit=null`
+  - `questions_per_subject=null`
+  - `num_shards=8`
+  - `parallel_shards=8`
+  - `llm_name=qwen3-8b`
+  - `mode=DirectAnswer`, `AnalyzeAgent x1`, `FinalRefer`
+  - protocol flags: `enable_mirm=true`, `enable_edel=true`, `enable_abpp=true`
+- result summary:
+  - total = **3000**
+  - correct = **821**
+  - accuracy = **0.2736666667**
+  - avg_public_disclosures = **3.0**
+  - avg_total_claims = **3.0**
+  - avg_verified_claims = **3.0**
+  - quality_score = **0.3066666667**
+- runtime:
+  - started_at = `2026-03-10 02:38:06`
+  - finished_at = `2026-03-10 03:54:23`
+
+Notes:
+- Full run completed on retry wrapper attempt 1.
+- Per-question provider/runtime failures are preserved in shard outputs as `error` fields while execution continues.
+- Error rows counted from full outputs: `31 / 3000` (`1.0333%`).
+
 ---
 
 ## 4) Reproducibility Steps
@@ -94,6 +123,30 @@ python3 experiments/run_mmlu_redux.py \
   --dataset_name edinburgh-dawg/mmlu-redux \
   --subject_limit 1 \
   --questions_per_subject 1 \
+  --num_shards 8 \
+  --parallel_shards 8 \
+  --mode DirectAnswer \
+  --agent_names AnalyzeAgent \
+  --agent_nums 1 \
+  --decision_method FinalRefer \
+  --num_rounds 3 \
+  --enable_mirm \
+  --enable_edel \
+  --enable_abpp \
+  --token_budget 512 \
+  --topk_disclosure 5 \
+  --eval_batch_size 1
+```
+
+Full-scale (all available subjects/questions in split):
+
+```bash
+python3 experiments/run_mmlu_redux.py \
+  --phase_name phase-E-full \
+  --llm_name qwen3-8b \
+  --base_url "$MINE_BASE_URL" \
+  --api_key "$MINE_API_KEYS" \
+  --dataset_name edinburgh-dawg/mmlu-redux \
   --num_shards 8 \
   --parallel_shards 8 \
   --mode DirectAnswer \

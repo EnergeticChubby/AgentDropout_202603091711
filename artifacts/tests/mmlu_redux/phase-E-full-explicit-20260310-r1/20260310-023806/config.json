@@ -1,0 +1,31 @@
+{
+  "phase_name": "phase-E-full-explicit-20260310-r1",
+  "llm_name": "qwen3-8b",
+  "base_url": "<redacted>",
+  "api_key": "<redacted>",
+  "dataset_name": "edinburgh-dawg/mmlu-redux",
+  "split": "test",
+  "subject_limit": null,
+  "questions_per_subject": null,
+  "num_shards": 8,
+  "parallel_shards": 8,
+  "eval_batch_size": 1,
+  "seed": 42,
+  "mode": "DirectAnswer",
+  "agent_names": [
+    "AnalyzeAgent"
+  ],
+  "agent_nums": [
+    1
+  ],
+  "decision_method": "FinalRefer",
+  "num_rounds": 3,
+  "output_root": "artifacts/tests/mmlu_redux",
+  "enable_mirm": true,
+  "enable_edel": true,
+  "enable_abpp": true,
+  "token_budget": 512,
+  "topk_disclosure": 5,
+  "git_commit": "68cf04fb79bc01ac15a5036c6c2be9cd7f948699",
+  "run_dir": "/workspace/artifacts/tests/mmlu_redux/phase-E-full-explicit-20260310-r1/20260310-023806"
+}
