@@ -159,7 +159,7 @@ class GPTChat(LLM):
 
         if max_tokens is None:
             max_tokens = self.DEFAULT_MAX_TOKENS
-        max_tokens = min(max_tokens, 256)
+        max_tokens = min(max_tokens, 64)
         if temperature is None:
             temperature = self.DEFAULT_TEMPERATURE
         if num_comps is None:
