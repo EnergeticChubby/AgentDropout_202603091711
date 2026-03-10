@@ -1,0 +1,1788 @@
+[COMMAND] python3 experiments/run_mmlu.py --dataset_name edinburgh-dawg/mmlu-redux --num_shards 8 --shard_idx 4 --limit_questions 10000 --llm_name qwen3-8b --eval_split test --mode FullConnected --agent_names AnalyzeAgent --agent_nums 5 --num_rounds 1 --batch_size 8 --decision_method FinalRefer
+[START_TS] 1773142337.2105339
+****************
+Knowlegable Expert
+
+You are a knowlegable expert in question answering.
+Please give several key entities that need to be searched in wikipedia to solve the problem. 
+Key entities that need to be searched are included between two '@' when output, for example: @catfish effect@, @broken window effect@, @Shakespeare@.
+If there is no entity in the question that needs to be searched in Wikipedia, you don't have to provide it
+
+****************
+Critic
+
+You are an excellent critic.
+Please point out potential issues in other agent's analysis point by point.
+
+****************
+Mathematician
+
+You are a mathematician who is good at math games, arithmetic calculation, and long-term planning.
+
+****************
+Psychologist
+
+You are a psychologist.
+You are good at psychology, sociology, and philosophy.
+You give people scientific suggestions that will make them feel better.
+
+****************
+Historian
+
+You research and analyze cultural, economic, political, and social events in the past, collect data from primary sources and use it to develop theories about what happened during various periods of history.
+
+[['otwG', 'otwG'], ['otwG', 'tVEL'], ['otwG', 'fpRS'], ['otwG', 'PVXz'], ['otwG', 'Z59M'], ['tVEL', 'otwG'], ['tVEL', 'tVEL'], ['tVEL', 'fpRS'], ['tVEL', 'PVXz'], ['tVEL', 'Z59M'], ['fpRS', 'otwG'], ['fpRS', 'tVEL'], ['fpRS', 'fpRS'], ['fpRS', 'PVXz'], ['fpRS', 'Z59M'], ['PVXz', 'otwG'], ['PVXz', 'tVEL'], ['PVXz', 'fpRS'], ['PVXz', 'PVXz'], ['PVXz', 'Z59M'], ['Z59M', 'otwG'], ['Z59M', 'tVEL'], ['Z59M', 'fpRS'], ['Z59M', 'PVXz'], ['Z59M', 'Z59M']]
+Final spatial logits:  Parameter containing:
+tensor([10., 10., 10., 10., 10., 10., 10., 10., 10., 10., 10., 10., 10., 10.,
+        10., 10., 10., 10., 10., 10., 10., 10., 10., 10., 10.])
+Final temporal logits:  Parameter containing:
+tensor([10., 10., 10., 10., 10., 10., 10., 10., 10., 10., 10., 10., 10., 10.,
+        10., 10., 10., 10., 10., 10., 10., 10., 10., 10., 10.])
+Final spatial masks:  Parameter containing:
+tensor([0, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1,
+        0])
+Final temporal masks:  Parameter containing:
+tensor([1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+        1])
+Final spatial sparsity: tensor(0.8000)
+Final temporal sparsity: tensor(1.)
+Evaluating AgentDropout on MMLUDataset split test
+  0%|          | 0/47 [00:00<?, ?it/s]  2%|▏         | 1/47 [00:17<13:33, 17.69s/it]  4%|▍         | 2/47 [00:39<14:53, 19.86s/it]  6%|▋         | 3/47 [01:04<16:34, 22.59s/it]  9%|▊         | 4/47 [01:28<16:28, 22.99s/it] 11%|█         | 5/47 [01:48<15:24, 22.01s/it] 13%|█▎        | 6/47 [02:05<13:52, 20.30s/it] 15%|█▍        | 7/47 [02:20<12:16, 18.42s/it] 17%|█▋        | 8/47 [02:34<11:07, 17.11s/it] 19%|█▉        | 9/47 [03:19<16:21, 25.84s/it]--------------------------------------------------------------------------------
+Batch time 17.694
+Raw answer: ['B.']
+Postprocessed answer: B
+Correct answer: C
+Accuracy: 0.0% (0/1)
+Raw answer: ['D.']
+Postprocessed answer: D
+Correct answer: B
+Accuracy: 0.0% (0/2)
+Raw answer: ['A.']
+Postprocessed answer: A
+Correct answer: D
+Accuracy: 0.0% (0/3)
+Raw answer: ['A.']
+Postprocessed answer: A
+Correct answer: A
+Accuracy: 25.0% (1/4)
+Raw answer: ['D.']
+Postprocessed answer: D
+Correct answer: A
+Accuracy: 20.0% (1/5)
+Raw answer: ['A.']
+Postprocessed answer: A
+Correct answer: D
+Accuracy: 16.7% (1/6)
+Raw answer: ['C.']
+Postprocessed answer: C
+Correct answer: C
+Accuracy: 28.6% (2/7)
+Raw answer: ['A.']
+Postprocessed answer: A
+Correct answer: A
+Accuracy: 37.5% (3/8)
+Cost 0.0
+PromptTokens 0.0
+CompletionTokens 0.0
+--------------------------------------------------------------------------------
+Batch time 21.371
+Raw answer: ['B.']
+Postprocessed answer: B
+Correct answer: B
+Accuracy: 44.4% (4/9)
+Raw answer: ['B.']
+Postprocessed answer: B
+Correct answer: B
+Accuracy: 50.0% (5/10)
+Raw answer: ['C.']
+Postprocessed answer: C
+Correct answer: A
+Accuracy: 45.5% (5/11)
+Raw answer: ['C']
+Postprocessed answer: C
+Correct answer: B
+Accuracy: 41.7% (5/12)
+Raw answer: ['C.']
+Postprocessed answer: C
+Correct answer: B
+Accuracy: 38.5% (5/13)
+Raw answer: ['D']
+Postprocessed answer: D
+Correct answer: D
+Accuracy: 42.9% (6/14)
+Raw answer: ['A.']
+Postprocessed answer: A
+Correct answer: A
+Accuracy: 46.7% (7/15)
+Raw answer: ['D.']
+Postprocessed answer: D
+Correct answer: C
+Accuracy: 43.8% (7/16)
+Cost 0.0
+PromptTokens 0.0
+CompletionTokens 0.0
+--------------------------------------------------------------------------------
+Batch time 25.844
+Raw answer: ['C.']
+Postprocessed answer: C
+Correct answer: C
+Accuracy: 47.1% (8/17)
+Raw answer: ['D.']
+Postprocessed answer: D
+Correct answer: D
+Accuracy: 50.0% (9/18)
+Raw answer: ['A.']
+Postprocessed answer: A
+Correct answer: A
+Accuracy: 52.6% (10/19)
+Raw answer: ['C.']
+Postprocessed answer: C
+Correct answer: C
+Accuracy: 55.0% (11/20)
+Raw answer: ['C']
+Postprocessed answer: C
+Correct answer: C
+Accuracy: 57.1% (12/21)
+Raw answer: ['D.']
+Postprocessed answer: D
+Correct answer: D
+Accuracy: 59.1% (13/22)
+Raw answer: ['D.']
+Postprocessed answer: D
+Correct answer: D
+Accuracy: 60.9% (14/23)
+Raw answer: ['B.']
+Postprocessed answer: B
+Correct answer: B
+Accuracy: 62.5% (15/24)
+Cost 0.0
+PromptTokens 0.0
+CompletionTokens 0.0
+--------------------------------------------------------------------------------
+Batch time 23.586
+Raw answer: ['B.']
+Postprocessed answer: B
+Correct answer: B
+Accuracy: 64.0% (16/25)
+Raw answer: ['B']
+Postprocessed answer: B
+Correct answer: C
+Accuracy: 61.5% (16/26)
+Raw answer: ['B.']
+Postprocessed answer: B
+Correct answer: B
+Accuracy: 63.0% (17/27)
+Raw answer: ['B.']
+Postprocessed answer: B
+Correct answer: D
+Accuracy: 60.7% (17/28)
+Raw answer: ['C.']
+Postprocessed answer: C
+Correct answer: C
+Accuracy: 62.1% (18/29)
+Raw answer: ['B.']
+Postprocessed answer: B
+Correct answer: B
+Accuracy: 63.3% (19/30)
+Raw answer: ['A.']
+Postprocessed answer: A
+Correct answer: A
+Accuracy: 64.5% (20/31)
+Raw answer: ['A.']
+Postprocessed answer: A
+Correct answer: A
+Accuracy: 65.6% (21/32)
+Cost 0.0
+PromptTokens 0.0
+CompletionTokens 0.0
+--------------------------------------------------------------------------------
+Batch time 20.270
+Raw answer: ['B.']
+Postprocessed answer: B
+Correct answer: B
+Accuracy: 66.7% (22/33)
+Raw answer: ['C.']
+Postprocessed answer: C
+Correct answer: B
+Accuracy: 64.7% (22/34)
+Raw answer: ['B']
+Postprocessed answer: B
+Correct answer: A
+Accuracy: 62.9% (22/35)
+Raw answer: ['B']
+Postprocessed answer: B
+Correct answer: B
+Accuracy: 63.9% (23/36)
+Raw answer: ['A.']
+Postprocessed answer: A
+Correct answer: A
+Accuracy: 64.9% (24/37)
+Raw answer: ['C.']
+Postprocessed answer: C
+Correct answer: C
+Accuracy: 65.8% (25/38)
+Raw answer: ['A']
+Postprocessed answer: A
+Correct answer: A
+Accuracy: 66.7% (26/39)
+Raw answer: ['C']
+Postprocessed answer: C
+Correct answer: C
+Accuracy: 67.5% (27/40)
+Cost 0.0
+PromptTokens 0.0
+CompletionTokens 0.0
+--------------------------------------------------------------------------------
+Batch time 16.981
+Raw answer: ['D.']
+Postprocessed answer: D
+Correct answer: D
+Accuracy: 68.3% (28/41)
+Raw answer: ['D.']
+Postprocessed answer: D
+Correct answer: D
+Accuracy: 69.0% (29/42)
+Raw answer: ['A.']
+Postprocessed answer: A
+Correct answer: A
+Accuracy: 69.8% (30/43)
+Raw answer: ['C.']
+Postprocessed answer: C
+Correct answer: A
+Accuracy: 68.2% (30/44)
+Raw answer: ['B.']
+Postprocessed answer: B
+Correct answer: B
+Accuracy: 68.9% (31/45)
+Raw answer: ['C.']
+Postprocessed answer: C
+Correct answer: D
+Accuracy: 67.4% (31/46)
+Raw answer: ['A.']
+Postprocessed answer: A
+Correct answer: A
+Accuracy: 68.1% (32/47)
+Raw answer: ['C.']
+Postprocessed answer: C
+Correct answer: C
+Accuracy: 68.8% (33/48)
+Cost 0.0
+PromptTokens 0.0
+CompletionTokens 0.0
+--------------------------------------------------------------------------------
+Batch time 14.543
+Raw answer: ['D.']
+Postprocessed answer: D
+Correct answer: D
+Accuracy: 69.4% (34/49)
+Raw answer: ['B.']
+Postprocessed answer: B
+Correct answer: A
+Accuracy: 68.0% (34/50)
+Raw answer: ['D.']
+Postprocessed answer: D
+Correct answer: B
+Accuracy: 66.7% (34/51)
+Raw answer: ['D.']
+Postprocessed answer: D
+Correct answer: D
+Accuracy: 67.3% (35/52)
+Raw answer: ['C.']
+Postprocessed answer: C
+Correct answer: D
+Accuracy: 66.0% (35/53)
+Raw answer: ['D.']
+Postprocessed answer: D
+Correct answer: D
+Accuracy: 66.7% (36/54)
+Raw answer: ['C.']
+Postprocessed answer: C
+Correct answer: D
+Accuracy: 65.5% (36/55)
+Raw answer: ['A.']
+Postprocessed answer: A
+Correct answer: A
+Accuracy: 66.1% (37/56)
+Cost 0.0
+PromptTokens 0.0
+CompletionTokens 0.0
+--------------------------------------------------------------------------------
+Batch time 14.310
+Raw answer: ['D.']
+Postprocessed answer: D
+Correct answer: A
+Accuracy: 64.9% (37/57)
+Raw answer: ['C.']
+Postprocessed answer: C
+Correct answer: D
+Accuracy: 63.8% (37/58)
+Raw answer: ['D.']
+Postprocessed answer: D
+Correct answer: D
+Accuracy: 64.4% (38/59)
+Raw answer: ['B.']
+Postprocessed answer: B
+Correct answer: B
+Accuracy: 65.0% (39/60)
+Raw answer: ['A.']
+Postprocessed answer: A
+Correct answer: B
+Accuracy: 63.9% (39/61)
+Raw answer: ['C.']
+Postprocessed answer: C
+Correct answer: D
+Accuracy: 62.9% (39/62)
+Raw answer: ['C']
+Postprocessed answer: C
+Correct answer: C
+Accuracy: 63.5% (40/63)
+Raw answer: ['D.']
+Postprocessed answer: D
+Correct answer: D
+Accuracy: 64.1% (41/64)
+Cost 0.0
+PromptTokens 0.0
+CompletionTokens 0.0
+--------------------------------------------------------------------------------
+Batch time 45.010
+Raw answer: ['C.']
+Postprocessed answer: C
+Correct answer: C
+Accuracy: 64.6% (42/65)
+Raw answer: ['A.']
+Postprocessed answer: A
+Correct answer: B
+Accuracy: 63.6% (42/66)
+Raw answer: ['D.']
+Postprocessed answer: D
+Correct answer: B
+Accuracy: 62.7% (42/67)
+Raw answer: ['B.']
+Postprocessed answer: B
+Correct answer: D
+Accuracy: 61.8% (42/68)
+Raw answer: ['A.']
+Postprocessed answer: A
+Correct answer: A
+Accuracy: 62.3% (43/69)
+Raw answer: ['C.']
+Postprocessed answer: C
+Correct answer: D
+Accuracy: 61.4% (43/70)
+Raw answer: ['A.']
+Postprocessed answer: A
+Correct answer: A
+Accuracy: 62.0% (44/71)
+Raw answer: ['D.']
+Postprocessed answer: D
+Correct answer: C
+Accuracy: 61.1% (44/72)
+Cost 0.0
+PromptTokens 0.0
+CompletionTokens 0.0
+--------------------------------------------------------------------------------
+Batch time 21.430
+Raw answer: ['B.']
+Postprocessed answer: B
+Correct answer: D
+Accuracy: 60.3% (44/73)
+Raw answer: ['A.']
+Postprocessed answer: A
+Correct answer: B
+Accuracy: 59.5% (44/74)
+Raw answer: ['C']
+Postprocessed answer: C
+Correct answer: B
+Accuracy: 58.7% (44/75)
+Raw answer: ['B.']
+Postprocessed answer: B
+Correct answer: B
+Accuracy: 59.2% (45/76)
+Raw answer: ['A.']
+Postprocessed answer: A
+Correct answer: C
+Accuracy: 58.4% (45/77)
+Raw answer: ['C.']
+Postprocessed answer: C
+Correct answer: B
+Accuracy: 57.7% (45/78)
+Raw answer: ['A.']
+Postprocessed answer: A
+Correct answer: A
+Accuracy: 58.2% (46/79)
+Raw answer: ['B.']
+Postprocessed answer: B
+Correct answer: D
+Accuracy: 57.5% (46/80)
+Cost 0.0
+ 21%|██▏       | 10/47 [03:41<15:05, 24.48s/it] 23%|██▎       | 11/47 [03:57<13:10, 21.96s/it] 26%|██▌       | 12/47 [04:16<12:19, 21.12s/it] 28%|██▊       | 13/47 [04:34<11:22, 20.08s/it] 30%|██▉       | 14/47 [04:49<10:15, 18.64s/it] 32%|███▏      | 15/47 [05:04<09:19, 17.48s/it] 34%|███▍      | 16/47 [05:21<09:02, 17.51s/it] 36%|███▌      | 17/47 [05:39<08:42, 17.42s/it] 38%|███▊      | 18/47 [05:55<08:20, 17.24s/it] 40%|████      | 19/47 [06:21<09:10, 19.68s/it]PromptTokens 0.0
+CompletionTokens 0.0
+--------------------------------------------------------------------------------
+Batch time 16.251
+Raw answer: ['A.']
+Postprocessed answer: A
+Correct answer: B
+Accuracy: 56.8% (46/81)
+Raw answer: ['D.']
+Postprocessed answer: D
+Correct answer: D
+Accuracy: 57.3% (47/82)
+Raw answer: ['E']
+Postprocessed answer: E
+Correct answer: B
+Accuracy: 56.6% (47/83)
+Raw answer: ['A.']
+Postprocessed answer: A
+Correct answer: B
+Accuracy: 56.0% (47/84)
+Raw answer: ['B']
+Postprocessed answer: B
+Correct answer: B
+Accuracy: 56.5% (48/85)
+Raw answer: ['C.']
+Postprocessed answer: C
+Correct answer: D
+Accuracy: 55.8% (48/86)
+Raw answer: ['A']
+Postprocessed answer: A
+Correct answer: D
+Accuracy: 55.2% (48/87)
+Raw answer: ['C.']
+Postprocessed answer: C
+Correct answer: A
+Accuracy: 54.5% (48/88)
+Cost 0.0
+PromptTokens 0.0
+CompletionTokens 0.0
+--------------------------------------------------------------------------------
+Batch time 19.195
+Raw answer: ['A.']
+Postprocessed answer: A
+Correct answer: A
+Accuracy: 55.1% (49/89)
+Raw answer: ['D.']
+Postprocessed answer: D
+Correct answer: D
+Accuracy: 55.6% (50/90)
+Raw answer: ['B']
+Postprocessed answer: B
+Correct answer: B
+Accuracy: 56.0% (51/91)
+Raw answer: ['D']
+Postprocessed answer: D
+Correct answer: B
+Accuracy: 55.4% (51/92)
+Raw answer: ['B']
+Postprocessed answer: B
+Correct answer: D
+Accuracy: 54.8% (51/93)
+Raw answer: ['A.']
+Postprocessed answer: A
+Correct answer: C
+Accuracy: 54.3% (51/94)
+Raw answer: ['C.']
+Postprocessed answer: C
+Correct answer: C
+Accuracy: 54.7% (52/95)
+Raw answer: ['A']
+Postprocessed answer: A
+Correct answer: A
+Accuracy: 55.2% (53/96)
+Cost 0.0
+PromptTokens 0.0
+CompletionTokens 0.0
+--------------------------------------------------------------------------------
+Batch time 17.667
+Raw answer: ['C.']
+Postprocessed answer: C
+Correct answer: D
+Accuracy: 54.6% (53/97)
+Raw answer: ['B.']
+Postprocessed answer: B
+Correct answer: A
+Accuracy: 54.1% (53/98)
+Raw answer: ['D.']
+Postprocessed answer: D
+Correct answer: D
+Accuracy: 54.5% (54/99)
+Raw answer: ['C.']
+Postprocessed answer: C
+Correct answer: C
+Accuracy: 55.0% (55/100)
+Raw answer: ['B']
+Postprocessed answer: B
+Correct answer: B
+Accuracy: 55.4% (56/101)
+Raw answer: ['A.']
+Postprocessed answer: A
+Correct answer: C
+Accuracy: 54.9% (56/102)
+Raw answer: ['A']
+Postprocessed answer: A
+Correct answer: C
+Accuracy: 54.4% (56/103)
+Raw answer: ['C.']
+Postprocessed answer: C
+Correct answer: C
+Accuracy: 54.8% (57/104)
+Cost 0.0
+PromptTokens 0.0
+CompletionTokens 0.0
+--------------------------------------------------------------------------------
+Batch time 15.316
+Raw answer: ['A.']
+Postprocessed answer: A
+Correct answer: B
+Accuracy: 54.3% (57/105)
+Raw answer: ['D.']
+Postprocessed answer: D
+Correct answer: D
+Accuracy: 54.7% (58/106)
+Raw answer: ['D']
+Postprocessed answer: D
+Correct answer: D
+Accuracy: 55.1% (59/107)
+Raw answer: ['C.']
+Postprocessed answer: C
+Correct answer: D
+Accuracy: 54.6% (59/108)
+Raw answer: ['D.']
+Postprocessed answer: D
+Correct answer: D
+Accuracy: 55.0% (60/109)
+Raw answer: ['C.']
+Postprocessed answer: C
+Correct answer: D
+Accuracy: 54.5% (60/110)
+Raw answer: ['D.']
+Postprocessed answer: D
+Correct answer: C
+Accuracy: 54.1% (60/111)
+Raw answer: ['C.']
+Postprocessed answer: C
+Correct answer: D
+Accuracy: 53.6% (60/112)
+Cost 0.0
+PromptTokens 0.0
+CompletionTokens 0.0
+--------------------------------------------------------------------------------
+Batch time 14.783
+Raw answer: ['C.']
+Postprocessed answer: C
+Correct answer: C
+Accuracy: 54.0% (61/113)
+Raw answer: ['B']
+Postprocessed answer: B
+Correct answer: B
+Accuracy: 54.4% (62/114)
+Raw answer: ['C.']
+Postprocessed answer: C
+Correct answer: A
+Accuracy: 53.9% (62/115)
+Raw answer: ['C.']
+Postprocessed answer: C
+Correct answer: C
+Accuracy: 54.3% (63/116)
+Raw answer: ['A.']
+Postprocessed answer: A
+Correct answer: A
+Accuracy: 54.7% (64/117)
+Raw answer: ['C.']
+Postprocessed answer: C
+Correct answer: B
+Accuracy: 54.2% (64/118)
+Raw answer: ['C.']
+Postprocessed answer: C
+Correct answer: C
+Accuracy: 54.6% (65/119)
+Raw answer: ['D.']
+Postprocessed answer: D
+Correct answer: D
+Accuracy: 55.0% (66/120)
+Cost 0.0
+PromptTokens 0.0
+CompletionTokens 0.0
+--------------------------------------------------------------------------------
+Batch time 17.575
+Raw answer: ['C.']
+Postprocessed answer: C
+Correct answer: C
+Accuracy: 55.4% (67/121)
+Raw answer: ['C.']
+Postprocessed answer: C
+Correct answer: C
+Accuracy: 55.7% (68/122)
+Raw answer: ['B.']
+Postprocessed answer: B
+Correct answer: B
+Accuracy: 56.1% (69/123)
+Raw answer: ['D.']
+Postprocessed answer: D
+Correct answer: D
+Accuracy: 56.5% (70/124)
+Raw answer: ['C.']
+Postprocessed answer: C
+Correct answer: D
+Accuracy: 56.0% (70/125)
+Raw answer: ['D.']
+Postprocessed answer: D
+Correct answer: C
+Accuracy: 55.6% (70/126)
+Raw answer: ['D.']
+Postprocessed answer: D
+Correct answer: D
+Accuracy: 55.9% (71/127)
+Raw answer: ['D']
+Postprocessed answer: D
+Correct answer: A
+Accuracy: 55.5% (71/128)
+Cost 0.0
+PromptTokens 0.0
+CompletionTokens 0.0
+--------------------------------------------------------------------------------
+Batch time 17.187
+Raw answer: ['A']
+Postprocessed answer: A
+Correct answer: D
+Accuracy: 55.0% (71/129)
+Raw answer: ['C.']
+Postprocessed answer: C
+Correct answer: C
+Accuracy: 55.4% (72/130)
+Raw answer: ['A.']
+Postprocessed answer: A
+Correct answer: B
+Accuracy: 55.0% (72/131)
+Raw answer: ['D']
+Postprocessed answer: D
+Correct answer: D
+Accuracy: 55.3% (73/132)
+Raw answer: ['D.']
+Postprocessed answer: D
+Correct answer: B
+Accuracy: 54.9% (73/133)
+Raw answer: ['B.']
+Postprocessed answer: B
+Correct answer: B
+Accuracy: 55.2% (74/134)
+Raw answer: ['C.']
+Postprocessed answer: C
+Correct answer: D
+Accuracy: 54.8% (74/135)
+Raw answer: ['C.']
+Postprocessed answer: C
+Correct answer: C
+Accuracy: 55.1% (75/136)
+Cost 0.0
+PromptTokens 0.0
+CompletionTokens 0.0
+--------------------------------------------------------------------------------
+Batch time 16.824
+Raw answer: ['B.']
+Postprocessed answer: B
+Correct answer: B
+Accuracy: 55.5% (76/137)
+Raw answer: ['A']
+Postprocessed answer: A
+Correct answer: C
+Accuracy: 55.1% (76/138)
+Raw answer: ['B']
+Postprocessed answer: B
+Correct answer: C
+Accuracy: 54.7% (76/139)
+Raw answer: ['D']
+Postprocessed answer: D
+Correct answer: C
+Accuracy: 54.3% (76/140)
+Raw answer: ['B.']
+Postprocessed answer: B
+Correct answer: A
+Accuracy: 53.9% (76/141)
+Raw answer: ['D.']
+Postprocessed answer: D
+Correct answer: B
+Accuracy: 53.5% (76/142)
+Raw answer: ['A.']
+Postprocessed answer: A
+Correct answer: B
+Accuracy: 53.1% (76/143)
+Raw answer: ['D.']
+Postprocessed answer: D
+Correct answer: A
+Accuracy: 52.8% (76/144)
+Cost 0.0
+PromptTokens 0.0
+CompletionTokens 0.0
+--------------------------------------------------------------------------------
+Batch time 25.323
+Raw answer: ['D']
+Postprocessed answer: D
+Correct answer: D
+Accuracy: 53.1% (77/145)
+Raw answer: ['D.']
+Postprocessed answer: D
+Correct answer: D
+Accuracy: 53.4% (78/146)
+Raw answer: ['D.']
+Postprocessed answer: D
+Correct answer: A
+Accuracy: 53.1% (78/147)
+Raw answer: ['D.']
+Postprocessed answer: D
+Correct answer: D
+Accuracy: 53.4% (79/148)
+Raw answer: ['D']
+Postprocessed answer: D
+Correct answer: B
+Accuracy: 53.0% (79/149)
+Raw answer: ['A']
+Postprocessed answer: A
+Correct answer: D
+Accuracy: 52.7% (79/150)
+Raw answer: ['A.']
+Postprocessed answer: A
+Correct answer: B
+Accuracy: 52.3% (79/151)
+Raw answer: ['D']
+Postprocessed answer: D
+Correct answer: D
+Accuracy: 52.6% (80/152)
+Cost 0.0
+PromptTokens 0.0
+CompletionTokens 0.0
+--------------------------------------------------------------------------------
+Batch time 19.874
+Raw answer: ['A.']
+Postprocessed answer: A
+Correct answer: A
+Accuracy: 52.9% (81/153)
+Raw answer: ['C']
+Postprocessed answer: C
+Correct answer: A
+Accuracy: 52.6% (81/154)
+Raw answer: ['B.']
+Postprocessed answer: B
+Correct answer: B
+Accuracy: 52.9% (82/155)
+Raw answer: ['D.']
+Postprocessed answer: D
+Correct answer: D
+Accuracy: 53.2% (83/156)
+Raw answer: ['D.']
+Postprocessed answer: D
+Correct answer: D
+Accuracy: 53.5% (84/157)
+Raw answer: ['A.']
+Postprocessed answer: A
+Correct answer: C
+Accuracy: 53.2% (84/158)
+Raw answer: ['D']
+Postprocessed answer: D
+Correct answer: A
+ 43%|████▎     | 20/47 [06:41<08:52, 19.74s/it] 45%|████▍     | 21/47 [06:53<07:37, 17.58s/it] 47%|████▋     | 22/47 [07:11<07:23, 17.76s/it] 49%|████▉     | 23/47 [07:28<06:59, 17.48s/it] 51%|█████     | 24/47 [07:47<06:54, 18.00s/it] 53%|█████▎    | 25/47 [08:01<06:04, 16.55s/it] 55%|█████▌    | 26/47 [08:18<05:53, 16.83s/it] 57%|█████▋    | 27/47 [08:39<06:02, 18.15s/it] 60%|█████▉    | 28/47 [09:28<08:38, 27.28s/it] 62%|██████▏   | 29/47 [09:51<07:46, 25.93s/it]Accuracy: 52.8% (84/159)
+Raw answer: ['B.']
+Postprocessed answer: B
+Correct answer: B
+Accuracy: 53.1% (85/160)
+Cost 0.0
+PromptTokens 0.0
+CompletionTokens 0.0
+--------------------------------------------------------------------------------
+Batch time 12.525
+Raw answer: ['C.']
+Postprocessed answer: C
+Correct answer: B
+Accuracy: 52.8% (85/161)
+Raw answer: ['B.']
+Postprocessed answer: B
+Correct answer: D
+Accuracy: 52.5% (85/162)
+Raw answer: ['C.']
+Postprocessed answer: C
+Correct answer: D
+Accuracy: 52.1% (85/163)
+Raw answer: ['B.']
+Postprocessed answer: B
+Correct answer: A
+Accuracy: 51.8% (85/164)
+Raw answer: ['B.']
+Postprocessed answer: B
+Correct answer: D
+Accuracy: 51.5% (85/165)
+Raw answer: ['D']
+Postprocessed answer: D
+Correct answer: C
+Accuracy: 51.2% (85/166)
+Raw answer: ['B.']
+Postprocessed answer: B
+Correct answer: A
+Accuracy: 50.9% (85/167)
+Raw answer: ['A.']
+Postprocessed answer: A
+Correct answer: B
+Accuracy: 50.6% (85/168)
+Cost 0.0
+PromptTokens 0.0
+CompletionTokens 0.0
+--------------------------------------------------------------------------------
+Batch time 18.168
+Raw answer: ['B']
+Postprocessed answer: B
+Correct answer: B
+Accuracy: 50.9% (86/169)
+Raw answer: ['C.']
+Postprocessed answer: C
+Correct answer: B
+Accuracy: 50.6% (86/170)
+Raw answer: ['D.']
+Postprocessed answer: D
+Correct answer: D
+Accuracy: 50.9% (87/171)
+Raw answer: ['B.']
+Postprocessed answer: B
+Correct answer: B
+Accuracy: 51.2% (88/172)
+Raw answer: ['C']
+Postprocessed answer: C
+Correct answer: C
+Accuracy: 51.4% (89/173)
+Raw answer: ['D.']
+Postprocessed answer: D
+Correct answer: D
+Accuracy: 51.7% (90/174)
+Raw answer: ['A.']
+Postprocessed answer: A
+Correct answer: A
+Accuracy: 52.0% (91/175)
+Raw answer: ['B']
+Postprocessed answer: B
+Correct answer: A
+Accuracy: 51.7% (91/176)
+Cost 0.0
+PromptTokens 0.0
+CompletionTokens 0.0
+--------------------------------------------------------------------------------
+Batch time 16.811
+Raw answer: ['A.']
+Postprocessed answer: A
+Correct answer: A
+Accuracy: 52.0% (92/177)
+Raw answer: ['D.']
+Postprocessed answer: D
+Correct answer: D
+Accuracy: 52.2% (93/178)
+Raw answer: ['A']
+Postprocessed answer: A
+Correct answer: D
+Accuracy: 52.0% (93/179)
+Raw answer: ['D.']
+Postprocessed answer: D
+Correct answer: C
+Accuracy: 51.7% (93/180)
+Raw answer: ['D.']
+Postprocessed answer: D
+Correct answer: D
+Accuracy: 51.9% (94/181)
+Raw answer: ['B.']
+Postprocessed answer: B
+Correct answer: D
+Accuracy: 51.6% (94/182)
+Raw answer: ['B.']
+Postprocessed answer: B
+Correct answer: D
+Accuracy: 51.4% (94/183)
+Raw answer: ['B.']
+Postprocessed answer: B
+Correct answer: B
+Accuracy: 51.6% (95/184)
+Cost 0.0
+PromptTokens 0.0
+CompletionTokens 0.0
+--------------------------------------------------------------------------------
+Batch time 19.209
+Raw answer: ['D.']
+Postprocessed answer: D
+Correct answer: C
+Accuracy: 51.4% (95/185)
+Raw answer: ['D.']
+Postprocessed answer: D
+Correct answer: D
+Accuracy: 51.6% (96/186)
+Raw answer: ['B.']
+Postprocessed answer: B
+Correct answer: C
+Accuracy: 51.3% (96/187)
+Raw answer: ['D.']
+Postprocessed answer: D
+Correct answer: B
+Accuracy: 51.1% (96/188)
+Raw answer: ['A.']
+Postprocessed answer: A
+Correct answer: A
+Accuracy: 51.3% (97/189)
+Raw answer: ['A']
+Postprocessed answer: A
+Correct answer: D
+Accuracy: 51.1% (97/190)
+Raw answer: ['B.']
+Postprocessed answer: B
+Correct answer: B
+Accuracy: 51.3% (98/191)
+Raw answer: ['D.']
+Postprocessed answer: D
+Correct answer: D
+Accuracy: 51.6% (99/192)
+Cost 0.0
+PromptTokens 0.0
+CompletionTokens 0.0
+--------------------------------------------------------------------------------
+Batch time 13.148
+Raw answer: ['C.']
+Postprocessed answer: C
+Correct answer: C
+Accuracy: 51.8% (100/193)
+Raw answer: ['C.']
+Postprocessed answer: C
+Correct answer: C
+Accuracy: 52.1% (101/194)
+Raw answer: ['B.']
+Postprocessed answer: B
+Correct answer: B
+Accuracy: 52.3% (102/195)
+Raw answer: ['D.']
+Postprocessed answer: D
+Correct answer: D
+Accuracy: 52.6% (103/196)
+Raw answer: ['A.']
+Postprocessed answer: A
+Correct answer: A
+Accuracy: 52.8% (104/197)
+Raw answer: ['C.']
+Postprocessed answer: C
+Correct answer: C
+Accuracy: 53.0% (105/198)
+Raw answer: ['C.']
+Postprocessed answer: C
+Correct answer: D
+Accuracy: 52.8% (105/199)
+Raw answer: ['A.']
+Postprocessed answer: A
+Correct answer: A
+Accuracy: 53.0% (106/200)
+Cost 0.0
+PromptTokens 0.0
+CompletionTokens 0.0
+--------------------------------------------------------------------------------
+Batch time 17.473
+Raw answer: ['D.']
+Postprocessed answer: D
+Correct answer: D
+Accuracy: 53.2% (107/201)
+Raw answer: ['D']
+Postprocessed answer: D
+Correct answer: D
+Accuracy: 53.5% (108/202)
+Raw answer: ['D.']
+Postprocessed answer: D
+Correct answer: D
+Accuracy: 53.7% (109/203)
+Raw answer: ['D']
+Postprocessed answer: D
+Correct answer: B
+Accuracy: 53.4% (109/204)
+Raw answer: ['B.']
+Postprocessed answer: B
+Correct answer: B
+Accuracy: 53.7% (110/205)
+Raw answer: ['B.']
+Postprocessed answer: B
+Correct answer: A
+Accuracy: 53.4% (110/206)
+Raw answer: ['C.']
+Postprocessed answer: C
+Correct answer: B
+Accuracy: 53.1% (110/207)
+Raw answer: ['C.']
+Postprocessed answer: C
+Correct answer: A
+Accuracy: 52.9% (110/208)
+Cost 0.0
+PromptTokens 0.0
+CompletionTokens 0.0
+--------------------------------------------------------------------------------
+Batch time 21.200
+Raw answer: ['D.']
+Postprocessed answer: D
+Correct answer: A
+Accuracy: 52.6% (110/209)
+Raw answer: ['D.']
+Postprocessed answer: D
+Correct answer: D
+Accuracy: 52.9% (111/210)
+Raw answer: ['A.']
+Postprocessed answer: A
+Correct answer: C
+Accuracy: 52.6% (111/211)
+Raw answer: ['A.']
+Postprocessed answer: A
+Correct answer: D
+Accuracy: 52.4% (111/212)
+Raw answer: ['D.']
+Postprocessed answer: D
+Correct answer: D
+Accuracy: 52.6% (112/213)
+Raw answer: ['A']
+Postprocessed answer: A
+Correct answer: D
+Accuracy: 52.3% (112/214)
+Raw answer: ['D.']
+Postprocessed answer: D
+Correct answer: C
+Accuracy: 52.1% (112/215)
+Raw answer: ['D.']
+Postprocessed answer: D
+Correct answer: D
+Accuracy: 52.3% (113/216)
+Cost 0.0
+PromptTokens 0.0
+CompletionTokens 0.0
+--------------------------------------------------------------------------------
+Batch time 48.570
+Raw answer: ['A']
+Postprocessed answer: A
+Correct answer: B
+Accuracy: 52.1% (113/217)
+Raw answer: ['D.']
+Postprocessed answer: D
+Correct answer: D
+Accuracy: 52.3% (114/218)
+Raw answer: ['C.']
+Postprocessed answer: C
+Correct answer: A
+Accuracy: 52.1% (114/219)
+Raw answer: ['C.']
+Postprocessed answer: C
+Correct answer: D
+Accuracy: 51.8% (114/220)
+Raw answer: ['D.']
+Postprocessed answer: D
+Correct answer: A
+Accuracy: 51.6% (114/221)
+Raw answer: ['D.']
+Postprocessed answer: D
+Correct answer: D
+Accuracy: 51.8% (115/222)
+Raw answer: ['D.']
+Postprocessed answer: D
+Correct answer: D
+Accuracy: 52.0% (116/223)
+Raw answer: ['B.']
+Postprocessed answer: B
+Correct answer: C
+Accuracy: 51.8% (116/224)
+Cost 0.0
+PromptTokens 0.0
+CompletionTokens 0.0
+--------------------------------------------------------------------------------
+Batch time 22.751
+Raw answer: ['A']
+Postprocessed answer: A
+Correct answer: A
+Accuracy: 52.0% (117/225)
+Raw answer: ['A.']
+Postprocessed answer: A
+Correct answer: D
+Accuracy: 51.8% (117/226)
+Raw answer: ['D.']
+Postprocessed answer: D
+Correct answer: D
+Accuracy: 52.0% (118/227)
+Raw answer: ['C.']
+Postprocessed answer: C
+Correct answer: A
+Accuracy: 51.8% (118/228)
+Raw answer: ['C.']
+Postprocessed answer: C
+Correct answer: C
+Accuracy: 52.0% (119/229)
+Raw answer: ['B.']
+Postprocessed answer: B
+Correct answer: B
+Accuracy: 52.2% (120/230)
+Raw answer: ['B.']
+Postprocessed answer: B
+Correct answer: B
+Accuracy: 52.4% (121/231)
+Raw answer: ['B.']
+Postprocessed answer: B
+Correct answer: B
+Accuracy: 52.6% (122/232)
+Cost 0.0
+PromptTokens 0.0
+CompletionTokens 0.0
+--------------------------------------------------------------------------------
+Batch time 21.904
+Raw answer: ['C.']
+Postprocessed answer: C
+Correct answer: B
+Accuracy: 52.4% (122/233)
+Raw answer: ['A.']
+Postprocessed answer: A
+Correct answer: A
+Accuracy: 52.6% (123/234)
+Raw answer: ['D']
+Postprocessed answer: D
+Correct answer: D
+Accuracy: 52.8% (124/235)
+Raw answer: ['C.']
+Postprocessed answer: C
+Correct answer: B
+Accuracy: 52.5% (124/236)
+Raw answer: ['C.']
+Postprocessed answer: C
+ 64%|██████▍   | 30/47 [10:13<07:00, 24.73s/it] 66%|██████▌   | 31/47 [10:30<05:59, 22.45s/it] 68%|██████▊   | 32/47 [10:48<05:19, 21.31s/it] 70%|███████   | 33/47 [11:09<04:54, 21.03s/it] 72%|███████▏  | 34/47 [11:36<04:57, 22.88s/it] 74%|███████▍  | 35/47 [11:54<04:16, 21.40s/it] 77%|███████▋  | 36/47 [12:13<03:49, 20.84s/it] 79%|███████▊  | 37/47 [12:33<03:23, 20.35s/it] 81%|████████  | 38/47 [12:48<02:49, 18.85s/it] 83%|████████▎ | 39/47 [13:05<02:25, 18.24s/it]Correct answer: C
+Accuracy: 52.7% (125/237)
+Raw answer: ['A.']
+Postprocessed answer: A
+Correct answer: D
+Accuracy: 52.5% (125/238)
+Raw answer: ['D.']
+Postprocessed answer: D
+Correct answer: B
+Accuracy: 52.3% (125/239)
+Raw answer: ['A.']
+Postprocessed answer: A
+Correct answer: D
+Accuracy: 52.1% (125/240)
+Cost 0.0
+PromptTokens 0.0
+CompletionTokens 0.0
+--------------------------------------------------------------------------------
+Batch time 17.087
+Raw answer: ['B.']
+Postprocessed answer: B
+Correct answer: B
+Accuracy: 52.3% (126/241)
+Raw answer: ['D.']
+Postprocessed answer: D
+Correct answer: D
+Accuracy: 52.5% (127/242)
+Raw answer: ['B.']
+Postprocessed answer: B
+Correct answer: B
+Accuracy: 52.7% (128/243)
+Raw answer: ['D.']
+Postprocessed answer: D
+Correct answer: C
+Accuracy: 52.5% (128/244)
+Raw answer: ['A']
+Postprocessed answer: A
+Correct answer: D
+Accuracy: 52.2% (128/245)
+Raw answer: ['D.']
+Postprocessed answer: D
+Correct answer: D
+Accuracy: 52.4% (129/246)
+Raw answer: ['D.']
+Postprocessed answer: D
+Correct answer: D
+Accuracy: 52.6% (130/247)
+Raw answer: ['B']
+Postprocessed answer: B
+Correct answer: C
+Accuracy: 52.4% (130/248)
+Cost 0.0
+PromptTokens 0.0
+CompletionTokens 0.0
+--------------------------------------------------------------------------------
+Batch time 18.637
+Raw answer: ['B.']
+Postprocessed answer: B
+Correct answer: B
+Accuracy: 52.6% (131/249)
+Raw answer: ['C.']
+Postprocessed answer: C
+Correct answer: B
+Accuracy: 52.4% (131/250)
+Raw answer: ['D.']
+Postprocessed answer: D
+Correct answer: A
+Accuracy: 52.2% (131/251)
+Raw answer: ['B']
+Postprocessed answer: B
+Correct answer: A
+Accuracy: 52.0% (131/252)
+Raw answer: ['A']
+Postprocessed answer: A
+Correct answer: A
+Accuracy: 52.2% (132/253)
+Raw answer: ['A.']
+Postprocessed answer: A
+Correct answer: A
+Accuracy: 52.4% (133/254)
+Raw answer: ['E.']
+Postprocessed answer: E
+Correct answer: B
+Accuracy: 52.2% (133/255)
+Raw answer: ['C.']
+Postprocessed answer: C
+Correct answer: C
+Accuracy: 52.3% (134/256)
+Cost 0.0
+PromptTokens 0.0
+CompletionTokens 0.0
+--------------------------------------------------------------------------------
+Batch time 20.350
+Raw answer: ['A.']
+Postprocessed answer: A
+Correct answer: A
+Accuracy: 52.5% (135/257)
+Raw answer: ['B.']
+Postprocessed answer: B
+Correct answer: D
+Accuracy: 52.3% (135/258)
+Raw answer: ['A.']
+Postprocessed answer: A
+Correct answer: C
+Accuracy: 52.1% (135/259)
+Raw answer: ['C.']
+Postprocessed answer: C
+Correct answer: C
+Accuracy: 52.3% (136/260)
+Raw answer: ['C.']
+Postprocessed answer: C
+Correct answer: A
+Accuracy: 52.1% (136/261)
+Raw answer: ['C.']
+Postprocessed answer: C
+Correct answer: A
+Accuracy: 51.9% (136/262)
+Raw answer: ['B.']
+Postprocessed answer: B
+Correct answer: B
+Accuracy: 52.1% (137/263)
+Raw answer: ['C.']
+Postprocessed answer: C
+Correct answer: C
+Accuracy: 52.3% (138/264)
+Cost 0.0
+PromptTokens 0.0
+CompletionTokens 0.0
+--------------------------------------------------------------------------------
+Batch time 27.166
+Raw answer: ['D.']
+Postprocessed answer: D
+Correct answer: D
+Accuracy: 52.5% (139/265)
+Raw answer: ['A.']
+Postprocessed answer: A
+Correct answer: C
+Accuracy: 52.3% (139/266)
+Raw answer: ['D.']
+Postprocessed answer: D
+Correct answer: D
+Accuracy: 52.4% (140/267)
+Raw answer: ['C.']
+Postprocessed answer: C
+Correct answer: C
+Accuracy: 52.6% (141/268)
+Raw answer: ['B']
+Postprocessed answer: B
+Correct answer: A
+Accuracy: 52.4% (141/269)
+Raw answer: ['D.']
+Postprocessed answer: D
+Correct answer: D
+Accuracy: 52.6% (142/270)
+Raw answer: ['A.']
+Postprocessed answer: A
+Correct answer: B
+Accuracy: 52.4% (142/271)
+Raw answer: ['B.']
+Postprocessed answer: B
+Correct answer: C
+Accuracy: 52.2% (142/272)
+Cost 0.0
+PromptTokens 0.0
+CompletionTokens 0.0
+--------------------------------------------------------------------------------
+Batch time 17.940
+Raw answer: ['A.']
+Postprocessed answer: A
+Correct answer: B
+Accuracy: 52.0% (142/273)
+Raw answer: ['C.']
+Postprocessed answer: C
+Correct answer: B
+Accuracy: 51.8% (142/274)
+Raw answer: ['A.']
+Postprocessed answer: A
+Correct answer: A
+Accuracy: 52.0% (143/275)
+Raw answer: ['C.']
+Postprocessed answer: C
+Correct answer: C
+Accuracy: 52.2% (144/276)
+Raw answer: ['D']
+Postprocessed answer: D
+Correct answer: D
+Accuracy: 52.3% (145/277)
+Raw answer: ['C.']
+Postprocessed answer: C
+Correct answer: A
+Accuracy: 52.2% (145/278)
+Raw answer: ['C.']
+Postprocessed answer: C
+Correct answer: B
+Accuracy: 52.0% (145/279)
+Raw answer: ['D']
+Postprocessed answer: D
+Correct answer: D
+Accuracy: 52.1% (146/280)
+Cost 0.0
+PromptTokens 0.0
+CompletionTokens 0.0
+--------------------------------------------------------------------------------
+Batch time 19.514
+Raw answer: ['A.']
+Postprocessed answer: A
+Correct answer: A
+Accuracy: 52.3% (147/281)
+Raw answer: ['C']
+Postprocessed answer: C
+Correct answer: C
+Accuracy: 52.5% (148/282)
+Raw answer: ['A.']
+Postprocessed answer: A
+Correct answer: A
+Accuracy: 52.7% (149/283)
+Raw answer: ['C.']
+Postprocessed answer: C
+Correct answer: C
+Accuracy: 52.8% (150/284)
+Raw answer: ['A']
+Postprocessed answer: A
+Correct answer: B
+Accuracy: 52.6% (150/285)
+Raw answer: ['C.']
+Postprocessed answer: C
+Correct answer: C
+Accuracy: 52.8% (151/286)
+Raw answer: ['C.']
+Postprocessed answer: C
+Correct answer: C
+Accuracy: 53.0% (152/287)
+Raw answer: ['A.']
+Postprocessed answer: A
+Correct answer: B
+Accuracy: 52.8% (152/288)
+Cost 0.0
+PromptTokens 0.0
+CompletionTokens 0.0
+--------------------------------------------------------------------------------
+Batch time 19.180
+Raw answer: ['C.']
+Postprocessed answer: C
+Correct answer: C
+Accuracy: 52.9% (153/289)
+Raw answer: ['B.']
+Postprocessed answer: B
+Correct answer: B
+Accuracy: 53.1% (154/290)
+Raw answer: ['D.']
+Postprocessed answer: D
+Correct answer: D
+Accuracy: 53.3% (155/291)
+Raw answer: ['D.']
+Postprocessed answer: D
+Correct answer: D
+Accuracy: 53.4% (156/292)
+Raw answer: ['C.']
+Postprocessed answer: C
+Correct answer: C
+Accuracy: 53.6% (157/293)
+Raw answer: ['A.']
+Postprocessed answer: A
+Correct answer: C
+Accuracy: 53.4% (157/294)
+Raw answer: ['C.']
+Postprocessed answer: C
+Correct answer: C
+Accuracy: 53.6% (158/295)
+Raw answer: ['D.']
+Postprocessed answer: D
+Correct answer: B
+Accuracy: 53.4% (158/296)
+Cost 0.0
+PromptTokens 0.0
+CompletionTokens 0.0
+--------------------------------------------------------------------------------
+Batch time 15.335
+Raw answer: ['D.']
+Postprocessed answer: D
+Correct answer: C
+Accuracy: 53.2% (158/297)
+Raw answer: ['C.']
+Postprocessed answer: C
+Correct answer: A
+Accuracy: 53.0% (158/298)
+Raw answer: ['D.']
+Postprocessed answer: D
+Correct answer: A
+Accuracy: 52.8% (158/299)
+Raw answer: ['A.']
+Postprocessed answer: A
+Correct answer: A
+Accuracy: 53.0% (159/300)
+Raw answer: ['A.']
+Postprocessed answer: A
+Correct answer: A
+Accuracy: 53.2% (160/301)
+Raw answer: ['D']
+Postprocessed answer: D
+Correct answer: D
+Accuracy: 53.3% (161/302)
+Raw answer: ['C.']
+Postprocessed answer: C
+Correct answer: C
+Accuracy: 53.5% (162/303)
+Raw answer: ['D']
+Postprocessed answer: D
+Correct answer: D
+Accuracy: 53.6% (163/304)
+Cost 0.0
+PromptTokens 0.0
+CompletionTokens 0.0
+--------------------------------------------------------------------------------
+Batch time 16.781
+Raw answer: ['B.']
+Postprocessed answer: B
+Correct answer: A
+Accuracy: 53.4% (163/305)
+Raw answer: ['A.']
+Postprocessed answer: A
+Correct answer: A
+Accuracy: 53.6% (164/306)
+Raw answer: ['D.']
+Postprocessed answer: D
+Correct answer: C
+Accuracy: 53.4% (164/307)
+Raw answer: ['D.']
+Postprocessed answer: D
+Correct answer: D
+Accuracy: 53.6% (165/308)
+Raw answer: ['B.']
+Postprocessed answer: B
+Correct answer: B
+Accuracy: 53.7% (166/309)
+Raw answer: ['A.']
+Postprocessed answer: A
+Correct answer: A
+Accuracy: 53.9% (167/310)
+Raw answer: ['C.']
+Postprocessed answer: C
+Correct answer: C
+Accuracy: 54.0% (168/311)
+Raw answer: ['D.']
+Postprocessed answer: D
+Correct answer: B
+Accuracy: 53.8% (168/312)
+Cost 0.0
+PromptTokens 0.0
+CompletionTokens 0.0
+--------------------------------------------------------------------------------
+Batch time 21.904
+Raw answer: ['C.']
+Postprocessed answer: C
+Correct answer: C
+Accuracy: 54.0% (169/313)
+Raw answer: ['C.']
+Postprocessed answer: C
+Correct answer: C
+Accuracy: 54.1% (170/314)
+ 85%|████████▌ | 40/47 [13:27<02:15, 19.35s/it] 87%|████████▋ | 41/47 [13:41<01:47, 17.94s/it] 89%|████████▉ | 42/47 [14:00<01:30, 18.04s/it] 91%|█████████▏| 43/47 [14:19<01:14, 18.56s/it] 94%|█████████▎| 44/47 [14:41<00:58, 19.45s/it] 96%|█████████▌| 45/47 [15:21<00:50, 25.47s/it] 98%|█████████▊| 46/47 [15:38<00:23, 23.05s/it]100%|██████████| 47/47 [15:59<00:00, 22.40s/it]100%|██████████| 47/47 [15:59<00:00, 20.41s/it]
+Raw answer: ['D.']
+Postprocessed answer: D
+Correct answer: D
+Accuracy: 54.3% (171/315)
+Raw answer: ['A.']
+Postprocessed answer: A
+Correct answer: A
+Accuracy: 54.4% (172/316)
+Raw answer: ['C.']
+Postprocessed answer: C
+Correct answer: C
+Accuracy: 54.6% (173/317)
+Raw answer: ['B']
+Postprocessed answer: B
+Correct answer: B
+Accuracy: 54.7% (174/318)
+Raw answer: ['C']
+Postprocessed answer: C
+Correct answer: C
+Accuracy: 54.9% (175/319)
+Raw answer: ['C.']
+Postprocessed answer: C
+Correct answer: C
+Accuracy: 55.0% (176/320)
+Cost 0.0
+PromptTokens 0.0
+CompletionTokens 0.0
+--------------------------------------------------------------------------------
+Batch time 14.638
+Raw answer: ['B.']
+Postprocessed answer: B
+Correct answer: C
+Accuracy: 54.8% (176/321)
+Raw answer: ['A.']
+Postprocessed answer: A
+Correct answer: A
+Accuracy: 55.0% (177/322)
+Raw answer: ['D.']
+Postprocessed answer: D
+Correct answer: D
+Accuracy: 55.1% (178/323)
+Raw answer: ['A.']
+Postprocessed answer: A
+Correct answer: D
+Accuracy: 54.9% (178/324)
+Raw answer: ['B.']
+Postprocessed answer: B
+Correct answer: B
+Accuracy: 55.1% (179/325)
+Raw answer: ['B.']
+Postprocessed answer: B
+Correct answer: A
+Accuracy: 54.9% (179/326)
+Raw answer: ['B.']
+Postprocessed answer: B
+Correct answer: A
+Accuracy: 54.7% (179/327)
+Raw answer: ['B']
+Postprocessed answer: B
+Correct answer: D
+Accuracy: 54.6% (179/328)
+Cost 0.0
+PromptTokens 0.0
+CompletionTokens 0.0
+--------------------------------------------------------------------------------
+Batch time 18.211
+Raw answer: ['B.']
+Postprocessed answer: B
+Correct answer: B
+Accuracy: 54.7% (180/329)
+Raw answer: ['D.']
+Postprocessed answer: D
+Correct answer: A
+Accuracy: 54.5% (180/330)
+Raw answer: ['C.']
+Postprocessed answer: C
+Correct answer: C
+Accuracy: 54.7% (181/331)
+Raw answer: ['B.']
+Postprocessed answer: B
+Correct answer: C
+Accuracy: 54.5% (181/332)
+Raw answer: ['C.']
+Postprocessed answer: C
+Correct answer: C
+Accuracy: 54.7% (182/333)
+Raw answer: ['A.']
+Postprocessed answer: A
+Correct answer: A
+Accuracy: 54.8% (183/334)
+Raw answer: ['A.']
+Postprocessed answer: A
+Correct answer: A
+Accuracy: 54.9% (184/335)
+Raw answer: ['B.']
+Postprocessed answer: B
+Correct answer: B
+Accuracy: 55.1% (185/336)
+Cost 0.0
+PromptTokens 0.0
+CompletionTokens 0.0
+--------------------------------------------------------------------------------
+Batch time 19.752
+Raw answer: ['B.']
+Postprocessed answer: B
+Correct answer: B
+Accuracy: 55.2% (186/337)
+Raw answer: ['D.']
+Postprocessed answer: D
+Correct answer: D
+Accuracy: 55.3% (187/338)
+Raw answer: ['D.']
+Postprocessed answer: D
+Correct answer: A
+Accuracy: 55.2% (187/339)
+Raw answer: ['C.']
+Postprocessed answer: C
+Correct answer: A
+Accuracy: 55.0% (187/340)
+Raw answer: ['A.']
+Postprocessed answer: A
+Correct answer: A
+Accuracy: 55.1% (188/341)
+Raw answer: ['B.']
+Postprocessed answer: B
+Correct answer: A
+Accuracy: 55.0% (188/342)
+Raw answer: ['D.']
+Postprocessed answer: D
+Correct answer: D
+Accuracy: 55.1% (189/343)
+Raw answer: ['A.']
+Postprocessed answer: A
+Correct answer: A
+Accuracy: 55.2% (190/344)
+Cost 0.0
+PromptTokens 0.0
+CompletionTokens 0.0
+--------------------------------------------------------------------------------
+Batch time 21.486
+Raw answer: ['D']
+Postprocessed answer: D
+Correct answer: A
+Accuracy: 55.1% (190/345)
+Raw answer: ['B.']
+Postprocessed answer: B
+Correct answer: D
+Accuracy: 54.9% (190/346)
+Raw answer: ['C.']
+Postprocessed answer: C
+Correct answer: A
+Accuracy: 54.8% (190/347)
+Raw answer: ['A.']
+Postprocessed answer: A
+Correct answer: A
+Accuracy: 54.9% (191/348)
+Raw answer: ['C.']
+Postprocessed answer: C
+Correct answer: C
+Accuracy: 55.0% (192/349)
+Raw answer: ['D.']
+Postprocessed answer: D
+Correct answer: A
+Accuracy: 54.9% (192/350)
+Raw answer: ['C.']
+Postprocessed answer: C
+Correct answer: A
+Accuracy: 54.7% (192/351)
+Raw answer: ['A.']
+Postprocessed answer: A
+Correct answer: C
+Accuracy: 54.5% (192/352)
+Cost 0.0
+PromptTokens 0.0
+CompletionTokens 0.0
+--------------------------------------------------------------------------------
+Batch time 39.510
+Raw answer: ['D.']
+Postprocessed answer: D
+Correct answer: A
+Accuracy: 54.4% (192/353)
+Raw answer: ['A.']
+Postprocessed answer: A
+Correct answer: B
+Accuracy: 54.2% (192/354)
+Raw answer: ['B.']
+Postprocessed answer: B
+Correct answer: B
+Accuracy: 54.4% (193/355)
+Raw answer: ['B.']
+Postprocessed answer: B
+Correct answer: B
+Accuracy: 54.5% (194/356)
+Raw answer: ['B']
+Postprocessed answer: B
+Correct answer: C
+Accuracy: 54.3% (194/357)
+Raw answer: ['A.']
+Postprocessed answer: A
+Correct answer: A
+Accuracy: 54.5% (195/358)
+Raw answer: ['B.']
+Postprocessed answer: B
+Correct answer: B
+Accuracy: 54.6% (196/359)
+Raw answer: ['A']
+Postprocessed answer: A
+Correct answer: A
+Accuracy: 54.7% (197/360)
+Cost 0.0
+PromptTokens 0.0
+CompletionTokens 0.0
+--------------------------------------------------------------------------------
+Batch time 17.347
+Raw answer: ['A.']
+Postprocessed answer: A
+Correct answer: B
+Accuracy: 54.6% (197/361)
+Raw answer: ['B.']
+Postprocessed answer: B
+Correct answer: B
+Accuracy: 54.7% (198/362)
+Raw answer: ['A.']
+Postprocessed answer: A
+Correct answer: D
+Accuracy: 54.5% (198/363)
+Raw answer: ['A.']
+Postprocessed answer: A
+Correct answer: A
+Accuracy: 54.7% (199/364)
+Raw answer: ['C.']
+Postprocessed answer: C
+Correct answer: A
+Accuracy: 54.5% (199/365)
+Raw answer: ['D.']
+Postprocessed answer: D
+Correct answer: D
+Accuracy: 54.6% (200/366)
+Raw answer: ['C.']
+Postprocessed answer: C
+Correct answer: B
+Accuracy: 54.5% (200/367)
+Raw answer: ['B']
+Postprocessed answer: B
+Correct answer: A
+Accuracy: 54.3% (200/368)
+Cost 0.0
+PromptTokens 0.0
+CompletionTokens 0.0
+--------------------------------------------------------------------------------
+Batch time 20.852
+Raw answer: ['D']
+Postprocessed answer: D
+Correct answer: D
+Accuracy: 54.5% (201/369)
+Raw answer: ['A.']
+Postprocessed answer: A
+Correct answer: B
+Accuracy: 54.3% (201/370)
+Raw answer: ['A.']
+Postprocessed answer: A
+Correct answer: A
+Accuracy: 54.4% (202/371)
+Raw answer: ['A.']
+Postprocessed answer: A
+Correct answer: D
+Accuracy: 54.3% (202/372)
+Raw answer: ['B.']
+Postprocessed answer: B
+Correct answer: B
+Accuracy: 54.4% (203/373)
+Raw answer: ['D.']
+Postprocessed answer: D
+Correct answer: C
+Accuracy: 54.3% (203/374)
+Raw answer: ['A.']
+Postprocessed answer: A
+Correct answer: A
+Accuracy: 54.4% (204/375)
+Cost 0.0
+PromptTokens 0.0
+CompletionTokens 0.0
+Accuracy: 54.4% (204/375)
+Done!
+Score: 0.544

@@ -22,7 +22,10 @@ def main() -> None:
     args = parser.parse_args()
 
     raw_dir = Path(args.raw_dir)
-    shard_logs = sorted(raw_dir.glob("shard_*.log"))
+    shard_logs = sorted(
+        path for path in raw_dir.glob("shard_*.log")
+        if re.match(r"^shard_\d+\.log$", path.name)
+    )
     if not shard_logs:
         raise FileNotFoundError(f"No shard logs found in {raw_dir}")
 
