@@ -54,6 +54,16 @@ def parse_args():
     parser.add_argument('--diff',action='store_true')
     parser.add_argument('--dec',action='store_true')
     parser.add_argument('--cot',action='store_true')
+    parser.add_argument('--limit_questions', type=int, default=None,
+                        help="Limit the number of validation questions. None means full val split.")
+    parser.add_argument('--max_retry_rounds', type=int, default=5,
+                        help="Max retry rounds for failed eval questions caused by transient API issues.")
+    parser.add_argument('--retry_delay', type=float, default=2.0,
+                        help="Delay (seconds) between retry rounds.")
+    parser.add_argument('--retry_batch_size', type=int, default=1,
+                        help="Batch size used for retrying failed questions.")
+    parser.add_argument('--allow_incomplete_eval', action='store_true',
+                        help="Allow finishing evaluation with unresolved failed questions.")
     args = parser.parse_args()
     result_path = AgentPrune_ROOT / "result"
     os.makedirs(result_path, exist_ok=True)
@@ -70,7 +80,7 @@ async def main():
     agent_names = [name for name,num in zip(args.agent_names,args.agent_nums) for _ in range(num)]
     # print(agent_names)
     kwargs = get_kwargs(mode,len(agent_names))
-    limit_questions = 153
+    limit_questions = args.limit_questions
     
     graph = Graph(domain=args.domain,
                   llm_name=args.llm_name,
@@ -109,9 +119,24 @@ async def main():
     # graph.optimized_temporal=False
     # graph.optimized_spatial=False
     if args.dec:
-        score = await evaluate(graph=graph,dataset=dataset_val,num_rounds=args.num_rounds,limit_questions=limit_questions,eval_batch_size=args.batch_size,dec=True,args=args)
+        score = await evaluate(
+            graph=graph,
+            dataset=dataset_val,
+            num_rounds=args.num_rounds,
+            limit_questions=limit_questions,
+            eval_batch_size=args.batch_size,
+            dec=True,
+            args=args,
+        )
     else:
-        score = await evaluate(graph=graph,dataset=dataset_val,num_rounds=args.num_rounds,limit_questions=limit_questions,eval_batch_size=args.batch_size,args=args)
+        score = await evaluate(
+            graph=graph,
+            dataset=dataset_val,
+            num_rounds=args.num_rounds,
+            limit_questions=limit_questions,
+            eval_batch_size=args.batch_size,
+            args=args,
+        )
     print(f"Score: {score}")
 
 

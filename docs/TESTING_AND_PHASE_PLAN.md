@@ -102,11 +102,12 @@
 
 ### 8.1 强制执行规则
 
-1. 每完成一个 phase，必须执行一次“优化后的 MMLU benchmark”。
+1. 每完成一个 phase，必须执行一次“优化后的 MMLU benchmark”，且必须使用 **MMLU 完整 Val 集**（不得抽样、不得截断）。
 2. 每次 benchmark 必须完整保存测试数据（命令、配置、stdout/stderr、原始结果、汇总指标）。
-3. benchmark 性能必须严格优于上一 phase；若不满足，必须继续优化/微调并重测，直到满足为止。
-4. 未达到“优于上一 phase”前，不得进入下一 phase。
-5. 达标并完成 commit 后，自动进入下一 phase 处理。
+3. 若出现 API 高并发导致的失败题，必须对失败题进行重测，直到题目被成功评测或达到明确定义的重试上限并记录原因。
+4. benchmark 性能必须严格优于上一 phase；若不满足，必须继续优化/微调并重测，直到满足为止。
+5. 未达到“优于上一 phase”前，不得进入下一 phase。
+6. 达标并完成 commit 后，自动进入下一 phase 处理。
 
 ### 8.2 数据留存规范
 
@@ -122,6 +123,14 @@
 - 比较字段：建议使用同一指标（如 Accuracy）进行 phase-to-phase 对比。
 - 判定条件：`current_phase_metric > previous_phase_metric`。
 - 若 `<=`，则状态为“不通过”，继续优化/微调并重复 benchmark。
+
+### 8.4 MMLU 执行参数基线（强制）
+
+- `limit_questions` 必须为 `None`（全量 Val）。
+- 必须启用失败题重试机制并记录每轮失败题索引与错误原因。
+- 建议重试策略：降低重试批大小（如 `retry_batch_size=1`）并增加重试轮次。
+- 参考命令（示例）：
+  - `python experiments/run_mmlu.py --llm_name glm-4.5-flash --batch_size 4 --retry_batch_size 1 --max_retry_rounds 5 --retry_delay 2`
 
 ## 9. Task 与 subAgent 细分执行规范（新增）
 
