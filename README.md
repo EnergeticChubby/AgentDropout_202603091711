@@ -125,6 +125,7 @@ The repository execution plan, including mandatory phase commits and markdown st
 
 - `PLAN.md`
 - `docs/TESTING_GUIDE.md`
+- `tests/benchmarks/mmlu/INDEX.md`
 
 ## **📜 Citation**<a name="citation"></a>
 

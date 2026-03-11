@@ -8,6 +8,12 @@ This guide defines how to:
 2. execute tests reproducibly, and
 3. store complete, auditable test records.
 
+It also defines phase-gated benchmark rules:
+
+4. re-read `PLAN.md` before every phase,
+5. run optimized MMLU benchmark after every phase,
+6. require benchmark improvement before phase transition.
+
 ## Directory Convention
 
 - Test code: `tests/repro/`
@@ -17,6 +23,11 @@ This guide defines how to:
   - raw logs: `logs/*.log`
 
 ## Required Workflow
+
+### Step 0: Re-read full plan before current phase
+
+- Fully re-read `PLAN.md`.
+- Do this before phase planning, implementation, or subagent execution.
 
 ### Step 1: Update or add test code
 
@@ -53,6 +64,35 @@ Confirm:
   - `Phase 2: store reproducible test records`
   - `Phase 3: update plan and markdown governance`
 
+### Step 5: Execute optimized MMLU benchmark (phase gate)
+
+After each phase commit candidate:
+
+1. run optimized MMLU benchmark,
+2. store all outputs under `tests/benchmarks/mmlu/phase_<N>/`,
+3. generate `benchmark_report.md` and raw logs,
+4. update `tests/benchmarks/mmlu/INDEX.md`.
+
+### Step 6: Verify benchmark promotion rule
+
+Gate condition:
+
+- current phase score must be strictly better than previous phase score.
+
+If not better:
+
+1. keep all generated benchmark data,
+2. continue optimization/fine-tuning in the same phase,
+3. rerun benchmark and compare again,
+4. repeat until better.
+
+### Step 7: Auto-transition
+
+Move to next phase only after both are true:
+
+1. phase update is committed,
+2. benchmark promotion rule is satisfied.
+
 ## Report Quality Requirements
 
 Each `test_report.md` must include:
@@ -62,6 +102,14 @@ Each `test_report.md` must include:
 3. pass/fail status for each check
 4. reproduction command
 5. clear exit criteria
+
+For benchmark reports (`benchmark_report.md`), include:
+
+1. phase id and benchmark timestamp,
+2. benchmark command(s),
+3. score and scoring definition,
+4. previous-phase score and score delta,
+5. promotion gate pass/fail conclusion.
 
 ## Markdown Professional Standards
 
