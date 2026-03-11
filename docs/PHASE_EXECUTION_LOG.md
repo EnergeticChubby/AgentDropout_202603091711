@@ -3,6 +3,7 @@
 ## Scope
 
 本日志记录本轮治理改造中每个 phase 的目标、产出与复现入口，用于审计和交接。
+总控计划入口：`plan.md`。
 
 ## Phase Deliverables (Direction-Based)
 

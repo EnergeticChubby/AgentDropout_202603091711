@@ -1,0 +1,29 @@
+docs/TESTING_AND_PHASE_PLAN.md:12:总控计划文档：`plan.md`（唯一总控计划，任务与规则体系以其为准）。
+docs/TESTING_AND_PHASE_PLAN.md:109:1. 每完成一个 phase，必须执行一次“优化后的 MMLU benchmark”，且必须使用 **MMLU 完整 Val 集**（不得抽样、不得截断）。
+plan.md:1:# SS-IoA Master Plan（唯一总控计划）
+plan.md:5:本文件是项目执行的**唯一总控计划（single source of truth）**。  
+plan.md:27:## 2. 全局硬规则（Non-Negotiable）
+plan.md:31:3. **每个 Phase 结束必须执行 MMLU 完整 Val 测试**（不得抽样、不得截断）。  
+plan.md:46:## 3.1 Phase0（基线方向）：AgentDropout Baseline
+plan.md:61:- P0-T2：执行 MMLU 全量 Val（失败题重测）
+plan.md:82:- 失败题重测记录完整
+plan.md:88:## 3.2 Phase1（基础方向）：隐状态估计 + 衰减制度先验
+plan.md:118:## 3.3 Phase2（进阶方向）：跨轮记忆 + 容量感知控制
+plan.md:149:## 3.4 Phase3（高级融合方向）：完整融合与收敛发布
+plan.md:183:- 数据集：**MMLU 完整 Val**
+plan.md:186:## 4.2 失败题重测机制（并发/API）
+plan.md:213:## 5. 性能门禁与优化闭环
+plan.md:222:4. 重跑全量 Val + 失败题重测
+plan.md:229:## 6. Task / SubAgent 运行规范
+plan.md:275:## 9. 完成定义（Definition of Done）
+plan.md:281:3. 全量 Val + 失败题重测完成
+plan.md:294:`全量Val完成 AND 失败题重测完成 AND 指标提升 AND 提交完成`
+docs/SS_IOA_COMPLETE_PLAN.md:112:> 每个 phase 结束后必须执行 MMLU 完整 Val benchmark（失败题重测）并留档。  
+docs/SS_IOA_COMPLETE_PLAN.md:123:2. 执行 AgentDropout 的 MMLU 完整 Val 测试（失败题重测）。
+docs/SS_IOA_COMPLETE_PLAN.md:130:- `subagent-phase0-runner`：执行 benchmark 与失败题重测。
+docs/SS_IOA_COMPLETE_PLAN.md:158:- 全量 Val + 失败题重测 + 全量留档。
+docs/SS_IOA_COMPLETE_PLAN.md:181:- 全量 Val + 失败题重测 + 全量留档。
+docs/SS_IOA_COMPLETE_PLAN.md:204:- 全量 Val + 失败题重测 + 全量留档。
+docs/SS_IOA_COMPLETE_PLAN.md:214:- 必须使用 **MMLU 完整 Val 集**。
+docs/SS_IOA_COMPLETE_PLAN.md:265:## 8. 质量门禁与完成定义（Definition of Done）
+docs/SS_IOA_COMPLETE_PLAN.md:271:3. 并发失败题重测已完成并留档。
