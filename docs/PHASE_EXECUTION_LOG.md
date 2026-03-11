@@ -51,6 +51,6 @@
 ## Phase0 AgentDropout Test Status
 
 - 已执行 Phase0 AgentDropout 测试（MMLU 路径）并完成失败题重试流程验证。
-- 当前外部服务返回 `model_not_found`（`glm-4.5-flash` 在目标分组无可用渠道），导致题目无法成功返回答案。
+- 当前已切换测试模型为 `qwen3-8b`；旧的 `glm-4.5-flash` 不可用问题仅作为历史记录保留。
 - 已保留完整失败证据与重试日志，便于后续在模型渠道恢复后直接重跑。
 

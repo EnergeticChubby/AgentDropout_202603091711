@@ -1,0 +1,296 @@
+dev_csv=57, val_csv=57
+available_models= ['qwen3', 'qwen3-32b', 'qwen3-8b', 'qwen3-coder', 'qwen3-next', 'qwen3-vl', 'qwen3-vl-8b']
+target_model= qwen3-8b
+/workspace/datasets/gsm8k_dataset.py:113: SyntaxWarning: invalid escape sequence '\d'
+  pattern = '-?\d*\.?\d+'
+/workspace/datasets/gsm8k_dataset.py:159: SyntaxWarning: invalid escape sequence '\%'
+  string = string.replace("\\$", "").replace("\\%", "").replace("\%", "")
+/workspace/datasets/gsm8k_dataset.py:279: SyntaxWarning: invalid escape sequence '\%'
+  string = string.replace("\%", "")
+/workspace/datasets/gsm8k_dataset.py:586: SyntaxWarning: invalid escape sequence '\%'
+  string = string.replace("\%", "")  # noqa: W605
+/workspace/datasets/aqua_dataset.py:202: SyntaxWarning: invalid escape sequence '\%'
+  string = string.replace("\%", "")
+****************
+Knowlegable Expert
+
+You are a knowlegable expert in question answering.
+Please give several key entities that need to be searched in wikipedia to solve the problem. 
+Key entities that need to be searched are included between two '@' when output, for example: @catfish effect@, @broken window effect@, @Shakespeare@.
+If there is no entity in the question that needs to be searched in Wikipedia, you don't have to provide it
+
+****************
+Critic
+
+You are an excellent critic.
+Please point out potential issues in other agent's analysis point by point.
+
+****************
+Mathematician
+
+You are a mathematician who is good at math games, arithmetic calculation, and long-term planning.
+
+****************
+Psychologist
+
+You are a psychologist.
+You are good at psychology, sociology, and philosophy.
+You give people scientific suggestions that will make them feel better.
+
+****************
+Historian
+
+You research and analyze cultural, economic, political, and social events in the past, collect data from primary sources and use it to develop theories about what happened during various periods of history.
+
+[['hcTo', 'hcTo'], ['hcTo', 'WgiM'], ['hcTo', 'VWjx'], ['hcTo', 'xDMy'], ['hcTo', 'DnjT'], ['WgiM', 'hcTo'], ['WgiM', 'WgiM'], ['WgiM', 'VWjx'], ['WgiM', 'xDMy'], ['WgiM', 'DnjT'], ['VWjx', 'hcTo'], ['VWjx', 'WgiM'], ['VWjx', 'VWjx'], ['VWjx', 'xDMy'], ['VWjx', 'DnjT'], ['xDMy', 'hcTo'], ['xDMy', 'WgiM'], ['xDMy', 'VWjx'], ['xDMy', 'xDMy'], ['xDMy', 'DnjT'], ['DnjT', 'hcTo'], ['DnjT', 'WgiM'], ['DnjT', 'VWjx'], ['DnjT', 'xDMy'], ['DnjT', 'DnjT']]
+Number of topics:  57
+Total number of questions:  285
+Number of topics:  57
+Total number of questions:  1531
+Final spatial logits:  Parameter containing:
+tensor([10., 10., 10., 10., 10., 10., 10., 10., 10., 10., 10., 10., 10., 10.,
+        10., 10., 10., 10., 10., 10., 10., 10., 10., 10., 10.])
+Final temporal logits:  Parameter containing:
+tensor([10., 10., 10., 10., 10., 10., 10., 10., 10., 10., 10., 10., 10., 10.,
+        10., 10., 10., 10., 10., 10., 10., 10., 10., 10., 10.])
+Final spatial masks:  Parameter containing:
+tensor([0, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1,
+        0])
+Final temporal masks:  Parameter containing:
+tensor([1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+        1])
+Final spatial sparsity: tensor(0.8000)
+Final temporal sparsity: tensor(1.)
+Evaluating AgentDropout on MMLUDataset split val
+Starting initial evaluation round 0 with 1531 questions
+  0%|          | 0/383 [00:00<?, ?it/s]  0%|          | 1/383 [12:31<79:43:19, 751.31s/it]--------------------------------------------------------------------------------
+Error during execution of node hcTo: RetryError[<Future at 0x7fca64c72930 state=finished raised RuntimeError>]
+Error during execution of node hcTo: RetryError[<Future at 0x7fca6561fef0 state=finished raised RuntimeError>]
+Error during execution of node hcTo: RetryError[<Future at 0x7fca64cd6810 state=finished raised RuntimeError>]
+Error during execution of node hcTo: RetryError[<Future at 0x7fca64cea2a0 state=finished raised RuntimeError>]
+Error during execution of node hcTo: RetryError[<Future at 0x7fca64cc09b0 state=finished raised RuntimeError>]
+Error during execution of node hcTo: RetryError[<Future at 0x7fca64d2fa40 state=finished raised RuntimeError>]
+Error during execution of node hcTo: RetryError[<Future at 0x7fca64d2e690 state=finished raised RuntimeError>]
+Error during execution of node hcTo: RetryError[<Future at 0x7fca64d103b0 state=finished raised RuntimeError>]
+Error during execution of node hcTo: RetryError[<Future at 0x7fca64d111f0 state=finished raised RuntimeError>]
+Error during execution of node hcTo: RetryError[<Future at 0x7fca6561f6e0 state=finished raised RuntimeError>]
+Error during execution of node hcTo: RetryError[<Future at 0x7fca6561dee0 state=finished raised RuntimeError>]
+Error during execution of node hcTo: RetryError[<Future at 0x7fca64cc06e0 state=finished raised RuntimeError>]
+Error during execution of node WgiM: RetryError[<Future at 0x7fca64c96de0 state=finished raised RuntimeError>]
+Error during execution of node WgiM: RetryError[<Future at 0x7fca64d4a900 state=finished raised RuntimeError>]
+Error during execution of node WgiM: RetryError[<Future at 0x7fca64d36b70 state=finished raised RuntimeError>]
+Error during execution of node WgiM: RetryError[<Future at 0x7fca64354c80 state=finished raised RuntimeError>]
+Error during execution of node WgiM: RetryError[<Future at 0x7fca64d11250 state=finished raised RuntimeError>]
+Error during execution of node WgiM: RetryError[<Future at 0x7fca64cc1e20 state=finished raised RuntimeError>]
+Error during execution of node WgiM: RetryError[<Future at 0x7fca6436d9a0 state=finished raised RuntimeError>]
+Error during execution of node WgiM: RetryError[<Future at 0x7fca643aecc0 state=finished raised RuntimeError>]
+Error during execution of node WgiM: RetryError[<Future at 0x7fca643846b0 state=finished raised RuntimeError>]
+Error during execution of node VWjx: RetryError[<Future at 0x7fca643841a0 state=finished raised RuntimeError>]
+Error during execution of node VWjx: RetryError[<Future at 0x7fca643aeea0 state=finished raised RuntimeError>]
+Error during execution of node VWjx: RetryError[<Future at 0x7fca656384d0 state=finished raised RuntimeError>]
+Error during execution of node WgiM: RetryError[<Future at 0x7fca64387800 state=finished raised RuntimeError>]
+Error during execution of node VWjx: RetryError[<Future at 0x7fca643609e0 state=finished raised RuntimeError>]
+Error during execution of node VWjx: RetryError[<Future at 0x7fca6561eb70 state=finished raised RuntimeError>]
+Error during execution of node VWjx: RetryError[<Future at 0x7fca64ce8f20 state=finished raised RuntimeError>]
+Error during execution of node WgiM: RetryError[<Future at 0x7fca64360aa0 state=finished raised RuntimeError>]
+Error during execution of node WgiM: RetryError[<Future at 0x7fca64ceb590 state=finished raised RuntimeError>]
+Error during execution of node xDMy: RetryError[<Future at 0x7fca64ce90a0 state=finished raised RuntimeError>]
+Error during execution of node VWjx: RetryError[<Future at 0x7fca64c72240 state=finished raised RuntimeError>]
+Error during execution of node VWjx: RetryError[<Future at 0x7fca64ceb530 state=finished raised RuntimeError>]
+Error during execution of node xDMy: RetryError[<Future at 0x7fca6561eea0 state=finished raised RuntimeError>]
+Error during execution of node xDMy: RetryError[<Future at 0x7fca64d10dd0 state=finished raised RuntimeError>]
+Error during execution of node VWjx: RetryError[<Future at 0x7fca6436ccb0 state=finished raised RuntimeError>]
+Error during execution of node VWjx: RetryError[<Future at 0x7fca663e5c10 state=finished raised RuntimeError>]
+Error during execution of node xDMy: RetryError[<Future at 0x7fca64d2c860 state=finished raised RuntimeError>]
+Error during execution of node VWjx: RetryError[<Future at 0x7fca64c72c90 state=finished raised RuntimeError>]
+Error during execution of node xDMy: RetryError[<Future at 0x7fca64d01f40 state=finished raised RuntimeError>]
+Error during execution of node DnjT: RetryError[<Future at 0x7fca64c949e0 state=finished raised RuntimeError>]
+Error during execution of node VWjx: RetryError[<Future at 0x7fca64d2c500 state=finished raised RuntimeError>]
+Error during execution of node xDMy: RetryError[<Future at 0x7fca64cc0a70 state=finished raised RuntimeError>]
+Error during execution of node DnjT: RetryError[<Future at 0x7fca64384e30 state=finished raised RuntimeError>]
+Error during execution of node xDMy: RetryError[<Future at 0x7fca64d36930 state=finished raised RuntimeError>]
+Error during execution of node xDMy: RetryError[<Future at 0x7fca64386420 state=finished raised RuntimeError>]
+Error during execution of node DnjT: RetryError[<Future at 0x7fca64ceb800 state=finished raised RuntimeError>]
+Error during execution of node xDMy: RetryError[<Future at 0x7fca64354770 state=finished raised RuntimeError>]
+Error during execution of node DnjT: RetryError[<Future at 0x7fca64d2c320 state=finished raised RuntimeError>]
+Error during execution of node xDMy: RetryError[<Future at 0x7fca64cc0620 state=finished raised RuntimeError>]
+Error during execution of node DnjT: RetryError[<Future at 0x7fca64d2f020 state=finished raised RuntimeError>]
+Error during execution of node xDMy: RetryError[<Future at 0x7fca644029f0 state=finished raised RuntimeError>]
+Error during execution of node DnjT: RetryError[<Future at 0x7fca65638c20 state=finished raised RuntimeError>]
+Error during execution of node xDMy: RetryError[<Future at 0x7fca643da3c0 state=finished raised RuntimeError>]
+Error during execution of node DnjT: RetryError[<Future at 0x7fca643cf230 state=finished raised RuntimeError>]
+Error during execution of node DnjT: RetryError[<Future at 0x7fca643563f0 state=finished raised RuntimeError>]
+Error during execution of node DnjT: RetryError[<Future at 0x7fca643ac470 state=finished raised RuntimeError>]
+Error during execution of node DnjT: RetryError[<Future at 0x7fca656384a0 state=finished raised RuntimeError>]
+Error during execution of node DnjT: RetryError[<Future at 0x7fca64402990 state=finished raised RuntimeError>]
+Error during execution of node DnjT: RetryError[<Future at 0x7fca643ee930 state=finished raised RuntimeError>]
+Batch time 751.305
+[WARN] Evaluation failed at question 0 (round=0): RetryError[<Future at 0x7fca64d497c0 state=finished raised RuntimeError>]
+[WARN] Evaluation failed at question 1 (round=0): RetryError[<Future at 0x7fca64d49dc0 state=finished raised RuntimeError>]
+[WARN] Evaluation failed at question 2 (round=0): RetryError[<Future at 0x7fca64354770 state=finished raised RuntimeError>]
+[WARN] Evaluation failed at question 3 (round=0): RetryError[<Future at 0x7fca64d4b680 state=finished raised RuntimeError>]
+Cost 0.0
+PromptTokens 0.0
+CompletionTokens 0.0
+--------------------------------------------------------------------------------
+Error during execution of node hcTo: RetryError[<Future at 0x7fca656383e0 state=finished raised RuntimeError>]
+Error during execution of node hcTo: RetryError[<Future at 0x7fca643ce8d0 state=finished raised RuntimeError>]
+Error during execution of node hcTo: RetryError[<Future at 0x7fca64d4bd40 state=finished raised RuntimeError>]
+Error during execution of node hcTo: RetryError[<Future at 0x7fca643d9f40 state=finished raised RuntimeError>]
+Error during execution of node hcTo: RetryError[<Future at 0x7fca64356030 state=finished raised RuntimeError>]
+Error during execution of node hcTo: RetryError[<Future at 0x7fca64362ab0 state=finished raised RuntimeError>]
+Error during execution of node hcTo: RetryError[<Future at 0x7fca64426cc0 state=finished raised RuntimeError>]
+  1%|          | 2/383 [24:19<76:49:30, 725.91s/it]Error during execution of node hcTo: RetryError[<Future at 0x7fca64425820 state=finished raised RuntimeError>]
+Error during execution of node hcTo: RetryError[<Future at 0x7fca64425490 state=finished raised RuntimeError>]
+Error during execution of node hcTo: RetryError[<Future at 0x7fca6444bc80 state=finished raised RuntimeError>]
+Error during execution of node hcTo: RetryError[<Future at 0x7fca6442f7a0 state=finished raised RuntimeError>]
+Error during execution of node WgiM: RetryError[<Future at 0x7fca64c97f20 state=finished raised RuntimeError>]
+Error during execution of node hcTo: RetryError[<Future at 0x7fca64276600 state=finished raised RuntimeError>]
+Error during execution of node WgiM: RetryError[<Future at 0x7fca64258590 state=finished raised RuntimeError>]
+Error during execution of node WgiM: RetryError[<Future at 0x7fca643ce360 state=finished raised RuntimeError>]
+Error during execution of node WgiM: RetryError[<Future at 0x7fca6577b050 state=finished raised RuntimeError>]
+Error during execution of node WgiM: RetryError[<Future at 0x7fca666e5a60 state=finished raised RuntimeError>]
+Error during execution of node WgiM: RetryError[<Future at 0x7fca64d01a00 state=finished raised RuntimeError>]
+Error during execution of node WgiM: RetryError[<Future at 0x7fca66393080 state=finished raised RuntimeError>]
+Error during execution of node WgiM: RetryError[<Future at 0x7fca6427d580 state=finished raised RuntimeError>]
+Error during execution of node WgiM: RetryError[<Future at 0x7fca656e8a70 state=finished raised RuntimeError>]
+Error during execution of node VWjx: RetryError[<Future at 0x7fca64d49a00 state=finished raised RuntimeError>]
+Error during execution of node VWjx: RetryError[<Future at 0x7fca64c71e50 state=finished raised RuntimeError>]
+Error during execution of node WgiM: RetryError[<Future at 0x7fca6427d370 state=finished raised RuntimeError>]
+Error during execution of node WgiM: RetryError[<Future at 0x7fca6442d490 state=finished raised RuntimeError>]
+Error during execution of node VWjx: RetryError[<Future at 0x7fca643b1820 state=finished raised RuntimeError>]
+Error during execution of node VWjx: RetryError[<Future at 0x7fca6442d160 state=finished raised RuntimeError>]
+Error during execution of node VWjx: RetryError[<Future at 0x7fca6651ddc0 state=finished raised RuntimeError>]
+Error during execution of node VWjx: RetryError[<Future at 0x7fca6443c830 state=finished raised RuntimeError>]
+Error during execution of node VWjx: RetryError[<Future at 0x7fca655dd670 state=finished raised RuntimeError>]
+Error during execution of node xDMy: RetryError[<Future at 0x7fca643cd910 state=finished raised RuntimeError>]
+Error during execution of node WgiM: RetryError[<Future at 0x7fca64d4b7d0 state=finished raised RuntimeError>]
+Error during execution of node VWjx: RetryError[<Future at 0x7fca6425b3e0 state=finished raised RuntimeError>]
+Error during execution of node VWjx: RetryError[<Future at 0x7fca64d2d760 state=finished raised RuntimeError>]
+Error during execution of node VWjx: RetryError[<Future at 0x7fca6443eb40 state=finished raised RuntimeError>]
+Error during execution of node xDMy: RetryError[<Future at 0x7fca643ac770 state=finished raised RuntimeError>]
+Error during execution of node xDMy: RetryError[<Future at 0x7fca643ae990 state=finished raised RuntimeError>]
+Error during execution of node xDMy: RetryError[<Future at 0x7fca643ed820 state=finished raised RuntimeError>]
+Error during execution of node VWjx: RetryError[<Future at 0x7fca643ed3d0 state=finished raised RuntimeError>]
+Error during execution of node xDMy: RetryError[<Future at 0x7fca64360950 state=finished raised RuntimeError>]
+Error during execution of node VWjx: RetryError[<Future at 0x7fca6573ea80 state=finished raised RuntimeError>]
+Error during execution of node xDMy: RetryError[<Future at 0x7fca643cfa10 state=finished raised RuntimeError>]
+Error during execution of node xDMy: RetryError[<Future at 0x7fca6426acf0 state=finished raised RuntimeError>]
+Error during execution of node DnjT: RetryError[<Future at 0x7fca643cda90 state=finished raised RuntimeError>]
+Error during execution of node xDMy: RetryError[<Future at 0x7fca64d01ac0 state=finished raised RuntimeError>]
+Error during execution of node xDMy: RetryError[<Future at 0x7fca64d37bf0 state=finished raised RuntimeError>]
+Error during execution of node xDMy: RetryError[<Future at 0x7fca6442f4a0 state=finished raised RuntimeError>]
+Error during execution of node DnjT: RetryError[<Future at 0x7fca64402060 state=finished raised RuntimeError>]
+Error during execution of node DnjT: RetryError[<Future at 0x7fca66c600b0 state=finished raised RuntimeError>]
+Error during execution of node DnjT: RetryError[<Future at 0x7fca64424e30 state=finished raised RuntimeError>]
+Error during execution of node DnjT: RetryError[<Future at 0x7fca64cd58e0 state=finished raised RuntimeError>]
+Error during execution of node DnjT: RetryError[<Future at 0x7fca643576e0 state=finished raised RuntimeError>]
+Error during execution of node DnjT: RetryError[<Future at 0x7fca643d87d0 state=finished raised RuntimeError>]
+Error during execution of node DnjT: RetryError[<Future at 0x7fca64356d50 state=finished raised RuntimeError>]
+Error during execution of node xDMy: RetryError[<Future at 0x7fca64cd6360 state=finished raised RuntimeError>]
+Error during execution of node DnjT: RetryError[<Future at 0x7fca64402e40 state=finished raised RuntimeError>]
+Error during execution of node xDMy: RetryError[<Future at 0x7fca64259640 state=finished raised RuntimeError>]
+Error during execution of node DnjT: RetryError[<Future at 0x7fca6443c8f0 state=finished raised RuntimeError>]
+Error during execution of node DnjT: RetryError[<Future at 0x7fca643b0ec0 state=finished raised RuntimeError>]
+Error during execution of node DnjT: RetryError[<Future at 0x7fca64cc0bf0 state=finished raised RuntimeError>]
+Batch time 708.126
+[WARN] Evaluation failed at question 4 (round=0): RetryError[<Future at 0x7fca64d00170 state=finished raised RuntimeError>]
+[WARN] Evaluation failed at question 5 (round=0): RetryError[<Future at 0x7fca6444b7d0 state=finished raised RuntimeError>]
+[WARN] Evaluation failed at question 6 (round=0): RetryError[<Future at 0x7fca64354290 state=finished raised RuntimeError>]
+[WARN] Evaluation failed at question 7 (round=0): RetryError[<Future at 0x7fca64d133b0 state=finished raised RuntimeError>]
+Cost 0.0
+PromptTokens 0.0
+CompletionTokens 0.0
+--------------------------------------------------------------------------------
+Error during execution of node hcTo: RetryError[<Future at 0x7fca6443eab0 state=finished raised RuntimeError>]
+Error during execution of node hcTo: RetryError[<Future at 0x7fca6425ba10 state=finished raised RuntimeError>]
+Error during execution of node hcTo: RetryError[<Future at 0x7fca643635f0 state=finished raised RuntimeError>]
+Error during execution of node hcTo: RetryError[<Future at 0x7fca643b10d0 state=finished raised RuntimeError>]
+Error during execution of node hcTo: RetryError[<Future at 0x7fca6443c770 state=finished raised RuntimeError>]
+Error during execution of node hcTo: RetryError[<Future at 0x7fca6443f650 state=finished raised RuntimeError>]
+Error during execution of node hcTo: RetryError[<Future at 0x7fca643ed6d0 state=finished raised RuntimeError>]
+Error during execution of node hcTo: RetryError[<Future at 0x7fca643b0f50 state=finished raised RuntimeError>]
+Error during execution of node hcTo: RetryError[<Future at 0x7fca643630b0 state=finished raised RuntimeError>]
+Error during execution of node hcTo: RetryError[<Future at 0x7fca64cd6a50 state=finished raised RuntimeError>]
+Error during execution of node hcTo: RetryError[<Future at 0x7fca64d34f20 state=finished raised RuntimeError>]
+Error during execution of node WgiM: RetryError[<Future at 0x7fca64ce99a0 state=finished raised RuntimeError>]
+Error during execution of node WgiM: RetryError[<Future at 0x7fca64ceb8f0 state=finished raised RuntimeError>]
+Error during execution of node WgiM: RetryError[<Future at 0x7fca643b3e30 state=finished raised RuntimeError>]
+Error during execution of node hcTo: RetryError[<Future at 0x7fca643ed490 state=finished raised RuntimeError>]
+  1%|          | 3/383 [37:35<80:00:56, 758.04s/it]Error during execution of node WgiM: RetryError[<Future at 0x7fca64d139b0 state=finished raised RuntimeError>]
+Error during execution of node WgiM: RetryError[<Future at 0x7fca644019a0 state=finished raised RuntimeError>]
+Error during execution of node VWjx: RetryError[<Future at 0x7fca64363590 state=finished raised RuntimeError>]
+Error during execution of node WgiM: RetryError[<Future at 0x7fca64cd6b70 state=finished raised RuntimeError>]
+Error during execution of node WgiM: RetryError[<Future at 0x7fca64400440 state=finished raised RuntimeError>]
+Error during execution of node VWjx: RetryError[<Future at 0x7fca64400ef0 state=finished raised RuntimeError>]
+Error during execution of node WgiM: RetryError[<Future at 0x7fca6443f410 state=finished raised RuntimeError>]
+Error during execution of node VWjx: RetryError[<Future at 0x7fca6561dc40 state=finished raised RuntimeError>]
+Error during execution of node VWjx: RetryError[<Future at 0x7fca642d0f20 state=finished raised RuntimeError>]
+Error during execution of node xDMy: RetryError[<Future at 0x7fca64275be0 state=finished raised RuntimeError>]
+Error during execution of node WgiM: RetryError[<Future at 0x7fca643ef410 state=finished raised RuntimeError>]
+Error during execution of node WgiM: RetryError[<Future at 0x7fca64427fe0 state=finished raised RuntimeError>]
+Error during execution of node xDMy: RetryError[<Future at 0x7fca643b3680 state=finished raised RuntimeError>]
+Error during execution of node VWjx: RetryError[<Future at 0x7fca6442c350 state=finished raised RuntimeError>]
+Error during execution of node VWjx: RetryError[<Future at 0x7fca642939b0 state=finished raised RuntimeError>]
+Error during execution of node xDMy: RetryError[<Future at 0x7fca6443f020 state=finished raised RuntimeError>]
+Error during execution of node DnjT: RetryError[<Future at 0x7fca64cebe90 state=finished raised RuntimeError>]
+Error during execution of node WgiM: RetryError[<Future at 0x7fca6442c530 state=finished raised RuntimeError>]
+Error during execution of node VWjx: RetryError[<Future at 0x7fca64d2eb40 state=finished raised RuntimeError>]
+Error during execution of node VWjx: RetryError[<Future at 0x7fca64cd55b0 state=finished raised RuntimeError>]
+Error during execution of node DnjT: RetryError[<Future at 0x7fca643db4a0 state=finished raised RuntimeError>]
+Error during execution of node VWjx: RetryError[<Future at 0x7fca6442e1e0 state=finished raised RuntimeError>]
+Error during execution of node DnjT: RetryError[<Future at 0x7fca64355820 state=finished raised RuntimeError>]
+Error during execution of node xDMy: RetryError[<Future at 0x7fca64d49a60 state=finished raised RuntimeError>]
+Error during execution of node WgiM: RetryError[<Future at 0x7fca642e6b70 state=finished raised RuntimeError>]
+Error during execution of node VWjx: RetryError[<Future at 0x7fca643da090 state=finished raised RuntimeError>]
+Error during execution of node xDMy: RetryError[<Future at 0x7fca643edf40 state=finished raised RuntimeError>]
+Error during execution of node xDMy: RetryError[<Future at 0x7fca6430e4e0 state=finished raised RuntimeError>]
+Error during execution of node VWjx: RetryError[<Future at 0x7fca6430daf0 state=finished raised RuntimeError>]
+Error during execution of node VWjx: RetryError[<Future at 0x7fca6431a7b0 state=finished raised RuntimeError>]
+Error during execution of node xDMy: RetryError[<Future at 0x7fca6414ea50 state=finished raised RuntimeError>]
+Error during execution of node xDMy: RetryError[<Future at 0x7fca64424140 state=finished raised RuntimeError>]
+Error during execution of node xDMy: RetryError[<Future at 0x7fca6414e240 state=finished raised RuntimeError>]
+Error during execution of node xDMy: RetryError[<Future at 0x7fca6443f290 state=finished raised RuntimeError>]
+Error during execution of node DnjT: RetryError[<Future at 0x7fca643191c0 state=finished raised RuntimeError>]
+Error during execution of node DnjT: RetryError[<Future at 0x7fca6430e5d0 state=finished raised RuntimeError>]
+Error during execution of node DnjT: RetryError[<Future at 0x7fca64d2cf20 state=finished raised RuntimeError>]
+Error during execution of node DnjT: RetryError[<Future at 0x7fca643cc140 state=finished raised RuntimeError>]
+Error during execution of node xDMy: RetryError[<Future at 0x7fca643d9cd0 state=finished raised RuntimeError>]
+Error during execution of node xDMy: RetryError[<Future at 0x7fca64d137a0 state=finished raised RuntimeError>]
+Error during execution of node DnjT: RetryError[<Future at 0x7fca6414ed80 state=finished raised RuntimeError>]
+Error during execution of node DnjT: RetryError[<Future at 0x7fca64357980 state=finished raised RuntimeError>]
+Error during execution of node DnjT: RetryError[<Future at 0x7fca64156510 state=finished raised RuntimeError>]
+Error during execution of node DnjT: RetryError[<Future at 0x7fca643ef830 state=finished raised RuntimeError>]
+Error during execution of node DnjT: RetryError[<Future at 0x7fca6416dcd0 state=finished raised RuntimeError>]
+Batch time 796.285
+[WARN] Evaluation failed at question 8 (round=0): RetryError[<Future at 0x7fca64ce8320 state=finished raised RuntimeError>]
+[WARN] Evaluation failed at question 9 (round=0): RetryError[<Future at 0x7fca643b3290 state=finished raised RuntimeError>]
+[WARN] Evaluation failed at question 10 (round=0): RetryError[<Future at 0x7fca643d8b60 state=finished raised RuntimeError>]
+[WARN] Evaluation failed at question 11 (round=0): RetryError[<Future at 0x7fca64ceac00 state=finished raised RuntimeError>]
+Cost 0.0
+PromptTokens 0.0
+CompletionTokens 0.0
+--------------------------------------------------------------------------------
+Error during execution of node hcTo: RetryError[<Future at 0x7fca643b1d30 state=finished raised RuntimeError>]
+Error during execution of node hcTo: RetryError[<Future at 0x7fca64cc3860 state=finished raised RuntimeError>]
+Error during execution of node hcTo: RetryError[<Future at 0x7fca6443f320 state=finished raised RuntimeError>]
+Error during execution of node hcTo: RetryError[<Future at 0x7fca6416f080 state=finished raised RuntimeError>]
+Error during execution of node hcTo: RetryError[<Future at 0x7fca642d3410 state=finished raised RuntimeError>]
+Error during execution of node hcTo: RetryError[<Future at 0x7fca64319dc0 state=finished raised RuntimeError>]
+Error during execution of node hcTo: RetryError[<Future at 0x7fca643b1010 state=finished raised RuntimeError>]
+Error during execution of node hcTo: RetryError[<Future at 0x7fca64175910 state=finished raised RuntimeError>]
+Error during execution of node hcTo: RetryError[<Future at 0x7fca643cf2c0 state=finished raised RuntimeError>]
+Error during execution of node hcTo: RetryError[<Future at 0x7fca6432fdd0 state=finished raised RuntimeError>]
+Error during execution of node hcTo: RetryError[<Future at 0x7fca6430f4d0 state=finished raised RuntimeError>]
+Error during execution of node hcTo: RetryError[<Future at 0x7fca642d24b0 state=finished raised RuntimeError>]
+Error during execution of node WgiM: RetryError[<Future at 0x7fca64d12cf0 state=finished raised RuntimeError>]
+Error during execution of node WgiM: RetryError[<Future at 0x7fca643cd970 state=finished raised RuntimeError>]
+Error during execution of node WgiM: RetryError[<Future at 0x7fca642d58b0 state=finished raised RuntimeError>]
+Error during execution of node WgiM: RetryError[<Future at 0x7fca64ce8b30 state=finished raised RuntimeError>]
+Error during execution of node WgiM: RetryError[<Future at 0x7fca6430c1a0 state=finished raised RuntimeError>]
+Error during execution of node WgiM: RetryError[<Future at 0x7fca64157830 state=finished raised RuntimeError>]
+Error during execution of node VWjx: RetryError[<Future at 0x7fca6432e240 state=finished raised RuntimeError>]
+Error during execution of node WgiM: RetryError[<Future at 0x7fca64c72cf0 state=finished raised RuntimeError>]
+Error during execution of node WgiM: RetryError[<Future at 0x7fca641d4200 state=finished raised RuntimeError>]
+Error during execution of node WgiM: RetryError[<Future at 0x7fca641d4770 state=finished raised RuntimeError>]
+Error during execution of node WgiM: RetryError[<Future at 0x7fca641b1610 state=finished raised RuntimeError>]

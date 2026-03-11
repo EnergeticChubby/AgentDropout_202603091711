@@ -35,7 +35,7 @@
 7. 每个 Phase 必须独立 commit + push，不得跨 Phase 混提。  
 8. 所有测试数据必须保留（md/log/json/history），保证可复现与可审计。  
 9. 测试统一模型配置：
-   - `MODEL_NAME=glm-4.5-flash`
+   - `MODEL_NAME=qwen3-8b`
    - `BASE_URL=https://llm.undefined.qzz.io/v1/chat/completions`
    - `API_KEY=...`（来自 `template.env`）
 
@@ -206,7 +206,7 @@
 
 ## 4.4 统一命令基线（示例）
 
-`python experiments/run_mmlu.py --llm_name glm-4.5-flash --batch_size 4 --retry_batch_size 1 --max_retry_rounds 5 --retry_delay 2`
+`python experiments/run_mmlu.py --llm_name qwen3-8b --batch_size 4 --retry_batch_size 1 --max_retry_rounds 5 --retry_delay 2`
 
 ---
 

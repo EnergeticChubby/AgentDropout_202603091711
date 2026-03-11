@@ -1,0 +1,92 @@
+****************
+Normal
+
+    I will ask you a question and 4 answers enumerated as A, B, C and D.
+    Only one answer out of the offered 4 is correct.
+    Using the reasoning from other agents as additional advice with critical thinking, can you give an updated answer?
+    You are strictly prohibited from imitating the analysis process of other agents
+    Your reply must be less than 100 words but include your answer and a brief step by step analysis of the question.
+    The first line of your reply must contain only one letter(for example : A, B, C or D)
+    
+[['DEbH', 'DEbH']]
+Number of topics:  57
+Total number of questions:  285
+Number of topics:  57
+Total number of questions:  1531
+Final spatial logits:  Parameter containing:
+tensor([10.])
+Final temporal logits:  Parameter containing:
+tensor([10.])
+Final spatial masks:  Parameter containing:
+tensor([0])
+Final temporal masks:  Parameter containing:
+tensor([0])
+Final spatial sparsity: tensor(0.)
+Final temporal sparsity: tensor(0.)
+Evaluating AgentDropout on MMLUDataset split val
+Starting initial evaluation round 0 with 1 questions
+  0%|          | 0/1 [00:00<?, ?it/s]100%|██████████| 1/1 [01:59<00:00, 119.34s/it]100%|██████████| 1/1 [01:59<00:00, 119.34s/it]
+--------------------------------------------------------------------------------
+Error during execution of node DEbH: RetryError[<Future at 0x7f3e50c26c30 state=finished raised RuntimeError>]
+Error during execution of node DEbH: RetryError[<Future at 0x7f3e505e18b0 state=finished raised RuntimeError>]
+Error during execution of node DEbH: RetryError[<Future at 0x7f3e505bb350 state=finished raised RuntimeError>]
+Batch time 119.340
+[WARN] Evaluation failed at question 0 (round=0): RetryError[<Future at 0x7f3e505e07a0 state=finished raised RuntimeError>]
+Cost 0.0
+PromptTokens 0.0
+CompletionTokens 0.0
+[INFO] Sleeping 1.0s before next retry round for 1 failed questions.
+Starting retry evaluation round 1 with 1 questions
+  0%|          | 0/1 [00:00<?, ?it/s]100%|██████████| 1/1 [01:31<00:00, 91.24s/it]100%|██████████| 1/1 [01:31<00:00, 91.24s/it]
+--------------------------------------------------------------------------------
+Error during execution of node DEbH: RetryError[<Future at 0x7f3e50613e60 state=finished raised RuntimeError>]
+Error during execution of node DEbH: RetryError[<Future at 0x7f3e505bae70 state=finished raised RuntimeError>]
+Error during execution of node DEbH: RetryError[<Future at 0x7f3e50622300 state=finished raised RuntimeError>]
+Batch time 91.244
+[WARN] Evaluation failed at question 0 (round=1): RetryError[<Future at 0x7f3e50613e30 state=finished raised RuntimeError>]
+Cost 0.0
+PromptTokens 0.0
+CompletionTokens 0.0
+[INFO] Sleeping 1.0s before next retry round for 1 failed questions.
+Starting retry evaluation round 2 with 1 questions
+  0%|          | 0/1 [00:00<?, ?it/s]100%|██████████| 1/1 [01:32<00:00, 92.73s/it]100%|██████████| 1/1 [01:32<00:00, 92.73s/it]
+--------------------------------------------------------------------------------
+Error during execution of node DEbH: RetryError[<Future at 0x7f3e505fe9c0 state=finished raised RuntimeError>]
+Error during execution of node DEbH: RetryError[<Future at 0x7f3e50761130 state=finished raised RuntimeError>]
+Error during execution of node DEbH: RetryError[<Future at 0x7f3e505f4680 state=finished raised RuntimeError>]
+Batch time 92.726
+[WARN] Evaluation failed at question 0 (round=2): RetryError[<Future at 0x7f3e50623b60 state=finished raised RuntimeError>]
+Cost 0.0
+PromptTokens 0.0
+CompletionTokens 0.0
+[INFO] Sleeping 1.0s before next retry round for 1 failed questions.
+Starting retry evaluation round 3 with 1 questions
+  0%|          | 0/1 [00:00<?, ?it/s]100%|██████████| 1/1 [01:26<00:00, 86.52s/it]100%|██████████| 1/1 [01:26<00:00, 86.52s/it]
+--------------------------------------------------------------------------------
+Error during execution of node DEbH: RetryError[<Future at 0x7f3e515088c0 state=finished raised RuntimeError>]
+Error during execution of node DEbH: RetryError[<Future at 0x7f3e5063a120 state=finished raised RuntimeError>]
+Error during execution of node DEbH: RetryError[<Future at 0x7f3e5078f110 state=finished raised RuntimeError>]
+Batch time 86.516
+[WARN] Evaluation failed at question 0 (round=3): RetryError[<Future at 0x7f3e50626ab0 state=finished raised RuntimeError>]
+Cost 0.0
+PromptTokens 0.0
+CompletionTokens 0.0
+[ERROR] Evaluation incomplete after retries. Remaining failed questions: [0]
+Traceback (most recent call last):
+  File "/workspace/experiments/run_mmlu.py", line 220, in <module>
+    asyncio.run(main())
+  File "/usr/lib/python3.12/asyncio/runners.py", line 194, in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/asyncio/base_events.py", line 687, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "/workspace/experiments/run_mmlu.py", line 132, in main
+    score = await evaluate(
+            ^^^^^^^^^^^^^^^
+  File "/workspace/experiments/evaluate_mmlu.py", line 156, in evaluate
+    raise RuntimeError(msg)
+RuntimeError: Evaluation incomplete after retries. Remaining failed questions: [0]

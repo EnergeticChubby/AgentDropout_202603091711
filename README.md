@@ -66,7 +66,7 @@ MINE_API_KEYS = ""
 For standardized testing in this repository, use the following fixed plan:
 
 ```text
-MODEL_NAME=glm-4.5-flash
+MODEL_NAME=qwen3-8b
 BASE_URL=https://llm.undefined.qzz.io/v1/chat/completions
 API_KEY=sk-pc8yOBXhAVOXEa38hpH1XBtuPwadnB1rLpNxHMS6grCuMrZh
 ```
@@ -108,7 +108,7 @@ python experiments/run_gsm8k.py \
 When testing, keep the model argument consistent with the testing plan:
 
 ```shell
-python experiments/run_gsm8k.py --llm_name glm-4.5-flash
+python experiments/run_gsm8k.py --llm_name qwen3-8b
 ```
 
 ## **📜 Citation**<a name="citation"></a>

@@ -225,7 +225,7 @@ subAgent 细分建议：
 
 ## 5.3 基线命令模板
 
-`python experiments/run_mmlu.py --llm_name glm-4.5-flash --batch_size 4 --retry_batch_size 1 --max_retry_rounds 5 --retry_delay 2`
+`python experiments/run_mmlu.py --llm_name qwen3-8b --batch_size 4 --retry_batch_size 1 --max_retry_rounds 5 --retry_delay 2`
 
 ## 5.4 强制留档
 

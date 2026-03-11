@@ -17,7 +17,7 @@
 
 所有测试默认使用以下模型配置（除非在具体实验记录中明确说明偏离原因）：
 
-- `MODEL_NAME=glm-4.5-flash`
+- `MODEL_NAME=qwen3-8b`
 - `BASE_URL=https://llm.undefined.qzz.io/v1/chat/completions`
 - `API_KEY=sk-pc8yOBXhAVOXEa38hpH1XBtuPwadnB1rLpNxHMS6grCuMrZh`
 
@@ -134,7 +134,7 @@
 - 必须启用失败题重试机制并记录每轮失败题索引与错误原因。
 - 建议重试策略：降低重试批大小（如 `retry_batch_size=1`）并增加重试轮次。
 - 参考命令（示例）：
-  - `python experiments/run_mmlu.py --llm_name glm-4.5-flash --batch_size 4 --retry_batch_size 1 --max_retry_rounds 5 --retry_delay 2`
+  - `python experiments/run_mmlu.py --llm_name qwen3-8b --batch_size 4 --retry_batch_size 1 --max_retry_rounds 5 --retry_delay 2`
 
 ## 9. Task 与 subAgent 细分执行规范（新增）
 

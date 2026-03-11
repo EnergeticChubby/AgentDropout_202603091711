@@ -58,14 +58,14 @@ MINE_API_KEYS = os.getenv("API_KEY", "").strip()
 #             else:
 #                 raise Exception("api error")
 
-@retry(wait=wait_random_exponential(max=100), stop=stop_after_attempt(3))
+@retry(wait=wait_random_exponential(max=100), stop=stop_after_attempt(3), reraise=True)
 async def achat(model: str, msg: List[Dict],):
     if not MINE_BASE_URL or not MINE_API_KEYS:
         raise RuntimeError("Missing BASE_URL or API_KEY. Configure them in environment or template.env.")
     api_kwargs = dict(api_key = MINE_API_KEYS, base_url = MINE_BASE_URL)
     aclient = AsyncOpenAI(**api_kwargs)
     try:
-        async with async_timeout.timeout(1000):
+        async with async_timeout.timeout(60):
             completion = await aclient.chat.completions.create(model=model,messages=msg)
         response_message = completion.choices[0].message.content
         
