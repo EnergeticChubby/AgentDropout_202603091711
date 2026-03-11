@@ -43,7 +43,7 @@ def parse_args():
     parser = argparse.ArgumentParser(description="AgentPrune Experiments on HumanEval")
     parser.add_argument("--dataset_json", type=str, default="datasets/humaneval/humaneval-py.jsonl")
     parser.add_argument("--result_file", type=str, default=None)
-    parser.add_argument("--llm_name", type=str, default=os.getenv("LLM_MODEL_NAME", "qwen3-8b"))
+    parser.add_argument("--llm_name", type=str, default=os.getenv("LLM_MODEL_NAME", "glm-4.5-flash"))
     parser.add_argument('--mode', type=str, default='FullConnected',
                         choices=['DirectAnswer', 'FullConnected', 'Random', 'Chain','Debate','Layered','Star'],
                         help="Mode of operation. Default is 'FullConnected'.")
