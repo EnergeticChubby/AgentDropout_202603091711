@@ -17,6 +17,7 @@ This repository releases the codes and data for the paper -- AgentDropout: Dynam
 - **[File Structure](#structure)**
 - **[Requirements](#requirements)**
 - **[Testing & Reproducibility Plan](docs/testing_plan.md)**
+- **[Research Master Plan](docs/phase_space_constitutional_ioa_master_plan.md)**
 - **[Quick Start](#start)**
 - **[Citation](#citation)**
 
@@ -49,6 +50,7 @@ It conducts two types of dropout:
 | [`result/`](https://github.com/wangzx1219/AgentDropout/tree/main/result)       | Few samples of output |
 | `result/test_records/` | Reproducible test records |
 | `docs/testing_plan.md` | Phase policy and reproducibility standard |
+| `docs/phase_space_constitutional_ioa_master_plan.md` | Complete multi-phase research execution plan |
 
 ## **⚙️ Requirements**<a name="requirements"></a>
 
@@ -82,7 +84,7 @@ api_key = "sk-pc8yOBXhAVOXEa38hpH1XBtuPwadnB1rLpNxHMS6grCuMrZh"
 - Do not merge multiple phases into one commit.
 - Re-read the full plan and pass optimized MMLU benchmark gate before next phase.
 - Benchmark must use full MMLU Val set; retry failed items caused by API concurrency.
-- Detailed execution standard: `docs/testing_plan.md`
+- Detailed execution standard: `docs/testing_plan.md` + `docs/phase_space_constitutional_ioa_master_plan.md`
 
 3. **Local Model Deployment** (Optional):
 

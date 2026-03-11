@@ -9,6 +9,8 @@
 3. **结果可复现**：任意成员可依据记录在相同代码版本上复跑测试。
 4. **流程可审计**：每个 phase 更新均有独立 commit。
 
+主研究路线与完整 phase 设计请同步遵循：`docs/phase_space_constitutional_ioa_master_plan.md`。
+
 ---
 
 ## 2. 强制模型与接口配置（所有测试统一）
@@ -79,7 +81,7 @@
 
 以下规则对每个 phase 均为**硬性要求**：
 
-1. **每完成一个 phase，进入下一 phase 前必须重新完整阅读本计划文档**（`docs/testing_plan.md`），不得跳读。
+1. **每完成一个 phase，进入下一 phase 前必须重新完整阅读计划文档**（`docs/testing_plan.md` 与 `docs/phase_space_constitutional_ioa_master_plan.md`），不得跳读。
 2. **在进行 task 与 subAgent 处理时，必须对该 phase 任务进行细分**，并形成可追踪子任务清单（建议保存为 `phase_task_breakdown.md`）。
 3. **每个 phase 完成后，必须执行“优化后的 MMLU benchmark”测试**，且测试必须写入标准记录目录。
 4. **必须保留所有测试数据**（原始日志、命令、退出码、环境快照、指标汇总、对比结论），不得仅保留摘要。
