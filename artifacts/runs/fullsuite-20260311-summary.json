@@ -1,0 +1,91 @@
+{
+  "run_tag": "full-20260311",
+  "llm_name": "qwen3-8b",
+  "endpoint": "https://llm.undefined.qzz.io/v1",
+  "profiles": [
+    "agentdropout",
+    "phasee"
+  ],
+  "datasets": [
+    {
+      "name": "gsm8k",
+      "source": "openai/gsm8k",
+      "split": "test",
+      "num_samples": 1319,
+      "results": {
+        "agentdropout": {
+          "num_correct": 972,
+          "accuracy": 0.7369219105382866,
+          "elapsed_seconds": 2526.3208475112915,
+          "summary_path": "artifacts/runs/fullsuite-agentdropout-gsm8k-full-20260311/summary.json"
+        },
+        "phasee": {
+          "num_correct": 289,
+          "accuracy": 0.21910538286580744,
+          "elapsed_seconds": 2493.069461107254,
+          "summary_path": "artifacts/runs/fullsuite-phasee-gsm8k-full-20260311/summary.json"
+        }
+      }
+    },
+    {
+      "name": "multiarith",
+      "source": "ChilleD/MultiArith",
+      "split": "test",
+      "num_samples": 180,
+      "results": {
+        "agentdropout": {
+          "num_correct": 180,
+          "accuracy": 1.0,
+          "elapsed_seconds": 3523.892459630966,
+          "summary_path": "artifacts/runs/fullsuite-agentdropout-multiarith-full-20260311/summary.json"
+        },
+        "phasee": {
+          "num_correct": 146,
+          "accuracy": 0.8111111111111111,
+          "elapsed_seconds": 3529.625750541687,
+          "summary_path": "artifacts/runs/fullsuite-phasee-multiarith-full-20260311/summary.json"
+        }
+      }
+    },
+    {
+      "name": "svamp",
+      "source": "ChilleD/SVAMP",
+      "split": "test",
+      "num_samples": 300,
+      "results": {
+        "agentdropout": {
+          "num_correct": 237,
+          "accuracy": 0.79,
+          "elapsed_seconds": 781.8403570652008,
+          "summary_path": "artifacts/runs/fullsuite-agentdropout-svamp-full-20260311/summary.json"
+        },
+        "phasee": {
+          "num_correct": 96,
+          "accuracy": 0.32,
+          "elapsed_seconds": 748.912709236145,
+          "summary_path": "artifacts/runs/fullsuite-phasee-svamp-full-20260311/summary.json"
+        }
+      }
+    },
+    {
+      "name": "humaneval",
+      "source": "openai_humaneval",
+      "split": "test",
+      "num_samples": 164,
+      "results": {
+        "agentdropout": {
+          "num_correct": 88,
+          "accuracy": 0.5365853658536586,
+          "elapsed_seconds": 346.8085515499115,
+          "summary_path": "artifacts/runs/fullsuite-agentdropout-humaneval-full-20260311/summary.json"
+        },
+        "phasee": {
+          "num_correct": 0,
+          "accuracy": 0.0,
+          "elapsed_seconds": 337.72054147720337,
+          "summary_path": "artifacts/runs/fullsuite-phasee-humaneval-full-20260311/summary.json"
+        }
+      }
+    }
+  ]
+}
