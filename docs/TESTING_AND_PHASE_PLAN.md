@@ -37,29 +37,39 @@
 
 ## 4. Phase 执行与提交要求（强制）
 
+在每个 phase 开始前，必须先执行以下通用步骤（对 A/B/C/D 全部生效）：
+
+1. 重新完整阅读 `docs/TESTING_AND_PHASE_PLAN.md` 全文。
+2. 将当前 phase 任务细分为可执行子任务（Task Breakdown）。
+3. 如需使用 subAgent，必须对每个 subAgent 分配明确子任务、输入、输出与验收标准。
+
 ### Phase A：计划与规范更新
 
 - 更新/新增计划文档与目录结构。
 - 输出标准：计划文档可读、路径规范明确。
-- 提交要求：完成后立即 commit。
+- MMLU门禁：完成 phase 后必须执行“优化后的 MMLU benchmark 测试”，并保存全部测试数据。
+- 提交要求：仅在 MMLU 性能优于上一 phase（或基线）后允许 commit 并进入下一 phase。
 
 ### Phase B：测试工具代码更新
 
 - 更新/新增 `tests/code/` 下的脚本。
 - 输出标准：脚本可运行，能自动产出测试记录。
-- 提交要求：完成后立即 commit。
+- MMLU门禁：完成 phase 后必须执行“优化后的 MMLU benchmark 测试”，并保存全部测试数据。
+- 提交要求：仅在 MMLU 性能优于上一 phase 后允许 commit 并进入下一 phase。
 
 ### Phase C：测试执行与记录更新
 
 - 使用测试脚本执行命令并生成记录。
 - 输出标准：`tests/records/` 中包含 Markdown 与 raw log。
-- 提交要求：完成后立即 commit。
+- MMLU门禁：完成 phase 后必须执行“优化后的 MMLU benchmark 测试”，并保存全部测试数据。
+- 提交要求：仅在 MMLU 性能优于上一 phase 后允许 commit 并进入下一 phase。
 
 ### Phase D：复现校验与发布说明
 
 - 校验记录中的命令可重跑。
 - 输出标准：记录包含命令、退出码、环境信息、复现步骤。
-- 提交要求：完成后立即 commit。
+- MMLU门禁：完成 phase 后必须执行“优化后的 MMLU benchmark 测试”，并保存全部测试数据。
+- 提交要求：仅在 MMLU 性能优于上一 phase 后允许 commit 并进入下一 phase。
 
 ## 5. Commit 规则
 
@@ -87,4 +97,38 @@
 - [ ] 记录中包含模型与接口配置来源。
 - [ ] 记录中有 raw log 文件路径。
 - [ ] 重跑命令后结果与结论一致。
+
+## 8. MMLU Benchmark 强制门禁（新增）
+
+### 8.1 强制执行规则
+
+1. 每完成一个 phase，必须执行一次“优化后的 MMLU benchmark”。
+2. 每次 benchmark 必须完整保存测试数据（命令、配置、stdout/stderr、原始结果、汇总指标）。
+3. benchmark 性能必须严格优于上一 phase；若不满足，必须继续优化/微调并重测，直到满足为止。
+4. 未达到“优于上一 phase”前，不得进入下一 phase。
+5. 达标并完成 commit 后，自动进入下一 phase 处理。
+
+### 8.2 数据留存规范
+
+- 建议目录：`tests/benchmarks/mmlu/`
+- 每次运行建议生成：
+  - `<UTC时间戳>_<phase>.md`（结构化测试报告）
+  - `<UTC时间戳>_<phase>.log`（原始日志）
+  - `<UTC时间戳>_<phase>_metrics.json`（关键指标）
+  - `performance_history.csv`（phase 间性能追踪）
+
+### 8.3 对比判定口径
+
+- 比较字段：建议使用同一指标（如 Accuracy）进行 phase-to-phase 对比。
+- 判定条件：`current_phase_metric > previous_phase_metric`。
+- 若 `<=`，则状态为“不通过”，继续优化/微调并重复 benchmark。
+
+## 9. Task 与 subAgent 细分执行规范（新增）
+
+1. 每个 phase 必须先给出任务拆分清单（子任务、责任主体、输入/输出）。
+2. 使用 subAgent 时，必须显式约束：
+   - 子任务边界
+   - 期望产物路径
+   - 验收命令或验收指标
+3. phase 收口时，必须汇总每个子任务产物并落盘到测试记录。
 
