@@ -24,6 +24,7 @@ RATE_LIMIT_PATTERN = re.compile(
     r"(error code:\s*429|rate_limited|rate limit|error 1015)",
     re.IGNORECASE,
 )
+MIN_SAFE_MAX_TOKENS = 256
 
 
 BENCHMARK_SPECS: Dict[str, Dict[str, str]] = {
@@ -464,8 +465,15 @@ async def main() -> None:
     parser.add_argument("--math_decision_method", default="FinalDirect")
     parser.add_argument("--code_decision_method", default="FinalWriteCode")
     parser.add_argument("--concurrency", type=int, default=1)
-    parser.add_argument("--max_tokens", type=int, default=256)
+    parser.add_argument("--max_tokens", type=int, default=MIN_SAFE_MAX_TOKENS)
+    parser.add_argument("--allow_low_max_tokens", action="store_true")
     args = parser.parse_args()
+
+    if args.max_tokens < MIN_SAFE_MAX_TOKENS and not args.allow_low_max_tokens:
+        raise SystemExit(
+            f"max_tokens={args.max_tokens} is too low for math/code full-suite runs and can truncate outputs. "
+            f"Use max_tokens>={MIN_SAFE_MAX_TOKENS}, or pass --allow_low_max_tokens to override intentionally."
+        )
 
     LLM.DEFAULT_MAX_TOKENS = int(args.max_tokens)
 
