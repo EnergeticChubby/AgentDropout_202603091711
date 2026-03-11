@@ -1,0 +1,108 @@
+[
+  {
+    "timestamp": 1773203850.7331326,
+    "run_id": "Xw9ZnSrjUSHZ",
+    "round_idx": 0,
+    "from_node": "uigf",
+    "to_node": "uigf",
+    "contract": {
+      "contract_id": "bzfKQmt9e5",
+      "task_clause": "The Razorback t-shirt shop made $ 51 dollars from selling 3 t-shirt during the Arkansas and Texas tech game they. What is the cost of each t-shirt?",
+      "decision_rights": "solver_autonomy_medium",
+      "deliverable_schema": "natural_language_with_final_answer",
+      "evidence_obligation": [
+        "step_reasoning"
+      ],
+      "uncertainty_report": [
+        "assumptions_if_any"
+      ],
+      "acceptance_test": [
+        "non_empty",
+        "contains_final_answer_pattern"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 2048
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "gsm8k",
+        "task_type": "math",
+        "sender_role": "Math Solver",
+        "receiver_role": "Math Solver",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": false,
+      "violations": [
+        "missing_final_answer_pattern"
+      ],
+      "details": {
+        "output_length": 133
+      }
+    },
+    "dispute": {
+      "action": "clarify",
+      "reason": "missing_final_answer_pattern",
+      "metadata": {
+        "request": "explicit_final_answer"
+      }
+    }
+  },
+  {
+    "timestamp": 1773203850.7332969,
+    "run_id": "Xw9ZnSrjUSHZ",
+    "round_idx": 1,
+    "from_node": "uigf",
+    "to_node": "7Y2a",
+    "contract": {
+      "contract_id": "MSrZkYv8mi",
+      "task_clause": "The Razorback t-shirt shop made $ 51 dollars from selling 3 t-shirt during the Arkansas and Texas tech game they. What is the cost of each t-shirt?",
+      "decision_rights": "solver_autonomy_medium",
+      "deliverable_schema": "natural_language_with_final_answer",
+      "evidence_obligation": [
+        "step_reasoning"
+      ],
+      "uncertainty_report": [
+        "assumptions_if_any"
+      ],
+      "acceptance_test": [
+        "non_empty",
+        "contains_final_answer_pattern"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 2048
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "gsm8k",
+        "task_type": "math",
+        "sender_role": "Math Solver",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": false,
+      "violations": [
+        "missing_final_answer_pattern"
+      ],
+      "details": {
+        "output_length": 133
+      }
+    },
+    "dispute": {
+      "action": "clarify",
+      "reason": "missing_final_answer_pattern",
+      "metadata": {
+        "request": "explicit_final_answer"
+      }
+    }
+  }
+]

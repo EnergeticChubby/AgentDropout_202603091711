@@ -1,0 +1,108 @@
+[
+  {
+    "timestamp": 1773202793.1182,
+    "run_id": "AB5yX3eLwmia",
+    "round_idx": 0,
+    "from_node": "DUKL",
+    "to_node": "DUKL",
+    "contract": {
+      "contract_id": "MqegbpmA6y",
+      "task_clause": "A bird decides to leave her summer home in the north and travel to her winter home in the south.  To make the journey, the bird leaves her home flying in a southerly direction for 10 hours at a speed of 30 miles per hour.  Then, the bird turns direction and flies towards the north for 2 hours are a speed of 18 miles per hour.  Finally, the bird changes direction and flies toward the south for 5 hours at a speed of 22 miles per hour before landing at her southern home.  What is the distance, in miles, between the bird's northern and the southern homes?",
+      "decision_rights": "solver_autonomy_medium",
+      "deliverable_schema": "natural_language_with_final_answer",
+      "evidence_obligation": [
+        "step_reasoning"
+      ],
+      "uncertainty_report": [
+        "assumptions_if_any"
+      ],
+      "acceptance_test": [
+        "non_empty",
+        "contains_final_answer_pattern"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 2048
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "gsm8k",
+        "task_type": "math",
+        "sender_role": "Math Solver",
+        "receiver_role": "Math Solver",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": false,
+      "violations": [
+        "missing_final_answer_pattern"
+      ],
+      "details": {
+        "output_length": 137
+      }
+    },
+    "dispute": {
+      "action": "clarify",
+      "reason": "missing_final_answer_pattern",
+      "metadata": {
+        "request": "explicit_final_answer"
+      }
+    }
+  },
+  {
+    "timestamp": 1773202793.118379,
+    "run_id": "AB5yX3eLwmia",
+    "round_idx": 1,
+    "from_node": "DUKL",
+    "to_node": "q8Up",
+    "contract": {
+      "contract_id": "3SSu5qxxrm",
+      "task_clause": "A bird decides to leave her summer home in the north and travel to her winter home in the south.  To make the journey, the bird leaves her home flying in a southerly direction for 10 hours at a speed of 30 miles per hour.  Then, the bird turns direction and flies towards the north for 2 hours are a speed of 18 miles per hour.  Finally, the bird changes direction and flies toward the south for 5 hours at a speed of 22 miles per hour before landing at her southern home.  What is the distance, in miles, between the bird's northern and the southern homes?",
+      "decision_rights": "solver_autonomy_medium",
+      "deliverable_schema": "natural_language_with_final_answer",
+      "evidence_obligation": [
+        "step_reasoning"
+      ],
+      "uncertainty_report": [
+        "assumptions_if_any"
+      ],
+      "acceptance_test": [
+        "non_empty",
+        "contains_final_answer_pattern"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 2048
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "gsm8k",
+        "task_type": "math",
+        "sender_role": "Math Solver",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": false,
+      "violations": [
+        "missing_final_answer_pattern"
+      ],
+      "details": {
+        "output_length": 137
+      }
+    },
+    "dispute": {
+      "action": "clarify",
+      "reason": "missing_final_answer_pattern",
+      "metadata": {
+        "request": "explicit_final_answer"
+      }
+    }
+  }
+]

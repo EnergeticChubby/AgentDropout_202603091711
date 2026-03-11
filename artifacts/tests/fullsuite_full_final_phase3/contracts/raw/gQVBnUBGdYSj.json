@@ -1,0 +1,108 @@
+[
+  {
+    "timestamp": 1773201917.461756,
+    "run_id": "gQVBnUBGdYSj",
+    "round_idx": 0,
+    "from_node": "DUKL",
+    "to_node": "DUKL",
+    "contract": {
+      "contract_id": "JzV3C3m3sT",
+      "task_clause": "After tracking his workout routine for 8 weeks, Josh discovered that he had spent 4 hours working out every week except on some occasions. At one point, he spent 5 hours each for two consecutive weeks. Another time, he spent 6 hours in one week. What is the total number of hours he has spent working out across the 8 weeks?",
+      "decision_rights": "solver_autonomy_medium",
+      "deliverable_schema": "natural_language_with_final_answer",
+      "evidence_obligation": [
+        "step_reasoning"
+      ],
+      "uncertainty_report": [
+        "assumptions_if_any"
+      ],
+      "acceptance_test": [
+        "non_empty",
+        "contains_final_answer_pattern"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 2048
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "gsm8k",
+        "task_type": "math",
+        "sender_role": "Math Solver",
+        "receiver_role": "Math Solver",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": false,
+      "violations": [
+        "missing_final_answer_pattern"
+      ],
+      "details": {
+        "output_length": 148
+      }
+    },
+    "dispute": {
+      "action": "clarify",
+      "reason": "missing_final_answer_pattern",
+      "metadata": {
+        "request": "explicit_final_answer"
+      }
+    }
+  },
+  {
+    "timestamp": 1773201917.4619515,
+    "run_id": "gQVBnUBGdYSj",
+    "round_idx": 1,
+    "from_node": "DUKL",
+    "to_node": "q8Up",
+    "contract": {
+      "contract_id": "oePjouGb2j",
+      "task_clause": "After tracking his workout routine for 8 weeks, Josh discovered that he had spent 4 hours working out every week except on some occasions. At one point, he spent 5 hours each for two consecutive weeks. Another time, he spent 6 hours in one week. What is the total number of hours he has spent working out across the 8 weeks?",
+      "decision_rights": "solver_autonomy_medium",
+      "deliverable_schema": "natural_language_with_final_answer",
+      "evidence_obligation": [
+        "step_reasoning"
+      ],
+      "uncertainty_report": [
+        "assumptions_if_any"
+      ],
+      "acceptance_test": [
+        "non_empty",
+        "contains_final_answer_pattern"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 2048
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "gsm8k",
+        "task_type": "math",
+        "sender_role": "Math Solver",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": false,
+      "violations": [
+        "missing_final_answer_pattern"
+      ],
+      "details": {
+        "output_length": 148
+      }
+    },
+    "dispute": {
+      "action": "clarify",
+      "reason": "missing_final_answer_pattern",
+      "metadata": {
+        "request": "explicit_final_answer"
+      }
+    }
+  }
+]

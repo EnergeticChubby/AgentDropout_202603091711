@@ -1,0 +1,108 @@
+[
+  {
+    "timestamp": 1773201506.2933176,
+    "run_id": "sR9Zvx6TimNN",
+    "round_idx": 0,
+    "from_node": "DUKL",
+    "to_node": "DUKL",
+    "contract": {
+      "contract_id": "98XXs6qGUJ",
+      "task_clause": "Ralph has a record store where people can trade their own records for new ones. People can trade 2 old records for 1 new one. 5 people come in with old records and leave with 7 new records between them. How many old records did the 5 people bring in?",
+      "decision_rights": "solver_autonomy_medium",
+      "deliverable_schema": "natural_language_with_final_answer",
+      "evidence_obligation": [
+        "step_reasoning"
+      ],
+      "uncertainty_report": [
+        "assumptions_if_any"
+      ],
+      "acceptance_test": [
+        "non_empty",
+        "contains_final_answer_pattern"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 2048
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "gsm8k",
+        "task_type": "math",
+        "sender_role": "Math Solver",
+        "receiver_role": "Math Solver",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": false,
+      "violations": [
+        "missing_final_answer_pattern"
+      ],
+      "details": {
+        "output_length": 139
+      }
+    },
+    "dispute": {
+      "action": "clarify",
+      "reason": "missing_final_answer_pattern",
+      "metadata": {
+        "request": "explicit_final_answer"
+      }
+    }
+  },
+  {
+    "timestamp": 1773201506.293516,
+    "run_id": "sR9Zvx6TimNN",
+    "round_idx": 1,
+    "from_node": "DUKL",
+    "to_node": "q8Up",
+    "contract": {
+      "contract_id": "agnwBYgctD",
+      "task_clause": "Ralph has a record store where people can trade their own records for new ones. People can trade 2 old records for 1 new one. 5 people come in with old records and leave with 7 new records between them. How many old records did the 5 people bring in?",
+      "decision_rights": "solver_autonomy_medium",
+      "deliverable_schema": "natural_language_with_final_answer",
+      "evidence_obligation": [
+        "step_reasoning"
+      ],
+      "uncertainty_report": [
+        "assumptions_if_any"
+      ],
+      "acceptance_test": [
+        "non_empty",
+        "contains_final_answer_pattern"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 2048
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "gsm8k",
+        "task_type": "math",
+        "sender_role": "Math Solver",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": false,
+      "violations": [
+        "missing_final_answer_pattern"
+      ],
+      "details": {
+        "output_length": 139
+      }
+    },
+    "dispute": {
+      "action": "clarify",
+      "reason": "missing_final_answer_pattern",
+      "metadata": {
+        "request": "explicit_final_answer"
+      }
+    }
+  }
+]

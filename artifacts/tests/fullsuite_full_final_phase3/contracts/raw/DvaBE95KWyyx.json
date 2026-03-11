@@ -1,0 +1,108 @@
+[
+  {
+    "timestamp": 1773203914.837195,
+    "run_id": "DvaBE95KWyyx",
+    "round_idx": 0,
+    "from_node": "uigf",
+    "to_node": "uigf",
+    "contract": {
+      "contract_id": "876D8SM5jV",
+      "task_clause": "Bobby ate 33 pieces of candy. Then he ate 4 more. He also ate 14 pieces of chocolate. How many pieces of candy and chocolate did Bobby eat altogether?",
+      "decision_rights": "solver_autonomy_medium",
+      "deliverable_schema": "natural_language_with_final_answer",
+      "evidence_obligation": [
+        "step_reasoning"
+      ],
+      "uncertainty_report": [
+        "assumptions_if_any"
+      ],
+      "acceptance_test": [
+        "non_empty",
+        "contains_final_answer_pattern"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 2048
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "gsm8k",
+        "task_type": "math",
+        "sender_role": "Math Solver",
+        "receiver_role": "Math Solver",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": false,
+      "violations": [
+        "missing_final_answer_pattern"
+      ],
+      "details": {
+        "output_length": 117
+      }
+    },
+    "dispute": {
+      "action": "clarify",
+      "reason": "missing_final_answer_pattern",
+      "metadata": {
+        "request": "explicit_final_answer"
+      }
+    }
+  },
+  {
+    "timestamp": 1773203914.8374217,
+    "run_id": "DvaBE95KWyyx",
+    "round_idx": 1,
+    "from_node": "uigf",
+    "to_node": "7Y2a",
+    "contract": {
+      "contract_id": "QEUjhKATK2",
+      "task_clause": "Bobby ate 33 pieces of candy. Then he ate 4 more. He also ate 14 pieces of chocolate. How many pieces of candy and chocolate did Bobby eat altogether?",
+      "decision_rights": "solver_autonomy_medium",
+      "deliverable_schema": "natural_language_with_final_answer",
+      "evidence_obligation": [
+        "step_reasoning"
+      ],
+      "uncertainty_report": [
+        "assumptions_if_any"
+      ],
+      "acceptance_test": [
+        "non_empty",
+        "contains_final_answer_pattern"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 2048
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "gsm8k",
+        "task_type": "math",
+        "sender_role": "Math Solver",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": false,
+      "violations": [
+        "missing_final_answer_pattern"
+      ],
+      "details": {
+        "output_length": 117
+      }
+    },
+    "dispute": {
+      "action": "clarify",
+      "reason": "missing_final_answer_pattern",
+      "metadata": {
+        "request": "explicit_final_answer"
+      }
+    }
+  }
+]

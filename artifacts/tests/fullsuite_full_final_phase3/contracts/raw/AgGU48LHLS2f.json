@@ -1,0 +1,100 @@
+[
+  {
+    "timestamp": 1773204675.9294171,
+    "run_id": "AgGU48LHLS2f",
+    "round_idx": 0,
+    "from_node": "VEZZ",
+    "to_node": "VEZZ",
+    "contract": {
+      "contract_id": "AyRRLq6XJi",
+      "task_clause": "\ndef rounded_avg(n, m):\n    \"\"\"You are given two positive integers n and m, and your task is to compute the\n    average of the integers from n through m (including n and m). \n    Round the answer to the nearest integer and convert that to binary.\n    If n is greater than m, return -1.\n    Example:\n    rounded_avg(1, 5) => \"0b11\"\n    rounded_avg(7, 5) => -1\n    rounded_avg(10, 20) => \"0b1111\"\n    rounded_avg(20, 33) => \"0b11010\"\n    \"\"\"\n",
+      "decision_rights": "implementation_autonomy_high",
+      "deliverable_schema": "python_code_block",
+      "evidence_obligation": [
+        "test_feedback"
+      ],
+      "uncertainty_report": [
+        "known_limitations"
+      ],
+      "acceptance_test": [
+        "non_empty",
+        "python_block_or_text"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 4096
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "humaneval",
+        "task_type": "code",
+        "sender_role": "Programming Expert",
+        "receiver_role": "Programming Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 128
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773204677.5270004,
+    "run_id": "AgGU48LHLS2f",
+    "round_idx": 1,
+    "from_node": "VEZZ",
+    "to_node": "Zaa7",
+    "contract": {
+      "contract_id": "gDLGQk2tgY",
+      "task_clause": "\ndef rounded_avg(n, m):\n    \"\"\"You are given two positive integers n and m, and your task is to compute the\n    average of the integers from n through m (including n and m). \n    Round the answer to the nearest integer and convert that to binary.\n    If n is greater than m, return -1.\n    Example:\n    rounded_avg(1, 5) => \"0b11\"\n    rounded_avg(7, 5) => -1\n    rounded_avg(10, 20) => \"0b1111\"\n    rounded_avg(20, 33) => \"0b11010\"\n    \"\"\"\n",
+      "decision_rights": "implementation_autonomy_high",
+      "deliverable_schema": "python_code_block",
+      "evidence_obligation": [
+        "test_feedback"
+      ],
+      "uncertainty_report": [
+        "known_limitations"
+      ],
+      "acceptance_test": [
+        "non_empty",
+        "python_block_or_text"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 4096
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "humaneval",
+        "task_type": "code",
+        "sender_role": "Programming Expert",
+        "receiver_role": "You are the top decision-maker and are good at analyzing and summarizing other people's opinions, finding errors and giving final answers. And you are an AI that only responds with only python code.",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 128
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

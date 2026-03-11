@@ -1,0 +1,100 @@
+[
+  {
+    "timestamp": 1773204727.0902267,
+    "run_id": "7dbanC3rfJVK",
+    "round_idx": 0,
+    "from_node": "VEZZ",
+    "to_node": "VEZZ",
+    "contract": {
+      "contract_id": "Wg7aSMAQyx",
+      "task_clause": "\ndef select_words(s, n):\n    \"\"\"Given a string s and a natural number n, you have been tasked to implement \n    a function that returns a list of all words from string s that contain exactly \n    n consonants, in order these words appear in the string s.\n    If the string s is empty then the function should return an empty list.\n    Note: you may assume the input string contains only letters and spaces.\n    Examples:\n    select_words(\"Mary had a little lamb\", 4) ==> [\"little\"]\n    select_words(\"Mary had a little lamb\", 3) ==> [\"Mary\", \"lamb\"]\n    select_words(\"simple white space\", 2) ==> []\n    select_words(\"Hello world\", 4) ==> [\"world\"]\n    select_words(\"Uncle sam\", 3) ==> [\"Uncle\"]\n    \"\"\"\n",
+      "decision_rights": "implementation_autonomy_high",
+      "deliverable_schema": "python_code_block",
+      "evidence_obligation": [
+        "test_feedback"
+      ],
+      "uncertainty_report": [
+        "known_limitations"
+      ],
+      "acceptance_test": [
+        "non_empty",
+        "python_block_or_text"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 4096
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "humaneval",
+        "task_type": "code",
+        "sender_role": "Programming Expert",
+        "receiver_role": "Programming Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 128
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773204728.4497607,
+    "run_id": "7dbanC3rfJVK",
+    "round_idx": 1,
+    "from_node": "VEZZ",
+    "to_node": "Zaa7",
+    "contract": {
+      "contract_id": "h87ttfQ7NT",
+      "task_clause": "\ndef select_words(s, n):\n    \"\"\"Given a string s and a natural number n, you have been tasked to implement \n    a function that returns a list of all words from string s that contain exactly \n    n consonants, in order these words appear in the string s.\n    If the string s is empty then the function should return an empty list.\n    Note: you may assume the input string contains only letters and spaces.\n    Examples:\n    select_words(\"Mary had a little lamb\", 4) ==> [\"little\"]\n    select_words(\"Mary had a little lamb\", 3) ==> [\"Mary\", \"lamb\"]\n    select_words(\"simple white space\", 2) ==> []\n    select_words(\"Hello world\", 4) ==> [\"world\"]\n    select_words(\"Uncle sam\", 3) ==> [\"Uncle\"]\n    \"\"\"\n",
+      "decision_rights": "implementation_autonomy_high",
+      "deliverable_schema": "python_code_block",
+      "evidence_obligation": [
+        "test_feedback"
+      ],
+      "uncertainty_report": [
+        "known_limitations"
+      ],
+      "acceptance_test": [
+        "non_empty",
+        "python_block_or_text"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 4096
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "humaneval",
+        "task_type": "code",
+        "sender_role": "Programming Expert",
+        "receiver_role": "You are the top decision-maker and are good at analyzing and summarizing other people's opinions, finding errors and giving final answers. And you are an AI that only responds with only python code.",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 128
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

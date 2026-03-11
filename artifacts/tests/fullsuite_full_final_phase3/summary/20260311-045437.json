@@ -1,0 +1,71 @@
+{
+  "profile": "phase3",
+  "run_name": "fullsuite_full_final",
+  "llm_name": "qwen3-8b",
+  "benchmarks": [
+    {
+      "profile": "phase3",
+      "benchmark": "gsm8k",
+      "math_agent_count": 1,
+      "math_rounds": 1,
+      "math_mode": "DirectAnswer",
+      "math_decision_method": "FinalDirect",
+      "total": 1319,
+      "solved": 24,
+      "accuracy": 0.01819560272934041,
+      "attempts_total": 1319,
+      "rate_limited_events": 0,
+      "raw_dir": "artifacts/tests/fullsuite_full_final_phase3/gsm8k/raw/20260311-032921",
+      "answers_path": "artifacts/tests/fullsuite_full_final_phase3/gsm8k/raw/20260311-032921/answers.jsonl",
+      "log_path": "artifacts/tests/fullsuite_full_final_phase3/gsm8k/raw/20260311-032921/run.log"
+    },
+    {
+      "profile": "phase3",
+      "benchmark": "multiarith",
+      "math_agent_count": 1,
+      "math_rounds": 1,
+      "math_mode": "DirectAnswer",
+      "math_decision_method": "FinalDirect",
+      "total": 180,
+      "solved": 4,
+      "accuracy": 0.022222222222222223,
+      "attempts_total": 180,
+      "rate_limited_events": 0,
+      "raw_dir": "artifacts/tests/fullsuite_full_final_phase3/multiarith/raw/20260311-043101",
+      "answers_path": "artifacts/tests/fullsuite_full_final_phase3/multiarith/raw/20260311-043101/answers.jsonl",
+      "log_path": "artifacts/tests/fullsuite_full_final_phase3/multiarith/raw/20260311-043101/run.log"
+    },
+    {
+      "profile": "phase3",
+      "benchmark": "svamp",
+      "math_agent_count": 1,
+      "math_rounds": 1,
+      "math_mode": "DirectAnswer",
+      "math_decision_method": "FinalDirect",
+      "total": 300,
+      "solved": 3,
+      "accuracy": 0.01,
+      "attempts_total": 300,
+      "rate_limited_events": 0,
+      "raw_dir": "artifacts/tests/fullsuite_full_final_phase3/svamp/raw/20260311-043613",
+      "answers_path": "artifacts/tests/fullsuite_full_final_phase3/svamp/raw/20260311-043613/answers.jsonl",
+      "log_path": "artifacts/tests/fullsuite_full_final_phase3/svamp/raw/20260311-043613/run.log"
+    },
+    {
+      "profile": "phase3",
+      "benchmark": "humaneval",
+      "code_agent_count": 1,
+      "code_rounds": 1,
+      "code_mode": "DirectAnswer",
+      "code_decision_method": "FinalWriteCode",
+      "total": 164,
+      "solved": 0,
+      "pass_at_1": 0.0,
+      "attempts_total": 164,
+      "rate_limited_events": 0,
+      "raw_dir": "artifacts/tests/fullsuite_full_final_phase3/humaneval/raw/20260311-044510",
+      "answers_path": "artifacts/tests/fullsuite_full_final_phase3/humaneval/raw/20260311-044510/answers.jsonl",
+      "log_path": "artifacts/tests/fullsuite_full_final_phase3/humaneval/raw/20260311-044510/run.log"
+    }
+  ]
+}

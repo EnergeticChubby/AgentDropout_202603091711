@@ -1,0 +1,100 @@
+[
+  {
+    "timestamp": 1773204493.8649137,
+    "run_id": "aAG3p7eeRako",
+    "round_idx": 0,
+    "from_node": "VEZZ",
+    "to_node": "VEZZ",
+    "contract": {
+      "contract_id": "YtCcRZv2Vg",
+      "task_clause": "\n\ndef encode_shift(s: str):\n    \"\"\"\n    returns encoded string by shifting every character by 5 in the alphabet.\n    \"\"\"\n    return \"\".join([chr(((ord(ch) + 5 - ord(\"a\")) % 26) + ord(\"a\")) for ch in s])\n\n\ndef decode_shift(s: str):\n    \"\"\"\n    takes as input string encoded with encode_shift function. Returns decoded string.\n    \"\"\"\n",
+      "decision_rights": "implementation_autonomy_high",
+      "deliverable_schema": "python_code_block",
+      "evidence_obligation": [
+        "test_feedback"
+      ],
+      "uncertainty_report": [
+        "known_limitations"
+      ],
+      "acceptance_test": [
+        "non_empty",
+        "python_block_or_text"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 4096
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "humaneval",
+        "task_type": "code",
+        "sender_role": "Programming Expert",
+        "receiver_role": "Programming Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 143
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773204497.1803856,
+    "run_id": "aAG3p7eeRako",
+    "round_idx": 1,
+    "from_node": "VEZZ",
+    "to_node": "Zaa7",
+    "contract": {
+      "contract_id": "4aiMwtmKbv",
+      "task_clause": "\n\ndef encode_shift(s: str):\n    \"\"\"\n    returns encoded string by shifting every character by 5 in the alphabet.\n    \"\"\"\n    return \"\".join([chr(((ord(ch) + 5 - ord(\"a\")) % 26) + ord(\"a\")) for ch in s])\n\n\ndef decode_shift(s: str):\n    \"\"\"\n    takes as input string encoded with encode_shift function. Returns decoded string.\n    \"\"\"\n",
+      "decision_rights": "implementation_autonomy_high",
+      "deliverable_schema": "python_code_block",
+      "evidence_obligation": [
+        "test_feedback"
+      ],
+      "uncertainty_report": [
+        "known_limitations"
+      ],
+      "acceptance_test": [
+        "non_empty",
+        "python_block_or_text"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 4096
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "humaneval",
+        "task_type": "code",
+        "sender_role": "Programming Expert",
+        "receiver_role": "You are the top decision-maker and are good at analyzing and summarizing other people's opinions, finding errors and giving final answers. And you are an AI that only responds with only python code.",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 143
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

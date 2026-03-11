@@ -1,0 +1,100 @@
+[
+  {
+    "timestamp": 1773204793.6576128,
+    "run_id": "MWLpcouR4pZZ",
+    "round_idx": 0,
+    "from_node": "VEZZ",
+    "to_node": "VEZZ",
+    "contract": {
+      "contract_id": "Bbvmv6yDUD",
+      "task_clause": "\ndef compare_one(a, b):\n    \"\"\"\n    Create a function that takes integers, floats, or strings representing\n    real numbers, and returns the larger variable in its given variable type.\n    Return None if the values are equal.\n    Note: If a real number is represented as a string, the floating point might be . or ,\n\n    compare_one(1, 2.5) \u279e 2.5\n    compare_one(1, \"2,3\") \u279e \"2,3\"\n    compare_one(\"5,1\", \"6\") \u279e \"6\"\n    compare_one(\"1\", 1) \u279e None\n    \"\"\"\n",
+      "decision_rights": "implementation_autonomy_high",
+      "deliverable_schema": "python_code_block",
+      "evidence_obligation": [
+        "test_feedback"
+      ],
+      "uncertainty_report": [
+        "known_limitations"
+      ],
+      "acceptance_test": [
+        "non_empty",
+        "python_block_or_text"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 4096
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "humaneval",
+        "task_type": "code",
+        "sender_role": "Programming Expert",
+        "receiver_role": "Programming Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 145
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773204795.1604817,
+    "run_id": "MWLpcouR4pZZ",
+    "round_idx": 1,
+    "from_node": "VEZZ",
+    "to_node": "Zaa7",
+    "contract": {
+      "contract_id": "APRGFT9ERd",
+      "task_clause": "\ndef compare_one(a, b):\n    \"\"\"\n    Create a function that takes integers, floats, or strings representing\n    real numbers, and returns the larger variable in its given variable type.\n    Return None if the values are equal.\n    Note: If a real number is represented as a string, the floating point might be . or ,\n\n    compare_one(1, 2.5) \u279e 2.5\n    compare_one(1, \"2,3\") \u279e \"2,3\"\n    compare_one(\"5,1\", \"6\") \u279e \"6\"\n    compare_one(\"1\", 1) \u279e None\n    \"\"\"\n",
+      "decision_rights": "implementation_autonomy_high",
+      "deliverable_schema": "python_code_block",
+      "evidence_obligation": [
+        "test_feedback"
+      ],
+      "uncertainty_report": [
+        "known_limitations"
+      ],
+      "acceptance_test": [
+        "non_empty",
+        "python_block_or_text"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 4096
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "humaneval",
+        "task_type": "code",
+        "sender_role": "Programming Expert",
+        "receiver_role": "You are the top decision-maker and are good at analyzing and summarizing other people's opinions, finding errors and giving final answers. And you are an AI that only responds with only python code.",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 145
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

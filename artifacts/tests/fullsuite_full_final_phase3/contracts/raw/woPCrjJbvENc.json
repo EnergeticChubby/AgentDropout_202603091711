@@ -1,0 +1,100 @@
+[
+  {
+    "timestamp": 1773204419.1667025,
+    "run_id": "woPCrjJbvENc",
+    "round_idx": 0,
+    "from_node": "VEZZ",
+    "to_node": "VEZZ",
+    "contract": {
+      "contract_id": "bXhHvYE2j9",
+      "task_clause": "from typing import List\n\n\ndef filter_by_prefix(strings: List[str], prefix: str) -> List[str]:\n    \"\"\" Filter an input list of strings only for ones that start with a given prefix.\n    >>> filter_by_prefix([], 'a')\n    []\n    >>> filter_by_prefix(['abc', 'bcd', 'cde', 'array'], 'a')\n    ['abc', 'array']\n    \"\"\"\n",
+      "decision_rights": "implementation_autonomy_high",
+      "deliverable_schema": "python_code_block",
+      "evidence_obligation": [
+        "test_feedback"
+      ],
+      "uncertainty_report": [
+        "known_limitations"
+      ],
+      "acceptance_test": [
+        "non_empty",
+        "python_block_or_text"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 4096
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "humaneval",
+        "task_type": "code",
+        "sender_role": "Programming Expert",
+        "receiver_role": "Programming Expert",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 135
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  },
+  {
+    "timestamp": 1773204420.8829992,
+    "run_id": "woPCrjJbvENc",
+    "round_idx": 1,
+    "from_node": "VEZZ",
+    "to_node": "Zaa7",
+    "contract": {
+      "contract_id": "nG3BhE4jme",
+      "task_clause": "from typing import List\n\n\ndef filter_by_prefix(strings: List[str], prefix: str) -> List[str]:\n    \"\"\" Filter an input list of strings only for ones that start with a given prefix.\n    >>> filter_by_prefix([], 'a')\n    []\n    >>> filter_by_prefix(['abc', 'bcd', 'cde', 'array'], 'a')\n    ['abc', 'array']\n    \"\"\"\n",
+      "decision_rights": "implementation_autonomy_high",
+      "deliverable_schema": "python_code_block",
+      "evidence_obligation": [
+        "test_feedback"
+      ],
+      "uncertainty_report": [
+        "known_limitations"
+      ],
+      "acceptance_test": [
+        "non_empty",
+        "python_block_or_text"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 4096
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "humaneval",
+        "task_type": "code",
+        "sender_role": "Programming Expert",
+        "receiver_role": "You are the top decision-maker and are good at analyzing and summarizing other people's opinions, finding errors and giving final answers. And you are an AI that only responds with only python code.",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": true,
+      "violations": [],
+      "details": {
+        "output_length": 135
+      }
+    },
+    "dispute": {
+      "action": "accept",
+      "reason": "no_violations",
+      "metadata": {}
+    }
+  }
+]

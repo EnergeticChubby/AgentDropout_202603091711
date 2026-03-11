@@ -1,0 +1,27 @@
+{
+  "total_contracts": 2,
+  "passed_contracts": 0,
+  "failed_contracts": 2,
+  "acceptance_pass_precision": 0.0,
+  "silent_failure_rate": 0.0,
+  "rework_rate": 1.0,
+  "rollback_frequency": 2,
+  "dispute_actions": {
+    "clarify": 2
+  },
+  "repair_suggestions": {
+    "violation_counts": {
+      "missing_final_answer_pattern": 2
+    },
+    "task_violation_counts": {
+      "math::missing_final_answer_pattern": 2
+    },
+    "recommendations": [
+      {
+        "target_clause": "deliverable_schema",
+        "change": "enforce_explicit_final_answer",
+        "trigger": "missing_final_answer_pattern"
+      }
+    ]
+  }
+}

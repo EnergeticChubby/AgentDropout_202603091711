@@ -1,0 +1,108 @@
+[
+  {
+    "timestamp": 1773203271.7284305,
+    "run_id": "pCLrnqnc7hS3",
+    "round_idx": 0,
+    "from_node": "DUKL",
+    "to_node": "DUKL",
+    "contract": {
+      "contract_id": "qr7LJ4v685",
+      "task_clause": "Brian's basement was damp and musty, so he bought a dehumidifier to remove moisture out of the air.  The device has three speeds: low, medium, and high.   Brian tested the device's efficiency and he found that the low setting removes 1 liter of water out of the air per day, the medium setting removes twice as much water per day as the low setting, and the high setting removes twice as much water per day as the medium setting.  If Brian ran the dehumidifier for 3 days on the low setting, then an additional 3 days on the medium setting, and then an additional 5 days on the high setting, what is the total amount of water that the dehumidifier removed from the air in his basement, in liters?",
+      "decision_rights": "solver_autonomy_medium",
+      "deliverable_schema": "natural_language_with_final_answer",
+      "evidence_obligation": [
+        "step_reasoning"
+      ],
+      "uncertainty_report": [
+        "assumptions_if_any"
+      ],
+      "acceptance_test": [
+        "non_empty",
+        "contains_final_answer_pattern"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 2048
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "gsm8k",
+        "task_type": "math",
+        "sender_role": "Math Solver",
+        "receiver_role": "Math Solver",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": false,
+      "violations": [
+        "missing_final_answer_pattern"
+      ],
+      "details": {
+        "output_length": 124
+      }
+    },
+    "dispute": {
+      "action": "clarify",
+      "reason": "missing_final_answer_pattern",
+      "metadata": {
+        "request": "explicit_final_answer"
+      }
+    }
+  },
+  {
+    "timestamp": 1773203271.7286189,
+    "run_id": "pCLrnqnc7hS3",
+    "round_idx": 1,
+    "from_node": "DUKL",
+    "to_node": "q8Up",
+    "contract": {
+      "contract_id": "6PkUxs7cZb",
+      "task_clause": "Brian's basement was damp and musty, so he bought a dehumidifier to remove moisture out of the air.  The device has three speeds: low, medium, and high.   Brian tested the device's efficiency and he found that the low setting removes 1 liter of water out of the air per day, the medium setting removes twice as much water per day as the low setting, and the high setting removes twice as much water per day as the medium setting.  If Brian ran the dehumidifier for 3 days on the low setting, then an additional 3 days on the medium setting, and then an additional 5 days on the high setting, what is the total amount of water that the dehumidifier removed from the air in his basement, in liters?",
+      "decision_rights": "solver_autonomy_medium",
+      "deliverable_schema": "natural_language_with_final_answer",
+      "evidence_obligation": [
+        "step_reasoning"
+      ],
+      "uncertainty_report": [
+        "assumptions_if_any"
+      ],
+      "acceptance_test": [
+        "non_empty",
+        "contains_final_answer_pattern"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 2048
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "gsm8k",
+        "task_type": "math",
+        "sender_role": "Math Solver",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": false,
+      "violations": [
+        "missing_final_answer_pattern"
+      ],
+      "details": {
+        "output_length": 124
+      }
+    },
+    "dispute": {
+      "action": "clarify",
+      "reason": "missing_final_answer_pattern",
+      "metadata": {
+        "request": "explicit_final_answer"
+      }
+    }
+  }
+]

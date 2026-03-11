@@ -1,0 +1,108 @@
+[
+  {
+    "timestamp": 1773202044.9373753,
+    "run_id": "7Sm6XbAki8H9",
+    "round_idx": 0,
+    "from_node": "DUKL",
+    "to_node": "DUKL",
+    "contract": {
+      "contract_id": "hnMsuwFNd6",
+      "task_clause": "Four dogs sat in a line within the veterinarian's waiting room.  The first dog was the Affenpinscher, who weighed only 10 pounds.  Next to him sat a Dachshund, who weighed twice as much as the Affenpinscher.  Next to the Dachshund sat a Papillon, who weighed one-fourth as much as the Dachshund.  And at the end of the line sat a Mastiff, who weighed 44 times the weight of the Papillon.  How much did the Mastiff weigh, in pounds?",
+      "decision_rights": "solver_autonomy_medium",
+      "deliverable_schema": "natural_language_with_final_answer",
+      "evidence_obligation": [
+        "step_reasoning"
+      ],
+      "uncertainty_report": [
+        "assumptions_if_any"
+      ],
+      "acceptance_test": [
+        "non_empty",
+        "contains_final_answer_pattern"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 2048
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "gsm8k",
+        "task_type": "math",
+        "sender_role": "Math Solver",
+        "receiver_role": "Math Solver",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": false,
+      "violations": [
+        "missing_final_answer_pattern"
+      ],
+      "details": {
+        "output_length": 131
+      }
+    },
+    "dispute": {
+      "action": "clarify",
+      "reason": "missing_final_answer_pattern",
+      "metadata": {
+        "request": "explicit_final_answer"
+      }
+    }
+  },
+  {
+    "timestamp": 1773202044.937574,
+    "run_id": "7Sm6XbAki8H9",
+    "round_idx": 1,
+    "from_node": "DUKL",
+    "to_node": "q8Up",
+    "contract": {
+      "contract_id": "nchNVGzsik",
+      "task_clause": "Four dogs sat in a line within the veterinarian's waiting room.  The first dog was the Affenpinscher, who weighed only 10 pounds.  Next to him sat a Dachshund, who weighed twice as much as the Affenpinscher.  Next to the Dachshund sat a Papillon, who weighed one-fourth as much as the Dachshund.  And at the end of the line sat a Mastiff, who weighed 44 times the weight of the Papillon.  How much did the Mastiff weigh, in pounds?",
+      "decision_rights": "solver_autonomy_medium",
+      "deliverable_schema": "natural_language_with_final_answer",
+      "evidence_obligation": [
+        "step_reasoning"
+      ],
+      "uncertainty_report": [
+        "assumptions_if_any"
+      ],
+      "acceptance_test": [
+        "non_empty",
+        "contains_final_answer_pattern"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 2048
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "gsm8k",
+        "task_type": "math",
+        "sender_role": "Math Solver",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": false,
+      "violations": [
+        "missing_final_answer_pattern"
+      ],
+      "details": {
+        "output_length": 131
+      }
+    },
+    "dispute": {
+      "action": "clarify",
+      "reason": "missing_final_answer_pattern",
+      "metadata": {
+        "request": "explicit_final_answer"
+      }
+    }
+  }
+]

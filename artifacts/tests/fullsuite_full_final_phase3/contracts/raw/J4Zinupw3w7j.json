@@ -1,0 +1,108 @@
+[
+  {
+    "timestamp": 1773201755.6851125,
+    "run_id": "J4Zinupw3w7j",
+    "round_idx": 0,
+    "from_node": "DUKL",
+    "to_node": "DUKL",
+    "contract": {
+      "contract_id": "Qe6BHUh5ry",
+      "task_clause": "Wayne and Bernadette are movie stars heading to the premiere of their latest film. Bernadette wants to arrive 5 minutes before Wayne. Wayne is staying at a hotel close to the premiere theater, and Bernadette is staying at her high-rise apartment in the same city. The drive from Bernadette\u2019s apartment takes four times as long as the drive from Wayne\u2019s hotel. If it takes Wayne four minutes to be driven to the theater, how much earlier should Bernadette leave than Wayne to get to the theater first?",
+      "decision_rights": "solver_autonomy_medium",
+      "deliverable_schema": "natural_language_with_final_answer",
+      "evidence_obligation": [
+        "step_reasoning"
+      ],
+      "uncertainty_report": [
+        "assumptions_if_any"
+      ],
+      "acceptance_test": [
+        "non_empty",
+        "contains_final_answer_pattern"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 2048
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "gsm8k",
+        "task_type": "math",
+        "sender_role": "Math Solver",
+        "receiver_role": "Math Solver",
+        "round": 0
+      }
+    },
+    "verification": {
+      "passed": false,
+      "violations": [
+        "missing_final_answer_pattern"
+      ],
+      "details": {
+        "output_length": 142
+      }
+    },
+    "dispute": {
+      "action": "clarify",
+      "reason": "missing_final_answer_pattern",
+      "metadata": {
+        "request": "explicit_final_answer"
+      }
+    }
+  },
+  {
+    "timestamp": 1773201755.6853166,
+    "run_id": "J4Zinupw3w7j",
+    "round_idx": 1,
+    "from_node": "DUKL",
+    "to_node": "q8Up",
+    "contract": {
+      "contract_id": "TaRjTAbYsD",
+      "task_clause": "Wayne and Bernadette are movie stars heading to the premiere of their latest film. Bernadette wants to arrive 5 minutes before Wayne. Wayne is staying at a hotel close to the premiere theater, and Bernadette is staying at her high-rise apartment in the same city. The drive from Bernadette\u2019s apartment takes four times as long as the drive from Wayne\u2019s hotel. If it takes Wayne four minutes to be driven to the theater, how much earlier should Bernadette leave than Wayne to get to the theater first?",
+      "decision_rights": "solver_autonomy_medium",
+      "deliverable_schema": "natural_language_with_final_answer",
+      "evidence_obligation": [
+        "step_reasoning"
+      ],
+      "uncertainty_report": [
+        "assumptions_if_any"
+      ],
+      "acceptance_test": [
+        "non_empty",
+        "contains_final_answer_pattern"
+      ],
+      "rollback_clause": "retry_upstream",
+      "escalation_clause": "none",
+      "liability_tag": "shared",
+      "budget_clause": {
+        "max_tokens": 2048
+      },
+      "renegotiation_rule": "on_repeated_failure",
+      "metadata": {
+        "domain": "gsm8k",
+        "task_type": "math",
+        "sender_role": "Math Solver",
+        "receiver_role": "",
+        "round": 1
+      }
+    },
+    "verification": {
+      "passed": false,
+      "violations": [
+        "missing_final_answer_pattern"
+      ],
+      "details": {
+        "output_length": 142
+      }
+    },
+    "dispute": {
+      "action": "clarify",
+      "reason": "missing_final_answer_pattern",
+      "metadata": {
+        "request": "explicit_final_answer"
+      }
+    }
+  }
+]

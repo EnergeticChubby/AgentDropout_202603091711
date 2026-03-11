@@ -94,7 +94,12 @@ def _extract_completion_text(completion):
 #                 raise Exception("api error")
 
 @retry(wait=wait_random_exponential(max=100), stop=stop_after_attempt(3))
-async def achat(model: str, msg: List[Dict],):
+async def achat(
+    model: str,
+    msg: List[Dict],
+    max_tokens: Optional[int] = None,
+    temperature: Optional[float] = None,
+):
     if not DEFAULT_API_KEY:
         raise RuntimeError("OPENAI_API_KEY (or MINE_API_KEYS) is not configured.")
     api_kwargs = {"api_key": DEFAULT_API_KEY}
@@ -102,8 +107,13 @@ async def achat(model: str, msg: List[Dict],):
         api_kwargs["base_url"] = DEFAULT_BASE_URL
     aclient = AsyncOpenAI(**api_kwargs)
     try:
+        create_kwargs: Dict[str, Any] = {"model": model, "messages": msg}
+        if max_tokens is not None:
+            create_kwargs["max_tokens"] = int(max_tokens)
+        if temperature is not None:
+            create_kwargs["temperature"] = float(temperature)
         async with async_timeout.timeout(1000):
-            completion = await aclient.chat.completions.create(model=model,messages=msg)
+            completion = await aclient.chat.completions.create(**create_kwargs)
         response_message = _extract_completion_text(completion)
         
         if isinstance(response_message, str):
@@ -183,7 +193,12 @@ class GPTChat(LLM):
         
         if isinstance(messages, str):
             messages = [Message(role="user", content=messages)]
-        return await achat(self.model_name,messages)
+        return await achat(
+            self.model_name,
+            messages,
+            max_tokens=max_tokens,
+            temperature=temperature,
+        )
     
     def gen(
         self,
