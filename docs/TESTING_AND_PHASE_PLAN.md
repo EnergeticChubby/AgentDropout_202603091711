@@ -10,6 +10,7 @@
 4. 每个 phase 更新必须进行一次独立 commit。
 
 配套总计划文档：`docs/SS_IOA_COMPLETE_PLAN.md`（定义 SS-IoA 的问题重定义、模块路线与 phase 细分执行）。
+方向 phase 映射：`Phase0(AgentDropout 基线测试) -> Phase1(基础方向) -> Phase2(进阶方向) -> Phase3(高级融合方向)`。
 
 ## 2. 固定测试配置
 

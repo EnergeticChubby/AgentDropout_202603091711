@@ -4,14 +4,14 @@
 
 本日志记录本轮治理改造中每个 phase 的目标、产出与复现入口，用于审计和交接。
 
-## Phase Deliverables
+## Phase Deliverables (Direction-Based)
 
 | Phase | Objective | Deliverables |
 | --- | --- | --- |
-| A | 建立治理计划与标准 | `docs/TESTING_AND_PHASE_PLAN.md` |
-| B | 提供可复用测试记录工具 | `tests/code/run_test_and_record.sh`, `tests/records/README.md` |
-| C | 生成结构化测试记录与 raw log | `tests/records/*phase_C*.md/.log` |
-| D | 完成复现校验与发布说明 | `tests/records/*phase_D*.md/.log`, 本文档 |
+| Phase0 | AgentDropout 基线与测试 | `result/mmlu/*phase0*`（或同时间戳结果）、`tests/records/*phase0*.md/.log` |
+| Phase1 | 基础方向（状态估计 + 衰减先验） | 见 `docs/SS_IOA_COMPLETE_PLAN.md` 的 Phase1 子任务产物 |
+| Phase2 | 进阶方向（跨轮记忆 + 容量控制） | 见 `docs/SS_IOA_COMPLETE_PLAN.md` 的 Phase2 子任务产物 |
+| Phase3 | 高级融合方向（完整方案） | 见 `docs/SS_IOA_COMPLETE_PLAN.md` 的 Phase3 子任务产物 |
 
 ## Reproducibility Entry
 
@@ -46,4 +46,10 @@
 
 - 每个 phase 已按要求独立提交（不跨 phase 混提）。
 - 测试证据同时保留 Markdown 摘要与 raw log，便于复盘。
+
+## Phase0 AgentDropout Test Status
+
+- 已执行 Phase0 AgentDropout 测试（MMLU 路径）并完成失败题重试流程验证。
+- 当前外部服务返回 `model_not_found`（`glm-4.5-flash` 在目标分组无可用渠道），导致题目无法成功返回答案。
+- 已保留完整失败证据与重试日志，便于后续在模型渠道恢复后直接重跑。
 

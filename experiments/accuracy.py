@@ -9,6 +9,8 @@ class Accuracy:
         self._num_total += 1
 
     def get(self) -> float:
+        if self._num_total == 0:
+            return 0.0
         return self._num_correct / self._num_total
 
     def print(self):

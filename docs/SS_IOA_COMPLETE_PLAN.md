@@ -103,137 +103,105 @@ IoA/LLM-MAS 的协作过程本质上是一个**部分可观测、非平稳、容
 
 ---
 
-## 4. Phase 路线图（强制细分 + 强制门禁）
+## 4. Phase 路线图（按“方向”分层：基础→高级→融合）
 
 > 每个 phase 开始前，必须完整重读 `docs/TESTING_AND_PHASE_PLAN.md` 与本计划。  
 > 每个 phase 必须先完成 task/subAgent 细分，再执行开发与测试。  
 > 每个 phase 结束后必须执行 MMLU 完整 Val benchmark（失败题重测）并留档。  
-> 性能未优于上一 phase 时，不得进入下一 phase。
+> 性能未优于上一 phase 时，不得进入下一 phase。  
+> 每个 phase 完成后必须独立 commit 并 push。
 
-### Phase 0：基线冻结与评测基线建立
+### Phase 0（基线方向）：AgentDropout 算法基线与测试
 
-子任务拆分：
-
-1. 冻结基线配置（模型、prompt、agent 拓扑、随机种子）。
-2. 运行 MMLU 完整 Val 基线评测。
-3. 建立 `performance_history.csv` 初始行（Phase0）。
-
-产物：
-
-- `tests/benchmarks/mmlu/<ts>_phase0.md`
-- `tests/benchmarks/mmlu/<ts>_phase0.log`
-- `tests/benchmarks/mmlu/<ts>_phase0_metrics.json`
-- `tests/benchmarks/mmlu/performance_history.csv`
-
-门禁：
-
-- 必须完成全量 Val。
-- 必须完成失败题重测。
-- 完成后 commit 并进入 Phase 1。
-
-### Phase 1：M1 隐状态重建层
+方向目标：以 AgentDropout 作为完整基线，建立可比较的零阶段性能。
 
 子任务拆分：
 
-1. 定义观测事件 schema（消息/工具/转移/异常）。
-2. 实现 `z_t` 重建器与状态可视化日志。
-3. 增加状态可验证性指标（future success/block risk）。
+1. 冻结 AgentDropout 基线配置（模型、prompt、拓扑、种子）。
+2. 执行 AgentDropout 的 MMLU 完整 Val 测试（失败题重测）。
+3. 输出 `phase0` 指标并写入 `performance_history.csv`。
+4. 产出 baseline 报告，作为后续方向对照组。
 
 subAgent 细分建议：
 
-- `subagent-state-schema`：事件 schema 与日志路径定义。
-- `subagent-state-model`：`z_t` 重建器实现。
-- `subagent-state-metrics`：状态可验证性评测脚本。
+- `subagent-phase0-config`：冻结 baseline 配置清单。
+- `subagent-phase0-runner`：执行 benchmark 与失败题重测。
+- `subagent-phase0-report`：生成 phase0 报告与指标文件。
 
 门禁：
 
-- MMLU 全量 Val 测试 + 失败题重测。
-- 指标必须优于 Phase 0，否则进入优化循环（见第 6 节）。
+- 必须完成 Phase0 测试并留档。
+- 指标文件与原始日志缺一不可。
+- 达标后 commit，自动进入 Phase 1。
+
+### Phase 1（基础方向）：隐状态估计 + 衰减制度先验
+
+方向目标：从“消息驱动”升级为“状态驱动”的基础控制层。
+
+子任务拆分：
+
+1. 观测事件 schema 与特征抽取（消息、工具、转移、异常）。
+2. 实现 `z_t`（latent collective state）重建器。
+3. 实现 decaying institutional priors（早期强、后期弱）。
+4. 实现 prior override（冲突证据触发快速衰减）。
+
+subAgent 细分建议：
+
+- `subagent-phase1-state`：`z_t` 重建实现与验证指标。
+- `subagent-phase1-prior`：先验调度器与 override 机制。
+- `subagent-phase1-eval`：phase1 基线对比脚本。
+
+门禁：
+
+- 全量 Val + 失败题重测 + 全量留档。
+- 指标严格优于 Phase0，否则继续优化。
 - 达标后 commit，自动进入 Phase 2。
 
-### Phase 2：M2 衰减制度先验
+### Phase 2（进阶方向）：跨轮记忆 + 容量感知控制
+
+方向目标：解决 rediscovery 与 collective capacity over-squashing。
 
 子任务拆分：
 
-1. 定义初期制度先验模板与参数化强度。
-2. 实现基于证据的 prior decay 调度。
-3. 实现 posterior override（冲突证据触发快速衰减）。
+1. 实现跨轮记忆 `m_t` 与 sufficient-statistics 压缩器。
+2. 实现记忆可信写入（credibility gate + quarantine）。
+3. 实现容量控制（admission control / utility-priced slots / phase pools）。
+4. 实现记忆污染缓解与可追溯忘却策略。
+
+subAgent 细分建议：
+
+- `subagent-phase2-memory`：`m_t` 结构与写入策略实现。
+- `subagent-phase2-capacity`：容量预算与槽位分配策略实现。
+- `subagent-phase2-risk`：错误持久化/污染检测实验脚本。
 
 门禁：
 
 - 全量 Val + 失败题重测 + 全量留档。
-- 指标优于 Phase 1；否则继续微调。
+- 指标严格优于 Phase1，否则继续优化。
 - 达标后 commit，自动进入 Phase 3。
 
-### Phase 3：M3 跨轮连续记忆
+### Phase 3（高级融合方向）：多方向融合与完整解决方案
+
+方向目标：融合 Phase1+Phase2，形成完整 SS-IoA 生产级方案。
 
 子任务拆分：
 
-1. 实现记忆结构 `m_t` 与写入 API。
-2. 定义 sufficient statistics 压缩器。
-3. 引入记忆可信度门（credibility gate）与隔离区（quarantine）。
+1. 融合控制策略 `π(z_t, m_t, p_t)` 与双时间尺度控制器。
+2. 增加异常触发重建（高冲突、长 barrier、持续分歧）。
+3. 完成系统联调、消融、鲁棒性与开销评估。
+4. 固化复现工件（脚本、日志索引、对比表、结论报告）。
+
+subAgent 细分建议：
+
+- `subagent-phase3-fusion`：融合控制主逻辑与调度策略。
+- `subagent-phase3-ablation`：消融实验与鲁棒性评估。
+- `subagent-phase3-release`：复现工件与最终报告打包。
 
 门禁：
 
 - 全量 Val + 失败题重测 + 全量留档。
-- 指标优于 Phase 2；否则继续微调。
-- 达标后 commit，自动进入 Phase 4。
-
-### Phase 4：M4 容量感知控制
-
-子任务拆分：
-
-1. 实现 admission control 与 memory budget。
-2. 实现 utility-priced memory slots。
-3. 实现 phase-specific memory pools。
-
-门禁：
-
-- 全量 Val + 失败题重测 + 全量留档。
-- 指标优于 Phase 3；否则继续微调。
-- 达标后 commit，自动进入 Phase 5。
-
-### Phase 5：M5 双时间尺度控制与系统联调
-
-子任务拆分：
-
-1. 快/慢控制器切换策略实现。
-2. 异常触发重建策略（高冲突、长 barrier、持续分歧）。
-3. 联调与性能剖析（token、延迟、失败恢复）。
-
-门禁：
-
-- 全量 Val + 失败题重测 + 全量留档。
-- 指标优于 Phase 4；否则继续微调。
-- 达标后 commit，自动进入 Phase 6。
-
-### Phase 6：完整消融与鲁棒性评估
-
-子任务拆分：
-
-1. 单模块消融（-M1/-M2/-M3/-M4/-M5）。
-2. 噪声与并发压力场景评测。
-3. 错误持久化与记忆污染对抗实验。
-
-门禁：
-
-- 主模型全量 Val + 失败题重测 + 全量留档。
-- 主模型指标仍需优于 Phase 5。
-- 达标后 commit，自动进入 Phase 7。
-
-### Phase 7：论文/报告打包与复现工件发布
-
-子任务拆分：
-
-1. 方法描述、伪代码、接口说明。
-2. 实验表格与 ablation 汇总。
-3. 一键复现实验脚本与工件索引文档。
-
-门禁：
-
-- 全量 Val 终版复测 + 失败题重测 + 全量留档。
-- 指标优于 Phase 6（至少不退化，建议保持提升）。
-- 达标后 commit，完成主线。
+- 指标严格优于 Phase2，否则继续优化。
+- 达标后 commit，主线完成。
 
 ---
 

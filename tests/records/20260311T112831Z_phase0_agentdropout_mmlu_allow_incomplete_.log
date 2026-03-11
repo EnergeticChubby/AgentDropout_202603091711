@@ -1,0 +1,74 @@
+****************
+Normal
+
+    I will ask you a question and 4 answers enumerated as A, B, C and D.
+    Only one answer out of the offered 4 is correct.
+    Using the reasoning from other agents as additional advice with critical thinking, can you give an updated answer?
+    You are strictly prohibited from imitating the analysis process of other agents
+    Your reply must be less than 100 words but include your answer and a brief step by step analysis of the question.
+    The first line of your reply must contain only one letter(for example : A, B, C or D)
+    
+[['km94', 'km94']]
+Number of topics:  1
+Total number of questions:  1
+Number of topics:  1
+Total number of questions:  1
+Final spatial logits:  Parameter containing:
+tensor([10.])
+Final temporal logits:  Parameter containing:
+tensor([10.])
+Final spatial masks:  Parameter containing:
+tensor([0])
+Final temporal masks:  Parameter containing:
+tensor([0])
+Final spatial sparsity: tensor(0.)
+Final temporal sparsity: tensor(0.)
+Evaluating AgentDropout on MMLUDataset split val
+Starting initial evaluation round 0 with 1 questions
+  0%|          | 0/1 [00:00<?, ?it/s]100%|██████████| 1/1 [00:34<00:00, 34.10s/it]100%|██████████| 1/1 [00:34<00:00, 34.10s/it]
+--------------------------------------------------------------------------------
+Error during execution of node km94: RetryError[<Future at 0x7f096844d910 state=finished raised RuntimeError>]
+Error during execution of node km94: RetryError[<Future at 0x7f0968613c50 state=finished raised RuntimeError>]
+Error during execution of node km94: RetryError[<Future at 0x7f096844cf80 state=finished raised RuntimeError>]
+Batch time 34.096
+[WARN] Evaluation failed at question 0 (round=0): RetryError[<Future at 0x7f0968470230 state=finished raised RuntimeError>]
+Cost 0.0
+PromptTokens 0.0
+CompletionTokens 0.0
+[INFO] Sleeping 1.0s before next retry round for 1 failed questions.
+Starting retry evaluation round 1 with 1 questions
+  0%|          | 0/1 [00:00<?, ?it/s]100%|██████████| 1/1 [00:30<00:00, 30.62s/it]100%|██████████| 1/1 [00:30<00:00, 30.62s/it]
+--------------------------------------------------------------------------------
+Error during execution of node km94: RetryError[<Future at 0x7f096844c4d0 state=finished raised RuntimeError>]
+Error during execution of node km94: RetryError[<Future at 0x7f096846a510 state=finished raised RuntimeError>]
+Error during execution of node km94: RetryError[<Future at 0x7f0968496900 state=finished raised RuntimeError>]
+Batch time 30.620
+[WARN] Evaluation failed at question 0 (round=1): RetryError[<Future at 0x7f096846a150 state=finished raised RuntimeError>]
+Cost 0.0
+PromptTokens 0.0
+CompletionTokens 0.0
+[ERROR] Evaluation incomplete after retries. Remaining failed questions: [0]
+Traceback (most recent call last):
+  File "/workspace/experiments/run_mmlu.py", line 220, in <module>
+    asyncio.run(main())
+  File "/usr/lib/python3.12/asyncio/runners.py", line 194, in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/asyncio/base_events.py", line 687, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "/workspace/experiments/run_mmlu.py", line 132, in main
+    score = await evaluate(
+            ^^^^^^^^^^^^^^^
+  File "/workspace/experiments/evaluate_mmlu.py", line 157, in evaluate
+    accuracy.print()
+  File "/workspace/experiments/accuracy.py", line 15, in print
+    accuracy = self.get()
+               ^^^^^^^^^^
+  File "/workspace/experiments/accuracy.py", line 12, in get
+    return self._num_correct / self._num_total
+           ~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~
+ZeroDivisionError: division by zero
