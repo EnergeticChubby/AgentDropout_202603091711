@@ -1,0 +1,14 @@
+docs/TESTING_AND_PHASE_PLAN.md:105:1. 每完成一个 phase，必须执行一次“优化后的 MMLU benchmark”，且必须使用 **MMLU 完整 Val 集**（不得抽样、不得截断）。
+docs/TESTING_AND_PHASE_PLAN.md:107:3. 若出现 API 高并发导致的失败题，必须对失败题进行重测，直到题目被成功评测或达到明确定义的重试上限并记录原因。
+docs/TESTING_AND_PHASE_PLAN.md:129:- `limit_questions` 必须为 `None`（全量 Val）。
+docs/TESTING_AND_PHASE_PLAN.md:131:- 建议重试策略：降低重试批大小（如 `retry_batch_size=1`）并增加重试轮次。
+docs/TESTING_AND_PHASE_PLAN.md:133:  - `python experiments/run_mmlu.py --llm_name glm-4.5-flash --batch_size 4 --retry_batch_size 1 --max_retry_rounds 5 --retry_delay 2`
+experiments/run_mmlu.py:57:    parser.add_argument('--limit_questions', type=int, default=None,
+experiments/run_mmlu.py:63:    parser.add_argument('--retry_batch_size', type=int, default=1,
+experiments/run_mmlu.py:83:    limit_questions = args.limit_questions
+experiments/run_mmlu.py:126:            limit_questions=limit_questions,
+experiments/run_mmlu.py:136:            limit_questions=limit_questions,
+experiments/evaluate_mmlu.py:38:        limit_questions: Optional[int] = None,
+experiments/evaluate_mmlu.py:52:        if limit_questions is not None and i_record >= limit_questions:
+experiments/evaluate_mmlu.py:70:    retry_batch_size = max(1, int(getattr(args, "retry_batch_size", 1)))
+experiments/evaluate_mmlu.py:79:        current_batch_size = retry_batch_size if is_retry_round else eval_batch_size
