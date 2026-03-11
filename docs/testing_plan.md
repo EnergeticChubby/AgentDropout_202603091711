@@ -1,0 +1,100 @@
+# 测试与复现执行计划（Blny_v2）
+
+## 1. 目标与范围
+
+本计划用于规范 `Blny_v2` 分支上的所有测试活动，确保以下目标同时成立：
+
+1. **测试代码可追溯**：每次测试使用的脚本、命令、参数可定位。
+2. **测试记录可复核**：每次测试有标准化记录文件（命令、日志、退出码、环境快照）。
+3. **结果可复现**：任意成员可依据记录在相同代码版本上复跑测试。
+4. **流程可审计**：每个 phase 更新均有独立 commit。
+
+---
+
+## 2. 强制模型与接口配置（所有测试统一）
+
+所有测试必须使用以下配置，不允许混用其他模型或接口：
+
+- `model_name`: `glm-4.5-flash`
+- `base_url`: `https://llm.undefined.qzz.io/v1/chat/completions`
+- `api_key`: `sk-pc8yOBXhAVOXEa38hpH1XBtuPwadnB1rLpNxHMS6grCuMrZh`
+
+建议将上述配置写入环境文件，并在测试记录中完整回填。
+
+---
+
+## 3. 测试资产存储规范
+
+### 3.1 测试代码（必须入库）
+
+- 目录：`experiments/tests/`
+- 内容：测试脚本、测试驱动程序、参数模板、数据切分脚本。
+- 命名建议：`test_<dataset>_<target>.py` 或 `run_<dataset>_<target>.sh`
+
+### 3.2 测试记录（必须入库）
+
+- 目录：`result/test_records/`
+- 分层规则：`result/test_records/<phase>/<UTC_TIMESTAMP>_<test_name>/`
+- 每条记录至少包含：
+  - `record.md`（执行摘要）
+  - `command.sh`（可直接复跑）
+  - `stdout.log`、`stderr.log`
+  - `exit_code.txt`
+  - `env_snapshot.txt`（分支、commit、Python版本等）
+
+---
+
+## 4. Phase 管理与提交策略（强制）
+
+每个 phase 更新完成后，必须立即 commit，不得把多个 phase 混在同一个 commit 中。
+
+### 4.1 推荐 phase 划分
+
+- **Phase 0：环境与数据准备**
+- **Phase 1：基线运行（无改动）**
+- **Phase 2：功能/策略改动**
+- **Phase 3：回归与对比验证**
+- **Phase 4：结果汇总与文档发布**
+
+### 4.2 Commit 规则
+
+- 分支命名：统一使用 `Blny_v2`
+- 每个 phase 至少 1 个 commit
+- 提交信息格式建议：
+  - `phase0: environment and dataset setup`
+  - `phase1: baseline test records`
+  - `phase2: implementation and test updates`
+  - `phase3: regression verification records`
+  - `phase4: final report and reproducibility docs`
+
+---
+
+## 5. 可复现执行流程（标准）
+
+1. 切到 `Blny_v2` 并确认工作区干净（允许未跟踪文件但不得污染测试结果）。
+2. 固化配置（模型、接口、密钥）到环境变量或配置文件。
+3. 使用 `scripts/testing/run_and_record.sh` 执行测试并自动归档记录。
+4. 检查 `result/test_records/` 中记录完整性。
+5. 将测试代码和记录一起提交，按 phase 进行 commit。
+6. 推送远端并在变更说明中引用对应记录路径。
+
+---
+
+## 6. 质量门禁（通过标准）
+
+以下条件全部满足才可判定该 phase 完成：
+
+- 测试命令可复跑，且退出码与记录一致。
+- 关键指标（accuracy/正确率/耗时/成本）有明确对比或解释。
+- `record.md` 提供输入、输出、配置、结论四要素。
+- commit 与 phase 一一对应，便于审计和回滚。
+
+---
+
+## 7. 交付物清单（每个 phase）
+
+- 测试代码变更（如有）
+- 测试记录目录（必须）
+- 结论性 Markdown（必须，专业、可读、可复核）
+- 独立 commit（必须）
+

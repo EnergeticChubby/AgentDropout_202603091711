@@ -16,6 +16,7 @@ This repository releases the codes and data for the paper -- AgentDropout: Dynam
 - **[About AgentDropout](#about)**
 - **[File Structure](#structure)**
 - **[Requirements](#requirements)**
+- **[Testing & Reproducibility Plan](docs/testing_plan.md)**
 - **[Quick Start](#start)**
 - **[Citation](#citation)**
 
@@ -43,7 +44,11 @@ It conducts two types of dropout:
 | [`datasets/`](https://github.com/wangzx1219/AgentDropout/tree/main/datasets)     | Experimental data     |
 | [`AgentDropout/`](https://github.com/wangzx1219/AgentDropout/tree/main/AgentDropout) | Main codes            |
 | [`experiments/`](https://github.com/wangzx1219/AgentDropout/tree/main/experiments)  | Test scripts          |
+| `experiments/tests/` | Versioned test code |
+| `scripts/testing/` | Test record tooling |
 | [`result/`](https://github.com/wangzx1219/AgentDropout/tree/main/result)       | Few samples of output |
+| `result/test_records/` | Reproducible test records |
+| `docs/testing_plan.md` | Phase policy and reproducibility standard |
 
 ## **⚙️ Requirements**<a name="requirements"></a>
 
@@ -70,6 +75,12 @@ model_name = "glm-4.5-flash"
 base_url = "https://llm.undefined.qzz.io/v1/chat/completions"
 api_key = "sk-pc8yOBXhAVOXEa38hpH1XBtuPwadnB1rLpNxHMS6grCuMrZh"
 ```
+
+**Phase Commit Policy (Required)**:
+
+- Each phase update must be committed independently.
+- Do not merge multiple phases into one commit.
+- Detailed execution standard: `docs/testing_plan.md`
 
 3. **Local Model Deployment** (Optional):
 
