@@ -66,9 +66,9 @@ MINE_API_KEYS = ""
 For standardized testing in this repository, use the following fixed plan:
 
 ```text
-MODEL_NAME=qwen3-8b
-BASE_URL=https://llm.undefined.qzz.io/v1/chat/completions
-API_KEY=sk-pc8yOBXhAVOXEa38hpH1XBtuPwadnB1rLpNxHMS6grCuMrZh
+MODEL_NAME=gpt-5.1-codex-mini
+BASE_URL=https://api.xcode.best/v1
+API_KEY=sk-M2s3Lvk4zPZZzHdHNoIU58tLGRnqAjKwGwRNCOqD0E6hCSTW
 ```
 
 3. **Local Model Deployment** (Optional):
@@ -98,7 +98,7 @@ python experiments/run_gsm8k.py \
   --imp_per_iterations 1 \
   --pruning_rate 0.10 \
   --num_rounds 2 \
-  --llm_name /data/models/Meta-Llama-3-8B-Instruct \
+  --llm_name gpt-5.1-codex-mini \
   --optimized_spatial \
   --optimized_temporal \
   --diff \
@@ -108,7 +108,7 @@ python experiments/run_gsm8k.py \
 When testing, keep the model argument consistent with the testing plan:
 
 ```shell
-python experiments/run_gsm8k.py --llm_name qwen3-8b
+python experiments/run_gsm8k.py --llm_name gpt-5.1-codex-mini
 ```
 
 ## **📜 Citation**<a name="citation"></a>
