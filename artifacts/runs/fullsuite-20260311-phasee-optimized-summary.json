@@ -1,0 +1,45 @@
+{
+  "run_tag": "opt-full-20260311",
+  "llm_name": "qwen3-8b",
+  "endpoint": "https://llm.undefined.qzz.io/v1",
+  "profile": "phasee",
+  "before_run_tag": "full-20260311",
+  "datasets": [
+    {
+      "name": "gsm8k",
+      "num_samples": 1319,
+      "before_accuracy": 0.21910538286580744,
+      "after_accuracy": 0.9249431387414708,
+      "delta": 0.7058377558756634,
+      "before_summary_path": "artifacts/runs/fullsuite-phasee-gsm8k-full-20260311/summary.json",
+      "after_summary_path": "artifacts/runs/fullsuite-phasee-gsm8k-opt-full-20260311/summary.json"
+    },
+    {
+      "name": "multiarith",
+      "num_samples": 180,
+      "before_accuracy": 0.8111111111111111,
+      "after_accuracy": 0.9944444444444445,
+      "delta": 0.18333333333333335,
+      "before_summary_path": "artifacts/runs/fullsuite-phasee-multiarith-full-20260311/summary.json",
+      "after_summary_path": "artifacts/runs/fullsuite-phasee-multiarith-opt-full-20260311/summary.json"
+    },
+    {
+      "name": "svamp",
+      "num_samples": 300,
+      "before_accuracy": 0.32,
+      "after_accuracy": 0.9233333333333333,
+      "delta": 0.6033333333333333,
+      "before_summary_path": "artifacts/runs/fullsuite-phasee-svamp-full-20260311/summary.json",
+      "after_summary_path": "artifacts/runs/fullsuite-phasee-svamp-opt-full-20260311/summary.json"
+    },
+    {
+      "name": "humaneval",
+      "num_samples": 164,
+      "before_accuracy": 0.0,
+      "after_accuracy": 0.8292682926829268,
+      "delta": 0.8292682926829268,
+      "before_summary_path": "artifacts/runs/fullsuite-phasee-humaneval-full-20260311/summary.json",
+      "after_summary_path": "artifacts/runs/fullsuite-phasee-humaneval-opt-full-20260311/summary.json"
+    }
+  ]
+}

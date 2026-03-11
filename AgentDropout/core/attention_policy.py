@@ -23,7 +23,7 @@ class RuleBasedAttentionPolicy:
             "propose": READ_SUMMARY,
             "critique": READ_CLAIMS,
             "verify": READ_CLAIMS_EVIDENCE,
-            "aggregate": READ_CLAIMS,
+            "aggregate": READ_FULL,
         }
 
     def decide_level(

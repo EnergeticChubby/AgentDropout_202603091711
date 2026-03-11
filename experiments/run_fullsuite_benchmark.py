@@ -166,12 +166,14 @@ def build_graph(args: argparse.Namespace) -> Tuple[Graph, int]:
         domain = "humaneval"
         agent_name = "CodeWriting"
         agent_count = args.code_agent_count
+        node_kwargs = [{"role": "Programming Expert"} for _ in range(agent_count)]
         decision_method = "FinalDirect" if agent_count == 1 else "FinalWriteCode"
         num_rounds = 1 if agent_count == 1 else 2
     else:
         domain = "gsm8k"
         agent_name = "MathSolver"
         agent_count = args.math_agent_count
+        node_kwargs = [{"role": "Math Solver"} for _ in range(agent_count)]
         decision_method = "FinalDirect" if agent_count == 1 else "FinalRefer"
         num_rounds = 1
 
@@ -189,6 +191,7 @@ def build_graph(args: argparse.Namespace) -> Tuple[Graph, int]:
         "fixed_spatial_masks": [[1 if i != j else 0 for i in range(agent_count)] for j in range(agent_count)],
         "initial_temporal_probability": 0.5,
         "fixed_temporal_masks": [[1 for _ in range(agent_count)] for _ in range(agent_count)],
+        "node_kwargs": node_kwargs,
     }
 
     if args.profile == "agentdropout":
