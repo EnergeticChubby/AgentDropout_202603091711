@@ -12,7 +12,7 @@ async def test_qwen3_connectivity():
     if not base_url or not api_key:
         pytest.skip("OPENAI_BASE_URL/OPENAI_API_KEY is not configured for connectivity test.")
 
-    llm = LLMRegistry.get("qwen3-8b")
+    llm = LLMRegistry.get("gpt-5.1-codex-mini")
     response = await llm.agen(
         [
             {"role": "system", "content": "You are a concise assistant."},

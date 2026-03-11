@@ -264,7 +264,7 @@ def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("--run_name", default="agentdropout_original_full")
     parser.add_argument("--dataset_name", default="edinburgh-dawg/mmlu-redux")
-    parser.add_argument("--model_name", default=os.environ.get("LLM_MODEL_NAME", "qwen3-8b"))
+    parser.add_argument("--model_name", default=os.environ.get("LLM_MODEL_NAME", "gpt-5.1-codex-mini"))
     parser.add_argument("--num_shards", type=int, default=8)
     parser.add_argument("--limit_questions", type=int, default=10000)
     parser.add_argument("--eval_split", default="test")

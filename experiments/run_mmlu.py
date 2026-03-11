@@ -43,7 +43,7 @@ def parse_args():
                         help="Number of optimization/inference rounds for one query")
     parser.add_argument('--pruning_rate', type=float, default=0.25,
                         help="The Rate of Pruning. Default 0.05.")
-    parser.add_argument('--llm_name', type=str, default=os.getenv("LLM_MODEL_NAME", "qwen3-8b"),
+    parser.add_argument('--llm_name', type=str, default=os.getenv("LLM_MODEL_NAME", "gpt-5.1-codex-mini"),
                         help="Model name, None runs the default ChatGPT4")
     parser.add_argument('--dataset_name', type=str, default="edinburgh-dawg/mmlu-redux",
                         help="Dataset name. Use 'edinburgh-dawg/mmlu-redux' for benchmark.")

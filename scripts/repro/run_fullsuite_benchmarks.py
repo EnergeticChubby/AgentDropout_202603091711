@@ -24,7 +24,6 @@ RATE_LIMIT_PATTERN = re.compile(
     r"(error code:\s*429|rate_limited|rate limit|error 1015)",
     re.IGNORECASE,
 )
-MIN_SAFE_MAX_TOKENS = 256
 
 
 BENCHMARK_SPECS: Dict[str, Dict[str, str]] = {
@@ -453,7 +452,7 @@ async def main() -> None:
     parser.add_argument("--profile", choices=["agentdropout", "phase3"], required=True)
     parser.add_argument("--benchmark", choices=["gsm8k", "multiarith", "svamp", "humaneval", "all"], default="all")
     parser.add_argument("--run_name", default="fullsuite")
-    parser.add_argument("--llm_name", default=os.getenv("LLM_MODEL_NAME", "qwen3-8b"))
+    parser.add_argument("--llm_name", default=os.getenv("LLM_MODEL_NAME", "gpt-5.1-codex-mini"))
     parser.add_argument("--max_retries", type=int, default=12)
     parser.add_argument("--max_examples", type=int, default=None)
     parser.add_argument("--math_agent_count", type=int, default=1)
@@ -465,17 +464,10 @@ async def main() -> None:
     parser.add_argument("--math_decision_method", default="FinalDirect")
     parser.add_argument("--code_decision_method", default="FinalWriteCode")
     parser.add_argument("--concurrency", type=int, default=1)
-    parser.add_argument("--max_tokens", type=int, default=MIN_SAFE_MAX_TOKENS)
-    parser.add_argument("--allow_low_max_tokens", action="store_true")
+    parser.add_argument("--max_tokens", type=int, default=None)
     args = parser.parse_args()
 
-    if args.max_tokens < MIN_SAFE_MAX_TOKENS and not args.allow_low_max_tokens:
-        raise SystemExit(
-            f"max_tokens={args.max_tokens} is too low for math/code full-suite runs and can truncate outputs. "
-            f"Use max_tokens>={MIN_SAFE_MAX_TOKENS}, or pass --allow_low_max_tokens to override intentionally."
-        )
-
-    LLM.DEFAULT_MAX_TOKENS = int(args.max_tokens)
+    LLM.DEFAULT_MAX_TOKENS = int(args.max_tokens) if args.max_tokens is not None else None
 
     benchmarks = ["gsm8k", "multiarith", "svamp", "humaneval"] if args.benchmark == "all" else [args.benchmark]
     output_root = Path("artifacts/tests") / f"{args.run_name}_{args.profile}"

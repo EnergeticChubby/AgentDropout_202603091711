@@ -2,7 +2,7 @@
 set -euo pipefail
 
 PHASE_NAME="${1:-phase0}"
-MODEL_NAME="${LLM_MODEL_NAME:-qwen3-8b}"
+MODEL_NAME="${LLM_MODEL_NAME:-gpt-5.1-codex-mini}"
 DATASET_NAME="${DATASET_NAME:-edinburgh-dawg/mmlu-redux}"
 NUM_SHARDS=8
 LIMIT_QUESTIONS="${LIMIT_QUESTIONS:-8}"

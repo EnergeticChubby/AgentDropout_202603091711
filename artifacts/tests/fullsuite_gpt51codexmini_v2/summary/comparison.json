@@ -1,0 +1,27 @@
+{
+  "model": "gpt-5.1-codex-mini",
+  "base_url": "https://api.xcode.best/v1",
+  "max_tokens_limited": false,
+  "profiles": {
+    "agentdropout": {
+      "gsm8k_accuracy": 0.9575435936315391,
+      "multiarith_accuracy": 1.0,
+      "svamp_accuracy": 0.95,
+      "humaneval_pass_at_1": 0.9817073170731707,
+      "aggregate_path": "artifacts/tests/fullsuite_gpt51codexmini_v2_agentdropout/summary/20260311-135316.json"
+    },
+    "phase3": {
+      "gsm8k_accuracy": 0.9613343442001516,
+      "multiarith_accuracy": 1.0,
+      "svamp_accuracy": 0.95,
+      "humaneval_pass_at_1": 0.975609756097561,
+      "aggregate_path": "artifacts/tests/fullsuite_gpt51codexmini_v2_phase3/summary/20260311-143801.json"
+    }
+  },
+  "diff_phase3_minus_agentdropout": {
+    "gsm8k_accuracy": 0.003790750568612495,
+    "multiarith_accuracy": 0.0,
+    "svamp_accuracy": 0.0,
+    "humaneval_pass_at_1": -0.0060975609756097615
+  }
+}
