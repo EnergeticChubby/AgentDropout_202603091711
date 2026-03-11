@@ -1,0 +1,31 @@
+# Command
+python3 tests/repro/test_phase0_agentdropout_local.py
+
+# Output
+****************
+Normal
+
+    I will ask you a question and 4 answers enumerated as A, B, C and D.
+    Only one answer out of the offered 4 is correct.
+    Using the reasoning from other agents as additional advice with critical thinking, can you give an updated answer?
+    You are strictly prohibited from imitating the analysis process of other agents
+    Your reply must be less than 100 words but include your answer and a brief step by step analysis of the question.
+    The first line of your reply must contain only one letter(for example : A, B, C or D)
+    
+[['oyUN', 'oyUN']]
+Number of topics:  1
+Total number of questions:  1
+Evaluating AgentDropout on MMLUDataset split val
+  0%|          | 0/1 [00:00<?, ?it/s]100%|██████████| 1/1 [00:00<00:00, 463.72it/s]
+--------------------------------------------------------------------------------
+Batch time 0.002
+Raw answer: ['B\nBecause 3 + 2 = 5.']
+Postprocessed answer: B
+Correct answer: B
+Accuracy: 100.0% (1/1)
+Cost 0.0
+PromptTokens 0.0
+CompletionTokens 0.0
+Accuracy: 100.0% (1/1)
+Done! All full-val questions completed successfully.
+phase0 agentdropout local test passed

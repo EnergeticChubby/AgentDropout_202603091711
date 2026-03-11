@@ -89,6 +89,29 @@ def main() -> int:
     if not ok:
         failures.append(f"{eval_mmlu}: missing retry/full-val enforcement fragments -> {missing}")
 
+    phase0_test = ROOT / "tests/repro/test_phase0_agentdropout_local.py"
+    ok, missing = check_contains(
+        phase0_test,
+        [
+            "_ensure_local_mmlu_sample()",
+            "phase0 agentdropout local test passed",
+        ],
+    )
+    if not ok:
+        failures.append(f"{phase0_test}: missing Phase0 local test fragments -> {missing}")
+
+    mmlu_download = ROOT / "datasets/MMLU/download.py"
+    ok, missing = check_contains(
+        mmlu_download,
+        [
+            "def download() -> None:",
+            "datasets/MMLU/data/dev",
+            "datasets/MMLU/data/val",
+        ],
+    )
+    if not ok:
+        failures.append(f"{mmlu_download}: missing MMLU download shim fragments -> {missing}")
+
     if failures:
         print("REPRO CHECK FAILED")
         for item in failures:

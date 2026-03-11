@@ -185,3 +185,10 @@ Before pushing updates, confirm:
 The complete research program for the forecastive IoA direction is maintained in:
 
 - `docs/FORECASTIVE_STATE_SPACE_GOVERNANCE_PLAN.md`
+
+Phase structure in the master plan is direction-based:
+
+- `Phase 0`: AgentDropout baseline (must be tested)
+- `Phase 1`: collaboration state estimation
+- `Phase 2`: forecastive modeling
+- `Phase 3`: governance control and full fusion

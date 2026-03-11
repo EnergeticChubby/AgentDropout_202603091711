@@ -2,9 +2,12 @@
 
 This index tracks optimized MMLU benchmark results across phases.
 
-| Phase | Benchmark Time (UTC) | Branch | Commit | Score | Delta vs Previous | Total Val Questions | Unresolved Failures | Report | Logs |
-|---|---|---|---|---:|---:|---:|---:|---|---|
-| `phase_01` | `TBD` | `AdamMartinez6793_v2` | `TBD` | `TBD` | `N/A` | `TBD` | `TBD` | `tests/benchmarks/mmlu/phase_01/benchmark_report.md` | `tests/benchmarks/mmlu/phase_01/logs/` |
+| Phase | Direction | Benchmark Time (UTC) | Branch | Commit | Score | Delta vs Previous | Total Val Questions | Unresolved Failures | Report | Logs |
+|---|---|---|---|---|---:|---:|---:|---:|---|---|
+| `phase_0` | `AgentDropout baseline` | `TBD` | `AdamMartinez6793_v2` | `TBD` | `TBD` | `N/A` | `TBD` | `TBD` | `tests/benchmarks/mmlu/phase_0/benchmark_report.md` | `tests/benchmarks/mmlu/phase_0/logs/` |
+| `phase_1` | `state estimation` | `TBD` | `AdamMartinez6793_v2` | `TBD` | `TBD` | `TBD` | `TBD` | `TBD` | `tests/benchmarks/mmlu/phase_1/benchmark_report.md` | `tests/benchmarks/mmlu/phase_1/logs/` |
+| `phase_2` | `forecastive modeling` | `TBD` | `AdamMartinez6793_v2` | `TBD` | `TBD` | `TBD` | `TBD` | `TBD` | `tests/benchmarks/mmlu/phase_2/benchmark_report.md` | `tests/benchmarks/mmlu/phase_2/logs/` |
+| `phase_3` | `governance + fusion` | `TBD` | `AdamMartinez6793_v2` | `TBD` | `TBD` | `TBD` | `TBD` | `TBD` | `tests/benchmarks/mmlu/phase_3/benchmark_report.md` | `tests/benchmarks/mmlu/phase_3/logs/` |
 
 ## Maintenance Rules
 

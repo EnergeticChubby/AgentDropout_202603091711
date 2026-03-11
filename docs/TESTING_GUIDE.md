@@ -18,6 +18,10 @@ Research master roadmap reference:
 
 - `docs/FORECASTIVE_STATE_SPACE_GOVERNANCE_PLAN.md`
 
+Phase baseline test reference:
+
+- `python3 tests/repro/test_phase0_agentdropout_local.py`
+
 ## Directory Convention
 
 - Test code: `tests/repro/`

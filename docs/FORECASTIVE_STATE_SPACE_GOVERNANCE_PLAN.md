@@ -141,7 +141,7 @@ IoA 的本质问题不是“当前拓扑/工作流是否最优”，而是：
 2. 失败集合顺序重跑；
 3. unresolved failures 必须为 0 才能判定本阶段 benchmark 完成。
 
-## 7. Phase 研发路线图（强门禁）
+## 7. Phase 路线图（按方向组织，从基础到高级）
 
 每一 phase 都必须执行以下流程：
 
@@ -152,40 +152,67 @@ IoA 的本质问题不是“当前拓扑/工作流是否最优”，而是：
 5. 若未优于上一 phase，继续优化并重测；
 6. 达标后 commit 并进入下一 phase。
 
-### Phase 1: State Estimator MVP
+### Phase 0（基线方向）: AgentDropout Baseline
 
-- 交付：protocol-grounded state features + 基础状态估计器
-- 基线：无状态估计版本
-- 门禁：完整 MMLU `val` + unresolved=0 + `Score(1) > Score(0)`
+目标：建立可复现、可对照的 AgentDropout 基线能力。
 
-### Phase 2: Early Priors + Trans-Round State
+#### 细分计划
 
-- 交付：衰减先验机制、跨轮状态缓存
-- 消融：无先验、恒定先验、无跨轮状态
-- 门禁：`Score(2) > Score(1)`
+1. `P0.1` 环境与数据就绪：
+   - MMLU 目录检查与下载/准备；
+   - API 重试参数校验；
+   - 本地可复现 smoke 测试（不依赖外部并发稳定性）。
+2. `P0.2` 基线运行与归档：
+   - 运行完整 MMLU `val`；
+   - 对并发失败题执行重测；
+   - 保留全量日志、输出、分数。
+3. `P0.3` 评测报告：
+   - 生成 `benchmark_report.md`；
+   - 写入 `tests/benchmarks/mmlu/INDEX.md` 的 Phase 0 行。
 
-### Phase 3: Capacity-Aware Societal Memory
+门禁：`Score(0)` 作为后续 phase 的比较基线，且 unresolved failures = 0。
 
-- 交付：三级记忆与容量监控
-- 消融：无容量感知、无 societal memory
-- 门禁：`Score(3) > Score(2)`
+### Phase 1（方向一，基础层）: Collaboration State Estimation
 
-### Phase 4: Distributional Forecast Head
+目标：构建协作隐状态估计能力。
 
-- 交付：多分辨率输入 + 分布预测头 + 单调/一致性约束
-- 消融：point forecast、无约束 forecast
-- 门禁：`Score(4) > Score(3)`
+#### 细分计划
 
-### Phase 5: Receding-Horizon Governance
+1. `P1.1` 事件模式定义（protocol-grounded event schema）；
+2. `P1.2` 状态特征工程（micro/meso/macro）；
+3. `P1.3` 状态估计器 MVP；
+4. `P1.4` 误差分析与可解释可视化；
+5. `P1.5` 完整 MMLU `val` 门禁评测。
 
-- 交付：治理动作策略与在线控制闭环
-- 消融：预测不治理、治理不预测、无风险约束控制
-- 门禁：`Score(5) > Score(4)`
+门禁：`Score(1) > Score(0)`。
 
-### Phase 6: Full Ablation + Robustness + Writing
+### Phase 2（方向二，中级层）: Forecastive Modeling
 
-- 交付：完整实验表、误差/失败案例分析、论文主文和附录
-- 门禁：`Score(6) > Score(5)`
+目标：实现“先验 + 记忆 + 分布预测”的预测核心。
+
+#### 细分计划
+
+1. `P2.1` 早期强先验与衰减机制；
+2. `P2.2` 跨轮状态缓存；
+3. `P2.3` 容量感知社会记忆（三层）；
+4. `P2.4` 多分辨率分布预测头与约束；
+5. `P2.5` 完整 MMLU `val` 门禁评测。
+
+门禁：`Score(2) > Score(1)`。
+
+### Phase 3（方向三，高级层）: Governance Control + Full Fusion
+
+目标：融合前两方向并形成完整预测治理闭环。
+
+#### 细分计划
+
+1. `P3.1` 治理动作空间设计（暂停、回滚、拆并组、优先级、预算节流）；
+2. `P3.2` 滚动预测控制策略；
+3. `P3.3` 三方向融合（Phase0 baseline + Phase1 state + Phase2 forecasting）；
+4. `P3.4` 端到端消融与鲁棒性实验；
+5. `P3.5` 完整 MMLU `val` 门禁评测与 final report。
+
+门禁：`Score(3) > Score(2)`，并输出完整融合方案。
 
 ## 8. 工程与产物规范
 

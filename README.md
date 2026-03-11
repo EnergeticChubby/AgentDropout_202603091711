@@ -136,6 +136,8 @@ The complete research roadmap based on forecastive state-space governance is mai
 
 - `docs/FORECASTIVE_STATE_SPACE_GOVERNANCE_PLAN.md`
 
+Roadmap phases are organized as: `Phase 0` (AgentDropout baseline), `Phase 1` (state estimation), `Phase 2` (forecastive modeling), `Phase 3` (governance + fusion).
+
 ## **📜 Citation**<a name="citation"></a>
 
 If you find this work useful, please cite:
