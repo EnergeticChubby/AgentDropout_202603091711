@@ -113,6 +113,19 @@ A phase is considered complete only when both conditions are true:
 
 After both are satisfied, proceed automatically to the next phase.
 
+### 4.7 Full-val benchmark requirement with failed-question retest
+
+All benchmark testing must use the complete MMLU `val` split.
+
+- partial evaluation is not allowed for phase gating.
+- `limit_questions` must remain `None` for phase benchmark runs.
+
+Because high API concurrency can cause transient failures, failed questions must be re-tested:
+
+1. per-question retry with backoff,
+2. additional rerun rounds for unresolved failed questions,
+3. mark phase as incomplete if any question remains unresolved.
+
 ## 5. Benchmark Data Retention and Indexing
 
 All MMLU benchmark data must be retained in-repo.
@@ -126,6 +139,8 @@ All MMLU benchmark data must be retained in-repo.
   - commit SHA
   - score
   - delta vs previous phase
+  - total question count (must match full `val` split)
+  - unresolved failure count (must be `0` for gate pass)
   - report/log paths
 
 Deleting failed or intermediate benchmark runs is not allowed.
@@ -157,7 +172,9 @@ Before pushing updates, confirm:
 - [ ] reproducible test code is committed
 - [ ] reproducible test records are committed
 - [ ] optimized MMLU benchmark is executed for the phase
+- [ ] benchmark uses complete MMLU `val` split (no partial subset)
 - [ ] benchmark score is strictly better than previous phase
+- [ ] failed questions are re-tested until unresolved count is `0`
 - [ ] benchmark data and logs are fully retained
 - [ ] markdown docs are updated with current behavior
 - [ ] each phase has its own commit

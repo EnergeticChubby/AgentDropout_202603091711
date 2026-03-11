@@ -43,14 +43,17 @@ run_and_record \
   "py_compile" \
   python3 -m py_compile \
   AgentDropout/llm/gpt_chat.py \
+  experiments/evaluate_mmlu.py \
   experiments/run_gsm8k.py \
   experiments/run_aqua.py \
   experiments/run_svamp.py \
   experiments/run_multiarith.py \
   experiments/run_humaneval.py \
   experiments/run_mmlu.py \
-  tests/repro/check_unified_config.py
+  tests/repro/check_unified_config.py \
+  tests/repro/test_mmlu_retry_behavior.py
 run_and_record "config_assertions" python3 tests/repro/check_unified_config.py
+run_and_record "mmlu_retry_behavior" python3 tests/repro/test_mmlu_retry_behavior.py
 
 {
   echo "# Reproducible Test Report"

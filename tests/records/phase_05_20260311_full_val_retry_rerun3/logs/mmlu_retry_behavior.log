@@ -1,0 +1,37 @@
+# Command
+python3 tests/repro/test_mmlu_retry_behavior.py
+
+# Output
+Evaluating AgentDropout on FakeDataset split val
+--------------------------------------------------------------------------------
+Batch time 0.031
+Raw answer: A
+Postprocessed answer: A
+Correct answer: A
+Accuracy: 100.0% (1/1)
+Cost 0.0
+PromptTokens 0.0
+CompletionTokens 0.0
+Retrying unresolved questions in sequential rounds: 1
+Sequential rerun round 1, unresolved=1
+Done with unresolved records: 1
+Traceback (most recent call last):
+  File "/workspace/tests/repro/test_mmlu_retry_behavior.py", line 171, in <module>
+    asyncio.run(_main())
+  File "/usr/lib/python3.12/asyncio/runners.py", line 194, in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/asyncio/base_events.py", line 687, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "/workspace/tests/repro/test_mmlu_retry_behavior.py", line 165, in _main
+    await _case_retry_then_success()
+  File "/workspace/tests/repro/test_mmlu_retry_behavior.py", line 126, in _case_retry_then_success
+    score = await evaluate(
+            ^^^^^^^^^^^^^^^
+  File "/workspace/experiments/evaluate_mmlu.py", line 235, in evaluate
+    raise RuntimeError(
+RuntimeError: MMLU full-val evaluation incomplete: 1 questions still failed after retries.

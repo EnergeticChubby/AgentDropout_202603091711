@@ -119,6 +119,8 @@ Generated assets are stored under:
 - `tests/records/phase_<id>/test_report.md`
 - `tests/records/phase_<id>/logs/*.log`
 
+Phase benchmark rule: use full MMLU `val` split, and rerun failed questions caused by API concurrency until unresolved failures are zero.
+
 ## **📋 Project Plan**<a name="project-plan"></a>
 
 The repository execution plan, including mandatory phase commits and markdown standards, is maintained in:

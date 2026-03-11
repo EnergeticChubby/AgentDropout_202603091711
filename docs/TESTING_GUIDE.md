@@ -69,9 +69,10 @@ Confirm:
 After each phase commit candidate:
 
 1. run optimized MMLU benchmark,
-2. store all outputs under `tests/benchmarks/mmlu/phase_<N>/`,
-3. generate `benchmark_report.md` and raw logs,
-4. update `tests/benchmarks/mmlu/INDEX.md`.
+2. use complete MMLU `val` split (no subset),
+3. store all outputs under `tests/benchmarks/mmlu/phase_<N>/`,
+4. generate `benchmark_report.md` and raw logs,
+5. update `tests/benchmarks/mmlu/INDEX.md`.
 
 ### Step 6: Verify benchmark promotion rule
 
@@ -85,6 +86,12 @@ If not better:
 2. continue optimization/fine-tuning in the same phase,
 3. rerun benchmark and compare again,
 4. repeat until better.
+
+If API high concurrency causes failed questions:
+
+1. rerun failed questions with backoff and capped retries,
+2. execute additional rerun rounds for unresolved failures,
+3. do not pass the phase gate unless unresolved failure count is `0`.
 
 ### Step 7: Auto-transition
 
@@ -109,7 +116,8 @@ For benchmark reports (`benchmark_report.md`), include:
 2. benchmark command(s),
 3. score and scoring definition,
 4. previous-phase score and score delta,
-5. promotion gate pass/fail conclusion.
+5. total question count and unresolved failure count,
+6. promotion gate pass/fail conclusion.
 
 ## Markdown Professional Standards
 

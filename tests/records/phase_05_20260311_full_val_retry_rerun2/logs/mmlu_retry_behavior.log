@@ -1,0 +1,10 @@
+# Command
+python3 tests/repro/test_mmlu_retry_behavior.py
+
+# Output
+Traceback (most recent call last):
+  File "/workspace/tests/repro/test_mmlu_retry_behavior.py", line 13, in <module>
+    from experiments.evaluate_mmlu import evaluate
+  File "/workspace/experiments/evaluate_mmlu.py", line 7, in <module>
+    from tqdm import tqdm
+ModuleNotFoundError: No module named 'tqdm'

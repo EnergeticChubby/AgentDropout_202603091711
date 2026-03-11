@@ -40,6 +40,18 @@ def main() -> int:
         if not ok:
             failures.append(f"{run_file}: missing fragments -> {missing}")
 
+    run_mmlu = ROOT / "experiments/run_mmlu.py"
+    ok, missing = check_contains(
+        run_mmlu,
+        [
+            "parser.add_argument('--limit_questions', type=int, default=None,",
+            "parser.add_argument('--max_retries_per_question', type=int, default=6,",
+            "parser.add_argument('--rerun_failed_rounds', type=int, default=3,",
+        ],
+    )
+    if not ok:
+        failures.append(f"{run_mmlu}: missing full-val/retry config fragments -> {missing}")
+
     template_env = ROOT / "template.env"
     ok, missing = check_contains(
         template_env,
@@ -63,6 +75,19 @@ def main() -> int:
     )
     if not ok:
         failures.append(f"{gpt_chat}: missing fragments -> {missing}")
+
+    eval_mmlu = ROOT / "experiments/evaluate_mmlu.py"
+    ok, missing = check_contains(
+        eval_mmlu,
+        [
+            "max_retries_per_question: int = 6,",
+            "rerun_failed_rounds: int = 3,",
+            "raise RuntimeError(",
+            "MMLU full-val evaluation incomplete:",
+        ],
+    )
+    if not ok:
+        failures.append(f"{eval_mmlu}: missing retry/full-val enforcement fragments -> {missing}")
 
     if failures:
         print("REPRO CHECK FAILED")
