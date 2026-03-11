@@ -1,5 +1,7 @@
 # Phase-Space Constitutional IoA：完整研究与执行主计划（Blny_v2）
 
+> 本文档为研究主线展开；全局总纲请以 `plan.md` 为准。
+
 ## 1. 目标与核心问题重定义
 
 本计划采用如下硬定义作为研究母题：

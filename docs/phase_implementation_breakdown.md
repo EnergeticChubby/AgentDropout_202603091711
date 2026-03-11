@@ -1,6 +1,6 @@
 # Phase 实施细分清单（Phase0~Phase3）
 
-本文件是 `docs/phase_space_constitutional_ioa_master_plan.md` 的执行级拆解版本，用于任务排程与融合落地。
+本文件是 `plan.md` 与 `docs/phase_space_constitutional_ioa_master_plan.md` 的执行级拆解版本，用于任务排程与融合落地。
 
 ## Phase0（AgentDropout 基线）
 

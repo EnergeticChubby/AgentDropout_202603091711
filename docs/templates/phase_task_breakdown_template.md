@@ -11,6 +11,7 @@
 
 ## 计划复读确认（必填）
 
+- [ ] 已完整阅读 `plan.md`
 - [ ] 已完整阅读 `docs/testing_plan.md`
 - [ ] 已完整阅读 `docs/phase_space_constitutional_ioa_master_plan.md`
 

@@ -16,6 +16,7 @@ This repository releases the codes and data for the paper -- AgentDropout: Dynam
 - **[About AgentDropout](#about)**
 - **[File Structure](#structure)**
 - **[Requirements](#requirements)**
+- **[Global Plan](plan.md)**
 - **[Testing & Reproducibility Plan](docs/testing_plan.md)**
 - **[Research Master Plan](docs/phase_space_constitutional_ioa_master_plan.md)**
 - **[Phase Implementation Breakdown](docs/phase_implementation_breakdown.md)**
@@ -50,6 +51,7 @@ It conducts two types of dropout:
 | `scripts/testing/` | Test record tooling |
 | [`result/`](https://github.com/wangzx1219/AgentDropout/tree/main/result)       | Few samples of output |
 | `result/test_records/` | Reproducible test records |
+| `plan.md` | Global planning source of truth |
 | `docs/testing_plan.md` | Phase policy and reproducibility standard |
 | `docs/phase_space_constitutional_ioa_master_plan.md` | Complete multi-phase research execution plan |
 | `docs/phase_implementation_breakdown.md` | Direction-level milestone breakdown and fusion interfaces |
@@ -86,7 +88,7 @@ api_key = "sk-pc8yOBXhAVOXEa38hpH1XBtuPwadnB1rLpNxHMS6grCuMrZh"
 - Do not merge multiple phases into one commit.
 - Re-read the full plan and pass optimized MMLU benchmark gate before next phase.
 - Benchmark must use full MMLU Val set; retry failed items caused by API concurrency.
-- Detailed execution standard: `docs/testing_plan.md` + `docs/phase_space_constitutional_ioa_master_plan.md` + `docs/phase_implementation_breakdown.md`
+- Detailed execution standard: `plan.md` + `docs/testing_plan.md` + `docs/phase_space_constitutional_ioa_master_plan.md` + `docs/phase_implementation_breakdown.md`
 
 3. **Local Model Deployment** (Optional):
 
