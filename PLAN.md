@@ -24,7 +24,7 @@ Non-negotiable principles:
 
 All test/evaluation defaults must use:
 
-- `TEST_MODEL="qwen3-8b"`
+- `TEST_MODEL="gpt-5.1-codex-mini"`
 - `BASE_URL="https://llm.undefined.qzz.io/v1/chat/completions"`
 - `API_KEY` from `.env` (derived from `template.env`)
 

@@ -43,7 +43,7 @@ async def _main() -> None:
     kwargs = get_kwargs("DirectAnswer", 1)
     graph = Graph(
         domain="mmlu",
-        llm_name="qwen3-8b",
+        llm_name="gpt-5.1-codex-mini",
         agent_names=["AnalyzeAgent"],
         decision_method="FinalRefer",
         optimized_spatial=False,
@@ -57,7 +57,7 @@ async def _main() -> None:
     dataset_val = MMLUDataset("val")
     first_target = dataset_val.record_to_target_answer(dataset_val[0])
     expected_score = 1.0 if first_target == "B" else 0.0
-    args = SimpleNamespace(domain="mmlu", llm_name="qwen3-8b")
+    args = SimpleNamespace(domain="mmlu", llm_name="gpt-5.1-codex-mini")
     score = await evaluate(
         graph=graph,
         dataset=dataset_val,

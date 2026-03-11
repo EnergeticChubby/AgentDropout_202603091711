@@ -66,7 +66,7 @@ cp template.env .env
 
 ```env
 # Unified test plan config
-TEST_MODEL="qwen3-8b"
+TEST_MODEL="gpt-5.1-codex-mini"
 BASE_URL="https://llm.undefined.qzz.io/v1/chat/completions"
 API_KEY="sk-pc8yOBXhAVOXEa38hpH1XBtuPwadnB1rLpNxHMS6grCuMrZh"
 ```
@@ -100,7 +100,7 @@ python experiments/run_gsm8k.py \
   --imp_per_iterations 1 \
   --pruning_rate 0.10 \
   --num_rounds 2 \
-  --llm_name qwen3-8b \
+  --llm_name gpt-5.1-codex-mini \
   --optimized_spatial \
   --optimized_temporal \
   --diff \

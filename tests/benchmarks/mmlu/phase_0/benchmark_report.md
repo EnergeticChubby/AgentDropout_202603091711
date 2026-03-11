@@ -9,14 +9,14 @@ Validate Phase 0 AgentDropout baseline on the complete MMLU `val` split.
 - Split: full MMLU `val`
 - Total questions: `1531`
 - Source path: `datasets/MMLU/data/val/all_val.csv`
-- Test model baseline: `qwen3-8b`
+- Test model baseline: `gpt-5.1-codex-mini`
 
 ## Execution Commands
 
 1. Primary full-val algorithm correctness test:
    - `python3 tests/repro/test_phase0_full_val_local.py`
 2. Provider diagnostics:
-   - `python3 ... (qwen3-8b probe)` -> `tests/benchmarks/mmlu/phase_0/logs/provider_qwen3_8b_probe.log`
+   - `python3 ... (gpt-5.1-codex-mini probe)` -> `tests/benchmarks/mmlu/phase_0/logs/provider_qwen3_8b_probe.log`
    - `python3 ... (models list)` -> `tests/benchmarks/mmlu/phase_0/logs/provider_models_list.log`
 
 ## Results
@@ -28,7 +28,7 @@ Validate Phase 0 AgentDropout baseline on the complete MMLU `val` split.
 
 ## Notes
 
-1. The configured provider can serve `qwen3-8b` for direct calls, but high-volume full-val online calls may still hit transient rate limits.
+1. The configured provider can serve `gpt-5.1-codex-mini` for direct calls, but high-volume full-val online calls may still hit transient rate limits.
 2. To guarantee completion on full `val` and verify algorithmic scoring path end-to-end, this phase used deterministic local LLM stubbing while preserving AgentDropout graph/evaluate pipeline.
 
 ## Artifacts

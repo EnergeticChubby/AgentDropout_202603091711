@@ -6,7 +6,7 @@ from typing import List, Tuple
 
 
 ROOT = Path(__file__).resolve().parents[2]
-EXPECTED_MODEL = "qwen3-8b"
+EXPECTED_MODEL = "gpt-5.1-codex-mini"
 EXPECTED_BASE_URL = "https://llm.undefined.qzz.io/v1/chat/completions"
 EXPECTED_API_KEY = "sk-pc8yOBXhAVOXEa38hpH1XBtuPwadnB1rLpNxHMS6grCuMrZh"
 
