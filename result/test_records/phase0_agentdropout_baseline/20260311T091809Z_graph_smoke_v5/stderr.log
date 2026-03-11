@@ -1,0 +1,15 @@
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+  File "/workspace/AgentDropout/agents/__init__.py", line 1, in <module>
+    from AgentPrune.agents.analyze_agent import AnalyzeAgent
+  File "/workspace/AgentPrune/agents/__init__.py", line 1, in <module>
+    from AgentPrune.agents.analyze_agent import AnalyzeAgent
+  File "/workspace/AgentPrune/agents/analyze_agent.py", line 7, in <module>
+    from AgentDropout.llm.llm_registry import LLMRegistry
+  File "/workspace/AgentDropout/llm/__init__.py", line 3, in <module>
+    from AgentDropout.llm.gpt_chat import GPTChat
+  File "/workspace/AgentDropout/llm/gpt_chat.py", line 12, in <module>
+    from AgentDropout.llm.price import cost_count, cost_count_llama3, cost_count_deepseek
+  File "/workspace/AgentDropout/llm/price.py", line 2, in <module>
+    import tiktoken
+ModuleNotFoundError: No module named 'tiktoken'

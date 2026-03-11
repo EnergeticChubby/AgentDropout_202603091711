@@ -9,7 +9,7 @@
 3. **结果可复现**：任意成员可依据记录在相同代码版本上复跑测试。
 4. **流程可审计**：每个 phase 更新均有独立 commit。
 
-主研究路线与完整 phase 设计请同步遵循：`docs/phase_space_constitutional_ioa_master_plan.md`。
+主研究路线与完整 phase 设计请同步遵循：`docs/phase_space_constitutional_ioa_master_plan.md` 与 `docs/phase_implementation_breakdown.md`。
 
 ---
 
@@ -58,22 +58,20 @@
 
 ### 4.1 推荐 phase 划分
 
-- **Phase 0：环境与数据准备**
-- **Phase 1：基线运行（无改动）**
-- **Phase 2：功能/策略改动**
-- **Phase 3：回归与对比验证**
-- **Phase 4：结果汇总与文档发布**
+- **Phase 0：AgentDropout 基线算法测试与基线冻结**
+- **Phase 1：方向一（基础）- Phase-Space Observer**
+- **Phase 2：方向二（中级）- Anti-Collapse Controller**
+- **Phase 3：方向三（高级+融合）- Dual-Bottleneck Risk-Coherent Scheduler**
 
 ### 4.2 Commit 规则
 
 - 分支命名：统一使用 `Blny_v2`
 - 每个 phase 至少 1 个 commit
 - 提交信息格式建议：
-  - `phase0: environment and dataset setup`
-  - `phase1: baseline test records`
-  - `phase2: implementation and test updates`
-  - `phase3: regression verification records`
-  - `phase4: final report and reproducibility docs`
+  - `phase0: agentdropout baseline`
+  - `phase1: observer implementation and tests`
+  - `phase2: controller implementation and tests`
+  - `phase3: scheduler fusion implementation and tests`
 
 ---
 

@@ -8,6 +8,8 @@
 
 据此，本计划不再以“谁说话/谁连接/剪哪条边”为第一控制对象，而以“隐协作动力学 + 时变制度控制 + 风险一致调度”为核心控制对象。
 
+执行级任务拆解请同时遵循：`docs/phase_implementation_breakdown.md`。
+
 ---
 
 ## 2. 总体研究假设与技术主线
@@ -72,81 +74,60 @@
 
 ---
 
-## 5. Phase 执行路线图（完整可落地）
+## 5. Phase 执行路线图（按方向组织：Phase0~Phase3）
 
 > 原则：每个 phase 必须任务细分、完整测试、独立 commit、达标后自动进入下一 phase。
 
-### Phase 0：治理与基线冻结
+### Phase 0（基线）：AgentDropout 算法测试与基线冻结
 
-- 目标：冻结计划、规范记录、建立基线协议。
+- 定位：基线方向（后续三方向的对照基准）。
+- 目标：在统一协议下完成 AgentDropout 基线测试并冻结可比较基线。
 - 子任务（task/subAgent）：
-  1. 计划复读与任务拆解（生成 `phase_task_breakdown.md`）
-  2. 执行脚本与记录模板检查
-  3. 基线运行参数冻结
-- 验收：规则文档齐全、测试管线可运行。
+  1. 计划复读与 phase 任务拆解（生成 `phase_task_breakdown.md`）
+  2. 基线配置冻结（模型、接口、MMLU 完整 Val、重测策略）
+  3. AgentDropout 基线运行与记录归档
+  4. 基线指标发布（accuracy/cost/latency）并形成 `benchmark_compare.md`
+- 验收：基线测试可复跑、记录完整、成为 Phase1 的唯一比较基线。
 
-### Phase 1：Observer 数据化与相空间重构原型
+### Phase 1（方向一，基础层）：Phase-Space Observer
 
-- 目标：打通多尺度观测张量与 `z_t` 重构。
-- 子任务：
-  1. 埋点与多尺度特征抽取
-  2. delay embedding / phase-space reconstruction
-  3. basin 初步标注
-- 验收：可输出 `z_t`、可视化轨迹、可回放。
+- 定位：基础方向（隐协作状态“可观测化”）。
+- 目标：构建多尺度观测器并完成相空间重构原型。
+- 子任务（task/subAgent）：
+  1. 微/中/宏尺度特征埋点与张量化
+  2. delay embedding 与 latent state `z_t` 重构
+  3. basin 初步识别（探索/拥塞/锁死/虚假共识/发散）
+  4. 可解释性对齐（与失败事件对齐）
+- 与其他方向融合要求：
+  - 向 Phase2 输出可消费的状态信号 `z_t` 与 basin 标签。
+- 验收：状态重构可用、可解释、且 benchmark 优于 Phase0。
 
-### Phase 2：Basin 识别与可解释对齐
+### Phase 2（方向二，中间层）：Anti-Collapse Constitutional Controller
 
-- 目标：将隐状态与外部失败事件对齐。
-- 子任务：
-  1. 结构化扰动实验（延迟专家/隐藏证据/矛盾摘要）
-  2. basin 到失败类型映射
-  3. 跨任务不变量抽取
-- 验收：扰动可分、映射稳定、解释一致。
+- 定位：增强方向（早期坍塌控制）。
+- 目标：实现“早期强、后期弱”的时变宪法控制，并接入 Observer 状态。
+- 子任务（task/subAgent）：
+  1. early-stage 宪法规则模板
+  2. 衰减门控 `w_t` 与过干预检测
+  3. institutional memory（未结清假设保留）
+  4. 基于 `z_t` 的动态约束强度调节
+- 与其他方向融合要求：
+  - 消费 Phase1 的 `z_t`；向 Phase3 输出稳定化后的控制轨迹与风险先验。
+- 验收：早期坍塌率下降、过干预可控、且 benchmark 优于 Phase1。
 
-### Phase 3：Anti-Collapse 宪法控制器
+### Phase 3（方向三，高级层 + 融合层）：Dual-Bottleneck Risk-Coherent Scheduler
 
-- 目标：实现“早期强、后期弱”的时变制度控制。
-- 子任务：
-  1. early-stage 约束模板
-  2. 衰减门控 `w_t`
-  3. institutional memory（跨轮未结清假设）
-- 验收：早期坍塌率下降，后期过干预可控。
-
-### Phase 4：Dual-Bottleneck 诊断器
-
-- 目标：区分 capacity vs sensitivity 失效来源。
-- 子任务：
-  1. capacity saturation 指标
-  2. sensitivity attenuation 指标
-  3. 分治策略切换（summary vs retrieval）
-- 验收：诊断可解释，治疗策略可复现。
-
-### Phase 5：Risk-Coherent 路由器
-
-- 目标：输出合法、单调、不可交叉的风险分布。
-- 子任务：
-  1. 多时域风险头（成功率/成本/时延/回滚风险）
-  2. 单调约束与 non-crossing 校验
-  3. 后验校准（可选 conformal）
-- 验收：风险分布合法，路由稳定性提升。
-
-### Phase 6：端到端集成与消融
-
-- 目标：验证三层协同收益与边界。
-- 子任务：
-  1. 逐层累加实验（L1→L2→L3）
-  2. 关键消融（无observer/无宪法/无双瓶颈）
-  3. 成本-性能-风险权衡分析
-- 验收：主结果、消融结果、误差分析完整。
-
-### Phase 7：论文化交付
-
-- 目标：形成主论文 + 系统论文 + 分析论文稿件框架。
-- 子任务：
-  1. 主论文（Phase-Space Constitutional IoA）
-  2. 系统论文（Dual-Bottleneck Risk-Coherent Router）
-  3. 分析论文（early-stage collapse & basin transfer）
-- 验收：开题/初稿/图表/复现实验包齐备。
+- 定位：高级方向（容量/传播双瓶颈 + 风险一致调度）并完成全方向融合。
+- 目标：构建风险一致调度器，并融合 Phase1+Phase2 形成完整解决方案。
+- 子任务（task/subAgent）：
+  1. capacity vs sensitivity 双诊断器
+  2. 分治策略（summary fallback / retrieval switch）
+  3. 风险分布头（成功率/成本/时延/回滚风险）
+  4. non-crossing 与单调合法性约束
+  5. 三方向端到端融合与关键消融（无L1/无L2/无L3）
+- 融合交付（必须）：
+  - 交付 `Observer + Controller + Scheduler` 的完整一体化方案。
+- 验收：融合方案相较 Phase2 继续提升，并形成最终完整解决方案。
 
 ---
 
@@ -181,7 +162,7 @@
 1. **完整重读计划**：`docs/testing_plan.md` 与本主计划。
 2. **任务细分归档**：基于 `docs/templates/phase_task_breakdown_template.md` 更新 `phase_task_breakdown.md`。
 3. **执行优化后 MMLU 完整 Val benchmark**。
-4. **性能比较**：当前 phase 主指标必须严格优于上一达标 phase。
+4. **性能比较**：当前 phase 主指标必须严格优于上一达标 phase（Phase0→Phase1→Phase2→Phase3）。
 5. **若未优于上一 phase**：继续优化/微调并重复测试，直至达标。
 6. **达标后独立 commit 并 push**。
 7. **自动进入下一 phase**。
@@ -227,8 +208,4 @@
   - `phase1: ...`
   - `phase2: ...`
   - `phase3: ...`
-  - `phase4: ...`
-  - `phase5: ...`
-  - `phase6: ...`
-  - `phase7: ...`
 

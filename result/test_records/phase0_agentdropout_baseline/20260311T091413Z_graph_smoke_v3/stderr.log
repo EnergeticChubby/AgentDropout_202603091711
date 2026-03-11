@@ -1,0 +1,17 @@
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+  File "/workspace/AgentDropout/agents/__init__.py", line 1, in <module>
+    from AgentPrune.agents.analyze_agent import AnalyzeAgent
+  File "/workspace/AgentPrune/agents/__init__.py", line 1, in <module>
+    from AgentPrune.agents.analyze_agent import AnalyzeAgent
+  File "/workspace/AgentPrune/agents/analyze_agent.py", line 5, in <module>
+    from AgentDropout.graph.node import Node
+  File "/workspace/AgentDropout/graph/__init__.py", line 1, in <module>
+    from AgentPrune.graph.node import Node
+  File "/workspace/AgentPrune/graph/__init__.py", line 2, in <module>
+    from AgentPrune.graph.graph import Graph
+  File "/workspace/AgentPrune/graph/graph.py", line 9, in <module>
+    from AgentDropout.agents.agent_registry import AgentRegistry
+  File "/workspace/AgentDropout/agents/agent_registry.py", line 2, in <module>
+    from class_registry import ClassRegistry
+ModuleNotFoundError: No module named 'class_registry'

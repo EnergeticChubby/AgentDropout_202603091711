@@ -1,0 +1,21 @@
+/workspace/AgentDropout/prompt/gsm8k_prompt_set.py:38: SyntaxWarning: invalid escape sequence '\('
+  "The last line of code calls the function you wrote and assigns the return value to the \(answer\) variable. "
+/workspace/AgentDropout/prompt/aqua_prompt_set.py:32: SyntaxWarning: invalid escape sequence '\('
+  "The last line of code calls the function you wrote and assigns the return value to the \(answer\) variable. "
+/workspace/AgentDropout/prompt/aqua_prompt_set.py:52: SyntaxWarning: invalid escape sequence '\/'
+  """
+/workspace/AgentDropout/prompt/math_prompt_set.py:39: SyntaxWarning: invalid escape sequence '\('
+  "The last line of code calls the function you wrote and assigns the return value to the \(answer\) variable. "
+/workspace/AgentDropout/prompt/mathc_prompt_set.py:42: SyntaxWarning: invalid escape sequence '\('
+  "The last line of code calls the function you wrote and assigns the return value to the \(answer\) variable. "
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+  File "/workspace/AgentDropout/agents/__init__.py", line 1, in <module>
+    from AgentPrune.agents.analyze_agent import AnalyzeAgent
+  File "/workspace/AgentPrune/agents/__init__.py", line 1, in <module>
+    from AgentPrune.agents.analyze_agent import AnalyzeAgent
+  File "/workspace/AgentPrune/agents/analyze_agent.py", line 9, in <module>
+    from AgentDropout.tools.search.wiki import search_wiki_main
+  File "/workspace/AgentDropout/tools/search/wiki.py", line 4, in <module>
+    import wikipedia
+ModuleNotFoundError: No module named 'wikipedia'

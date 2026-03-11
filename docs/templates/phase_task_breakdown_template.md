@@ -4,6 +4,7 @@
 
 - phase_id:
 - phase_name:
+- direction_name:  # Phase0=AgentDropout baseline, Phase1=Observer, Phase2=Controller, Phase3=Scheduler+Fusion
 - owner:
 - date_utc:
 - previous_phase_commit:
