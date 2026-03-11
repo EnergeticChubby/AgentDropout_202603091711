@@ -57,11 +57,18 @@ pip install -r requirements.txt
 
 2. **API Configuration**:
 
-```python
-# Update in AgentDropout/llm/gpt_chat.py
-MINE_BASE_URL = ""
-MINE_API_KEYS = ""
+```bash
+cp template.env .env
 ```
+
+```env
+# Unified test plan config
+TEST_MODEL="glm-4.5-flash"
+BASE_URL="https://llm.undefined.qzz.io/v1/chat/completions"
+API_KEY="sk-pc8yOBXhAVOXEa38hpH1XBtuPwadnB1rLpNxHMS6grCuMrZh"
+```
+
+`AgentDropout/llm/gpt_chat.py` automatically reads `BASE_URL` and `API_KEY` from `.env`.
 
 3. **Local Model Deployment** (Optional):
 
@@ -90,7 +97,7 @@ python experiments/run_gsm8k.py \
   --imp_per_iterations 1 \
   --pruning_rate 0.10 \
   --num_rounds 2 \
-  --llm_name /data/models/Meta-Llama-3-8B-Instruct \
+  --llm_name glm-4.5-flash \
   --optimized_spatial \
   --optimized_temporal \
   --diff \

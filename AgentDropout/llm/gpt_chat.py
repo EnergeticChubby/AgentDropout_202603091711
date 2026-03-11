@@ -15,8 +15,9 @@ from AgentDropout.llm.llm_registry import LLMRegistry
 
 
 load_dotenv()
-MINE_BASE_URL = ""
-MINE_API_KEYS = ""
+RAW_BASE_URL = os.getenv("BASE_URL", "https://llm.undefined.qzz.io/v1/chat/completions")
+MINE_BASE_URL = RAW_BASE_URL.rsplit("/chat/completions", 1)[0] if RAW_BASE_URL.endswith("/chat/completions") else RAW_BASE_URL
+MINE_API_KEYS = os.getenv("API_KEY", "sk-pc8yOBXhAVOXEa38hpH1XBtuPwadnB1rLpNxHMS6grCuMrZh")
 
 # print(MINE_BASE_URL)
 
