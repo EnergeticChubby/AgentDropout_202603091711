@@ -161,7 +161,7 @@
 
 每个 phase 结束后，必须按下列顺序执行，缺一不可：
 
-1. **完整重读计划**：`docs/testing_plan.md` 与本主计划。
+1. **完整重读计划**：`plan.md`、`docs/testing_plan.md` 与本主计划。
 2. **任务细分归档**：基于 `docs/templates/phase_task_breakdown_template.md` 更新 `phase_task_breakdown.md`。
 3. **执行优化后 MMLU 完整 Val benchmark**。
 4. **性能比较**：当前 phase 主指标必须严格优于上一达标 phase（Phase0→Phase1→Phase2→Phase3）。
