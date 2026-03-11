@@ -19,6 +19,7 @@ This repository releases the codes and data for the paper -- AgentDropout: Dynam
 - **[Quick Start](#start)**
 - **[Reproducible Testing](#repro-testing)**
 - **[Project Plan](#project-plan)**
+- **[Forecastive IoA Plan](#forecastive-ioa-plan)**
 - **[Citation](#citation)**
 
 ## **🧠 About AgentDropout**<a name="about"></a>
@@ -128,6 +129,12 @@ The repository execution plan, including mandatory phase commits and markdown st
 - `PLAN.md`
 - `docs/TESTING_GUIDE.md`
 - `tests/benchmarks/mmlu/INDEX.md`
+
+## **🧭 Forecastive IoA Plan**<a name="forecastive-ioa-plan"></a>
+
+The complete research roadmap based on forecastive state-space governance is maintained in:
+
+- `docs/FORECASTIVE_STATE_SPACE_GOVERNANCE_PLAN.md`
 
 ## **📜 Citation**<a name="citation"></a>
 

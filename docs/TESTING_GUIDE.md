@@ -14,6 +14,10 @@ It also defines phase-gated benchmark rules:
 5. run optimized MMLU benchmark after every phase,
 6. require benchmark improvement before phase transition.
 
+Research master roadmap reference:
+
+- `docs/FORECASTIVE_STATE_SPACE_GOVERNANCE_PLAN.md`
+
 ## Directory Convention
 
 - Test code: `tests/repro/`

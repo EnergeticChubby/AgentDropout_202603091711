@@ -179,3 +179,9 @@ Before pushing updates, confirm:
 - [ ] markdown docs are updated with current behavior
 - [ ] each phase has its own commit
 - [ ] branch is synchronized with remote
+
+## 8. Research Program Master Plan
+
+The complete research program for the forecastive IoA direction is maintained in:
+
+- `docs/FORECASTIVE_STATE_SPACE_GOVERNANCE_PLAN.md`
