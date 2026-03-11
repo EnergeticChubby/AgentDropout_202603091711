@@ -1,194 +1,223 @@
-# Project Plan: Reproducible Testing, Benchmark Gating, and Phase Governance
+# PLAN.md - Unified Governance System
 
-## 1. Objective
+## 0. Document Control
 
-This plan defines mandatory engineering rules for this repository:
+- Plan scope: repository-wide execution and quality governance.
+- Plan type: mandatory rules + operational workflow.
+- Primary audience: anyone implementing, testing, or reviewing phase work.
+- Source of truth: this file has highest priority among project docs for execution policy.
 
-1. All test code must be versioned.
-2. All test records must be stored in-repo and reproducible.
-3. All benchmark records must be preserved and comparable across phases.
-4. All project markdown must follow professional technical writing standards.
-5. Every phase update must be committed independently.
-6. A phase can proceed only after benchmark improvement is validated.
+## 1. Mission and Non-Negotiable Principles
 
-## 2. Fixed Test Configuration (Unified Baseline)
+This repository executes a forecastive IoA research program through strict phase governance.
 
-All testing and experiment defaults use the following baseline:
+Non-negotiable principles:
 
-- `TEST_MODEL`: `glm-4.5-flash`
-- `BASE_URL`: `https://llm.undefined.qzz.io/v1/chat/completions`
-- `API_KEY`: managed via `.env` derived from `template.env`
+1. Reproducibility first: no phase output is valid without reproducible records.
+2. Benchmark-gated progress: no phase transition without benchmark proof.
+3. Full-data evaluation: phase gates must use complete MMLU `val`.
+4. Strict improvement: every next phase must outperform previous phase.
+5. Full trace retention: failed and intermediate runs are never deleted.
+6. One phase, one commit boundary: each phase update must end in dedicated commit(s).
 
-Reference implementation:
+## 2. Fixed Runtime Baseline
+
+All test/evaluation defaults must use:
+
+- `TEST_MODEL="glm-4.5-flash"`
+- `BASE_URL="https://llm.undefined.qzz.io/v1/chat/completions"`
+- `API_KEY` from `.env` (derived from `template.env`)
+
+Reference locations:
 
 - `template.env`
 - `AgentDropout/llm/gpt_chat.py`
-- `experiments/run_*.py` default `--llm_name`
+- `experiments/run_*.py` defaults
 
-## 3. Reproducibility Standards
+## 3. Phase Architecture (Direction-Based)
 
-### 3.1 Required assets per test run
+Phases are directions from base capability to complete solution fusion:
 
-For each test run, store the following under `tests/records/<run_id>/`:
+- `Phase 0`: AgentDropout baseline establishment and validation.
+- `Phase 1`: collaboration state estimation direction.
+- `Phase 2`: forecastive modeling direction.
+- `Phase 3`: governance control and full fusion direction.
 
-1. `test_report.md` with:
-   - run id
-   - UTC time
-   - branch
-   - commit SHA
-   - command table
-   - pass/fail summary
-2. raw logs for every command under `tests/records/<run_id>/logs/`
-3. exact command entry point used to reproduce the run
-
-### 3.2 Reproduction entry point
-
-- canonical command: `bash scripts/run_repro_tests.sh <run_id>`
-- no hidden manual steps
-- no dependency on transient shell state
-
-### 3.3 Minimum checks in automated reproducibility suite
-
-1. Python runtime visibility (`python3 --version`)
-2. Source revision visibility (`git rev-parse HEAD`)
-3. Syntax integrity of modified Python files (`python3 -m py_compile ...`)
-4. Configuration integrity assertions (`python3 tests/repro/check_unified_config.py`)
-
-## 4. Phase Execution Governance
-
-### 4.1 Mandatory full plan re-read before each phase
-
-Before starting any phase, the executor must fully re-read `PLAN.md` from top to bottom. Partial reading is not allowed.
-
-### 4.2 Task and subagent decomposition requirement
-
-When executing tasks (including task/subagent workflows), each phase must be decomposed into explicit sub-tasks:
-
-1. implementation sub-tasks
-2. validation and reproducibility sub-tasks
-3. benchmark sub-tasks
-4. documentation and archival sub-tasks
-
-The decomposition must be written in markdown and stored in the phase report.
-
-### 4.3 Phase commit policy
-
-- Every phase update must end with at least one dedicated commit.
-- Do not merge multiple phases into one commit.
-- Commit message format: `Phase <N>: <concise outcome>`.
-
-### 4.4 Mandatory optimized MMLU benchmark gate after each phase
-
-After completing each phase, run an optimized MMLU benchmark before moving forward.
-
-Required benchmark artifacts for phase `N`:
-
-- directory: `tests/benchmarks/mmlu/phase_<N>/`
-- `benchmark_report.md`
-- raw command logs
-- model outputs/predictions used for scoring
-- score summary and method note
-
-### 4.5 Benchmark promotion rule (hard gate)
-
-Let `Score(N)` be the benchmark score for phase `N`.
-
-Mandatory gate:
-
-- `Score(N) > Score(N-1)` (strictly greater)
-
-If the condition is not met:
-
-1. continue optimization/fine-tuning within the same phase,
-2. rerun optimized MMLU benchmark,
-3. keep all intermediate benchmark records,
-4. repeat until the promotion rule is satisfied.
-
-### 4.6 Automatic transition to next phase
-
-A phase is considered complete only when both conditions are true:
-
-1. phase work is committed,
-2. optimized MMLU benchmark is executed and passes the promotion rule.
-
-After both are satisfied, proceed automatically to the next phase.
-
-### 4.7 Full-val benchmark requirement with failed-question retest
-
-All benchmark testing must use the complete MMLU `val` split.
-
-- partial evaluation is not allowed for phase gating.
-- `limit_questions` must remain `None` for phase benchmark runs.
-
-Because high API concurrency can cause transient failures, failed questions must be re-tested:
-
-1. per-question retry with backoff,
-2. additional rerun rounds for unresolved failed questions,
-3. mark phase as incomplete if any question remains unresolved.
-
-## 5. Benchmark Data Retention and Indexing
-
-All MMLU benchmark data must be retained in-repo.
-
-- phase benchmark root: `tests/benchmarks/mmlu/`
-- global index: `tests/benchmarks/mmlu/INDEX.md`
-- each phase entry must include:
-  - phase id
-  - benchmark timestamp
-  - branch
-  - commit SHA
-  - score
-  - delta vs previous phase
-  - total question count (must match full `val` split)
-  - unresolved failure count (must be `0` for gate pass)
-  - report/log paths
-
-Deleting failed or intermediate benchmark runs is not allowed.
-
-## 6. Markdown Writing Standards (Professional Quality)
-
-All markdown files must satisfy:
-
-1. Clear structure:
-   - title
-   - objective/context
-   - procedure
-   - evidence
-   - conclusion
-2. Operational precision:
-   - use exact commands
-   - avoid ambiguous wording
-3. Auditability:
-   - include version/commit references when relevant
-4. Reusability:
-   - steps should be executable by another engineer without private context
-
-## 7. Operational Checklist
-
-Before pushing updates, confirm:
-
-- [ ] full `PLAN.md` re-read is completed for the current phase
-- [ ] phase tasks are decomposed (including task/subagent sub-tasks)
-- [ ] reproducible test code is committed
-- [ ] reproducible test records are committed
-- [ ] optimized MMLU benchmark is executed for the phase
-- [ ] benchmark uses complete MMLU `val` split (no partial subset)
-- [ ] benchmark score is strictly better than previous phase
-- [ ] failed questions are re-tested until unresolved count is `0`
-- [ ] benchmark data and logs are fully retained
-- [ ] markdown docs are updated with current behavior
-- [ ] each phase has its own commit
-- [ ] branch is synchronized with remote
-
-## 8. Research Program Master Plan
-
-The complete research program for the forecastive IoA direction is maintained in:
+Master research roadmap:
 
 - `docs/FORECASTIVE_STATE_SPACE_GOVERNANCE_PLAN.md`
 
-Phase structure in the master plan is direction-based:
+## 4. Lifecycle Workflow for Every Phase
 
-- `Phase 0`: AgentDropout baseline (must be tested)
-- `Phase 1`: collaboration state estimation
-- `Phase 2`: forecastive modeling
-- `Phase 3`: governance control and full fusion
+Each phase must follow this exact lifecycle:
+
+1. **Plan re-read**
+   - Fully re-read this `PLAN.md` before any implementation.
+2. **Task decomposition**
+   - Split into implementation, validation, benchmark, and documentation tasks.
+   - Include subagent/task decomposition when used.
+3. **Implementation**
+   - Make scoped changes for current phase objective only.
+4. **Reproducibility test execution**
+   - Run canonical suite: `bash scripts/run_repro_tests.sh <run_id>`.
+5. **Full MMLU gate benchmark**
+   - Run complete MMLU `val` benchmark for the phase.
+   - Retry failed questions until unresolved count becomes `0`.
+6. **Promotion check**
+   - Enforce `Score(N) > Score(N-1)`.
+   - If not satisfied, continue optimize/fine-tune inside same phase, then rerun.
+7. **Archival**
+   - Save all logs, reports, predictions, and benchmark outputs.
+8. **Commit and push**
+   - Commit phase update(s), then push.
+9. **Auto-transition**
+   - Only after commit + gate pass, proceed to next phase.
+
+## 5. Task/Subagent Decomposition Standard
+
+Every phase report must include a decomposition table with at least:
+
+1. task id
+2. task type (`implementation` | `validation` | `benchmark` | `documentation`)
+3. owner (`main` or subagent name)
+4. input artifact(s)
+5. output artifact(s)
+6. status
+
+Minimum decomposition granularity:
+
+- no phase may have fewer than 4 top-level tasks.
+- benchmark task must be explicit and standalone.
+
+## 6. Benchmark Governance (Hard Gate)
+
+### 6.1 Mandatory dataset policy
+
+- Gate benchmark must use complete MMLU `val`.
+- Partial evaluation is forbidden for phase promotion.
+- `limit_questions` for gate run must be `None` or equivalent full-set behavior.
+
+### 6.2 Failed-question retest policy
+
+Due to API concurrency instability:
+
+1. use per-question retry with backoff,
+2. use additional rerun rounds for unresolved failures,
+3. gate status is **FAIL** if unresolved failures `> 0`.
+
+### 6.3 Promotion rule
+
+For phase `N`:
+
+- `Score(N) > Score(N-1)` is mandatory.
+- `UnresolvedFailures(N) == 0` is mandatory.
+
+If either condition fails:
+
+1. remain in current phase,
+2. continue optimization/fine-tuning,
+3. rerun benchmark,
+4. retain all failed/intermediate artifacts,
+5. repeat until both conditions pass.
+
+## 7. Phase Entry/Exit Criteria
+
+### 7.1 Common entry criteria
+
+- previous phase committed and pushed,
+- previous phase benchmark gate passed,
+- current phase decomposition written.
+
+### 7.2 Common exit criteria
+
+- scoped implementation completed,
+- reproducibility suite passed,
+- full MMLU gate passed (`Score` improved + unresolved `0`),
+- artifacts archived,
+- phase commit(s) pushed.
+
+### 7.3 Phase-specific objectives
+
+- `Phase 0`: establish reproducible AgentDropout baseline and baseline score.
+- `Phase 1`: deliver state estimation components with measurable gain over phase 0.
+- `Phase 2`: deliver forecastive modeling components with measurable gain over phase 1.
+- `Phase 3`: deliver governance + fusion system with measurable gain over phase 2.
+
+## 8. Reproducibility and Artifact System
+
+### 8.1 Required run records
+
+For each run id under `tests/records/<run_id>/`:
+
+- `test_report.md`
+- `logs/*.log`
+- exact command evidence
+- pass/fail status
+
+### 8.2 Required benchmark records
+
+For each phase benchmark under `tests/benchmarks/mmlu/phase_<N>/`:
+
+- `benchmark_report.md`
+- raw logs
+- predictions/outputs used for scoring
+- score summary, delta to previous phase
+- unresolved failure count
+
+### 8.3 Mandatory indexes
+
+- reproducibility index: `tests/records/INDEX.md`
+- benchmark index: `tests/benchmarks/mmlu/INDEX.md`
+
+Indexes must be updated whenever a new run/benchmark is added.
+
+## 9. Commit, Branch, and Naming Policy
+
+1. Each phase update must end with dedicated commit(s).
+2. Do not combine multiple phases into one commit.
+3. Commit message pattern: `Phase <N>: <outcome>`.
+4. Branch naming must follow current active branch policy.
+5. Push after each completed phase update.
+
+## 10. Quality Standards for Markdown and Reports
+
+All markdown artifacts must satisfy:
+
+1. clear structure (`title`, `objective`, `procedure`, `evidence`, `conclusion`),
+2. exact commands and file paths in monospace,
+3. benchmark claims backed by logs and report files,
+4. no ambiguous phrasing for pass/fail conditions.
+
+## 11. Exception and Incident Procedure
+
+When blocked by environment/API issues:
+
+1. record incident in phase report (`issue`, `impact`, `attempted fixes`),
+2. perform at least 3 remediation attempts,
+3. keep failed logs,
+4. do not fake gate completion,
+5. only mark phase blocked, never mark phase passed.
+
+## 12. Audit Checklist (Pre-Push)
+
+Before push, all items must be true:
+
+- [ ] `PLAN.md` fully re-read at phase start
+- [ ] phase and subagent tasks are decomposed and documented
+- [ ] reproducibility suite executed and recorded
+- [ ] full MMLU `val` benchmark executed
+- [ ] failed questions re-tested; unresolved count is `0`
+- [ ] `Score(N) > Score(N-1)` verified
+- [ ] all run/benchmark artifacts retained
+- [ ] `tests/records/INDEX.md` updated
+- [ ] `tests/benchmarks/mmlu/INDEX.md` updated
+- [ ] phase commit(s) created and pushed
+
+## 13. Plan Change Management
+
+Rules for updating this plan:
+
+1. changes must preserve existing hard gates unless explicitly superseded,
+2. updates require rationale and scope note in commit message,
+3. after plan change, re-run relevant reproducibility checks,
+4. subsequent phase execution must follow updated plan immediately.
