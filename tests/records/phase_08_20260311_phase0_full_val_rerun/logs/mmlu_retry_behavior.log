@@ -1,0 +1,30 @@
+# Command
+python3 tests/repro/test_mmlu_retry_behavior.py
+
+# Output
+Evaluating AgentDropout on FakeDataset split val
+--------------------------------------------------------------------------------
+Batch time 0.030
+Raw answer: A
+Postprocessed answer: A
+Correct answer: A
+Accuracy: 100.0% (1/1)
+Raw answer: A
+Postprocessed answer: A
+Correct answer: A
+Accuracy: 100.0% (2/2)
+Cost 0.0
+PromptTokens 0.0
+CompletionTokens 0.0
+Accuracy: 100.0% (2/2)
+Done! All full-val questions completed successfully.
+Evaluating AgentDropout on FakeDataset split val
+--------------------------------------------------------------------------------
+Batch time 0.010
+Cost 0.0
+PromptTokens 0.0
+CompletionTokens 0.0
+Retrying unresolved questions in sequential rounds: 1
+Sequential rerun round 1, unresolved=1
+Done with unresolved records: 1
+mmlu retry behavior tests passed

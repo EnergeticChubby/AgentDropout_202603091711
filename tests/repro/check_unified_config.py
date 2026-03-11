@@ -100,6 +100,20 @@ def main() -> int:
     if not ok:
         failures.append(f"{phase0_test}: missing Phase0 local test fragments -> {missing}")
 
+    phase0_full_val_test = ROOT / "tests/repro/test_phase0_full_val_local.py"
+    ok, missing = check_contains(
+        phase0_full_val_test,
+        [
+            'limit_questions=None',
+            'phase0 full-val local test passed',
+            'expected_hits',
+        ],
+    )
+    if not ok:
+        failures.append(
+            f"{phase0_full_val_test}: missing Phase0 full-val local test fragments -> {missing}"
+        )
+
     mmlu_download = ROOT / "datasets/MMLU/download.py"
     ok, missing = check_contains(
         mmlu_download,
