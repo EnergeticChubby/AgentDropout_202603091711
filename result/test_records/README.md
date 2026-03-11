@@ -14,6 +14,8 @@
 - `stderr.log`：错误输出日志
 - `exit_code.txt`：执行退出码
 - `env_snapshot.txt`：环境快照（branch、commit、python、pip）
+- `metrics.json` 或 `metrics.csv`：结构化指标（推荐）
+- `benchmark_compare.md`：与上一 phase 的 benchmark 对比结论（MMLU 场景强制）
 
 ## 记录生成方式
 
@@ -30,4 +32,5 @@
 1. 不允许手工省略关键文件（`record.md`、`command.sh`、`stdout.log`、`exit_code.txt`）。
 2. 记录目录必须进入版本控制（除非日志体积超限并有替代策略）。
 3. 每个 phase 更新完成后必须 commit。
+4. 每个 phase 完成后必须保留优化后 MMLU benchmark 的全量测试数据，并证明性能优于上一 phase。
 
