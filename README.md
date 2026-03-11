@@ -81,6 +81,7 @@ api_key = "sk-pc8yOBXhAVOXEa38hpH1XBtuPwadnB1rLpNxHMS6grCuMrZh"
 - Each phase update must be committed independently.
 - Do not merge multiple phases into one commit.
 - Re-read the full plan and pass optimized MMLU benchmark gate before next phase.
+- Benchmark must use full MMLU Val set; retry failed items caused by API concurrency.
 - Detailed execution standard: `docs/testing_plan.md`
 
 3. **Local Model Deployment** (Optional):

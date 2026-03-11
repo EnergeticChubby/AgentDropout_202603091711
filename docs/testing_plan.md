@@ -21,6 +21,12 @@
 
 建议将上述配置写入环境文件，并在测试记录中完整回填。
 
+### 2.1 MMLU 测试范围硬性要求
+
+- 所有 benchmark 测试统一使用 **MMLU 完整 Val 集**。
+- 不允许仅抽样测试或只测子集作为 phase 验收依据。
+- phase 验收时必须提供“完整 Val 集覆盖率=100%”的证明。
+
 ---
 
 ## 3. 测试资产存储规范
@@ -80,6 +86,8 @@
 5. **每个 phase 的 benchmark 性能必须优于上一个 phase**（以主指标为准，默认 `accuracy` 严格大于上一 phase）。
 6. **若性能未优于上一 phase，则必须继续优化/微调并重复 benchmark**，直到满足“优于上一 phase”为止。
 7. **当且仅当“phase 完成 + benchmark 优于上一 phase”同时满足后，才自动进入下一 phase**。
+8. **MMLU benchmark 必须基于完整 Val 集的完整测试结果**，不得以部分结果提前推进 phase。
+9. **若因 API 高并发导致题目失败（超时/限流/连接错误等），必须对失败题目定向重测，直到失败题全部补齐**。
 
 > 说明：第一个产生 MMLU benchmark 的 phase 作为基线 phase；之后所有 phase 必须与最近一个已达标 phase 对比并实现提升。
 
@@ -106,6 +114,8 @@
 - commit 与 phase 一一对应，便于审计和回滚。
 - 已执行优化后的 MMLU benchmark，并有与上一 phase 的对比结论。
 - MMLU 主指标严格优于上一 phase；若未达到则不得进入下一 phase。
+- MMLU 完整 Val 集覆盖率必须为 100%。
+- 因 API 并发导致失败的题目已完成重测并补齐最终结果。
 
 ---
 
@@ -117,4 +127,5 @@
 - 独立 commit（必须）
 - `phase_task_breakdown.md`（task/subAgent 细分清单，必须）
 - MMLU benchmark 全量数据与对比报告（必须）
+- 失败题重测清单与重测结果（必须，若发生 API 并发失败）
 

@@ -16,6 +16,8 @@
 - `env_snapshot.txt`：环境快照（branch、commit、python、pip）
 - `metrics.json` 或 `metrics.csv`：结构化指标（推荐）
 - `benchmark_compare.md`：与上一 phase 的 benchmark 对比结论（MMLU 场景强制）
+- `failed_items.json`：失败题目清单（题号、错误类型、错误信息）
+- `retry_log.md`：失败题重测过程与最终补齐状态
 
 ## 记录生成方式
 
@@ -33,4 +35,6 @@
 2. 记录目录必须进入版本控制（除非日志体积超限并有替代策略）。
 3. 每个 phase 更新完成后必须 commit。
 4. 每个 phase 完成后必须保留优化后 MMLU benchmark 的全量测试数据，并证明性能优于上一 phase。
+5. MMLU 测试必须覆盖完整 Val 集，覆盖率必须为 100%。
+6. API 高并发导致失败时，必须保留失败题清单并完成定向重测，直到无缺失题目。
 
