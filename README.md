@@ -63,6 +63,14 @@ MINE_BASE_URL = ""
 MINE_API_KEYS = ""
 ```
 
+**Unified Test Plan (Required for all tests)**:
+
+```text
+model_name = "glm-4.5-flash"
+base_url = "https://llm.undefined.qzz.io/v1/chat/completions"
+api_key = "sk-pc8yOBXhAVOXEa38hpH1XBtuPwadnB1rLpNxHMS6grCuMrZh"
+```
+
 3. **Local Model Deployment** (Optional):
 
 ```bash
