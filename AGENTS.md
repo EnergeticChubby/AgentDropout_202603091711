@@ -25,6 +25,9 @@ See `README.md` Quick Start section for example commands.
 - No automated test files exist in the repo. `pytest` is installed and runs but collects 0 tests.
 - `pytest` can be run from the repo root: `/workspace/.venv/bin/python -m pytest`
 
+### Verifying the environment without API keys
+The core framework (Graph, Node, agents, mask optimization, norms) can be exercised without LLM API keys. Only actual experiment runs (which call LLM inference) require `MINE_BASE_URL`/`MINE_API_KEYS`. Import checks and Graph construction/pruning logic work fully offline.
+
 ### Key gotchas
 - The `requirements.txt` file is UTF-16LE encoded with CRLF line endings. Convert before processing: `iconv -f UTF-16LE -t UTF-8 requirements.txt | tr -d '\r'`
 - All experiment scripts use `sys.path.append(...)` to add the repo root; run them from the repo root.
