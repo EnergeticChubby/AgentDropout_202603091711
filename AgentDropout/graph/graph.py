@@ -104,7 +104,6 @@ class Graph(ABC):
         init_spatial_logit = torch.log(torch.tensor(initial_spatial_probability / (1 - initial_spatial_probability))) if optimized_spatial else 10.0
         init_temporal_logit = torch.log(torch.tensor(initial_temporal_probability / (1 - initial_temporal_probability))) if optimized_temporal else 10.0
 
-        print(self.potential_spatial_edges)
         if dec:
             # self.decision_masks = torch.nn.Parameter(torch.ones(5),requires_grad=False)
             self.decision_logits = torch.ones(5) * torch.log(torch.tensor(1.0))

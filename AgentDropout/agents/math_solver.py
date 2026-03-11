@@ -6,7 +6,30 @@ from AgentDropout.llm.llm_registry import LLMRegistry
 from AgentDropout.prompt.prompt_set_registry import PromptSetRegistry
 from AgentDropout.core.message_schema import build_multilayer_message
 from AgentDropout.tools.coding.python_executor import execute_code_get_return
-from datasets.gsm8k_dataset import gsm_get_predict
+try:
+    from datasets.gsm8k_dataset import gsm_get_predict
+except Exception:
+    import re
+
+    def gsm_get_predict(pred_str):
+        if not isinstance(pred_str, str):
+            return "0"
+        if 'The answer is ' in pred_str:
+            pred = pred_str.split('The answer is ')[-1].strip()
+        elif 'the answer is ' in pred_str:
+            pred = pred_str.split('the answer is ')[-1].strip()
+        else:
+            matches = re.findall(r'-?\d*\.?\d+', pred_str.replace(",", ""))
+            pred = matches[-1] if matches else ''
+
+        if pred.endswith(".") or pred.endswith("/"):
+            pred = pred[:-1]
+        pred = pred.replace(",", "").strip()
+
+        if pred.isdigit():
+            return pred
+        matches = re.findall(r'-?\d*\.?\d+', pred)
+        return matches[-1] if matches else '0'
 
 @AgentRegistry.register('MathSolver')
 class MathSolver(Node):
