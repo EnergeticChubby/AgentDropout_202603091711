@@ -17,6 +17,8 @@ This repository releases the codes and data for the paper -- AgentDropout: Dynam
 - **[File Structure](#structure)**
 - **[Requirements](#requirements)**
 - **[Quick Start](#start)**
+- **[Reproducible Testing](#repro-testing)**
+- **[Project Plan](#project-plan)**
 - **[Citation](#citation)**
 
 ## **🧠 About AgentDropout**<a name="about"></a>
@@ -103,6 +105,26 @@ python experiments/run_gsm8k.py \
   --diff \
   --dec
 ```
+
+## **🧪 Reproducible Testing**<a name="repro-testing"></a>
+
+Run the reproducible test suite and persist full records:
+
+```bash
+bash scripts/run_repro_tests.sh phase_<id>
+```
+
+Generated assets are stored under:
+
+- `tests/records/phase_<id>/test_report.md`
+- `tests/records/phase_<id>/logs/*.log`
+
+## **📋 Project Plan**<a name="project-plan"></a>
+
+The repository execution plan, including mandatory phase commits and markdown standards, is maintained in:
+
+- `PLAN.md`
+- `docs/TESTING_GUIDE.md`
 
 ## **📜 Citation**<a name="citation"></a>
 
