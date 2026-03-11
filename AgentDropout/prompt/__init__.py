@@ -5,6 +5,7 @@ from AgentDropout.prompt.gsm8k_prompt_set import GSM8KPromptSet
 from AgentDropout.prompt.aqua_prompt_set import AQUAPromptSet
 from AgentDropout.prompt.math_prompt_set import MathPromptSet
 from AgentDropout.prompt.mathc_prompt_set import MathcPromptSet
+from AgentDropout.prompt.scrawld_prompt_set import ScrawlDPromptSet
 
 __all__ = ['MMLUPromptSet',
            'HumanEvalPromptSet',
@@ -13,4 +14,5 @@ __all__ = ['MMLUPromptSet',
            'PromptSetRegistry',
            'MathPromptSet',
            'MathcPromptSet',
+           'ScrawlDPromptSet',
            ]
