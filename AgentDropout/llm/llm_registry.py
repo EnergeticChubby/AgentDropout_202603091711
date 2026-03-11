@@ -27,7 +27,7 @@ class LLMRegistry:
     def get(cls, model_name: Optional[str] = None) -> LLM:
         cls._ensure_defaults_loaded()
         if model_name is None or model_name=="":
-            model_name = os.getenv("LLM_MODEL_NAME", "glm-4.5-flash")
+            model_name = os.getenv("LLM_MODEL_NAME", "qwen3-8b")
 
         if 'Llama' in model_name or 'Qwen' in model_name:
             # print(11111111111)

@@ -452,7 +452,7 @@ async def main() -> None:
     parser.add_argument("--profile", choices=["agentdropout", "phase3"], required=True)
     parser.add_argument("--benchmark", choices=["gsm8k", "multiarith", "svamp", "humaneval", "all"], default="all")
     parser.add_argument("--run_name", default="fullsuite")
-    parser.add_argument("--llm_name", default=os.getenv("LLM_MODEL_NAME", "glm-4.5-flash"))
+    parser.add_argument("--llm_name", default=os.getenv("LLM_MODEL_NAME", "qwen3-8b"))
     parser.add_argument("--max_retries", type=int, default=12)
     parser.add_argument("--max_examples", type=int, default=None)
     parser.add_argument("--math_agent_count", type=int, default=1)

@@ -2,7 +2,7 @@
 set -euo pipefail
 
 PHASE_NAME="${1:-phase0}"
-MODEL_NAME="${LLM_MODEL_NAME:-glm-4.5-flash}"
+MODEL_NAME="${LLM_MODEL_NAME:-qwen3-8b}"
 DATASET_NAME="${DATASET_NAME:-edinburgh-dawg/mmlu-redux}"
 NUM_SHARDS=8
 LIMIT_QUESTIONS="${LIMIT_QUESTIONS:-8}"
