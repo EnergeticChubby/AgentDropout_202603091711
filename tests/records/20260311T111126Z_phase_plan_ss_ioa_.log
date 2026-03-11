@@ -1,0 +1,25 @@
+docs/TESTING_AND_PHASE_PLAN.md:12:配套总计划文档：`docs/SS_IOA_COMPLETE_PLAN.md`（定义 SS-IoA 的问题重定义、模块路线与 phase 细分执行）。
+docs/TESTING_AND_PHASE_PLAN.md:107:1. 每完成一个 phase，必须执行一次“优化后的 MMLU benchmark”，且必须使用 **MMLU 完整 Val 集**（不得抽样、不得截断）。
+docs/SS_IOA_COMPLETE_PLAN.md:1:# SS-IoA 完整执行计划（State-Space Internet of Agents）
+docs/SS_IOA_COMPLETE_PLAN.md:14:3. 执行上采用单一主线框架：**SS-IoA**。
+docs/SS_IOA_COMPLETE_PLAN.md:36:## 2. SS-IoA 总体框架（四模块 + 双时间尺度）
+docs/SS_IOA_COMPLETE_PLAN.md:110:> 每个 phase 结束后必须执行 MMLU 完整 Val benchmark（失败题重测）并留档。  
+docs/SS_IOA_COMPLETE_PLAN.md:118:2. 运行 MMLU 完整 Val 基线评测。
+docs/SS_IOA_COMPLETE_PLAN.md:131:- 必须完成失败题重测。
+docs/SS_IOA_COMPLETE_PLAN.md:150:- MMLU 全量 Val 测试 + 失败题重测。
+docs/SS_IOA_COMPLETE_PLAN.md:152:- 达标后 commit，自动进入 Phase 2。
+docs/SS_IOA_COMPLETE_PLAN.md:164:- 全量 Val + 失败题重测 + 全量留档。
+docs/SS_IOA_COMPLETE_PLAN.md:166:- 达标后 commit，自动进入 Phase 3。
+docs/SS_IOA_COMPLETE_PLAN.md:178:- 全量 Val + 失败题重测 + 全量留档。
+docs/SS_IOA_COMPLETE_PLAN.md:180:- 达标后 commit，自动进入 Phase 4。
+docs/SS_IOA_COMPLETE_PLAN.md:192:- 全量 Val + 失败题重测 + 全量留档。
+docs/SS_IOA_COMPLETE_PLAN.md:194:- 达标后 commit，自动进入 Phase 5。
+docs/SS_IOA_COMPLETE_PLAN.md:206:- 全量 Val + 失败题重测 + 全量留档。
+docs/SS_IOA_COMPLETE_PLAN.md:208:- 达标后 commit，自动进入 Phase 6。
+docs/SS_IOA_COMPLETE_PLAN.md:220:- 主模型全量 Val + 失败题重测 + 全量留档。
+docs/SS_IOA_COMPLETE_PLAN.md:222:- 达标后 commit，自动进入 Phase 7。
+docs/SS_IOA_COMPLETE_PLAN.md:234:- 全量 Val 终版复测 + 失败题重测 + 全量留档。
+docs/SS_IOA_COMPLETE_PLAN.md:244:- 必须使用 **MMLU 完整 Val 集**。
+docs/SS_IOA_COMPLETE_PLAN.md:301:3. 并发失败题重测已完成并留档。
+docs/SS_IOA_COMPLETE_PLAN.md:302:4. 性能严格优于上一 phase。
+docs/SS_IOA_COMPLETE_PLAN.md:309:- 本文件定义 SS-IoA 的“研究与执行总计划”。
