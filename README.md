@@ -63,6 +63,14 @@ MINE_BASE_URL = ""
 MINE_API_KEYS = ""
 ```
 
+For standardized testing in this repository, use the following fixed plan:
+
+```text
+MODEL_NAME=glm-4.5-flash
+BASE_URL=https://llm.undefined.qzz.io/v1/chat/completions
+API_KEY=sk-pc8yOBXhAVOXEa38hpH1XBtuPwadnB1rLpNxHMS6grCuMrZh
+```
+
 3. **Local Model Deployment** (Optional):
 
 ```bash
@@ -95,6 +103,12 @@ python experiments/run_gsm8k.py \
   --optimized_temporal \
   --diff \
   --dec
+```
+
+When testing, keep the model argument consistent with the testing plan:
+
+```shell
+python experiments/run_gsm8k.py --llm_name glm-4.5-flash
 ```
 
 ## **📜 Citation**<a name="citation"></a>
