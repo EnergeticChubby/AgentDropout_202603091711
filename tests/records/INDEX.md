@@ -15,6 +15,7 @@ This index tracks reproducible test runs committed to the repository.
 | `phase_06_20260311_directional_phases_rerun` | `2026-03-11T10:27:00Z` | `AdamMartinez6793_v2` | `95bcdb54de540d0aedbd2de7e7c0c3d618a8fb57` | `PASS` | `tests/records/phase_06_20260311_directional_phases_rerun/test_report.md` |
 | `phase_08_20260311_phase0_full_val` | `2026-03-11T12:43:01Z` | `AdamMartinez6793_v2` | `de3e2c748d923ad8d6562808ade3608f10826d40` | `FAIL` | `tests/records/phase_08_20260311_phase0_full_val/test_report.md` |
 | `phase_08_20260311_phase0_full_val_rerun` | `2026-03-11T12:45:38Z` | `AdamMartinez6793_v2` | `de3e2c748d923ad8d6562808ade3608f10826d40` | `PASS` | `tests/records/phase_08_20260311_phase0_full_val_rerun/test_report.md` |
+| `phase_10_20260311_qwen3_8b_switch` | `2026-03-11T13:06:50Z` | `AdamMartinez6793_v2` | `79c87aa02e0b966ea4f615ce07d01b9f5d731cbb` | `PASS` | `tests/records/phase_10_20260311_qwen3_8b_switch/test_report.md` |
 
 ## Maintenance Rule
 

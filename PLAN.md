@@ -24,7 +24,7 @@ Non-negotiable principles:
 
 All test/evaluation defaults must use:
 
-- `TEST_MODEL="glm-4.5-flash"`
+- `TEST_MODEL="qwen3-8b"`
 - `BASE_URL="https://llm.undefined.qzz.io/v1/chat/completions"`
 - `API_KEY` from `.env` (derived from `template.env`)
 

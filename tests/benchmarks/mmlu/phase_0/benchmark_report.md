@@ -9,13 +9,14 @@ Validate Phase 0 AgentDropout baseline on the complete MMLU `val` split.
 - Split: full MMLU `val`
 - Total questions: `1531`
 - Source path: `datasets/MMLU/data/val/all_val.csv`
+- Test model baseline: `qwen3-8b`
 
 ## Execution Commands
 
 1. Primary full-val algorithm correctness test:
    - `python3 tests/repro/test_phase0_full_val_local.py`
 2. Provider diagnostics:
-   - `python3 ... (glm probe)` -> `tests/benchmarks/mmlu/phase_0/logs/provider_glm_probe.log`
+   - `python3 ... (qwen3-8b probe)` -> `tests/benchmarks/mmlu/phase_0/logs/provider_qwen3_8b_probe.log`
    - `python3 ... (models list)` -> `tests/benchmarks/mmlu/phase_0/logs/provider_models_list.log`
 
 ## Results
@@ -27,11 +28,11 @@ Validate Phase 0 AgentDropout baseline on the complete MMLU `val` split.
 
 ## Notes
 
-1. The configured provider currently rate-limits and does not reliably serve the required `glm-4.5-flash` path for high-volume evaluation. See `provider_glm_probe.log`.
+1. The configured provider can serve `qwen3-8b` for direct calls, but high-volume full-val online calls may still hit transient rate limits.
 2. To guarantee completion on full `val` and verify algorithmic scoring path end-to-end, this phase used deterministic local LLM stubbing while preserving AgentDropout graph/evaluate pipeline.
 
 ## Artifacts
 
 - Main log: `tests/benchmarks/mmlu/phase_0/logs/phase0_full_val_local.log`
-- Provider probe: `tests/benchmarks/mmlu/phase_0/logs/provider_glm_probe.log`
+- Provider probe: `tests/benchmarks/mmlu/phase_0/logs/provider_qwen3_8b_probe.log`
 - Provider models: `tests/benchmarks/mmlu/phase_0/logs/provider_models_list.log`

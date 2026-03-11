@@ -51,7 +51,7 @@ def parse_args():
                         help="Number of optimization/inference rounds for one query")
     parser.add_argument('--pruning_rate', type=float, default=0.25,
                         help="The Rate of Pruning. Default 0.05.")
-    parser.add_argument('--llm_name', type=str, default="glm-4.5-flash",
+    parser.add_argument('--llm_name', type=str, default="qwen3-8b",
                         help="Model name, None runs the default ChatGPT4")
     parser.add_argument('--domain', type=str, default="mmlu",
                         help="Domain (the same as dataset name), default 'MMLU'")
