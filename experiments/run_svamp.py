@@ -42,10 +42,12 @@ def load_config(config_path):
         return yaml.safe_load(file)
     
 def parse_args():
-    parser = argparse.ArgumentParser(description="Experiments on gsm8k")
+    parser = argparse.ArgumentParser(description="Experiments on SVAMP")
     parser.add_argument("--dataset_json", type=str, default="datasets/SVAMP/test.json")
+    parser.add_argument("--train_json", type=str, default="datasets/SVAMP/train.json")
+    parser.add_argument("--split_meta_json", type=str, default=None)
     parser.add_argument("--result_file", type=str, default=None)
-    parser.add_argument("--llm_name", type=str, default="gpt-3.5-turbo")
+    parser.add_argument("--llm_name", type=str, default=os.getenv("DEFAULT_LLM_NAME", "MiniMax-M2.5"))
     parser.add_argument('--mode', type=str, default='FullConnected',
                         choices=['DirectAnswer', 'FullConnected', 'Random', 'Chain','Debate','Layered','Star'],
                         help="Mode of operation. Default is 'FullConnected'.")
@@ -56,7 +58,7 @@ def parse_args():
     parser.add_argument('--num_rounds',type=int,default=1,help="Number of optimization/inference rounds for one query")
     parser.add_argument('--pruning_rate', type=float, default=0.25,help="The Rate of Pruning. Default 0.05.")
     parser.add_argument('--num_iterations', type=int, default=10,help="The num of training iterations.")
-    parser.add_argument('--domain', type=str, default="gsm8k",help="Domain (the same as dataset name), default 'gsm8k'")
+    parser.add_argument('--domain', type=str, default="svamp",help="Domain (the same as dataset name), default 'svamp'")
     parser.add_argument('--agent_names', nargs='+', type=str, default=['MathSolver'],
                         help='Specify agent names as a list of strings')
     parser.add_argument('--agent_nums', nargs='+', type=int, default=[4],
@@ -68,6 +70,10 @@ def parse_args():
     parser.add_argument('--diff',action='store_true')
     parser.add_argument('--dec',action='store_true')
     parser.add_argument('--cot',action='store_true')
+    parser.add_argument('--disable_svamp_guard', action='store_true',
+                        help='Disable strict SVAMP dataset checks.')
+    parser.add_argument('--phase_name', type=str, default='phase0',
+                        help='Phase tag for result naming.')
     args = parser.parse_args()
     result_path = AgentPrune_ROOT / "result"
     os.makedirs(result_path, exist_ok=True)
@@ -76,25 +82,50 @@ def parse_args():
 
     return args
 
+
+def load_records(path: str):
+    suffix = Path(path).suffix.lower()
+    if suffix == ".jsonl":
+        return JSONLReader.parse_file(path)
+    return JSONReader.parse_file(path)
+
+
+def validate_svamp_dataset(dataset_path: str, records):
+    if "svamp" not in dataset_path.lower():
+        raise ValueError(f"SVAMP guard failed: dataset path does not look like SVAMP -> {dataset_path}")
+    if not isinstance(records, list) or len(records) == 0:
+        raise ValueError(f"SVAMP guard failed: no records loaded from {dataset_path}")
+    sample = records[0]
+    required = {"Body", "Question", "Answer"}
+    if not required.issubset(set(sample.keys())):
+        raise ValueError(
+            f"SVAMP guard failed: expected keys {required}, got {set(sample.keys())} in {dataset_path}"
+        )
+
 async def main():
     args = parse_args()
     result_file = None
-    dataset = JSONReader.parse_file(args.dataset_json)
-    dataset = svamp_data_process(dataset)
-    train_dataset = JSONReader.parse_file('datasets/SVAMP/train.json')
-    train_dataset = svamp_data_process(train_dataset)
+    raw_dataset = load_records(args.dataset_json)
+    raw_train_dataset = load_records(args.train_json)
+
+    if not args.disable_svamp_guard:
+        validate_svamp_dataset(args.dataset_json, raw_dataset)
+        validate_svamp_dataset(args.train_json, raw_train_dataset)
+
+    dataset = svamp_data_process(raw_dataset)
+    train_dataset = svamp_data_process(raw_train_dataset)
 
     current_time = Time.instance().value or time.strftime("%Y-%m-%d-%H-%M-%S", time.localtime())
     Time.instance().value = current_time
     result_dir = Path(f"{AgentPrune_ROOT}/result/SVAMP")
     result_dir.mkdir(parents=True, exist_ok=True)
-    result_file = result_dir / f"{args.domain}_llama3_{current_time}.json"
+    result_file = result_dir / f"{args.domain}_{args.phase_name}_{current_time}.json"
     
     agent_names = [name for name,num in zip(args.agent_names,args.agent_nums) for _ in range(num)]
     decision_method = args.decision_method
     kwargs = get_kwargs(args.mode,len(agent_names))
 
-    graph = Graph(domain="gsm8k",
+    graph = Graph(domain=args.domain,
                     llm_name=args.llm_name,
                     agent_names=agent_names,
                     decision_method=decision_method,
@@ -104,6 +135,8 @@ async def main():
                     diff=args.diff,
                     dec=args.dec,
                     **kwargs)
+    print(f"[SVAMP Guard] dataset={args.dataset_json}, train={args.train_json}, "
+          f"loaded_eval={len(dataset)}, loaded_train={len(train_dataset)}, domain={args.domain}")
     
     if args.dec:
         graph.optimized_spatial=False

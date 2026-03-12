@@ -15,8 +15,18 @@ from AgentDropout.llm.llm_registry import LLMRegistry
 
 
 load_dotenv()
-MINE_BASE_URL = ""
-MINE_API_KEYS = ""
+MINE_BASE_URL = (
+    os.getenv("AGENTDROPOUT_BASE_URL")
+    or os.getenv("MINIMAX_BASE_URL")
+    or os.getenv("BASE_URL")
+    or ""
+)
+MINE_API_KEYS = (
+    os.getenv("AGENTDROPOUT_API_KEY")
+    or os.getenv("MINIMAX_API_KEY")
+    or os.getenv("API_KEY")
+    or ""
+)
 
 # print(MINE_BASE_URL)
 
@@ -50,6 +60,11 @@ MINE_API_KEYS = ""
 
 @retry(wait=wait_random_exponential(max=100), stop=stop_after_attempt(3))
 async def achat(model: str, msg: List[Dict],):
+    if not MINE_BASE_URL or not MINE_API_KEYS:
+        raise RuntimeError(
+            "Missing LLM endpoint configuration. Please set AGENTDROPOUT_BASE_URL/AGENTDROPOUT_API_KEY "
+            "(or MINIMAX_BASE_URL/MINIMAX_API_KEY, or BASE_URL/API_KEY)."
+        )
     api_kwargs = dict(api_key = MINE_API_KEYS, base_url = MINE_BASE_URL)
     aclient = AsyncOpenAI(**api_kwargs)
     try:
