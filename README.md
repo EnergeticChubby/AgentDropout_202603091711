@@ -186,6 +186,12 @@ python experiments/run_vg_svamp_pipeline.py \
 
 Use `--dry_run` to print all commands without executing.
 
+Run tooling smoke suite:
+
+```bash
+python experiments/run_smoke_suite.py --dry_run
+```
+
 Build observer labels from telemetry and train an observer model:
 
 ```bash
