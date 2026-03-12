@@ -131,6 +131,24 @@ python experiments/run_svamp_protocol.py \
   --summary_out result/gz10-v3/svamp_protocol_summary.json
 ```
 
+Run SVAMP ablations (A1~A7; `--run_mode quick` only runs A1~A4):
+
+```bash
+python experiments/run_svamp_ablation.py \
+  --split_dir datasets/SVAMP/split_seed42 \
+  --llm_name MiniMax-M2.5 \
+  --summary_out result/gz10-v3/svamp_ablation_summary.json \
+  --run_mode quick
+```
+
+Summarize all generated SVAMP result files:
+
+```bash
+python experiments/summarize_svamp_results.py \
+  --glob_pattern "result/SVAMP/svamp_*.json" \
+  --output_json result/gz10-v3/svamp_summary.json
+```
+
 Build observer labels from telemetry and train an observer model:
 
 ```bash
