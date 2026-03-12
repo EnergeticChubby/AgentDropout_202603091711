@@ -121,6 +121,22 @@ python experiments/phase_controller.py \
   --output_json result/gz10-v3/phase_history.json
 ```
 
+Build observer labels from telemetry and train an observer model:
+
+```bash
+python experiments/build_observer_labels.py \
+  --telemetry_jsonl result/gz10-v3/phase1/telemetry_1.jsonl \
+  --output_jsonl result/gz10-v3/phase1/observer_labels_1.jsonl
+
+python experiments/train_state_observer.py \
+  --dataset_jsonl result/gz10-v3/phase1/observer_labels_1.jsonl \
+  --model_out result/gz10-v3/phase1/observer_model_1.pt \
+  --metrics_out result/gz10-v3/phase1/observer_metrics_1.json \
+  --epochs 20 \
+  --val_ratio 0.1 \
+  --seed 42
+```
+
 ## **📜 Citation**<a name="citation"></a>
 
 If you find this work useful, please cite:

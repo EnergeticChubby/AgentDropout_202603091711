@@ -22,12 +22,17 @@
     "max_attempts": 5,
     "tasks": [
       "re-read-plan",
+      "collect-telemetry",
+      "build-observer-labels",
+      "train-observer",
       "run-state-aware-training",
       "compare-with-phase0",
       "retry-if-not-improved"
     ],
     "run_cmds": [
-      "/workspace/.venv/bin/python experiments/run_svamp.py --dataset_json datasets/SVAMP/split_seed42/svamp_val.json --train_json datasets/SVAMP/split_seed42/svamp_train.json --phase_name phase1 --llm_name MiniMax-M2.5 --mode FullConnected --agent_nums 5 --batch_size 40 --num_iterations 2 --imp_per_iterations 1 --pruning_rate 0.10 --num_rounds 2 --optimized_spatial --optimized_temporal --diff --dec --state_aware_node --state_aware_edge --lambda_repeat 0.1 --lambda_consensus 0.1 --lambda_capacity 0.05 --gamma_repeatflow 0.1 --gamma_echo 0.1 --gamma_capacityflow 0.05 --telemetry_output result/gz10-v3/phase1/telemetry_{attempt}.jsonl --observer_output result/gz10-v3/phase1/observer_{attempt}.jsonl"
+      "/workspace/.venv/bin/python experiments/run_svamp.py --dataset_json datasets/SVAMP/split_seed42/svamp_val.json --train_json datasets/SVAMP/split_seed42/svamp_train.json --phase_name phase1 --llm_name MiniMax-M2.5 --mode FullConnected --agent_nums 5 --batch_size 40 --num_iterations 2 --imp_per_iterations 1 --pruning_rate 0.10 --num_rounds 2 --optimized_spatial --optimized_temporal --diff --dec --state_aware_node --state_aware_edge --lambda_repeat 0.1 --lambda_consensus 0.1 --lambda_capacity 0.05 --gamma_repeatflow 0.1 --gamma_echo 0.1 --gamma_capacityflow 0.05 --telemetry_output result/gz10-v3/phase1/telemetry_{attempt}.jsonl --observer_output result/gz10-v3/phase1/observer_{attempt}.jsonl",
+      "/workspace/.venv/bin/python experiments/build_observer_labels.py --telemetry_jsonl result/gz10-v3/phase1/telemetry_{attempt}.jsonl --output_jsonl result/gz10-v3/phase1/observer_labels_{attempt}.jsonl",
+      "/workspace/.venv/bin/python experiments/train_state_observer.py --dataset_jsonl result/gz10-v3/phase1/observer_labels_{attempt}.jsonl --model_out result/gz10-v3/phase1/observer_model_{attempt}.pt --metrics_out result/gz10-v3/phase1/observer_metrics_{attempt}.json --epochs 20 --val_ratio 0.1 --seed 42"
     ]
   }
 ]

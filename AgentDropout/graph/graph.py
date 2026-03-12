@@ -99,6 +99,26 @@ class Graph(ABC):
             "edge_echo": {},
             "edge_capacityflow": {},
         }
+
+    def _scaled_node_weights(self) -> NodeRiskWeights:
+        if self.latest_observer_output is None:
+            return self.node_risk_weights
+        scale = 1.0 + max(0.0, 0.5 - float(self.latest_observer_output.viability_score))
+        return NodeRiskWeights(
+            repeat=self.node_risk_weights.repeat * scale,
+            consensus=self.node_risk_weights.consensus * scale,
+            capacity=self.node_risk_weights.capacity * scale,
+        )
+
+    def _scaled_edge_weights(self) -> EdgeRiskWeights:
+        if self.latest_observer_output is None:
+            return self.edge_risk_weights
+        scale = 1.0 + max(0.0, 0.5 - float(self.latest_observer_output.viability_score))
+        return EdgeRiskWeights(
+            repeatflow=self.edge_risk_weights.repeatflow * scale,
+            echo=self.edge_risk_weights.echo * scale,
+            capacityflow=self.edge_risk_weights.capacityflow * scale,
+        )
         
         self.init_nodes() # add nodes to the self.nodes
         self.init_potential_edges() # add potential edges to the self.potential_spatial/temporal_edges
@@ -594,7 +614,7 @@ class Graph(ABC):
                     repeatflow_risk=self.latest_risks.get("edge_repeatflow", {}),
                     echo_risk=self.latest_risks.get("edge_echo", {}),
                     capacityflow_risk=self.latest_risks.get("edge_capacityflow", {}),
-                    weights=self.edge_risk_weights,
+                    weights=self._scaled_edge_weights(),
                 )
                 for idx, potential_connection in enumerate(self.potential_spatial_edges):
                     key = f"{potential_connection[0]}->{potential_connection[1]}:spatial"
@@ -620,7 +640,7 @@ class Graph(ABC):
                     repeatflow_risk=self.latest_risks.get("edge_repeatflow", {}),
                     echo_risk=self.latest_risks.get("edge_echo", {}),
                     capacityflow_risk=self.latest_risks.get("edge_capacityflow", {}),
-                    weights=self.edge_risk_weights,
+                    weights=self._scaled_edge_weights(),
                 )
                 for idx, potential_connection in enumerate(self.potential_temporal_edges):
                     key = f"{potential_connection[0]}->{potential_connection[1]}:temporal"
@@ -649,7 +669,7 @@ class Graph(ABC):
                         repeatflow_risk=self.latest_risks.get("edge_repeatflow", {}),
                         echo_risk=self.latest_risks.get("edge_echo", {}),
                         capacityflow_risk=self.latest_risks.get("edge_capacityflow", {}),
-                        weights=self.edge_risk_weights,
+                        weights=self._scaled_edge_weights(),
                     )
                     for idx, potential_connection in enumerate(self.potential_spatial_edges):
                         key = f"{potential_connection[0]}->{potential_connection[1]}:spatial"
@@ -677,7 +697,7 @@ class Graph(ABC):
                         repeatflow_risk=self.latest_risks.get("edge_repeatflow", {}),
                         echo_risk=self.latest_risks.get("edge_echo", {}),
                         capacityflow_risk=self.latest_risks.get("edge_capacityflow", {}),
-                        weights=self.edge_risk_weights,
+                        weights=self._scaled_edge_weights(),
                     )
                     for idx, potential_connection in enumerate(self.potential_temporal_edges):
                         key = f"{potential_connection[0]}->{potential_connection[1]}:temporal"
@@ -716,7 +736,7 @@ class Graph(ABC):
                     repeat_risk=self.latest_risks.get("node_repeat", {}),
                     consensus_risk=self.latest_risks.get("node_consensus", {}),
                     capacity_risk=self.latest_risks.get("node_capacity", {}),
-                    weights=self.node_risk_weights,
+                    weights=self._scaled_node_weights(),
                 )
             else:
                 scored_nodes = struct_scores
