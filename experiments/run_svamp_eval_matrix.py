@@ -41,6 +41,19 @@ def parse_args():
     parser.add_argument("--batch_size", type=int, default=1, help="Batch size passed to run_svamp.")
     parser.add_argument("--num_iterations", type=int, default=1, help="Training iterations passed to run_svamp.")
     parser.add_argument(
+        "--graph_setting",
+        type=str,
+        default="strict40",
+        choices=["strict40", "full720"],
+        help="Graph-learning dataset setting passed to run_svamp.",
+    )
+    parser.add_argument(
+        "--graph_train_size",
+        type=int,
+        default=40,
+        help="Graph-learning sample size passed to run_svamp.",
+    )
+    parser.add_argument(
         "--run_timeout_sec",
         type=int,
         default=0,
@@ -72,6 +85,8 @@ def build_command(
     phase_tag: str,
     batch_size: int,
     num_iterations: int,
+    graph_setting: str,
+    graph_train_size: int,
 ) -> List[str]:
     cmd = [
         python_bin,
@@ -96,6 +111,10 @@ def build_command(
         str(num_iterations),
         "--edge_num_iterations",
         str(num_iterations),
+        "--graph_setting",
+        graph_setting,
+        "--graph_train_size",
+        str(graph_train_size),
     ]
     if cfg.get("optimized"):
         cmd.extend(["--optimized_spatial", "--optimized_temporal"])
@@ -138,6 +157,8 @@ def main():
                 phase_tag,
                 args.batch_size,
                 args.num_iterations,
+                args.graph_setting,
+                args.graph_train_size,
             )
             record = {
                 "seed": seed,
