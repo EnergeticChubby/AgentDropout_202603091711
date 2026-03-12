@@ -666,10 +666,41 @@ class Graph(ABC):
 
     def update_masks_dec(self):
         node_count = len(self.nodes)
+        if not self.diff:
+            spatial_matrix_train = [self.spatial_logits_1.reshape((node_count, node_count))]
+            temporal_matrix_train = [self.temporal_logits_1.reshape((node_count, node_count))]
+            min_score = 100
+            min_node = -1
+            for j in range(node_count):
+                degree_sum = torch.sum(spatial_matrix_train[0][j, :]).item() + torch.sum(spatial_matrix_train[0][:, j]).item()
+                count = torch.sum(self.fixed_spatial_masks[j, :]).item() + torch.sum(self.fixed_spatial_masks[:, j]).item()
+                if count == 0:
+                    count = 1.0
+                degree_score = degree_sum / count
+                node_feedback = self.node_phase_stats.get(0, {}).get(j, {})
+                correction_gain = float(node_feedback.get("correction_gain", 0.0))
+                redundancy = float(node_feedback.get("redundancy", 0.0))
+                wrong_consensus_risk = float(node_feedback.get("wrong_consensus_risk", 0.0))
+                score = (
+                    self.phase_aware_weights["node_degree"] * degree_score
+                    + self.phase_aware_weights["node_correction_gain"] * correction_gain
+                    - self.phase_aware_weights["node_redundancy"] * redundancy
+                    - self.phase_aware_weights["node_wrong_consensus_risk"] * wrong_consensus_risk
+                )
+                if score < min_score:
+                    min_score = score
+                    min_node = j
+            if min_node >= 0:
+                self.skip_nodes.append(min_node)
+                for k in range(node_count):
+                    self.spatial_masks[min_node * node_count + k] = 0
+                    self.spatial_masks[k * node_count + min_node] = 0
+                    self.temporal_masks[min_node * node_count + k] = 0
+                    self.temporal_masks[k * node_count + min_node] = 0
+            return
+
         spatial_matrix_train = [param.reshape((node_count, node_count)) for param in self.spatial_logits_1]
         temporal_matrix_train = [param.reshape((node_count, node_count)) for param in self.temporal_logits_1]
-        # spatial_mask_train = [param.reshape((5, 5)) for param in self.spatial_masks]
-        # temporal_mask_train = [param.reshape((5, 5)) for param in self.temporal_masks]
 
         for i in range(len(spatial_matrix_train)):
             min_score = 100

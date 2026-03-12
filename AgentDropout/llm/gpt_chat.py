@@ -51,13 +51,17 @@ MINIMAX_API_KEY = os.getenv("MINIMAX_API_KEY", "").strip()
 #                 raise Exception("api error")
 
 def _resolve_api_kwargs(model: str) -> Dict[str, str]:
+    minimax_api_key = os.getenv("MINIMAX_API_KEY", "").strip() or MINIMAX_API_KEY
+    minimax_base_url = os.getenv("MINIMAX_BASE_URL", "").strip() or MINIMAX_BASE_URL
+    mine_api_key = os.getenv("MINE_API_KEYS", "").strip() or os.getenv("OPENAI_API_KEY", "").strip() or MINE_API_KEYS
+    mine_base_url = os.getenv("MINE_BASE_URL", "").strip() or os.getenv("OPENAI_BASE_URL", "").strip() or MINE_BASE_URL
     model_lower = (model or "").lower()
     if "minimax" in model_lower:
-        api_key = MINIMAX_API_KEY or MINE_API_KEYS
-        base_url = MINIMAX_BASE_URL or MINE_BASE_URL
+        api_key = minimax_api_key or mine_api_key
+        base_url = minimax_base_url or mine_base_url
     else:
-        api_key = MINE_API_KEYS
-        base_url = MINE_BASE_URL
+        api_key = mine_api_key
+        base_url = mine_base_url
 
     if not api_key:
         raise RuntimeError(
