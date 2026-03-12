@@ -13,6 +13,7 @@ sys.path.append(str(Path(__file__).resolve().parents[1]))
 from experiments.benchmark_compare import compare_phase
 from experiments.benchmark_gsm8k_phase import summarize_phase as summarize_gsm8k
 from experiments.benchmark_svamp_phase import summarize_phase as summarize_svamp
+from experiments.validate_protocol_artifacts import validate_with_jsonschema
 
 
 def parse_args():
@@ -23,6 +24,7 @@ def parse_args():
     parser.add_argument("--allow_equal", action="store_true")
     parser.add_argument("--plan_path", type=str, default="/opt/cursor/artifacts/PLAN.md")
     parser.add_argument("--default_max_attempts", type=int, default=5)
+    parser.add_argument("--schema_json", type=str, default="experiments/schemas/phase_plan.schema.json")
     return parser.parse_args()
 
 
@@ -68,6 +70,12 @@ def run_phase_command(command: str, attempt: int, phase_name: str) -> Dict[str, 
 def main():
     args = parse_args()
     phases = load_phases(args.phases_json)
+    schema_path = Path(args.schema_json)
+    if schema_path.exists():
+        with open(schema_path, "r", encoding="utf-8") as f:
+            schema = json.load(f)
+        mode = validate_with_jsonschema(phases, schema)
+        print(json.dumps({"phase_plan_schema": str(schema_path), "validation_mode": mode, "valid": True}))
     history: List[Dict[str, Any]] = []
     previous_result: Optional[str] = None
 
