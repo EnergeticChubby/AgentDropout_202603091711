@@ -16,9 +16,6 @@ def parse_args():
     parser = argparse.ArgumentParser(description="Check SVAMP data and API environment readiness.")
     parser.add_argument("--svamp_train_json", type=str, default="datasets/SVAMP/train.json")
     parser.add_argument("--svamp_test_json", type=str, default="datasets/SVAMP/test.json")
-    parser.add_argument("--require_gsm8k", action="store_true")
-    parser.add_argument("--gsm8k_train_json", type=str, default="datasets/gsm8k/train.jsonl")
-    parser.add_argument("--gsm8k_test_json", type=str, default="datasets/gsm8k/test.jsonl")
     parser.add_argument("--skip_api_check", action="store_true")
     return parser.parse_args()
 
@@ -29,8 +26,6 @@ def main():
         args.svamp_train_json,
         args.svamp_test_json,
     ]
-    if args.require_gsm8k:
-        required_files.extend([args.gsm8k_train_json, args.gsm8k_test_json])
     file_checks = [check_file(path) for path in required_files]
 
     env_keys = [
@@ -53,7 +48,6 @@ def main():
         "data_ready": ready_data,
         "api_ready": ready_api,
         "skip_api_check": args.skip_api_check,
-        "require_gsm8k": args.require_gsm8k,
         "files": file_checks,
         "env": env_checks,
     }

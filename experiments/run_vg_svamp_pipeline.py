@@ -24,9 +24,6 @@ def parse_args():
     parser.add_argument("--split_dir", type=str, default="datasets/SVAMP/split_seed42")
     parser.add_argument("--svamp_train_json", type=str, default="datasets/SVAMP/train.json")
     parser.add_argument("--svamp_test_json", type=str, default="datasets/SVAMP/test.json")
-    parser.add_argument("--require_gsm8k", action="store_true")
-    parser.add_argument("--gsm8k_train_json", type=str, default="datasets/gsm8k/train.jsonl")
-    parser.add_argument("--gsm8k_test_json", type=str, default="datasets/gsm8k/test.jsonl")
     parser.add_argument("--skip_api_check", action="store_true")
     parser.add_argument("--phase_history_out", type=str, default="result/gz10-v3/phase_history.json")
     parser.add_argument("--protocol_summary_out", type=str, default="result/gz10-v3/svamp_protocol_summary.json")
@@ -56,11 +53,6 @@ def main():
     )
     if args.skip_api_check:
         readiness_cmd += "--skip_api_check "
-    if args.require_gsm8k:
-        readiness_cmd += (
-            f"--require_gsm8k --gsm8k_train_json {args.gsm8k_train_json} "
-            f"--gsm8k_test_json {args.gsm8k_test_json} "
-        )
 
     protocol_cmd = (
         f"{args.python_bin} experiments/run_svamp_protocol.py "

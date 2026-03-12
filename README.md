@@ -126,10 +126,6 @@ Create a fixed SVAMP 8:2 split (with inner train/val) before phased experiments:
 python dataset/prepare_svamp.py \
   --output_dir datasets/SVAMP \
   --seed 42
-
-# optional: prepare GSM8K files for phase health checks
-python dataset/prepare_gsm8k.py \
-  --output_dir datasets/gsm8k
 ```
 
 Then generate the protocol split artifacts:
@@ -154,33 +150,11 @@ python experiments/phase_controller.py \
   --phases_json experiments/phase_plan.quick.json \
   --output_json result/gz10-v3/phase_history.quick.json
 # note: quick plan uses a lightweight baseline to exercise improvement gating rapidly
-
-# quick plan with GSM8K health benchmarks enabled
-python experiments/phase_controller.py \
-  --phases_json experiments/phase_plan.quick_health.json \
-  --output_json result/gz10-v3/phase_history.quick_health.json
 # optional per-phase health gate fields in phase json:
-# - "health_benchmark_type": "gsm8k" | "svamp"
+# - "health_benchmark_type": "svamp"
 # - "health_result_glob": "<glob>"
 # - "health_allow_equal": false
-# comparisons are tracked per benchmark type (svamp/gsm8k)
-
-# optional GSM8K health benchmark command (for phase run_cmds)
-python experiments/run_gsm8k_healthcheck.py \
-  --dataset_json datasets/gsm8k/test.jsonl \
-  --train_json datasets/gsm8k/train.jsonl \
-  --result_dir result/gz10-v3/GSM8K \
-  --phase_name phase0-health \
-  --llm_name MiniMax-M2.5 \
-  --mode FullConnected \
-  --agent_nums 5 \
-  --num_rounds 2 \
-  --eval_sample_size 20 \
-  --train_sample_size 40 \
-  --optimized_spatial \
-  --optimized_temporal \
-  --diff \
-  --dec
+# comparisons are tracked per benchmark type
 ```
 
 Run the SVAMP protocol bundle for **40-shot vs full-train**:
@@ -247,12 +221,6 @@ python experiments/check_env_readiness.py \
   --svamp_train_json .tmp_svamp/SVAMP/train.json \
   --svamp_test_json .tmp_svamp/SVAMP/test.json \
   --skip_api_check
-
-# include GSM8K readiness for phase health benchmarks
-python experiments/check_env_readiness.py \
-  --require_gsm8k \
-  --gsm8k_train_json datasets/gsm8k/train.jsonl \
-  --gsm8k_test_json datasets/gsm8k/test.jsonl
 ```
 
 Run full VG-AgentDropout-SVAMP pipeline (readiness → phase gate → protocol → ablation → summary):
@@ -269,9 +237,6 @@ python experiments/run_vg_svamp_pipeline.py \
   --split_dir datasets/SVAMP/split_seed42 \
   --svamp_train_json datasets/SVAMP/train.json \
   --svamp_test_json datasets/SVAMP/test.json \
-  --require_gsm8k \
-  --gsm8k_train_json datasets/gsm8k/train.jsonl \
-  --gsm8k_test_json datasets/gsm8k/test.jsonl \
   --protocol_extra_args "--eval_sample_size 20" \
   --ablation_extra_args "--eval_sample_size 20 --train_sample_size 40" \
   --run_seed_sweep \

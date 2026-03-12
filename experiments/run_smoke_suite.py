@@ -27,13 +27,11 @@ def parse_args():
 def main():
     args = parse_args()
     smoke_dir = ".tmp_svamp/smoke_suite/SVAMP"
-    gsm_dir = ".tmp_svamp/smoke_suite/gsm8k"
     commands: List[str] = [
-        f"{args.python_bin} -m compileall dataset/prepare_svamp.py dataset/prepare_gsm8k.py experiments/check_env_readiness.py experiments/phase_controller.py experiments/run_svamp.py experiments/run_gsm8k_healthcheck.py",
+        f"{args.python_bin} -m compileall dataset/prepare_svamp.py experiments/check_env_readiness.py experiments/phase_controller.py experiments/run_svamp.py",
         f"{args.python_bin} dataset/prepare_svamp.py --output_dir {smoke_dir} --seed 42",
-        f"{args.python_bin} dataset/prepare_gsm8k.py --output_dir {gsm_dir}",
-        f"{args.python_bin} experiments/check_env_readiness.py --svamp_train_json {smoke_dir}/train.json --svamp_test_json {smoke_dir}/test.json --require_gsm8k --gsm8k_train_json {gsm_dir}/train.jsonl --gsm8k_test_json {gsm_dir}/test.jsonl --skip_api_check",
-        f"{args.python_bin} experiments/run_vg_svamp_pipeline.py --dry_run --validate_outputs --split_dir datasets/SVAMP/split_seed42 --svamp_train_json {smoke_dir}/train.json --svamp_test_json {smoke_dir}/test.json --require_gsm8k --gsm8k_train_json {gsm_dir}/train.jsonl --gsm8k_test_json {gsm_dir}/test.jsonl --skip_api_check",
+        f"{args.python_bin} experiments/check_env_readiness.py --svamp_train_json {smoke_dir}/train.json --svamp_test_json {smoke_dir}/test.json --skip_api_check",
+        f"{args.python_bin} experiments/run_vg_svamp_pipeline.py --dry_run --validate_outputs --split_dir datasets/SVAMP/split_seed42 --svamp_train_json {smoke_dir}/train.json --svamp_test_json {smoke_dir}/test.json --skip_api_check",
         f"{args.python_bin} experiments/run_svamp_seed_sweep.py --dry_run --seeds \"42,3407\"",
     ]
     results = []
