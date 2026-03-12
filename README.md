@@ -154,6 +154,7 @@ python experiments/phase_controller.py \
 # - "health_benchmark_type": "gsm8k" | "svamp"
 # - "health_result_glob": "<glob>"
 # - "health_allow_equal": false
+# comparisons are tracked per benchmark type (svamp/gsm8k)
 ```
 
 Run the SVAMP protocol bundle for **40-shot vs full-train**:

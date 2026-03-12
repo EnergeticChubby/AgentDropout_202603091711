@@ -77,11 +77,12 @@ def main():
         mode = validate_with_jsonschema(phases, schema)
         print(json.dumps({"phase_plan_schema": str(schema_path), "validation_mode": mode, "valid": True}))
     history: List[Dict[str, Any]] = []
-    previous_result: Optional[str] = None
-    previous_health_result: Optional[str] = None
+    previous_results_by_type: Dict[str, Optional[str]] = {}
+    previous_health_results_by_type: Dict[str, Optional[str]] = {}
 
     for phase in phases:
         phase_name = phase["name"]
+        benchmark_type = phase.get("benchmark_type", "svamp")
         max_attempts = int(phase.get("max_attempts", args.default_max_attempts))
         run_cmds = phase.get("run_cmds", [])
         tasks = phase.get("tasks", [])
@@ -115,7 +116,7 @@ def main():
             summary = summarize_phase(phase)
             comparison = compare_phase(
                 current_result=summary["result_file"],
-                previous_result=previous_result,
+                previous_result=previous_results_by_type.get(benchmark_type),
                 strict_greater=not args.allow_equal,
             )
             health_summary = None
@@ -130,7 +131,7 @@ def main():
                 )
                 health_comparison = compare_phase(
                     current_result=health_summary["result_file"],
-                    previous_result=previous_health_result,
+                    previous_result=previous_health_results_by_type.get(health_benchmark_type),
                     strict_greater=not health_allow_equal,
                 )
 
@@ -155,9 +156,9 @@ def main():
 
             if phase_passed:
                 passed = True
-                previous_result = summary["result_file"]
+                previous_results_by_type[benchmark_type] = summary["result_file"]
                 if health_summary is not None:
-                    previous_health_result = health_summary["result_file"]
+                    previous_health_results_by_type[health_benchmark_type] = health_summary["result_file"]
                 break
 
         phase_entry = {"phase": phase, "attempts": phase_attempts, "passed": passed}
