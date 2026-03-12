@@ -234,6 +234,9 @@ python experiments/run_vg_svamp_pipeline.py \
   --svamp_test_json datasets/SVAMP/test.json \
   --protocol_extra_args "--eval_sample_size 20" \
   --ablation_extra_args "--eval_sample_size 20 --train_sample_size 40" \
+  --run_seed_sweep \
+  --seed_sweep_seeds "42,3407,2025" \
+  --seed_sweep_extra_args "--eval_sample_size 20" \
   --run_mode_ablation quick \
   --validate_outputs
 ```

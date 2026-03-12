@@ -32,6 +32,10 @@ def parse_args():
     parser.add_argument("--seed_sweep_summary_out", type=str, default="result/gz10-v3/svamp_seed_sweep_summary.json")
     parser.add_argument("--llm_name", type=str, default="MiniMax-M2.5")
     parser.add_argument("--run_seed_sweep", action="store_true")
+    parser.add_argument("--seed_sweep_seeds", type=str, default="42,3407,2025")
+    parser.add_argument("--seed_sweep_phase_prefix", type=str, default="seed_sweep")
+    parser.add_argument("--seed_sweep_base_split_dir", type=str, default="datasets/SVAMP")
+    parser.add_argument("--seed_sweep_extra_args", type=str, default="")
     parser.add_argument("--validate_outputs", action="store_true")
     parser.add_argument("--report_out_md", type=str, default="result/gz10-v3/vg_svamp_report.md")
     parser.add_argument("--protocol_extra_args", type=str, default="")
@@ -74,8 +78,16 @@ def main():
         f"{args.python_bin} experiments/summarize_svamp_results.py --output_json {args.svamp_summary_out}",
     ]
     if args.run_seed_sweep:
+        sweep_extra = args.seed_sweep_extra_args or args.protocol_extra_args
+        sweep_extra_part = f'--extra_args "{sweep_extra}"' if sweep_extra else ""
         commands.append(
-            f"{args.python_bin} experiments/run_svamp_seed_sweep.py --llm_name {args.llm_name} --summary_out {args.seed_sweep_summary_out}"
+            f"{args.python_bin} experiments/run_svamp_seed_sweep.py "
+            f"--python_bin {args.python_bin} "
+            f"--seeds \"{args.seed_sweep_seeds}\" "
+            f"--base_split_dir {args.seed_sweep_base_split_dir} "
+            f"--phase_prefix {args.seed_sweep_phase_prefix} "
+            f"--llm_name {args.llm_name} --summary_out {args.seed_sweep_summary_out} "
+            f"{sweep_extra_part}"
         )
     if args.validate_outputs:
         commands.append(
