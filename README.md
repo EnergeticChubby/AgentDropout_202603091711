@@ -61,11 +61,11 @@ Set API variables in your environment (or `.env` file in project root):
 
 ```bash
 # OpenAI-compatible endpoint for MiniMax-M2.5
-MINE_BASE_URL="https://api.xcode.best/v1"
+MINE_BASE_URL="https://gpt-agent.cc/v1"
 MINE_API_KEYS="<YOUR_API_KEY>"
 
 # optional aliases (also supported by the code)
-BASE_URL="https://api.xcode.best/v1"
+BASE_URL="https://gpt-agent.cc/v1"
 API_KEY="<YOUR_API_KEY>"
 ```
 

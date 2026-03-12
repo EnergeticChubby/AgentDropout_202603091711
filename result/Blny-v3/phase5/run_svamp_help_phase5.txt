@@ -1,0 +1,77 @@
+usage: run_svamp.py [-h] [--dataset_json DATASET_JSON]
+                    [--result_file RESULT_FILE] [--llm_name LLM_NAME]
+                    [--mode {DirectAnswer,FullConnected,Random,Chain,Debate,Layered,Star}]
+                    [--lr LR] [--delta DELTA] [--batch_size BATCH_SIZE]
+                    [--imp_per_iterations IMP_PER_ITERATIONS]
+                    [--num_rounds NUM_ROUNDS] [--pruning_rate PRUNING_RATE]
+                    [--num_iterations NUM_ITERATIONS]
+                    [--node_num_iterations NODE_NUM_ITERATIONS]
+                    [--edge_num_iterations EDGE_NUM_ITERATIONS]
+                    [--domain DOMAIN] [--phase_tag PHASE_TAG]
+                    [--graph_setting {strict40,full720}]
+                    [--graph_train_size GRAPH_TRAIN_SIZE]
+                    [--graph_seed GRAPH_SEED]
+                    [--node_batch_size NODE_BATCH_SIZE]
+                    [--edge_batch_size EDGE_BATCH_SIZE]
+                    [--enable_runtime_control]
+                    [--agent_names AGENT_NAMES [AGENT_NAMES ...]]
+                    [--agent_nums AGENT_NUMS [AGENT_NUMS ...]]
+                    [--decision_method DECISION_METHOD] [--optimized_spatial]
+                    [--optimized_temporal] [--diff] [--dec] [--cot]
+
+Experiments on gsm8k
+
+options:
+  -h, --help            show this help message and exit
+  --dataset_json DATASET_JSON
+  --result_file RESULT_FILE
+  --llm_name LLM_NAME
+  --mode {DirectAnswer,FullConnected,Random,Chain,Debate,Layered,Star}
+                        Mode of operation. Default is 'FullConnected'.
+  --lr LR               learning rate
+  --delta DELTA         noise level
+  --batch_size BATCH_SIZE
+                        batch size
+  --imp_per_iterations IMP_PER_ITERATIONS
+                        Prune every few iterations. Default 5.
+  --num_rounds NUM_ROUNDS
+                        Number of optimization/inference rounds for one query
+  --pruning_rate PRUNING_RATE
+                        The Rate of Pruning. Default 0.05.
+  --num_iterations NUM_ITERATIONS
+                        The num of training iterations.
+  --node_num_iterations NODE_NUM_ITERATIONS
+                        Node-dropout stage iterations. Defaults to
+                        num_iterations.
+  --edge_num_iterations EDGE_NUM_ITERATIONS
+                        Edge-dropout stage iterations. Defaults to
+                        num_iterations.
+  --domain DOMAIN       Domain (the same as dataset name), default 'svamp'
+  --phase_tag PHASE_TAG
+                        Experiment phase tag for result naming.
+  --graph_setting {strict40,full720}
+                        Graph-learning sample protocol: strict40 or full720.
+  --graph_train_size GRAPH_TRAIN_SIZE
+                        Graph-learning sample count. strict40 defaults to 40;
+                        full720 uses all when set to 40/<=0.
+  --graph_seed GRAPH_SEED
+                        Random seed used for graph-training subset sampling.
+  --node_batch_size NODE_BATCH_SIZE
+                        Batch size for node-dropout training stage.
+  --edge_batch_size EDGE_BATCH_SIZE
+                        Batch size for edge-dropout training stage.
+  --enable_runtime_control
+                        Enable runtime barrier-state intervention controller
+                        during inference.
+  --agent_names AGENT_NAMES [AGENT_NAMES ...]
+                        Specify agent names as a list of strings
+  --agent_nums AGENT_NUMS [AGENT_NUMS ...]
+                        Specify the number of agents for each name in
+                        agent_names
+  --decision_method DECISION_METHOD
+                        The decison method of the agentprune
+  --optimized_spatial
+  --optimized_temporal
+  --diff
+  --dec
+  --cot

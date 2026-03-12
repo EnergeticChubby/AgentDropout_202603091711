@@ -27,7 +27,7 @@ MINE_BASE_URL = _env_first(
     "MINE_BASE_URL",
     "OPENAI_BASE_URL",
     "BASE_URL",
-    default="https://api.xcode.best/v1",
+    default="https://gpt-agent.cc/v1",
 )
 MINE_API_KEYS = _env_first(
     "MINE_API_KEYS",

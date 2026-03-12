@@ -84,6 +84,8 @@ def parse_args():
     parser.add_argument('--graph_seed', type=int, default=42, help="Random seed used for graph-training subset sampling.")
     parser.add_argument('--node_batch_size', type=int, default=20, help="Batch size for node-dropout training stage.")
     parser.add_argument('--edge_batch_size', type=int, default=10, help="Batch size for edge-dropout training stage.")
+    parser.add_argument('--enable_runtime_control', action='store_true',
+                        help="Enable runtime barrier-state intervention controller during inference.")
     parser.add_argument('--agent_names', nargs='+', type=str, default=['MathSolver'],
                         help='Specify agent names as a list of strings')
     parser.add_argument('--agent_nums', nargs='+', type=int, default=[4],
@@ -206,7 +208,12 @@ async def main():
                 answer = record["answer"]
                 answers.append(answer)
                 input_dict = {"task": task}
-                answer_log_probs.append(asyncio.create_task(realized_graph.arun(input_dict,args.num_rounds,skip=True)))
+                answer_log_probs.append(asyncio.create_task(realized_graph.arun(
+                    input_dict,
+                    args.num_rounds,
+                    skip=True,
+                    enable_runtime_control=args.enable_runtime_control,
+                )))
                 add_losses.append(add_loss)
                 
             raw_results = await asyncio.gather(*answer_log_probs)
@@ -336,7 +343,11 @@ async def main():
                 answer = record["answer"]
                 answers.append(answer)
                 input_dict = {"task": task}
-                answer_log_probs.append(asyncio.create_task(realized_graph.arun(input_dict,args.num_rounds)))
+                answer_log_probs.append(asyncio.create_task(realized_graph.arun(
+                    input_dict,
+                    args.num_rounds,
+                    enable_runtime_control=args.enable_runtime_control,
+                )))
                 add_losses.append(add_loss)
                 
             raw_results = await asyncio.gather(*answer_log_probs)
@@ -483,7 +494,12 @@ async def main():
             answers.append(answer)
             input_dict = {"task": task}
 
-            answer_log_probs.append(asyncio.create_task(realized_graph.arun(input_dict,args.num_rounds,case=True)))
+            answer_log_probs.append(asyncio.create_task(realized_graph.arun(
+                input_dict,
+                args.num_rounds,
+                case=True,
+                enable_runtime_control=args.enable_runtime_control,
+            )))
 
             add_losses.append(add_loss)
         
