@@ -26,10 +26,12 @@ def parse_args():
 
 def main():
     args = parse_args()
+    smoke_dir = ".tmp_svamp/smoke_suite/SVAMP"
     commands: List[str] = [
-        f"{args.python_bin} -m compileall experiments/check_env_readiness.py experiments/phase_controller.py experiments/run_svamp.py",
-        f"{args.python_bin} experiments/check_env_readiness.py",
-        f"{args.python_bin} experiments/run_vg_svamp_pipeline.py --dry_run",
+        f"{args.python_bin} -m compileall dataset/prepare_svamp.py experiments/check_env_readiness.py experiments/phase_controller.py experiments/run_svamp.py",
+        f"{args.python_bin} dataset/prepare_svamp.py --output_dir {smoke_dir} --seed 42",
+        f"{args.python_bin} experiments/check_env_readiness.py --svamp_train_json {smoke_dir}/train.json --svamp_test_json {smoke_dir}/test.json --skip_api_check",
+        f"{args.python_bin} experiments/run_vg_svamp_pipeline.py --dry_run --validate_outputs --split_dir datasets/SVAMP/split_seed42 --svamp_train_json {smoke_dir}/train.json --svamp_test_json {smoke_dir}/test.json --skip_api_check",
         f"{args.python_bin} experiments/run_svamp_seed_sweep.py --dry_run --seeds \"42,3407\"",
     ]
     results = []

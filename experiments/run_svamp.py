@@ -5,6 +5,7 @@ import yaml
 import json
 import time
 import asyncio
+import math
 from pathlib import Path
 import torch
 import torch.nn.functional as F
@@ -50,6 +51,7 @@ def parse_args():
     parser.add_argument("--train_json", type=str, default="datasets/SVAMP/train.json")
     parser.add_argument("--split_meta_json", type=str, default=None)
     parser.add_argument("--train_sample_size", type=int, default=0)
+    parser.add_argument("--eval_sample_size", type=int, default=0)
     parser.add_argument("--result_file", type=str, default=None)
     parser.add_argument("--result_dir", type=str, default="result/gz10-v3/SVAMP")
     parser.add_argument("--llm_name", type=str, default=os.getenv("DEFAULT_LLM_NAME", "MiniMax-M2.5"))
@@ -165,6 +167,7 @@ def build_run_manifest(args, result_file: Path, train_size: int, eval_size: int)
         "eval_size": eval_size,
         "train_size": train_size,
         "train_sample_size": args.train_sample_size,
+        "eval_sample_size": args.eval_sample_size,
         "state_aware_node": args.state_aware_node,
         "state_aware_edge": args.state_aware_edge,
         "observer_model_path": args.observer_model_path,
@@ -191,6 +194,13 @@ async def main():
     if args.train_sample_size and args.train_sample_size > 0:
         train_dataset = train_dataset[:args.train_sample_size]
         print(f"[SVAMP TrainSample] using first {len(train_dataset)} training samples")
+    if args.eval_sample_size and args.eval_sample_size > 0:
+        dataset = dataset[:args.eval_sample_size]
+        print(f"[SVAMP EvalSample] using first {len(dataset)} eval samples")
+    if len(dataset) == 0:
+        raise ValueError("No evaluation samples available after processing/sampling.")
+    if len(train_dataset) == 0:
+        raise ValueError("No training samples available after processing/sampling.")
 
     current_time = Time.instance().value or time.strftime("%Y-%m-%d-%H-%M-%S", time.localtime())
     Time.instance().value = current_time
@@ -255,7 +265,7 @@ async def main():
             add_losses = []
             
             current_batch = dataloader(train_dataset,20,i_batch)
-            if current_batch is None:
+            if not current_batch:
                 print("No more data available.")
                 break
             
@@ -369,7 +379,7 @@ async def main():
     else:
         optimizer = torch.optim.Adam(list(graph.spatial_logits.parameters()) + list(graph.temporal_logits.parameters()),lr=args.lr)  
     
-    num_batches = int(len(dataset)/args.batch_size)
+    num_batches = math.ceil(len(dataset)/args.batch_size)
     total_solved, total_executed = (0, 0)
     
     
@@ -384,7 +394,7 @@ async def main():
             add_losses = []
             
             current_batch = dataloader(train_dataset,10,i_batch)
-            if current_batch is None:
+            if not current_batch:
                 print("No more data available.")
                 break
             
@@ -529,7 +539,7 @@ async def main():
         add_losses = []
         
         current_batch = dataloader(dataset,args.batch_size,i_batch)
-        if current_batch is None:
+        if not current_batch:
             print("No more data available.")
             break
         

@@ -101,6 +101,23 @@ python experiments/run_svamp.py \
   --optimized_temporal \
   --diff \
   --dec
+
+# quick-cost debug run
+python experiments/run_svamp.py \
+  --agent_nums 5 \
+  --mode FullConnected \
+  --batch_size 20 \
+  --num_iterations 1 \
+  --imp_per_iterations 1 \
+  --pruning_rate 0.10 \
+  --num_rounds 2 \
+  --llm_name MiniMax-M2.5 \
+  --train_sample_size 40 \
+  --eval_sample_size 20 \
+  --optimized_spatial \
+  --optimized_temporal \
+  --diff \
+  --dec
 ```
 
 Create a fixed SVAMP 8:2 split (with inner train/val) before phased experiments:
@@ -200,6 +217,17 @@ Run full VG-AgentDropout-SVAMP pipeline (readiness → phase gate → protocol �
 ```bash
 python experiments/run_vg_svamp_pipeline.py \
   --llm_name MiniMax-M2.5 \
+  --run_mode_ablation quick \
+  --validate_outputs
+
+# custom readiness paths + lightweight protocol/ablation pass-through
+python experiments/run_vg_svamp_pipeline.py \
+  --llm_name MiniMax-M2.5 \
+  --split_dir datasets/SVAMP/split_seed42 \
+  --svamp_train_json datasets/SVAMP/train.json \
+  --svamp_test_json datasets/SVAMP/test.json \
+  --protocol_extra_args "--eval_sample_size 20" \
+  --ablation_extra_args "--eval_sample_size 20 --train_sample_size 40" \
   --run_mode_ablation quick \
   --validate_outputs
 ```
