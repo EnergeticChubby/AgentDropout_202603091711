@@ -76,6 +76,16 @@ class Graph(ABC):
         # self.dec=False
         self.dec_1=False
         self.skip_nodes = []
+        self.node_phase_stats: Dict[int, Dict[int, Dict[str, float]]] = {}
+        self.edge_phase_stats: Dict[int, Dict[int, Dict[str, float]]] = {}
+        self.phase_aware_weights: Dict[str, float] = {
+            "node_degree": 1.0,
+            "node_correction_gain": 1.0,
+            "node_redundancy": 1.0,
+            "node_wrong_consensus_risk": 1.0,
+            "edge_risk": 0.0,
+            "edge_progress": 0.0,
+        }
         
         self.init_nodes() # add nodes to the self.nodes
         self.init_potential_edges() # add potential edges to the self.potential_spatial/temporal_edges
@@ -108,6 +118,22 @@ class Graph(ABC):
             self.spatial_logits = torch.nn.ParameterList([torch.nn.Parameter(torch.ones(len(self.potential_spatial_edges), requires_grad=optimized_spatial) * init_spatial_logit,requires_grad=optimized_spatial) for _ in range(rounds)])
             self.temporal_logits = torch.nn.ParameterList([torch.nn.Parameter(torch.ones(len(self.potential_temporal_edges), requires_grad=optimized_temporal) * init_temporal_logit,requires_grad=optimized_temporal) for _ in range(rounds-1)])
             self.temporal_masks = torch.nn.ParameterList([torch.nn.Parameter(fixed_temporal_masks.clone(), requires_grad=False) for _ in range(rounds-1)])
+
+    def set_phase_aware_weights(self, **kwargs):
+        for key, value in kwargs.items():
+            if key in self.phase_aware_weights:
+                self.phase_aware_weights[key] = float(value)
+
+    def register_phase_feedback(
+        self,
+        round_idx: int,
+        node_stats: Optional[Dict[int, Dict[str, float]]] = None,
+        edge_stats: Optional[Dict[int, Dict[str, float]]] = None,
+    ):
+        if node_stats:
+            self.node_phase_stats[round_idx] = node_stats
+        if edge_stats:
+            self.edge_phase_stats[round_idx] = edge_stats
         
     @property
     def spatial_adj_matrix(self):
@@ -357,11 +383,13 @@ class Graph(ABC):
                   max_tries: int = 3, 
                   max_time: int = 6000,
                   skip: bool=False,
-                  case: bool=False) -> List[Any]:
+                  case: bool=False,
+                  collect_telemetry: bool=False) -> List[Any]:
         # inputs:{'task':"xxx"}
         log_probs = 0
         log_probs_skip = 0
         all_answers = []
+        telemetry = {"round_node_stats": [], "round_edge_stats": []}
         for round in range(num_rounds):
             round_answers = {}
             if not self.diff:
@@ -479,6 +507,33 @@ class Graph(ABC):
             for node in self.nodes:
                 round_answers[self.nodes[node].role+str(node)] = self.nodes[node].outputs
             all_answers.append(round_answers)
+            if collect_telemetry:
+                round_node_stats = {}
+                for node_idx, (node_id, node_obj) in enumerate(self.nodes.items()):
+                    outputs = node_obj.outputs if isinstance(node_obj.outputs, list) else [node_obj.outputs]
+                    output_text = "\n".join([str(item) for item in outputs])
+                    round_node_stats[node_idx] = {
+                        "node_id": node_id,
+                        "role": node_obj.role,
+                        "output_chars": float(len(output_text)),
+                        "output_lines": float(output_text.count("\n") + (1 if output_text else 0)),
+                    }
+                round_edge_stats = {}
+                edge_idx = 0
+                node_ids = list(self.nodes.keys())
+                for out_idx, out_id in enumerate(node_ids):
+                    out_node = self.find_node(out_id)
+                    active_spatial = {n.id for n in out_node.spatial_successors}
+                    for in_idx, in_id in enumerate(node_ids):
+                        is_active = float(in_id in active_spatial)
+                        round_edge_stats[edge_idx] = {
+                            "edge": [out_id, in_id],
+                            "risk": 1.0 - is_active,
+                            "progress": is_active,
+                        }
+                        edge_idx += 1
+                telemetry["round_node_stats"].append(round_node_stats)
+                telemetry["round_edge_stats"].append(round_edge_stats)
             self.update_memory()
         
         # if self.dec_1==False:
@@ -495,8 +550,12 @@ class Graph(ABC):
         #     return final_answers, selected_index
         # else:
         if skip:
+            if collect_telemetry:
+                return final_answers, log_probs_skip, telemetry
             return final_answers, log_probs_skip
         elif case:
+            if collect_telemetry:
+                return final_answers, log_probs, all_answers, telemetry
             return final_answers, log_probs, all_answers
         else:
             return final_answers, log_probs
@@ -519,6 +578,16 @@ class Graph(ABC):
             num_masks = (self.spatial_masks == 0).sum()
             prune_num_edges = torch.round(num_edges*pruning_rate) if torch.round(num_edges*pruning_rate)>0 else 1
             _edge_logits = self.spatial_logits.clone()
+            if self.edge_phase_stats:
+                for round_stats in self.edge_phase_stats.values():
+                    for edge_idx, stats in round_stats.items():
+                        if edge_idx >= len(_edge_logits):
+                            continue
+                        progress = float(stats.get("progress", 0.0))
+                        risk = float(stats.get("risk", 0.0))
+                        _edge_logits[edge_idx] = _edge_logits[edge_idx] + \
+                            self.phase_aware_weights["edge_progress"] * progress - \
+                            self.phase_aware_weights["edge_risk"] * risk
             min_edge_logit = _edge_logits.min()
             _edge_logits[self.spatial_masks == 0] = min_edge_logit - 1.0
             sorted_edges_idx = torch.argsort(_edge_logits)
@@ -530,6 +599,16 @@ class Graph(ABC):
             num_masks = (self.temporal_masks == 0).sum()
             prune_num_edges = torch.round(num_edges*pruning_rate) if torch.round(num_edges*pruning_rate)>0 else 1
             _edge_logits = self.temporal_logits.clone()
+            if self.edge_phase_stats:
+                for round_stats in self.edge_phase_stats.values():
+                    for edge_idx, stats in round_stats.items():
+                        if edge_idx >= len(_edge_logits):
+                            continue
+                        progress = float(stats.get("progress", 0.0))
+                        risk = float(stats.get("risk", 0.0))
+                        _edge_logits[edge_idx] = _edge_logits[edge_idx] + \
+                            self.phase_aware_weights["edge_progress"] * progress - \
+                            self.phase_aware_weights["edge_risk"] * risk
             min_edge_logit = _edge_logits.min()
             _edge_logits[self.temporal_masks == 0] = min_edge_logit - 1.0
             sorted_edges_idx = torch.argsort(_edge_logits)
@@ -544,6 +623,15 @@ class Graph(ABC):
                 num_masks = (self.spatial_masks[i] == 0).sum()
                 prune_num_edges = torch.round(num_edges*pruning_rate) if torch.round(num_edges*pruning_rate)>0 else 1
                 _edge_logits = self.spatial_logits[i].clone()
+                if i in self.edge_phase_stats:
+                    for edge_idx, stats in self.edge_phase_stats[i].items():
+                        if edge_idx >= len(_edge_logits):
+                            continue
+                        progress = float(stats.get("progress", 0.0))
+                        risk = float(stats.get("risk", 0.0))
+                        _edge_logits[edge_idx] = _edge_logits[edge_idx] + \
+                            self.phase_aware_weights["edge_progress"] * progress - \
+                            self.phase_aware_weights["edge_risk"] * risk
                 min_edge_logit = _edge_logits.min()
                 _edge_logits[self.spatial_masks[i] == 0] = min_edge_logit - 1.0
                 sorted_edges_idx = torch.argsort(_edge_logits)
@@ -557,6 +645,15 @@ class Graph(ABC):
                 num_masks = (self.temporal_masks[i] == 0).sum()
                 prune_num_edges = torch.round(num_edges*pruning_rate) if torch.round(num_edges*pruning_rate)>0 else 1
                 _edge_logits = self.temporal_logits[i].clone()
+                if i in self.edge_phase_stats:
+                    for edge_idx, stats in self.edge_phase_stats[i].items():
+                        if edge_idx >= len(_edge_logits):
+                            continue
+                        progress = float(stats.get("progress", 0.0))
+                        risk = float(stats.get("risk", 0.0))
+                        _edge_logits[edge_idx] = _edge_logits[edge_idx] + \
+                            self.phase_aware_weights["edge_progress"] * progress - \
+                            self.phase_aware_weights["edge_risk"] * risk
                 min_edge_logit = _edge_logits.min()
                 _edge_logits[self.temporal_masks[i] == 0] = min_edge_logit - 1.0
                 sorted_edges_idx = torch.argsort(_edge_logits)
@@ -568,31 +665,44 @@ class Graph(ABC):
         return self.spatial_masks, self.temporal_masks
 
     def update_masks_dec(self):
-        spatial_matrix_train = [param.reshape((5, 5)) for param in self.spatial_logits_1]
-        temporal_matrix_train = [param.reshape((5, 5)) for param in self.temporal_logits_1]
+        node_count = len(self.nodes)
+        spatial_matrix_train = [param.reshape((node_count, node_count)) for param in self.spatial_logits_1]
+        temporal_matrix_train = [param.reshape((node_count, node_count)) for param in self.temporal_logits_1]
         # spatial_mask_train = [param.reshape((5, 5)) for param in self.spatial_masks]
         # temporal_mask_train = [param.reshape((5, 5)) for param in self.temporal_masks]
 
         for i in range(len(spatial_matrix_train)):
-            min = 100
+            min_score = 100
             min_node = -1
-            for j in range(5):
+            for j in range(node_count):
                 sum = torch.sum(spatial_matrix_train[i][j,:]).item() + torch.sum(spatial_matrix_train[i][:,j]).item()
                 # if i >= 1:
                 #     sum += torch.sum(temporal_matrix_train[i-1][j,:]).item() + torch.sum(temporal_matrix_train[i-1][:,j]).item()
                 count = torch.sum(self.fixed_spatial_masks[j,:]).item() + torch.sum(self.fixed_spatial_masks[:,j]).item()
-                sum = sum / count
-                if sum < min:
-                    min = sum
+                if count == 0:
+                    count = 1.0
+                degree_score = sum / count
+                node_feedback = self.node_phase_stats.get(i, {}).get(j, {})
+                correction_gain = float(node_feedback.get("correction_gain", 0.0))
+                redundancy = float(node_feedback.get("redundancy", 0.0))
+                wrong_consensus_risk = float(node_feedback.get("wrong_consensus_risk", 0.0))
+                score = (
+                    self.phase_aware_weights["node_degree"] * degree_score
+                    + self.phase_aware_weights["node_correction_gain"] * correction_gain
+                    - self.phase_aware_weights["node_redundancy"] * redundancy
+                    - self.phase_aware_weights["node_wrong_consensus_risk"] * wrong_consensus_risk
+                )
+                if score < min_score:
+                    min_score = score
                     min_node = j
             # min_node=random.randint(0, 4)
             self.skip_nodes.append(min_node)
-            for k in range(5):
-                self.spatial_masks[i][min_node*5+k]=0
-                self.spatial_masks[i][k*5+min_node]=0
+            for k in range(node_count):
+                self.spatial_masks[i][min_node*node_count+k]=0
+                self.spatial_masks[i][k*node_count+min_node]=0
             if i > 0:
-                for k in range(5):
-                    self.temporal_masks[i-1][k*5+min_node]=0
+                for k in range(node_count):
+                    self.temporal_masks[i-1][k*node_count+min_node]=0
             if i < len(spatial_matrix_train) - 1:
-                for k in range(5):
-                    self.temporal_masks[i][min_node*5+k]=0
+                for k in range(node_count):
+                    self.temporal_masks[i][min_node*node_count+k]=0

@@ -86,6 +86,53 @@ def classify_svamp_phase(
     return "unresolved_conflict"
 
 
+def compute_phase_metrics(
+    all_round_answers: List[dict],
+    is_correct: bool,
+    predict_answer: str,
+    true_answer: str,
+) -> dict:
+    round1 = _round_numeric_answers(all_round_answers[0]) if len(all_round_answers) >= 1 else []
+    round2 = _round_numeric_answers(all_round_answers[1]) if len(all_round_answers) >= 2 else []
+    round1_major = _majority(round1)
+    round2_major = _majority(round2)
+    round1_unique = len(set(round1)) if round1 else 0
+    round2_unique = len(set(round2)) if round2 else 0
+
+    correction_gain = 1.0 if (round1_major and round1_major != str(true_answer) and str(predict_answer) == str(true_answer)) else 0.0
+    wrong_consensus = 1.0 if (not is_correct and round2_major and round2_major == str(predict_answer) and round2_unique <= 1) else 0.0
+    conflict_unresolved = 1.0 if (not is_correct and round2_unique > 1) else 0.0
+    redundancy = 1.0 if (round1 and round2 and round1_unique == 1 and round2_unique == 1 and round1_major == round2_major) else 0.0
+    return {
+        "correction_gain": correction_gain,
+        "wrong_consensus": wrong_consensus,
+        "conflict_unresolved": conflict_unresolved,
+        "redundancy": redundancy,
+    }
+
+
+def phase_aware_utility(
+    is_correct: bool,
+    phase_metrics: dict,
+    token_cost: float,
+    lambda_redundancy: float = 0.2,
+    lambda_wrong_consensus: float = 0.4,
+    lambda_conflict_unresolved: float = 0.2,
+    lambda_token: float = 0.02,
+    lambda_correction_gain: float = 0.3,
+) -> float:
+    acc = 1.0 if is_correct else 0.0
+    utility = (
+        acc
+        - lambda_redundancy * phase_metrics.get("redundancy", 0.0)
+        - lambda_wrong_consensus * phase_metrics.get("wrong_consensus", 0.0)
+        - lambda_conflict_unresolved * phase_metrics.get("conflict_unresolved", 0.0)
+        - lambda_token * token_cost
+        + lambda_correction_gain * phase_metrics.get("correction_gain", 0.0)
+    )
+    return float(utility)
+
+
 def load_svamp_splits(args):
     if args.use_split_data:
         split_dir = Path(args.split_dir)
@@ -223,6 +270,12 @@ def parse_args():
     parser.add_argument('--diff',action='store_true')
     parser.add_argument('--dec',action='store_true')
     parser.add_argument('--cot',action='store_true')
+    parser.add_argument('--node_degree_weight', type=float, default=1.0)
+    parser.add_argument('--node_correction_weight', type=float, default=1.0)
+    parser.add_argument('--node_redundancy_weight', type=float, default=1.0)
+    parser.add_argument('--node_wrong_consensus_weight', type=float, default=1.0)
+    parser.add_argument('--edge_risk_weight', type=float, default=0.2)
+    parser.add_argument('--edge_progress_weight', type=float, default=0.2)
     args = parser.parse_args()
     result_path = AgentPrune_ROOT / "result"
     os.makedirs(result_path, exist_ok=True)
@@ -266,6 +319,14 @@ async def main():
                     diff=args.diff,
                     dec=args.dec,
                     **kwargs)
+    graph.set_phase_aware_weights(
+        node_degree=args.node_degree_weight,
+        node_correction_gain=args.node_correction_weight,
+        node_redundancy=args.node_redundancy_weight,
+        node_wrong_consensus_risk=args.node_wrong_consensus_weight,
+        edge_risk=args.edge_risk_weight,
+        edge_progress=args.edge_progress_weight,
+    )
     
     if args.dec:
         graph.optimized_spatial=False
@@ -321,29 +382,83 @@ async def main():
                 answer = record["answer"]
                 answers.append(answer)
                 input_dict = {"task": task}
-                answer_log_probs.append(asyncio.create_task(realized_graph.arun(input_dict,args.num_rounds,skip=True)))
+                answer_log_probs.append(
+                    asyncio.create_task(
+                        realized_graph.arun(
+                            input_dict,
+                            args.num_rounds,
+                            skip=True,
+                            collect_telemetry=True,
+                        )
+                    )
+                )
                 add_losses.append(add_loss)
                 
             raw_results = await asyncio.gather(*answer_log_probs)
-            raw_answers, log_probs = zip(*raw_results)
+            raw_answers, log_probs, batch_telemetry = zip(*raw_results)
             loss_list: List[torch.Tensor] = []
             utilities: List[float] = []
+            node_feedback_acc = {}
+            edge_feedback_acc = {}
             data = load_result(result_file)
             
-            for task, answer, log_prob, add_loss, true_answer in zip(current_batch, raw_answers, log_probs, add_losses, answers):
+            for task, answer, log_prob, add_loss, true_answer, telemetry in zip(
+                current_batch, raw_answers, log_probs, add_losses, answers, batch_telemetry
+            ):
                 predict_answer = gsm_get_predict(answer[0])
                 is_solved = float(predict_answer)==float(true_answer)
                 total_solved = total_solved + is_solved
                 total_executed = total_executed + 1
                 accuracy = total_solved/ total_executed
-                utility = is_solved
+                utility = phase_aware_utility(
+                    bool(is_solved),
+                    phase_metrics={
+                        "correction_gain": 1.0 if is_solved else 0.0,
+                        "wrong_consensus": 0.0 if is_solved else 1.0,
+                        "conflict_unresolved": 0.0,
+                        "redundancy": 0.0,
+                    },
+                    token_cost=float(PromptTokens.instance().value + CompletionTokens.instance().value) / max(1, total_executed),
+                )
                 utilities.append(utility)
                 single_loss = -log_prob * utility
                 loss_list.append(single_loss+add_loss)
+                for round_idx, round_node_stats in enumerate(telemetry.get("round_node_stats", [])):
+                    if round_idx not in node_feedback_acc:
+                        node_feedback_acc[round_idx] = {}
+                    for node_idx, node_stat in round_node_stats.items():
+                        node_idx_int = int(node_idx)
+                        if node_idx_int not in node_feedback_acc[round_idx]:
+                            node_feedback_acc[round_idx][node_idx_int] = {
+                                "correction_gain": 0.0,
+                                "redundancy": 0.0,
+                                "wrong_consensus_risk": 0.0,
+                                "count": 0.0,
+                            }
+                        fb = node_feedback_acc[round_idx][node_idx_int]
+                        fb["correction_gain"] += 1.0 if is_solved else 0.0
+                        fb["wrong_consensus_risk"] += 0.0 if is_solved else 1.0
+                        fb["redundancy"] += 1.0 if float(node_stat.get("output_lines", 0.0)) <= 1.0 else 0.0
+                        fb["count"] += 1.0
+                for round_idx, round_edge_stats in enumerate(telemetry.get("round_edge_stats", [])):
+                    if round_idx not in edge_feedback_acc:
+                        edge_feedback_acc[round_idx] = {}
+                    for edge_idx, edge_stat in round_edge_stats.items():
+                        edge_idx_int = int(edge_idx)
+                        if edge_idx_int not in edge_feedback_acc[round_idx]:
+                            edge_feedback_acc[round_idx][edge_idx_int] = {
+                                "risk": 0.0,
+                                "progress": 0.0,
+                                "count": 0.0,
+                            }
+                        fb = edge_feedback_acc[round_idx][edge_idx_int]
+                        fb["risk"] += float(edge_stat.get("risk", 0.0))
+                        fb["progress"] += float(edge_stat.get("progress", 0.0))
+                        fb["count"] += 1.0
                 updated_item = {
                     "Question": task,
                     "Answer": true_answer,
-                    "Step": step,
+                    "Step": task.get("step", ""),
                     "Response": answer,
                     "Attempt answer": predict_answer,
                     "Solved": is_solved,
@@ -353,6 +468,25 @@ async def main():
                 }
                 # data.append(updated_item)
                 print(f"##########Final Log:{json.dumps(updated_item)}")
+            for round_idx, node_stats in node_feedback_acc.items():
+                normalized_node_stats = {}
+                for node_idx, payload in node_stats.items():
+                    cnt = payload.pop("count", 1.0)
+                    normalized_node_stats[node_idx] = {
+                        key: (value / cnt) for key, value in payload.items()
+                    }
+                normalized_edge_stats = {}
+                round_edges = edge_feedback_acc.get(round_idx, {})
+                for edge_idx, payload in round_edges.items():
+                    cnt = payload.pop("count", 1.0)
+                    normalized_edge_stats[edge_idx] = {
+                        key: (value / cnt) for key, value in payload.items()
+                    }
+                graph.register_phase_feedback(
+                    round_idx=round_idx,
+                    node_stats=normalized_node_stats,
+                    edge_stats=normalized_edge_stats,
+                )
             with open(result_file, 'w',encoding='utf-8') as file:
                 json.dump(data, file, indent=4)
             
@@ -472,7 +606,7 @@ async def main():
                 updated_item = {
                     "Question": task,
                     "Answer": true_answer,
-                    "Step": step,
+                    "Step": task.get("step", ""),
                     "Response": answer,
                     "Attempt answer": predict_answer,
                     "Solved": is_solved,
@@ -597,19 +731,36 @@ async def main():
             answers.append(answer)
             input_dict = {"task": task}
 
-            answer_log_probs.append(asyncio.create_task(realized_graph.arun(input_dict,args.num_rounds,case=True)))
+            answer_log_probs.append(
+                asyncio.create_task(
+                    realized_graph.arun(
+                        input_dict,
+                        args.num_rounds,
+                        case=True,
+                        collect_telemetry=True,
+                    )
+                )
+            )
 
             add_losses.append(add_loss)
         
         print(22222222)
         raw_results = await asyncio.gather(*answer_log_probs)
         print(33333333)
-        raw_answers, log_probs, all_answers = zip(*raw_results)
+        raw_answers, log_probs, all_answers, all_telemetry = zip(*raw_results)
         loss_list: List[torch.Tensor] = []
         utilities: List[float] = []
         data = load_result(result_file)
         
-        for task, answer, log_prob, add_loss, true_answer, all_answer in zip(current_batch, raw_answers, log_probs, add_losses, answers, all_answers):
+        for task, answer, log_prob, add_loss, true_answer, all_answer, telemetry in zip(
+            current_batch,
+            raw_answers,
+            log_probs,
+            add_losses,
+            answers,
+            all_answers,
+            all_telemetry,
+        ):
             predict_answer = gsm_get_predict(answer[0])
             is_solved = float(predict_answer)==float(true_answer)
             # predict_answer = aqua_get_predict(answer[0])
@@ -617,7 +768,14 @@ async def main():
             total_solved = total_solved + is_solved
             total_executed = total_executed + 1
             accuracy = total_solved/ total_executed
-            utility = is_solved
+            phase_metrics = compute_phase_metrics(
+                all_round_answers=list(all_answer),
+                is_correct=bool(is_solved),
+                predict_answer=str(predict_answer),
+                true_answer=str(true_answer),
+            )
+            token_cost = float(PromptTokens.instance().value + CompletionTokens.instance().value)
+            utility = phase_aware_utility(bool(is_solved), phase_metrics, token_cost=token_cost / max(1, total_executed))
             utilities.append(utility)
             single_loss = -log_prob * utility
             loss_list.append(single_loss+add_loss)
@@ -630,7 +788,7 @@ async def main():
             updated_item = {
                 "Question": task,
                 "Answer": true_answer,
-                "Step": step,
+                "Step": task.get("step", ""),
                 "All_answers": all_answer,
                 "Response": answer,
                 "Attempt answer": predict_answer,
@@ -643,6 +801,9 @@ async def main():
                 "BranchTag": args.branch_tag,
                 "PromptTokens": PromptTokens.instance().value,
                 "CompletionTokens": CompletionTokens.instance().value,
+                "NodeStats": telemetry.get("round_node_stats", []),
+                "EdgeStats": telemetry.get("round_edge_stats", []),
+                "PhaseMetrics": phase_metrics,
             }
             data.append(updated_item)
             print(f"##########Final Log:{json.dumps(updated_item)}")
