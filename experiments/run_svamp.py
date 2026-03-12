@@ -318,7 +318,7 @@ async def main():
     decision_method = args.decision_method
     kwargs = get_kwargs(args.mode,len(agent_names))
 
-    graph = Graph(domain="gsm8k",
+    graph = Graph(domain=args.domain,
                     llm_name=args.llm_name,
                     agent_names=agent_names,
                     decision_method=decision_method,

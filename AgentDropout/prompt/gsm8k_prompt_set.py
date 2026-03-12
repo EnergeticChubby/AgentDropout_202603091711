@@ -367,3 +367,9 @@ f"6. Adhere to the constraints: {constraint}.\n"
     def get_combine_materials(materials: Dict[str, Any]) -> str:
         return get_combine_materials(materials)
 
+
+@PromptSetRegistry.register('svamp')
+class SVAMPPromptSet(GSM8KPromptSet):
+    """SVAMP follows the same prompt protocol as GSM8K."""
+    pass
+
