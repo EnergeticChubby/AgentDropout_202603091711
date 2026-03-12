@@ -6,7 +6,12 @@ import tiktoken
 # DALL-E: https://openai.com/pricing
 
 def cal_token(model:str, text:str):
-    encoder = tiktoken.encoding_for_model(model)
+    text = text if isinstance(text, str) else str(text)
+    try:
+        encoder = tiktoken.encoding_for_model(model)
+    except Exception:
+        # Fallback for non-OpenAI model aliases like MiniMax-M2.5.
+        encoder = tiktoken.get_encoding("cl100k_base")
     num_tokens = len(encoder.encode(text))
     return num_tokens
 

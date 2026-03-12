@@ -6,6 +6,7 @@ import json
 import time
 import asyncio
 from pathlib import Path
+from datetime import datetime
 import torch
 import torch.nn.functional as F
 import copy
@@ -25,6 +26,114 @@ from datasets.aqua_dataset import aqua_data_process,aqua_get_predict
 from AgentDropout.utils.globals import PromptTokens, CompletionTokens
 from AgentDropout.agents.agent_registry import AgentRegistry
 
+
+def _majority(values: List[str]) -> str:
+    if not values:
+        return ""
+    stats = {}
+    for value in values:
+        stats[value] = stats.get(value, 0) + 1
+    return max(stats.items(), key=lambda x: x[1])[0]
+
+
+def _flatten_round_answers(round_answers: dict) -> List[str]:
+    outputs: List[str] = []
+    for _, raw in (round_answers or {}).items():
+        if isinstance(raw, list):
+            outputs.extend([str(x) for x in raw])
+        else:
+            outputs.append(str(raw))
+    return outputs
+
+
+def _round_numeric_answers(round_answers: dict) -> List[str]:
+    outputs = _flatten_round_answers(round_answers)
+    return [gsm_get_predict(output) for output in outputs if output]
+
+
+def classify_svamp_phase(
+    is_correct: bool,
+    final_numeric_answer: str,
+    true_answer: str,
+    all_round_answers: List[dict],
+) -> str:
+    if not all_round_answers:
+        return "unresolved_conflict"
+
+    round1 = _round_numeric_answers(all_round_answers[0]) if len(all_round_answers) >= 1 else []
+    round2 = _round_numeric_answers(all_round_answers[1]) if len(all_round_answers) >= 2 else []
+
+    round1_major = _majority(round1)
+    round2_major = _majority(round2)
+    round1_unique = len(set(round1)) if round1 else 0
+    round2_unique = len(set(round2)) if round2 else 0
+
+    if is_correct:
+        if round1_major and round1_major != str(true_answer) and round2_major == str(true_answer):
+            return "constructive_correction"
+        if round2_unique <= max(1, round1_unique):
+            return "ready_to_finalize"
+        return "constructive_correction"
+
+    if round2_major and round2_major == str(final_numeric_answer) and round2_unique <= 1:
+        return "wrong_consensus_lock"
+
+    round1_text = " ".join(_flatten_round_answers(all_round_answers[0])) if len(all_round_answers) >= 1 else ""
+    round2_text = " ".join(_flatten_round_answers(all_round_answers[1])) if len(all_round_answers) >= 2 else ""
+    if round1_text and round2_text and round1_text.strip() == round2_text.strip():
+        return "redundant_paraphrase"
+
+    return "unresolved_conflict"
+
+
+def load_svamp_splits(args):
+    if args.use_split_data:
+        split_dir = Path(args.split_dir)
+        test_path = split_dir / "test.json"
+        graph_train_path = split_dir / f"graph_train_{args.graph_train_size}.json"
+        train_fallback = split_dir / "train.json"
+        train_path = graph_train_path if graph_train_path.exists() else train_fallback
+        if not test_path.exists():
+            raise FileNotFoundError(
+                f"SVAMP split test file missing: {test_path}. Run experiments/svamp_split.py first."
+            )
+        if not train_path.exists():
+            raise FileNotFoundError(
+                f"SVAMP split train file missing: {train_path}. Run experiments/svamp_split.py first."
+            )
+        split_summary_path = split_dir / "split_summary.json"
+        if split_summary_path.exists():
+            split_summary = JSONReader.parse_file(str(split_summary_path))
+            print(f"[SVAMP SPLIT SUMMARY] {json.dumps(split_summary)}")
+        else:
+            print(f"[SVAMP SPLIT SUMMARY] missing summary at {split_summary_path}")
+        dataset_path = test_path
+    else:
+        dataset_path = Path(args.dataset_json)
+        train_path = Path(args.train_json) if args.train_json else Path("datasets/SVAMP/train.json")
+        if not dataset_path.exists():
+            raise FileNotFoundError(f"SVAMP test file missing: {dataset_path}")
+        if not train_path.exists():
+            raise FileNotFoundError(f"SVAMP train file missing: {train_path}")
+
+    dataset = JSONReader.parse_file(str(dataset_path))
+    train_dataset = JSONReader.parse_file(str(train_path))
+    dataset = svamp_data_process(dataset)
+    train_dataset = svamp_data_process(train_dataset)
+
+    if args.require_svamp:
+        if "svamp" not in str(dataset_path).lower():
+            raise ValueError(f"Dataset path must point to SVAMP, got: {dataset_path}")
+        if not dataset or "task" not in dataset[0] or "answer" not in dataset[0]:
+            raise ValueError("Loaded SVAMP dataset format is invalid after svamp_data_process.")
+
+    print(f"[SVAMP CHECK] dataset_path={dataset_path}")
+    print(f"[SVAMP CHECK] train_path={train_path}")
+    print(f"[SVAMP CHECK] preprocessor=svamp_data_process")
+    print(f"[SVAMP CHECK] dataset_size={len(dataset)} train_size={len(train_dataset)}")
+
+    return dataset, train_dataset
+
 def load_result(result_file):
     if not result_file.exists():
         with open(result_file, 'w',encoding='utf-8') as file:
@@ -34,6 +143,41 @@ def load_result(result_file):
         data = json.load(file)
     return data
 
+
+def write_phase_summary(result_file: Path, args) -> None:
+    data = load_result(result_file)
+    if not data:
+        return
+    phase_distribution = {}
+    wrong_consensus = 0
+    redundancy = 0
+    for item in data:
+        phase = item.get("PhaseLabel", "unknown")
+        phase_distribution[phase] = phase_distribution.get(phase, 0) + 1
+        if phase == "wrong_consensus_lock":
+            wrong_consensus += 1
+        if phase == "redundant_paraphrase":
+            redundancy += 1
+    final_accuracy = float(data[-1].get("Accuracy", 0.0))
+    total = len(data)
+    summary = {
+        "phase": args.phase_label,
+        "benchmark": "svamp",
+        "branch_tag": args.branch_tag,
+        "model": args.llm_name,
+        "final_accuracy": final_accuracy,
+        "num_samples": total,
+        "phase_distribution": phase_distribution,
+        "wrong_consensus_rate": (wrong_consensus / total) if total else 0.0,
+        "redundancy_rate": (redundancy / total) if total else 0.0,
+        "prompt_tokens_total": PromptTokens.instance().value,
+        "completion_tokens_total": CompletionTokens.instance().value,
+    }
+    summary_file = result_file.parent / f"{args.phase_label}_svamp_summary.json"
+    with open(summary_file, "w", encoding="utf-8") as f:
+        json.dump(summary, f, indent=2, ensure_ascii=False)
+    print(f"[SVAMP SUMMARY] {json.dumps(summary, ensure_ascii=False)}")
+
 def dataloader(data_list, batch_size, i_batch):
     return data_list[i_batch*batch_size:i_batch*batch_size + batch_size]
 
@@ -42,24 +186,35 @@ def load_config(config_path):
         return yaml.safe_load(file)
     
 def parse_args():
-    parser = argparse.ArgumentParser(description="Experiments on gsm8k")
+    parser = argparse.ArgumentParser(description="CCF-AgentDropout experiments on SVAMP")
     parser.add_argument("--dataset_json", type=str, default="datasets/SVAMP/test.json")
+    parser.add_argument("--train_json", type=str, default="")
+    parser.add_argument("--split_dir", type=str, default="data/svamp/split_seed42")
+    parser.add_argument("--use_split_data", action="store_true")
+    parser.add_argument("--require_svamp", action="store_true")
+    parser.add_argument("--graph_train_size", type=int, default=40)
+    parser.add_argument("--graph_val_size", type=int, default=40)
+    parser.add_argument("--split_seed", type=int, default=42)
     parser.add_argument("--result_file", type=str, default=None)
-    parser.add_argument("--llm_name", type=str, default="gpt-3.5-turbo")
+    parser.add_argument("--llm_name", type=str, default="MiniMax-M2.5")
+    parser.add_argument("--base_url", type=str, default="")
+    parser.add_argument("--api_key", type=str, default="")
+    parser.add_argument("--branch_tag", type=str, default="AdamMartinez6793-v3")
+    parser.add_argument("--phase_label", type=str, default="phase0")
     parser.add_argument('--mode', type=str, default='FullConnected',
                         choices=['DirectAnswer', 'FullConnected', 'Random', 'Chain','Debate','Layered','Star'],
                         help="Mode of operation. Default is 'FullConnected'.")
     parser.add_argument('--lr', type=float, default=0.1,help="learning rate")
     parser.add_argument('--delta', type=float, default=0.1, help="noise level")
-    parser.add_argument('--batch_size', type=int, default=4,help="batch size")
-    parser.add_argument('--imp_per_iterations', type=int, default=5, help="Prune every few iterations. Default 5.")
-    parser.add_argument('--num_rounds',type=int,default=1,help="Number of optimization/inference rounds for one query")
-    parser.add_argument('--pruning_rate', type=float, default=0.25,help="The Rate of Pruning. Default 0.05.")
-    parser.add_argument('--num_iterations', type=int, default=10,help="The num of training iterations.")
-    parser.add_argument('--domain', type=str, default="gsm8k",help="Domain (the same as dataset name), default 'gsm8k'")
+    parser.add_argument('--batch_size', type=int, default=40,help="batch size")
+    parser.add_argument('--imp_per_iterations', type=int, default=1, help="Prune every few iterations. Default 1.")
+    parser.add_argument('--num_rounds',type=int,default=2,help="Number of optimization/inference rounds for one query")
+    parser.add_argument('--pruning_rate', type=float, default=0.10,help="The Rate of Pruning. Default 0.10.")
+    parser.add_argument('--num_iterations', type=int, default=2,help="The num of training iterations.")
+    parser.add_argument('--domain', type=str, default="svamp",help="Domain (the same as dataset name), default 'svamp'")
     parser.add_argument('--agent_names', nargs='+', type=str, default=['MathSolver'],
                         help='Specify agent names as a list of strings')
-    parser.add_argument('--agent_nums', nargs='+', type=int, default=[4],
+    parser.add_argument('--agent_nums', nargs='+', type=int, default=[5],
                         help='Specify the number of agents for each name in agent_names')
     parser.add_argument('--decision_method', type=str, default='FinalRefer',
                         help='The decison method of the agentprune')
@@ -74,21 +229,28 @@ def parse_args():
     if len(args.agent_names) != len(args.agent_nums):
         parser.error("The number of agent names must match the number of agent counts.")
 
+    if args.base_url:
+        os.environ["MINIMAX_BASE_URL"] = args.base_url
+        os.environ["MINE_BASE_URL"] = args.base_url
+    if args.api_key:
+        os.environ["MINIMAX_API_KEY"] = args.api_key
+        os.environ["MINE_API_KEYS"] = args.api_key
+
     return args
 
 async def main():
     args = parse_args()
+    args.require_svamp = True
     result_file = None
-    dataset = JSONReader.parse_file(args.dataset_json)
-    dataset = svamp_data_process(dataset)
-    train_dataset = JSONReader.parse_file('datasets/SVAMP/train.json')
-    train_dataset = svamp_data_process(train_dataset)
+    dataset, train_dataset = load_svamp_splits(args)
 
     current_time = Time.instance().value or time.strftime("%Y-%m-%d-%H-%M-%S", time.localtime())
     Time.instance().value = current_time
-    result_dir = Path(f"{AgentPrune_ROOT}/result/SVAMP")
+    result_dir = Path(f"{AgentPrune_ROOT}/result/SVAMP/{args.branch_tag}/{args.phase_label}")
     result_dir.mkdir(parents=True, exist_ok=True)
-    result_file = result_dir / f"{args.domain}_llama3_{current_time}.json"
+    model_tag = args.llm_name.replace("/", "_")
+    result_file = result_dir / f"{args.domain}_{model_tag}_{current_time}.json"
+    print(f"[SVAMP CHECK] result_dir={result_dir}")
     
     agent_names = [name for name,num in zip(args.agent_names,args.agent_nums) for _ in range(num)]
     decision_method = args.decision_method
@@ -459,6 +621,12 @@ async def main():
             utilities.append(utility)
             single_loss = -log_prob * utility
             loss_list.append(single_loss+add_loss)
+            phase_label = classify_svamp_phase(
+                is_correct=bool(is_solved),
+                final_numeric_answer=str(predict_answer),
+                true_answer=str(true_answer),
+                all_round_answers=list(all_answer),
+            )
             updated_item = {
                 "Question": task,
                 "Answer": true_answer,
@@ -469,7 +637,12 @@ async def main():
                 "Solved": is_solved,
                 "Total solved": total_solved,
                 "Total executed": total_executed,
-                "Accuracy": accuracy
+                "Accuracy": accuracy,
+                "PhaseLabel": phase_label,
+                "Phase": args.phase_label,
+                "BranchTag": args.branch_tag,
+                "PromptTokens": PromptTokens.instance().value,
+                "CompletionTokens": CompletionTokens.instance().value,
             }
             data.append(updated_item)
             print(f"##########Final Log:{json.dumps(updated_item)}")
@@ -500,6 +673,8 @@ async def main():
         print(f"Cost {Cost.instance().value}")
         print(f"PromptTokens {PromptTokens.instance().value}")
         print(f"CompletionTokens {CompletionTokens.instance().value}")
+
+    write_phase_summary(result_file, args)
 
 
 def get_kwargs(mode:Union[Literal['DirectAnswer'],Literal['FullConnected'],Literal['Random'],Literal['Chain'],Literal['Debate'],Literal['Layered'],Literal['Star']]
