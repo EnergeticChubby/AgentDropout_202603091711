@@ -137,6 +137,19 @@ python experiments/train_state_observer.py \
   --seed 42
 ```
 
+Use trained observer in SVAMP run:
+
+```bash
+python experiments/run_svamp.py \
+  --dataset_json datasets/SVAMP/split_seed42/svamp_val.json \
+  --train_json datasets/SVAMP/split_seed42/svamp_train.json \
+  --phase_name phase1 \
+  --llm_name MiniMax-M2.5 \
+  --state_aware_node \
+  --state_aware_edge \
+  --observer_model_path result/gz10-v3/phase1/observer_model_1.pt
+```
+
 ## **📜 Citation**<a name="citation"></a>
 
 If you find this work useful, please cite:
