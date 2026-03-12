@@ -1,0 +1,10 @@
+Traceback (most recent call last):
+  File "/workspace/experiments/run_svamp.py", line 614, in <module>
+    asyncio.run(main())
+  File "/usr/lib/python3.10/asyncio/runners.py", line 44, in run
+    return loop.run_until_complete(main)
+  File "/usr/lib/python3.10/asyncio/base_events.py", line 649, in run_until_complete
+    return future.result()
+  File "/workspace/experiments/run_svamp.py", line 112, in main
+    raise FileNotFoundError(f"SVAMP test split not found: {args.dataset_json}")
+FileNotFoundError: SVAMP test split not found: datasets/SVAMP/test.json

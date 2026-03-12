@@ -37,6 +37,23 @@ def load_result(result_file):
 def dataloader(data_list, batch_size, i_batch):
     return data_list[i_batch*batch_size:i_batch*batch_size + batch_size]
 
+
+def build_graph_train_dataset(train_dataset, graph_setting: str, graph_train_size: int, graph_seed: int):
+    if graph_setting == "strict40":
+        target_size = min(max(graph_train_size, 1), 40, len(train_dataset))
+        return random.Random(graph_seed).sample(train_dataset, target_size)
+
+    if graph_setting == "full720":
+        if graph_train_size <= 0 or graph_train_size == 40:
+            target_size = len(train_dataset)
+        else:
+            target_size = min(graph_train_size, len(train_dataset))
+        if target_size == len(train_dataset):
+            return list(train_dataset)
+        return random.Random(graph_seed).sample(train_dataset, target_size)
+
+    raise ValueError(f"Unsupported graph_setting: {graph_setting}")
+
 def load_config(config_path):
     with open(config_path, 'r',encoding='utf-8') as file:
         return yaml.safe_load(file)
@@ -60,6 +77,13 @@ def parse_args():
     parser.add_argument('--edge_num_iterations', type=int, default=None, help="Edge-dropout stage iterations. Defaults to num_iterations.")
     parser.add_argument('--domain', type=str, default="svamp",help="Domain (the same as dataset name), default 'svamp'")
     parser.add_argument('--phase_tag', type=str, default='phase0', help="Experiment phase tag for result naming.")
+    parser.add_argument('--graph_setting', type=str, default='strict40', choices=['strict40', 'full720'],
+                        help="Graph-learning sample protocol: strict40 or full720.")
+    parser.add_argument('--graph_train_size', type=int, default=40,
+                        help="Graph-learning sample count. strict40 defaults to 40; full720 uses all when set to 40/<=0.")
+    parser.add_argument('--graph_seed', type=int, default=42, help="Random seed used for graph-training subset sampling.")
+    parser.add_argument('--node_batch_size', type=int, default=20, help="Batch size for node-dropout training stage.")
+    parser.add_argument('--edge_batch_size', type=int, default=10, help="Batch size for edge-dropout training stage.")
     parser.add_argument('--agent_names', nargs='+', type=str, default=['MathSolver'],
                         help='Specify agent names as a list of strings')
     parser.add_argument('--agent_nums', nargs='+', type=int, default=[4],
@@ -92,8 +116,18 @@ async def main():
     dataset = svamp_data_process(dataset)
     train_dataset = JSONReader.parse_file('datasets/SVAMP/train.json')
     train_dataset = svamp_data_process(train_dataset)
+    graph_train_dataset = build_graph_train_dataset(
+        train_dataset=train_dataset,
+        graph_setting=args.graph_setting,
+        graph_train_size=args.graph_train_size,
+        graph_seed=args.graph_seed,
+    )
     print(f"[SVAMP-CHECK] test_path={args.dataset_json}, train_path=datasets/SVAMP/train.json")
     print(f"[SVAMP-CHECK] processed_test_size={len(dataset)}, processed_train_size={len(train_dataset)}")
+    print(
+        f"[GRAPH-SETTING] setting={args.graph_setting} graph_train_size={len(graph_train_dataset)} "
+        f"graph_seed={args.graph_seed}"
+    )
 
     current_time = Time.instance().value or time.strftime("%Y-%m-%d-%H-%M-%S", time.localtime())
     Time.instance().value = current_time
@@ -133,7 +167,7 @@ async def main():
             answers = []
             add_losses = []
             
-            current_batch = dataloader(train_dataset,20,i_batch)
+            current_batch = dataloader(graph_train_dataset,args.node_batch_size,i_batch)
             if not current_batch:
                 print("No more data available.")
                 break
@@ -263,7 +297,7 @@ async def main():
             answers = []
             add_losses = []
             
-            current_batch = dataloader(train_dataset,10,i_batch)
+            current_batch = dataloader(graph_train_dataset,args.edge_batch_size,i_batch)
             if not current_batch:
                 print("No more data available.")
                 break
