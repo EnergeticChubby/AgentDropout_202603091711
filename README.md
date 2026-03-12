@@ -141,6 +141,15 @@ python experiments/run_svamp_ablation.py \
   --run_mode quick
 ```
 
+Run multi-seed protocol sweep (42, 3407, 2025) and aggregate mean/std:
+
+```bash
+python experiments/run_svamp_seed_sweep.py \
+  --seeds "42,3407,2025" \
+  --llm_name MiniMax-M2.5 \
+  --summary_out result/gz10-v3/svamp_seed_sweep_summary.json
+```
+
 Summarize all generated SVAMP result files:
 
 ```bash
