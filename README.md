@@ -161,6 +161,12 @@ python experiments/validate_protocol_artifacts.py \
   --schema_json experiments/schemas/split_meta.schema.json
 ```
 
+Check local experiment readiness (SVAMP files + API envs):
+
+```bash
+python experiments/check_env_readiness.py
+```
+
 Build observer labels from telemetry and train an observer model:
 
 ```bash
