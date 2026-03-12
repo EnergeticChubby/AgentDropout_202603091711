@@ -100,26 +100,6 @@ class Graph(ABC):
             "edge_capacityflow": {},
         }
 
-    def _scaled_node_weights(self) -> NodeRiskWeights:
-        if self.latest_observer_output is None:
-            return self.node_risk_weights
-        scale = 1.0 + max(0.0, 0.5 - float(self.latest_observer_output.viability_score))
-        return NodeRiskWeights(
-            repeat=self.node_risk_weights.repeat * scale,
-            consensus=self.node_risk_weights.consensus * scale,
-            capacity=self.node_risk_weights.capacity * scale,
-        )
-
-    def _scaled_edge_weights(self) -> EdgeRiskWeights:
-        if self.latest_observer_output is None:
-            return self.edge_risk_weights
-        scale = 1.0 + max(0.0, 0.5 - float(self.latest_observer_output.viability_score))
-        return EdgeRiskWeights(
-            repeatflow=self.edge_risk_weights.repeatflow * scale,
-            echo=self.edge_risk_weights.echo * scale,
-            capacityflow=self.edge_risk_weights.capacityflow * scale,
-        )
-        
         self.init_nodes() # add nodes to the self.nodes
         self.init_potential_edges() # add potential edges to the self.potential_spatial/temporal_edges
         
@@ -151,6 +131,26 @@ class Graph(ABC):
             self.spatial_logits = torch.nn.ParameterList([torch.nn.Parameter(torch.ones(len(self.potential_spatial_edges), requires_grad=optimized_spatial) * init_spatial_logit,requires_grad=optimized_spatial) for _ in range(rounds)])
             self.temporal_logits = torch.nn.ParameterList([torch.nn.Parameter(torch.ones(len(self.potential_temporal_edges), requires_grad=optimized_temporal) * init_temporal_logit,requires_grad=optimized_temporal) for _ in range(rounds-1)])
             self.temporal_masks = torch.nn.ParameterList([torch.nn.Parameter(fixed_temporal_masks.clone(), requires_grad=False) for _ in range(rounds-1)])
+
+    def _scaled_node_weights(self) -> NodeRiskWeights:
+        if self.latest_observer_output is None:
+            return self.node_risk_weights
+        scale = 1.0 + max(0.0, 0.5 - float(self.latest_observer_output.viability_score))
+        return NodeRiskWeights(
+            repeat=self.node_risk_weights.repeat * scale,
+            consensus=self.node_risk_weights.consensus * scale,
+            capacity=self.node_risk_weights.capacity * scale,
+        )
+
+    def _scaled_edge_weights(self) -> EdgeRiskWeights:
+        if self.latest_observer_output is None:
+            return self.edge_risk_weights
+        scale = 1.0 + max(0.0, 0.5 - float(self.latest_observer_output.viability_score))
+        return EdgeRiskWeights(
+            repeatflow=self.edge_risk_weights.repeatflow * scale,
+            echo=self.edge_risk_weights.echo * scale,
+            capacityflow=self.edge_risk_weights.capacityflow * scale,
+        )
         
     @property
     def spatial_adj_matrix(self):

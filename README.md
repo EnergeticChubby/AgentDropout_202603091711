@@ -121,6 +121,16 @@ python experiments/phase_controller.py \
   --output_json result/gz10-v3/phase_history.json
 ```
 
+Run the SVAMP protocol bundle for **40-shot vs full-train**:
+
+```bash
+python experiments/run_svamp_protocol.py \
+  --split_dir datasets/SVAMP/split_seed42 \
+  --phase_prefix protocol \
+  --llm_name MiniMax-M2.5 \
+  --summary_out result/gz10-v3/svamp_protocol_summary.json
+```
+
 Build observer labels from telemetry and train an observer model:
 
 ```bash

@@ -48,6 +48,7 @@ def parse_args():
     parser.add_argument("--dataset_json", type=str, default="datasets/SVAMP/test.json")
     parser.add_argument("--train_json", type=str, default="datasets/SVAMP/train.json")
     parser.add_argument("--split_meta_json", type=str, default=None)
+    parser.add_argument("--train_sample_size", type=int, default=0)
     parser.add_argument("--result_file", type=str, default=None)
     parser.add_argument("--llm_name", type=str, default=os.getenv("DEFAULT_LLM_NAME", "MiniMax-M2.5"))
     parser.add_argument('--mode', type=str, default='FullConnected',
@@ -115,6 +116,23 @@ def validate_svamp_dataset(dataset_path: str, records):
             f"SVAMP guard failed: expected keys {required}, got {set(sample.keys())} in {dataset_path}"
         )
 
+
+def validate_split_meta(split_meta_path: str, dataset_json: str, train_json: str):
+    meta_path = Path(split_meta_path)
+    if not meta_path.exists():
+        raise ValueError(f"split_meta_json not found: {split_meta_path}")
+    with open(meta_path, "r", encoding="utf-8") as f:
+        meta = json.load(f)
+    source = meta.get("source", {})
+    print(f"[SVAMP SplitMeta] source={source}, counts={meta.get('counts', {})}")
+    if source:
+        source_train = str(source.get("train_json", "")).lower()
+        source_test = str(source.get("test_json", "")).lower()
+        if "svamp" not in source_train and "svamp" not in source_test:
+            raise ValueError(f"split_meta source does not appear to be SVAMP: {source}")
+    if "svamp" not in dataset_json.lower() or "svamp" not in train_json.lower():
+        raise ValueError("split_meta provided but dataset/train paths are not SVAMP-labeled paths.")
+
 async def main():
     args = parse_args()
     result_file = None
@@ -124,9 +142,14 @@ async def main():
     if not args.disable_svamp_guard:
         validate_svamp_dataset(args.dataset_json, raw_dataset)
         validate_svamp_dataset(args.train_json, raw_train_dataset)
+    if args.split_meta_json:
+        validate_split_meta(args.split_meta_json, args.dataset_json, args.train_json)
 
     dataset = svamp_data_process(raw_dataset)
     train_dataset = svamp_data_process(raw_train_dataset)
+    if args.train_sample_size and args.train_sample_size > 0:
+        train_dataset = train_dataset[:args.train_sample_size]
+        print(f"[SVAMP TrainSample] using first {len(train_dataset)} training samples")
 
     current_time = Time.instance().value or time.strftime("%Y-%m-%d-%H-%M-%S", time.localtime())
     Time.instance().value = current_time
