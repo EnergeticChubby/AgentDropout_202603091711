@@ -11,6 +11,7 @@ import torch.nn.functional as F
 import copy
 from typing import List,Union,Literal
 import random
+from typing import Any, Dict
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 sys.stdout.reconfigure(encoding='utf-8')
 
@@ -134,6 +135,44 @@ def validate_split_meta(split_meta_path: str, dataset_json: str, train_json: str
     if "svamp" not in dataset_json.lower() or "svamp" not in train_json.lower():
         raise ValueError("split_meta provided but dataset/train paths are not SVAMP-labeled paths.")
 
+
+def validate_eval_train_separation(dataset_json: str, train_json: str):
+    eval_path = Path(dataset_json).resolve()
+    train_path = Path(train_json).resolve()
+    if eval_path == train_path:
+        raise ValueError(
+            f"Data leakage guard failed: dataset_json and train_json point to same file: {eval_path}"
+        )
+
+
+def build_run_manifest(args, result_file: Path, train_size: int, eval_size: int) -> Dict[str, Any]:
+    split_meta_payload = None
+    if args.split_meta_json:
+        split_path = Path(args.split_meta_json)
+        if split_path.exists():
+            with open(split_path, "r", encoding="utf-8") as f:
+                split_meta_payload = json.load(f)
+    return {
+        "created_at": time.strftime("%Y-%m-%d-%H-%M-%S", time.localtime()),
+        "result_file": str(result_file),
+        "phase_name": args.phase_name,
+        "domain": args.domain,
+        "model": args.llm_name,
+        "api_base_url_env": os.getenv("AGENTDROPOUT_BASE_URL") or os.getenv("MINIMAX_BASE_URL") or os.getenv("BASE_URL"),
+        "dataset_json": args.dataset_json,
+        "train_json": args.train_json,
+        "split_meta_json": args.split_meta_json,
+        "eval_size": eval_size,
+        "train_size": train_size,
+        "train_sample_size": args.train_sample_size,
+        "state_aware_node": args.state_aware_node,
+        "state_aware_edge": args.state_aware_edge,
+        "observer_model_path": args.observer_model_path,
+        "telemetry_output": args.telemetry_output,
+        "observer_output": args.observer_output,
+        "split_meta": split_meta_payload,
+    }
+
 async def main():
     args = parse_args()
     result_file = None
@@ -143,6 +182,7 @@ async def main():
     if not args.disable_svamp_guard:
         validate_svamp_dataset(args.dataset_json, raw_dataset)
         validate_svamp_dataset(args.train_json, raw_train_dataset)
+        validate_eval_train_separation(args.dataset_json, args.train_json)
     if args.split_meta_json:
         validate_split_meta(args.split_meta_json, args.dataset_json, args.train_json)
 
@@ -159,6 +199,7 @@ async def main():
         result_dir = Path(f"{AgentPrune_ROOT}/{result_dir}")
     result_dir.mkdir(parents=True, exist_ok=True)
     result_file = result_dir / f"{args.domain}_{args.phase_name}_{current_time}.json"
+    result_meta_file = result_dir / f"{args.domain}_{args.phase_name}_{current_time}.meta.json"
     
     agent_names = [name for name,num in zip(args.agent_names,args.agent_nums) for _ in range(num)]
     decision_method = args.decision_method
@@ -194,6 +235,9 @@ async def main():
                     **kwargs)
     print(f"[SVAMP Guard] dataset={args.dataset_json}, train={args.train_json}, "
           f"loaded_eval={len(dataset)}, loaded_train={len(train_dataset)}, domain={args.domain}")
+    run_manifest = build_run_manifest(args, result_file=result_file, train_size=len(train_dataset), eval_size=len(dataset))
+    with open(result_meta_file, "w", encoding="utf-8") as f:
+        json.dump(run_manifest, f, indent=2)
     
     if args.dec:
         graph.optimized_spatial=False

@@ -214,12 +214,17 @@ Use trained observer in SVAMP run:
 python experiments/run_svamp.py \
   --dataset_json datasets/SVAMP/split_seed42/svamp_val.json \
   --train_json datasets/SVAMP/split_seed42/svamp_train.json \
+  --split_meta_json datasets/SVAMP/split_seed42/split_meta.json \
   --phase_name phase1 \
   --llm_name MiniMax-M2.5 \
   --state_aware_node \
   --state_aware_edge \
   --observer_model_path result/gz10-v3/phase1/observer_model_1.pt
 ```
+
+Each run writes:
+- result json: `result/gz10-v3/SVAMP/svamp_<phase>_<timestamp>.json`
+- run manifest: `result/gz10-v3/SVAMP/svamp_<phase>_<timestamp>.meta.json`
 
 ## **📜 Citation**<a name="citation"></a>
 
