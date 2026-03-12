@@ -20,6 +20,32 @@ def parse_args():
     parser.add_argument("--execute", action="store_true", help="Execute commands; default only writes command plan.")
     parser.add_argument("--base_url", type=str, default="https://gpt-agent.cc/v1")
     parser.add_argument("--api_key", type=str, default="")
+    parser.add_argument(
+        "--config_names",
+        nargs="*",
+        default=None,
+        help="Optional config names to run (subset of matrix_configs names).",
+    )
+    parser.add_argument(
+        "--max_configs",
+        type=int,
+        default=0,
+        help="If >0, only first N selected configs are used.",
+    )
+    parser.add_argument(
+        "--test_filename",
+        type=str,
+        default="svamp_test_200.json",
+        help="Test split filename under each seed directory.",
+    )
+    parser.add_argument("--batch_size", type=int, default=1, help="Batch size passed to run_svamp.")
+    parser.add_argument("--num_iterations", type=int, default=1, help="Training iterations passed to run_svamp.")
+    parser.add_argument(
+        "--run_timeout_sec",
+        type=int,
+        default=0,
+        help="Per-run timeout in seconds (0 means no timeout).",
+    )
     return parser.parse_args()
 
 
@@ -38,7 +64,15 @@ def matrix_configs() -> List[Dict]:
     ]
 
 
-def build_command(python_bin: str, cfg: Dict, test_split_path: Path, llm_name: str, phase_tag: str) -> List[str]:
+def build_command(
+    python_bin: str,
+    cfg: Dict,
+    test_split_path: Path,
+    llm_name: str,
+    phase_tag: str,
+    batch_size: int,
+    num_iterations: int,
+) -> List[str]:
     cmd = [
         python_bin,
         "experiments/run_svamp.py",
@@ -54,6 +88,14 @@ def build_command(python_bin: str, cfg: Dict, test_split_path: Path, llm_name: s
         *[str(x) for x in cfg["agent_nums"]],
         "--phase_tag",
         phase_tag,
+        "--batch_size",
+        str(batch_size),
+        "--num_iterations",
+        str(num_iterations),
+        "--node_num_iterations",
+        str(num_iterations),
+        "--edge_num_iterations",
+        str(num_iterations),
     ]
     if cfg.get("optimized"):
         cmd.extend(["--optimized_spatial", "--optimized_temporal"])
@@ -72,16 +114,31 @@ def main():
     output_dir.mkdir(parents=True, exist_ok=True)
     split_root = Path(args.split_root)
     configs = matrix_configs()
+    if args.config_names:
+        selected = set(args.config_names)
+        configs = [cfg for cfg in configs if cfg["name"] in selected]
+    if args.max_configs > 0:
+        configs = configs[: args.max_configs]
+    if not configs:
+        raise ValueError("No configs selected for evaluation matrix.")
 
     matrix_plan = []
     run_records = []
     timestamp = time.strftime("%Y-%m-%d-%H-%M-%S", time.localtime())
 
     for seed in args.seeds:
-        test_split = split_root / f"seed_{seed}" / "svamp_test_200.json"
+        test_split = split_root / f"seed_{seed}" / args.test_filename
         for cfg in configs:
             phase_tag = f"phase5_{cfg['name']}_seed{seed}_{timestamp}"
-            command = build_command(args.python_bin, cfg, test_split, args.llm_name, phase_tag)
+            command = build_command(
+                args.python_bin,
+                cfg,
+                test_split,
+                args.llm_name,
+                phase_tag,
+                args.batch_size,
+                args.num_iterations,
+            )
             record = {
                 "seed": seed,
                 "config": cfg["name"],
@@ -106,22 +163,28 @@ def main():
                 run_env["MINE_BASE_URL"] = args.base_url
                 if args.api_key:
                     run_env["MINE_API_KEYS"] = args.api_key
-                proc = subprocess.run(
-                    command,
-                    cwd=Path(__file__).resolve().parents[1],
-                    stdout=log_file,
-                    stderr=subprocess.STDOUT,
-                    text=True,
-                    env=run_env,
-                )
-            record["status"] = "success" if proc.returncode == 0 else "failed"
-            record["returncode"] = proc.returncode
+                try:
+                    proc = subprocess.run(
+                        command,
+                        cwd=Path(__file__).resolve().parents[1],
+                        stdout=log_file,
+                        stderr=subprocess.STDOUT,
+                        text=True,
+                        env=run_env,
+                        timeout=args.run_timeout_sec if args.run_timeout_sec > 0 else None,
+                    )
+                    record["status"] = "success" if proc.returncode == 0 else "failed"
+                    record["returncode"] = proc.returncode
+                except subprocess.TimeoutExpired:
+                    record["status"] = "failed_timeout"
+                    record["returncode"] = None
+                    record["timeout_sec"] = args.run_timeout_sec
             record["duration_sec"] = round(time.time() - start, 3)
             record["log_file"] = str(log_path)
             run_records.append(record)
             print(
                 f"[PHASE5-MATRIX] seed={seed} config={cfg['name']} status={record['status']} "
-                f"returncode={proc.returncode}"
+                f"returncode={record.get('returncode')}"
             )
 
     plan_path = output_dir / "svamp_eval_matrix_plan.json"
