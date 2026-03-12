@@ -511,8 +511,11 @@ async def main():
             
             total_loss = torch.mean(torch.stack(loss_list))
             optimizer.zero_grad()
-            total_loss.backward()
-            optimizer.step()
+            if total_loss.requires_grad:
+                total_loss.backward()
+                optimizer.step()
+            else:
+                print("[WARN] total_loss has no grad_fn; skipping optimizer step for this batch.")
             if not graph.diff:
                 spatial_probs = torch.sigmoid(graph.spatial_logits_1)
                 temporal_probs = torch.sigmoid(graph.temporal_logits_1)
