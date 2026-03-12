@@ -1,0 +1,103 @@
+{
+  "seed": 13,
+  "dataset": "svamp_test_subset3",
+  "total_configs": 10,
+  "status_counts": {
+    "success": 1,
+    "failed_timeout": 9
+  },
+  "configs": [
+    {
+      "config": "Vanilla",
+      "status": "success",
+      "returncode": 0,
+      "duration_sec": 145.478,
+      "result_status": null,
+      "result_file": null
+    },
+    {
+      "config": "MASround_T",
+      "status": "failed_timeout",
+      "returncode": null,
+      "duration_sec": 600.027,
+      "result_status": null,
+      "result_file": null
+    },
+    {
+      "config": "AgentPrune",
+      "status": "failed_timeout",
+      "returncode": null,
+      "duration_sec": 600.025,
+      "result_status": null,
+      "result_file": null
+    },
+    {
+      "config": "AgentDropout",
+      "status": "failed_timeout",
+      "returncode": null,
+      "duration_sec": 600.06,
+      "result_status": null,
+      "result_file": null
+    },
+    {
+      "config": "AgentDropout_Ours",
+      "status": "failed_timeout",
+      "returncode": null,
+      "duration_sec": 600.021,
+      "result_status": null,
+      "result_file": null
+    },
+    {
+      "config": "Ablation_state_only",
+      "status": "failed_timeout",
+      "returncode": null,
+      "duration_sec": 600.042,
+      "result_status": null,
+      "result_file": null
+    },
+    {
+      "config": "Ablation_barrier_no_intervention",
+      "status": "failed_timeout",
+      "returncode": null,
+      "duration_sec": 600.028,
+      "result_status": null,
+      "result_file": null
+    },
+    {
+      "config": "Ablation_intervention_no_barrier",
+      "status": "failed_timeout",
+      "returncode": null,
+      "duration_sec": 600.025,
+      "result_status": null,
+      "result_file": null
+    },
+    {
+      "config": "Ablation_random_intervention",
+      "status": "failed_timeout",
+      "returncode": null,
+      "duration_sec": 600.032,
+      "result_status": null,
+      "result_file": null
+    },
+    {
+      "config": "Ablation_full_method",
+      "status": "failed_timeout",
+      "returncode": null,
+      "duration_sec": 600.062,
+      "result_status": null,
+      "result_file": null
+    }
+  ],
+  "accuracy_by_config": {
+    "Vanilla": 0.0,
+    "MASround_T": 0.0,
+    "AgentPrune": 0.0,
+    "AgentDropout": 0.0,
+    "AgentDropout_Ours": 0.0,
+    "Ablation_state_only": 0.0,
+    "Ablation_barrier_no_intervention": null,
+    "Ablation_intervention_no_barrier": 0.0,
+    "Ablation_random_intervention": 0.0,
+    "Ablation_full_method": 0.0
+  }
+}
