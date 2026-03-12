@@ -246,7 +246,7 @@ def parse_args():
     parser.add_argument("--split_seed", type=int, default=42)
     parser.add_argument("--result_file", type=str, default=None)
     parser.add_argument("--llm_name", type=str, default="MiniMax-M2.5")
-    parser.add_argument("--base_url", type=str, default="")
+    parser.add_argument("--base_url", type=str, default="https://gpt-agent.cc/v1")
     parser.add_argument("--api_key", type=str, default="")
     parser.add_argument("--branch_tag", type=str, default="AdamMartinez6793-v3")
     parser.add_argument("--phase_label", type=str, default="phase0")

@@ -59,7 +59,7 @@ pip install -r requirements.txt
 
 ```bash
 # Recommended: set runtime env vars instead of hardcoding
-export MINIMAX_BASE_URL="https://api.xcode.best/v1"
+export MINIMAX_BASE_URL="https://gpt-agent.cc/v1"
 export MINIMAX_API_KEY="your_api_key"
 # fallback keys (also supported)
 export MINE_BASE_URL="$MINIMAX_BASE_URL"
@@ -79,6 +79,11 @@ base_url = "http://localhost:6789/v1"
 ```
 
 Prepare data from [Huggingface](https://huggingface.co/). And put them in `datasets/`.
+
+Optional one-command data preparation (SVAMP + GSM8K):
+```bash
+python experiments/prepare_datasets.py --output_root .
+```
 
 ## **🚀 Quick Start**<a name="start"></a>
 
@@ -101,7 +106,7 @@ python experiments/run_svamp.py \
   --pruning_rate 0.10 \
   --num_rounds 2 \
   --llm_name MiniMax-M2.5 \
-  --base_url https://api.xcode.best/v1 \
+  --base_url https://gpt-agent.cc/v1 \
   --api_key your_api_key \
   --use_split_data \
   --split_dir data/svamp/split_seed42 \
