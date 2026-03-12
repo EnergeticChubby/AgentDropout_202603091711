@@ -103,6 +103,24 @@ python experiments/run_svamp.py \
   --dec
 ```
 
+Create a fixed SVAMP 8:2 split (with inner train/val) before phased experiments:
+
+```bash
+python dataset/svamp_split.py \
+  --svamp_train_json datasets/SVAMP/train.json \
+  --svamp_test_json datasets/SVAMP/test.json \
+  --seed 42 \
+  --output_dir datasets/SVAMP/split_seed42
+```
+
+Run multi-phase execution with automatic retry-until-improved gate:
+
+```bash
+python experiments/phase_controller.py \
+  --phases_json experiments/phase_plan.example.json \
+  --output_json result/gz10-v3/phase_history.json
+```
+
 ## **📜 Citation**<a name="citation"></a>
 
 If you find this work useful, please cite:
