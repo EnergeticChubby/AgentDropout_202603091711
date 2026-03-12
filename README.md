@@ -106,6 +106,14 @@ python experiments/run_svamp.py \
 Create a fixed SVAMP 8:2 split (with inner train/val) before phased experiments:
 
 ```bash
+python dataset/prepare_svamp.py \
+  --output_dir datasets/SVAMP \
+  --seed 42
+```
+
+Then generate the protocol split artifacts:
+
+```bash
 python dataset/svamp_split.py \
   --svamp_train_json datasets/SVAMP/train.json \
   --svamp_test_json datasets/SVAMP/test.json \
@@ -179,6 +187,12 @@ Check local experiment readiness (SVAMP files + API envs):
 
 ```bash
 python experiments/check_env_readiness.py
+
+# data-only smoke check with custom paths
+python experiments/check_env_readiness.py \
+  --svamp_train_json .tmp_svamp/SVAMP/train.json \
+  --svamp_test_json .tmp_svamp/SVAMP/test.json \
+  --skip_api_check
 ```
 
 Run full VG-AgentDropout-SVAMP pipeline (readiness → phase gate → protocol → ablation → summary):
