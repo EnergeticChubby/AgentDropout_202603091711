@@ -74,16 +74,30 @@ def build_comparison(current: Dict[str, Any], previous: Optional[Dict[str, Any]]
             "reason": "No previous phase summary provided.",
         }
 
-    delta = float(current["final_accuracy"]) - float(previous.get("final_accuracy", 0.0))
+    current_acc = float(current["final_accuracy"])
+    previous_acc = float(previous.get("final_accuracy", 0.0))
+    delta = current_acc - previous_acc
+    current_tokens = float(current.get("total_tokens_avg", 0.0))
+    previous_tokens = float(previous.get("total_tokens_avg", 0.0))
+    token_improved = previous_tokens > 0 and current_tokens > 0 and current_tokens < previous_tokens
+    is_improved = delta > 0.0 or (delta == 0.0 and token_improved)
+
+    reason = "accuracy_improved" if delta > 0.0 else (
+        "accuracy_tied_token_reduced" if (delta == 0.0 and token_improved) else "not_improved"
+    )
     return {
         "has_previous": True,
         "metric": "final_accuracy",
         "previous_phase": previous.get("phase", ""),
-        "previous_accuracy": float(previous.get("final_accuracy", 0.0)),
+        "previous_accuracy": previous_acc,
         "current_phase": current.get("phase", ""),
-        "current_accuracy": float(current.get("final_accuracy", 0.0)),
+        "current_accuracy": current_acc,
         "delta": delta,
-        "is_improved": delta > 0.0,
+        "previous_total_tokens_avg": previous_tokens,
+        "current_total_tokens_avg": current_tokens,
+        "token_delta": current_tokens - previous_tokens,
+        "is_improved": is_improved,
+        "reason": reason,
     }
 
 
