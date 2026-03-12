@@ -28,6 +28,8 @@ def parse_args():
     parser.add_argument("--seed_sweep_summary_out", type=str, default="result/gz10-v3/svamp_seed_sweep_summary.json")
     parser.add_argument("--llm_name", type=str, default="MiniMax-M2.5")
     parser.add_argument("--run_seed_sweep", action="store_true")
+    parser.add_argument("--validate_outputs", action="store_true")
+    parser.add_argument("--report_out_md", type=str, default="result/gz10-v3/vg_svamp_report.md")
     parser.add_argument("--run_mode_ablation", choices=["quick", "all"], default="quick")
     parser.add_argument("--dry_run", action="store_true")
     return parser.parse_args()
@@ -45,6 +47,24 @@ def main():
     if args.run_seed_sweep:
         commands.append(
             f"{args.python_bin} experiments/run_svamp_seed_sweep.py --llm_name {args.llm_name} --summary_out {args.seed_sweep_summary_out}"
+        )
+    if args.validate_outputs:
+        commands.append(
+            f"{args.python_bin} experiments/validate_vg_svamp_outputs.py "
+            f"--phase_history_json {args.phase_history_out} "
+            f"--protocol_summary_json {args.protocol_summary_out} "
+            f"--ablation_summary_json {args.ablation_summary_out} "
+            f"{'' if args.run_seed_sweep else '--skip_seed_sweep'} "
+            f"--seed_sweep_summary_json {args.seed_sweep_summary_out}"
+        )
+        commands.append(
+            f"{args.python_bin} experiments/generate_vg_svamp_report.py "
+            f"--phase_history_json {args.phase_history_out} "
+            f"--protocol_summary_json {args.protocol_summary_out} "
+            f"--ablation_summary_json {args.ablation_summary_out} "
+            f"--seed_sweep_summary_json {args.seed_sweep_summary_out} "
+            f"--overall_summary_json {args.svamp_summary_out} "
+            f"--output_md {args.report_out_md}"
         )
 
     executed = []

@@ -186,7 +186,8 @@ Run full VG-AgentDropout-SVAMP pipeline (readiness → phase gate → protocol �
 ```bash
 python experiments/run_vg_svamp_pipeline.py \
   --llm_name MiniMax-M2.5 \
-  --run_mode_ablation quick
+  --run_mode_ablation quick \
+  --validate_outputs
 ```
 
 Use `--dry_run` to print all commands without executing.
