@@ -56,7 +56,10 @@ def parse_args():
     parser.add_argument('--num_rounds',type=int,default=1,help="Number of optimization/inference rounds for one query")
     parser.add_argument('--pruning_rate', type=float, default=0.25,help="The Rate of Pruning. Default 0.05.")
     parser.add_argument('--num_iterations', type=int, default=10,help="The num of training iterations.")
-    parser.add_argument('--domain', type=str, default="gsm8k",help="Domain (the same as dataset name), default 'gsm8k'")
+    parser.add_argument('--node_num_iterations', type=int, default=None, help="Node-dropout stage iterations. Defaults to num_iterations.")
+    parser.add_argument('--edge_num_iterations', type=int, default=None, help="Edge-dropout stage iterations. Defaults to num_iterations.")
+    parser.add_argument('--domain', type=str, default="svamp",help="Domain (the same as dataset name), default 'svamp'")
+    parser.add_argument('--phase_tag', type=str, default='phase0', help="Experiment phase tag for result naming.")
     parser.add_argument('--agent_names', nargs='+', type=str, default=['MathSolver'],
                         help='Specify agent names as a list of strings')
     parser.add_argument('--agent_nums', nargs='+', type=int, default=[4],
@@ -78,23 +81,32 @@ def parse_args():
 
 async def main():
     args = parse_args()
+    args.node_num_iterations = args.num_iterations if args.node_num_iterations is None else args.node_num_iterations
+    args.edge_num_iterations = args.num_iterations if args.edge_num_iterations is None else args.edge_num_iterations
     result_file = None
+    if not Path(args.dataset_json).exists():
+        raise FileNotFoundError(f"SVAMP test split not found: {args.dataset_json}")
+    if not Path('datasets/SVAMP/train.json').exists():
+        raise FileNotFoundError("SVAMP train split not found: datasets/SVAMP/train.json")
     dataset = JSONReader.parse_file(args.dataset_json)
     dataset = svamp_data_process(dataset)
     train_dataset = JSONReader.parse_file('datasets/SVAMP/train.json')
     train_dataset = svamp_data_process(train_dataset)
+    print(f"[SVAMP-CHECK] test_path={args.dataset_json}, train_path=datasets/SVAMP/train.json")
+    print(f"[SVAMP-CHECK] processed_test_size={len(dataset)}, processed_train_size={len(train_dataset)}")
 
     current_time = Time.instance().value or time.strftime("%Y-%m-%d-%H-%M-%S", time.localtime())
     Time.instance().value = current_time
-    result_dir = Path(f"{AgentPrune_ROOT}/result/SVAMP")
+    result_dir = Path(f"{AgentPrune_ROOT}/result/Blny-v3/SVAMP")
     result_dir.mkdir(parents=True, exist_ok=True)
-    result_file = result_dir / f"{args.domain}_llama3_{current_time}.json"
+    model_tag = args.llm_name.replace("/", "_").replace(" ", "_")
+    result_file = result_dir / f"{args.domain}_{model_tag}_{args.phase_tag}_{current_time}.json"
     
     agent_names = [name for name,num in zip(args.agent_names,args.agent_nums) for _ in range(num)]
     decision_method = args.decision_method
     kwargs = get_kwargs(args.mode,len(agent_names))
 
-    graph = Graph(domain="gsm8k",
+    graph = Graph(domain=args.domain,
                     llm_name=args.llm_name,
                     agent_names=agent_names,
                     decision_method=decision_method,
@@ -113,7 +125,8 @@ async def main():
             optimizer = torch.optim.Adam([graph.spatial_logits_1,graph.temporal_logits_1], lr=args.lr)
         else:
             optimizer = torch.optim.Adam(list(graph.spatial_logits_1.parameters()) + list(graph.temporal_logits_1.parameters()),lr=args.lr)
-        for i_batch in range(args.num_iterations):
+        print(f"[TRAIN-STAGE] Node Dropout iterations={args.node_num_iterations}")
+        for i_batch in range(args.node_num_iterations):
             print(f"Train batch {i_batch}",80*'-')
             start_ts = time.time()
             answer_log_probs = []
@@ -121,7 +134,7 @@ async def main():
             add_losses = []
             
             current_batch = dataloader(train_dataset,20,i_batch)
-            if current_batch is None:
+            if not current_batch:
                 print("No more data available.")
                 break
             
@@ -218,7 +231,7 @@ async def main():
             print("Spatial masks:", graph.spatial_masks)
             print("Temporal logits:", graph.temporal_masks)
             
-            if (i_batch+1)%args.imp_per_iterations == 0 and i_batch < args.num_iterations and (args.optimized_spatial or args.optimized_temporal):
+            if (i_batch+1)%args.imp_per_iterations == 0 and i_batch < args.node_num_iterations and (args.optimized_spatial or args.optimized_temporal):
                 if not graph.diff:
                     print("spatial sparsity:",graph.spatial_masks.sum()/graph.spatial_masks.numel())
                     print("temporal sparsity:",graph.temporal_masks.sum()/graph.temporal_masks.numel())
@@ -240,9 +253,10 @@ async def main():
     
     
     if args.optimized_temporal or args.optimized_spatial:
+        print(f"[TRAIN-STAGE] Edge Dropout iterations={args.edge_num_iterations}")
         # graph.optimized_spatial=True
         # graph.optimized_temporal=True
-        for i_batch in range(0):
+        for i_batch in range(args.edge_num_iterations):
             print(f"Train batch {i_batch}",80*'-')
             start_ts = time.time()
             answer_log_probs = []
@@ -250,7 +264,7 @@ async def main():
             add_losses = []
             
             current_batch = dataloader(train_dataset,10,i_batch)
-            if current_batch is None:
+            if not current_batch:
                 print("No more data available.")
                 break
             
@@ -361,7 +375,7 @@ async def main():
                 else:
                     print("spatial sparsity:",spatial_masks[0].sum()/spatial_masks[0].numel())
                     print("temporal sparsity:",temporal_masks[0].sum()/temporal_masks[0].numel())
-            if i_batch+1 == args.num_iterations:
+            if i_batch+1 == args.edge_num_iterations:
                 args.optimized_spatial = False
                 args.optimized_temporal = False
             print(f"Cost {Cost.instance().value}")
@@ -395,7 +409,7 @@ async def main():
         add_losses = []
         
         current_batch = dataloader(dataset,args.batch_size,i_batch)
-        if current_batch is None:
+        if not current_batch:
             print("No more data available.")
             break
         

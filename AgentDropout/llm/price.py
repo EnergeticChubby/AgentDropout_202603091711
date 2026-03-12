@@ -6,9 +6,22 @@ import tiktoken
 # DALL-E: https://openai.com/pricing
 
 def cal_token(model:str, text:str):
-    encoder = tiktoken.encoding_for_model(model)
+    try:
+        encoder = tiktoken.encoding_for_model(model)
+    except KeyError:
+        encoder = tiktoken.get_encoding("cl100k_base")
     num_tokens = len(encoder.encode(text))
     return num_tokens
+
+
+def _safe_model_price(branch: str, model_name: str):
+    branch_info = OPENAI_MODEL_INFO.get(branch, {})
+    if model_name in branch_info:
+        return branch_info[model_name]
+    fallback_model = branch_info.get("current_recommended")
+    if fallback_model and fallback_model in branch_info:
+        return branch_info[fallback_model]
+    return {"input": 0.0, "output": 0.0}
 
 def cal_token_llama3(tokenizer, text:str):
     # tokenizer = AutoTokenizer.from_pretrained(model, use_fast=True)
@@ -26,12 +39,14 @@ def cost_count(prompt, response, model_name):
     completion_len = cal_token(model_name, response)
     if "gpt-4" in model_name:
         branch = "gpt-4"
-        price = prompt_len * OPENAI_MODEL_INFO[branch][model_name]["input"] /1000 + \
-                completion_len * OPENAI_MODEL_INFO[branch][model_name]["output"] /1000
+        model_price = _safe_model_price(branch, model_name)
+        price = prompt_len * model_price["input"] /1000 + \
+                completion_len * model_price["output"] /1000
     elif "gpt-3.5" in model_name:
         branch = "gpt-3.5"
-        price = prompt_len * OPENAI_MODEL_INFO[branch][model_name]["input"] /1000 + \
-            completion_len * OPENAI_MODEL_INFO[branch][model_name]["output"] /1000
+        model_price = _safe_model_price(branch, model_name)
+        price = prompt_len * model_price["input"] /1000 + \
+            completion_len * model_price["output"] /1000
     elif "dall-e" in model_name:
         branch = "dall-e"
         price = 0.0
@@ -40,8 +55,6 @@ def cost_count(prompt, response, model_name):
     else:
         branch = "other"
         price = 0.0
-        prompt_len = 0
-        completion_len = 0
 
     Cost.instance().value += price
     PromptTokens.instance().value += prompt_len

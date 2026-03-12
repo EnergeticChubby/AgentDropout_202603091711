@@ -1,12 +1,10 @@
-import aiohttp
 from typing import List, Union, Optional
 from tenacity import retry, wait_random_exponential, stop_after_attempt, wait_fixed
-from typing import Dict, Any
+from typing import Dict
 from dotenv import load_dotenv
 import os
 from openai import AsyncOpenAI
 import async_timeout
-from transformers import AutoTokenizer
 
 from AgentDropout.llm.format import Message
 from AgentDropout.llm.price import cost_count, cost_count_llama3, cost_count_deepseek
@@ -15,8 +13,32 @@ from AgentDropout.llm.llm_registry import LLMRegistry
 
 
 load_dotenv()
-MINE_BASE_URL = ""
-MINE_API_KEYS = ""
+
+
+def _env_first(*keys: str, default: str = "") -> str:
+    for key in keys:
+        value = os.getenv(key)
+        if value:
+            return value
+    return default
+
+
+MINE_BASE_URL = _env_first(
+    "MINE_BASE_URL",
+    "OPENAI_BASE_URL",
+    "BASE_URL",
+    default="https://api.xcode.best/v1",
+)
+MINE_API_KEYS = _env_first(
+    "MINE_API_KEYS",
+    "MINE_API_KEY",
+    "OPENAI_API_KEY",
+    "API_KEY",
+    default="",
+)
+
+deepseek_url = _env_first("DEEPSEEK_BASE_URL", default=MINE_BASE_URL)
+deepseek_api = _env_first("DEEPSEEK_API_KEY", default=MINE_API_KEYS)
 
 # print(MINE_BASE_URL)
 
@@ -67,7 +89,6 @@ async def achat(model: str, msg: List[Dict],):
 
 # @retry(wait=wait_random_exponential(max=100), stop=stop_after_attempt(6))
 async def achat_deepseek(model: str, msg: List[Dict],):
-    model = ''
     # print(1111111)
     api_kwargs = dict(api_key = deepseek_api, base_url = deepseek_url)
     aclient = AsyncOpenAI(**api_kwargs)
