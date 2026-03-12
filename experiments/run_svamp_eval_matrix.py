@@ -7,7 +7,7 @@ from pathlib import Path
 from typing import Dict, List
 
 
-DEFAULT_SEEDS = [13, 17, 23, 42, 3407]
+DEFAULT_SEEDS = [13]
 
 
 def parse_args():
