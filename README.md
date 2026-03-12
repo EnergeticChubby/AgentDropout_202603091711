@@ -176,6 +176,16 @@ Check local experiment readiness (SVAMP files + API envs):
 python experiments/check_env_readiness.py
 ```
 
+Run full VG-AgentDropout-SVAMP pipeline (readiness → phase gate → protocol → ablation → summary):
+
+```bash
+python experiments/run_vg_svamp_pipeline.py \
+  --llm_name MiniMax-M2.5 \
+  --run_mode_ablation quick
+```
+
+Use `--dry_run` to print all commands without executing.
+
 Build observer labels from telemetry and train an observer model:
 
 ```bash
