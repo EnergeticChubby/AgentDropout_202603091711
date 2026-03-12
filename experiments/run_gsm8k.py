@@ -11,7 +11,9 @@ import torch.nn.functional as F
 import copy
 from typing import List,Union,Literal
 import random
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+project_root = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
+if project_root not in sys.path:
+    sys.path.insert(0, project_root)
 sys.stdout.reconfigure(encoding='utf-8')
 
 from AgentDropout.utils.const import AgentPrune_ROOT
@@ -45,7 +47,11 @@ def parse_args():
     parser = argparse.ArgumentParser(description="AgentPrune Experiments on gsm8k")
     parser.add_argument("--dataset_json", type=str, default="datasets/gsm8k/gsm8k.jsonl")
     parser.add_argument("--result_file", type=str, default=None)
-    parser.add_argument("--llm_name", type=str, default="gpt-3.5-turbo")
+    parser.add_argument("--llm_name", type=str, default="MiniMax-M2.5")
+    parser.add_argument("--base_url", type=str, default="https://gpt-agent.cc/v1")
+    parser.add_argument("--api_key", type=str, default="")
+    parser.add_argument("--branch_tag", type=str, default="AdamMartinez6793-v3")
+    parser.add_argument("--phase_label", type=str, default="phase0")
     parser.add_argument('--mode', type=str, default='FullConnected',
                         choices=['DirectAnswer', 'FullConnected', 'Random', 'Chain','Debate','Layered','Star'],
                         help="Mode of operation. Default is 'FullConnected'.")
@@ -74,6 +80,13 @@ def parse_args():
     if len(args.agent_names) != len(args.agent_nums):
         parser.error("The number of agent names must match the number of agent counts.")
 
+    if args.base_url:
+        os.environ["MINIMAX_BASE_URL"] = args.base_url
+        os.environ["MINE_BASE_URL"] = args.base_url
+    if args.api_key:
+        os.environ["MINIMAX_API_KEY"] = args.api_key
+        os.environ["MINE_API_KEYS"] = args.api_key
+
     return args
 
 async def main():
@@ -86,9 +99,10 @@ async def main():
 
     current_time = Time.instance().value or time.strftime("%Y-%m-%d-%H-%M-%S", time.localtime())
     Time.instance().value = current_time
-    result_dir = Path(f"{AgentPrune_ROOT}/result/gsm8k")
+    result_dir = Path(f"{AgentPrune_ROOT}/result/gsm8k/{args.branch_tag}/{args.phase_label}")
     result_dir.mkdir(parents=True, exist_ok=True)
-    result_file = result_dir / f"{args.domain}_llama3_{current_time}.json"
+    model_tag = args.llm_name.replace("/", "_")
+    result_file = result_dir / f"{args.domain}_{model_tag}_{current_time}.json"
     print(args.agent_names)
     agent_names = [name for name,num in zip(args.agent_names,args.agent_nums) for _ in range(num)]
     # print(args.agent_names)
@@ -471,7 +485,9 @@ async def main():
                 "Solved": is_solved,
                 "Total solved": total_solved,
                 "Total executed": total_executed,
-                "Accuracy": accuracy
+                "Accuracy": accuracy,
+                "PromptTokens": PromptTokens.instance().value,
+                "CompletionTokens": CompletionTokens.instance().value
             }
             data.append(updated_item)
             print(f"##########Final Log:{json.dumps(updated_item)}")

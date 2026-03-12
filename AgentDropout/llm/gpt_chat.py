@@ -15,8 +15,10 @@ from AgentDropout.llm.llm_registry import LLMRegistry
 
 
 load_dotenv()
-MINE_BASE_URL = ""
-MINE_API_KEYS = ""
+MINE_BASE_URL = os.getenv("MINE_BASE_URL", os.getenv("OPENAI_BASE_URL", "")).strip()
+MINE_API_KEYS = os.getenv("MINE_API_KEYS", os.getenv("OPENAI_API_KEY", "")).strip()
+MINIMAX_BASE_URL = os.getenv("MINIMAX_BASE_URL", "").strip()
+MINIMAX_API_KEY = os.getenv("MINIMAX_API_KEY", "").strip()
 
 # print(MINE_BASE_URL)
 
@@ -48,9 +50,33 @@ MINE_API_KEYS = ""
 #             else:
 #                 raise Exception("api error")
 
+def _resolve_api_kwargs(model: str) -> Dict[str, str]:
+    minimax_api_key = os.getenv("MINIMAX_API_KEY", "").strip() or MINIMAX_API_KEY
+    minimax_base_url = os.getenv("MINIMAX_BASE_URL", "").strip() or MINIMAX_BASE_URL
+    mine_api_key = os.getenv("MINE_API_KEYS", "").strip() or os.getenv("OPENAI_API_KEY", "").strip() or MINE_API_KEYS
+    mine_base_url = os.getenv("MINE_BASE_URL", "").strip() or os.getenv("OPENAI_BASE_URL", "").strip() or MINE_BASE_URL
+    model_lower = (model or "").lower()
+    if "minimax" in model_lower:
+        api_key = minimax_api_key or mine_api_key
+        base_url = minimax_base_url or mine_base_url
+    else:
+        api_key = mine_api_key
+        base_url = mine_base_url
+
+    if not api_key:
+        raise RuntimeError(
+            "API key is empty. Set MINIMAX_API_KEY/MINE_API_KEYS/OPENAI_API_KEY."
+        )
+    if not base_url:
+        raise RuntimeError(
+            "Base URL is empty. Set MINIMAX_BASE_URL/MINE_BASE_URL/OPENAI_BASE_URL."
+        )
+    return {"api_key": api_key, "base_url": base_url}
+
+
 @retry(wait=wait_random_exponential(max=100), stop=stop_after_attempt(3))
 async def achat(model: str, msg: List[Dict],):
-    api_kwargs = dict(api_key = MINE_API_KEYS, base_url = MINE_BASE_URL)
+    api_kwargs = _resolve_api_kwargs(model)
     aclient = AsyncOpenAI(**api_kwargs)
     try:
         async with async_timeout.timeout(1000):

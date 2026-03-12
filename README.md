@@ -57,10 +57,13 @@ pip install -r requirements.txt
 
 2. **API Configuration**:
 
-```python
-# Update in AgentDropout/llm/gpt_chat.py
-MINE_BASE_URL = ""
-MINE_API_KEYS = ""
+```bash
+# Recommended: set runtime env vars instead of hardcoding
+export MINIMAX_BASE_URL="https://gpt-agent.cc/v1"
+export MINIMAX_API_KEY="your_api_key"
+# fallback keys (also supported)
+export MINE_BASE_URL="$MINIMAX_BASE_URL"
+export MINE_API_KEYS="$MINIMAX_API_KEY"
 ```
 
 3. **Local Model Deployment** (Optional):
@@ -77,12 +80,29 @@ base_url = "http://localhost:6789/v1"
 
 Prepare data from [Huggingface](https://huggingface.co/). And put them in `datasets/`.
 
+Default one-command data preparation (SVAMP only):
+```bash
+python experiments/prepare_datasets.py --output_root .
+```
+
+Optional: include GSM8K files as well:
+```bash
+python experiments/prepare_datasets.py --output_root . --with_gsm8k
+```
+
 ## **🚀 Quick Start**<a name="start"></a>
 
-Run AgentDropout on GSM8K (other datasets are similar): 
+Phase-0 quick start on SVAMP (CCF-AgentDropout setting):
 
 ```shell
-python experiments/run_gsm8k.py \
+# 1) one-time SVAMP split (80/20, seed=42, graph_train=40, graph_val=40)
+python experiments/svamp_split.py \
+  --input_json datasets/SVAMP/all.json \
+  --output_dir data/svamp/split_seed42 \
+  --seed 42
+
+# 2) run SVAMP with MiniMax-M2.5
+python experiments/run_svamp.py \
   --agent_nums 5 \
   --mode FullConnected \
   --batch_size 40 \
@@ -90,11 +110,24 @@ python experiments/run_gsm8k.py \
   --imp_per_iterations 1 \
   --pruning_rate 0.10 \
   --num_rounds 2 \
-  --llm_name /data/models/Meta-Llama-3-8B-Instruct \
+  --llm_name MiniMax-M2.5 \
+  --base_url https://gpt-agent.cc/v1 \
+  --api_key your_api_key \
+  --use_split_data \
+  --split_dir data/svamp/split_seed42 \
+  --phase_label phase0 \
+  --branch_tag AdamMartinez6793-v3 \
   --optimized_spatial \
   --optimized_temporal \
   --diff \
   --dec
+
+# 3) archive benchmark metrics (example)
+python experiments/phase_metrics.py \
+  --result_json result/SVAMP/AdamMartinez6793-v3/phase0/svamp_MiniMax-M2.5_<timestamp>.json \
+  --phase phase0 \
+  --benchmark svamp \
+  --branch_tag AdamMartinez6793-v3
 ```
 
 ## **📜 Citation**<a name="citation"></a>
