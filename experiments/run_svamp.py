@@ -278,6 +278,13 @@ def parse_args():
     parser.add_argument('--node_wrong_consensus_weight', type=float, default=1.0)
     parser.add_argument('--edge_risk_weight', type=float, default=0.2)
     parser.add_argument('--edge_progress_weight', type=float, default=0.2)
+    parser.add_argument(
+        "--utility_mode",
+        type=str,
+        default="phase_aware",
+        choices=["phase_aware", "original"],
+        help="Use phase-aware utility (default) or original 0/1 solved utility during dec training.",
+    )
     args = parser.parse_args()
     result_path = AgentPrune_ROOT / "result"
     os.makedirs(result_path, exist_ok=True)
@@ -412,16 +419,20 @@ async def main():
                 total_solved = total_solved + is_solved
                 total_executed = total_executed + 1
                 accuracy = total_solved/ total_executed
-                utility = phase_aware_utility(
-                    bool(is_solved),
-                    phase_metrics={
-                        "correction_gain": 1.0 if is_solved else 0.0,
-                        "wrong_consensus": 0.0 if is_solved else 1.0,
-                        "conflict_unresolved": 0.0,
-                        "redundancy": 0.0,
-                    },
-                    token_cost=float(PromptTokens.instance().value + CompletionTokens.instance().value) / max(1, total_executed),
-                )
+                if args.utility_mode == "original":
+                    utility = 1.0 if is_solved else 0.0
+                else:
+                    utility = phase_aware_utility(
+                        bool(is_solved),
+                        phase_metrics={
+                            "correction_gain": 1.0 if is_solved else 0.0,
+                            "wrong_consensus": 0.0 if is_solved else 1.0,
+                            "conflict_unresolved": 0.0,
+                            "redundancy": 0.0,
+                        },
+                        token_cost=float(PromptTokens.instance().value + CompletionTokens.instance().value)
+                        / max(1, total_executed),
+                    )
                 utilities.append(utility)
                 single_loss = -log_prob * utility
                 loss_list.append(single_loss+add_loss)
