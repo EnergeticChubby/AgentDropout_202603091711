@@ -1,6 +1,6 @@
 # One-seed SVAMP Report (seed=13, subset3)
 
-- status_counts: `{'success': 1, 'failed_timeout': 9}`
+- status_counts: `{'failed_timeout': 8, 'success': 2}`
 
 | Config | Status | Duration(s) | Execution Accuracy |
 |---|---:|---:|---:|
@@ -11,6 +11,6 @@
 | Ablation_state_only | failed_timeout | 600.042 | 0.0 |
 | AgentDropout | failed_timeout | 600.060 | 0.0 |
 | AgentDropout_Ours | failed_timeout | 600.021 | 0.0 |
-| AgentPrune | failed_timeout | 600.025 | 0.0 |
+| AgentPrune | success | 640.399 | 0.0 |
 | MASround_T | failed_timeout | 600.027 | 0.0 |
 | Vanilla | success | 145.478 | 0.0 |
