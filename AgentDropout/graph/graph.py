@@ -410,6 +410,7 @@ class Graph(ABC):
             selected_index=-1
 
             if round <= 5 and skip:
+                node_count = max(1, len(self.nodes))
                 # log_probs = 0
                 min_logit=100
                 min_node=None
@@ -428,17 +429,17 @@ class Graph(ABC):
                     for last_node in node.spatial_successors:
                         last_id = list(self.nodes).index(last_node.id)
                         count+=1
-                        # logits_count+=torch.sigmoid(t*self.spatial_logits_1[round][in_id*5+last_id])
-                        logits_count+=t*self.spatial_logits_1[round][in_id*5+last_id]
-                        loss_t+=torch.log(1-torch.sigmoid(self.spatial_logits_1[round][in_id*5+last_id]))
-                        loss_f+=torch.log(torch.sigmoid(self.spatial_logits_1[round][in_id*5+last_id]))
+                        # logits_count+=torch.sigmoid(t*self.spatial_logits_1[round][in_id*node_count+last_id])
+                        logits_count+=t*self.spatial_logits_1[round][in_id*node_count+last_id]
+                        loss_t+=torch.log(1-torch.sigmoid(self.spatial_logits_1[round][in_id*node_count+last_id]))
+                        loss_f+=torch.log(torch.sigmoid(self.spatial_logits_1[round][in_id*node_count+last_id]))
                     for last_node in node.spatial_predecessors:
                         last_id = list(self.nodes).index(last_node.id)
                         count+=1
-                        # logits_count+=torch.sigmoid(t*self.spatial_logits_1[round][last_id*5+in_id])
-                        logits_count+=t*self.spatial_logits_1[round][last_id*5+in_id]
-                        loss_t+=torch.log(1-torch.sigmoid(self.spatial_logits_1[round][last_id*5+in_id]))
-                        loss_f+=torch.log(torch.sigmoid(self.spatial_logits_1[round][last_id*5+in_id]))
+                        # logits_count+=torch.sigmoid(t*self.spatial_logits_1[round][last_id*node_count+in_id])
+                        logits_count+=t*self.spatial_logits_1[round][last_id*node_count+in_id]
+                        loss_t+=torch.log(1-torch.sigmoid(self.spatial_logits_1[round][last_id*node_count+in_id]))
+                        loss_f+=torch.log(torch.sigmoid(self.spatial_logits_1[round][last_id*node_count+in_id]))
                     # for last_node in node.temporal_predecessors:
                     #     last_id = list(self.nodes).index(last_node.id)
                     #     count+=1
@@ -461,10 +462,10 @@ class Graph(ABC):
                     #         min_node = node_id
                     
                 p = torch.softmax(torch.tensor(log_list),dim=0)
-                selected_index = torch.multinomial(p, num_samples=1, replacement=False)
+                selected_index = int(torch.multinomial(p, num_samples=1, replacement=False).item())
                 # selected_index = list(self.nodes).index(min_node)
                 # selected_index = 1
-                for i in range(5):
+                for i in range(node_count):
                     if i==selected_index:
                         log_probs_skip += 4.0*loss_t_list[i]
                     else:
