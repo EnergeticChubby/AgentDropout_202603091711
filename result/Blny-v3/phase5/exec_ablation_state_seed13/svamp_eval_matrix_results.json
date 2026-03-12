@@ -1,0 +1,40 @@
+[
+  {
+    "seed": 13,
+    "config": "Ablation_state_only",
+    "kind": "ablation",
+    "test_split": "result/Blny-v3/phase1/splits/seed_13/svamp_test_subset3.json",
+    "phase_tag": "phase5_Ablation_state_only_seed13_2026-03-12-07-44-31",
+    "command": [
+      "/workspace/.venv/bin/python",
+      "experiments/run_svamp.py",
+      "--dataset_json",
+      "result/Blny-v3/phase1/splits/seed_13/svamp_test_subset3.json",
+      "--llm_name",
+      "MiniMax-M2.5",
+      "--mode",
+      "FullConnected",
+      "--num_rounds",
+      "2",
+      "--agent_nums",
+      "5",
+      "--phase_tag",
+      "phase5_Ablation_state_only_seed13_2026-03-12-07-44-31",
+      "--batch_size",
+      "1",
+      "--num_iterations",
+      "1",
+      "--node_num_iterations",
+      "1",
+      "--edge_num_iterations",
+      "1",
+      "--enable_runtime_control"
+    ],
+    "ablation_note": "state_only_scaffold",
+    "status": "failed_timeout",
+    "returncode": null,
+    "timeout_sec": 420,
+    "duration_sec": 420.032,
+    "log_file": "result/Blny-v3/phase5/exec_ablation_state_seed13/phase5_Ablation_state_only_seed13_2026-03-12-07-44-31.log"
+  }
+]
