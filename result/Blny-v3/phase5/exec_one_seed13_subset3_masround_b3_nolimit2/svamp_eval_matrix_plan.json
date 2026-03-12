@@ -1,0 +1,41 @@
+[
+  {
+    "seed": 13,
+    "config": "MASround_T",
+    "kind": "baseline",
+    "test_split": "result/Blny-v3/phase1/splits/seed_13/svamp_test_subset3.json",
+    "phase_tag": "phase5_MASround_T_seed13_2026-03-12-15-42-45",
+    "command": [
+      "/workspace/.venv/bin/python",
+      "experiments/run_svamp.py",
+      "--dataset_json",
+      "result/Blny-v3/phase1/splits/seed_13/svamp_test_subset3.json",
+      "--llm_name",
+      "MiniMax-M2.5",
+      "--mode",
+      "FullConnected",
+      "--num_rounds",
+      "2",
+      "--agent_nums",
+      "5",
+      "--phase_tag",
+      "phase5_MASround_T_seed13_2026-03-12-15-42-45",
+      "--batch_size",
+      "3",
+      "--num_iterations",
+      "0",
+      "--node_num_iterations",
+      "0",
+      "--edge_num_iterations",
+      "0",
+      "--graph_setting",
+      "strict40",
+      "--graph_train_size",
+      "1"
+    ],
+    "status": "success",
+    "returncode": 0,
+    "duration_sec": 363.88,
+    "log_file": "result/Blny-v3/phase5/exec_one_seed13_subset3_masround_b3_nolimit2/phase5_MASround_T_seed13_2026-03-12-15-42-45.log"
+  }
+]

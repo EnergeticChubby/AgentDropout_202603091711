@@ -6,16 +6,22 @@
     "results": "result/Blny-v3/phase5/exec_one_seed13_results.json",
     "metrics": "result/Blny-v3/phase5/exec_one_seed13_metrics_summary.json",
     "report_json": "result/Blny-v3/phase5/exec_one_seed13_report.json",
-    "report_md": "result/Blny-v3/phase5/exec_one_seed13_report.md"
+    "report_md": "result/Blny-v3/phase5/exec_one_seed13_report.md",
+    "all_configs_success": true
   },
   "one_seed_subset3_bundle": {
     "results": "result/Blny-v3/phase5/exec_one_seed13_subset3_results.json",
     "metrics": "result/Blny-v3/phase5/exec_one_seed13_subset3_metrics_summary.json",
     "report_json": "result/Blny-v3/phase5/exec_one_seed13_subset3_report.json",
-    "report_md": "result/Blny-v3/phase5/exec_one_seed13_subset3_report.md"
+    "report_md": "result/Blny-v3/phase5/exec_one_seed13_subset3_report.md",
+    "all_configs_success": true
   },
-  "notes": [
-    "Primary one-seed bundle has success status across 10 configs on subset1 gate set.",
-    "Subset3 bundle increases sample count but most multi-agent configs hit timeout status under current endpoint latency."
-  ]
+  "status_counts": {
+    "primary": {
+      "success": 10
+    },
+    "subset3": {
+      "success": 10
+    }
+  }
 }

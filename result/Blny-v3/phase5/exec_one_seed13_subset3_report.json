@@ -3,65 +3,72 @@
   "dataset": "svamp_test_subset3",
   "total_configs": 10,
   "status_counts": {
-    "failed_timeout": 8,
-    "success": 2
+    "success": 10
   },
+  "all_configs_success": true,
   "configs": [
     {
       "config": "Ablation_barrier_no_intervention",
-      "status": "failed_timeout",
-      "returncode": null,
-      "duration_sec": 600.028,
+      "status": "success",
+      "returncode": 0,
+      "duration_sec": 663.509,
       "result_status": null,
-      "result_file": null
+      "result_file": null,
+      "log_file": "result/Blny-v3/phase5/exec_one_seed13_subset3_barrier_b3_nolimit/phase5_Ablation_barrier_no_intervention_seed13_2026-03-12-14-59-11.log"
     },
     {
       "config": "Ablation_full_method",
-      "status": "failed_timeout",
-      "returncode": null,
-      "duration_sec": 600.062,
+      "status": "success",
+      "returncode": 0,
+      "duration_sec": 526.036,
       "result_status": null,
-      "result_file": null
+      "result_file": null,
+      "log_file": "result/Blny-v3/phase5/exec_one_seed13_subset3_full_b3_nolimit/phase5_Ablation_full_method_seed13_2026-03-12-15-31-54.log"
     },
     {
       "config": "Ablation_intervention_no_barrier",
-      "status": "failed_timeout",
-      "returncode": null,
-      "duration_sec": 600.025,
+      "status": "success",
+      "returncode": 0,
+      "duration_sec": 562.298,
       "result_status": null,
-      "result_file": null
+      "result_file": null,
+      "log_file": "result/Blny-v3/phase5/exec_one_seed13_subset3_intervention_b3_nolimit/phase5_Ablation_intervention_no_barrier_seed13_2026-03-12-15-11-07.log"
     },
     {
       "config": "Ablation_random_intervention",
-      "status": "failed_timeout",
-      "returncode": null,
-      "duration_sec": 600.032,
+      "status": "success",
+      "returncode": 0,
+      "duration_sec": 342.38,
       "result_status": null,
-      "result_file": null
+      "result_file": null,
+      "log_file": "result/Blny-v3/phase5/exec_one_seed13_subset3_random_b3_nolimit/phase5_Ablation_random_intervention_seed13_2026-03-12-15-21-32.log"
     },
     {
       "config": "Ablation_state_only",
-      "status": "failed_timeout",
-      "returncode": null,
-      "duration_sec": 600.042,
+      "status": "success",
+      "returncode": 0,
+      "duration_sec": 417.72,
       "result_status": null,
-      "result_file": null
+      "result_file": null,
+      "log_file": "result/Blny-v3/phase5/exec_one_seed13_subset3_state_b3_nolimit/phase5_Ablation_state_only_seed13_2026-03-12-14-51-09.log"
     },
     {
       "config": "AgentDropout",
-      "status": "failed_timeout",
-      "returncode": null,
-      "duration_sec": 600.06,
+      "status": "success",
+      "returncode": 0,
+      "duration_sec": 510.334,
       "result_status": null,
-      "result_file": null
+      "result_file": null,
+      "log_file": "result/Blny-v3/phase5/exec_one_seed13_subset3_agentdropout_b3_nolimit/phase5_AgentDropout_seed13_2026-03-12-14-31-19.log"
     },
     {
       "config": "AgentDropout_Ours",
-      "status": "failed_timeout",
-      "returncode": null,
-      "duration_sec": 600.021,
+      "status": "success",
+      "returncode": 0,
+      "duration_sec": 356.62,
       "result_status": null,
-      "result_file": null
+      "result_file": null,
+      "log_file": "result/Blny-v3/phase5/exec_one_seed13_subset3_ours_b3_nolimit/phase5_AgentDropout_Ours_seed13_2026-03-12-14-43-02.log"
     },
     {
       "config": "AgentPrune",
@@ -69,15 +76,17 @@
       "returncode": 0,
       "duration_sec": 640.399,
       "result_status": null,
-      "result_file": null
+      "result_file": null,
+      "log_file": "result/Blny-v3/phase5/exec_one_seed13_subset3_agentprune_b3_nolimit/phase5_AgentPrune_seed13_2026-03-12-14-02-53.log"
     },
     {
       "config": "MASround_T",
-      "status": "failed_timeout",
-      "returncode": null,
-      "duration_sec": 600.027,
+      "status": "success",
+      "returncode": 0,
+      "duration_sec": 571.59,
       "result_status": null,
-      "result_file": null
+      "result_file": null,
+      "log_file": "result/Blny-v3/phase5/exec_one_seed13_subset3_masround_b3_600/phase5_MASround_T_seed13_2026-03-12-13-42-46.log"
     },
     {
       "config": "Vanilla",
@@ -85,11 +94,12 @@
       "returncode": 0,
       "duration_sec": 145.478,
       "result_status": null,
-      "result_file": null
+      "result_file": null,
+      "log_file": "result/Blny-v3/phase5/exec_one_seed13_subset3_vanilla_600/phase5_Vanilla_seed13_2026-03-12-11-56-56.log"
     }
   ],
   "accuracy_by_config": {
-    "Ablation_barrier_no_intervention": null,
+    "Ablation_barrier_no_intervention": 0.0,
     "Ablation_full_method": 0.0,
     "Ablation_intervention_no_barrier": 0.0,
     "Ablation_random_intervention": 0.0,
