@@ -44,9 +44,8 @@ def cost_count(prompt, response, model_name):
         completion_len = 0
     else:
         branch = "other"
+        # Keep token accounting for non-OpenAI aliases (e.g., MiniMax-M2.5).
         price = 0.0
-        prompt_len = 0
-        completion_len = 0
 
     Cost.instance().value += price
     PromptTokens.instance().value += prompt_len

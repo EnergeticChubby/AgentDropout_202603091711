@@ -485,7 +485,9 @@ async def main():
                 "Solved": is_solved,
                 "Total solved": total_solved,
                 "Total executed": total_executed,
-                "Accuracy": accuracy
+                "Accuracy": accuracy,
+                "PromptTokens": PromptTokens.instance().value,
+                "CompletionTokens": CompletionTokens.instance().value
             }
             data.append(updated_item)
             print(f"##########Final Log:{json.dumps(updated_item)}")
