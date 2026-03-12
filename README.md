@@ -144,6 +144,12 @@ Run multi-phase execution with automatic retry-until-improved gate:
 python experiments/phase_controller.py \
   --phases_json experiments/phase_plan.example.json \
   --output_json result/gz10-v3/phase_history.json
+
+# lighter real-run preset (smaller samples, still gated)
+python experiments/phase_controller.py \
+  --phases_json experiments/phase_plan.quick.json \
+  --output_json result/gz10-v3/phase_history.quick.json
+# note: quick plan uses a lightweight baseline to exercise improvement gating rapidly
 ```
 
 Run the SVAMP protocol bundle for **40-shot vs full-train**:
