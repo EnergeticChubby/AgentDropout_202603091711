@@ -338,8 +338,6 @@ async def main():
     )
     
     if args.dec:
-        graph.optimized_spatial=False
-        graph.optimized_temporal=False
         total_solved, total_executed = (0, 0)
         if not graph.diff:
             optimizer = torch.optim.Adam([graph.spatial_logits_1,graph.temporal_logits_1], lr=args.lr)
@@ -679,9 +677,6 @@ async def main():
                 else:
                     print("spatial sparsity:",spatial_masks[0].sum()/spatial_masks[0].numel())
                     print("temporal sparsity:",temporal_masks[0].sum()/temporal_masks[0].numel())
-            if i_batch+1 == args.num_iterations:
-                args.optimized_spatial = False
-                args.optimized_temporal = False
             print(f"Cost {Cost.instance().value}")
             print(f"PromptTokens {PromptTokens.instance().value}")
             print(f"CompletionTokens {CompletionTokens.instance().value}")
