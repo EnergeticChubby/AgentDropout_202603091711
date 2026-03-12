@@ -44,6 +44,8 @@ def main():
     split_meta = split_dir / "split_meta.json"
     train_json = split_dir / "svamp_train.json"
     val_json = split_dir / "svamp_val.json"
+    result_dir = Path(args.result_dir)
+    result_dir.mkdir(parents=True, exist_ok=True)
 
     phase_40 = f"{args.phase_prefix}_40shot"
     phase_full = f"{args.phase_prefix}_full"
@@ -62,7 +64,6 @@ def main():
     run(base_cmd + f"--phase_name {phase_40} --train_sample_size 40")
     run(base_cmd + f"--phase_name {phase_full}")
 
-    result_dir = Path(args.result_dir)
     result_40 = latest_result(result_dir, phase_40)
     result_full = latest_result(result_dir, phase_full)
     summary: Dict[str, object] = {

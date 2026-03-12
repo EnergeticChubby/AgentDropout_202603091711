@@ -3,9 +3,11 @@
 
 import argparse
 import json
+import sys
 from pathlib import Path
 from typing import Any, Dict, List, Tuple
 
+sys.path.append(str(Path(__file__).resolve().parents[1]))
 from experiments.validate_protocol_artifacts import validate_with_jsonschema
 
 
