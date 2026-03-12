@@ -57,11 +57,17 @@ pip install -r requirements.txt
 
 2. **API Configuration**:
 
-```python
-# Update in AgentDropout/llm/gpt_chat.py
-MINE_BASE_URL = ""
-MINE_API_KEYS = ""
+Set environment variables (recommended) before running experiments:
+
+```bash
+export AGENTDROPOUT_BASE_URL="https://gpt-agent.cc/v1"
+export AGENTDROPOUT_API_KEY="<YOUR_API_KEY>"
+export DEFAULT_LLM_NAME="MiniMax-M2.5"
 ```
+
+Supported fallback names:
+- `MINIMAX_BASE_URL` / `MINIMAX_API_KEY`
+- `BASE_URL` / `API_KEY`
 
 3. **Local Model Deployment** (Optional):
 
@@ -79,10 +85,10 @@ Prepare data from [Huggingface](https://huggingface.co/). And put them in `datas
 
 ## **🚀 Quick Start**<a name="start"></a>
 
-Run AgentDropout on GSM8K (other datasets are similar): 
+Run AgentDropout on SVAMP (VG-AgentDropout-SVAMP phase0 baseline):
 
 ```shell
-python experiments/run_gsm8k.py \
+python experiments/run_svamp.py \
   --agent_nums 5 \
   --mode FullConnected \
   --batch_size 40 \
@@ -90,7 +96,7 @@ python experiments/run_gsm8k.py \
   --imp_per_iterations 1 \
   --pruning_rate 0.10 \
   --num_rounds 2 \
-  --llm_name /data/models/Meta-Llama-3-8B-Instruct \
+  --llm_name MiniMax-M2.5 \
   --optimized_spatial \
   --optimized_temporal \
   --diff \

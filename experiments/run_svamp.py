@@ -24,6 +24,8 @@ from datasets.gsm8k_dataset import svamp_data_process,gsm_get_predict, gsm_data_
 from datasets.aqua_dataset import aqua_data_process,aqua_get_predict
 from AgentDropout.utils.globals import PromptTokens, CompletionTokens
 from AgentDropout.agents.agent_registry import AgentRegistry
+from telemetry.collector import TelemetryCollector
+from observer.state_observer import StateObserver
 
 def load_result(result_file):
     if not result_file.exists():
@@ -70,6 +72,16 @@ def parse_args():
     parser.add_argument('--diff',action='store_true')
     parser.add_argument('--dec',action='store_true')
     parser.add_argument('--cot',action='store_true')
+    parser.add_argument('--state_aware_node', action='store_true')
+    parser.add_argument('--state_aware_edge', action='store_true')
+    parser.add_argument('--telemetry_output', type=str, default=None)
+    parser.add_argument('--observer_output', type=str, default=None)
+    parser.add_argument('--lambda_repeat', type=float, default=0.1)
+    parser.add_argument('--lambda_consensus', type=float, default=0.1)
+    parser.add_argument('--lambda_capacity', type=float, default=0.05)
+    parser.add_argument('--gamma_repeatflow', type=float, default=0.1)
+    parser.add_argument('--gamma_echo', type=float, default=0.1)
+    parser.add_argument('--gamma_capacityflow', type=float, default=0.05)
     parser.add_argument('--disable_svamp_guard', action='store_true',
                         help='Disable strict SVAMP dataset checks.')
     parser.add_argument('--phase_name', type=str, default='phase0',
@@ -124,6 +136,8 @@ async def main():
     agent_names = [name for name,num in zip(args.agent_names,args.agent_nums) for _ in range(num)]
     decision_method = args.decision_method
     kwargs = get_kwargs(args.mode,len(agent_names))
+    telemetry_collector = TelemetryCollector(output_path=args.telemetry_output) if args.telemetry_output else None
+    state_observer = StateObserver(output_path=args.observer_output) if args.observer_output else None
 
     graph = Graph(domain=args.domain,
                     llm_name=args.llm_name,
@@ -134,6 +148,20 @@ async def main():
                     rounds=args.num_rounds,
                     diff=args.diff,
                     dec=args.dec,
+                    telemetry_collector=telemetry_collector,
+                    state_observer=state_observer,
+                    state_aware_node=args.state_aware_node,
+                    state_aware_edge=args.state_aware_edge,
+                    node_risk_weights={
+                        "repeat": args.lambda_repeat,
+                        "consensus": args.lambda_consensus,
+                        "capacity": args.lambda_capacity,
+                    },
+                    edge_risk_weights={
+                        "repeatflow": args.gamma_repeatflow,
+                        "echo": args.gamma_echo,
+                        "capacityflow": args.gamma_capacityflow,
+                    },
                     **kwargs)
     print(f"[SVAMP Guard] dataset={args.dataset_json}, train={args.train_json}, "
           f"loaded_eval={len(dataset)}, loaded_train={len(train_dataset)}, domain={args.domain}")
