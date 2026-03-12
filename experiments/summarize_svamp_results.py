@@ -47,7 +47,7 @@ def summarize_file(path: str) -> Dict:
 
 def parse_args():
     parser = argparse.ArgumentParser(description="Summarize SVAMP result JSON files into one report.")
-    parser.add_argument("--glob_pattern", type=str, default="result/SVAMP/svamp_*.json")
+    parser.add_argument("--glob_pattern", type=str, default="result/gz10-v3/SVAMP/svamp_*.json")
     parser.add_argument("--output_json", type=str, default="result/gz10-v3/svamp_summary.json")
     return parser.parse_args()
 

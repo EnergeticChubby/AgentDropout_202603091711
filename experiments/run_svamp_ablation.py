@@ -33,7 +33,7 @@ def parse_args():
     parser.add_argument("--python_bin", type=str, default="/workspace/.venv/bin/python")
     parser.add_argument("--split_dir", type=str, default="datasets/SVAMP/split_seed42")
     parser.add_argument("--llm_name", type=str, default="MiniMax-M2.5")
-    parser.add_argument("--result_dir", type=str, default="result/SVAMP")
+    parser.add_argument("--result_dir", type=str, default="result/gz10-v3/SVAMP")
     parser.add_argument("--summary_out", type=str, default="result/gz10-v3/svamp_ablation_summary.json")
     parser.add_argument("--extra_args", type=str, default="")
     parser.add_argument("--run_mode", type=str, choices=["all", "quick"], default="quick")
@@ -52,6 +52,7 @@ def main():
     common = (
         f"{args.python_bin} experiments/run_svamp.py "
         f"--dataset_json {val_json} --train_json {train_json} --split_meta_json {split_meta} "
+        f"--result_dir {result_dir} "
         f"--llm_name {args.llm_name} --domain svamp --mode FullConnected --agent_nums 5 "
         f"--batch_size 40 --num_iterations 2 --imp_per_iterations 1 --pruning_rate 0.10 --num_rounds 2 "
         f"--optimized_spatial --optimized_temporal --diff --dec "

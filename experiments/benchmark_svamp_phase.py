@@ -41,7 +41,7 @@ def parse_args():
     parser = argparse.ArgumentParser(description="Run/collect SVAMP benchmark for one phase.")
     parser.add_argument("--phase_name", type=str, required=True)
     parser.add_argument("--run_cmd", type=str, default=None)
-    parser.add_argument("--result_glob", type=str, default="result/SVAMP/svamp_*.json")
+    parser.add_argument("--result_glob", type=str, default="result/gz10-v3/SVAMP/svamp_*.json")
     parser.add_argument("--output_json", type=str, default=None)
     return parser.parse_args()
 

@@ -154,7 +154,7 @@ Summarize all generated SVAMP result files:
 
 ```bash
 python experiments/summarize_svamp_results.py \
-  --glob_pattern "result/SVAMP/svamp_*.json" \
+  --glob_pattern "result/gz10-v3/SVAMP/svamp_*.json" \
   --output_json result/gz10-v3/svamp_summary.json
 ```
 

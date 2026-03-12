@@ -50,6 +50,7 @@ def parse_args():
     parser.add_argument("--split_meta_json", type=str, default=None)
     parser.add_argument("--train_sample_size", type=int, default=0)
     parser.add_argument("--result_file", type=str, default=None)
+    parser.add_argument("--result_dir", type=str, default="result/gz10-v3/SVAMP")
     parser.add_argument("--llm_name", type=str, default=os.getenv("DEFAULT_LLM_NAME", "MiniMax-M2.5"))
     parser.add_argument('--mode', type=str, default='FullConnected',
                         choices=['DirectAnswer', 'FullConnected', 'Random', 'Chain','Debate','Layered','Star'],
@@ -153,7 +154,9 @@ async def main():
 
     current_time = Time.instance().value or time.strftime("%Y-%m-%d-%H-%M-%S", time.localtime())
     Time.instance().value = current_time
-    result_dir = Path(f"{AgentPrune_ROOT}/result/SVAMP")
+    result_dir = Path(args.result_dir)
+    if not result_dir.is_absolute():
+        result_dir = Path(f"{AgentPrune_ROOT}/{result_dir}")
     result_dir.mkdir(parents=True, exist_ok=True)
     result_file = result_dir / f"{args.domain}_{args.phase_name}_{current_time}.json"
     
