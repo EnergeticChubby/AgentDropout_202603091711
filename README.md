@@ -150,6 +150,10 @@ python experiments/phase_controller.py \
   --phases_json experiments/phase_plan.quick.json \
   --output_json result/gz10-v3/phase_history.quick.json
 # note: quick plan uses a lightweight baseline to exercise improvement gating rapidly
+# optional per-phase health gate fields in phase json:
+# - "health_benchmark_type": "gsm8k" | "svamp"
+# - "health_result_glob": "<glob>"
+# - "health_allow_equal": false
 ```
 
 Run the SVAMP protocol bundle for **40-shot vs full-train**:

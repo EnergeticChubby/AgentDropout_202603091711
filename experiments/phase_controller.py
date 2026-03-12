@@ -78,12 +78,16 @@ def main():
         print(json.dumps({"phase_plan_schema": str(schema_path), "validation_mode": mode, "valid": True}))
     history: List[Dict[str, Any]] = []
     previous_result: Optional[str] = None
+    previous_health_result: Optional[str] = None
 
     for phase in phases:
         phase_name = phase["name"]
         max_attempts = int(phase.get("max_attempts", args.default_max_attempts))
         run_cmds = phase.get("run_cmds", [])
         tasks = phase.get("tasks", [])
+        health_result_glob = phase.get("health_result_glob")
+        health_benchmark_type = phase.get("health_benchmark_type", "gsm8k")
+        health_allow_equal = bool(phase.get("health_allow_equal", args.allow_equal))
 
         phase_attempts: List[Dict[str, Any]] = []
         passed = False
@@ -114,6 +118,25 @@ def main():
                 previous_result=previous_result,
                 strict_greater=not args.allow_equal,
             )
+            health_summary = None
+            health_comparison = None
+            if health_result_glob:
+                health_summary = summarize_phase(
+                    {
+                        "name": f"{phase_name}-health",
+                        "benchmark_type": health_benchmark_type,
+                        "result_glob": health_result_glob,
+                    }
+                )
+                health_comparison = compare_phase(
+                    current_result=health_summary["result_file"],
+                    previous_result=previous_health_result,
+                    strict_greater=not health_allow_equal,
+                )
+
+            phase_passed = comparison["passed"] and (
+                True if health_comparison is None else health_comparison["passed"]
+            )
             plan_info_after = maybe_read_plan(args.plan_path)
             attempt_entry = {
                 "attempt": attempt,
@@ -123,14 +146,18 @@ def main():
                 "commands": cmd_results,
                 "summary": summary,
                 "comparison": comparison,
-                "status": "passed" if comparison["passed"] else "not_improved",
+                "health_summary": health_summary,
+                "health_comparison": health_comparison,
+                "status": "passed" if phase_passed else "not_improved",
             }
             phase_attempts.append(attempt_entry)
             print(json.dumps({"phase": phase_name, "attempt": attempt_entry}, indent=2))
 
-            if comparison["passed"]:
+            if phase_passed:
                 passed = True
                 previous_result = summary["result_file"]
+                if health_summary is not None:
+                    previous_health_result = health_summary["result_file"]
                 break
 
         phase_entry = {"phase": phase, "attempts": phase_attempts, "passed": passed}

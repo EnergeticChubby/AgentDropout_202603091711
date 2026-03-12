@@ -9,6 +9,9 @@
       "name": { "type": "string" },
       "benchmark_type": { "type": "string", "enum": ["svamp", "gsm8k"] },
       "result_glob": { "type": "string" },
+      "health_benchmark_type": { "type": "string", "enum": ["svamp", "gsm8k"] },
+      "health_result_glob": { "type": "string" },
+      "health_allow_equal": { "type": "boolean" },
       "max_attempts": { "type": "integer", "minimum": 1 },
       "tasks": { "type": "array", "items": { "type": "string" } },
       "run_cmds": { "type": "array", "items": { "type": "string" } }
