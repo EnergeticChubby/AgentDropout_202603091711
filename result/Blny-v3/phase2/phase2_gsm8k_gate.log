@@ -1,0 +1,13 @@
+2026-03-12 06:10:16.694 | INFO     | AgentDropout.tools.reader.readers:parse_file:106 - Reading JSON Lines file from datasets/gsm8k/gsm8k.jsonl.
+Traceback (most recent call last):
+  File "/workspace/experiments/run_gsm8k.py", line 568, in <module>
+    asyncio.run(main())
+  File "/usr/lib/python3.10/asyncio/runners.py", line 44, in run
+    return loop.run_until_complete(main)
+  File "/usr/lib/python3.10/asyncio/base_events.py", line 649, in run_until_complete
+    return future.result()
+  File "/workspace/experiments/run_gsm8k.py", line 82, in main
+    dataset = JSONLReader.parse_file(args.dataset_json)
+  File "/workspace/AgentDropout/tools/reader/readers.py", line 107, in parse_file
+    with open(file_path, "r",encoding='utf-8') as f:
+FileNotFoundError: [Errno 2] No such file or directory: 'datasets/gsm8k/gsm8k.jsonl'

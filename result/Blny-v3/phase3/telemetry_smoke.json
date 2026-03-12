@@ -1,0 +1,57 @@
+[
+  {
+    "problem_id": "demo-1",
+    "split": "train",
+    "graph_id": "g1",
+    "rounds": [
+      {
+        "round_id": 1,
+        "active_agents": [
+          "MathSolver_a",
+          "Inspector_b"
+        ],
+        "messages": {
+          "MathSolver_a": "Let us solve. The answer is 12",
+          "Inspector_b": "However, we should verify and then summary"
+        },
+        "summary": "summary",
+        "tool_calls": [],
+        "tokens": {
+          "prompt": 10,
+          "completion": 5
+        },
+        "events": [
+          {
+            "type": "AGENT_JOIN",
+            "agent": "Inspector_b",
+            "round_id": 1
+          },
+          {
+            "type": "AGENT_JOIN",
+            "agent": "MathSolver_a",
+            "round_id": 1
+          },
+          {
+            "type": "CLAIM_CREATE",
+            "agent": "MathSolver_a",
+            "round_id": 1
+          },
+          {
+            "type": "CLAIM_CHALLENGE",
+            "agent": "Inspector_b",
+            "round_id": 1
+          },
+          {
+            "type": "SUMMARY_SUBMIT",
+            "agent": "Inspector_b",
+            "round_id": 1
+          }
+        ]
+      }
+    ],
+    "final_answer": "12",
+    "gold_answer": "12",
+    "is_correct": true,
+    "extra": {}
+  }
+]

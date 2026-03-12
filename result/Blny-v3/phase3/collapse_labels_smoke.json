@@ -1,0 +1,30 @@
+{
+  "summary": {
+    "total": 1,
+    "coordination_failure": 1,
+    "competence_failure": 0,
+    "correct": 1
+  },
+  "labels": [
+    {
+      "problem_id": "demo-1",
+      "split": "train",
+      "is_correct": true,
+      "coordination_failure": true,
+      "competence_failure": false,
+      "coordination_reasons": {
+        "rollback_present": false,
+        "no_progress": true,
+        "high_consensus_no_evidence": false,
+        "repeated_rephrase": false,
+        "high_token_stall": false
+      },
+      "event_counter": {
+        "AGENT_JOIN": 2,
+        "CLAIM_CREATE": 1,
+        "CLAIM_CHALLENGE": 1,
+        "SUMMARY_SUBMIT": 1
+      }
+    }
+  ]
+}

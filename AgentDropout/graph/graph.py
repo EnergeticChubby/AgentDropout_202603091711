@@ -357,11 +357,29 @@ class Graph(ABC):
                   max_tries: int = 3, 
                   max_time: int = 6000,
                   skip: bool=False,
-                  case: bool=False) -> List[Any]:
+                  case: bool=False,
+                  telemetry_recorder=None,
+                  split: str = "train",
+                  problem_id: Optional[str] = None,
+                  gold_answer: Optional[str] = None,
+                  eventizer=None) -> List[Any]:
         # inputs:{'task':"xxx"}
         log_probs = 0
         log_probs_skip = 0
         all_answers = []
+        telemetry_trace = None
+        if telemetry_recorder is not None:
+            if eventizer is None:
+                from AgentDropout.runtime.eventization import Eventizer
+                eventizer = Eventizer()
+            if problem_id is None:
+                problem_id = str(abs(hash(input.get("task", ""))))
+            telemetry_trace = telemetry_recorder.start_problem(
+                problem_id=problem_id,
+                split=split,
+                graph_id=self.id,
+                extra={"num_rounds": num_rounds},
+            )
         for round in range(num_rounds):
             round_answers = {}
             if not self.diff:
@@ -479,6 +497,24 @@ class Graph(ABC):
             for node in self.nodes:
                 round_answers[self.nodes[node].role+str(node)] = self.nodes[node].outputs
             all_answers.append(round_answers)
+            if telemetry_trace is not None:
+                round_messages = {}
+                for node_name, node_outputs in round_answers.items():
+                    if isinstance(node_outputs, list) and len(node_outputs):
+                        round_messages[node_name] = str(node_outputs[-1])
+                    else:
+                        round_messages[node_name] = str(node_outputs)
+                round_events = eventizer.extract_from_round(round_answers, round_id=round + 1)
+                telemetry_recorder.add_round(
+                    trace=telemetry_trace,
+                    round_id=round + 1,
+                    active_agents=list(round_answers.keys()),
+                    messages=round_messages,
+                    summary="",
+                    tool_calls=[],
+                    tokens={},
+                    events=round_events,
+                )
             self.update_memory()
         
         # if self.dec_1==False:
@@ -490,6 +526,14 @@ class Graph(ABC):
             final_answers = list(self.nodes.values())[0].outputs
         if len(final_answers) == 0:
             final_answers.append("No answer of the decision node")
+        if telemetry_trace is not None:
+            final_answer = final_answers[0] if isinstance(final_answers, list) and final_answers else ""
+            telemetry_recorder.finalize_problem(
+                trace=telemetry_trace,
+                final_answer=str(final_answer),
+                gold_answer=str(gold_answer or ""),
+                is_correct=False,
+            )
         # print(log_probs)
         # if skip:
         #     return final_answers, selected_index
