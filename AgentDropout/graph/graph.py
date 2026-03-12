@@ -411,6 +411,10 @@ class Graph(ABC):
 
             if round <= 5 and skip:
                 node_count = max(1, len(self.nodes))
+                if self.diff:
+                    spatial_logits_round = self.spatial_logits_1[round]
+                else:
+                    spatial_logits_round = self.spatial_logits_1
                 # log_probs = 0
                 min_logit=100
                 min_node=None
@@ -430,16 +434,16 @@ class Graph(ABC):
                         last_id = list(self.nodes).index(last_node.id)
                         count+=1
                         # logits_count+=torch.sigmoid(t*self.spatial_logits_1[round][in_id*node_count+last_id])
-                        logits_count+=t*self.spatial_logits_1[round][in_id*node_count+last_id]
-                        loss_t+=torch.log(1-torch.sigmoid(self.spatial_logits_1[round][in_id*node_count+last_id]))
-                        loss_f+=torch.log(torch.sigmoid(self.spatial_logits_1[round][in_id*node_count+last_id]))
+                        logits_count+=t*spatial_logits_round[in_id*node_count+last_id]
+                        loss_t+=torch.log(1-torch.sigmoid(spatial_logits_round[in_id*node_count+last_id]))
+                        loss_f+=torch.log(torch.sigmoid(spatial_logits_round[in_id*node_count+last_id]))
                     for last_node in node.spatial_predecessors:
                         last_id = list(self.nodes).index(last_node.id)
                         count+=1
                         # logits_count+=torch.sigmoid(t*self.spatial_logits_1[round][last_id*node_count+in_id])
-                        logits_count+=t*self.spatial_logits_1[round][last_id*node_count+in_id]
-                        loss_t+=torch.log(1-torch.sigmoid(self.spatial_logits_1[round][last_id*node_count+in_id]))
-                        loss_f+=torch.log(torch.sigmoid(self.spatial_logits_1[round][last_id*node_count+in_id]))
+                        logits_count+=t*spatial_logits_round[last_id*node_count+in_id]
+                        loss_t+=torch.log(1-torch.sigmoid(spatial_logits_round[last_id*node_count+in_id]))
+                        loss_f+=torch.log(torch.sigmoid(spatial_logits_round[last_id*node_count+in_id]))
                     # for last_node in node.temporal_predecessors:
                     #     last_id = list(self.nodes).index(last_node.id)
                     #     count+=1
@@ -665,13 +669,18 @@ class Graph(ABC):
         # self.temporal_logits_1 = self.temporal_logits.clone()
         return self.spatial_masks, self.temporal_masks
 
-    def update_masks_dec(self):
+    def update_masks_dec(self, pruning_rate: float = 0.1):
         node_count = len(self.nodes)
+        if pruning_rate <= 0:
+            prune_node_count = 0
+        else:
+            prune_node_count = max(1, int(pruning_rate * node_count))
+        prune_node_count = min(prune_node_count, max(0, node_count - 1))
+
         if not self.diff:
             spatial_matrix_train = [self.spatial_logits_1.reshape((node_count, node_count))]
             temporal_matrix_train = [self.temporal_logits_1.reshape((node_count, node_count))]
-            min_score = 100
-            min_node = -1
+            node_scores = []
             for j in range(node_count):
                 degree_sum = torch.sum(spatial_matrix_train[0][j, :]).item() + torch.sum(spatial_matrix_train[0][:, j]).item()
                 count = torch.sum(self.fixed_spatial_masks[j, :]).item() + torch.sum(self.fixed_spatial_masks[:, j]).item()
@@ -688,10 +697,9 @@ class Graph(ABC):
                     - self.phase_aware_weights["node_redundancy"] * redundancy
                     - self.phase_aware_weights["node_wrong_consensus_risk"] * wrong_consensus_risk
                 )
-                if score < min_score:
-                    min_score = score
-                    min_node = j
-            if min_node >= 0:
+                node_scores.append((score, j))
+            prune_nodes = [node_id for _, node_id in sorted(node_scores, key=lambda x: x[0])[:prune_node_count]]
+            for min_node in prune_nodes:
                 self.skip_nodes.append(min_node)
                 for k in range(node_count):
                     self.spatial_masks[min_node * node_count + k] = 0
@@ -704,8 +712,7 @@ class Graph(ABC):
         temporal_matrix_train = [param.reshape((node_count, node_count)) for param in self.temporal_logits_1]
 
         for i in range(len(spatial_matrix_train)):
-            min_score = 100
-            min_node = -1
+            node_scores = []
             for j in range(node_count):
                 sum = torch.sum(spatial_matrix_train[i][j,:]).item() + torch.sum(spatial_matrix_train[i][:,j]).item()
                 # if i >= 1:
@@ -724,17 +731,16 @@ class Graph(ABC):
                     - self.phase_aware_weights["node_redundancy"] * redundancy
                     - self.phase_aware_weights["node_wrong_consensus_risk"] * wrong_consensus_risk
                 )
-                if score < min_score:
-                    min_score = score
-                    min_node = j
-            # min_node=random.randint(0, 4)
-            self.skip_nodes.append(min_node)
-            for k in range(node_count):
-                self.spatial_masks[i][min_node*node_count+k]=0
-                self.spatial_masks[i][k*node_count+min_node]=0
-            if i > 0:
+                node_scores.append((score, j))
+            prune_nodes = [node_id for _, node_id in sorted(node_scores, key=lambda x: x[0])[:prune_node_count]]
+            for min_node in prune_nodes:
+                self.skip_nodes.append(min_node)
                 for k in range(node_count):
-                    self.temporal_masks[i-1][k*node_count+min_node]=0
-            if i < len(spatial_matrix_train) - 1:
-                for k in range(node_count):
-                    self.temporal_masks[i][min_node*node_count+k]=0
+                    self.spatial_masks[i][min_node*node_count+k]=0
+                    self.spatial_masks[i][k*node_count+min_node]=0
+                if i > 0:
+                    for k in range(node_count):
+                        self.temporal_masks[i-1][k*node_count+min_node]=0
+                if i < len(spatial_matrix_train) - 1:
+                    for k in range(node_count):
+                        self.temporal_masks[i][min_node*node_count+k]=0

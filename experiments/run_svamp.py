@@ -387,7 +387,6 @@ async def main():
                     frob_loss_s = torch.mean(torch.stack([frobenius_norm(spatial_matrix_fixed, matrix) for matrix in spatial_matrix_train]))
                     frob_loss_t = torch.mean(torch.stack([frobenius_norm(temporal_matrix_fixed, matrix) for matrix in temporal_matrix_train]))
                 add_loss = loss_s + loss_t + F.relu(frob_loss_s - args.delta) + F.relu(frob_loss_t - args.delta)
-                add_loss=0
                 task = record["task"]
                 step = record["step"]
                 answer = record["answer"]
@@ -550,7 +549,22 @@ async def main():
             print(f"CompletionTokens {CompletionTokens.instance().value}")
         if args.num_iterations > 0 and node_stage_updates == 0:
             raise RuntimeError("Node-stage updates were zero; expected >0 with dec enabled.")
-        graph.update_masks_dec()
+        graph.update_masks_dec(pruning_rate=args.pruning_rate)
+        if not graph.diff:
+            spatial_density = float((graph.spatial_masks.sum() / graph.spatial_masks.numel()).item())
+            temporal_density = float((graph.temporal_masks.sum() / graph.temporal_masks.numel()).item())
+        else:
+            spatial_density = float(
+                torch.mean(torch.stack([(mask.sum() / mask.numel()).float() for mask in graph.spatial_masks])).item()
+            )
+            temporal_density = float(
+                torch.mean(torch.stack([(mask.sum() / mask.numel()).float() for mask in graph.temporal_masks])).item()
+            )
+        print(
+            f"[NODE DROPOUT] pruning_rate={args.pruning_rate} "
+            f"skip_nodes={graph.skip_nodes} spatial_density={spatial_density:.4f} "
+            f"temporal_density={temporal_density:.4f}"
+        )
 
     if not graph.diff:
         optimizer = torch.optim.Adam([graph.spatial_logits,graph.temporal_logits], lr=args.lr)    
@@ -617,6 +631,8 @@ async def main():
             raw_results = await asyncio.gather(*answer_log_probs)
             raw_answers, log_probs = zip(*raw_results)
             loss_list: List[torch.Tensor] = []
+            task_term_list: List[torch.Tensor] = []
+            sparsity_term_list: List[torch.Tensor] = []
             utilities: List[float] = []
             data = load_result(result_file)
             
@@ -629,6 +645,12 @@ async def main():
                 utility = is_solved
                 utilities.append(utility)
                 single_loss = -log_prob * utility
+                if not isinstance(single_loss, torch.Tensor):
+                    single_loss = torch.tensor(float(single_loss), dtype=torch.float32)
+                if not isinstance(add_loss, torch.Tensor):
+                    add_loss = torch.tensor(float(add_loss), dtype=single_loss.dtype)
+                task_term_list.append(single_loss)
+                sparsity_term_list.append(add_loss)
                 loss_list.append(single_loss+add_loss)
                 updated_item = {
                     "Question": task,
@@ -647,6 +669,8 @@ async def main():
                 json.dump(data, file, indent=4)
             
             total_loss = torch.mean(torch.stack(loss_list))
+            task_term = torch.mean(torch.stack(task_term_list)) if task_term_list else torch.tensor(0.0)
+            sparsity_term = torch.mean(torch.stack(sparsity_term_list)) if sparsity_term_list else torch.tensor(0.0)
             if args.optimized_spatial or args.optimized_temporal:
                 optimizer.zero_grad()
                 total_loss.backward()
@@ -662,6 +686,11 @@ async def main():
             print(f"Accuracy: {accuracy}")
             print("utilities:", utilities)
             print("loss:", total_loss.item())
+            print(
+                f"[EDGE LOSS TERMS] task_term={float(task_term.item()):.6f} "
+                f"sparsity_term={float(sparsity_term.item()):.6f} "
+                f"total={float(total_loss.item()):.6f}"
+            )
             # print("Spatial logits Grad:", graph.spatial_logits.grad)
             # print("Temporal logits Grad:", graph.spatial_logits.grad)
             print("Spatial logits:", graph.spatial_logits)
