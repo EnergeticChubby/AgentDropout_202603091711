@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "SVAMP Ablation Summary",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "required": ["ablation", "phase_name", "result_file", "accuracy", "flags"],
+    "properties": {
+      "ablation": { "type": "string" },
+      "phase_name": { "type": "string" },
+      "result_file": { "type": "string" },
+      "accuracy": { "type": "number" },
+      "flags": { "type": "string" }
+    }
+  }
+}

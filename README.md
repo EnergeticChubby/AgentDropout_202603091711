@@ -170,6 +170,11 @@ python experiments/validate_protocol_artifacts.py \
   --schema_json experiments/schemas/split_meta.schema.json
 ```
 
+Additional schemas:
+- `experiments/schemas/run_manifest.schema.json`
+- `experiments/schemas/protocol_summary.schema.json`
+- `experiments/schemas/ablation_summary.schema.json`
+
 Check local experiment readiness (SVAMP files + API envs):
 
 ```bash
@@ -190,6 +195,13 @@ Run tooling smoke suite:
 
 ```bash
 python experiments/run_smoke_suite.py --dry_run
+```
+
+Generate markdown report from produced artifacts:
+
+```bash
+python experiments/generate_vg_svamp_report.py \
+  --output_md result/gz10-v3/vg_svamp_report.md
 ```
 
 Build observer labels from telemetry and train an observer model:

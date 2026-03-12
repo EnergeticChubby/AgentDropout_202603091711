@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "SVAMP Protocol Summary",
+  "type": "object",
+  "required": ["phase_40shot", "phase_full_train"],
+  "properties": {
+    "phase_40shot": {
+      "type": "object",
+      "required": ["result_file", "accuracy"],
+      "properties": {
+        "result_file": { "type": "string" },
+        "accuracy": { "type": "number" }
+      }
+    },
+    "phase_full_train": {
+      "type": "object",
+      "required": ["result_file", "accuracy"],
+      "properties": {
+        "result_file": { "type": "string" },
+        "accuracy": { "type": "number" }
+      }
+    }
+  }
+}
