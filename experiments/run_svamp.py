@@ -337,6 +337,9 @@ async def main():
         edge_progress=args.edge_progress_weight,
     )
     
+    node_stage_updates = 0
+    edge_stage_updates = 0
+
     if args.dec:
         total_solved, total_executed = (0, 0)
         if not graph.diff:
@@ -351,9 +354,10 @@ async def main():
             add_losses = []
             
             current_batch = dataloader(train_dataset,20,i_batch)
-            if current_batch is None:
+            if not current_batch:
                 print("No more data available.")
                 break
+            node_stage_updates += 1
             
             for i_record, record in enumerate(current_batch):
                 realized_graph = copy.deepcopy(graph)
@@ -544,6 +548,8 @@ async def main():
             print(f"Cost {Cost.instance().value}")
             print(f"PromptTokens {PromptTokens.instance().value}")
             print(f"CompletionTokens {CompletionTokens.instance().value}")
+        if args.num_iterations > 0 and node_stage_updates == 0:
+            raise RuntimeError("Node-stage updates were zero; expected >0 with dec enabled.")
         graph.update_masks_dec()
 
     if not graph.diff:
@@ -558,17 +564,18 @@ async def main():
     if args.optimized_temporal or args.optimized_spatial:
         # graph.optimized_spatial=True
         # graph.optimized_temporal=True
-        for i_batch in range(0):
+        for i_batch in range(args.num_iterations):
             print(f"Train batch {i_batch}",80*'-')
             start_ts = time.time()
             answer_log_probs = []
             answers = []
             add_losses = []
             
-            current_batch = dataloader(train_dataset,10,i_batch)
-            if current_batch is None:
+            current_batch = dataloader(train_dataset,args.batch_size,i_batch)
+            if not current_batch:
                 print("No more data available.")
                 break
+            edge_stage_updates += 1
             
             for i_record, record in enumerate(current_batch):
                 realized_graph = copy.deepcopy(graph)
@@ -680,6 +687,10 @@ async def main():
             print(f"Cost {Cost.instance().value}")
             print(f"PromptTokens {PromptTokens.instance().value}")
             print(f"CompletionTokens {CompletionTokens.instance().value}")
+        if args.num_iterations > 0 and edge_stage_updates == 0:
+            raise RuntimeError("Edge-stage updates were zero; expected >0 with optimized flags enabled.")
+
+    print(f"[STAGE UPDATES] node_stage_updates={node_stage_updates} edge_stage_updates={edge_stage_updates}")
 
     PromptTokens.instance().reset()
     CompletionTokens.instance().reset()
