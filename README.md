@@ -149,6 +149,18 @@ python experiments/summarize_svamp_results.py \
   --output_json result/gz10-v3/svamp_summary.json
 ```
 
+Schema files and task sheet:
+- `docs/VG_AGENTDROPOUT_TASK_SHEET.md`
+- `experiments/schemas/*.schema.json`
+
+Validate an artifact against schema:
+
+```bash
+python experiments/validate_protocol_artifacts.py \
+  --instance_json datasets/SVAMP/split_seed42/split_meta.json \
+  --schema_json experiments/schemas/split_meta.schema.json
+```
+
 Build observer labels from telemetry and train an observer model:
 
 ```bash

@@ -1,0 +1,52 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Observer Label Row",
+  "type": "object",
+  "required": [
+    "case_id",
+    "round_id",
+    "features",
+    "phase_label",
+    "risk_repeat_label",
+    "risk_consensus_label",
+    "risk_capacity_label"
+  ],
+  "properties": {
+    "case_id": { "type": "string" },
+    "round_id": { "type": "integer", "minimum": 0 },
+    "features": {
+      "type": "object",
+      "required": [
+        "answer_consensus",
+        "answer_conflict",
+        "new_information",
+        "repetition_ratio",
+        "semantic_novelty_drop",
+        "token_growth",
+        "progress_delta"
+      ],
+      "properties": {
+        "answer_consensus": { "type": "number" },
+        "answer_conflict": { "type": "number" },
+        "new_information": { "type": "number" },
+        "repetition_ratio": { "type": "number" },
+        "semantic_novelty_drop": { "type": "number" },
+        "token_growth": { "type": "number" },
+        "progress_delta": { "type": "number" }
+      }
+    },
+    "phase_label": {
+      "type": "string",
+      "enum": [
+        "exploration",
+        "productive",
+        "repetition_stagnation",
+        "premature_consensus",
+        "recovery"
+      ]
+    },
+    "risk_repeat_label": { "type": "integer", "enum": [0, 1] },
+    "risk_consensus_label": { "type": "integer", "enum": [0, 1] },
+    "risk_capacity_label": { "type": "integer", "enum": [0, 1] }
+  }
+}

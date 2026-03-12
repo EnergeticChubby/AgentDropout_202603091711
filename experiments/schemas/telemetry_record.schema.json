@@ -1,0 +1,57 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Telemetry Case Record",
+  "type": "object",
+  "required": ["case_id", "rounds", "latest_features"],
+  "properties": {
+    "case_id": { "type": "string" },
+    "rounds": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "case_id",
+          "round_id",
+          "active_nodes",
+          "active_edges",
+          "output_lengths",
+          "edge_message_lengths",
+          "answer_consensus",
+          "answer_conflict",
+          "new_information",
+          "repetition_ratio",
+          "semantic_novelty_drop",
+          "token_growth",
+          "progress_delta"
+        ],
+        "properties": {
+          "case_id": { "type": "string" },
+          "round_id": { "type": "integer", "minimum": 0 },
+          "active_nodes": { "type": "array", "items": { "type": "string" } },
+          "active_edges": { "type": "array" },
+          "output_lengths": { "type": "object", "additionalProperties": { "type": "number" } },
+          "edge_message_lengths": { "type": "object", "additionalProperties": { "type": "number" } },
+          "answer_consensus": { "type": "number" },
+          "answer_conflict": { "type": "number" },
+          "new_information": { "type": "number" },
+          "repetition_ratio": { "type": "number" },
+          "semantic_novelty_drop": { "type": "number" },
+          "token_growth": { "type": "number" },
+          "progress_delta": { "type": "number" },
+          "created_at": { "type": "string" }
+        }
+      }
+    },
+    "latest_features": {
+      "type": "object",
+      "required": [
+        "node_repeat_risk",
+        "node_consensus_risk",
+        "node_capacity_risk",
+        "edge_repeatflow_risk",
+        "edge_echo_risk",
+        "edge_capacityflow_risk"
+      ]
+    }
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Phase Controller Plan",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "required": ["name", "benchmark_type", "result_glob", "run_cmds"],
+    "properties": {
+      "name": { "type": "string" },
+      "benchmark_type": { "type": "string", "enum": ["svamp", "gsm8k"] },
+      "result_glob": { "type": "string" },
+      "max_attempts": { "type": "integer", "minimum": 1 },
+      "tasks": { "type": "array", "items": { "type": "string" } },
+      "run_cmds": { "type": "array", "items": { "type": "string" } }
+    }
+  }
+}
