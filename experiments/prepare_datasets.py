@@ -61,7 +61,9 @@ def prepare_gsm8k(load_dataset, output_root: Path) -> Dict[str, int]:
 
 
 def parse_args() -> argparse.Namespace:
-    parser = argparse.ArgumentParser(description="Prepare SVAMP and GSM8K local dataset files.")
+    parser = argparse.ArgumentParser(
+        description="Prepare local dataset files (SVAMP by default, optional GSM8K)."
+    )
     parser.add_argument(
         "--output_root",
         type=str,
@@ -69,6 +71,12 @@ def parse_args() -> argparse.Namespace:
         help="Workspace root for writing datasets (default current dir).",
     )
     parser.add_argument("--skip_svamp", action="store_true")
+    parser.add_argument(
+        "--with_gsm8k",
+        action="store_true",
+        help="Also download/export GSM8K files (default: disabled).",
+    )
+    # Backward-compatible alias; prefer --with_gsm8k for new usage.
     parser.add_argument("--skip_gsm8k", action="store_true")
     return parser.parse_args()
 
@@ -81,7 +89,8 @@ def main() -> None:
 
     if not args.skip_svamp:
         stats.update(prepare_svamp(load_dataset, output_root))
-    if not args.skip_gsm8k:
+    should_prepare_gsm8k = args.with_gsm8k and not args.skip_gsm8k
+    if should_prepare_gsm8k:
         stats.update(prepare_gsm8k(load_dataset, output_root))
 
     summary_path = output_root / "data" / "dataset_prepare_summary.json"

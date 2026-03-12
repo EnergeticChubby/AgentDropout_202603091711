@@ -80,9 +80,14 @@ base_url = "http://localhost:6789/v1"
 
 Prepare data from [Huggingface](https://huggingface.co/). And put them in `datasets/`.
 
-Optional one-command data preparation (SVAMP + GSM8K):
+Default one-command data preparation (SVAMP only):
 ```bash
 python experiments/prepare_datasets.py --output_root .
+```
+
+Optional: include GSM8K files as well:
+```bash
+python experiments/prepare_datasets.py --output_root . --with_gsm8k
 ```
 
 ## **🚀 Quick Start**<a name="start"></a>
