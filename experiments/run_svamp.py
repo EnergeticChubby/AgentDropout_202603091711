@@ -435,7 +435,13 @@ async def main():
                     )
                 utilities.append(utility)
                 single_loss = -log_prob * utility
-                loss_list.append(single_loss+add_loss)
+                if not isinstance(single_loss, torch.Tensor):
+                    single_loss = torch.tensor(float(single_loss), dtype=torch.float32)
+                if isinstance(add_loss, torch.Tensor):
+                    loss_item = single_loss + add_loss
+                else:
+                    loss_item = single_loss + torch.tensor(float(add_loss), dtype=single_loss.dtype)
+                loss_list.append(loss_item)
                 for round_idx, round_node_stats in enumerate(telemetry.get("round_node_stats", [])):
                     if round_idx not in node_feedback_acc:
                         node_feedback_acc[round_idx] = {}
