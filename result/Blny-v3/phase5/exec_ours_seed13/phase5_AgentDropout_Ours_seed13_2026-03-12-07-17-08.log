@@ -1,0 +1,66 @@
+2026-03-12 07:17:11.097 | INFO     | AgentDropout.tools.reader.readers:parse_file:85 - Reading JSON file from result/Blny-v3/phase1/splits/seed_13/svamp_test_subset3.json.
+2026-03-12 07:17:11.097 | INFO     | AgentDropout.tools.reader.readers:parse_file:85 - Reading JSON file from datasets/SVAMP/train.json.
+[SVAMP-CHECK] test_path=result/Blny-v3/phase1/splits/seed_13/svamp_test_subset3.json, train_path=datasets/SVAMP/train.json
+[SVAMP-CHECK] processed_test_size=3, processed_train_size=700
+[GRAPH-SETTING] setting=strict40 graph_train_size=40 graph_seed=42
+[['7bd9', '7bd9'], ['7bd9', '45eG'], ['7bd9', '3F9u'], ['7bd9', '8AXX'], ['7bd9', '88mw'], ['45eG', '7bd9'], ['45eG', '45eG'], ['45eG', '3F9u'], ['45eG', '8AXX'], ['45eG', '88mw'], ['3F9u', '7bd9'], ['3F9u', '45eG'], ['3F9u', '3F9u'], ['3F9u', '8AXX'], ['3F9u', '88mw'], ['8AXX', '7bd9'], ['8AXX', '45eG'], ['8AXX', '3F9u'], ['8AXX', '8AXX'], ['8AXX', '88mw'], ['88mw', '7bd9'], ['88mw', '45eG'], ['88mw', '3F9u'], ['88mw', '8AXX'], ['88mw', '88mw']]
+[TRAIN-STAGE] Node Dropout iterations=1
+Train batch 0 --------------------------------------------------------------------------------
+Error during execution of node 3F9u: RetryError[<Future at 0x7f3df0607d90 state=finished raised RuntimeError>]
+Error during execution of node 88mw: RetryError[<Future at 0x7f3df05bff10 state=finished raised RuntimeError>]
+Traceback (most recent call last):
+  File "/workspace/AgentDropout/llm/gpt_chat.py", line 79, in achat
+    completion = await aclient.chat.completions.create(model=model,messages=msg)
+  File "/workspace/.venv/lib/python3.10/site-packages/openai/resources/chat/completions.py", line 1720, in create
+    return await self._post(
+  File "/workspace/.venv/lib/python3.10/site-packages/openai/_base_client.py", line 1843, in post
+    return await self.request(cast_to, opts, stream=stream, stream_cls=stream_cls)
+  File "/workspace/.venv/lib/python3.10/site-packages/openai/_base_client.py", line 1537, in request
+    return await self._request(
+  File "/workspace/.venv/lib/python3.10/site-packages/openai/_base_client.py", line 1623, in _request
+    return await self._retry_request(
+  File "/workspace/.venv/lib/python3.10/site-packages/openai/_base_client.py", line 1670, in _retry_request
+    return await self._request(
+  File "/workspace/.venv/lib/python3.10/site-packages/openai/_base_client.py", line 1623, in _request
+    return await self._retry_request(
+  File "/workspace/.venv/lib/python3.10/site-packages/openai/_base_client.py", line 1670, in _retry_request
+    return await self._request(
+  File "/workspace/.venv/lib/python3.10/site-packages/openai/_base_client.py", line 1638, in _request
+    raise self._make_status_error_from_response(err.response) from None
+openai.InternalServerError: Error code: 500 - {'error': {'message': 'auth_unavailable: no auth available', 'type': 'server_error', 'param': '', 'code': 'internal_server_error'}}
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/workspace/.venv/lib/python3.10/site-packages/tenacity/_asyncio.py", line 50, in __call__
+    result = await fn(*args, **kwargs)
+  File "/workspace/AgentDropout/llm/gpt_chat.py", line 88, in achat
+    raise RuntimeError(f"Failed to complete the async chat request: {e}")
+RuntimeError: Failed to complete the async chat request: Error code: 500 - {'error': {'message': 'auth_unavailable: no auth available', 'type': 'server_error', 'param': '', 'code': 'internal_server_error'}}
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/workspace/experiments/run_svamp.py", line 630, in <module>
+    asyncio.run(main())
+  File "/usr/lib/python3.10/asyncio/runners.py", line 44, in run
+    return loop.run_until_complete(main)
+  File "/usr/lib/python3.10/asyncio/base_events.py", line 649, in run_until_complete
+    return future.result()
+  File "/workspace/experiments/run_svamp.py", line 219, in main
+    raw_results = await asyncio.gather(*answer_log_probs)
+  File "/workspace/AgentDropout/graph/graph.py", line 568, in arun
+    await self.decision_node.async_execute(input)
+  File "/workspace/AgentDropout/graph/node.py", line 164, in async_execute
+    results = await asyncio.gather(*tasks, return_exceptions=False)
+  File "/workspace/AgentDropout/agents/final_decision.py", line 104, in _async_execute
+    response = await self.llm.agen(message)
+  File "/workspace/AgentDropout/llm/gpt_chat.py", line 153, in agen
+    return await achat(self.model_name,messages)
+  File "/workspace/.venv/lib/python3.10/site-packages/tenacity/_asyncio.py", line 88, in async_wrapped
+    return await fn(*args, **kwargs)
+  File "/workspace/.venv/lib/python3.10/site-packages/tenacity/_asyncio.py", line 47, in __call__
+    do = self.iter(retry_state=retry_state)
+  File "/workspace/.venv/lib/python3.10/site-packages/tenacity/__init__.py", line 326, in iter
+    raise retry_exc from fut.exception()
+tenacity.RetryError: RetryError[<Future at 0x7f3df05ebb80 state=finished raised RuntimeError>]

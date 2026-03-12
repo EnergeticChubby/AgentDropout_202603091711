@@ -1,0 +1,42 @@
+[
+  {
+    "seed": 13,
+    "config": "AgentDropout_Ours",
+    "kind": "baseline",
+    "test_split": "result/Blny-v3/phase1/splits/seed_13/svamp_test_subset3.json",
+    "phase_tag": "phase5_AgentDropout_Ours_seed13_2026-03-12-07-17-08",
+    "command": [
+      "/workspace/.venv/bin/python",
+      "experiments/run_svamp.py",
+      "--dataset_json",
+      "result/Blny-v3/phase1/splits/seed_13/svamp_test_subset3.json",
+      "--llm_name",
+      "MiniMax-M2.5",
+      "--mode",
+      "FullConnected",
+      "--num_rounds",
+      "2",
+      "--agent_nums",
+      "5",
+      "--phase_tag",
+      "phase5_AgentDropout_Ours_seed13_2026-03-12-07-17-08",
+      "--batch_size",
+      "1",
+      "--num_iterations",
+      "1",
+      "--node_num_iterations",
+      "1",
+      "--edge_num_iterations",
+      "1",
+      "--optimized_spatial",
+      "--optimized_temporal",
+      "--diff",
+      "--dec",
+      "--enable_runtime_control"
+    ],
+    "status": "failed",
+    "returncode": 1,
+    "duration_sec": 67.412,
+    "log_file": "result/Blny-v3/phase5/exec_ours_seed13/phase5_AgentDropout_Ours_seed13_2026-03-12-07-17-08.log"
+  }
+]
