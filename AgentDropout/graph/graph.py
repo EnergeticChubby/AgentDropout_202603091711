@@ -362,7 +362,11 @@ class Graph(ABC):
                   split: str = "train",
                   problem_id: Optional[str] = None,
                   gold_answer: Optional[str] = None,
-                  eventizer=None) -> List[Any]:
+                  eventizer=None,
+                  enable_runtime_control: bool = False,
+                  state_reconstructor=None,
+                  barrier_scorer=None,
+                  intervention_policy=None) -> List[Any]:
         # inputs:{'task':"xxx"}
         log_probs = 0
         log_probs_skip = 0
@@ -380,6 +384,19 @@ class Graph(ABC):
                 graph_id=self.id,
                 extra={"num_rounds": num_rounds},
             )
+        if enable_runtime_control:
+            if eventizer is None:
+                from AgentDropout.runtime.eventization import Eventizer
+                eventizer = Eventizer()
+            if state_reconstructor is None:
+                from AgentDropout.runtime.state_model import StateReconstructor
+                state_reconstructor = StateReconstructor()
+            if barrier_scorer is None:
+                from AgentDropout.runtime.barrier_model import BarrierScorer
+                barrier_scorer = BarrierScorer(hazard_window=3, margin=0.2)
+            if intervention_policy is None:
+                from AgentDropout.runtime.intervention_policy import MinimalInterventionPolicy
+                intervention_policy = MinimalInterventionPolicy(tau_warn=0.35, tau_danger=0.50, cooldown_events=2)
         for round in range(num_rounds):
             round_answers = {}
             if not self.diff:
@@ -497,6 +514,35 @@ class Graph(ABC):
             for node in self.nodes:
                 round_answers[self.nodes[node].role+str(node)] = self.nodes[node].outputs
             all_answers.append(round_answers)
+            round_decision = None
+            round_events = []
+            if eventizer is not None:
+                round_events = eventizer.extract_from_round(round_answers, round_id=round + 1)
+            if enable_runtime_control:
+                state = state_reconstructor.reconstruct(
+                    events=round_events,
+                    active_agents=len(round_answers),
+                    total_messages=len(round_answers),
+                )
+                barrier = barrier_scorer.score(state)
+                round_decision = intervention_policy.decide(
+                    state=state,
+                    barrier=barrier,
+                    event_idx=(round + 1) * max(1, len(round_events)),
+                )
+                round_answers["_runtime_state"] = state.to_dict()
+                round_answers["_runtime_barrier"] = barrier.to_dict()
+                round_answers["_runtime_decision"] = round_decision.to_dict()
+                round_events.append(
+                    {
+                        "type": "INTERVENTION_DECISION",
+                        "agent": "controller",
+                        "round_id": round + 1,
+                        "action": round_decision.action,
+                        "triggered": round_decision.triggered,
+                        "reason": round_decision.reason,
+                    }
+                )
             if telemetry_trace is not None:
                 round_messages = {}
                 for node_name, node_outputs in round_answers.items():
@@ -504,13 +550,12 @@ class Graph(ABC):
                         round_messages[node_name] = str(node_outputs[-1])
                     else:
                         round_messages[node_name] = str(node_outputs)
-                round_events = eventizer.extract_from_round(round_answers, round_id=round + 1)
                 telemetry_recorder.add_round(
                     trace=telemetry_trace,
                     round_id=round + 1,
                     active_agents=list(round_answers.keys()),
                     messages=round_messages,
-                    summary="",
+                    summary=round_decision.action if round_decision is not None else "",
                     tool_calls=[],
                     tokens={},
                     events=round_events,
