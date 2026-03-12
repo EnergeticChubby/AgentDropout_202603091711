@@ -236,6 +236,45 @@
       "result_file": null,
       "Execution Accuracy": null,
       "result_status": "missing"
+    },
+    {
+      "seed": 13,
+      "config": "MASround_T",
+      "kind": "baseline",
+      "test_split": "result/Blny-v3/phase1/splits/seed_13/svamp_test_subset3.json",
+      "phase_tag": "phase5_MASround_T_seed13_2026-03-12-07-22-04",
+      "command": [
+        "/workspace/.venv/bin/python",
+        "experiments/run_svamp.py",
+        "--dataset_json",
+        "result/Blny-v3/phase1/splits/seed_13/svamp_test_subset3.json",
+        "--llm_name",
+        "MiniMax-M2.5",
+        "--mode",
+        "FullConnected",
+        "--num_rounds",
+        "2",
+        "--agent_nums",
+        "5",
+        "--phase_tag",
+        "phase5_MASround_T_seed13_2026-03-12-07-22-04",
+        "--batch_size",
+        "1",
+        "--num_iterations",
+        "1",
+        "--node_num_iterations",
+        "1",
+        "--edge_num_iterations",
+        "1"
+      ],
+      "status": "failed_timeout",
+      "returncode": null,
+      "timeout_sec": 240,
+      "duration_sec": 240.018,
+      "log_file": "result/Blny-v3/phase5/exec_masround_seed13/phase5_MASround_T_seed13_2026-03-12-07-22-04.log",
+      "result_file": null,
+      "Execution Accuracy": null,
+      "result_status": "missing"
     }
   ],
   "by_config": {
@@ -256,6 +295,22 @@
       }
     },
     "AgentDropout_Ours": {
+      "num_runs": 1,
+      "Execution Accuracy mean": null,
+      "Execution Accuracy std": null,
+      "process_metrics_scaffold": {
+        "Frontier-Crossing Rate": 0.0,
+        "Early-Collapse Rate": 0.0,
+        "Recovery Cost": null,
+        "Wasted Communication Ratio": 0.0,
+        "avg_prompt_tokens": 10.0,
+        "avg_completion_tokens": 5.0,
+        "avg_intervention_count": 0.0,
+        "avg_active_agents": 2.0,
+        "avg_summary_rollback_count": 0.0
+      }
+    },
+    "MASround_T": {
       "num_runs": 1,
       "Execution Accuracy mean": null,
       "Execution Accuracy std": null,
