@@ -211,6 +211,7 @@ def main():
         "state_dict": model.state_dict(),
         "feature_keys": FEATURE_KEYS,
         "phase_names": PHASES,
+        "hidden_dim": args.hidden_dim,
     }, model_path)
 
     metrics_payload = {

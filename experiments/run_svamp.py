@@ -76,6 +76,7 @@ def parse_args():
     parser.add_argument('--state_aware_edge', action='store_true')
     parser.add_argument('--telemetry_output', type=str, default=None)
     parser.add_argument('--observer_output', type=str, default=None)
+    parser.add_argument('--observer_model_path', type=str, default=None)
     parser.add_argument('--lambda_repeat', type=float, default=0.1)
     parser.add_argument('--lambda_consensus', type=float, default=0.1)
     parser.add_argument('--lambda_capacity', type=float, default=0.05)
@@ -137,7 +138,9 @@ async def main():
     decision_method = args.decision_method
     kwargs = get_kwargs(args.mode,len(agent_names))
     telemetry_collector = TelemetryCollector(output_path=args.telemetry_output) if args.telemetry_output else None
-    state_observer = StateObserver(output_path=args.observer_output) if args.observer_output else None
+    state_observer = None
+    if args.observer_output or args.observer_model_path:
+        state_observer = StateObserver(output_path=args.observer_output, model_path=args.observer_model_path)
 
     graph = Graph(domain=args.domain,
                     llm_name=args.llm_name,
