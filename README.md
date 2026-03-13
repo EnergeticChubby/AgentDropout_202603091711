@@ -211,6 +211,15 @@ python experiments/build_repro_manifest.py \
   --output_json result/benchmarks/AdamMartinez6793-v3/comparisons/phase_repro_manifest.json
 ```
 
+Regenerate consolidated overview report for phase1/phase3/phase4:
+
+```bash
+python experiments/build_phase_overview.py \
+  --branch_tag AdamMartinez6793-v3 \
+  --output_json result/benchmarks/AdamMartinez6793-v3/comparisons/phase1_phase3_phase4_overview.json \
+  --output_md result/benchmarks/AdamMartinez6793-v3/comparisons/phase1_phase3_phase4_overview.md
+```
+
 ## **📜 Citation**<a name="citation"></a>
 
 If you find this work useful, please cite:
