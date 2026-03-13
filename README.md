@@ -115,6 +115,8 @@ python experiments/run_svamp.py \
   --api_key your_api_key \
   --use_split_data \
   --split_dir data/svamp/split_seed42 \
+  --eval_split_file test.json \
+  --phase_gate_strict \
   --phase_label phase0 \
   --branch_tag AdamMartinez6793-v3 \
   --optimized_spatial \
@@ -127,7 +129,19 @@ python experiments/phase_metrics.py \
   --result_json result/SVAMP/AdamMartinez6793-v3/phase0/svamp_MiniMax-M2.5_<timestamp>.json \
   --phase phase0 \
   --benchmark svamp \
-  --branch_tag AdamMartinez6793-v3
+  --branch_tag AdamMartinez6793-v3 \
+  --output_layout phase_gate
+```
+
+Phase-gate archive layout (SVAMP-only):
+
+```text
+result/benchmarks/AdamMartinez6793-v3/<phase>/
+  run_config.json
+  svamp_raw_results.json
+  svamp_metrics_summary.json
+  compare_to_prev.json
+  telemetry_samples.jsonl
 ```
 
 ## **📜 Citation**<a name="citation"></a>
