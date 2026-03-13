@@ -11,7 +11,6 @@ from typing import Any, Dict, List, Optional
 
 sys.path.append(str(Path(__file__).resolve().parents[1]))
 from experiments.benchmark_compare import compare_phase
-from experiments.benchmark_gsm8k_phase import summarize_phase as summarize_gsm8k
 from experiments.benchmark_svamp_phase import summarize_phase as summarize_svamp
 from experiments.validate_protocol_artifacts import validate_with_jsonschema
 
@@ -40,8 +39,8 @@ def summarize_phase(phase: Dict[str, Any]) -> Dict[str, Any]:
     benchmark_type = phase.get("benchmark_type", "svamp")
     result_glob = phase["result_glob"]
     phase_name = phase["name"]
-    if benchmark_type == "gsm8k":
-        return summarize_gsm8k(phase_name=phase_name, result_glob=result_glob)
+    if benchmark_type != "svamp":
+        raise ValueError(f"SVAMP-only mode: unsupported benchmark_type={benchmark_type!r}")
     return summarize_svamp(phase_name=phase_name, result_glob=result_glob)
 
 
@@ -87,7 +86,7 @@ def main():
         run_cmds = phase.get("run_cmds", [])
         tasks = phase.get("tasks", [])
         health_result_glob = phase.get("health_result_glob")
-        health_benchmark_type = phase.get("health_benchmark_type", "gsm8k")
+        health_benchmark_type = phase.get("health_benchmark_type", "svamp")
         health_allow_equal = bool(phase.get("health_allow_equal", args.allow_equal))
 
         phase_attempts: List[Dict[str, Any]] = []

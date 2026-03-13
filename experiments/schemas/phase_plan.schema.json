@@ -7,9 +7,9 @@
     "required": ["name", "benchmark_type", "result_glob", "run_cmds"],
     "properties": {
       "name": { "type": "string" },
-      "benchmark_type": { "type": "string", "enum": ["svamp", "gsm8k"] },
+      "benchmark_type": { "type": "string", "enum": ["svamp"] },
       "result_glob": { "type": "string" },
-      "health_benchmark_type": { "type": "string", "enum": ["svamp", "gsm8k"] },
+      "health_benchmark_type": { "type": "string", "enum": ["svamp"] },
       "health_result_glob": { "type": "string" },
       "health_allow_equal": { "type": "boolean" },
       "max_attempts": { "type": "integer", "minimum": 1 },
