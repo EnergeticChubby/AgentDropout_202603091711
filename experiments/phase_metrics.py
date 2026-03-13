@@ -218,6 +218,10 @@ def main() -> None:
                     "PhaseMetrics": row.get("PhaseMetrics"),
                     "NodeStats": row.get("NodeStats", []),
                     "EdgeStats": row.get("EdgeStats", []),
+                    "round1_messages": row.get("round1_messages", []),
+                    "round2_messages": row.get("round2_messages", []),
+                    "phase_trace": row.get("phase_trace", []),
+                    "risk_trace": row.get("risk_trace", []),
                     "PromptTokens": row.get("PromptTokens"),
                     "CompletionTokens": row.get("CompletionTokens"),
                 }

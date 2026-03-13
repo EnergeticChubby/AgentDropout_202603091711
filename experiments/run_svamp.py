@@ -160,6 +160,32 @@ def _count_surviving_nodes(round_answer: Dict[str, Any]) -> int:
     return survivors
 
 
+def _round_messages_from_answers(all_round_answers: List[Dict[str, Any]], round_idx: int) -> List[Dict[str, Any]]:
+    if round_idx < 0 or round_idx >= len(all_round_answers):
+        return []
+    outputs = []
+    for role_node, value in (all_round_answers[round_idx] or {}).items():
+        message_list = value if isinstance(value, list) else [value]
+        outputs.append(
+            {
+                "node": role_node,
+                "messages": [str(item) for item in message_list],
+            }
+        )
+    return outputs
+
+
+def _risk_trace_from_edge_stats(edge_stats: List[Dict[str, Any]]) -> List[float]:
+    traces: List[float] = []
+    for round_edges in edge_stats or []:
+        if not isinstance(round_edges, dict) or not round_edges:
+            traces.append(0.0)
+            continue
+        risks = [float(payload.get("risk", 0.0)) for payload in round_edges.values()]
+        traces.append(_safe_mean(risks))
+    return traces
+
+
 def _build_phase_summary(data: List[Dict[str, Any]], args) -> Dict[str, Any]:
     phase_distribution: Dict[str, int] = {}
     wrong_consensus = 0
@@ -391,6 +417,10 @@ def write_phase_archive(result_file: Path, args, summary: Dict[str, Any]) -> Non
                 "PhaseMetrics": row.get("PhaseMetrics"),
                 "NodeStats": row.get("NodeStats", []),
                 "EdgeStats": row.get("EdgeStats", []),
+                "round1_messages": row.get("round1_messages", []),
+                "round2_messages": row.get("round2_messages", []),
+                "phase_trace": row.get("phase_trace", []),
+                "risk_trace": row.get("risk_trace", []),
                 "PromptTokens": row.get("PromptTokens"),
                 "CompletionTokens": row.get("CompletionTokens"),
             }
@@ -1058,6 +1088,17 @@ async def main():
                 "NodeStats": telemetry.get("round_node_stats", []),
                 "EdgeStats": telemetry.get("round_edge_stats", []),
                 "PhaseMetrics": phase_metrics,
+                "final_correct": bool(is_solved),
+                "pred_answer": str(predict_answer),
+                "gold_answer": str(true_answer),
+                "prompt_tokens": float(PromptTokens.instance().value),
+                "completion_tokens": float(CompletionTokens.instance().value),
+                "round1_messages": _round_messages_from_answers(list(all_answer), round_idx=0),
+                "round2_messages": _round_messages_from_answers(list(all_answer), round_idx=1),
+                "node_level_stats": telemetry.get("round_node_stats", []),
+                "edge_level_stats": telemetry.get("round_edge_stats", []),
+                "phase_trace": [phase_label],
+                "risk_trace": _risk_trace_from_edge_stats(telemetry.get("round_edge_stats", [])),
             }
             data.append(updated_item)
             print(f"##########Final Log:{json.dumps(updated_item)}")
