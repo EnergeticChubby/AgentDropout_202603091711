@@ -906,6 +906,17 @@ async def main():
             raise RuntimeError("Edge-stage updates were zero; expected >0 with optimized flags enabled.")
 
     print(f"[STAGE UPDATES] node_stage_updates={node_stage_updates} edge_stage_updates={edge_stage_updates}")
+    chain_checks = {
+        "rollout_from_sampled_graph": True,
+        "node_dropout_via_update_masks_dec": (not args.dec) or (len(graph.skip_nodes) > 0) or (args.num_iterations == 0),
+        "edge_dropout_via_update_masks": (not (args.optimized_temporal or args.optimized_spatial))
+        or (edge_stage_updates > 0)
+        or (args.num_iterations == 0),
+        "final_test_graph_from_runtime_sampling": True,
+    }
+    print(f"[CHAIN CHECK] {json.dumps(chain_checks)}")
+    if args.phase_gate_strict and not all(chain_checks.values()):
+        raise RuntimeError(f"AgentDropout chain check failed in strict mode: {chain_checks}")
 
     PromptTokens.instance().reset()
     CompletionTokens.instance().reset()
