@@ -144,6 +144,17 @@ result/benchmarks/AdamMartinez6793-v3/<phase>/
   telemetry_samples.jsonl
 ```
 
+One-command strict phase run (fixed 200-test split + automatic gate check):
+
+```bash
+python experiments/run_svamp_phase.py \
+  --phase phase0 \
+  --llm_name MiniMax-M2.5 \
+  --base_url https://gpt-agent.cc/v1 \
+  --api_key your_api_key \
+  --branch_tag AdamMartinez6793-v3
+```
+
 ## **📜 Citation**<a name="citation"></a>
 
 If you find this work useful, please cite:
