@@ -6,9 +6,9 @@
     "accuracy_base": 0.975,
     "accuracy_current": 0.96,
     "accuracy_delta": -0.015000000000000013,
-    "total_tokens_avg_base": 2460.255,
+    "total_tokens_avg_base": 2456.795,
     "total_tokens_avg_current": 2444.94,
-    "total_tokens_avg_delta": -15.315000000000055
+    "total_tokens_avg_delta": -11.855000000000018
   },
   "transitions": {
     "correct_to_correct": 191,
@@ -99,11 +99,11 @@
       }
     },
     {
-      "question": "Paul got a box of 521 crayons and 66 erasers for his birthday. At the end of the school year he only had 154 left while not having lost a single erasers. How many crayons had been lost or given away?",
+      "question": "Paul had 71 books. After selling some in a garage sale he bought 38 new ones. If he has 116 books now How many more books did he buy than he sold?",
       "base": {
-        "question": "Paul got a box of 521 crayons and 66 erasers for his birthday. At the end of the school year he only had 154 left while not having lost a single erasers. How many crayons had been lost or given away?",
-        "pred_answer": "367",
-        "gold_answer": "367",
+        "question": "Paul had 71 books. After selling some in a garage sale he bought 38 new ones. If he has 116 books now How many more books did he buy than he sold?",
+        "pred_answer": "45",
+        "gold_answer": "45",
         "phase_label": "ready_to_finalize",
         "phase_metrics": {
           "correction_gain": 1.0,
@@ -113,9 +113,9 @@
         }
       },
       "current": {
-        "question": "Paul got a box of 521 crayons and 66 erasers for his birthday. At the end of the school year he only had 154 left while not having lost a single erasers. How many crayons had been lost or given away?",
-        "pred_answer": "433",
-        "gold_answer": "367",
+        "question": "Paul had 71 books. After selling some in a garage sale he bought 38 new ones. If he has 116 books now How many more books did he buy than he sold?",
+        "pred_answer": "31",
+        "gold_answer": "45",
         "phase_label": "unresolved_conflict",
         "phase_metrics": {
           "correction_gain": 0.0,
@@ -128,12 +128,12 @@
   ],
   "improvements_sample": [
     {
-      "question": "Julia played tag with 11 kids on monday. She played tag with 12 kids on tuesday. How many more kids did she play with on tuesday than on monday?",
+      "question": "David did 56 more push-ups than Zachary in gym class today. If David did 38 push-ups How many push-ups did Zachary and David do altogether?",
       "base": {
-        "question": "Julia played tag with 11 kids on monday. She played tag with 12 kids on tuesday. How many more kids did she play with on tuesday than on monday?",
-        "pred_answer": "11",
-        "gold_answer": "1",
-        "phase_label": "redundant_paraphrase",
+        "question": "David did 56 more push-ups than Zachary in gym class today. If David did 38 push-ups How many push-ups did Zachary and David do altogether?",
+        "pred_answer": "94",
+        "gold_answer": "20",
+        "phase_label": "unresolved_conflict",
         "phase_metrics": {
           "correction_gain": 0.0,
           "wrong_consensus": 0.0,
@@ -142,9 +142,9 @@
         }
       },
       "current": {
-        "question": "Julia played tag with 11 kids on monday. She played tag with 12 kids on tuesday. How many more kids did she play with on tuesday than on monday?",
-        "pred_answer": "1",
-        "gold_answer": "1",
+        "question": "David did 56 more push-ups than Zachary in gym class today. If David did 38 push-ups How many push-ups did Zachary and David do altogether?",
+        "pred_answer": "20",
+        "gold_answer": "20",
         "phase_label": "ready_to_finalize",
         "phase_metrics": {
           "correction_gain": 1.0,
