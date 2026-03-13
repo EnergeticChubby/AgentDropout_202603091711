@@ -5,12 +5,14 @@ import yaml
 import json
 import time
 import asyncio
+import math
 from pathlib import Path
 import torch
 import torch.nn.functional as F
 import copy
 from typing import List,Union,Literal
 import random
+from typing import Any, Dict
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 sys.stdout.reconfigure(encoding='utf-8')
 
@@ -24,6 +26,8 @@ from datasets.gsm8k_dataset import svamp_data_process,gsm_get_predict, gsm_data_
 from datasets.aqua_dataset import aqua_data_process,aqua_get_predict
 from AgentDropout.utils.globals import PromptTokens, CompletionTokens
 from AgentDropout.agents.agent_registry import AgentRegistry
+from telemetry.collector import TelemetryCollector
+from observer.state_observer import StateObserver
 
 def load_result(result_file):
     if not result_file.exists():
@@ -42,10 +46,15 @@ def load_config(config_path):
         return yaml.safe_load(file)
     
 def parse_args():
-    parser = argparse.ArgumentParser(description="Experiments on gsm8k")
+    parser = argparse.ArgumentParser(description="Experiments on SVAMP")
     parser.add_argument("--dataset_json", type=str, default="datasets/SVAMP/test.json")
+    parser.add_argument("--train_json", type=str, default="datasets/SVAMP/train.json")
+    parser.add_argument("--split_meta_json", type=str, default=None)
+    parser.add_argument("--train_sample_size", type=int, default=0)
+    parser.add_argument("--eval_sample_size", type=int, default=0)
     parser.add_argument("--result_file", type=str, default=None)
-    parser.add_argument("--llm_name", type=str, default="gpt-3.5-turbo")
+    parser.add_argument("--result_dir", type=str, default="result/gz10-v3/SVAMP")
+    parser.add_argument("--llm_name", type=str, default=os.getenv("DEFAULT_LLM_NAME", "MiniMax-M2.5"))
     parser.add_argument('--mode', type=str, default='FullConnected',
                         choices=['DirectAnswer', 'FullConnected', 'Random', 'Chain','Debate','Layered','Star'],
                         help="Mode of operation. Default is 'FullConnected'.")
@@ -56,7 +65,7 @@ def parse_args():
     parser.add_argument('--num_rounds',type=int,default=1,help="Number of optimization/inference rounds for one query")
     parser.add_argument('--pruning_rate', type=float, default=0.25,help="The Rate of Pruning. Default 0.05.")
     parser.add_argument('--num_iterations', type=int, default=10,help="The num of training iterations.")
-    parser.add_argument('--domain', type=str, default="gsm8k",help="Domain (the same as dataset name), default 'gsm8k'")
+    parser.add_argument('--domain', type=str, default="svamp",help="Domain (the same as dataset name), default 'svamp'")
     parser.add_argument('--agent_names', nargs='+', type=str, default=['MathSolver'],
                         help='Specify agent names as a list of strings')
     parser.add_argument('--agent_nums', nargs='+', type=int, default=[4],
@@ -68,6 +77,21 @@ def parse_args():
     parser.add_argument('--diff',action='store_true')
     parser.add_argument('--dec',action='store_true')
     parser.add_argument('--cot',action='store_true')
+    parser.add_argument('--state_aware_node', action='store_true')
+    parser.add_argument('--state_aware_edge', action='store_true')
+    parser.add_argument('--telemetry_output', type=str, default=None)
+    parser.add_argument('--observer_output', type=str, default=None)
+    parser.add_argument('--observer_model_path', type=str, default=None)
+    parser.add_argument('--lambda_repeat', type=float, default=0.1)
+    parser.add_argument('--lambda_consensus', type=float, default=0.1)
+    parser.add_argument('--lambda_capacity', type=float, default=0.05)
+    parser.add_argument('--gamma_repeatflow', type=float, default=0.1)
+    parser.add_argument('--gamma_echo', type=float, default=0.1)
+    parser.add_argument('--gamma_capacityflow', type=float, default=0.05)
+    parser.add_argument('--disable_svamp_guard', action='store_true',
+                        help='Disable strict SVAMP dataset checks.')
+    parser.add_argument('--phase_name', type=str, default='phase0',
+                        help='Phase tag for result naming.')
     args = parser.parse_args()
     result_path = AgentPrune_ROOT / "result"
     os.makedirs(result_path, exist_ok=True)
@@ -76,25 +100,126 @@ def parse_args():
 
     return args
 
+
+def load_records(path: str):
+    suffix = Path(path).suffix.lower()
+    if suffix == ".jsonl":
+        return JSONLReader.parse_file(path)
+    return JSONReader.parse_file(path)
+
+
+def validate_svamp_dataset(dataset_path: str, records):
+    if "svamp" not in dataset_path.lower():
+        raise ValueError(f"SVAMP guard failed: dataset path does not look like SVAMP -> {dataset_path}")
+    if not isinstance(records, list) or len(records) == 0:
+        raise ValueError(f"SVAMP guard failed: no records loaded from {dataset_path}")
+    sample = records[0]
+    required = {"Body", "Question", "Answer"}
+    if not required.issubset(set(sample.keys())):
+        raise ValueError(
+            f"SVAMP guard failed: expected keys {required}, got {set(sample.keys())} in {dataset_path}"
+        )
+
+
+def validate_split_meta(split_meta_path: str, dataset_json: str, train_json: str):
+    meta_path = Path(split_meta_path)
+    if not meta_path.exists():
+        raise ValueError(f"split_meta_json not found: {split_meta_path}")
+    with open(meta_path, "r", encoding="utf-8") as f:
+        meta = json.load(f)
+    source = meta.get("source", {})
+    print(f"[SVAMP SplitMeta] source={source}, counts={meta.get('counts', {})}")
+    if source:
+        source_train = str(source.get("train_json", "")).lower()
+        source_test = str(source.get("test_json", "")).lower()
+        if "svamp" not in source_train and "svamp" not in source_test:
+            raise ValueError(f"split_meta source does not appear to be SVAMP: {source}")
+    if "svamp" not in dataset_json.lower() or "svamp" not in train_json.lower():
+        raise ValueError("split_meta provided but dataset/train paths are not SVAMP-labeled paths.")
+
+
+def validate_eval_train_separation(dataset_json: str, train_json: str):
+    eval_path = Path(dataset_json).resolve()
+    train_path = Path(train_json).resolve()
+    if eval_path == train_path:
+        raise ValueError(
+            f"Data leakage guard failed: dataset_json and train_json point to same file: {eval_path}"
+        )
+
+
+def build_run_manifest(args, result_file: Path, train_size: int, eval_size: int) -> Dict[str, Any]:
+    split_meta_payload = None
+    if args.split_meta_json:
+        split_path = Path(args.split_meta_json)
+        if split_path.exists():
+            with open(split_path, "r", encoding="utf-8") as f:
+                split_meta_payload = json.load(f)
+    return {
+        "created_at": time.strftime("%Y-%m-%d-%H-%M-%S", time.localtime()),
+        "result_file": str(result_file),
+        "phase_name": args.phase_name,
+        "domain": args.domain,
+        "model": args.llm_name,
+        "api_base_url_env": os.getenv("AGENTDROPOUT_BASE_URL") or os.getenv("MINIMAX_BASE_URL") or os.getenv("BASE_URL"),
+        "dataset_json": args.dataset_json,
+        "train_json": args.train_json,
+        "split_meta_json": args.split_meta_json,
+        "eval_size": eval_size,
+        "train_size": train_size,
+        "train_sample_size": args.train_sample_size,
+        "eval_sample_size": args.eval_sample_size,
+        "state_aware_node": args.state_aware_node,
+        "state_aware_edge": args.state_aware_edge,
+        "observer_model_path": args.observer_model_path,
+        "telemetry_output": args.telemetry_output,
+        "observer_output": args.observer_output,
+        "split_meta": split_meta_payload,
+    }
+
 async def main():
     args = parse_args()
     result_file = None
-    dataset = JSONReader.parse_file(args.dataset_json)
-    dataset = svamp_data_process(dataset)
-    train_dataset = JSONReader.parse_file('datasets/SVAMP/train.json')
-    train_dataset = svamp_data_process(train_dataset)
+    raw_dataset = load_records(args.dataset_json)
+    raw_train_dataset = load_records(args.train_json)
+
+    if not args.disable_svamp_guard:
+        validate_svamp_dataset(args.dataset_json, raw_dataset)
+        validate_svamp_dataset(args.train_json, raw_train_dataset)
+        validate_eval_train_separation(args.dataset_json, args.train_json)
+    if args.split_meta_json:
+        validate_split_meta(args.split_meta_json, args.dataset_json, args.train_json)
+
+    dataset = svamp_data_process(raw_dataset)
+    train_dataset = svamp_data_process(raw_train_dataset)
+    if args.train_sample_size and args.train_sample_size > 0:
+        train_dataset = train_dataset[:args.train_sample_size]
+        print(f"[SVAMP TrainSample] using first {len(train_dataset)} training samples")
+    if args.eval_sample_size and args.eval_sample_size > 0:
+        dataset = dataset[:args.eval_sample_size]
+        print(f"[SVAMP EvalSample] using first {len(dataset)} eval samples")
+    if len(dataset) == 0:
+        raise ValueError("No evaluation samples available after processing/sampling.")
+    if len(train_dataset) == 0:
+        raise ValueError("No training samples available after processing/sampling.")
 
     current_time = Time.instance().value or time.strftime("%Y-%m-%d-%H-%M-%S", time.localtime())
     Time.instance().value = current_time
-    result_dir = Path(f"{AgentPrune_ROOT}/result/SVAMP")
+    result_dir = Path(args.result_dir)
+    if not result_dir.is_absolute():
+        result_dir = Path(f"{AgentPrune_ROOT}/{result_dir}")
     result_dir.mkdir(parents=True, exist_ok=True)
-    result_file = result_dir / f"{args.domain}_llama3_{current_time}.json"
+    result_file = result_dir / f"{args.domain}_{args.phase_name}_{current_time}.json"
+    result_meta_file = result_dir / f"{args.domain}_{args.phase_name}_{current_time}.meta.json"
     
     agent_names = [name for name,num in zip(args.agent_names,args.agent_nums) for _ in range(num)]
     decision_method = args.decision_method
     kwargs = get_kwargs(args.mode,len(agent_names))
+    telemetry_collector = TelemetryCollector(output_path=args.telemetry_output) if args.telemetry_output else None
+    state_observer = None
+    if args.observer_output or args.observer_model_path:
+        state_observer = StateObserver(output_path=args.observer_output, model_path=args.observer_model_path)
 
-    graph = Graph(domain="gsm8k",
+    graph = Graph(domain=args.domain,
                     llm_name=args.llm_name,
                     agent_names=agent_names,
                     decision_method=decision_method,
@@ -103,7 +228,26 @@ async def main():
                     rounds=args.num_rounds,
                     diff=args.diff,
                     dec=args.dec,
+                    telemetry_collector=telemetry_collector,
+                    state_observer=state_observer,
+                    state_aware_node=args.state_aware_node,
+                    state_aware_edge=args.state_aware_edge,
+                    node_risk_weights={
+                        "repeat": args.lambda_repeat,
+                        "consensus": args.lambda_consensus,
+                        "capacity": args.lambda_capacity,
+                    },
+                    edge_risk_weights={
+                        "repeatflow": args.gamma_repeatflow,
+                        "echo": args.gamma_echo,
+                        "capacityflow": args.gamma_capacityflow,
+                    },
                     **kwargs)
+    print(f"[SVAMP Guard] dataset={args.dataset_json}, train={args.train_json}, "
+          f"loaded_eval={len(dataset)}, loaded_train={len(train_dataset)}, domain={args.domain}")
+    run_manifest = build_run_manifest(args, result_file=result_file, train_size=len(train_dataset), eval_size=len(dataset))
+    with open(result_meta_file, "w", encoding="utf-8") as f:
+        json.dump(run_manifest, f, indent=2)
     
     if args.dec:
         graph.optimized_spatial=False
@@ -121,7 +265,7 @@ async def main():
             add_losses = []
             
             current_batch = dataloader(train_dataset,20,i_batch)
-            if current_batch is None:
+            if not current_batch:
                 print("No more data available.")
                 break
             
@@ -235,7 +379,7 @@ async def main():
     else:
         optimizer = torch.optim.Adam(list(graph.spatial_logits.parameters()) + list(graph.temporal_logits.parameters()),lr=args.lr)  
     
-    num_batches = int(len(dataset)/args.batch_size)
+    num_batches = math.ceil(len(dataset)/args.batch_size)
     total_solved, total_executed = (0, 0)
     
     
@@ -250,7 +394,7 @@ async def main():
             add_losses = []
             
             current_batch = dataloader(train_dataset,10,i_batch)
-            if current_batch is None:
+            if not current_batch:
                 print("No more data available.")
                 break
             
@@ -395,7 +539,7 @@ async def main():
         add_losses = []
         
         current_batch = dataloader(dataset,args.batch_size,i_batch)
-        if current_batch is None:
+        if not current_batch:
             print("No more data available.")
             break
         

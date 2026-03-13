@@ -1,0 +1,36 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Observer Training Metrics",
+  "type": "object",
+  "required": ["train", "val", "dataset_rows", "train_rows", "val_rows"],
+  "properties": {
+    "train": { "$ref": "#/$defs/split_metrics" },
+    "val": { "$ref": "#/$defs/split_metrics" },
+    "dataset_rows": { "type": "integer", "minimum": 1 },
+    "train_rows": { "type": "integer", "minimum": 1 },
+    "val_rows": { "type": "integer", "minimum": 1 }
+  },
+  "$defs": {
+    "split_metrics": {
+      "type": "object",
+      "required": [
+        "split",
+        "loss",
+        "phase_accuracy",
+        "risk_repeat_accuracy",
+        "risk_consensus_accuracy",
+        "risk_capacity_accuracy",
+        "phase_macro_f1"
+      ],
+      "properties": {
+        "split": { "type": "string" },
+        "loss": { "type": "number" },
+        "phase_accuracy": { "type": "number" },
+        "risk_repeat_accuracy": { "type": "number" },
+        "risk_consensus_accuracy": { "type": "number" },
+        "risk_capacity_accuracy": { "type": "number" },
+        "phase_macro_f1": { "type": "number" }
+      }
+    }
+  }
+}

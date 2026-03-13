@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "SVAMP Split Meta",
+  "type": "object",
+  "required": ["seed", "source", "counts", "ratios"],
+  "properties": {
+    "seed": { "type": "integer" },
+    "created_at": { "type": "string" },
+    "source": {
+      "type": "object",
+      "required": ["train_json", "test_json"],
+      "properties": {
+        "train_json": { "type": "string" },
+        "test_json": { "type": "string" }
+      }
+    },
+    "counts": {
+      "type": "object",
+      "required": ["total", "outer_train", "inner_train", "inner_val", "outer_test"],
+      "properties": {
+        "total": { "type": "integer", "minimum": 1 },
+        "outer_train": { "type": "integer", "minimum": 1 },
+        "inner_train": { "type": "integer", "minimum": 1 },
+        "inner_val": { "type": "integer", "minimum": 1 },
+        "outer_test": { "type": "integer", "minimum": 1 }
+      }
+    },
+    "ratios": {
+      "type": "object",
+      "properties": {
+        "outer_train": { "type": "number" },
+        "outer_test": { "type": "number" },
+        "inner_train_of_outer_train": { "type": "number" },
+        "inner_val_of_outer_train": { "type": "number" }
+      }
+    },
+    "stratified": { "type": "boolean" }
+  }
+}

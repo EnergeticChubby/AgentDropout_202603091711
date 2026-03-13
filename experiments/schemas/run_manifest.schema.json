@@ -1,0 +1,36 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "SVAMP Run Manifest",
+  "type": "object",
+  "required": [
+    "created_at",
+    "result_file",
+    "phase_name",
+    "domain",
+    "model",
+    "dataset_json",
+    "train_json",
+    "eval_size",
+    "train_size"
+  ],
+  "properties": {
+    "created_at": { "type": "string" },
+    "result_file": { "type": "string" },
+    "phase_name": { "type": "string" },
+    "domain": { "type": "string" },
+    "model": { "type": "string" },
+    "api_base_url_env": { "type": ["string", "null"] },
+    "dataset_json": { "type": "string" },
+    "train_json": { "type": "string" },
+    "split_meta_json": { "type": ["string", "null"] },
+    "eval_size": { "type": "integer", "minimum": 0 },
+    "train_size": { "type": "integer", "minimum": 0 },
+    "train_sample_size": { "type": "integer", "minimum": 0 },
+    "state_aware_node": { "type": "boolean" },
+    "state_aware_edge": { "type": "boolean" },
+    "observer_model_path": { "type": ["string", "null"] },
+    "telemetry_output": { "type": ["string", "null"] },
+    "observer_output": { "type": ["string", "null"] },
+    "split_meta": { "type": ["object", "null"] }
+  }
+}

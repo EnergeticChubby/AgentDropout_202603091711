@@ -8,6 +8,8 @@ import asyncio
 from AgentDropout.graph.node import Node
 from AgentDropout.agents.agent_registry import AgentRegistry
 import random
+from dropout_scoring.edge_score import EdgeRiskWeights, compute_state_aware_edge_scores
+from dropout_scoring.node_score import NodeRiskWeights, compute_state_aware_node_scores
 
 class Graph(ABC):
     """
@@ -46,6 +48,12 @@ class Graph(ABC):
                 initial_temporal_probability: float = 0.5,
                 fixed_temporal_masks:List[List[int]] = None,
                 node_kwargs:List[Dict] = None,
+                telemetry_collector: Any = None,
+                state_observer: Any = None,
+                state_aware_node: bool = False,
+                state_aware_edge: bool = False,
+                node_risk_weights: Optional[Dict[str, float]] = None,
+                edge_risk_weights: Optional[Dict[str, float]] = None,
                 ):
         
         self.fixed_spatial_masks = torch.tensor(fixed_spatial_masks)
@@ -76,7 +84,22 @@ class Graph(ABC):
         # self.dec=False
         self.dec_1=False
         self.skip_nodes = []
-        
+        self.telemetry_collector = telemetry_collector
+        self.state_observer = state_observer
+        self.state_aware_node = state_aware_node
+        self.state_aware_edge = state_aware_edge
+        self.node_risk_weights = NodeRiskWeights(**(node_risk_weights or {}))
+        self.edge_risk_weights = EdgeRiskWeights(**(edge_risk_weights or {}))
+        self.latest_observer_output = None
+        self.latest_risks = {
+            "node_repeat": {},
+            "node_consensus": {},
+            "node_capacity": {},
+            "edge_repeatflow": {},
+            "edge_echo": {},
+            "edge_capacityflow": {},
+        }
+
         self.init_nodes() # add nodes to the self.nodes
         self.init_potential_edges() # add potential edges to the self.potential_spatial/temporal_edges
         
@@ -108,6 +131,26 @@ class Graph(ABC):
             self.spatial_logits = torch.nn.ParameterList([torch.nn.Parameter(torch.ones(len(self.potential_spatial_edges), requires_grad=optimized_spatial) * init_spatial_logit,requires_grad=optimized_spatial) for _ in range(rounds)])
             self.temporal_logits = torch.nn.ParameterList([torch.nn.Parameter(torch.ones(len(self.potential_temporal_edges), requires_grad=optimized_temporal) * init_temporal_logit,requires_grad=optimized_temporal) for _ in range(rounds-1)])
             self.temporal_masks = torch.nn.ParameterList([torch.nn.Parameter(fixed_temporal_masks.clone(), requires_grad=False) for _ in range(rounds-1)])
+
+    def _scaled_node_weights(self) -> NodeRiskWeights:
+        if self.latest_observer_output is None:
+            return self.node_risk_weights
+        scale = 1.0 + max(0.0, 0.5 - float(self.latest_observer_output.viability_score))
+        return NodeRiskWeights(
+            repeat=self.node_risk_weights.repeat * scale,
+            consensus=self.node_risk_weights.consensus * scale,
+            capacity=self.node_risk_weights.capacity * scale,
+        )
+
+    def _scaled_edge_weights(self) -> EdgeRiskWeights:
+        if self.latest_observer_output is None:
+            return self.edge_risk_weights
+        scale = 1.0 + max(0.0, 0.5 - float(self.latest_observer_output.viability_score))
+        return EdgeRiskWeights(
+            repeatflow=self.edge_risk_weights.repeatflow * scale,
+            echo=self.edge_risk_weights.echo * scale,
+            capacityflow=self.edge_risk_weights.capacityflow * scale,
+        )
         
     @property
     def spatial_adj_matrix(self):
@@ -342,6 +385,7 @@ class Graph(ABC):
                     if in_degree[successor.id] == 0:
                         zero_in_degree_queue.append(successor.id)
             
+            self._update_state_features(case_id=inputs.get("task", self.id), round_id=round)
             self.update_memory()
             
         self.connect_decision_node()
@@ -349,6 +393,8 @@ class Graph(ABC):
         final_answers = self.decision_node.outputs
         if len(final_answers) == 0:
             final_answers.append("No answer of the decision node")
+        if self.telemetry_collector is not None:
+            self.telemetry_collector.flush()
             
         return final_answers, log_probs
 
@@ -479,6 +525,7 @@ class Graph(ABC):
             for node in self.nodes:
                 round_answers[self.nodes[node].role+str(node)] = self.nodes[node].outputs
             all_answers.append(round_answers)
+            self._update_state_features(case_id=input.get("task", self.id), round_id=round)
             self.update_memory()
         
         # if self.dec_1==False:
@@ -490,6 +537,8 @@ class Graph(ABC):
             final_answers = list(self.nodes.values())[0].outputs
         if len(final_answers) == 0:
             final_answers.append("No answer of the decision node")
+        if self.telemetry_collector is not None:
+            self.telemetry_collector.flush()
         # print(log_probs)
         # if skip:
         #     return final_answers, selected_index
@@ -500,6 +549,42 @@ class Graph(ABC):
             return final_answers, log_probs, all_answers
         else:
             return final_answers, log_probs
+
+    def _active_edges(self) -> List[List[str]]:
+        edges = []
+        for src_id, node in self.nodes.items():
+            for succ in node.spatial_successors:
+                edges.append([src_id, succ.id, "spatial"])
+            for succ in node.temporal_successors:
+                edges.append([src_id, succ.id, "temporal"])
+        return edges
+
+    def _update_state_features(self, case_id: str, round_id: int):
+        if self.telemetry_collector is None:
+            return
+        node_outputs = {}
+        for node_id, node in self.nodes.items():
+            if isinstance(node.outputs, list) and len(node.outputs) > 0:
+                node_outputs[node_id] = str(node.outputs[-1])
+            else:
+                node_outputs[node_id] = str(node.outputs)
+        telemetry = self.telemetry_collector.record_round(
+            case_id=case_id,
+            round_id=round_id,
+            node_outputs=node_outputs,
+            active_edges=self._active_edges(),
+        )
+        features = self.telemetry_collector.get_latest_features()
+        self.latest_risks = {
+            "node_repeat": features.node_repeat_risk,
+            "node_consensus": features.node_consensus_risk,
+            "node_capacity": features.node_capacity_risk,
+            "edge_repeatflow": features.edge_repeatflow_risk,
+            "edge_echo": features.edge_echo_risk,
+            "edge_capacityflow": features.edge_capacityflow_risk,
+        }
+        if self.state_observer is not None:
+            self.latest_observer_output = self.state_observer.update(telemetry)
     
     def update_memory(self):
         for id,node in self.nodes.items():
@@ -519,6 +604,21 @@ class Graph(ABC):
             num_masks = (self.spatial_masks == 0).sum()
             prune_num_edges = torch.round(num_edges*pruning_rate) if torch.round(num_edges*pruning_rate)>0 else 1
             _edge_logits = self.spatial_logits.clone()
+            if self.state_aware_edge:
+                base_scores = {}
+                for idx, potential_connection in enumerate(self.potential_spatial_edges):
+                    key = f"{potential_connection[0]}->{potential_connection[1]}:spatial"
+                    base_scores[key] = float(_edge_logits[idx].item())
+                edge_scores = compute_state_aware_edge_scores(
+                    base_scores=base_scores,
+                    repeatflow_risk=self.latest_risks.get("edge_repeatflow", {}),
+                    echo_risk=self.latest_risks.get("edge_echo", {}),
+                    capacityflow_risk=self.latest_risks.get("edge_capacityflow", {}),
+                    weights=self._scaled_edge_weights(),
+                )
+                for idx, potential_connection in enumerate(self.potential_spatial_edges):
+                    key = f"{potential_connection[0]}->{potential_connection[1]}:spatial"
+                    _edge_logits[idx] = edge_scores.get(key, float(_edge_logits[idx].item()))
             min_edge_logit = _edge_logits.min()
             _edge_logits[self.spatial_masks == 0] = min_edge_logit - 1.0
             sorted_edges_idx = torch.argsort(_edge_logits)
@@ -530,6 +630,21 @@ class Graph(ABC):
             num_masks = (self.temporal_masks == 0).sum()
             prune_num_edges = torch.round(num_edges*pruning_rate) if torch.round(num_edges*pruning_rate)>0 else 1
             _edge_logits = self.temporal_logits.clone()
+            if self.state_aware_edge:
+                base_scores = {}
+                for idx, potential_connection in enumerate(self.potential_temporal_edges):
+                    key = f"{potential_connection[0]}->{potential_connection[1]}:temporal"
+                    base_scores[key] = float(_edge_logits[idx].item())
+                edge_scores = compute_state_aware_edge_scores(
+                    base_scores=base_scores,
+                    repeatflow_risk=self.latest_risks.get("edge_repeatflow", {}),
+                    echo_risk=self.latest_risks.get("edge_echo", {}),
+                    capacityflow_risk=self.latest_risks.get("edge_capacityflow", {}),
+                    weights=self._scaled_edge_weights(),
+                )
+                for idx, potential_connection in enumerate(self.potential_temporal_edges):
+                    key = f"{potential_connection[0]}->{potential_connection[1]}:temporal"
+                    _edge_logits[idx] = edge_scores.get(key, float(_edge_logits[idx].item()))
             min_edge_logit = _edge_logits.min()
             _edge_logits[self.temporal_masks == 0] = min_edge_logit - 1.0
             sorted_edges_idx = torch.argsort(_edge_logits)
@@ -544,6 +659,21 @@ class Graph(ABC):
                 num_masks = (self.spatial_masks[i] == 0).sum()
                 prune_num_edges = torch.round(num_edges*pruning_rate) if torch.round(num_edges*pruning_rate)>0 else 1
                 _edge_logits = self.spatial_logits[i].clone()
+                if self.state_aware_edge:
+                    base_scores = {}
+                    for idx, potential_connection in enumerate(self.potential_spatial_edges):
+                        key = f"{potential_connection[0]}->{potential_connection[1]}:spatial"
+                        base_scores[key] = float(_edge_logits[idx].item())
+                    edge_scores = compute_state_aware_edge_scores(
+                        base_scores=base_scores,
+                        repeatflow_risk=self.latest_risks.get("edge_repeatflow", {}),
+                        echo_risk=self.latest_risks.get("edge_echo", {}),
+                        capacityflow_risk=self.latest_risks.get("edge_capacityflow", {}),
+                        weights=self._scaled_edge_weights(),
+                    )
+                    for idx, potential_connection in enumerate(self.potential_spatial_edges):
+                        key = f"{potential_connection[0]}->{potential_connection[1]}:spatial"
+                        _edge_logits[idx] = edge_scores.get(key, float(_edge_logits[idx].item()))
                 min_edge_logit = _edge_logits.min()
                 _edge_logits[self.spatial_masks[i] == 0] = min_edge_logit - 1.0
                 sorted_edges_idx = torch.argsort(_edge_logits)
@@ -557,6 +687,21 @@ class Graph(ABC):
                 num_masks = (self.temporal_masks[i] == 0).sum()
                 prune_num_edges = torch.round(num_edges*pruning_rate) if torch.round(num_edges*pruning_rate)>0 else 1
                 _edge_logits = self.temporal_logits[i].clone()
+                if self.state_aware_edge:
+                    base_scores = {}
+                    for idx, potential_connection in enumerate(self.potential_temporal_edges):
+                        key = f"{potential_connection[0]}->{potential_connection[1]}:temporal"
+                        base_scores[key] = float(_edge_logits[idx].item())
+                    edge_scores = compute_state_aware_edge_scores(
+                        base_scores=base_scores,
+                        repeatflow_risk=self.latest_risks.get("edge_repeatflow", {}),
+                        echo_risk=self.latest_risks.get("edge_echo", {}),
+                        capacityflow_risk=self.latest_risks.get("edge_capacityflow", {}),
+                        weights=self._scaled_edge_weights(),
+                    )
+                    for idx, potential_connection in enumerate(self.potential_temporal_edges):
+                        key = f"{potential_connection[0]}->{potential_connection[1]}:temporal"
+                        _edge_logits[idx] = edge_scores.get(key, float(_edge_logits[idx].item()))
                 min_edge_logit = _edge_logits.min()
                 _edge_logits[self.temporal_masks[i] == 0] = min_edge_logit - 1.0
                 sorted_edges_idx = torch.argsort(_edge_logits)
@@ -568,31 +713,47 @@ class Graph(ABC):
         return self.spatial_masks, self.temporal_masks
 
     def update_masks_dec(self):
-        spatial_matrix_train = [param.reshape((5, 5)) for param in self.spatial_logits_1]
-        temporal_matrix_train = [param.reshape((5, 5)) for param in self.temporal_logits_1]
+        num_nodes = len(self.nodes)
+        spatial_matrix_train = [param.reshape((num_nodes, num_nodes)) for param in self.spatial_logits_1]
+        temporal_matrix_train = [param.reshape((num_nodes, num_nodes)) for param in self.temporal_logits_1]
         # spatial_mask_train = [param.reshape((5, 5)) for param in self.spatial_masks]
         # temporal_mask_train = [param.reshape((5, 5)) for param in self.temporal_masks]
 
+        node_ids = list(self.nodes.keys())
         for i in range(len(spatial_matrix_train)):
             min = 100
             min_node = -1
-            for j in range(5):
+            struct_scores = {}
+            for j in range(num_nodes):
                 sum = torch.sum(spatial_matrix_train[i][j,:]).item() + torch.sum(spatial_matrix_train[i][:,j]).item()
-                # if i >= 1:
-                #     sum += torch.sum(temporal_matrix_train[i-1][j,:]).item() + torch.sum(temporal_matrix_train[i-1][:,j]).item()
                 count = torch.sum(self.fixed_spatial_masks[j,:]).item() + torch.sum(self.fixed_spatial_masks[:,j]).item()
-                sum = sum / count
-                if sum < min:
-                    min = sum
-                    min_node = j
+                count = count if count > 0 else 1.0
+                struct_scores[node_ids[j]] = sum / count
+
+            if self.state_aware_node:
+                scored_nodes = compute_state_aware_node_scores(
+                    struct_scores=struct_scores,
+                    repeat_risk=self.latest_risks.get("node_repeat", {}),
+                    consensus_risk=self.latest_risks.get("node_consensus", {}),
+                    capacity_risk=self.latest_risks.get("node_capacity", {}),
+                    weights=self._scaled_node_weights(),
+                )
+            else:
+                scored_nodes = struct_scores
+
+            for node_idx, node_id in enumerate(node_ids):
+                node_score = scored_nodes.get(node_id, 0.0)
+                if node_score < min:
+                    min = node_score
+                    min_node = node_idx
             # min_node=random.randint(0, 4)
             self.skip_nodes.append(min_node)
-            for k in range(5):
-                self.spatial_masks[i][min_node*5+k]=0
-                self.spatial_masks[i][k*5+min_node]=0
+            for k in range(num_nodes):
+                self.spatial_masks[i][min_node*num_nodes+k]=0
+                self.spatial_masks[i][k*num_nodes+min_node]=0
             if i > 0:
-                for k in range(5):
-                    self.temporal_masks[i-1][k*5+min_node]=0
+                for k in range(num_nodes):
+                    self.temporal_masks[i-1][k*num_nodes+min_node]=0
             if i < len(spatial_matrix_train) - 1:
-                for k in range(5):
-                    self.temporal_masks[i][min_node*5+k]=0
+                for k in range(num_nodes):
+                    self.temporal_masks[i][min_node*num_nodes+k]=0
