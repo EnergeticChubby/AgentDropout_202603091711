@@ -192,6 +192,17 @@ python experiments/archive_integrity_audit.py \
   --output_md result/benchmarks/AdamMartinez6793-v3/comparisons/archive_integrity_audit.md
 ```
 
+One-command reproduction chain (`phase1 -> phase3 -> phase4`) plus comparisons and audit:
+
+```bash
+python experiments/run_svamp_repro_chain.py \
+  --branch_tag AdamMartinez6793-v3 \
+  --llm_name MiniMax-M2.5 \
+  --base_url https://gpt-agent.cc/v1 \
+  --api_key your_api_key \
+  --skip_phase2
+```
+
 ## **📜 Citation**<a name="citation"></a>
 
 If you find this work useful, please cite:
