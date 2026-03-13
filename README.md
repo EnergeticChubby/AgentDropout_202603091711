@@ -181,6 +181,17 @@ python experiments/phase_pairwise_compare.py \
   --output_json result/benchmarks/AdamMartinez6793-v3/comparisons/phase1_vs_phase3.json
 ```
 
+Validate archive completeness and chain-check evidence:
+
+```bash
+python experiments/archive_integrity_audit.py \
+  --branch_tag AdamMartinez6793-v3 \
+  --benchmark_root result/benchmarks/AdamMartinez6793-v3 \
+  --svamp_root result/SVAMP/AdamMartinez6793-v3 \
+  --output_json result/benchmarks/AdamMartinez6793-v3/comparisons/archive_integrity_audit.json \
+  --output_md result/benchmarks/AdamMartinez6793-v3/comparisons/archive_integrity_audit.md
+```
+
 ## **📜 Citation**<a name="citation"></a>
 
 If you find this work useful, please cite:
