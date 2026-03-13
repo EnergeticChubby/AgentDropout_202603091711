@@ -155,6 +155,32 @@ python experiments/run_svamp_phase.py \
   --branch_tag AdamMartinez6793-v3
 ```
 
+Optional: skip phase2 in the phase chain and run phase3 against phase1 summary:
+
+```bash
+python experiments/run_svamp_phase.py \
+  --phase phase3 \
+  --skip_phase2 \
+  --disable_gate_enforcement \
+  --llm_name MiniMax-M2.5 \
+  --base_url https://gpt-agent.cc/v1 \
+  --api_key your_api_key \
+  --branch_tag AdamMartinez6793-v3
+```
+
+Build pairwise comparison reports (e.g., phase1 vs phase3/phase4):
+
+```bash
+python experiments/phase_pairwise_compare.py \
+  --base_phase phase1 \
+  --current_phase phase3 \
+  --base_summary_json result/benchmarks/AdamMartinez6793-v3/phase1/svamp_metrics_summary.json \
+  --current_summary_json result/benchmarks/AdamMartinez6793-v3/phase3/svamp_metrics_summary.json \
+  --base_raw_json result/benchmarks/AdamMartinez6793-v3/phase1/svamp_raw_results.json \
+  --current_raw_json result/benchmarks/AdamMartinez6793-v3/phase3/svamp_raw_results.json \
+  --output_json result/benchmarks/AdamMartinez6793-v3/comparisons/phase1_vs_phase3.json
+```
+
 ## **📜 Citation**<a name="citation"></a>
 
 If you find this work useful, please cite:
