@@ -1,0 +1,158 @@
+{
+  "base_phase": "phase1",
+  "current_phase": "phase4",
+  "num_aligned_samples": 200,
+  "summary_delta": {
+    "accuracy_base": 0.975,
+    "accuracy_current": 0.96,
+    "accuracy_delta": -0.015000000000000013,
+    "total_tokens_avg_base": 2460.255,
+    "total_tokens_avg_current": 2444.94,
+    "total_tokens_avg_delta": -15.315000000000055
+  },
+  "transitions": {
+    "correct_to_correct": 191,
+    "correct_to_wrong": 4,
+    "wrong_to_correct": 1,
+    "wrong_to_wrong": 4
+  },
+  "regressions_sample": [
+    {
+      "question": "After eating a hearty meal they went to see the Buckingham palace. There, Rachel learned that 703 visitors came to the Buckingham palace on the previous day. If there were 246 visitors on that day How many visited the Buckingham palace within 25 days?",
+      "base": {
+        "question": "After eating a hearty meal they went to see the Buckingham palace. There, Rachel learned that 703 visitors came to the Buckingham palace on the previous day. If there were 246 visitors on that day How many visited the Buckingham palace within 25 days?",
+        "pred_answer": "949",
+        "gold_answer": "949",
+        "phase_label": "ready_to_finalize",
+        "phase_metrics": {
+          "correction_gain": 1.0,
+          "wrong_consensus": 0.0,
+          "conflict_unresolved": 0.0,
+          "redundancy": 0.0
+        }
+      },
+      "current": {
+        "question": "After eating a hearty meal they went to see the Buckingham palace. There, Rachel learned that 703 visitors came to the Buckingham palace on the previous day. If there were 246 visitors on that day How many visited the Buckingham palace within 25 days?",
+        "pred_answer": "6150",
+        "gold_answer": "949",
+        "phase_label": "redundant_paraphrase",
+        "phase_metrics": {
+          "correction_gain": 0.0,
+          "wrong_consensus": 0.0,
+          "conflict_unresolved": 1.0,
+          "redundancy": 0.0
+        }
+      }
+    },
+    {
+      "question": "After eating a hearty meal they went to see the Buckingham palace. There, Rachel learned that 705 visitors came to the Buckingham palace that day. If there were 191 visitors the previous day and 457 visitors the day before that How many more visitors visited the Buckingham palace on that day than on the previous 245 days?",
+      "base": {
+        "question": "After eating a hearty meal they went to see the Buckingham palace. There, Rachel learned that 705 visitors came to the Buckingham palace that day. If there were 191 visitors the previous day and 457 visitors the day before that How many more visitors visited the Buckingham palace on that day than on the previous 245 days?",
+        "pred_answer": "57",
+        "gold_answer": "57",
+        "phase_label": "ready_to_finalize",
+        "phase_metrics": {
+          "correction_gain": 1.0,
+          "wrong_consensus": 0.0,
+          "conflict_unresolved": 0.0,
+          "redundancy": 0.0
+        }
+      },
+      "current": {
+        "question": "After eating a hearty meal they went to see the Buckingham palace. There, Rachel learned that 705 visitors came to the Buckingham palace that day. If there were 191 visitors the previous day and 457 visitors the day before that How many more visitors visited the Buckingham palace on that day than on the previous 245 days?",
+        "pred_answer": "514",
+        "gold_answer": "57",
+        "phase_label": "unresolved_conflict",
+        "phase_metrics": {
+          "correction_gain": 0.0,
+          "wrong_consensus": 0.0,
+          "conflict_unresolved": 1.0,
+          "redundancy": 0.0
+        }
+      }
+    },
+    {
+      "question": "Dave had 24 apps and 9 files on his phone. After deleting some apps and files he had 5 files and 12 apps left. How many more apps than files does he have left on the phone?",
+      "base": {
+        "question": "Dave had 24 apps and 9 files on his phone. After deleting some apps and files he had 5 files and 12 apps left. How many more apps than files does he have left on the phone?",
+        "pred_answer": "7",
+        "gold_answer": "7",
+        "phase_label": "ready_to_finalize",
+        "phase_metrics": {
+          "correction_gain": 1.0,
+          "wrong_consensus": 0.0,
+          "conflict_unresolved": 0.0,
+          "redundancy": 0.0
+        }
+      },
+      "current": {
+        "question": "Dave had 24 apps and 9 files on his phone. After deleting some apps and files he had 5 files and 12 apps left. How many more apps than files does he have left on the phone?",
+        "pred_answer": "77",
+        "gold_answer": "7",
+        "phase_label": "redundant_paraphrase",
+        "phase_metrics": {
+          "correction_gain": 0.0,
+          "wrong_consensus": 0.0,
+          "conflict_unresolved": 1.0,
+          "redundancy": 0.0
+        }
+      }
+    },
+    {
+      "question": "Paul got a box of 521 crayons and 66 erasers for his birthday. At the end of the school year he only had 154 left while not having lost a single erasers. How many crayons had been lost or given away?",
+      "base": {
+        "question": "Paul got a box of 521 crayons and 66 erasers for his birthday. At the end of the school year he only had 154 left while not having lost a single erasers. How many crayons had been lost or given away?",
+        "pred_answer": "367",
+        "gold_answer": "367",
+        "phase_label": "ready_to_finalize",
+        "phase_metrics": {
+          "correction_gain": 1.0,
+          "wrong_consensus": 0.0,
+          "conflict_unresolved": 0.0,
+          "redundancy": 0.0
+        }
+      },
+      "current": {
+        "question": "Paul got a box of 521 crayons and 66 erasers for his birthday. At the end of the school year he only had 154 left while not having lost a single erasers. How many crayons had been lost or given away?",
+        "pred_answer": "433",
+        "gold_answer": "367",
+        "phase_label": "unresolved_conflict",
+        "phase_metrics": {
+          "correction_gain": 0.0,
+          "wrong_consensus": 0.0,
+          "conflict_unresolved": 1.0,
+          "redundancy": 0.0
+        }
+      }
+    }
+  ],
+  "improvements_sample": [
+    {
+      "question": "Julia played tag with 11 kids on monday. She played tag with 12 kids on tuesday. How many more kids did she play with on tuesday than on monday?",
+      "base": {
+        "question": "Julia played tag with 11 kids on monday. She played tag with 12 kids on tuesday. How many more kids did she play with on tuesday than on monday?",
+        "pred_answer": "11",
+        "gold_answer": "1",
+        "phase_label": "redundant_paraphrase",
+        "phase_metrics": {
+          "correction_gain": 0.0,
+          "wrong_consensus": 0.0,
+          "conflict_unresolved": 1.0,
+          "redundancy": 0.0
+        }
+      },
+      "current": {
+        "question": "Julia played tag with 11 kids on monday. She played tag with 12 kids on tuesday. How many more kids did she play with on tuesday than on monday?",
+        "pred_answer": "1",
+        "gold_answer": "1",
+        "phase_label": "ready_to_finalize",
+        "phase_metrics": {
+          "correction_gain": 1.0,
+          "wrong_consensus": 0.0,
+          "conflict_unresolved": 0.0,
+          "redundancy": 0.0
+        }
+      }
+    }
+  ]
+}

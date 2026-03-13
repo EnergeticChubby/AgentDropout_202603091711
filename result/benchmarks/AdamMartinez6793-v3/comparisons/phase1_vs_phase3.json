@@ -1,0 +1,212 @@
+{
+  "base_phase": "phase1",
+  "current_phase": "phase3",
+  "num_aligned_samples": 200,
+  "summary_delta": {
+    "accuracy_base": 0.975,
+    "accuracy_current": 0.96,
+    "accuracy_delta": -0.015000000000000013,
+    "total_tokens_avg_base": 2460.255,
+    "total_tokens_avg_current": 2607.52,
+    "total_tokens_avg_delta": 147.26499999999987
+  },
+  "transitions": {
+    "correct_to_correct": 190,
+    "correct_to_wrong": 5,
+    "wrong_to_correct": 2,
+    "wrong_to_wrong": 3
+  },
+  "regressions_sample": [
+    {
+      "question": "After eating a hearty meal they went to see the Buckingham palace. There, Rachel learned that 703 visitors came to the Buckingham palace on the previous day. If there were 246 visitors on that day How many visited the Buckingham palace within 25 days?",
+      "base": {
+        "question": "After eating a hearty meal they went to see the Buckingham palace. There, Rachel learned that 703 visitors came to the Buckingham palace on the previous day. If there were 246 visitors on that day How many visited the Buckingham palace within 25 days?",
+        "pred_answer": "949",
+        "gold_answer": "949",
+        "phase_label": "ready_to_finalize",
+        "phase_metrics": {
+          "correction_gain": 1.0,
+          "wrong_consensus": 0.0,
+          "conflict_unresolved": 0.0,
+          "redundancy": 0.0
+        }
+      },
+      "current": {
+        "question": "After eating a hearty meal they went to see the Buckingham palace. There, Rachel learned that 703 visitors came to the Buckingham palace on the previous day. If there were 246 visitors on that day How many visited the Buckingham palace within 25 days?",
+        "pred_answer": "6150",
+        "gold_answer": "949",
+        "phase_label": "unresolved_conflict",
+        "phase_metrics": {
+          "correction_gain": 0.0,
+          "wrong_consensus": 0.0,
+          "conflict_unresolved": 1.0,
+          "redundancy": 0.0
+        }
+      }
+    },
+    {
+      "question": "David did 56 more push-ups than Zachary in gym class today. If David did 38 push-ups How many push-ups did Zachary and David do altogether?",
+      "base": {
+        "question": "David did 56 more push-ups than Zachary in gym class today. If David did 38 push-ups How many push-ups did Zachary and David do altogether?",
+        "pred_answer": "20",
+        "gold_answer": "20",
+        "phase_label": "ready_to_finalize",
+        "phase_metrics": {
+          "correction_gain": 1.0,
+          "wrong_consensus": 0.0,
+          "conflict_unresolved": 0.0,
+          "redundancy": 0.0
+        }
+      },
+      "current": {
+        "question": "David did 56 more push-ups than Zachary in gym class today. If David did 38 push-ups How many push-ups did Zachary and David do altogether?",
+        "pred_answer": "18",
+        "gold_answer": "20",
+        "phase_label": "unresolved_conflict",
+        "phase_metrics": {
+          "correction_gain": 0.0,
+          "wrong_consensus": 0.0,
+          "conflict_unresolved": 1.0,
+          "redundancy": 0.0
+        }
+      }
+    },
+    {
+      "question": "Ed had 5 more marbles than Doug. Doug lost 3 of his marbles at the playground. If Ed had 27 marbles How many marbles did Doug have initially?",
+      "base": {
+        "question": "Ed had 5 more marbles than Doug. Doug lost 3 of his marbles at the playground. If Ed had 27 marbles How many marbles did Doug have initially?",
+        "pred_answer": "22",
+        "gold_answer": "22",
+        "phase_label": "ready_to_finalize",
+        "phase_metrics": {
+          "correction_gain": 1.0,
+          "wrong_consensus": 0.0,
+          "conflict_unresolved": 0.0,
+          "redundancy": 0.0
+        }
+      },
+      "current": {
+        "question": "Ed had 5 more marbles than Doug. Doug lost 3 of his marbles at the playground. If Ed had 27 marbles How many marbles did Doug have initially?",
+        "pred_answer": "25",
+        "gold_answer": "22",
+        "phase_label": "unresolved_conflict",
+        "phase_metrics": {
+          "correction_gain": 0.0,
+          "wrong_consensus": 0.0,
+          "conflict_unresolved": 1.0,
+          "redundancy": 0.0
+        }
+      }
+    },
+    {
+      "question": "Paul got a box of 521 crayons and 66 erasers for his birthday. At the end of the school year he only had 154 left while not having lost a single erasers. How many crayons had been lost or given away?",
+      "base": {
+        "question": "Paul got a box of 521 crayons and 66 erasers for his birthday. At the end of the school year he only had 154 left while not having lost a single erasers. How many crayons had been lost or given away?",
+        "pred_answer": "367",
+        "gold_answer": "367",
+        "phase_label": "ready_to_finalize",
+        "phase_metrics": {
+          "correction_gain": 1.0,
+          "wrong_consensus": 0.0,
+          "conflict_unresolved": 0.0,
+          "redundancy": 0.0
+        }
+      },
+      "current": {
+        "question": "Paul got a box of 521 crayons and 66 erasers for his birthday. At the end of the school year he only had 154 left while not having lost a single erasers. How many crayons had been lost or given away?",
+        "pred_answer": "433",
+        "gold_answer": "367",
+        "phase_label": "unresolved_conflict",
+        "phase_metrics": {
+          "correction_gain": 0.0,
+          "wrong_consensus": 0.0,
+          "conflict_unresolved": 1.0,
+          "redundancy": 0.0
+        }
+      }
+    },
+    {
+      "question": "There are 11 different books and 17 different movies in the ' crazy silly school ' series. If you read 7 of the books and watched 21 of the movies How many more movies than books have you read?",
+      "base": {
+        "question": "There are 11 different books and 17 different movies in the ' crazy silly school ' series. If you read 7 of the books and watched 21 of the movies How many more movies than books have you read?",
+        "pred_answer": "14",
+        "gold_answer": "14",
+        "phase_label": "ready_to_finalize",
+        "phase_metrics": {
+          "correction_gain": 1.0,
+          "wrong_consensus": 0.0,
+          "conflict_unresolved": 0.0,
+          "redundancy": 0.0
+        }
+      },
+      "current": {
+        "question": "There are 11 different books and 17 different movies in the ' crazy silly school ' series. If you read 7 of the books and watched 21 of the movies How many more movies than books have you read?",
+        "pred_answer": "0",
+        "gold_answer": "14",
+        "phase_label": "unresolved_conflict",
+        "phase_metrics": {
+          "correction_gain": 0.0,
+          "wrong_consensus": 0.0,
+          "conflict_unresolved": 1.0,
+          "redundancy": 0.0
+        }
+      }
+    }
+  ],
+  "improvements_sample": [
+    {
+      "question": "Julia played tag with 11 kids on monday. She played tag with 12 kids on tuesday. How many more kids did she play with on tuesday than on monday?",
+      "base": {
+        "question": "Julia played tag with 11 kids on monday. She played tag with 12 kids on tuesday. How many more kids did she play with on tuesday than on monday?",
+        "pred_answer": "11",
+        "gold_answer": "1",
+        "phase_label": "redundant_paraphrase",
+        "phase_metrics": {
+          "correction_gain": 0.0,
+          "wrong_consensus": 0.0,
+          "conflict_unresolved": 1.0,
+          "redundancy": 0.0
+        }
+      },
+      "current": {
+        "question": "Julia played tag with 11 kids on monday. She played tag with 12 kids on tuesday. How many more kids did she play with on tuesday than on monday?",
+        "pred_answer": "1",
+        "gold_answer": "1",
+        "phase_label": "constructive_correction",
+        "phase_metrics": {
+          "correction_gain": 1.0,
+          "wrong_consensus": 0.0,
+          "conflict_unresolved": 0.0,
+          "redundancy": 0.0
+        }
+      }
+    },
+    {
+      "question": "Paul had 71 books. After selling some in a garage sale he bought 38 new ones. If he has 116 books now How many more books did he buy than he sold?",
+      "base": {
+        "question": "Paul had 71 books. After selling some in a garage sale he bought 38 new ones. If he has 116 books now How many more books did he buy than he sold?",
+        "pred_answer": "31",
+        "gold_answer": "45",
+        "phase_label": "redundant_paraphrase",
+        "phase_metrics": {
+          "correction_gain": 0.0,
+          "wrong_consensus": 0.0,
+          "conflict_unresolved": 1.0,
+          "redundancy": 0.0
+        }
+      },
+      "current": {
+        "question": "Paul had 71 books. After selling some in a garage sale he bought 38 new ones. If he has 116 books now How many more books did he buy than he sold?",
+        "pred_answer": "45",
+        "gold_answer": "45",
+        "phase_label": "constructive_correction",
+        "phase_metrics": {
+          "correction_gain": 1.0,
+          "wrong_consensus": 0.0,
+          "conflict_unresolved": 0.0,
+          "redundancy": 0.0
+        }
+      }
+    }
+  ]
+}
