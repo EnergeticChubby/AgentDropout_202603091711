@@ -472,6 +472,12 @@ def parse_args():
     parser.add_argument('--batch_size', type=int, default=40,help="batch size")
     parser.add_argument('--imp_per_iterations', type=int, default=1, help="Prune every few iterations. Default 1.")
     parser.add_argument('--num_rounds',type=int,default=2,help="Number of optimization/inference rounds for one query")
+    parser.add_argument(
+        "--max_async_time",
+        type=int,
+        default=1200,
+        help="Per-node async execution timeout (seconds) to avoid indefinite stalls.",
+    )
     parser.add_argument('--pruning_rate', type=float, default=0.10,help="The Rate of Pruning. Default 0.10.")
     parser.add_argument('--num_iterations', type=int, default=2,help="The num of training iterations.")
     parser.add_argument('--domain', type=str, default="svamp",help="Domain (the same as dataset name), default 'svamp'")
@@ -613,6 +619,7 @@ async def main():
                         realized_graph.arun(
                             input_dict,
                             args.num_rounds,
+                            max_time=args.max_async_time,
                             skip=True,
                             collect_telemetry=True,
                         )
@@ -841,7 +848,15 @@ async def main():
                 answer = record["answer"]
                 answers.append(answer)
                 input_dict = {"task": task}
-                answer_log_probs.append(asyncio.create_task(realized_graph.arun(input_dict,args.num_rounds)))
+                answer_log_probs.append(
+                    asyncio.create_task(
+                        realized_graph.arun(
+                            input_dict,
+                            args.num_rounds,
+                            max_time=args.max_async_time,
+                        )
+                    )
+                )
                 add_losses.append(add_loss)
                 
             raw_results = await asyncio.gather(*answer_log_probs)
@@ -1020,6 +1035,7 @@ async def main():
                     realized_graph.arun(
                         input_dict,
                         args.num_rounds,
+                        max_time=args.max_async_time,
                         case=True,
                         collect_telemetry=True,
                     )

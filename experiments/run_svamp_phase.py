@@ -29,6 +29,22 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--archive_root", type=str, default="result/benchmarks")
     parser.add_argument("--expected_test_size", type=int, default=200)
     parser.add_argument("--telemetry_sample_limit", type=int, default=100)
+    parser.add_argument(
+        "--skip_phase2",
+        action="store_true",
+        help="Treat phase2 as skipped when resolving previous-phase summary.",
+    )
+    parser.add_argument(
+        "--disable_gate_enforcement",
+        action="store_true",
+        help="Do not pass --enforce_phase_gate to run_svamp.",
+    )
+    parser.add_argument(
+        "--previous_phase_override",
+        type=str,
+        default="",
+        help="Optional explicit path to previous phase summary JSON.",
+    )
     parser.add_argument("--print_only", action="store_true")
     return parser.parse_args()
 
@@ -88,10 +104,14 @@ def _phase_defaults(phase: str) -> Dict[str, str]:
 
 
 def _previous_phase_summary(args: argparse.Namespace) -> str:
+    if args.previous_phase_override:
+        return args.previous_phase_override
     idx = PHASE_ORDER.index(args.phase)
     if idx == 0:
         return ""
     prev_phase = PHASE_ORDER[idx - 1]
+    if args.skip_phase2 and args.phase == "phase3":
+        prev_phase = "phase1"
     prev_path = (
         Path(args.archive_root)
         / args.branch_tag
@@ -147,7 +167,9 @@ def _build_command(args: argparse.Namespace) -> List[str]:
 
     prev_summary = _previous_phase_summary(args)
     if prev_summary:
-        cmd.extend(["--previous_phase_summary", prev_summary, "--enforce_phase_gate"])
+        cmd.extend(["--previous_phase_summary", prev_summary])
+        if not args.disable_gate_enforcement:
+            cmd.append("--enforce_phase_gate")
 
     defaults = _phase_defaults(args.phase)
     for flag, value in defaults.items():
