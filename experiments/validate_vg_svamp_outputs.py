@@ -33,6 +33,7 @@ def parse_args():
     parser.add_argument("--protocol_summary_json", type=str, default="result/gz10-v3/svamp_protocol_summary.json")
     parser.add_argument("--ablation_summary_json", type=str, default="result/gz10-v3/svamp_ablation_summary.json")
     parser.add_argument("--seed_sweep_summary_json", type=str, default="result/gz10-v3/svamp_seed_sweep_summary.json")
+    parser.add_argument("--final_compare_json", type=str, default="")
     parser.add_argument("--skip_seed_sweep", action="store_true")
     return parser.parse_args()
 
@@ -44,6 +45,7 @@ def main():
     protocol_path = Path(args.protocol_summary_json)
     ablation_path = Path(args.ablation_summary_json)
     seed_sweep_path = Path(args.seed_sweep_summary_json)
+    final_compare_path = Path(args.final_compare_json) if args.final_compare_json else None
 
     checks: List[Dict[str, Any]] = []
     failed = False
@@ -61,6 +63,10 @@ def main():
     if not args.skip_seed_sweep:
         ok = seed_sweep_path.exists()
         checks.append({"check": "seed_sweep_exists", "ok": ok, "path": str(seed_sweep_path)})
+        failed = failed or (not ok)
+    if final_compare_path is not None:
+        ok = final_compare_path.exists()
+        checks.append({"check": "final_compare_exists", "ok": ok, "path": str(final_compare_path)})
         failed = failed or (not ok)
 
     # Phase pass checks
@@ -81,6 +87,10 @@ def main():
         (protocol_path, root / "protocol_summary.schema.json", "protocol_schema"),
         (ablation_path, root / "ablation_summary.schema.json", "ablation_schema"),
     ]
+    if final_compare_path is not None:
+        schema_pairs.append(
+            (final_compare_path, root / "final_outertest_compare.schema.json", "final_compare_schema")
+        )
     if not args.skip_seed_sweep:
         # no strict schema for seed sweep; check aggregate key
         if seed_sweep_path.exists():

@@ -30,6 +30,9 @@ def parse_args():
     parser.add_argument("--ablation_summary_out", type=str, default="result/gz10-v3/svamp_ablation_summary.json")
     parser.add_argument("--svamp_summary_out", type=str, default="result/gz10-v3/svamp_summary.json")
     parser.add_argument("--seed_sweep_summary_out", type=str, default="result/gz10-v3/svamp_seed_sweep_summary.json")
+    parser.add_argument("--final_compare_out", type=str, default="result/gz10-v3/final_outertest_compare.json")
+    parser.add_argument("--final_baseline_result_json", type=str, default="")
+    parser.add_argument("--final_vg_result_json", type=str, default="")
     parser.add_argument("--llm_name", type=str, default="MiniMax-M2.5")
     parser.add_argument("--run_seed_sweep", action="store_true")
     parser.add_argument("--seed_sweep_seeds", type=str, default="42,3407,2025")
@@ -89,14 +92,27 @@ def main():
             f"--llm_name {args.llm_name} --summary_out {args.seed_sweep_summary_out} "
             f"{sweep_extra_part}"
         )
+    if args.final_baseline_result_json and args.final_vg_result_json:
+        commands.append(
+            f"{args.python_bin} experiments/compare_outertest_results.py "
+            f"--baseline_result_json {args.final_baseline_result_json} "
+            f"--vg_result_json {args.final_vg_result_json} "
+            f"--output_json {args.final_compare_out}"
+        )
     if args.validate_outputs:
+        final_compare_arg = (
+            f"--final_compare_json {args.final_compare_out} "
+            if (args.final_baseline_result_json and args.final_vg_result_json)
+            else ""
+        )
         commands.append(
             f"{args.python_bin} experiments/validate_vg_svamp_outputs.py "
             f"--phase_history_json {args.phase_history_out} "
             f"--protocol_summary_json {args.protocol_summary_out} "
             f"--ablation_summary_json {args.ablation_summary_out} "
             f"{'' if args.run_seed_sweep else '--skip_seed_sweep'} "
-            f"--seed_sweep_summary_json {args.seed_sweep_summary_out}"
+            f"--seed_sweep_summary_json {args.seed_sweep_summary_out} "
+            f"{final_compare_arg}"
         )
         commands.append(
             f"{args.python_bin} experiments/generate_vg_svamp_report.py "
@@ -105,6 +121,7 @@ def main():
             f"--ablation_summary_json {args.ablation_summary_out} "
             f"--seed_sweep_summary_json {args.seed_sweep_summary_out} "
             f"--overall_summary_json {args.svamp_summary_out} "
+            f"{'--final_compare_json ' + args.final_compare_out if (args.final_baseline_result_json and args.final_vg_result_json) else ''} "
             f"--output_md {args.report_out_md}"
         )
 

@@ -102,6 +102,21 @@ def section_overall_summary(overall: Any) -> str:
     return "\n".join(lines)
 
 
+def section_final_compare(final_compare: Any) -> str:
+    if not isinstance(final_compare, dict):
+        return "## Final Outer-Test Comparison\n\nNo final comparison found.\n"
+    lines = [
+        "## Final Outer-Test Comparison",
+        "",
+        f"- baseline accuracy: {fmt_percent(final_compare.get('baseline_accuracy'))}",
+        f"- VG accuracy: {fmt_percent(final_compare.get('vg_accuracy'))}",
+        f"- absolute gain: {fmt_percent(final_compare.get('absolute_gain'))}",
+        f"- relative gain: {final_compare.get('relative_gain_pct', 'N/A')}%",
+        "",
+    ]
+    return "\n".join(lines)
+
+
 def parse_args():
     parser = argparse.ArgumentParser(description="Generate markdown report from VG-SVAMP artifacts.")
     parser.add_argument("--phase_history_json", type=str, default="result/gz10-v3/phase_history.json")
@@ -109,6 +124,7 @@ def parse_args():
     parser.add_argument("--ablation_summary_json", type=str, default="result/gz10-v3/svamp_ablation_summary.json")
     parser.add_argument("--seed_sweep_summary_json", type=str, default="result/gz10-v3/svamp_seed_sweep_summary.json")
     parser.add_argument("--overall_summary_json", type=str, default="result/gz10-v3/svamp_summary.json")
+    parser.add_argument("--final_compare_json", type=str, default="")
     parser.add_argument("--output_md", type=str, default="result/gz10-v3/vg_svamp_report.md")
     return parser.parse_args()
 
@@ -120,6 +136,7 @@ def main():
     ablation = load_json(args.ablation_summary_json)
     seed_sweep = load_json(args.seed_sweep_summary_json)
     overall_summary = load_json(args.overall_summary_json)
+    final_compare = load_json(args.final_compare_json) if args.final_compare_json else None
 
     parts: List[str] = [
         "# VG-AgentDropout-SVAMP Report",
@@ -129,6 +146,7 @@ def main():
         section_ablation(ablation),
         section_seed_sweep(seed_sweep),
         section_overall_summary(overall_summary),
+        section_final_compare(final_compare),
     ]
     text = "\n".join(parts).strip() + "\n"
     output = Path(args.output_md)

@@ -239,6 +239,8 @@ python experiments/run_vg_svamp_pipeline.py \
   --svamp_test_json datasets/SVAMP/test.json \
   --protocol_extra_args "--eval_sample_size 20" \
   --ablation_extra_args "--eval_sample_size 20 --train_sample_size 40" \
+  --final_baseline_result_json result/gz10-v3/SVAMP/svamp_final_outertest_baseline_v2_<timestamp>.json \
+  --final_vg_result_json result/gz10-v3/SVAMP/svamp_final_outertest_vg_v2_<timestamp>.json \
   --run_seed_sweep \
   --seed_sweep_seeds "42,3407,2025" \
   --seed_sweep_extra_args "--eval_sample_size 20" \
@@ -259,6 +261,15 @@ Generate markdown report from produced artifacts:
 ```bash
 python experiments/generate_vg_svamp_report.py \
   --output_md result/gz10-v3/vg_svamp_report.md
+```
+
+Compare one-shot outer-test baseline vs VG results:
+
+```bash
+python experiments/compare_outertest_results.py \
+  --baseline_result_json result/gz10-v3/SVAMP/svamp_final_outertest_baseline_v2_2026-03-13-01-37-26.json \
+  --vg_result_json result/gz10-v3/SVAMP/svamp_final_outertest_vg_v2_2026-03-13-02-00-30.json \
+  --output_json result/gz10-v3/final_outertest_compare_v2.json
 ```
 
 Build observer labels from telemetry and train an observer model:

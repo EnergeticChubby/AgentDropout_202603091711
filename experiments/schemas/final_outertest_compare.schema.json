@@ -1,0 +1,26 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "FinalOuterTestCompare",
+  "type": "object",
+  "required": [
+    "baseline_result_file",
+    "vg_result_file",
+    "baseline_accuracy",
+    "vg_accuracy",
+    "absolute_gain",
+    "relative_gain_pct",
+    "baseline_rows",
+    "vg_rows"
+  ],
+  "properties": {
+    "baseline_result_file": { "type": "string" },
+    "vg_result_file": { "type": "string" },
+    "baseline_accuracy": { "type": "number" },
+    "vg_accuracy": { "type": "number" },
+    "absolute_gain": { "type": "number" },
+    "relative_gain_pct": { "type": "number" },
+    "baseline_rows": { "type": "integer", "minimum": 0 },
+    "vg_rows": { "type": "integer", "minimum": 0 }
+  },
+  "additionalProperties": true
+}
