@@ -203,6 +203,14 @@ python experiments/run_svamp_repro_chain.py \
   --skip_phase2
 ```
 
+Generate a reproducibility manifest for all archived phase artifacts:
+
+```bash
+python experiments/build_repro_manifest.py \
+  --branch_tag AdamMartinez6793-v3 \
+  --output_json result/benchmarks/AdamMartinez6793-v3/comparisons/phase_repro_manifest.json
+```
+
 ## **📜 Citation**<a name="citation"></a>
 
 If you find this work useful, please cite:
