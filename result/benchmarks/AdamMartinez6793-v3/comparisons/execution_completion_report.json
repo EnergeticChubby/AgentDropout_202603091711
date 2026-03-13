@@ -1,0 +1,67 @@
+{
+  "branch_tag": "AdamMartinez6793-v3",
+  "objective": "Reproduce phase1/phase3/phase4 algorithms then compare against phase1 (phase2 skipped by decision)",
+  "completion": {
+    "phase0_baseline_fixed200": true,
+    "phase1_reproduced_fixed200": true,
+    "phase2_skipped_with_markers": true,
+    "phase3_reproduced_fixed200": true,
+    "phase4_reproduced_fixed200": true,
+    "pairwise_comparisons_generated": true,
+    "archive_integrity_audited": true,
+    "repro_manifest_generated": true
+  },
+  "headline_metrics": {
+    "phase0": {
+      "acc": 0.965,
+      "tokens_avg": 2442.935
+    },
+    "phase1": {
+      "acc": 0.975,
+      "tokens_avg": 2456.795
+    },
+    "phase3": {
+      "acc": 0.96,
+      "tokens_avg": 2607.52
+    },
+    "phase4": {
+      "acc": 0.96,
+      "tokens_avg": 2444.94
+    }
+  },
+  "comparison_vs_phase1": {
+    "phase3": {
+      "accuracy_delta": -0.015000000000000013,
+      "token_delta": 150.7249999999999,
+      "transitions": {
+        "correct_to_correct": 192,
+        "correct_to_wrong": 3,
+        "wrong_to_correct": 0,
+        "wrong_to_wrong": 5
+      }
+    },
+    "phase4": {
+      "accuracy_delta": -0.015000000000000013,
+      "token_delta": -11.855000000000018,
+      "transitions": {
+        "correct_to_correct": 191,
+        "correct_to_wrong": 4,
+        "wrong_to_correct": 1,
+        "wrong_to_wrong": 4
+      }
+    }
+  },
+  "artifact_index": {
+    "overview_json": "/workspace/result/benchmarks/AdamMartinez6793-v3/comparisons/phase1_phase3_phase4_overview.json",
+    "overview_md": "/workspace/result/benchmarks/AdamMartinez6793-v3/comparisons/phase1_phase3_phase4_overview.md",
+    "comparison_phase1_vs_phase3": "/workspace/result/benchmarks/AdamMartinez6793-v3/comparisons/phase1_vs_phase3.json",
+    "comparison_phase1_vs_phase4": "/workspace/result/benchmarks/AdamMartinez6793-v3/comparisons/phase1_vs_phase4.json",
+    "archive_integrity_audit_json": "/workspace/result/benchmarks/AdamMartinez6793-v3/comparisons/archive_integrity_audit.json",
+    "archive_integrity_audit_md": "/workspace/result/benchmarks/AdamMartinez6793-v3/comparisons/archive_integrity_audit.md",
+    "repro_manifest_json": "/workspace/result/benchmarks/AdamMartinez6793-v3/comparisons/phase_repro_manifest.json"
+  },
+  "checks": {
+    "audit_all_required_exists": true,
+    "chain_checks_present": true
+  }
+}

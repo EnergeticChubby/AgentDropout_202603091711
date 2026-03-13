@@ -1,0 +1,142 @@
+{
+  "branch_tag": "AdamMartinez6793-v3",
+  "expected_schema_files": [
+    "run_config.json",
+    "svamp_raw_results.json",
+    "svamp_metrics_summary.json",
+    "compare_to_prev.json",
+    "telemetry_samples.jsonl"
+  ],
+  "phases": {
+    "phase0": {
+      "status": "executed",
+      "benchmarks_dir_exists": true,
+      "svamp_dir_exists": true,
+      "schema_files": {
+        "run_config.json": true,
+        "svamp_raw_results.json": true,
+        "svamp_metrics_summary.json": true,
+        "compare_to_prev.json": true,
+        "telemetry_samples.jsonl": true
+      },
+      "final_accuracy": 0.965,
+      "total_tokens_avg": 2442.935,
+      "num_samples": 200,
+      "raw_result_files": [
+        "svamp_MiniMax-M2.5_2026-03-13-02-49-50.json"
+      ],
+      "svamp_summary_exists": true
+    },
+    "phase1": {
+      "status": "executed",
+      "benchmarks_dir_exists": true,
+      "svamp_dir_exists": true,
+      "schema_files": {
+        "run_config.json": true,
+        "svamp_raw_results.json": true,
+        "svamp_metrics_summary.json": true,
+        "compare_to_prev.json": true,
+        "telemetry_samples.jsonl": true
+      },
+      "final_accuracy": 0.975,
+      "total_tokens_avg": 2456.795,
+      "num_samples": 200,
+      "raw_result_files": [
+        "svamp_MiniMax-M2.5_2026-03-13-09-06-48.json"
+      ],
+      "svamp_summary_exists": true
+    },
+    "phase2": {
+      "status": "skipped",
+      "benchmarks_dir_exists": true,
+      "svamp_dir_exists": true,
+      "skip_marker_json_exists": true,
+      "skip_marker_txt_exists": true
+    },
+    "phase3": {
+      "status": "executed",
+      "benchmarks_dir_exists": true,
+      "svamp_dir_exists": true,
+      "schema_files": {
+        "run_config.json": true,
+        "svamp_raw_results.json": true,
+        "svamp_metrics_summary.json": true,
+        "compare_to_prev.json": true,
+        "telemetry_samples.jsonl": true
+      },
+      "final_accuracy": 0.96,
+      "total_tokens_avg": 2607.52,
+      "num_samples": 200,
+      "raw_result_files": [
+        "svamp_MiniMax-M2.5_2026-03-13-07-48-40.json"
+      ],
+      "svamp_summary_exists": true
+    },
+    "phase4": {
+      "status": "executed",
+      "benchmarks_dir_exists": true,
+      "svamp_dir_exists": true,
+      "schema_files": {
+        "run_config.json": true,
+        "svamp_raw_results.json": true,
+        "svamp_metrics_summary.json": true,
+        "compare_to_prev.json": true,
+        "telemetry_samples.jsonl": true
+      },
+      "final_accuracy": 0.96,
+      "total_tokens_avg": 2444.94,
+      "num_samples": 200,
+      "raw_result_files": [
+        "svamp_MiniMax-M2.5_2026-03-13-08-20-42.json"
+      ],
+      "svamp_summary_exists": true
+    }
+  },
+  "chain_integrity_evidence": {
+    "phase1": {
+      "log_file": "/home/ubuntu/.cursor/projects/workspace/terminals/893217.txt",
+      "stage_updates_last": {
+        "node_stage_updates": 1,
+        "edge_stage_updates": 1
+      },
+      "chain_check_last": {
+        "rollout_from_sampled_graph": true,
+        "node_dropout_via_update_masks_dec": true,
+        "edge_dropout_via_update_masks": true,
+        "final_test_graph_from_runtime_sampling": true
+      },
+      "stage_updates_count": 1,
+      "chain_check_count": 1
+    },
+    "phase3": {
+      "log_file": "/home/ubuntu/.cursor/projects/workspace/terminals/816087.txt",
+      "stage_updates_last": {
+        "node_stage_updates": 1,
+        "edge_stage_updates": 1
+      },
+      "chain_check_last": {
+        "rollout_from_sampled_graph": true,
+        "node_dropout_via_update_masks_dec": true,
+        "edge_dropout_via_update_masks": true,
+        "final_test_graph_from_runtime_sampling": true
+      },
+      "stage_updates_count": 1,
+      "chain_check_count": 1
+    },
+    "phase4": {
+      "log_file": "/home/ubuntu/.cursor/projects/workspace/terminals/831942.txt",
+      "stage_updates_last": {
+        "node_stage_updates": 1,
+        "edge_stage_updates": 1
+      },
+      "chain_check_last": {
+        "rollout_from_sampled_graph": true,
+        "node_dropout_via_update_masks_dec": true,
+        "edge_dropout_via_update_masks": true,
+        "final_test_graph_from_runtime_sampling": true
+      },
+      "stage_updates_count": 1,
+      "chain_check_count": 1
+    }
+  }
+}

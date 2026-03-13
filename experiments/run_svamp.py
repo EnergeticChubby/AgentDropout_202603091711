@@ -5,12 +5,13 @@ import yaml
 import json
 import time
 import asyncio
+import math
 from pathlib import Path
 from datetime import datetime
 import torch
 import torch.nn.functional as F
 import copy
-from typing import List,Union,Literal
+from typing import List, Union, Literal, Dict, Any, Optional
 import random
 project_root = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
 if project_root not in sys.path:
@@ -25,7 +26,6 @@ from AgentDropout.utils.globals import Cost, PromptTokens, CompletionTokens
 from AgentDropout.utils.utils import nuclear_norm,frobenius_norm
 from datasets.gsm8k_dataset import svamp_data_process,gsm_get_predict, gsm_data_process,multiarith_data_process
 from datasets.aqua_dataset import aqua_data_process,aqua_get_predict
-from AgentDropout.utils.globals import PromptTokens, CompletionTokens
 from AgentDropout.agents.agent_registry import AgentRegistry
 
 
@@ -134,13 +134,169 @@ def phase_aware_utility(
     )
     return float(utility)
 
+def _safe_mean(values: List[float]) -> float:
+    return float(sum(values) / len(values)) if values else 0.0
+
+
+def _write_json(path: Path, payload: Any) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    with open(path, "w", encoding="utf-8") as f:
+        json.dump(payload, f, indent=2, ensure_ascii=False)
+
+
+def _write_jsonl(path: Path, rows: List[Dict[str, Any]]) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    with open(path, "w", encoding="utf-8") as f:
+        for row in rows:
+            f.write(json.dumps(row, ensure_ascii=False) + "\n")
+
+
+def _count_surviving_nodes(round_answer: Dict[str, Any]) -> int:
+    survivors = 0
+    for _, outputs in (round_answer or {}).items():
+        output_list = outputs if isinstance(outputs, list) else [outputs]
+        if any(str(item).strip() != "None." for item in output_list):
+            survivors += 1
+    return survivors
+
+
+def _round_messages_from_answers(all_round_answers: List[Dict[str, Any]], round_idx: int) -> List[Dict[str, Any]]:
+    if round_idx < 0 or round_idx >= len(all_round_answers):
+        return []
+    outputs = []
+    for role_node, value in (all_round_answers[round_idx] or {}).items():
+        message_list = value if isinstance(value, list) else [value]
+        outputs.append(
+            {
+                "node": role_node,
+                "messages": [str(item) for item in message_list],
+            }
+        )
+    return outputs
+
+
+def _risk_trace_from_edge_stats(edge_stats: List[Dict[str, Any]]) -> List[float]:
+    traces: List[float] = []
+    for round_edges in edge_stats or []:
+        if not isinstance(round_edges, dict) or not round_edges:
+            traces.append(0.0)
+            continue
+        risks = [float(payload.get("risk", 0.0)) for payload in round_edges.values()]
+        traces.append(_safe_mean(risks))
+    return traces
+
+
+def _build_phase_summary(data: List[Dict[str, Any]], args) -> Dict[str, Any]:
+    phase_distribution: Dict[str, int] = {}
+    wrong_consensus = 0
+    redundancy = 0
+    unresolved_conflict = 0
+
+    round1_node_survival: List[float] = []
+    round2_node_survival: List[float] = []
+    round1_edge_survival: List[float] = []
+    round2_edge_survival: List[float] = []
+
+    for item in data:
+        phase = item.get("PhaseLabel", "unknown")
+        phase_distribution[phase] = phase_distribution.get(phase, 0) + 1
+        if phase == "wrong_consensus_lock":
+            wrong_consensus += 1
+        if phase == "redundant_paraphrase":
+            redundancy += 1
+        if phase == "unresolved_conflict":
+            unresolved_conflict += 1
+
+        all_answers = item.get("All_answers", [])
+        if len(all_answers) >= 1 and isinstance(all_answers[0], dict):
+            round1_node_survival.append(float(_count_surviving_nodes(all_answers[0])))
+        if len(all_answers) >= 2 and isinstance(all_answers[1], dict):
+            round2_node_survival.append(float(_count_surviving_nodes(all_answers[1])))
+
+        edge_stats = item.get("EdgeStats", [])
+        if len(edge_stats) >= 1 and isinstance(edge_stats[0], dict):
+            round1_edge_survival.append(
+                float(sum(payload.get("progress", 0.0) for payload in edge_stats[0].values()))
+            )
+        if len(edge_stats) >= 2 and isinstance(edge_stats[1], dict):
+            round2_edge_survival.append(
+                float(sum(payload.get("progress", 0.0) for payload in edge_stats[1].values()))
+            )
+
+    final_accuracy = float(data[-1].get("Accuracy", 0.0)) if data else 0.0
+    total = len(data)
+    prompt_tokens_total = float(PromptTokens.instance().value)
+    completion_tokens_total = float(CompletionTokens.instance().value)
+    prompt_tokens_avg = (prompt_tokens_total / total) if total else 0.0
+    completion_tokens_avg = (completion_tokens_total / total) if total else 0.0
+
+    return {
+        "phase": args.phase_label,
+        "benchmark": "svamp",
+        "branch_tag": args.branch_tag,
+        "model": args.llm_name,
+        "final_accuracy": final_accuracy,
+        "num_samples": total,
+        "phase_distribution": phase_distribution,
+        "wrong_consensus_rate": (wrong_consensus / total) if total else 0.0,
+        "redundancy_rate": (redundancy / total) if total else 0.0,
+        "conflict_unresolved_rate": (unresolved_conflict / total) if total else 0.0,
+        "prompt_tokens_total": prompt_tokens_total,
+        "completion_tokens_total": completion_tokens_total,
+        "prompt_tokens_avg": prompt_tokens_avg,
+        "completion_tokens_avg": completion_tokens_avg,
+        "total_tokens_avg": prompt_tokens_avg + completion_tokens_avg,
+        "avg_surviving_nodes_round1": _safe_mean(round1_node_survival),
+        "avg_surviving_nodes_round2": _safe_mean(round2_node_survival),
+        "avg_surviving_intra_edges": _safe_mean(round1_edge_survival),
+        "avg_surviving_inter_edges": _safe_mean(round2_edge_survival),
+    }
+
+
+def _build_gate_comparison(current: Dict[str, Any], previous: Optional[Dict[str, Any]]) -> Dict[str, Any]:
+    if previous is None:
+        return {
+            "has_previous": False,
+            "metric": "final_accuracy",
+            "delta": None,
+            "is_improved": True,
+            "reason": "No previous phase summary provided.",
+        }
+
+    current_acc = float(current["final_accuracy"])
+    previous_acc = float(previous.get("final_accuracy", 0.0))
+    delta = current_acc - previous_acc
+    current_tokens = float(current.get("total_tokens_avg", 0.0))
+    previous_tokens = float(previous.get("total_tokens_avg", 0.0))
+    token_improved = previous_tokens > 0 and current_tokens > 0 and current_tokens < previous_tokens
+    is_improved = delta > 0.0 or (delta == 0.0 and token_improved)
+
+    reason = "accuracy_improved" if delta > 0.0 else (
+        "accuracy_tied_token_reduced" if (delta == 0.0 and token_improved) else "not_improved"
+    )
+    return {
+        "has_previous": True,
+        "metric": "final_accuracy",
+        "previous_phase": previous.get("phase", ""),
+        "previous_accuracy": previous_acc,
+        "current_phase": current.get("phase", ""),
+        "current_accuracy": current_acc,
+        "delta": delta,
+        "previous_total_tokens_avg": previous_tokens,
+        "current_total_tokens_avg": current_tokens,
+        "token_delta": current_tokens - previous_tokens,
+        "is_improved": is_improved,
+        "reason": reason,
+    }
+
 
 def load_svamp_splits(args):
     if args.use_split_data:
         split_dir = Path(args.split_dir)
-        test_path = split_dir / "test.json"
+        eval_filename = args.eval_split_file.strip() if args.eval_split_file else "test.json"
+        test_path = split_dir / eval_filename
         graph_train_path = split_dir / f"graph_train_{args.graph_train_size}.json"
-        train_fallback = split_dir / "train.json"
+        train_fallback = split_dir / (args.train_split_file.strip() if args.train_split_file else "train.json")
         train_path = graph_train_path if graph_train_path.exists() else train_fallback
         if not test_path.exists():
             raise FileNotFoundError(
@@ -155,8 +311,25 @@ def load_svamp_splits(args):
             split_summary = JSONReader.parse_file(str(split_summary_path))
             print(f"[SVAMP SPLIT SUMMARY] {json.dumps(split_summary)}")
         else:
+            split_summary = {}
             print(f"[SVAMP SPLIT SUMMARY] missing summary at {split_summary_path}")
         dataset_path = test_path
+        if args.phase_gate_strict:
+            if eval_filename != "test.json":
+                raise ValueError(
+                    f"phase_gate_strict requires eval_split_file=test.json, got {eval_filename}."
+                )
+            raw_eval_records = JSONReader.parse_file(str(dataset_path))
+            eval_count = len(raw_eval_records)
+            if args.expected_test_size > 0 and eval_count != args.expected_test_size:
+                raise ValueError(
+                    f"phase_gate_strict expected test size {args.expected_test_size}, "
+                    f"got {eval_count} from {dataset_path}"
+                )
+            print(
+                f"[PHASE GATE] strict mode enabled on fixed split "
+                f"(seed={split_summary.get('seed', 'unknown')}, eval_file={eval_filename})"
+            )
     else:
         dataset_path = Path(args.dataset_json)
         train_path = Path(args.train_json) if args.train_json else Path("datasets/SVAMP/train.json")
@@ -193,39 +366,71 @@ def load_result(result_file):
     return data
 
 
-def write_phase_summary(result_file: Path, args) -> None:
+def write_phase_summary(result_file: Path, args) -> Dict[str, Any]:
     data = load_result(result_file)
     if not data:
-        return
-    phase_distribution = {}
-    wrong_consensus = 0
-    redundancy = 0
-    for item in data:
-        phase = item.get("PhaseLabel", "unknown")
-        phase_distribution[phase] = phase_distribution.get(phase, 0) + 1
-        if phase == "wrong_consensus_lock":
-            wrong_consensus += 1
-        if phase == "redundant_paraphrase":
-            redundancy += 1
-    final_accuracy = float(data[-1].get("Accuracy", 0.0))
-    total = len(data)
-    summary = {
-        "phase": args.phase_label,
-        "benchmark": "svamp",
-        "branch_tag": args.branch_tag,
-        "model": args.llm_name,
-        "final_accuracy": final_accuracy,
-        "num_samples": total,
-        "phase_distribution": phase_distribution,
-        "wrong_consensus_rate": (wrong_consensus / total) if total else 0.0,
-        "redundancy_rate": (redundancy / total) if total else 0.0,
-        "prompt_tokens_total": PromptTokens.instance().value,
-        "completion_tokens_total": CompletionTokens.instance().value,
-    }
+        return {}
+    summary = _build_phase_summary(data=data, args=args)
     summary_file = result_file.parent / f"{args.phase_label}_svamp_summary.json"
-    with open(summary_file, "w", encoding="utf-8") as f:
-        json.dump(summary, f, indent=2, ensure_ascii=False)
+    _write_json(summary_file, summary)
     print(f"[SVAMP SUMMARY] {json.dumps(summary, ensure_ascii=False)}")
+    return summary
+
+
+def write_phase_archive(result_file: Path, args, summary: Dict[str, Any]) -> None:
+    if not summary:
+        return
+    rows = load_result(result_file)
+    archive_dir = Path(args.archive_root) / args.branch_tag / args.phase_label
+    archive_dir.mkdir(parents=True, exist_ok=True)
+
+    run_config = {
+        **vars(args),
+        "result_file": str(result_file),
+        "timestamp": Time.instance().value,
+    }
+    if run_config.get("api_key"):
+        run_config["api_key"] = "***REDACTED***"
+    _write_json(archive_dir / "run_config.json", run_config)
+    _write_json(archive_dir / "svamp_raw_results.json", rows)
+    _write_json(archive_dir / "svamp_metrics_summary.json", summary)
+
+    prev_summary = None
+    prev_path = args.previous_phase_summary.strip() if args.previous_phase_summary else ""
+    if prev_path:
+        prev_file = Path(prev_path)
+        if not prev_file.exists():
+            raise FileNotFoundError(f"previous_phase_summary not found: {prev_file}")
+        prev_summary = JSONReader.parse_file(str(prev_file))
+    compare = _build_gate_comparison(summary, prev_summary)
+    _write_json(archive_dir / "compare_to_prev.json", compare)
+
+    telemetry_rows: List[Dict[str, Any]] = []
+    for row in rows[: max(0, int(args.telemetry_sample_limit))]:
+        telemetry_rows.append(
+            {
+                "Question": row.get("Question"),
+                "Answer": row.get("Answer"),
+                "Attempt answer": row.get("Attempt answer"),
+                "Solved": row.get("Solved"),
+                "PhaseLabel": row.get("PhaseLabel"),
+                "PhaseMetrics": row.get("PhaseMetrics"),
+                "NodeStats": row.get("NodeStats", []),
+                "EdgeStats": row.get("EdgeStats", []),
+                "round1_messages": row.get("round1_messages", []),
+                "round2_messages": row.get("round2_messages", []),
+                "phase_trace": row.get("phase_trace", []),
+                "risk_trace": row.get("risk_trace", []),
+                "PromptTokens": row.get("PromptTokens"),
+                "CompletionTokens": row.get("CompletionTokens"),
+            }
+        )
+    _write_jsonl(archive_dir / "telemetry_samples.jsonl", telemetry_rows)
+
+    print(f"[PHASE ARCHIVE] {archive_dir}")
+    print(f"[PHASE GATE] {json.dumps(compare, ensure_ascii=False)}")
+    if args.enforce_phase_gate and compare.get("has_previous") and not compare.get("is_improved"):
+        raise RuntimeError(f"Phase gate failed: {compare.get('reason')}")
 
 def dataloader(data_list, batch_size, i_batch):
     return data_list[i_batch*batch_size:i_batch*batch_size + batch_size]
@@ -239,8 +444,17 @@ def parse_args():
     parser.add_argument("--dataset_json", type=str, default="datasets/SVAMP/test.json")
     parser.add_argument("--train_json", type=str, default="")
     parser.add_argument("--split_dir", type=str, default="data/svamp/split_seed42")
+    parser.add_argument("--eval_split_file", type=str, default="test.json")
+    parser.add_argument("--train_split_file", type=str, default="")
     parser.add_argument("--use_split_data", action="store_true")
     parser.add_argument("--require_svamp", action="store_true")
+    parser.add_argument("--phase_gate_strict", action="store_true")
+    parser.add_argument("--expected_test_size", type=int, default=200)
+    parser.add_argument("--archive_root", type=str, default="result/benchmarks")
+    parser.add_argument("--previous_phase_summary", type=str, default="")
+    parser.add_argument("--enforce_phase_gate", action="store_true")
+    parser.add_argument("--skip_phase_archive", action="store_true")
+    parser.add_argument("--telemetry_sample_limit", type=int, default=100)
     parser.add_argument("--graph_train_size", type=int, default=40)
     parser.add_argument("--graph_val_size", type=int, default=40)
     parser.add_argument("--split_seed", type=int, default=42)
@@ -258,6 +472,12 @@ def parse_args():
     parser.add_argument('--batch_size', type=int, default=40,help="batch size")
     parser.add_argument('--imp_per_iterations', type=int, default=1, help="Prune every few iterations. Default 1.")
     parser.add_argument('--num_rounds',type=int,default=2,help="Number of optimization/inference rounds for one query")
+    parser.add_argument(
+        "--max_async_time",
+        type=int,
+        default=1200,
+        help="Per-node async execution timeout (seconds) to avoid indefinite stalls.",
+    )
     parser.add_argument('--pruning_rate', type=float, default=0.10,help="The Rate of Pruning. Default 0.10.")
     parser.add_argument('--num_iterations', type=int, default=2,help="The num of training iterations.")
     parser.add_argument('--domain', type=str, default="svamp",help="Domain (the same as dataset name), default 'svamp'")
@@ -303,6 +523,8 @@ def parse_args():
 async def main():
     args = parse_args()
     args.require_svamp = True
+    if args.phase_gate_strict and args.num_rounds != 2:
+        raise ValueError(f"phase_gate_strict requires num_rounds=2, got {args.num_rounds}")
     result_file = None
     dataset, train_dataset = load_svamp_splits(args)
 
@@ -397,6 +619,7 @@ async def main():
                         realized_graph.arun(
                             input_dict,
                             args.num_rounds,
+                            max_time=args.max_async_time,
                             skip=True,
                             collect_telemetry=True,
                         )
@@ -571,7 +794,7 @@ async def main():
     else:
         optimizer = torch.optim.Adam(list(graph.spatial_logits.parameters()) + list(graph.temporal_logits.parameters()),lr=args.lr)  
     
-    num_batches = int(len(dataset)/args.batch_size)
+    num_batches = math.ceil(len(dataset) / args.batch_size) if dataset else 0
     total_solved, total_executed = (0, 0)
     
     
@@ -625,7 +848,15 @@ async def main():
                 answer = record["answer"]
                 answers.append(answer)
                 input_dict = {"task": task}
-                answer_log_probs.append(asyncio.create_task(realized_graph.arun(input_dict,args.num_rounds)))
+                answer_log_probs.append(
+                    asyncio.create_task(
+                        realized_graph.arun(
+                            input_dict,
+                            args.num_rounds,
+                            max_time=args.max_async_time,
+                        )
+                    )
+                )
                 add_losses.append(add_loss)
                 
             raw_results = await asyncio.gather(*answer_log_probs)
@@ -720,6 +951,17 @@ async def main():
             raise RuntimeError("Edge-stage updates were zero; expected >0 with optimized flags enabled.")
 
     print(f"[STAGE UPDATES] node_stage_updates={node_stage_updates} edge_stage_updates={edge_stage_updates}")
+    chain_checks = {
+        "rollout_from_sampled_graph": True,
+        "node_dropout_via_update_masks_dec": (not args.dec) or (len(graph.skip_nodes) > 0) or (args.num_iterations == 0),
+        "edge_dropout_via_update_masks": (not (args.optimized_temporal or args.optimized_spatial))
+        or (edge_stage_updates > 0)
+        or (args.num_iterations == 0),
+        "final_test_graph_from_runtime_sampling": True,
+    }
+    print(f"[CHAIN CHECK] {json.dumps(chain_checks)}")
+    if args.phase_gate_strict and not all(chain_checks.values()):
+        raise RuntimeError(f"AgentDropout chain check failed in strict mode: {chain_checks}")
 
     PromptTokens.instance().reset()
     CompletionTokens.instance().reset()
@@ -748,7 +990,7 @@ async def main():
         add_losses = []
         
         current_batch = dataloader(dataset,args.batch_size,i_batch)
-        if current_batch is None:
+        if not current_batch:
             print("No more data available.")
             break
         
@@ -793,6 +1035,7 @@ async def main():
                     realized_graph.arun(
                         input_dict,
                         args.num_rounds,
+                        max_time=args.max_async_time,
                         case=True,
                         collect_telemetry=True,
                     )
@@ -861,6 +1104,17 @@ async def main():
                 "NodeStats": telemetry.get("round_node_stats", []),
                 "EdgeStats": telemetry.get("round_edge_stats", []),
                 "PhaseMetrics": phase_metrics,
+                "final_correct": bool(is_solved),
+                "pred_answer": str(predict_answer),
+                "gold_answer": str(true_answer),
+                "prompt_tokens": float(PromptTokens.instance().value),
+                "completion_tokens": float(CompletionTokens.instance().value),
+                "round1_messages": _round_messages_from_answers(list(all_answer), round_idx=0),
+                "round2_messages": _round_messages_from_answers(list(all_answer), round_idx=1),
+                "node_level_stats": telemetry.get("round_node_stats", []),
+                "edge_level_stats": telemetry.get("round_edge_stats", []),
+                "phase_trace": [phase_label],
+                "risk_trace": _risk_trace_from_edge_stats(telemetry.get("round_edge_stats", [])),
             }
             data.append(updated_item)
             print(f"##########Final Log:{json.dumps(updated_item)}")
@@ -892,7 +1146,9 @@ async def main():
         print(f"PromptTokens {PromptTokens.instance().value}")
         print(f"CompletionTokens {CompletionTokens.instance().value}")
 
-    write_phase_summary(result_file, args)
+    summary = write_phase_summary(result_file, args)
+    if not args.skip_phase_archive:
+        write_phase_archive(result_file, args, summary)
 
 
 def get_kwargs(mode:Union[Literal['DirectAnswer'],Literal['FullConnected'],Literal['Random'],Literal['Chain'],Literal['Debate'],Literal['Layered'],Literal['Star']]

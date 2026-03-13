@@ -1,0 +1,103 @@
+{
+  "base_phase": "phase1",
+  "current_phase": "phase3",
+  "num_aligned_samples": 200,
+  "summary_delta": {
+    "accuracy_base": 0.975,
+    "accuracy_current": 0.96,
+    "accuracy_delta": -0.015000000000000013,
+    "total_tokens_avg_base": 2456.795,
+    "total_tokens_avg_current": 2607.52,
+    "total_tokens_avg_delta": 150.7249999999999
+  },
+  "transitions": {
+    "correct_to_correct": 192,
+    "correct_to_wrong": 3,
+    "wrong_to_correct": 0,
+    "wrong_to_wrong": 5
+  },
+  "regressions_sample": [
+    {
+      "question": "After eating a hearty meal they went to see the Buckingham palace. There, Rachel learned that 703 visitors came to the Buckingham palace on the previous day. If there were 246 visitors on that day How many visited the Buckingham palace within 25 days?",
+      "base": {
+        "question": "After eating a hearty meal they went to see the Buckingham palace. There, Rachel learned that 703 visitors came to the Buckingham palace on the previous day. If there were 246 visitors on that day How many visited the Buckingham palace within 25 days?",
+        "pred_answer": "949",
+        "gold_answer": "949",
+        "phase_label": "ready_to_finalize",
+        "phase_metrics": {
+          "correction_gain": 1.0,
+          "wrong_consensus": 0.0,
+          "conflict_unresolved": 0.0,
+          "redundancy": 0.0
+        }
+      },
+      "current": {
+        "question": "After eating a hearty meal they went to see the Buckingham palace. There, Rachel learned that 703 visitors came to the Buckingham palace on the previous day. If there were 246 visitors on that day How many visited the Buckingham palace within 25 days?",
+        "pred_answer": "6150",
+        "gold_answer": "949",
+        "phase_label": "unresolved_conflict",
+        "phase_metrics": {
+          "correction_gain": 0.0,
+          "wrong_consensus": 0.0,
+          "conflict_unresolved": 1.0,
+          "redundancy": 0.0
+        }
+      }
+    },
+    {
+      "question": "Ed had 5 more marbles than Doug. Doug lost 3 of his marbles at the playground. If Ed had 27 marbles How many marbles did Doug have initially?",
+      "base": {
+        "question": "Ed had 5 more marbles than Doug. Doug lost 3 of his marbles at the playground. If Ed had 27 marbles How many marbles did Doug have initially?",
+        "pred_answer": "22",
+        "gold_answer": "22",
+        "phase_label": "ready_to_finalize",
+        "phase_metrics": {
+          "correction_gain": 1.0,
+          "wrong_consensus": 0.0,
+          "conflict_unresolved": 0.0,
+          "redundancy": 0.0
+        }
+      },
+      "current": {
+        "question": "Ed had 5 more marbles than Doug. Doug lost 3 of his marbles at the playground. If Ed had 27 marbles How many marbles did Doug have initially?",
+        "pred_answer": "25",
+        "gold_answer": "22",
+        "phase_label": "unresolved_conflict",
+        "phase_metrics": {
+          "correction_gain": 0.0,
+          "wrong_consensus": 0.0,
+          "conflict_unresolved": 1.0,
+          "redundancy": 0.0
+        }
+      }
+    },
+    {
+      "question": "There are 11 different books and 17 different movies in the ' crazy silly school ' series. If you read 7 of the books and watched 21 of the movies How many more movies than books have you read?",
+      "base": {
+        "question": "There are 11 different books and 17 different movies in the ' crazy silly school ' series. If you read 7 of the books and watched 21 of the movies How many more movies than books have you read?",
+        "pred_answer": "14",
+        "gold_answer": "14",
+        "phase_label": "ready_to_finalize",
+        "phase_metrics": {
+          "correction_gain": 1.0,
+          "wrong_consensus": 0.0,
+          "conflict_unresolved": 0.0,
+          "redundancy": 0.0
+        }
+      },
+      "current": {
+        "question": "There are 11 different books and 17 different movies in the ' crazy silly school ' series. If you read 7 of the books and watched 21 of the movies How many more movies than books have you read?",
+        "pred_answer": "0",
+        "gold_answer": "14",
+        "phase_label": "unresolved_conflict",
+        "phase_metrics": {
+          "correction_gain": 0.0,
+          "wrong_consensus": 0.0,
+          "conflict_unresolved": 1.0,
+          "redundancy": 0.0
+        }
+      }
+    }
+  ],
+  "improvements_sample": []
+}

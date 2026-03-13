@@ -10,7 +10,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument(
         "--input_json",
         type=str,
-        default="datasets/SVAMP/all.json",
+        default="data/svamp/svamp_all.json",
         help="Path to SVAMP full dataset JSON list.",
     )
     parser.add_argument(
@@ -23,6 +23,29 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--train_ratio", type=float, default=0.8, help="Train split ratio.")
     parser.add_argument("--graph_train_size", type=int, default=40, help="Graph training subset size.")
     parser.add_argument("--graph_val_size", type=int, default=40, help="Graph validation subset size.")
+    parser.add_argument(
+        "--diag_nontrain_size",
+        type=int,
+        default=40,
+        help="Size for optional test_nontrain_40 diagnostic subset.",
+    )
+    parser.add_argument(
+        "--diag_phase_size",
+        type=int,
+        default=20,
+        help="Size for optional phase20 diagnostic subset.",
+    )
+    parser.add_argument(
+        "--phase_benchmark_size",
+        type=int,
+        default=5,
+        help="Size for optional phase benchmark subset.",
+    )
+    parser.add_argument(
+        "--no_diagnostic_subsets",
+        action="store_true",
+        help="Disable writing optional diagnostic subsets (test_nontrain_*/test_phase*).",
+    )
     return parser.parse_args()
 
 
@@ -34,6 +57,20 @@ def _load_json(path: Path) -> List[Dict[str, Any]]:
     if not isinstance(data, list):
         raise ValueError(f"SVAMP source must be a JSON list, got: {type(data).__name__}")
     return data
+
+
+def _resolve_input_path(path: Path) -> Path:
+    if path.exists():
+        return path
+    fallbacks = [
+        Path("data/svamp/svamp_all.json"),
+        Path("datasets/SVAMP/all.json"),
+    ]
+    for candidate in fallbacks:
+        if candidate.exists():
+            print(f"[SVAMP Split] input fallback selected: {candidate}")
+            return candidate
+    raise FileNotFoundError(f"SVAMP source not found: {path} (and no fallback found)")
 
 
 def _write_json(path: Path, data: Any) -> None:
@@ -77,9 +114,25 @@ def _sample_subsets(
     return graph_train, graph_val, unused_train
 
 
+def _sample_without_replacement(
+    records: List[Dict[str, Any]],
+    sample_size: int,
+    seed: int,
+) -> List[Dict[str, Any]]:
+    if sample_size <= 0:
+        return []
+    if len(records) < sample_size:
+        raise ValueError(f"sample_size {sample_size} > records size {len(records)}")
+    rng = random.Random(seed)
+    idxs = list(range(len(records)))
+    rng.shuffle(idxs)
+    pick = idxs[:sample_size]
+    return [records[i] for i in pick]
+
+
 def main() -> None:
     args = parse_args()
-    input_path = Path(args.input_json)
+    input_path = _resolve_input_path(Path(args.input_json))
     output_dir = Path(args.output_dir)
 
     records = _load_json(input_path)
@@ -97,6 +150,19 @@ def main() -> None:
     _write_json(output_dir / f"graph_val_{args.graph_val_size}.json", graph_val)
     _write_json(output_dir / "unused_train.json", unused_train)
 
+    if not args.no_diagnostic_subsets:
+        test_nontrain_all = unused_train + test
+        test_nontrain_40 = _sample_without_replacement(
+            test_nontrain_all, args.diag_nontrain_size, seed=args.seed
+        )
+        test_phase20 = test_nontrain_40[: args.diag_phase_size]
+        test_phase_benchmark = test_phase20[: args.phase_benchmark_size]
+        _write_json(output_dir / "test_nontrain_all.json", test_nontrain_all)
+        _write_json(output_dir / "test_nontrain_40.json", test_nontrain_40)
+        _write_json(output_dir / "test_nontrain_20_diag.json", test_phase20)
+        _write_json(output_dir / "test_phase20.json", test_phase20)
+        _write_json(output_dir / "test_phase_benchmark.json", test_phase_benchmark)
+
     summary = {
         "seed": args.seed,
         "train_ratio": args.train_ratio,
@@ -105,9 +171,19 @@ def main() -> None:
         "graph_train_size": len(graph_train),
         "graph_val_size": len(graph_val),
         "unused_train_size": len(unused_train),
+        "diagnostic_subsets_enabled": not args.no_diagnostic_subsets,
         "input_json": str(input_path),
         "output_dir": str(output_dir),
     }
+    if not args.no_diagnostic_subsets:
+        summary.update(
+            {
+                "test_nontrain_all_size": len(unused_train) + len(test),
+                "test_nontrain_40_size": min(args.diag_nontrain_size, len(unused_train) + len(test)),
+                "test_phase20_size": min(args.diag_phase_size, args.diag_nontrain_size),
+                "test_phase_benchmark_size": min(args.phase_benchmark_size, args.diag_phase_size),
+            }
+        )
     _write_json(output_dir / "split_summary.json", summary)
 
     print(

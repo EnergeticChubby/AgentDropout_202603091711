@@ -115,6 +115,8 @@ python experiments/run_svamp.py \
   --api_key your_api_key \
   --use_split_data \
   --split_dir data/svamp/split_seed42 \
+  --eval_split_file test.json \
+  --phase_gate_strict \
   --phase_label phase0 \
   --branch_tag AdamMartinez6793-v3 \
   --optimized_spatial \
@@ -127,7 +129,95 @@ python experiments/phase_metrics.py \
   --result_json result/SVAMP/AdamMartinez6793-v3/phase0/svamp_MiniMax-M2.5_<timestamp>.json \
   --phase phase0 \
   --benchmark svamp \
+  --branch_tag AdamMartinez6793-v3 \
+  --output_layout phase_gate
+```
+
+Phase-gate archive layout (SVAMP-only):
+
+```text
+result/benchmarks/AdamMartinez6793-v3/<phase>/
+  run_config.json
+  svamp_raw_results.json
+  svamp_metrics_summary.json
+  compare_to_prev.json
+  telemetry_samples.jsonl
+```
+
+One-command strict phase run (fixed 200-test split + automatic gate check):
+
+```bash
+python experiments/run_svamp_phase.py \
+  --phase phase0 \
+  --llm_name MiniMax-M2.5 \
+  --base_url https://gpt-agent.cc/v1 \
+  --api_key your_api_key \
   --branch_tag AdamMartinez6793-v3
+```
+
+Optional: skip phase2 in the phase chain and run phase3 against phase1 summary:
+
+```bash
+python experiments/run_svamp_phase.py \
+  --phase phase3 \
+  --skip_phase2 \
+  --disable_gate_enforcement \
+  --llm_name MiniMax-M2.5 \
+  --base_url https://gpt-agent.cc/v1 \
+  --api_key your_api_key \
+  --branch_tag AdamMartinez6793-v3
+```
+
+Build pairwise comparison reports (e.g., phase1 vs phase3/phase4):
+
+```bash
+python experiments/phase_pairwise_compare.py \
+  --base_phase phase1 \
+  --current_phase phase3 \
+  --base_summary_json result/benchmarks/AdamMartinez6793-v3/phase1/svamp_metrics_summary.json \
+  --current_summary_json result/benchmarks/AdamMartinez6793-v3/phase3/svamp_metrics_summary.json \
+  --base_raw_json result/benchmarks/AdamMartinez6793-v3/phase1/svamp_raw_results.json \
+  --current_raw_json result/benchmarks/AdamMartinez6793-v3/phase3/svamp_raw_results.json \
+  --output_json result/benchmarks/AdamMartinez6793-v3/comparisons/phase1_vs_phase3.json
+```
+
+Validate archive completeness and chain-check evidence:
+
+```bash
+python experiments/archive_integrity_audit.py \
+  --branch_tag AdamMartinez6793-v3 \
+  --benchmark_root result/benchmarks/AdamMartinez6793-v3 \
+  --svamp_root result/SVAMP/AdamMartinez6793-v3 \
+  --output_json result/benchmarks/AdamMartinez6793-v3/comparisons/archive_integrity_audit.json \
+  --output_md result/benchmarks/AdamMartinez6793-v3/comparisons/archive_integrity_audit.md
+```
+
+One-command reproduction chain (`phase1 -> phase3 -> phase4`) plus comparisons and audit:
+
+```bash
+python experiments/run_svamp_repro_chain.py \
+  --branch_tag AdamMartinez6793-v3 \
+  --llm_name MiniMax-M2.5 \
+  --base_url https://gpt-agent.cc/v1 \
+  --api_key your_api_key \
+  --skip_phase2
+```
+
+Generate a reproducibility manifest for all archived phase artifacts:
+
+```bash
+python experiments/build_repro_manifest.py \
+  --branch_tag AdamMartinez6793-v3 \
+  --output_json result/benchmarks/AdamMartinez6793-v3/comparisons/phase_repro_manifest.json
+```
+
+Regenerate consolidated overview report for phase1/phase3/phase4:
+
+```bash
+python experiments/build_phase_overview.py \
+  --branch_tag AdamMartinez6793-v3 \
+  --output_json result/benchmarks/AdamMartinez6793-v3/comparisons/phase1_phase3_phase4_overview.json \
+  --output_md result/benchmarks/AdamMartinez6793-v3/comparisons/phase1_phase3_phase4_overview.md
 ```
 
 ## **📜 Citation**<a name="citation"></a>
