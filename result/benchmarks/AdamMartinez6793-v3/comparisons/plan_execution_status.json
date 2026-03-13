@@ -1,0 +1,55 @@
+{
+  "plan_execution_status": {
+    "phase_A": {
+      "dataset_artifact_normalization": "completed",
+      "runner_input_contract_check": "completed",
+      "branch_alignment": "deferred_with_constraint",
+      "branch_alignment_note": "Execution constrained to default feature branch cursor/agentdropout-svamp-81a6 for pushes."
+    },
+    "phase_B": {
+      "t_equals_2_gate_runs": "completed",
+      "fixed_test200_enforcement": "completed",
+      "archive_schema_completion": "completed",
+      "phase_gate_logic": "completed"
+    },
+    "phase_C": {
+      "two_stage_chain_assertions": "completed",
+      "graph_source_integrity_checks": "completed",
+      "telemetry_completeness": "completed"
+    },
+    "phase_D": {
+      "phase0": "completed",
+      "phase1": "completed",
+      "phase2": "skipped_by_user_decision",
+      "phase3": "completed",
+      "phase4": "completed",
+      "comparison_basis": "phase1_vs_phase3_and_phase4"
+    }
+  },
+  "key_metrics": {
+    "phase0": {
+      "accuracy": 0.965,
+      "tokens_avg": 2442.935
+    },
+    "phase1": {
+      "accuracy": 0.975,
+      "tokens_avg": 2456.795
+    },
+    "phase3": {
+      "accuracy": 0.96,
+      "tokens_avg": 2607.52
+    },
+    "phase4": {
+      "accuracy": 0.96,
+      "tokens_avg": 2444.94
+    }
+  },
+  "evidence_artifacts": {
+    "overview": "result/benchmarks/AdamMartinez6793-v3/comparisons/phase1_phase3_phase4_overview.json",
+    "pairwise_phase1_vs_phase3": "result/benchmarks/AdamMartinez6793-v3/comparisons/phase1_vs_phase3.json",
+    "pairwise_phase1_vs_phase4": "result/benchmarks/AdamMartinez6793-v3/comparisons/phase1_vs_phase4.json",
+    "archive_integrity": "result/benchmarks/AdamMartinez6793-v3/comparisons/archive_integrity_audit.json",
+    "repro_manifest": "result/benchmarks/AdamMartinez6793-v3/comparisons/phase_repro_manifest.json",
+    "completion_report": "result/benchmarks/AdamMartinez6793-v3/comparisons/execution_completion_report.json"
+  }
+}
