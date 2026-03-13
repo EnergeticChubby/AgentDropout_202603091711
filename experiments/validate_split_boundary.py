@@ -1,10 +1,12 @@
 import argparse
 import json
+import re
 from pathlib import Path
 from typing import Dict, List, Set
 
 
 DEFAULT_SEEDS = [13, 17, 23, 42, 3407]
+PLACEHOLDER_QUESTION_RE = re.compile(r"^Q\d+\?$")
 
 
 def parse_args():
@@ -18,6 +20,11 @@ def parse_args():
         nargs="*",
         default=[],
         help="Optional JSON artifact files to verify do not include test IDs.",
+    )
+    parser.add_argument(
+        "--allow_noncanonical_split",
+        action="store_true",
+        help="Allow placeholder-like splits or synthetic data_source values.",
     )
     return parser.parse_args()
 
@@ -62,6 +69,10 @@ def validate_seed(seed_dir: Path) -> Dict:
     val_q = collect_question_keys(val)
     test_q = collect_question_keys(test)
 
+    split_meta_path = seed_dir / "split_meta.json"
+    split_meta = load_json(split_meta_path) if split_meta_path.exists() else {}
+    data_source = str(split_meta.get("data_source", ""))
+
     errors = []
     if len(train) != 720:
         errors.append(f"train size expected 720, got {len(train)}")
@@ -83,8 +94,22 @@ def validate_seed(seed_dir: Path) -> Dict:
     if val_q & test_q:
         errors.append(f"val/test question overlap: {len(val_q & test_q)}")
 
+    # source and quality checks
+    if "synthetic" in data_source.lower():
+        errors.append(f"synthetic data source detected in split_meta: {data_source}")
+
+    suspicious_samples = []
+    for idx, item in enumerate(train[:5] + val[:5] + test[:5]):
+        body = str(item.get("Body") or item.get("body") or "").strip()
+        question = str(item.get("Question") or item.get("question") or "").strip()
+        if body == "Body" or PLACEHOLDER_QUESTION_RE.match(question):
+            suspicious_samples.append({"idx": idx, "Body": body, "Question": question})
+    if suspicious_samples:
+        errors.append(f"placeholder-like samples detected: {suspicious_samples}")
+
     return {
         "seed_dir": str(seed_dir),
+        "data_source": data_source,
         "counts": {"train": len(train), "val": len(val), "test": len(test)},
         "ok": not errors,
         "errors": errors,
@@ -118,6 +143,16 @@ def main():
         if not seed_dir.exists():
             raise FileNotFoundError(f"seed split dir missing: {seed_dir}")
         report = validate_seed(seed_dir)
+        if args.allow_noncanonical_split:
+            filtered = [
+                e for e in report["errors"]
+                if not (
+                    "synthetic data source detected" in e
+                    or "placeholder-like samples detected" in e
+                )
+            ]
+            report["errors"] = filtered
+            report["ok"] = len(filtered) == 0
         reports.append(report)
         all_test_ids.update(report["test_ids"])
         print(

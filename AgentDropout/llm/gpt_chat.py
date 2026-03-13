@@ -70,7 +70,7 @@ deepseek_api = _env_first("DEEPSEEK_API_KEY", default=MINE_API_KEYS)
 #             else:
 #                 raise Exception("api error")
 
-@retry(wait=wait_random_exponential(max=100), stop=stop_after_attempt(3))
+@retry(wait=wait_random_exponential(multiplier=1, max=120), stop=stop_after_attempt(8), reraise=True)
 async def achat(model: str, msg: List[Dict],):
     api_kwargs = dict(api_key = MINE_API_KEYS, base_url = MINE_BASE_URL)
     aclient = AsyncOpenAI(**api_kwargs)

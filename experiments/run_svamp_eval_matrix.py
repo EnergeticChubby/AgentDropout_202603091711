@@ -1,6 +1,7 @@
 import argparse
 import json
 import os
+import re
 import subprocess
 import time
 from pathlib import Path
@@ -8,6 +9,7 @@ from typing import Dict, List
 
 
 DEFAULT_SEEDS = [13]
+PLACEHOLDER_QUESTION_RE = re.compile(r"^Q\d+\?$")
 
 
 def parse_args():
@@ -59,6 +61,11 @@ def parse_args():
         default=0,
         help="Per-run timeout in seconds (0 means no timeout).",
     )
+    parser.add_argument(
+        "--allow_noncanonical_split",
+        action="store_true",
+        help="Allow placeholder-like / noncanonical splits (disabled by default).",
+    )
     return parser.parse_args()
 
 
@@ -81,6 +88,7 @@ def build_command(
     python_bin: str,
     cfg: Dict,
     test_split_path: Path,
+    train_split_path: Path,
     llm_name: str,
     phase_tag: str,
     batch_size: int,
@@ -93,6 +101,8 @@ def build_command(
         "experiments/run_svamp.py",
         "--dataset_json",
         str(test_split_path),
+        "--train_json",
+        str(train_split_path),
         "--llm_name",
         llm_name,
         "--mode",
@@ -127,6 +137,60 @@ def build_command(
     return cmd
 
 
+def _load_json(path: Path):
+    with open(path, "r", encoding="utf-8") as f:
+        return json.load(f)
+
+
+def _normalize_question(sample: Dict) -> str:
+    body = str(sample.get("Body") or sample.get("body") or "").strip()
+    question = str(sample.get("Question") or sample.get("question") or "").strip()
+    if not question:
+        question = str(sample.get("task") or "").strip()
+    return f"{body} {question}".strip()
+
+
+def assert_split_is_canonical(split_path: Path, allow_noncanonical_split: bool):
+    if allow_noncanonical_split:
+        return
+    if not split_path.exists():
+        raise FileNotFoundError(f"test split missing: {split_path}")
+
+    samples = _load_json(split_path)
+    if not isinstance(samples, list) or len(samples) == 0:
+        raise ValueError(f"Invalid or empty split file: {split_path}")
+
+    suspicious = []
+    for idx, sample in enumerate(samples):
+        body = str(sample.get("Body") or sample.get("body") or "").strip()
+        question = str(sample.get("Question") or sample.get("question") or "").strip()
+        if body == "Body" or PLACEHOLDER_QUESTION_RE.match(question):
+            suspicious.append({"idx": idx, "Body": body, "Question": question})
+            if len(suspicious) >= 5:
+                break
+    if suspicious:
+        raise ValueError(
+            "Detected placeholder-like split samples (e.g., 'Body' / 'Qxxx?'). "
+            f"split={split_path}, examples={suspicious}"
+        )
+
+    usable_questions = sum(1 for sample in samples if len(_normalize_question(sample)) > 20)
+    if usable_questions < int(0.8 * len(samples)):
+        raise ValueError(
+            f"Split quality check failed for {split_path}: "
+            f"{usable_questions}/{len(samples)} questions exceed 20 chars."
+        )
+
+    split_meta_path = split_path.parent / "split_meta.json"
+    if split_meta_path.exists():
+        meta = _load_json(split_meta_path)
+        source = str(meta.get("data_source", ""))
+        if "synthetic" in source.lower():
+            raise ValueError(
+                f"Refusing synthetic data source in split_meta: {split_meta_path} data_source={source}"
+            )
+
+
 def main():
     args = parse_args()
     output_dir = Path(args.output_dir)
@@ -147,12 +211,17 @@ def main():
 
     for seed in args.seeds:
         test_split = split_root / f"seed_{seed}" / args.test_filename
+        train_split = split_root / f"seed_{seed}" / "svamp_train_720.json"
+        assert_split_is_canonical(test_split, args.allow_noncanonical_split)
+        if not train_split.exists():
+            raise FileNotFoundError(f"train split missing: {train_split}")
         for cfg in configs:
             phase_tag = f"phase5_{cfg['name']}_seed{seed}_{timestamp}"
             command = build_command(
                 args.python_bin,
                 cfg,
                 test_split,
+                train_split,
                 args.llm_name,
                 phase_tag,
                 args.batch_size,
@@ -165,6 +234,7 @@ def main():
                 "config": cfg["name"],
                 "kind": cfg["kind"],
                 "test_split": str(test_split),
+                "train_split": str(train_split),
                 "phase_tag": phase_tag,
                 "command": command,
             }

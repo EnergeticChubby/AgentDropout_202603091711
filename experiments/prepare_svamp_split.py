@@ -16,6 +16,7 @@ OP_MAP = {
     "/": "div",
 }
 DEFAULT_SEEDS = [13, 17, 23, 42, 3407]
+PLACEHOLDER_QUESTION_RE = re.compile(r"^Q\d+\?$")
 
 
 def parse_args():
@@ -31,6 +32,11 @@ def parse_args():
     parser.add_argument("--outer_test_size", type=int, default=200)
     parser.add_argument("--inner_train_size", type=int, default=720)
     parser.add_argument("--inner_val_size", type=int, default=80)
+    parser.add_argument(
+        "--allow_noncanonical_source",
+        action="store_true",
+        help="Allow non-SVAMP/placeholder-like sources (disabled by default).",
+    )
     return parser.parse_args()
 
 
@@ -56,6 +62,45 @@ def load_svamp_dataset(args) -> Tuple[List[Dict], str]:
     raise FileNotFoundError(
         "SVAMP source data not found. Provide --input_json or valid --train_json/--test_json."
     )
+
+
+def normalize_question(sample: Dict) -> str:
+    body = str(sample.get("Body") or sample.get("body") or "").strip()
+    question = str(sample.get("Question") or sample.get("question") or "").strip()
+    return f"{body} {question}".strip()
+
+
+def assert_real_svamp_source(samples: List[Dict], data_source: str, allow_noncanonical_source: bool):
+    if allow_noncanonical_source:
+        return
+    if len(samples) != 1000:
+        raise ValueError(
+            f"Expected canonical SVAMP size 1000, got {len(samples)} from {data_source}. "
+            "Pass --allow_noncanonical_source to bypass."
+        )
+
+    suspicious = []
+    for idx, sample in enumerate(samples):
+        body = str(sample.get("Body") or sample.get("body") or "").strip()
+        question = str(sample.get("Question") or sample.get("question") or "").strip()
+        if body == "Body" or PLACEHOLDER_QUESTION_RE.match(question):
+            suspicious.append({"idx": idx, "Body": body, "Question": question})
+            if len(suspicious) >= 5:
+                break
+
+    if suspicious:
+        raise ValueError(
+            "Detected placeholder-like SVAMP samples (e.g., 'Body' / 'Qxxx?'). "
+            f"Source={data_source}, examples={suspicious}. "
+            "Pass --allow_noncanonical_source to bypass."
+        )
+
+    usable_questions = sum(1 for sample in samples if len(normalize_question(sample)) > 20)
+    if usable_questions < int(0.95 * len(samples)):
+        raise ValueError(
+            f"Suspicious SVAMP source quality from {data_source}: "
+            f"{usable_questions}/{len(samples)} questions exceed 20 chars."
+        )
 
 
 def infer_operator_fields(sample: Dict) -> Tuple[int, str]:
@@ -104,6 +149,18 @@ def rebalance_rare_labels(labels: List[str]) -> List[str]:
     return [label if counts[label] >= 2 else "rare" for label in labels]
 
 
+def robust_stratify_labels(labels: List[str]) -> List[str] | None:
+    balanced = rebalance_rare_labels(labels)
+    counts = Counter(balanced)
+    if not counts:
+        return None
+    if len(counts) < 2:
+        return None
+    if min(counts.values()) < 2:
+        return None
+    return balanced
+
+
 def split_once(
     samples: List[Dict],
     seed: int,
@@ -122,7 +179,7 @@ def split_once(
             f"inner_train+inner_val={inner_train_size + inner_val_size}"
         )
 
-    labels = rebalance_rare_labels(make_strat_labels(samples))
+    labels = robust_stratify_labels(make_strat_labels(samples))
     indices = list(range(len(samples)))
     train_pool_idx, test_idx = train_test_split(
         indices,
@@ -134,7 +191,7 @@ def split_once(
     )
 
     train_pool = [samples[i] for i in train_pool_idx]
-    train_pool_labels = rebalance_rare_labels(make_strat_labels(train_pool))
+    train_pool_labels = robust_stratify_labels(make_strat_labels(train_pool))
     train_idx_local, val_idx_local = train_test_split(
         list(range(len(train_pool))),
         train_size=inner_train_size,
@@ -151,7 +208,16 @@ def split_once(
     val = [samples[i] for i in val_idx]
     test = [samples[i] for i in test_idx]
 
-    return train, val, test, train_idx, val_idx, test_idx
+    return (
+        train,
+        val,
+        test,
+        train_idx,
+        val_idx,
+        test_idx,
+        labels is not None,
+        train_pool_labels is not None,
+    )
 
 
 def write_json(path: Path, data):
@@ -176,6 +242,7 @@ def main():
     random.seed(0)
 
     raw_samples, data_source = load_svamp_dataset(args)
+    assert_real_svamp_source(raw_samples, data_source, args.allow_noncanonical_source)
     samples = enrich_samples(raw_samples)
 
     output_root = Path(args.output_dir)
@@ -183,7 +250,16 @@ def main():
     all_seed_meta = []
 
     for seed in args.seeds:
-        train, val, test, train_idx, val_idx, test_idx = split_once(
+        (
+            train,
+            val,
+            test,
+            train_idx,
+            val_idx,
+            test_idx,
+            outer_stratified,
+            inner_stratified,
+        ) = split_once(
             samples=samples,
             seed=seed,
             outer_train_size=args.outer_train_size,
@@ -201,6 +277,10 @@ def main():
             "seed": seed,
             "data_source": data_source,
             "stratify_fields": ["operator_count", "operator_type"],
+            "stratify_status": {
+                "outer_split_stratified": outer_stratified,
+                "inner_split_stratified": inner_stratified,
+            },
             "counts": {
                 "total": len(samples),
                 "outer_train_pool": len(train) + len(val),

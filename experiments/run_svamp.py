@@ -61,6 +61,7 @@ def load_config(config_path):
 def parse_args():
     parser = argparse.ArgumentParser(description="Experiments on gsm8k")
     parser.add_argument("--dataset_json", type=str, default="datasets/SVAMP/test.json")
+    parser.add_argument("--train_json", type=str, default="datasets/SVAMP/train.json")
     parser.add_argument("--result_file", type=str, default=None)
     parser.add_argument("--llm_name", type=str, default="gpt-3.5-turbo")
     parser.add_argument('--mode', type=str, default='FullConnected',
@@ -112,11 +113,11 @@ async def main():
     result_file = None
     if not Path(args.dataset_json).exists():
         raise FileNotFoundError(f"SVAMP test split not found: {args.dataset_json}")
-    if not Path('datasets/SVAMP/train.json').exists():
-        raise FileNotFoundError("SVAMP train split not found: datasets/SVAMP/train.json")
+    if not Path(args.train_json).exists():
+        raise FileNotFoundError(f"SVAMP train split not found: {args.train_json}")
     dataset = JSONReader.parse_file(args.dataset_json)
     dataset = svamp_data_process(dataset)
-    train_dataset = JSONReader.parse_file('datasets/SVAMP/train.json')
+    train_dataset = JSONReader.parse_file(args.train_json)
     train_dataset = svamp_data_process(train_dataset)
     graph_train_dataset = build_graph_train_dataset(
         train_dataset=train_dataset,
@@ -124,7 +125,7 @@ async def main():
         graph_train_size=args.graph_train_size,
         graph_seed=args.graph_seed,
     )
-    print(f"[SVAMP-CHECK] test_path={args.dataset_json}, train_path=datasets/SVAMP/train.json")
+    print(f"[SVAMP-CHECK] test_path={args.dataset_json}, train_path={args.train_json}")
     print(f"[SVAMP-CHECK] processed_test_size={len(dataset)}, processed_train_size={len(train_dataset)}")
     print(
         f"[GRAPH-SETTING] setting={args.graph_setting} graph_train_size={len(graph_train_dataset)} "
